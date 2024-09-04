@@ -283,7 +283,7 @@ int cgc_int_to_str(unsigned int v3, struct_0 *a0)\n
     }\n
     do\n
     {\n
-        *(v1) = ((v3 >> 31 CONCAT v3) /m 10 >> 32) + 48;\n
+        v1->field_0 = ((v3 >> 31 CONCAT v3) /m 10 >> 32) + 48;\n
         v5 = v3;\n
         v3 = (v5 >> 31 CONCAT v5) /m 10;\n
         v1 += 1;\n
@@ -362,14 +362,19 @@ int cgc_vprintf(char *v10, unsigned int *a0)\n
                 a0 = v11 + 1;\n
                 v6 = *(v11);\n
                 cgc_int_to_str(v6, &v7);\n
-                for (v5 = &v7; *(v5); v5 += 1)\n
+                for (v5 = &v7; v5->field_0; v5 += 1)\n
                 {\n
-                    cgc_putc(*(v5));\n
+                    cgc_putc(v5->field_0);\n
                     v8 += 1;\n
                 }\n
             }\n
-            else if (v1 == 102)\n
+            else\n
             {\n
+                if (v1 != 102)\n
+                {\n
+                    v9 = -1;\n
+                    return v9;\n
+                }\n
                 v12 = a0;\n
                 a0 = v12 + 2;\n
                 *(&v4) = *(&v12);\n
@@ -380,11 +385,6 @@ int cgc_vprintf(char *v10, unsigned int *a0)\n
                     cgc_putc(*(v3));\n
                     v8 += 1;\n
                 }\n
-            }\n
-            else\n
-            {\n
-                v9 = -1;\n
-                return v9;\n
             }\n
             v10 += 1;\n
         }\n
@@ -767,10 +767,15 @@ int cgc_receive_until(unsigned int v5, char a0, unsigned int a1)\n
             v4 = 0;\n
             return v4;\n
         }\n
-        if (v2 == a0)\n
+        else if (v2 != a0)\n
+        {\n
+            *((v5 + v4)) = v2;\n
+            v4 += 1;\n
+        }\n
+        else\n
+        {\n
             return v4;\n
-        *((v5 + v4)) = v2;\n
-        v4 += 1;\n
+        }\n
     }\n
 }\n
 ", "4203504:cgc_strcat": "extern char _GLOBAL_OFFSET_TABLE_;\n
@@ -945,21 +950,21 @@ int cgc_clear_render_grid()\n
     }\n
     return v5;\n
 }\n
-", "4204509:sub_4027dd": null, "4204512:cgc_add_render_grid": "typedef struct struct_0 {\n
+", "4204509:sub_4027dd": null, "4204512:cgc_add_render_grid": "typedef struct struct_1 {\n
     char padding_0[88];\n
     unsigned int field_58;\n
-} struct_0;\n
-\n
-typedef struct struct_1 {\n
-    char padding_0[16];\n
-    unsigned int field_10;\n
 } struct_1;\n
 \n
-extern struct_0 _GLOBAL_OFFSET_TABLE_;\n
+typedef struct struct_0 {\n
+    char padding_0[16];\n
+    unsigned int field_10;\n
+} struct_0;\n
+\n
+extern struct_1 _GLOBAL_OFFSET_TABLE_;\n
 \n
 int cgc_add_render_grid(unsigned int v5)\n
 {\n
-    struct_0 *v0;  // [bp-0x1c]\n
+    struct_1 *v0;  // [bp-0x1c]\n
     int tmp_117;  // tmp #117\n
     int tmp_119;  // tmp #119\n
     int tmp_118;  // tmp #118\n
@@ -984,15 +989,15 @@ int cgc_add_render_grid(unsigned int v5)\n
     int tmp_245;  // tmp #245\n
     int tmp_247;  // tmp #247\n
     int tmp_246;  // tmp #246\n
-    struct_1 *v1;  // [bp-0x18]\n
+    struct_0 *v1;  // [bp-0x18]\n
     unsigned int v2;  // [bp-0x14]\n
     unsigned int v3;  // [bp-0x10]\n
     unsigned int v4;  // [bp-0xc]\n
     unsigned int v7;  // ecx\n
     unsigned int v10;  // ecx\n
     unsigned int v13;  // ecx\n
-    struct_1 *v16;  // eax\n
-    struct_1 *v18;  // eax, Other Possible Types: unsigned int\n
+    struct_0 *v16;  // eax\n
+    struct_0 *v18;  // eax, Other Possible Types: unsigned int\n
 \n
     v0 = &\"4j\";\n
     tmp_117 = SubV(tmp_119, tmp_118);\n
@@ -1152,7 +1157,7 @@ int cgc_simulation_reset()\n
 \n
 extern struct_0 _GLOBAL_OFFSET_TABLE_;\n
 \n
-int cgc_do_wall_collision(unsigned long long v11[6])\n
+int cgc_do_wall_collision(unsigned long long v12[6])\n
 {\n
     struct_0 *v0;  // [bp-0x68]\n
     int tmp_74;  // tmp #74\n
@@ -1175,71 +1180,72 @@ int cgc_do_wall_collision(unsigned long long v11[6])\n
     unsigned long v3;  // [bp-0x4c]\n
     unsigned long v4;  // [bp-0x44]\n
     unsigned long v5;  // [bp-0x3c]\n
-    unsigned long v6;  // [bp-0x2c]\n
-    unsigned long v7;  // [bp-0x24]\n
-    unsigned long v8;  // [bp-0x1c]\n
-    unsigned long v9;  // [bp-0x14]\n
-    unsigned long v10;  // [bp-0xc]\n
-    int v13;  // xmm0, Other Possible Types: unsigned long\n
-    int v19;  // xmm0, Other Possible Types: unsigned long\n
-    struct_0 *v20;  // eax, Other Possible Types: unsigned long long [6], unsigned int\n
+    unsigned long v6;  // [bp-0x34]\n
+    unsigned long v7;  // [bp-0x2c]\n
+    unsigned long v8;  // [bp-0x24]\n
+    unsigned long v9;  // [bp-0x1c]\n
+    unsigned long v10;  // [bp-0x14]\n
+    unsigned long v11;  // [bp-0xc]\n
+    int v14;  // xmm0\n
+    int v16;  // xmm0\n
+    int v21;  // xmm0, Other Possible Types: unsigned long\n
+    struct_0 *v22;  // eax, Other Possible Types: unsigned long long [6], unsigned int\n
 \n
     v0 = &\"4j\";\n
     s_c =L Conv(128->64, ((0x0<64> CONCAT Load(addr=Load(addr=stack_base+4, size=4, endness=Iend_LE), size=8, endness=Iend_LE)) + Conv(64->128, Load(addr=(Load(addr=stack_base+4, size=4, endness=Iend_LE) + 0x28<32>), size=8, endness=Iend_LE))))<8>\n
     tmp_74 = SubV(tmp_75, tmp_72);\n
-    *(&v9) = tmp_74;\n
+    *(&v10) = tmp_74;\n
     s_1c =L Conv(128->64, ((0x0<64> CONCAT Load(addr=(Load(addr=stack_base+4, size=4, endness=Iend_LE) + 0x8<32>), size=8, endness=Iend_LE)) + Conv(64->128, Load(addr=(Load(addr=stack_base+4, size=4, endness=Iend_LE) + 0x28<32>), size=8, endness=Iend_LE))))<8>\n
     tmp_110 = SubV(tmp_111, tmp_108);\n
-    v13 = tmp_110;\n
-    *(&v7) = v13;\n
-    *(&v13) = *(&v10);\n
-    if (((CmpF(v13, 0x4069000000000000) & 69 | ((CmpF(v13, 0x4069000000000000) & 69) >> 6)) & 1) != 1)\n
+    v14 = tmp_110;\n
+    *(&v8) = v14;\n
+    *(&v14) = *(&v11);\n
+    if (((CmpF(v14, 0x4069000000000000) & 69 | ((CmpF(v14, 0x4069000000000000) & 69) >> 6)) & 1) != 1)\n
     {\n
         tmp_24 = SubV(tmp_26, tmp_25);\n
-        *(&v6) = tmp_24;\n
+        *(&v7) = tmp_24;\n
         tmp_40 = SubV(tmp_42, tmp_41);\n
-        v13 = tmp_40;\n
-        *(&v13) = v13;\n
-        v11[0] = *(&v13);\n
-        *(&v13) = v11[2];\n
-        if (((CmpF(v19, 0) & 69 | ((CmpF(v19, 0) & 69) >> 6)) & 1) != 1)\n
-            v11[2] = (0 CONCAT v11[2]) ^ *(&v0[10].padding_-1ab0[432]);\n
+        v16 = tmp_40;\n
+        *(&v6) = v16;\n
+        v12[0] = *(&v6);\n
+        *(&v16) = v12[2];\n
+        if (((CmpF(v21, 0) & 69 | ((CmpF(v21, 0) & 69) >> 6)) & 1) != 1)\n
+            v12[2] = (0 CONCAT v12[2]) ^ *(&v0[10].padding_-1ab0[432]);\n
     }\n
-    *(&v13) = *(&v0[10].padding_-1ab0[312]);\n
-    if (((CmpF(v13, *(&v9)) & 69 | ((CmpF(v13, *(&v9)) & 69) >> 6)) & 1) != 1)\n
+    if (((CmpF(*(&v0[10].padding_-1ab0[312]), *(&v10)) & 69 | ((CmpF(*(&v0[10].padding_-1ab0[312]), *(&v10)) & 69) >> 6)) & 1) != 1)\n
     {\n
         tmp_26 = SubV(tmp_27, tmp_24);\n
         *(&v5) = tmp_26;\n
-        *(&v4) = (0 CONCAT *(&v5)) * 2 + (0 CONCAT v11[0]);\n
-        v11[0] = *(&v4);\n
-        if (((CmpF(0, v11[2]) & 69 | ((CmpF(0, v11[2]) & 69) >> 6)) & 1) != 1)\n
-            v11[2] = (0 CONCAT v11[2]) ^ *(&v0[10].padding_-1ab0[432]);\n
+        *(&v4) = (0 CONCAT *(&v5)) * 2 + (0 CONCAT v12[0]);\n
+        v12[0] = *(&v4);\n
+        if (((CmpF(0, v12[2]) & 69 | ((CmpF(0, v12[2]) & 69) >> 6)) & 1) != 1)\n
+            v12[2] = (0 CONCAT v12[2]) ^ *(&v0[10].padding_-1ab0[432]);\n
     }\n
-    if (((CmpF(*(&v8), *(&v0[9].padding_-1ab0[440])) & 69 | ((CmpF(*(&v8), *(&v0[9].padding_-1ab0[440])) & 69) >> 6)) & 1) != 1)\n
+    if (((CmpF(*(&v9), *(&v0[9].padding_-1ab0[440])) & 69 | ((CmpF(*(&v9), *(&v0[9].padding_-1ab0[440])) & 69) >> 6)) & 1) != 1)\n
     {\n
         tmp_24 = SubV(tmp_26, tmp_25);\n
         *(&v3) = tmp_24;\n
         tmp_42 = SubV(tmp_44, tmp_43);\n
-        v19 = tmp_42;\n
-        *(&v19) = v19;\n
-        v11[1] = *(&v19);\n
-        *(&v19) = v11[3];\n
-        if (((CmpF(v19, 0) & 69 | ((CmpF(v19, 0) & 69) >> 6)) & 1) != 1)\n
-            v11[3] = (0 CONCAT v11[3]) ^ *(&v0[10].padding_-1ab0[432]);\n
+        v21 = tmp_42;\n
+        *(&v21) = v21;\n
+        v12[1] = *(&v21);\n
+        *(&v21) = v12[3];\n
+        if (((CmpF(v21, 0) & 69 | ((CmpF(v21, 0) & 69) >> 6)) & 1) != 1)\n
+            v12[3] = (0 CONCAT v12[3]) ^ *(&v0[10].padding_-1ab0[432]);\n
     }\n
-    v20 = v0;\n
-    *(&v19) = *(&v20[10].padding_-1ab0[312]);\n
-    if (((CmpF(v19, *(&v7)) & 69 | ((CmpF(v19, *(&v7)) & 69) >> 6)) & 1) == 1)\n
+    v22 = v0;\n
+    *(&v21) = *(&v22[10].padding_-1ab0[312]);\n
+    if (((CmpF(v21, *(&v8)) & 69 | ((CmpF(v21, *(&v8)) & 69) >> 6)) & 1) == 1)\n
         return v0;\n
     tmp_26 = SubV(tmp_27, tmp_24);\n
     *(&v2) = tmp_26;\n
-    *(&v1) = (0 CONCAT *(&v2)) * 2 + (0 CONCAT v11[1]);\n
-    v11[1] = *(&v1);\n
-    v20 = v11;\n
-    if (((CmpF(0, v20[3]) & 69 | ((CmpF(0, v20[3]) & 69) >> 6)) & 1) == 1)\n
-        return v20;\n
-    v20 = v11;\n
-    v20[3] = (0 CONCAT v11[3]) ^ *(&v0[10].padding_-1ab0[432]);\n
+    *(&v1) = (0 CONCAT *(&v2)) * 2 + (0 CONCAT v12[1]);\n
+    v12[1] = *(&v1);\n
+    v22 = v12;\n
+    if (((CmpF(0, v22[3]) & 69 | ((CmpF(0, v22[3]) & 69) >> 6)) & 1) == 1)\n
+        return v22;\n
+    v22 = v12;\n
+    v22[3] = (0 CONCAT v12[3]) ^ *(&v0[10].padding_-1ab0[432]);\n
 }\n
 ", "4210376:sub_403ec8": null, "4210384:cgc_simulation_run": null, "4211425:sub_4042e1": null, "4211440:cgc_get_collision_count": "extern unsigned int cgc_g_collisionTotal;\n
 \n
