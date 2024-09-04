@@ -827,7 +827,7 @@ int cgc_receive_until(unsigned int v5, char a0, unsigned int a1)\n
     {\n
         if (v4 >= a1)\n
             return v4;\n
-        *((v5 + v4)) = 0;\n
+        v4[v5] = 0;\n
         v0 = &v3;\n
         if (cgc_receive(0, &v2, 1))\n
         {\n
@@ -836,7 +836,7 @@ int cgc_receive_until(unsigned int v5, char a0, unsigned int a1)\n
         }\n
         else if (v2 != a0)\n
         {\n
-            *((v5 + v4)) = v2;\n
+            v4[v5] = v2;\n
             v4 += 1;\n
         }\n
         else\n
@@ -859,9 +859,9 @@ int cgc_strcat(char *v3, unsigned int a0)\n
     v1 = 0;\n
     if (v3 && a0)\n
     {\n
-        for (v1 = cgc_strlen(v3); *((a0 + v2)); v2 += 1)\n
+        for (v1 = cgc_strlen(v3); v2[a0]; v2 += 1)\n
         {\n
-            v3[v1] = *((a0 + v2));\n
+            v3[v1] = v2[a0];\n
             v1 += 1;\n
         }\n
         v2 = v1;\n
@@ -1251,7 +1251,7 @@ int cgc_simulation_reset()\n
 \n
 extern struct_0 _GLOBAL_OFFSET_TABLE_;\n
 \n
-int cgc_do_wall_collision(unsigned long long v11[6])\n
+int cgc_do_wall_collision(unsigned long long v12[6])\n
 {\n
     struct_0 *v0;  // [bp-0x68]\n
     int tmp_74;  // tmp #74\n
@@ -1274,74 +1274,72 @@ int cgc_do_wall_collision(unsigned long long v11[6])\n
     int v3;  // [bp-0x54], Other Possible Types: unsigned long\n
     unsigned long v4;  // [bp-0x4c]\n
     unsigned long v5;  // [bp-0x44]\n
-    unsigned long v6;  // [bp-0x2c]\n
-    unsigned long v7;  // [bp-0x24]\n
-    unsigned long v8;  // [bp-0x1c]\n
-    unsigned long v9;  // [bp-0x14]\n
-    unsigned long v10;  // [bp-0xc]\n
-    int v13;  // xmm0, Other Possible Types: unsigned long\n
-    int v15;  // xmm0, Other Possible Types: unsigned long\n
-    int v19;  // xmm0\n
-    struct_0 *v20;  // eax, Other Possible Types: unsigned long long [6], unsigned int\n
+    unsigned long v6;  // [bp-0x3c]\n
+    unsigned long v7;  // [bp-0x2c]\n
+    unsigned long v8;  // [bp-0x24]\n
+    unsigned long v9;  // [bp-0x1c]\n
+    unsigned long v10;  // [bp-0x14]\n
+    unsigned long v11;  // [bp-0xc]\n
+    int v14;  // xmm0, Other Possible Types: unsigned long\n
+    int v20;  // xmm0\n
+    struct_0 *v21;  // eax, Other Possible Types: unsigned long long [6], unsigned int\n
 \n
     v0 = &\"4j\";\n
     s_c =L Conv(128->64, ((0x0<64> CONCAT Load(addr=Load(addr=stack_base+4, size=4, endness=Iend_LE), size=8, endness=Iend_LE)) + Conv(64->128, Load(addr=(Load(addr=stack_base+4, size=4, endness=Iend_LE) + 0x28<32>), size=8, endness=Iend_LE))))<8>\n
     tmp_74 = SubV(tmp_75, tmp_72);\n
-    *(&v9) = tmp_74;\n
+    *(&v10) = tmp_74;\n
     s_1c =L Conv(128->64, ((0x0<64> CONCAT Load(addr=(Load(addr=stack_base+4, size=4, endness=Iend_LE) + 0x8<32>), size=8, endness=Iend_LE)) + Conv(64->128, Load(addr=(Load(addr=stack_base+4, size=4, endness=Iend_LE) + 0x28<32>), size=8, endness=Iend_LE))))<8>\n
     tmp_110 = SubV(tmp_111, tmp_108);\n
-    v13 = tmp_110;\n
-    *(&v7) = v13;\n
-    *(&v13) = *(&v10);\n
-    if (((CmpF(v13, 0x4069000000000000) & 69 | ((CmpF(v13, 0x4069000000000000) & 69) >> 6)) & 1) != 1)\n
+    v14 = tmp_110;\n
+    *(&v8) = v14;\n
+    *(&v14) = *(&v11);\n
+    if (((CmpF(v14, 0x4069000000000000) & 69 | ((CmpF(v14, 0x4069000000000000) & 69) >> 6)) & 1) != 1)\n
     {\n
         tmp_24 = SubV(tmp_26, tmp_25);\n
-        *(&v6) = tmp_24;\n
+        *(&v7) = tmp_24;\n
         tmp_40 = SubV(tmp_42, tmp_41);\n
-        v13 = tmp_40;\n
-        *(&v13) = v13;\n
-        v11[0] = *(&v13);\n
-        *(&v13) = v11[2];\n
-        if (((CmpF(v19, 0) & 69 | ((CmpF(v19, 0) & 69) >> 6)) & 1) != 1)\n
-            v11[2] = (0 CONCAT v11[2]) ^ *(&v0[10].padding_-1ab0[432]);\n
+        v14 = tmp_40;\n
+        *(&v14) = v14;\n
+        v12[0] = *(&v14);\n
+        *(&v14) = v12[2];\n
+        if (((CmpF(v20, 0) & 69 | ((CmpF(v20, 0) & 69) >> 6)) & 1) != 1)\n
+            v12[2] = (0 CONCAT v12[2]) ^ *(&v0[10].padding_-1ab0[432]);\n
     }\n
-    *(&v13) = *(&v0[10].padding_-1ab0[312]);\n
-    if (((CmpF(v13, *(&v9)) & 69 | ((CmpF(v13, *(&v9)) & 69) >> 6)) & 1) != 1)\n
+    *(&v14) = *(&v0[10].padding_-1ab0[312]);\n
+    if (((CmpF(v14, *(&v10)) & 69 | ((CmpF(v14, *(&v10)) & 69) >> 6)) & 1) != 1)\n
     {\n
         tmp_26 = SubV(tmp_27, tmp_24);\n
-        v15 = tmp_26;\n
-        *(&v15) = v15;\n
-        *(&v5) = (0 CONCAT *(&v15)) * 2 + (0 CONCAT v11[0]);\n
-        v11[0] = *(&v5);\n
-        if (((CmpF(0, v11[2]) & 69 | ((CmpF(0, v11[2]) & 69) >> 6)) & 1) != 1)\n
-            v11[2] = (0 CONCAT v11[2]) ^ *(&v0[10].padding_-1ab0[432]);\n
+        *(&v6) = tmp_26;\n
+        *(&v5) = (0 CONCAT *(&v6)) * 2 + (0 CONCAT v12[0]);\n
+        v12[0] = *(&v5);\n
+        if (((CmpF(0, v12[2]) & 69 | ((CmpF(0, v12[2]) & 69) >> 6)) & 1) != 1)\n
+            v12[2] = (0 CONCAT v12[2]) ^ *(&v0[10].padding_-1ab0[432]);\n
     }\n
-    *(&v15) = *(&v8);\n
-    if (((CmpF(v15, *(&v0[9].padding_-1ab0[440])) & 69 | ((CmpF(v15, *(&v0[9].padding_-1ab0[440])) & 69) >> 6)) & 1) != 1)\n
+    if (((CmpF(*(&v9), *(&v0[9].padding_-1ab0[440])) & 69 | ((CmpF(*(&v9), *(&v0[9].padding_-1ab0[440])) & 69) >> 6)) & 1) != 1)\n
     {\n
         tmp_24 = SubV(tmp_26, tmp_25);\n
         *(&v4) = tmp_24;\n
         tmp_42 = SubV(tmp_44, tmp_43);\n
-        v19 = tmp_42;\n
-        *(&v3) = v19;\n
-        v11[1] = *(&v3);\n
-        *(&v19) = v11[3];\n
-        if (((CmpF(v19, 0) & 69 | ((CmpF(v19, 0) & 69) >> 6)) & 1) != 1)\n
-            v11[3] = (0 CONCAT v11[3]) ^ *(&v0[10].padding_-1ab0[432]);\n
+        v20 = tmp_42;\n
+        *(&v3) = v20;\n
+        v12[1] = *(&v3);\n
+        *(&v20) = v12[3];\n
+        if (((CmpF(v20, 0) & 69 | ((CmpF(v20, 0) & 69) >> 6)) & 1) != 1)\n
+            v12[3] = (0 CONCAT v12[3]) ^ *(&v0[10].padding_-1ab0[432]);\n
     }\n
-    v20 = v0;\n
-    *(&v3) = *(&v20[10].padding_-1ab0[312]);\n
-    if (((CmpF(v3, *(&v7)) & 69 | ((CmpF(v3, *(&v7)) & 69) >> 6)) & 1) == 1)\n
+    v21 = v0;\n
+    *(&v3) = *(&v21[10].padding_-1ab0[312]);\n
+    if (((CmpF(v3, *(&v8)) & 69 | ((CmpF(v3, *(&v8)) & 69) >> 6)) & 1) == 1)\n
         return v0;\n
     tmp_26 = SubV(tmp_27, tmp_24);\n
     *(&v2) = tmp_26;\n
-    *(&v1) = (0 CONCAT *(&v2)) * 2 + (0 CONCAT v11[1]);\n
-    v11[1] = *(&v1);\n
-    v20 = v11;\n
-    if (((CmpF(0, v20[3]) & 69 | ((CmpF(0, v20[3]) & 69) >> 6)) & 1) == 1)\n
-        return v20;\n
-    v20 = v11;\n
-    v20[3] = (0 CONCAT v11[3]) ^ *(&v0[10].padding_-1ab0[432]);\n
+    *(&v1) = (0 CONCAT *(&v2)) * 2 + (0 CONCAT v12[1]);\n
+    v12[1] = *(&v1);\n
+    v21 = v12;\n
+    if (((CmpF(0, v21[3]) & 69 | ((CmpF(0, v21[3]) & 69) >> 6)) & 1) == 1)\n
+        return v21;\n
+    v21 = v12;\n
+    v21[3] = (0 CONCAT v12[3]) ^ *(&v0[10].padding_-1ab0[432]);\n
 }\n
 ",
   "4210376:sub_403ec8": null,
