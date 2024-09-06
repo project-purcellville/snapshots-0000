@@ -1,0 +1,981 @@
+{"4198400:_init": "extern struct_0 *g_404648;\n
+\n
+long long _init()\n
+{\n
+    struct struct_0 **v1;  // rax, Other Possible Types: unsigned long\n
+\n
+    v1 = g_404648;\n
+    if (g_404648)\n
+        v1 = g_404648();\n
+    return v1;\n
+}\n
+", "4198432:sub_401020": "extern unsigned long long g_404668;\n
+\n
+long long sub_401020()\n
+{\n
+    unsigned long v0;  // [bp-0x8]\n
+\n
+    v0 = g_404668;\n
+    goto *(4212336);\n
+}\n
+", "4198444:sub_40102c": null, "4198448:memset": "// attributes: PLT stub\n
+void* memset(void* block, unsigned int c, unsigned int size)\n
+{\n
+    return ::libc.so.0::memset(block, c, size);\n
+}\n
+", "4198464:cgc_transmit": "// attributes: PLT stub\n
+int cgc_transmit()\n
+{\n
+    ::libc.so.0::cgc_transmit();\n
+    return;\n
+}\n
+", "4198480:cgc_allocate": "// attributes: PLT stub\n
+int cgc_allocate()\n
+{\n
+    ::libc.so.0::cgc_allocate();\n
+    return;\n
+}\n
+", "4198496:cgc_deallocate": "// attributes: PLT stub\n
+int cgc_deallocate()\n
+{\n
+    ::libc.so.0::cgc_deallocate();\n
+    return;\n
+}\n
+", "4198512:cgc_receive": "// attributes: PLT stub\n
+int cgc_receive()\n
+{\n
+    ::libc.so.0::cgc_receive();\n
+    return;\n
+}\n
+", "4198528:__cxa_finalize": "// attributes: PLT stub\n
+char * __cxa_finalize()\n
+{\n
+    goto *(4212312);\n
+}\n
+", "4198544:_start": "long long _start()\n
+{\n
+    unsigned long v0;  // [bp+0x0], Other Possible Types: char\n
+    unsigned long v1;  // [bp+0x8]\n
+    unsigned long long v2;  // rsi\n
+    unsigned long v3;  // rax\n
+    unsigned long long v4;  // rdx\n
+\n
+    v2 = *(&v0);\n
+    v0 = v3;\n
+    __libc_start_main(main, v2, &v1, 0, 0, v4); /* do not return */\n
+}\n
+", "4198581:sub_4010b5": null, "4198582:sub_4010b6": null, "4198592:deregister_tm_clones": "extern char __bss_start;\n
+extern unsigned long long g_404640;\n
+\n
+long long deregister_tm_clones()\n
+{\n
+    return &__bss_start;\n
+}\n
+", "4198633:sub_4010e9": null, "4198640:register_tm_clones": "extern unsigned long long g_404650;\n
+\n
+long long register_tm_clones()\n
+{\n
+    return 0;\n
+}\n
+", "4198697:sub_401129": null, "4198704:__do_global_dtors_aux": "extern char __bss_start;\n
+extern unsigned long long g_404658;\n
+\n
+long long __do_global_dtors_aux()\n
+{\n
+    unsigned long v0;  // [bp-0x8]\n
+    unsigned long v2;  // rax\n
+\n
+    if (__bss_start)\n
+        return v2;\n
+    *(&v0) = rbp<8>;\n
+    if (!g_404658)\n
+    {\n
+        __bss_start = 1;\n
+        return deregister_tm_clones();\n
+    }\n
+    __cxa_finalize();\n
+}\n
+", "4198757:sub_401165": null, "4198761:sub_401169": null, "4198768:frame_dummy": "long long frame_dummy()\n
+{\n
+    return register_tm_clones();\n
+}\n
+", "4198777:sub_401179": null, "4198784:cgc_memset": "long long cgc_memset(unsigned long a0, unsigned long a1, unsigned long a2)\n
+{\n
+    char *v0;  // [bp-0x28], Other Possible Types: unsigned long\n
+\n
+    for (v0 = 0; v0 < a2; v0 += 1)\n
+    {\n
+        *((a0 + v0)) = a1;\n
+    }\n
+    return a0;\n
+}\n
+", "4198861:sub_4011cd": null, "4198864:cgc_uint2str32": "long long cgc_uint2str32(unsigned long a0, unsigned long a1, unsigned long a2)\n
+{\n
+    unsigned int v0;  // [bp-0x30]\n
+    unsigned int v1;  // [bp-0x2c]\n
+    unsigned int v2;  // [bp-0x28]\n
+    unsigned int v3;  // [bp-0x24]\n
+    unsigned int v4;  // [bp-0x20]\n
+    unsigned int v5;  // [bp-0xc]\n
+    char *v7;  // rcx\n
+    unsigned long v8;  // rcx\n
+\n
+    v4 = a2;\n
+    v3 = 0;\n
+    v2 = 0;\n
+    v1 = 0;\n
+    v0 = 0;\n
+    if (a1 < 2)\n
+    {\n
+        v5 = -1;\n
+        return v5;\n
+    }\n
+    v2 = v4;\n
+    do\n
+    {\n
+        v3 += 1;\n
+        v2 = (0 CONCAT v2) /m 10;\n
+    } while (v2 > 0);\n
+    if (v3 >= a1)\n
+    {\n
+        v5 = -1;\n
+        return v5;\n
+    }\n
+    v7 = v3;\n
+    v3 = v7 - 1;\n
+    v7[a0] = 0;\n
+    do\n
+    {\n
+        v1 = (0 CONCAT v4) /m 10 >> 32;\n
+        v8 = v3;\n
+        v3 = v8 - 1;\n
+        *((a0 + v8)) = v1 + 48;\n
+        v4 = (0 CONCAT v4) /m 10;\n
+        v0 += 1;\n
+    } while (v4 > 0);\n
+    v5 = v0;\n
+    return v5;\n
+}\n
+", "4199103:sub_4012bf": null, "4199104:cgc_memcmp": "long long cgc_memcmp(unsigned long a0, unsigned long a1, unsigned long a2)\n
+{\n
+    char *v0;  // [bp-0x30], Other Possible Types: unsigned long\n
+    unsigned int v1;  // [bp-0xc]\n
+\n
+    v0 = 0;\n
+    while (true)\n
+    {\n
+        if (v0 >= a2)\n
+        {\n
+            v1 = 0;\n
+            return v1;\n
+        }\n
+        if (v0[a0] != v0[a1])\n
+        {\n
+            v1 = -1;\n
+            return v1;\n
+        }\n
+        v0 += 1;\n
+    }\n
+}\n
+", "4199220:sub_401334": null, "4199232:cgc_str2unt32n": "long long cgc_str2unt32n(char *a0, unsigned long a1, unsigned long a2, unsigned int *a3)\n
+{\n
+    unsigned int v0;  // [bp-0x48]\n
+    unsigned int v1;  // [bp-0x44]\n
+    void* v2;  // [bp-0x40], Other Possible Types: unsigned long\n
+    unsigned int v3;  // [bp-0x34]\n
+    unsigned int v4;  // [bp-0xc]\n
+\n
+    v3 = 0;\n
+    v2 = 0;\n
+    v1 = 0;\n
+    v0 = 0;\n
+    if (!a0)\n
+    {\n
+        v4 = v2;\n
+        return v4;\n
+    }\n
+    while (true)\n
+    {\n
+        if (v1 >= a1)\n
+        {\n
+            *(a3) = v2;\n
+            break;\n
+        }\n
+        if (a0[v1] < 48)\n
+        {\n
+LABEL_401403:\n
+            v3 = 38;\n
+            break;\n
+        }\n
+        else\n
+        {\n
+            if (!(a0[v1] <= 57))\n
+                goto LABEL_401403;\n
+            v2 *= 10;\n
+            v2 = a0[v1] - 48 + v2;\n
+            if (v2 <= a2)\n
+            {\n
+                v1 += 1;\n
+            }\n
+            else\n
+            {\n
+                v3 = 37;\n
+                break;\n
+            }\n
+        }\n
+    }\n
+    v4 = v3;\n
+    return v4;\n
+}\n
+", "4199481:sub_401439": null, "4199488:cgc_strncpy": "long long cgc_strncpy(char *a0, char *a1, unsigned long a2)\n
+{\n
+    char v0;  // [bp-0x29]\n
+    char *v1;  // [bp-0x28], Other Possible Types: unsigned long\n
+    char *v2;  // [bp-0x18], Other Possible Types: unsigned long\n
+    char *v4;  // rax\n
+\n
+    v2 = a1;\n
+    v1 = a0;\n
+    while (true)\n
+    {\n
+        v0 = 0;\n
+        if (v1 - a0 < a2)\n
+            v0 = *(v2);\n
+        if (!(v0 & 1))\n
+            break;\n
+        *(v1) = *(v2);\n
+        v1 += 1;\n
+        v2 += 1;\n
+    }\n
+    v4 = v1;\n
+    v1 = v4 + 1;\n
+    *(v4) = 0;\n
+    return v1 - a0 - 1;\n
+}\n
+", "4199646:sub_4014de": null, "4199648:cgc_strnchr": "long long cgc_strnchr(char *a0, unsigned long a1, unsigned long a2)\n
+{\n
+    char v0;  // [bp-0x29]\n
+    char *v1;  // [bp-0x28], Other Possible Types: unsigned long\n
+    unsigned int v2;  // [bp-0x20]\n
+    char *v3;  // [bp-0x10], Other Possible Types: unsigned long\n
+\n
+    v2 = a2;\n
+    v1 = a0;\n
+    while (true)\n
+    {\n
+        v0 = 0;\n
+        if (*(v1))\n
+            v0 = v2;\n
+        if (!(v0 & 1))\n
+        {\n
+            v3 = 0;\n
+            return v3;\n
+        }\n
+        if (*(v1) == a1)\n
+        {\n
+            v3 = v1;\n
+            return v3;\n
+        }\n
+        v1 += 1;\n
+        v2 -= 1;\n
+    }\n
+}\n
+", "4199792:cgc_receive_all": "long long cgc_receive_all(unsigned long long a0, unsigned long long a1, unsigned long long a2, unsigned long long *a3)\n
+{\n
+    void* v0;  // [bp-0x40]\n
+    unsigned long v1;  // [bp-0x38]\n
+    unsigned int v2;  // [bp-0x2c]\n
+    unsigned long v3;  // [bp-0x18]\n
+    unsigned int v4;  // [bp-0xc]\n
+\n
+    v4 = a0;\n
+    v3 = a1;\n
+    v2 = 0;\n
+    v1 = a2;\n
+    v0 = 0;\n
+    while (true)\n
+    {\n
+        if (!v1)\n
+        {\n
+            if (!a3)\n
+                return v2;\n
+            *(a3) = a2;\n
+        }\n
+        else\n
+        {\n
+            v0 = 0;\n
+            v2 = cgc_receive(a0, a1, a2, a3);\n
+            if (v2)\n
+                return v2;\n
+            v1 -= v0;\n
+            if (!v0)\n
+            {\n
+                if (!a3)\n
+                    return v2;\n
+                *(a3) = a2 - v1;\n
+            }\n
+        }\n
+    }\n
+}\n
+", "4200008:sub_401648": null, "4200016:cgc_transmit_all": "long long cgc_transmit_all(unsigned long long a0, unsigned long long a1, unsigned long long a2, unsigned long long *a3)\n
+{\n
+    void* v0;  // [bp-0x40]\n
+    unsigned long v1;  // [bp-0x38]\n
+    unsigned int v2;  // [bp-0x2c]\n
+    unsigned long v3;  // [bp-0x18]\n
+    unsigned int v4;  // [bp-0xc]\n
+\n
+    v4 = a0;\n
+    v3 = a1;\n
+    v2 = 0;\n
+    v1 = a2;\n
+    v0 = 0;\n
+    while (true)\n
+    {\n
+        if (!v1)\n
+        {\n
+            if (!a3)\n
+                return v2;\n
+            *(a3) = a2;\n
+        }\n
+        else\n
+        {\n
+            v0 = 0;\n
+            v2 = cgc_transmit(a0, a1, a2, a3);\n
+            if (v2)\n
+                return v2;\n
+            v1 -= v0;\n
+            if (!v0)\n
+            {\n
+                if (!a3)\n
+                    return v2;\n
+                *(a3) = a2 - v1;\n
+            }\n
+        }\n
+    }\n
+}\n
+", "4200224:cgc_object_find": "typedef struct struct_0 {\n
+    struct struct_1 *field_0;\n
+    unsigned long long field_8;\n
+    unsigned long long field_10;\n
+    unsigned long long field_18;\n
+} struct_0;\n
+\n
+typedef struct struct_1 {\n
+    char field_0;\n
+} struct_1;\n
+\n
+extern char ns;\n
+\n
+long long cgc_object_find(unsigned long a0)\n
+{\n
+    struct_0 *v0;  // [bp-0x20], Other Possible Types: unsigned long\n
+    char *v1;  // [bp-0x10], Other Possible Types: unsigned long\n
+\n
+    v0 = 0;\n
+    v0 = 0;\n
+    while (true)\n
+    {\n
+        if (v0 < 0x100)\n
+        {\n
+            if (*((&ns + 0x8 * v0)) && a0 == *(*((&ns + 0x8 * v0))))\n
+            {\n
+                v1 = *(&(&ns)[8 * v0]);\n
+                return v1;\n
+            }\n
+            v0 = &v0->field_0 + 1;\n
+        }\n
+        else\n
+        {\n
+            v1 = 0;\n
+            return v1;\n
+        }\n
+    }\n
+}\n
+", "4200377:sub_4017b9": null, "4200384:cgc_parse_id": "long long cgc_parse_id(char **a0, unsigned short *a1, char *a2)\n
+{\n
+    unsigned int v0;  // [bp-0x38]\n
+    unsigned short v1;  // [bp-0x32]\n
+    void* v2;  // [bp-0x30], Other Possible Types: unsigned long\n
+    unsigned int v3;  // [bp-0x24]\n
+\n
+    v3 = 0;\n
+    v2 = 0;\n
+    v1 = 0;\n
+    v2 = cgc_strnchr(*(a0), 32, *(a1));\n
+    if (!v2)\n
+    {\n
+        v3 = 36;\n
+        return v3;\n
+    }\n
+    v1 = (v2 - *(a0));\n
+    v0 = 0;\n
+    v3 = cgc_str2unt32n(*(a0), v1, 255, &v0);\n
+    if (!v3)\n
+    {\n
+        *(a2) = v0;\n
+        *(a0) = &(*(a0))[1 + v1];\n
+        *(a1) = *(a1) - (v1 + 1);\n
+        return v3;\n
+    }\n
+    return v3;\n
+}\n
+", "4200611:sub_4018a3": null, "4200624:cgc_parse_type": "long long cgc_parse_type(void* a0, unsigned short *a1, unsigned int *a2)\n
+{\n
+    unsigned short v0;  // [bp-0x32]\n
+    void* v1;  // [bp-0x30], Other Possible Types: unsigned long\n
+    unsigned int v2;  // [bp-0x24]\n
+\n
+    v2 = 0;\n
+    v1 = 0;\n
+    v0 = 0;\n
+    v1 = cgc_strnchr(*(a0), 32, *(a1));\n
+    if (!v1)\n
+    {\n
+        v2 = 36;\n
+        return v2;\n
+    }\n
+    v0 = v1 - *(a0);\n
+    if (!cgc_memcmp(\"NUMBER\", *(a0), 6))\n
+    {\n
+        *(a2) = 1;\n
+    }\n
+    else if (!cgc_memcmp(\"STRING\", *(a0), 6))\n
+    {\n
+        *(a2) = 2;\n
+    }\n
+    else\n
+    {\n
+        v2 = 36;\n
+        return v2;\n
+    }\n
+    *(a0) = *(a0) + v0 + 1;\n
+    *(a1) = *(a1) - (v0 + 1);\n
+    return v2;\n
+}\n
+", "4200907:sub_4019cb": null, "4200912:cgc_parse_number": "long long cgc_parse_number(char **a0, unsigned short *a1, unsigned int *a2)\n
+{\n
+    unsigned short v0;  // [bp-0x32]\n
+    void* v1;  // [bp-0x30], Other Possible Types: unsigned long\n
+    unsigned int v2;  // [bp-0x24]\n
+\n
+    v2 = 0;\n
+    v1 = 0;\n
+    v0 = 0;\n
+    v1 = cgc_strnchr(*(a0), 32, *(a1));\n
+    if (!v1)\n
+    {\n
+        v2 = 36;\n
+        return v2;\n
+    }\n
+    v0 = (v1 - *(a0));\n
+    v2 = cgc_str2unt32n(*(a0), v0, 4294967295, a2);\n
+    if ((Not (Not (0x0<32> == Load(addr=stack_base-36, size=4, endness=Iend_LE))))) { Goto None } else { Goto None }\n
+    *(a0) = &(*(a0))[1 + v0];\n
+    *(a1) = *(a1) - (v0 + 1);\n
+    return v2;\n
+}\n
+", "4201126:sub_401aa6": null, "4201136:cgc_parse_string": "long long cgc_parse_string(char **a0, unsigned short *a1, char *a2)\n
+{\n
+    unsigned int v0;  // [bp-0x54]\n
+    char *v1;  // [bp-0x48]\n
+    unsigned int v2;  // [bp-0x40]\n
+    unsigned int v3;  // [bp-0x3c]\n
+    unsigned int v4;  // [bp-0x38]\n
+    unsigned short v5;  // [bp-0x32]\n
+    void* v6;  // [bp-0x30], Other Possible Types: unsigned long\n
+    unsigned int v7;  // [bp-0x24]\n
+\n
+    v7 = 0;\n
+    v6 = 0;\n
+    v5 = 0;\n
+    v6 = cgc_strnchr(*(a0), 32, *(a1));\n
+    if (!v6)\n
+    {\n
+        v7 = 36;\n
+        return v7;\n
+    }\n
+    v5 = (v6 - *(a0));\n
+    v1 = *(a0);\n
+    v4 = *(a1) - 1;\n
+    v3 = 236;\n
+    if (v4 < v3)\n
+        v0 = v4;\n
+    else\n
+        v0 = v3;\n
+    v2 = v0;\n
+    cgc_strncpy(a2, v1, v2);\n
+    *(a0) = &(*(a0))[1 + v5];\n
+    *(a1) = *(a1) - (v5 + 1);\n
+    return v7;\n
+}\n
+", "4201391:sub_401baf": null, "4201392:cgc_object_new": "typedef struct struct_0 {\n
+    char field_0;\n
+    char padding_1[3];\n
+    unsigned int field_4;\n
+    struct struct_1 *field_8;\n
+    char *field_10;\n
+} struct_0;\n
+\n
+typedef struct struct_1 {\n
+    unsigned int field_0;\n
+} struct_1;\n
+\n
+extern char ns;\n
+\n
+long long cgc_object_new(unsigned long long a0, unsigned long long a1, unsigned long long a2, char *a3)\n
+{\n
+    struct_0 *v0;  // [bp-0x30]\n
+    unsigned int v1;  // [bp-0x24]\n
+\n
+    v1 = 0;\n
+    v0 = 0;\n
+    v1 = cgc_allocate(a0, a1, a2);\n
+    if (v1)\n
+    {\n
+        return v1;\n
+    }\n
+    else if (cgc_object_find(a0))\n
+    {\n
+        return v1;\n
+    }\n
+    else\n
+    {\n
+        v0->field_0 = a0;\n
+        v0->field_4 = 0;\n
+        v0->field_8 = 0;\n
+        v0->field_10 = 0;\n
+        if (a1 == 1)\n
+        {\n
+            v0->field_4 = 1;\n
+            v0->field_8 = &v0[4].field_0;\n
+            v0->field_8->field_0 = a2;\n
+        }\n
+        else if (a1 == 2)\n
+        {\n
+            v0->field_4 = 2;\n
+            v0->field_10 = &v0[8].field_0;\n
+            if (a3)\n
+                cgc_strncpy(v0->field_10, a3, 236);\n
+        }\n
+        else\n
+        {\n
+            v1 = 36;\n
+            return v1;\n
+        }\n
+        *(&(&ns)[8 * a0]) = v0;\n
+        return v1;\n
+    }\n
+}\n
+", "4201728:cgc_op_del": "typedef struct struct_0 {\n
+    struct struct_1 *field_0;\n
+    unsigned long long field_8;\n
+    unsigned long long field_10;\n
+    unsigned long long field_18;\n
+} struct_0;\n
+\n
+typedef struct struct_1 {\n
+    char field_0;\n
+} struct_1;\n
+\n
+extern char ns;\n
+\n
+long long cgc_op_del(char **a0, unsigned short *a1)\n
+{\n
+    struct_0 *v0;  // [bp-0x28], Other Possible Types: unsigned long\n
+    char v1;  // [bp-0x1d]\n
+    unsigned int v2;  // [bp-0x1c]\n
+\n
+    v2 = 0;\n
+    v1 = 0;\n
+    v0 = 0;\n
+    v2 = cgc_parse_id(a0, a1, &v1);\n
+    if (v2)\n
+        return v2;\n
+    v0 = 0;\n
+    while (true)\n
+    {\n
+        if (v0 >= 0x100)\n
+            return v2;\n
+        if (*((&ns + 0x8 * v0)) && v1 == *(*((&ns + 0x8 * v0))))\n
+        {\n
+            v2 = cgc_deallocate(a0, a1);\n
+            if ((Not (Not (0x0<32> == Load(addr=stack_base-28, size=4, endness=Iend_LE))))) { Goto None } else { Goto None }\n
+            *(&(&ns)[8 * v0]) = 0;\n
+            return v2;\n
+        }\n
+        v0 = &v0->field_0 + 1;\n
+    }\n
+}\n
+", "4201980:sub_401dfc": null, "4201984:cgc_op_set": "typedef struct struct_1 {\n
+    char padding_0[4];\n
+    unsigned int field_4;\n
+    unsigned long long field_8;\n
+    unsigned long long field_10;\n
+} struct_1;\n
+\n
+typedef struct struct_0 {\n
+    char padding_0[4];\n
+    unsigned int field_4;\n
+    unsigned int *field_8;\n
+    char *field_10;\n
+} struct_0;\n
+\n
+long long cgc_op_set(unsigned long long *a0, unsigned short *a1)\n
+{\n
+    unsigned short v0;  // [bp-0x32]\n
+    void* v1;  // [bp-0x30], Other Possible Types: unsigned long\n
+    struct_0 *v2;  // [bp-0x28], Other Possible Types: struct_1 *\n
+    char v3;  // [bp-0x1d]\n
+    unsigned int v4;  // [bp-0x1c]\n
+\n
+    v4 = 0;\n
+    v3 = 0;\n
+    v2 = 0;\n
+    v1 = 0;\n
+    v0 = 0;\n
+    v4 = cgc_parse_id(a0, a1, &v3);\n
+    if (v4)\n
+        return v4;\n
+    v2 = cgc_object_find(v3);\n
+    if (!v2)\n
+    {\n
+        *(a0) = *(a0) + *(a1) - 1;\n
+        *(a1) = 0;\n
+        return v4;\n
+    }\n
+    if (v2->field_4 == 1)\n
+    {\n
+        v1 = *(a0);\n
+        v0 = *(a1);\n
+        v4 = cgc_parse_number(a0, a1, v2->field_8);\n
+        if (v4)\n
+        {\n
+            if (v4 != 37)\n
+                return v4;\n
+            v4 = 0;\n
+            v2->field_8 = 0;\n
+            *(a0) = v1;\n
+            *(a1) = v0;\n
+            v4 = cgc_parse_string(a0, a1, v2->field_10);\n
+            if (v4)\n
+                return v4;\n
+        }\n
+    }\n
+    else if (v2->field_4 == 2)\n
+    {\n
+        v4 = cgc_parse_string(a0, a1, v2->field_10);\n
+        if (v4)\n
+            return v4;\n
+    }\n
+    return v4;\n
+}\n
+", "4202421:sub_401fb5": null, "4202432:cgc_op_new": "long long cgc_op_new(char **a0, unsigned short *a1)\n
+{\n
+    char v0;  // [bp-0x228]\n
+    char v1;  // [bp-0x138]\n
+    unsigned int v2;  // [bp-0x40]\n
+    unsigned short v3;  // [bp-0x3a]\n
+    char *v4;  // [bp-0x38]\n
+    unsigned int v5;  // [bp-0x30]\n
+    char v6;  // [bp-0x29]\n
+    void* v7;  // [bp-0x28], Other Possible Types: unsigned long\n
+    unsigned int v8;  // [bp-0x1c]\n
+\n
+    v8 = 0;\n
+    v7 = 0;\n
+    v6 = 0;\n
+    v8 = cgc_parse_id(a0, a1, &v6);\n
+    if (v8)\n
+        return v8;\n
+    v5 = 0;\n
+    v8 = cgc_parse_type(a0, a1, &v5);\n
+    if (v8)\n
+        return v8;\n
+    v7 = cgc_strnchr(*(a0), 32, *(a1));\n
+    if (!v7)\n
+    {\n
+        v8 = cgc_object_new(v6, v5, 0, NULL);\n
+        if (v8)\n
+            return v8;\n
+    }\n
+    else if (v5 == 1)\n
+    {\n
+        v4 = *(a0);\n
+        v3 = *(a1);\n
+        v8 = cgc_parse_number(a0, a1, &v2);\n
+        if (v8)\n
+        {\n
+            if (v8 != 37)\n
+            {\n
+                v8 = 36;\n
+                return v8;\n
+            }\n
+            memset(&v1, 0, 236);\n
+            v8 = cgc_parse_string(&v4, &v3, &v1);\n
+            if (v8)\n
+                return v8;\n
+            v8 = cgc_object_new(v6, 2, 0, &v1);\n
+            if (v8)\n
+                return v8;\n
+        }\n
+        else\n
+        {\n
+            v8 = cgc_object_new(v6, 1, v2, NULL);\n
+            if (v8)\n
+                return v8;\n
+        }\n
+    }\n
+    else if (v5 != 2)\n
+    {\n
+        v8 = 36;\n
+        return v8;\n
+    }\n
+    else\n
+    {\n
+        memset(&v0, 0, 236);\n
+        v8 = cgc_parse_string(a0, a1, &v0);\n
+        if (v8)\n
+            return v8;\n
+        v8 = cgc_object_new(v6, 2, 0, &v0);\n
+        if (v8)\n
+            return v8;\n
+    }\n
+    return v8;\n
+}\n
+", "4203056:cgc_parse_json": "extern char json;\n
+\n
+long long cgc_parse_json(unsigned long a0)\n
+{\n
+    unsigned short v0;  // [bp-0x3e]\n
+    unsigned short v1;  // [bp-0x3c]\n
+    unsigned short v2;  // [bp-0x3a]\n
+    void* v3;  // [bp-0x38], Other Possible Types: unsigned long\n
+    void* v4;  // [bp-0x30], Other Possible Types: unsigned long\n
+    char *v5;  // [bp-0x28], Other Possible Types: unsigned long, void*\n
+    void* v6;  // [bp-0x20], Other Possible Types: unsigned int\n
+    char *v7;  // [bp-0x18], Other Possible Types: unsigned long\n
+    unsigned int v8;  // [bp-0x10]\n
+\n
+    v8 = 0;\n
+    v7 = &json;\n
+    v6 = 0;\n
+    v5 = 0;\n
+    v4 = 0;\n
+    v3 = 0;\n
+    v2 = a0;\n
+    v1 = 0;\n
+    v0 = 0;\n
+    if (!a0)\n
+        return v8;\n
+    while (true)\n
+    {\n
+        v5 = cgc_strnchr(v7, 10, v2);\n
+        if (!v5)\n
+            return v8;\n
+        v5 += 1;\n
+        v2 -= 1;\n
+        if (!v2)\n
+            return v8;\n
+        v4 = cgc_strnchr(v5, 10, v2);\n
+        if (!v4)\n
+        {\n
+            v8 = 36;\n
+            return v8;\n
+        }\n
+        v1 = (v4 - v5);\n
+        v7 = v5;\n
+        v2 -= v1;\n
+        v3 = cgc_strnchr(v7, 32, v1);\n
+        if (!v3)\n
+        {\n
+            v8 = 36;\n
+            return v8;\n
+        }\n
+        v0 = (v3 - v7);\n
+        v1 -= v0;\n
+        if (v0 != 3)\n
+        {\n
+            v8 = 36;\n
+            return v8;\n
+        }\n
+        *(&v6) = v7;\n
+        v7 += 4;\n
+        if (!cgc_memcmp(\"NEW\", *(&v6), 3))\n
+        {\n
+            v8 = cgc_op_new(&v7, &v1);\n
+            if (v8)\n
+                return v8;\n
+        }\n
+        else if (!cgc_memcmp(\"SET\", *(&v6), 3))\n
+        {\n
+            v8 = cgc_op_set(&v7, &v1);\n
+            if (v8)\n
+                return v8;\n
+        }\n
+        else if (cgc_memcmp(\"DEL\", *(&v6), 3))\n
+        {\n
+            v8 = 36;\n
+            return v8;\n
+        }\n
+        else\n
+        {\n
+            v8 = cgc_op_del(&v7, &v1);\n
+            if (v8)\n
+                return v8;\n
+        }\n
+    }\n
+}\n
+", "4203708:sub_4024bc": null, "4203712:cgc_deserialize": "extern unsigned long long json;\n
+\n
+long long cgc_deserialize()\n
+{\n
+    unsigned short v0;  // [bp-0x1a]\n
+    void* v1;  // [bp-0x18]\n
+    unsigned int v2;  // [bp-0xc]\n
+\n
+    v2 = 0;\n
+    v1 = 0;\n
+    v0 = 0;\n
+    v1 = 0;\n
+    v2 = cgc_receive_all(0, &v0, 2, &v1);\n
+    if (!v2 && v1 == 2)\n
+    {\n
+        v1 = 0;\n
+        v2 = cgc_receive_all(0, &json, v0, &v1);\n
+        if (!v2 && v0 == v1)\n
+        {\n
+            v2 = cgc_parse_json(v0);\n
+            if ((Not (Not (0x0<32> == Load(addr=stack_base-12, size=4, endness=Iend_LE))))) { Goto None } else { Goto None }\n
+            return v2;\n
+        }\n
+        v2 = 32;\n
+        return v2;\n
+    }\n
+    v2 = 32;\n
+    return v2;\n
+}\n
+", "4203927:sub_402597": null, "4203936:cgc_serialize": "typedef struct struct_0 {\n
+    char field_0;\n
+    char padding_1[3];\n
+    unsigned int field_4;\n
+    struct struct_1 *field_8;\n
+    unsigned long long field_10;\n
+} struct_0;\n
+\n
+typedef struct struct_2 {\n
+    char field_0;\n
+    char padding_1[3];\n
+    unsigned int field_4;\n
+    struct struct_1 *field_8;\n
+    char *field_10;\n
+} struct_2;\n
+\n
+typedef struct struct_1 {\n
+    unsigned int field_0;\n
+} struct_1;\n
+\n
+extern char ns;\n
+\n
+long long cgc_serialize()\n
+{\n
+    char v0;  // [bp-0x128]\n
+    struct struct_0 **v1;  // [bp-0x20], Other Possible Types: unsigned long\n
+    struct_0 *v2;  // [bp-0x18], Other Possible Types: struct_2 *\n
+    unsigned int v3;  // [bp-0x10]\n
+    unsigned int v4;  // [bp-0xc]\n
+\n
+    v4 = 0;\n
+    v3 = 0;\n
+    v2 = 0;\n
+    v1 = 0;\n
+    memset(&v0, 0, 0x100);\n
+    v1 = 0;\n
+    while (true)\n
+    {\n
+        if (v1 >= 0x100)\n
+            return v4;\n
+        v0 = 0;\n
+        v3 = 0;\n
+        v2 = *((&ns + 0x8 * v1));\n
+        if (v2)\n
+        {\n
+            v3 = cgc_uint2str32(&(&v0)[v3], 0x100 - v3 - 1, v2->field_0) + v3;\n
+            if (v2->field_4 == 1)\n
+            {\n
+                v3 += cgc_strncpy(&(&v0)[v3], \" NUMBER \", 0x100 - v3 - 1);\n
+                v3 = cgc_uint2str32(&(&v0)[v3], 0x100 - v3 - 1, v2->field_8->field_0) + v3;\n
+            }\n
+            else if (v2->field_4 == 2)\n
+            {\n
+                v3 += cgc_strncpy(&(&v0)[v3], \" STRING \", 0x100 - v3 - 1);\n
+                v3 += cgc_strncpy(&(&v0)[v3], v2->field_10, 0x100 - v3 - 1);\n
+            }\n
+            (&v0)[v3] = 10;\n
+            v4 = cgc_transmit_all(1, &v0, v3 + 1, NULL);\n
+            if (v4)\n
+            {\n
+                v4 = 33;\n
+                return v4;\n
+            }\n
+        }\n
+        v1 = v1 + 1;\n
+    }\n
+}\n
+", "4204475:sub_4027bb": null, "4204480:main": "extern unsigned int ns;\n
+\n
+int main(unsigned long a0, unsigned long a1)\n
+{\n
+    char v0;  // [bp-0x35]\n
+    unsigned int v1;  // [bp-0x34]\n
+    void* v2;  // [bp-0x30]\n
+    void* v3;  // [bp-0x28]\n
+    unsigned int v4;  // [bp-0x1c]\n
+    unsigned long v5;  // [bp-0x18]\n
+    unsigned int v6;  // [bp-0x10]\n
+    unsigned int v7;  // [bp-0xc]\n
+\n
+    v7 = 0;\n
+    v6 = a0;\n
+    v5 = a1;\n
+    v4 = 0;\n
+    v3 = 0;\n
+    v2 = 0;\n
+    cgc_memset(&ns, 0, 0x800);\n
+    while (true)\n
+    {\n
+        v1 = 0;\n
+        for (v0 = 0; !v1; v1 = 1)\n
+        {\n
+            v4 = cgc_receive_all(0, &v0, 1, &v3);\n
+            if (v4)\n
+            {\n
+                v4 = 32;\n
+                return v4;\n
+            }\n
+        }\n
+        if (v0 == 1)\n
+        {\n
+            v4 = cgc_deserialize();\n
+            if (v4)\n
+                return v4;\n
+        }\n
+        else if (v0 == 2)\n
+        {\n
+            v4 = cgc_serialize();\n
+            if (v4)\n
+                return v4;\n
+        }\n
+        else if (v0 == 3)\n
+        {\n
+            return v4;\n
+        }\n
+    }\n
+}\n
+", "4204784:_fini": "long long _fini()\n
+{\n
+    unsigned long v1;  // rax\n
+\n
+    return v1;\n
+}\n
+", "5242880:__libc_start_main": null, "5242888:memset": null, "5242896:cgc_transmit": null, "5242904:cgc_allocate": null, "5242912:cgc_deallocate": null, "5242920:cgc_receive": null, "6295632:UnresolvableJumpTarget": null, "6295640:UnresolvableCallTarget": null}

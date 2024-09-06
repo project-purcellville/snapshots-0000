@@ -1,0 +1,905 @@
+{"4198400:_init": "extern struct_0 *g_4049e8;\n
+\n
+long long _init()\n
+{\n
+    struct struct_0 **v1;  // rax, Other Possible Types: unsigned long\n
+\n
+    v1 = g_4049e8;\n
+    if (g_4049e8)\n
+        v1 = g_4049e8();\n
+    return v1;\n
+}\n
+", "4198432:sub_401020": "extern unsigned long long g_404a08;\n
+\n
+long long sub_401020()\n
+{\n
+    unsigned long v0;  // [bp-0x8]\n
+\n
+    v0 = g_404a08;\n
+    goto *(4213264);\n
+}\n
+", "4198444:sub_40102c": null, "4198448:cgc__terminate": "// attributes: PLT stub\n
+int cgc__terminate()\n
+{\n
+    ::libc.so.0::cgc__terminate();\n
+    return;\n
+}\n
+", "4198464:cgc_transmit": "// attributes: PLT stub\n
+int cgc_transmit()\n
+{\n
+    ::libc.so.0::cgc_transmit();\n
+    return;\n
+}\n
+", "4198480:cgc_receive": "// attributes: PLT stub\n
+int cgc_receive()\n
+{\n
+    ::libc.so.0::cgc_receive();\n
+    return;\n
+}\n
+", "4198496:__cxa_finalize": "// attributes: PLT stub\n
+char * __cxa_finalize()\n
+{\n
+    goto *(4213240);\n
+}\n
+", "4198512:_start": "long long _start()\n
+{\n
+    unsigned long v0;  // [bp+0x0], Other Possible Types: char\n
+    unsigned long v1;  // [bp+0x8]\n
+    unsigned long long v2;  // rsi\n
+    unsigned long v3;  // rax\n
+    unsigned long long v4;  // rdx\n
+\n
+    v2 = *(&v0);\n
+    v0 = v3;\n
+    __libc_start_main(main, v2, &v1, 0, 0, v4); /* do not return */\n
+}\n
+", "4198549:sub_401095": null, "4198550:sub_401096": null, "4198560:deregister_tm_clones": "extern char __TMC_END__;\n
+extern unsigned long long g_4049e0;\n
+\n
+long long deregister_tm_clones()\n
+{\n
+    return &__TMC_END__;\n
+}\n
+", "4198601:sub_4010c9": null, "4198608:register_tm_clones": "extern unsigned long long g_4049f0;\n
+\n
+long long register_tm_clones()\n
+{\n
+    return 0;\n
+}\n
+", "4198665:sub_401109": null, "4198672:__do_global_dtors_aux": "extern char __TMC_END__;\n
+extern unsigned long long g_4049f8;\n
+\n
+long long __do_global_dtors_aux()\n
+{\n
+    unsigned long v0;  // [bp-0x8]\n
+    unsigned long v2;  // rax\n
+\n
+    if (__TMC_END__)\n
+        return v2;\n
+    *(&v0) = rbp<8>;\n
+    if (!g_4049f8)\n
+    {\n
+        __TMC_END__ = 1;\n
+        return deregister_tm_clones();\n
+    }\n
+    __cxa_finalize();\n
+}\n
+", "4198725:sub_401145": null, "4198729:sub_401149": null, "4198736:frame_dummy": "long long frame_dummy()\n
+{\n
+    return register_tm_clones();\n
+}\n
+", "4198745:sub_401159": null, "4198752:cgc_zero": "long long cgc_zero(char *a0, unsigned long a1)\n
+{\n
+    unsigned int v0;  // [bp-0x18]\n
+\n
+    if (!a0)\n
+        return v0;\n
+    for (v0 = 0; v0 < a1; v0 += 1)\n
+    {\n
+        a0[v0] = 0;\n
+    }\n
+    return v0;\n
+}\n
+", "4198830:sub_4011ae": null, "4198832:cgc_strlen": "long long cgc_strlen(unsigned long a0)\n
+{\n
+    char *v0;  // [bp-0x20], Other Possible Types: unsigned long\n
+    char *v1;  // [bp-0x10], Other Possible Types: unsigned long\n
+\n
+    if (!a0)\n
+    {\n
+        v1 = 0;\n
+        return v1;\n
+    }\n
+    for (v0 = 0; *((a0 + v0)); v0 += 1);\n
+    v1 = v0;\n
+    return v1;\n
+}\n
+", "4198926:sub_40120e": null, "4198928:cgc_print": "long long cgc_print(unsigned long a0)\n
+{\n
+    char v0;  // [bp-0x28]\n
+    void* v1;  // [bp-0x20], Other Possible Types: unsigned long\n
+    unsigned long v2;  // [bp-0x18]\n
+    unsigned long long v4;  // rsi\n
+    unsigned long long v5;  // rdx\n
+    unsigned long long v6;  // rcx\n
+\n
+    v1 = 0;\n
+    if (!a0)\n
+        return v1;\n
+    for (v2 = cgc_strlen(a0); v1 < v2; v1 = *(&v0) + v1)\n
+    {\n
+        if (cgc_transmit(a0, v4, v5, v6))\n
+            cgc__terminate(a0);\n
+    }\n
+    return v1;\n
+}\n
+", "4199063:sub_401297": null, "4199072:cgc_read_until": "long long cgc_read_until(unsigned long a0, unsigned long long a1, unsigned long long a2)\n
+{\n
+    char v0;  // [bp-0x40]\n
+    char v1;  // [bp-0x31]\n
+    char *v2;  // [bp-0x30], Other Possible Types: unsigned long\n
+    unsigned int v3;  // [bp-0xc]\n
+    unsigned long v7;  // rcx\n
+\n
+    if (!a0)\n
+    {\n
+        v3 = -1;\n
+        return v3;\n
+    }\n
+    for (v2 = 0; v2 < a2 - 1; *((a0 + v7)) = v1)\n
+    {\n
+        if (cgc_receive(a0, a1, a2, rcx<8>))\n
+        {\n
+            v3 = -1;\n
+            return v3;\n
+        }\n
+        if (!*(&v0))\n
+        {\n
+            v3 = -1;\n
+            return v3;\n
+        }\n
+        if (v1 == a1)\n
+            break;\n
+        v7 = v2;\n
+        v2 = v7 + 1;\n
+    }\n
+    *((a0 + v2)) = 0;\n
+    v3 = 0;\n
+    return v3;\n
+}\n
+", "4199294:sub_40137e": null, "4199296:cgc_strmatch": "long long cgc_strmatch(char *a0, char *a1)\n
+{\n
+    unsigned long v0;  // [bp-0x38]\n
+    unsigned int v1;  // [bp-0x2c]\n
+    unsigned long v2;  // [bp-0x28]\n
+    unsigned int v3;  // [bp-0xc]\n
+\n
+    if (a0 && a1)\n
+    {\n
+        v2 = cgc_strlen(a0);\n
+        v0 = v2;\n
+        if (v0 != cgc_strlen(a1))\n
+        {\n
+            v3 = 0;\n
+            return v3;\n
+        }\n
+        v1 = 0;\n
+        while (true)\n
+        {\n
+            if (v1 >= v2)\n
+            {\n
+                v3 = 1;\n
+                return v3;\n
+            }\n
+            else if (a0[v1] == a1[v1])\n
+            {\n
+                v1 += 1;\n
+            }\n
+            else\n
+            {\n
+                v3 = 0;\n
+                return v3;\n
+            }\n
+        }\n
+    }\n
+    v3 = 0;\n
+    return v3;\n
+}\n
+", "4199504:cgc_strcopy": "long long cgc_strcopy(char *a0, char *a1)\n
+{\n
+    unsigned long v0;  // [bp-0x28]\n
+    unsigned int v1;  // [bp-0x1c]\n
+\n
+    if (a0 && a1)\n
+    {\n
+        v1 = 0;\n
+        while (true)\n
+        {\n
+            v0 = v1;\n
+            if (v0 >= cgc_strlen(a1))\n
+                break;\n
+            a0[v1] = a1[v1];\n
+            v1 += 1;\n
+        }\n
+        return v0;\n
+    }\n
+    return v0;\n
+}\n
+", "4199634:sub_4014d2": null, "4199648:cgc_memcopy": "long long cgc_memcopy(char *a0, char *a1, unsigned long a2)\n
+{\n
+    unsigned int v0;  // [bp-0x20]\n
+\n
+    if (a0 && a1)\n
+    {\n
+        for (v0 = 0; v0 < a2; v0 += 1)\n
+        {\n
+            a0[v0] = a1[v0];\n
+        }\n
+        return v0;\n
+    }\n
+    return v0;\n
+}\n
+", "4199752:sub_401548": null, "4199760:cgc_isdigits": "long long cgc_isdigits(char *a0)\n
+{\n
+    unsigned long v0;  // [bp-0x28]\n
+    unsigned int v1;  // [bp-0x1c]\n
+    unsigned int v2;  // [bp-0xc]\n
+\n
+    if (!a0)\n
+    {\n
+        v2 = 0;\n
+        return v2;\n
+    }\n
+    v1 = 0;\n
+    while (true)\n
+    {\n
+        v0 = v1;\n
+        if (v0 >= cgc_strlen(a0))\n
+        {\n
+            v2 = 1;\n
+            return v2;\n
+        }\n
+        if (a0[v1] < 48)\n
+            break;\n
+        if (a0[v1] > 57)\n
+            break;\n
+        v1 += 1;\n
+    }\n
+    v2 = 0;\n
+    return v2;\n
+}\n
+", "4199924:sub_4015f4": null, "4199936:cgc_atoi": "long long cgc_atoi(char *a0)\n
+{\n
+    unsigned int v0;  // [bp-0x24]\n
+    unsigned int v1;  // [bp-0x20]\n
+    unsigned int v2;  // [bp-0x1c]\n
+    unsigned int v3;  // [bp-0xc]\n
+\n
+    v1 = 0;\n
+    v0 = 1;\n
+    if (!a0)\n
+    {\n
+        v3 = 0;\n
+        return v3;\n
+    }\n
+    v2 = cgc_strlen(a0);\n
+    if (!v2)\n
+    {\n
+        v3 = 0;\n
+        return v3;\n
+    }\n
+    for (v2 -= 1; v2 >= 0; v2 -= 1)\n
+    {\n
+        v1 = v0 * (a0[v2] - 48) + v1;\n
+        v0 *= 10;\n
+    }\n
+    v3 = v1;\n
+    return v3;\n
+}\n
+", "4200099:sub_4016a3": null, "4200112:cgc_print_uint": "typedef struct struct_0 {\n
+    char field_0;\n
+} struct_0;\n
+\n
+long long cgc_print_uint(unsigned long a0)\n
+{\n
+    unsigned int v0;  // [bp-0xf0]\n
+    unsigned int v1;  // [bp-0xec]\n
+    char v3;  // [bp-0x78]\n
+    unsigned int v4;  // [bp-0xc]\n
+    struct_0 *v7;  // rax\n
+\n
+    v4 = a0;\n
+    v1 = 0;\n
+    v0 = 0;\n
+    if (!v4)\n
+        return cgc_print(\"0\");\n
+    while (true)\n
+    {\n
+        v7 = v1;\n
+        v1 = v7 + 1;\n
+        *((&v3 + v7)) = ((0 CONCAT v4) /m 10 >> 32) + 48;\n
+        v4 = (0 CONCAT v4) /m 10;\n
+    }\n
+}\n
+", "4200385:sub_4017c1": null, "4200400:cgc_PrintAdminMenu": "long long cgc_PrintAdminMenu()\n
+{\n
+    cgc_print(\"1) Send Broadcast Message\\n
+\");\n
+    cgc_print(\"2) Leave Admin Mode\\n
+\");\n
+    cgc_print(\"3) Exit\\n
+\");\n
+    return cgc_print(\": \");\n
+}\n
+", "4200454:sub_401806": null, "4200464:cgc_AdminLogin": "extern char ADMIN_PASSWD;\n
+extern unsigned int cgc_ADMIN_ACCESS;\n
+\n
+long long cgc_AdminLogin()\n
+{\n
+    char v0;  // [bp-0x78]\n
+    unsigned long v2;  // rax, Other Possible Types: unsigned long long\n
+\n
+    cgc_zero(&v0, 100);\n
+    cgc_print(\"Admin Password: \");\n
+    if (cgc_read_until(&v0, 10, 100) == -1)\n
+        cgc__terminate(\"Admin Password: \");\n
+    if (!cgc_strmatch(\"GIMMIE\", &v0))\n
+    {\n
+        v2 = cgc_print(\"[-] Admin access denied\\n
+\");\n
+        cgc_ADMIN_ACCESS = 0;\n
+        return v2;\n
+    }\n
+    cgc_ADMIN_ACCESS = 1;\n
+    v2 = cgc_print(\"[-] Admin access granted\\n
+\");\n
+    return v2;\n
+}\n
+", "4200616:sub_4018a8": null, "4200624:cgc_SendBroadcastMessage": "extern unsigned int cgc_NUM_USERS;\n
+extern unsigned long long cgc_USERS;\n
+\n
+long long cgc_SendBroadcastMessage()\n
+{\n
+    char v0;  // [bp-0x418]\n
+    unsigned int v1;  // [bp-0x10]\n
+    unsigned int v2;  // [bp-0xc]\n
+    unsigned long v4;  // rax, Other Possible Types: unsigned long long\n
+\n
+    cgc_zero(&v0, 0x400);\n
+    cgc_print(\"Message: \");\n
+    if (cgc_read_until(&v0, 10, 0x400) == -1)\n
+        cgc__terminate(\"Message: \");\n
+    v4 = cgc_strlen(&v0);\n
+    if (!v4)\n
+        return v4;\n
+    v2 = 0;\n
+    while (true)\n
+    {\n
+        v4 = v2;\n
+        if (v4 >= cgc_NUM_USERS)\n
+            break;\n
+        if (*((cgc_USERS + v2 * 13028)))\n
+        {\n
+            if (*((cgc_USERS + v2 * 13028 + 13024)) == 255)\n
+            {\n
+                cgc_print(\"[*] Unable to send message to \");\n
+                cgc_print(cgc_USERS + v2 * 13028);\n
+                cgc_print(\". Their mailbox is full.\\n
+\");\n
+            }\n
+            else\n
+            {\n
+                v1 = *((cgc_USERS + v2 * 13028 + 13024)) + 1;\n
+                cgc_strcopy(cgc_USERS + v2 * 13028 + 16 + v1 * 50, &v0);\n
+                *((cgc_USERS + v2 * 13028 + v1 + 12766)) = 0;\n
+                *((cgc_USERS + v2 * 13028 + 13024)) = v1;\n
+            }\n
+        }\n
+        v2 += 1;\n
+    }\n
+    return v2;\n
+}\n
+", "4201080:sub_401a78": null, "4201088:cgc_SendMessage": "extern unsigned int cgc_NUM_USERS;\n
+extern unsigned long long cgc_USERS;\n
+\n
+long long cgc_SendMessage()\n
+{\n
+    unsigned int v0;  // [bp-0x60]\n
+    unsigned int v1;  // [bp-0x5c]\n
+    char v2;  // [bp-0x58]\n
+    char v3;  // [bp-0x18]\n
+    unsigned long v5;  // rax, Other Possible Types: unsigned long long\n
+    unsigned long long v6;  // rdx\n
+\n
+    cgc_zero(&v3, 16);\n
+    cgc_print(\"To: \");\n
+    if (cgc_read_until(&v3, 10, 16) == -1)\n
+        cgc__terminate(\"To: \");\n
+    v5 = cgc_strlen(&v3);\n
+    if (!v5)\n
+        return v5;\n
+    cgc_zero(&v2, 50);\n
+    cgc_print(\"Message: \");\n
+    if (cgc_read_until(&v2, 10, 50) == -1)\n
+        cgc__terminate(\"Message: \");\n
+    v5 = cgc_strlen(&v2);\n
+    if (!v5)\n
+        return v5;\n
+    for (v1 = 0; v1 < cgc_NUM_USERS; v1 += 1)\n
+    {\n
+        if (cgc_strmatch(&v3, cgc_USERS + v1 * 13028))\n
+            break;\n
+    }\n
+    v5 = v1;\n
+    if (v5 == cgc_NUM_USERS)\n
+    {\n
+        return v1;\n
+    }\n
+    else if (*((cgc_USERS + v1 * 13028 + 13024)) != 255)\n
+    {\n
+        v0 = *((cgc_USERS + v1 * 13028 + 13024)) + 1;\n
+        cgc_strcopy(cgc_USERS + v1 * 13028 + 16 + v0 * 50, &v2);\n
+        *((cgc_USERS + v1 * 13028 + v0 + 12766)) = 0;\n
+        v6 = v1 * 13028;\n
+        *((cgc_USERS + v6 + 13024)) = v0;\n
+        return cgc_USERS + v6;\n
+    }\n
+    else\n
+    {\n
+        v5 = cgc_print(\"[-] Recipient's mailbox is full\\n
+\");\n
+        return v5;\n
+    }\n
+}\n
+", "4201602:sub_401c82": null, "4201616:cgc_ReadMessage": "extern unsigned int cgc_CURRENT_USER;\n
+extern unsigned long long cgc_USERS;\n
+\n
+long long cgc_ReadMessage()\n
+{\n
+    unsigned int v0;  // [bp-0x10]\n
+    char v1;  // [bp-0xc]\n
+    unsigned long v3;  // rax, Other Possible Types: unsigned long long\n
+\n
+    cgc_zero(&v1, 4);\n
+    cgc_print(\"ID: \");\n
+    if (cgc_read_until(&v1, 10, 4) == -1)\n
+        cgc__terminate(\"ID: \");\n
+    v3 = cgc_strlen(&v1);\n
+    if (!v3)\n
+        return v3;\n
+    v3 = cgc_isdigits(&v1);\n
+    if (!v3)\n
+        return v3;\n
+    v0 = cgc_atoi(&v1);\n
+    if (v0 > *((cgc_USERS + cgc_CURRENT_USER * 13028 + 13024)))\n
+    {\n
+        v3 = cgc_print(\"[-] Message ID out of range\\n
+\");\n
+        return v3;\n
+    }\n
+    else if (*((cgc_USERS + cgc_CURRENT_USER * 13028 + 16 + v0 * 50)))\n
+    {\n
+        cgc_print(\"***********************************\\n
+\");\n
+        cgc_print(&v1);\n
+        cgc_print(\":  \");\n
+        cgc_print(cgc_USERS + cgc_CURRENT_USER * 13028 + 16 + v0 * 50);\n
+        cgc_print(\"\\n
+\");\n
+        cgc_print(\"***********************************\\n
+\");\n
+        v3 = cgc_USERS + cgc_CURRENT_USER * 13028;\n
+        *((v3 + v0 + 12766)) = 1;\n
+        return cgc_USERS + cgc_CURRENT_USER * 13028;\n
+    }\n
+    else\n
+    {\n
+        v3 = cgc_print(\"[-] Message ID not found\\n
+\");\n
+        return v3;\n
+    }\n
+}\n
+", "4202038:sub_401e36": null, "4202048:cgc_ListMessages": "extern unsigned int cgc_CURRENT_USER;\n
+extern unsigned long long cgc_USERS;\n
+\n
+long long cgc_ListMessages()\n
+{\n
+    unsigned int v0;  // [bp-0xc]\n
+\n
+    for (v0 = 1; v0 <= *((cgc_USERS + cgc_CURRENT_USER * 13028 + 13024)); v0 += 1)\n
+    {\n
+        if (*((cgc_USERS + cgc_CURRENT_USER * 13028 + 16 + v0 * 50)))\n
+        {\n
+            cgc_print(\"***********************************\\n
+\");\n
+            cgc_print_uint(v0);\n
+            cgc_print(\":  \");\n
+            cgc_print(cgc_USERS + cgc_CURRENT_USER * 13028 + 16 + v0 * 50);\n
+            cgc_print(\"\\n
+\");\n
+            cgc_print(\"***********************************\\n
+\");\n
+        }\n
+    }\n
+    return v0;\n
+}\n
+", "4202294:sub_401f36": null, "4202304:cgc_DeleteMessage": "extern unsigned int cgc_CURRENT_USER;\n
+extern unsigned long long cgc_USERS;\n
+\n
+long long cgc_DeleteMessage()\n
+{\n
+    unsigned int v0;  // [bp-0x10]\n
+    char v1;  // [bp-0xc]\n
+    unsigned long v3;  // rax, Other Possible Types: unsigned long long\n
+\n
+    cgc_zero(&v1, 4);\n
+    cgc_print(\"ID: \");\n
+    if (cgc_read_until(&v1, 10, 4) == -1)\n
+        cgc__terminate(\"ID: \");\n
+    v3 = cgc_strlen(&v1);\n
+    if (!v3)\n
+        return v3;\n
+    v3 = cgc_isdigits(&v1);\n
+    if (!v3)\n
+        return v3;\n
+    v0 = cgc_atoi(&v1);\n
+    if (v0 <= *((cgc_USERS + cgc_CURRENT_USER * 13028 + 13024)))\n
+    {\n
+        v3 = cgc_zero(cgc_USERS + cgc_CURRENT_USER * 13028 + 16 + v0 * 50, 50);\n
+        return v3;\n
+    }\n
+    v3 = cgc_print(\"[-] Message ID out of range\\n
+\");\n
+    return v3;\n
+}\n
+", "4202558:sub_40203e": null, "4202560:cgc_PrintNewMessages": "extern unsigned int cgc_CURRENT_USER;\n
+extern unsigned long long cgc_USERS;\n
+\n
+long long cgc_PrintNewMessages()\n
+{\n
+    unsigned int v0;  // [bp-0x10]\n
+    unsigned int v1;  // [bp-0xc]\n
+\n
+    v0 = 1;\n
+    for (v1 = 1; v1 < 255; v1 += 1)\n
+    {\n
+        if (*((cgc_USERS + cgc_CURRENT_USER * 13028 + 16 + v1 * 50)) && *((cgc_USERS + cgc_CURRENT_USER * 13028 + v1 + 12766)) != 1)\n
+        {\n
+            if (v0)\n
+            {\n
+                cgc_print(\"Unread messages:\\n
+\");\n
+                v0 = 0;\n
+            }\n
+            cgc_print(\"***********************************\\n
+\");\n
+            cgc_print_uint(v1);\n
+            cgc_print(\":  \");\n
+            cgc_print(cgc_USERS + cgc_CURRENT_USER * 13028 + 16 + v1 * 50);\n
+            cgc_print(\"\\n
+\");\n
+            cgc_print(\"***********************************\\n
+\");\n
+            *((cgc_USERS + cgc_CURRENT_USER * 13028 + v1 + 12766)) = 1;\n
+        }\n
+    }\n
+    return v1 + 1;\n
+}\n
+", "4202906:sub_40219a": null, "4202912:cgc_CreateUser": "extern unsigned int cgc_NUM_USERS;\n
+extern unsigned long long cgc_USERS;\n
+\n
+long long cgc_CreateUser()\n
+{\n
+    unsigned int v0;  // [bp-0x20]\n
+    unsigned int v1;  // [bp-0x1c]\n
+    char v2;  // [bp-0x18]\n
+    unsigned int *v4;  // rax, Other Possible Types: unsigned long long, unsigned long\n
+\n
+    v0 = -1;\n
+    cgc_zero(&v2, 16);\n
+    cgc_print(\"username: \");\n
+    if (cgc_read_until(&v2, 10, 16) == -1)\n
+        cgc__terminate(\"username: \");\n
+    v4 = cgc_strlen(&v2);\n
+    if (!v4)\n
+        return v4;\n
+    for (v1 = 0; v1 < cgc_NUM_USERS; v1 += 1)\n
+    {\n
+        if (!*((cgc_USERS + v1 * 13028)))\n
+            v0 = v1;\n
+        if (cgc_strmatch(&v2, cgc_USERS + v1 * 13028))\n
+        {\n
+            v4 = cgc_print(\"[-] Error user exists\\n
+\");\n
+            return v4;\n
+        }\n
+    }\n
+    if (v0 != -1)\n
+    {\n
+        cgc_zero(cgc_USERS + v0 * 13028, 13028);\n
+        v4 = cgc_strcopy(cgc_USERS + v0 * 13028, &v2);\n
+    }\n
+    else if (cgc_NUM_USERS >= 100)\n
+    {\n
+        v4 = cgc_print(\"[-] Max users already created\\n
+\");\n
+    }\n
+    else\n
+    {\n
+        cgc_zero(cgc_USERS + cgc_NUM_USERS * 13028, 13028);\n
+        cgc_strcopy(cgc_USERS + cgc_NUM_USERS * 13028, &v2);\n
+        v4 = &cgc_NUM_USERS;\n
+        cgc_NUM_USERS = cgc_NUM_USERS + 1;\n
+    }\n
+    return v4;\n
+}\n
+", "4203391:sub_40237f": null, "4203392:cgc_Login": "extern unsigned int cgc_CURRENT_USER;\n
+extern unsigned int cgc_NUM_USERS;\n
+extern unsigned long long cgc_USERS;\n
+\n
+long long cgc_Login()\n
+{\n
+    unsigned int v0;  // [bp-0x1c]\n
+    char v1;  // [bp-0x18]\n
+    unsigned long v3;  // rax, Other Possible Types: unsigned long long\n
+\n
+    cgc_zero(&v1, 16);\n
+    cgc_print(\"username: \");\n
+    if (cgc_read_until(&v1, 10, 16) == -1)\n
+        cgc__terminate(\"username: \");\n
+    v3 = cgc_strlen(&v1);\n
+    if (!v3)\n
+        return v3;\n
+    for (v0 = 0; v0 < cgc_NUM_USERS; v0 += 1)\n
+    {\n
+        if (cgc_strmatch(&v1, cgc_USERS + v0 * 13028))\n
+            break;\n
+    }\n
+    if (v0 != cgc_NUM_USERS)\n
+    {\n
+        cgc_CURRENT_USER = v0;\n
+        v3 = cgc_print(\"Login Success\\n
+\");\n
+        return v3;\n
+    }\n
+    v3 = cgc_print(\"Login Failed\\n
+\");\n
+    return v3;\n
+}\n
+", "4203644:sub_40247c": null, "4203648:cgc_PrintLoggedOutMenu": "long long cgc_PrintLoggedOutMenu()\n
+{\n
+    cgc_print(\"1) Create User\\n
+\");\n
+    cgc_print(\"2) Login\\n
+\");\n
+    cgc_print(\"3) Exit\\n
+\");\n
+    return cgc_print(\": \");\n
+}\n
+", "4203702:sub_4024b6": null, "4203712:cgc_PrintLoggedInMenu": "long long cgc_PrintLoggedInMenu()\n
+{\n
+    cgc_print(\"1) Send Message\\n
+\");\n
+    cgc_print(\"2) Read Message\\n
+\");\n
+    cgc_print(\"3) List Messages\\n
+\");\n
+    cgc_print(\"4) Delete Message\\n
+\");\n
+    cgc_print(\"5) Logout\\n
+\");\n
+    cgc_print(\"6) Exit\\n
+\");\n
+    return cgc_print(\": \");\n
+}\n
+", "4203802:sub_40251a": null, "4203808:cgc_BusyWork": "extern char g_402000;\n
+\n
+long long cgc_BusyWork()\n
+{\n
+    unsigned int v0;  // [bp-0x1010]\n
+    unsigned int v1;  // [bp-0x100c]\n
+    char v2;  // [bp-0x1008]\n
+    unsigned long long v4;  // rax\n
+\n
+    *(&v1) = &g_402000;\n
+    v0 = 20;\n
+    while (true)\n
+    {\n
+        v4 = v0;\n
+        v0 = v4 - 1;\n
+        if (!v4)\n
+            break;\n
+        cgc_memcopy(&v2, v1, 0x1000);\n
+        cgc_sort_n_sum(&v2, 0x1000);\n
+    }\n
+    return v4;\n
+}\n
+", "4203928:sub_402598": null, "4203936:main": "extern unsigned int cgc_ADMIN_ACCESS;\n
+extern unsigned int cgc_CURRENT_USER;\n
+extern unsigned int cgc_NUM_USERS;\n
+extern char *cgc_USERS;\n
+\n
+int main(unsigned long long a0, unsigned long a1)\n
+{\n
+    unsigned long v0;  // [bp-0x13e1b0]\n
+    unsigned int v1;  // [bp-0x13e1a4]\n
+    unsigned int v2;  // [bp-0x13e1a0]\n
+    unsigned int v3;  // [bp-0x13e19c]\n
+    char v4;  // [bp-0x13e198]\n
+    char v5;  // [bp-0x13e128]\n
+    unsigned long v6;  // [bp-0x18]\n
+    unsigned int v7;  // [bp-0x10]\n
+    unsigned int v8;  // [bp-0xc]\n
+\n
+    v8 = 0;\n
+    v7 = a0;\n
+    v6 = a1;\n
+    v3 = 0;\n
+    cgc_USERS = &v5;\n
+    cgc_ADMIN_ACCESS = 0;\n
+    cgc_CURRENT_USER = -1;\n
+    cgc_NUM_USERS = 0;\n
+    cgc_zero(cgc_USERS, 1302800);\n
+    while (true)\n
+    {\n
+        if (!((v3 ^ 255) & 1))\n
+            return 0;\n
+        if (cgc_ADMIN_ACCESS)\n
+        {\n
+            cgc_zero(&v4, 100);\n
+            cgc_PrintAdminMenu();\n
+            if (cgc_read_until(&v4, 10, 100) == -1)\n
+                cgc__terminate(a0);\n
+            if (cgc_strlen(&v4) > 1)\n
+            {\n
+                cgc_print(\"[-] Invalid choice\\n
+\");\n
+                continue;\n
+            }\n
+            else\n
+            {\n
+                v2 = v4;\n
+                if (v2 == 49)\n
+                {\n
+                    cgc_SendBroadcastMessage();\n
+                }\n
+                else\n
+                {\n
+                    if (v2 == 50)\n
+                    {\n
+                        cgc_ADMIN_ACCESS = 0;\n
+                    }\n
+                    else\n
+                    {\n
+                        if (!(v2 == 51))\n
+                            continue;\n
+                        cgc_print(\"Exiting...\\n
+\");\n
+                        v3 = 1;\n
+                    }\n
+                }\n
+            }\n
+        }\n
+        else if (cgc_CURRENT_USER != -1)\n
+        {\n
+            cgc_zero(&v4, 100);\n
+            cgc_PrintNewMessages();\n
+            cgc_PrintLoggedInMenu();\n
+            if (cgc_read_until(&v4, 10, 100) == -1)\n
+                cgc__terminate(a0);\n
+            if (cgc_strlen(&v4) <= 1)\n
+            {\n
+                v0 = v4 - 49;\n
+                switch (v0)\n
+                {\n
+                case 0:\n
+                    cgc_SendMessage();\n
+                    break;\n
+                case 1:\n
+                    cgc_ReadMessage();\n
+                    break;\n
+                case 2:\n
+                    cgc_ListMessages();\n
+                    break;\n
+                case 3:\n
+                    cgc_DeleteMessage();\n
+                    break;\n
+                case 4:\n
+                    cgc_CURRENT_USER = -1;\n
+                    cgc_print(\"Logging out...\\n
+\");\n
+                    break;\n
+                case 5:\n
+                    cgc_print(\"Exiting...\\n
+\");\n
+                    cgc__terminate(\"Exiting...\\n
+\");\n
+                case 48:\n
+                    cgc_AdminLogin();\n
+                    break;\n
+                default:\n
+                    cgc_print(\"[-] Invalid choice\\n
+\");\n
+                    continue;\n
+                }\n
+            }\n
+            else\n
+            {\n
+                cgc_print(\"[-] Invalid choice\\n
+\");\n
+                continue;\n
+            }\n
+        }\n
+        else\n
+        {\n
+            cgc_zero(&v4, 100);\n
+            cgc_PrintLoggedOutMenu();\n
+            if (cgc_read_until(&v4, 10, 100) == -1)\n
+                cgc__terminate(a0);\n
+            if (cgc_strlen(&v4) > 1)\n
+            {\n
+                cgc_print(\"[-] Invalid choice\\n
+\");\n
+                continue;\n
+            }\n
+            else\n
+            {\n
+                v1 = v4;\n
+                if (v1 == 49)\n
+                {\n
+                    cgc_CreateUser();\n
+                }\n
+                else if (v1 == 50)\n
+                {\n
+                    cgc_Login();\n
+                }\n
+                else\n
+                {\n
+                    if (v1 == 51)\n
+                    {\n
+                        cgc_print(\"Exiting...\\n
+\");\n
+                        cgc__terminate(\"Exiting...\\n
+\");\n
+                    }\n
+                    cgc_print(\"[-] Invalid choice\\n
+\");\n
+                    continue;\n
+                }\n
+            }\n
+        }\n
+    }\n
+}\n
+", "4204850:sub_402932": null, "4204864:cgc_sort_n_sum": "long long cgc_sort_n_sum(char *a0, unsigned long a1)\n
+{\n
+    char v0;  // [bp-0x21]\n
+    unsigned int v1;  // [bp-0x20]\n
+    char v2;  // [bp-0x19]\n
+    unsigned int v3;  // [bp-0x18]\n
+\n
+    v3 = 1;\n
+    while (v3)\n
+    {\n
+        v3 = 0;\n
+        v0 = *(a0);\n
+        for (v1 = 1; v1 < a1; v1 += 1)\n
+        {\n
+            if (a0[1 + v1] > a0[v1])\n
+            {\n
+                v2 = a0[1 + v1];\n
+                a0[1 + v1] = a0[v1];\n
+                a0[v1] = v2;\n
+                v3 = 1;\n
+            }\n
+            v0 ^= a0[v1];\n
+        }\n
+    }\n
+    return v0;\n
+}\n
+", "4205080:_fini": "long long _fini()\n
+{\n
+    unsigned long v1;  // rax\n
+\n
+    return v1;\n
+}\n
+", "5242880:__libc_start_main": null, "5242888:cgc__terminate": null, "5242896:cgc_transmit": null, "5242904:cgc_receive": null, "6295632:UnresolvableJumpTarget": null, "6295640:UnresolvableCallTarget": null}

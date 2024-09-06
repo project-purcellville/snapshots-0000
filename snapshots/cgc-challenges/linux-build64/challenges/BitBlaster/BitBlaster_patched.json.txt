@@ -1,0 +1,352 @@
+{"4198400:_init": "extern struct_0 *g_403470;\n
+\n
+long long _init()\n
+{\n
+    struct struct_0 **v1;  // rax, Other Possible Types: unsigned long\n
+\n
+    v1 = g_403470;\n
+    if (g_403470)\n
+        v1 = g_403470();\n
+    return v1;\n
+}\n
+", "4198432:sub_401020": "extern unsigned long long g_403490;\n
+\n
+long long sub_401020()\n
+{\n
+    unsigned long v0;  // [bp-0x8]\n
+\n
+    v0 = g_403490;\n
+    goto *(4207768);\n
+}\n
+", "4198444:sub_40102c": null, "4198448:cgc_transmit": "// attributes: PLT stub\n
+int cgc_transmit()\n
+{\n
+    ::libc.so.0::cgc_transmit();\n
+    return;\n
+}\n
+", "4198464:cgc_receive": "// attributes: PLT stub\n
+int cgc_receive()\n
+{\n
+    ::libc.so.0::cgc_receive();\n
+    return;\n
+}\n
+", "4198480:__cxa_finalize": "// attributes: PLT stub\n
+char * __cxa_finalize()\n
+{\n
+    goto *(4207744);\n
+}\n
+", "4198496:_start": "long long _start()\n
+{\n
+    unsigned long v0;  // [bp+0x0], Other Possible Types: char\n
+    unsigned long v1;  // [bp+0x8]\n
+    unsigned long long v2;  // rsi\n
+    unsigned long v3;  // rax\n
+    unsigned long long v4;  // rdx\n
+\n
+    v2 = *(&v0);\n
+    v0 = v3;\n
+    __libc_start_main(main, v2, &v1, 0, 0, v4); /* do not return */\n
+}\n
+", "4198533:sub_401085": null, "4198534:sub_401086": null, "4198544:deregister_tm_clones": "extern char __bss_start;\n
+extern unsigned long long g_403468;\n
+\n
+long long deregister_tm_clones()\n
+{\n
+    return &__bss_start;\n
+}\n
+", "4198585:sub_4010b9": null, "4198592:register_tm_clones": "extern unsigned long long g_403478;\n
+\n
+long long register_tm_clones()\n
+{\n
+    return 0;\n
+}\n
+", "4198649:sub_4010f9": null, "4198656:__do_global_dtors_aux": "extern char __bss_start;\n
+extern unsigned long long g_403480;\n
+\n
+long long __do_global_dtors_aux()\n
+{\n
+    unsigned long v0;  // [bp-0x8]\n
+    unsigned long v2;  // rax\n
+\n
+    if (__bss_start)\n
+        return v2;\n
+    *(&v0) = rbp<8>;\n
+    if (!g_403480)\n
+    {\n
+        __bss_start = 1;\n
+        return deregister_tm_clones();\n
+    }\n
+    __cxa_finalize();\n
+}\n
+", "4198709:sub_401135": null, "4198713:sub_401139": null, "4198720:frame_dummy": "long long frame_dummy()\n
+{\n
+    return register_tm_clones();\n
+}\n
+", "4198729:sub_401149": null, "4198736:cgc_transmit_all": "long long cgc_transmit_all(unsigned long long a0, unsigned long long a1, unsigned long long a2)\n
+{\n
+    unsigned int v0;  // [bp-0x3c]\n
+    void* v1;  // [bp-0x38], Other Possible Types: unsigned long\n
+    void* v2;  // [bp-0x30]\n
+    unsigned int v3;  // [bp-0x14]\n
+    void* v4;  // [bp-0x10], Other Possible Types: unsigned long\n
+    unsigned long long v6;  // rcx\n
+\n
+    v3 = a0;\n
+    v2 = 0;\n
+    v1 = 0;\n
+    v0 = 0;\n
+    if (!a1)\n
+    {\n
+        v4 = 0;\n
+        return v4;\n
+    }\n
+    while (true)\n
+    {\n
+        v0 = cgc_transmit(a0, a1, a2, v6);\n
+        if (v0)\n
+            break;\n
+        if (!v2)\n
+            break;\n
+        v1 = v2 + v1;\n
+        if (v1 >= a2)\n
+        {\n
+            v4 = a2;\n
+            return v4;\n
+        }\n
+    }\n
+    v4 = 0;\n
+    return v4;\n
+}\n
+", "4198912:cgc_receive_all": "long long cgc_receive_all(unsigned long long a0, unsigned long long a1, unsigned long long a2)\n
+{\n
+    unsigned int v0;  // [bp-0x3c]\n
+    void* v1;  // [bp-0x38], Other Possible Types: unsigned long\n
+    void* v2;  // [bp-0x30]\n
+    unsigned int v3;  // [bp-0x14]\n
+    void* v4;  // [bp-0x10], Other Possible Types: unsigned long\n
+    unsigned long long v6;  // rcx\n
+\n
+    v3 = a0;\n
+    v2 = 0;\n
+    v1 = 0;\n
+    v0 = 0;\n
+    if (!a1)\n
+    {\n
+        v4 = 0;\n
+        return v4;\n
+    }\n
+    while (true)\n
+    {\n
+        v0 = cgc_receive(a0, a1, a2, v6);\n
+        if (v0)\n
+            break;\n
+        if (!v2)\n
+            break;\n
+        v1 = v2 + v1;\n
+        if (v1 >= a2)\n
+        {\n
+            v4 = a2;\n
+            return v4;\n
+        }\n
+    }\n
+    v4 = 0;\n
+    return v4;\n
+}\n
+", "4199088:cgc_rotate_right": "extern char gBoard;\n
+\n
+long long cgc_rotate_right(unsigned long a0)\n
+{\n
+    unsigned int v0;  // [bp-0x10]\n
+\n
+    if (a0 >= 0 && a0 < 32)\n
+    {\n
+        v0 = *(&(&gBoard)[4 * a0]) >> 31;\n
+        *(&(&gBoard)[4 * a0]) = *(&(&gBoard)[4 * a0]) * 2 | v0;\n
+        return &gBoard;\n
+    }\n
+    return &gBoard;\n
+}\n
+", "4199176:sub_401308": null, "4199184:cgc_rotate_down": "extern unsigned int gBoard;\n
+extern unsigned int g_40364c;\n
+extern char mask;\n
+extern char neg_mask;\n
+\n
+long long cgc_rotate_down(unsigned long a0)\n
+{\n
+    unsigned int v0;  // [bp-0x14]\n
+    unsigned int v1;  // [bp-0x10]\n
+\n
+    v1 = 0;\n
+    v0 = 0;\n
+    if (a0 >= 0 && a0 < 32)\n
+    {\n
+        v0 = g_40364c;\n
+        for (v1 = 31; v1 > 0; v1 -= 1)\n
+        {\n
+            (&gBoard)[v1] = (&gBoard)[v1] & *(&(&neg_mask)[4 * a0]) | (&gBoard)[1 + v1] & *(&(&mask)[4 * a0]);\n
+        }\n
+        gBoard = gBoard & *(&(&neg_mask)[4 * a0]) | v0 & *(&(&mask)[4 * a0]);\n
+        return gBoard;\n
+    }\n
+    return gBoard;\n
+}\n
+", "4199394:sub_4013e2": null, "4199408:cgc_printBoard": "typedef struct struct_0 {\n
+    char field_0;\n
+} struct_0;\n
+\n
+extern unsigned int gBoard[4];\n
+extern unsigned int mask[4];\n
+\n
+long long cgc_printBoard()\n
+{\n
+    char v0;  // [bp-0x458]\n
+    unsigned int v1;  // [bp-0x14]\n
+    unsigned int v2;  // [bp-0x10]\n
+    unsigned int v3;  // [bp-0xc]\n
+    struct_0 *v5;  // rax\n
+    unsigned long v6;  // rax\n
+    unsigned long v7;  // rax\n
+\n
+    v3 = 0;\n
+    v2 = 0;\n
+    v1 = 0;\n
+    for (v3 = 0; v3 < 32; v3 += 1)\n
+    {\n
+        for (v2 = 0; v2 < 32; v2 += 1)\n
+        {\n
+            if ((gBoard[v3] & mask[v2]))\n
+            {\n
+                v5 = v1;\n
+                v1 = v5 + 1;\n
+                *((&v0 + v5)) = 49;\n
+            }\n
+            else\n
+            {\n
+                v6 = v1;\n
+                v1 = v6 + 1;\n
+                (&v0)[v6] = 46;\n
+            }\n
+        }\n
+        v7 = v1;\n
+        v1 = v7 + 1;\n
+        (&v0)[v7] = 10;\n
+    }\n
+    (&v0)[v1] = 0;\n
+    return cgc_transmit_all(1, &v0, v1);\n
+}\n
+", "4199654:sub_4014e6": null, "4199664:cgc_initBoard": "extern unsigned int g_403648;\n
+extern unsigned int g_40364c;\n
+\n
+long long cgc_initBoard()\n
+{\n
+    unsigned long v1;  // rax\n
+\n
+    g_40364c = -1;\n
+    g_403648 = -1;\n
+    return v1;\n
+}\n
+", "4199690:sub_40150a": null, "4199696:cgc_remove_bits": "extern unsigned int g_403648;\n
+extern unsigned int g_40364c;\n
+\n
+long long cgc_remove_bits()\n
+{\n
+    unsigned long v1;  // rax, Other Possible Types: unsigned long long\n
+\n
+    v1 = g_40364c & 3;\n
+    if (v1 == 3)\n
+    {\n
+        v1 = g_403648 & 3;\n
+        if (v1 == 3)\n
+        {\n
+            g_40364c = g_40364c & -0x4;\n
+            v1 = g_403648 & -0x4;\n
+            g_403648 = v1;\n
+        }\n
+    }\n
+    return v1;\n
+}\n
+", "4199768:sub_401558": null, "4199776:cgc_makeMove": "long long cgc_makeMove(unsigned long a0)\n
+{\n
+    unsigned int v0;  // [bp-0x10]\n
+\n
+    v0 = 0;\n
+    v0 = a0 & 31;\n
+    if (!(a0 & 32))\n
+    {\n
+        cgc_rotate_down(v0);\n
+        return cgc_remove_bits();\n
+    }\n
+    cgc_rotate_right(v0);\n
+    return cgc_remove_bits();\n
+}\n
+", "4199855:sub_4015af": null, "4199856:cgc_isWinner": "extern unsigned int gBoard[4];\n
+\n
+long long cgc_isWinner()\n
+{\n
+    unsigned int v0;  // [bp-0x10]\n
+    unsigned int v1;  // [bp-0xc]\n
+\n
+    v0 = 0;\n
+    v0 = 0;\n
+    while (true)\n
+    {\n
+        if (v0 >= 32)\n
+        {\n
+            v1 = 1;\n
+            return v1;\n
+        }\n
+        else if (!gBoard[v0])\n
+        {\n
+            v0 += 1;\n
+        }\n
+        else\n
+        {\n
+            v1 = 0;\n
+            return v1;\n
+        }\n
+    }\n
+}\n
+", "4199948:sub_40160c": null, "4199952:main": "int main(unsigned long a0, unsigned long a1)\n
+{\n
+    char v0;  // [bp-0x19]\n
+    unsigned long v1;  // [bp-0x18]\n
+    unsigned int v2;  // [bp-0x10]\n
+    unsigned int v3;  // [bp-0xc]\n
+\n
+    v3 = 0;\n
+    v2 = a0;\n
+    v1 = a1;\n
+    cgc_initBoard();\n
+    while (true)\n
+    {\n
+        if (((cgc_isWinner() ^ 255) & 1))\n
+        {\n
+            if (cgc_receive_all(0, &v0, 1) != 1)\n
+            {\n
+                cgc_printBoard();\n
+                v3 = 0;\n
+                return v3;\n
+            }\n
+            if (v0 == 255)\n
+            {\n
+                cgc_printBoard();\n
+                v3 = 0;\n
+                return v3;\n
+            }\n
+            cgc_makeMove(v0);\n
+        }\n
+        else\n
+        {\n
+            cgc_transmit_all(1, \"You Win\\n
+\", 8);\n
+            return v3;\n
+        }\n
+    }\n
+}\n
+", "4200128:_fini": "long long _fini()\n
+{\n
+    unsigned long v1;  // rax\n
+\n
+    return v1;\n
+}\n
+", "5242880:__libc_start_main": null, "5242888:cgc_transmit": null, "5242896:cgc_receive": null, "6295632:UnresolvableJumpTarget": null, "6295640:UnresolvableCallTarget": null}

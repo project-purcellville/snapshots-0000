@@ -1,0 +1,611 @@
+{"4198400:_init": "extern struct_0 *g_403620;\n
+\n
+long long _init()\n
+{\n
+    struct struct_0 **v1;  // rax, Other Possible Types: unsigned long\n
+\n
+    v1 = g_403620;\n
+    if (g_403620)\n
+        v1 = g_403620();\n
+    return v1;\n
+}\n
+", "4198432:sub_401020": "extern unsigned long long g_403640;\n
+\n
+long long sub_401020()\n
+{\n
+    unsigned long v0;  // [bp-0x8]\n
+\n
+    v0 = g_403640;\n
+    goto *(4208200);\n
+}\n
+", "4198444:sub_40102c": null, "4198448:cgc__terminate": "// attributes: PLT stub\n
+int cgc__terminate()\n
+{\n
+    ::libc.so.0::cgc__terminate();\n
+    return;\n
+}\n
+", "4198464:memset": "// attributes: PLT stub\n
+void* memset(void* block, unsigned int c, unsigned int size)\n
+{\n
+    return ::libc.so.0::memset(block, c, size);\n
+}\n
+", "4198480:cgc_transmit": "// attributes: PLT stub\n
+int cgc_transmit()\n
+{\n
+    ::libc.so.0::cgc_transmit();\n
+    return;\n
+}\n
+", "4198496:cgc_allocate": "// attributes: PLT stub\n
+int cgc_allocate()\n
+{\n
+    ::libc.so.0::cgc_allocate();\n
+    return;\n
+}\n
+", "4198512:cgc_receive": "// attributes: PLT stub\n
+int cgc_receive()\n
+{\n
+    ::libc.so.0::cgc_receive();\n
+    return;\n
+}\n
+", "4198528:__cxa_finalize": "// attributes: PLT stub\n
+char * __cxa_finalize()\n
+{\n
+    goto *(4208176);\n
+}\n
+", "4198544:_start": "long long _start()\n
+{\n
+    unsigned long v0;  // [bp+0x0], Other Possible Types: char\n
+    unsigned long v1;  // [bp+0x8]\n
+    unsigned long long v2;  // rsi\n
+    unsigned long v3;  // rax\n
+    unsigned long long v4;  // rdx\n
+\n
+    v2 = *(&v0);\n
+    v0 = v3;\n
+    __libc_start_main(main, v2, &v1, 0, 0, v4); /* do not return */\n
+}\n
+", "4198581:sub_4010b5": null, "4198582:sub_4010b6": null, "4198592:deregister_tm_clones": "extern char __bss_start;\n
+extern unsigned long long g_403618;\n
+\n
+long long deregister_tm_clones()\n
+{\n
+    return &__bss_start;\n
+}\n
+", "4198633:sub_4010e9": null, "4198640:register_tm_clones": "extern unsigned long long g_403628;\n
+\n
+long long register_tm_clones()\n
+{\n
+    return 0;\n
+}\n
+", "4198697:sub_401129": null, "4198704:__do_global_dtors_aux": "extern char __bss_start;\n
+extern unsigned long long g_403630;\n
+\n
+long long __do_global_dtors_aux()\n
+{\n
+    unsigned long v0;  // [bp-0x8]\n
+    unsigned long v2;  // rax\n
+\n
+    if (__bss_start)\n
+        return v2;\n
+    *(&v0) = rbp<8>;\n
+    if (!g_403630)\n
+    {\n
+        __bss_start = 1;\n
+        return deregister_tm_clones();\n
+    }\n
+    __cxa_finalize();\n
+}\n
+", "4198757:sub_401165": null, "4198761:sub_401169": null, "4198768:frame_dummy": "long long frame_dummy()\n
+{\n
+    return register_tm_clones();\n
+}\n
+", "4198777:sub_401179": null, "4198784:cgc_send": "long long cgc_send(unsigned long long a0, unsigned long long a1)\n
+{\n
+    if (cgc_transmit_all(1, a0, a1))\n
+    {\n
+        cgc__terminate(1);\n
+        return 0;\n
+    }\n
+    return 0;\n
+}\n
+", "4198845:sub_4011bd": null, "4198848:cgc_transmit_all": "long long cgc_transmit_all(unsigned long long a0, unsigned long long a1, unsigned long long a2)\n
+{\n
+    unsigned int v0;  // [bp-0x34]\n
+    void* v1;  // [bp-0x30]\n
+    void* v2;  // [bp-0x28], Other Possible Types: unsigned long\n
+    unsigned int v3;  // [bp-0x10]\n
+    unsigned int v4;  // [bp-0xc]\n
+    unsigned long long v6;  // rcx\n
+\n
+    v3 = a0;\n
+    v2 = 0;\n
+    v1 = 0;\n
+    if (!a1)\n
+    {\n
+        v4 = 1;\n
+        return v4;\n
+    }\n
+    if (!a2)\n
+    {\n
+        v4 = 2;\n
+        return v4;\n
+    }\n
+    while (true)\n
+    {\n
+        if (v2 < a2)\n
+        {\n
+            v0 = cgc_transmit(a0, a1, a2, v6);\n
+            if (v0)\n
+            {\n
+                v4 = 3;\n
+                return v4;\n
+            }\n
+            v2 = v1 + v2;\n
+        }\n
+        else\n
+        {\n
+            v4 = 0;\n
+            return v4;\n
+        }\n
+    }\n
+}\n
+", "4199034:sub_40127a": null, "4199040:cgc_recv_all": "long long cgc_recv_all(unsigned long long a0, unsigned long long a1)\n
+{\n
+    return cgc_read_all(0, a0, a1);\n
+}\n
+", "4199079:sub_4012a7": null, "4199088:cgc_read_all": "long long cgc_read_all(unsigned long long a0, char *a1, unsigned long long a2)\n
+{\n
+    char v0;  // [bp-0x30]\n
+    unsigned int v1;  // [bp-0x24]\n
+    char v2;  // [bp-0x1d]\n
+    unsigned int v3;  // [bp-0x1c]\n
+    unsigned int v4;  // [bp-0xc]\n
+    unsigned long v8;  // rcx\n
+\n
+    v4 = a0;\n
+    v3 = a2;\n
+    v1 = 0;\n
+    while (true)\n
+    {\n
+        if (!v3)\n
+            return v1;\n
+        if (cgc_receive(a0, a1, a2, rcx<8>))\n
+            break;\n
+        if (!*(&v0))\n
+            break;\n
+        v8 = v1;\n
+        v1 = v8 + 1;\n
+        a1[v8] = v2;\n
+        v3 -= 1;\n
+    }\n
+    return v1;\n
+}\n
+", "4199215:sub_40132f": null, "4199216:cgc_memset": "long long cgc_memset(char *a0, unsigned long a1, unsigned long a2)\n
+{\n
+    char *v0;  // [bp-0x20], Other Possible Types: unsigned long\n
+    unsigned int v1;  // [bp-0x18]\n
+    unsigned int v3;  // eax\n
+    char *v4;  // rax\n
+\n
+    v1 = a2;\n
+    v0 = a0;\n
+    while (true)\n
+    {\n
+        v3 = v1;\n
+        v1 = v3 - 1;\n
+        if (!v3)\n
+            break;\n
+        v4 = v0;\n
+        v0 = v4 + 1;\n
+        *(v4) = a1;\n
+    }\n
+    return a0;\n
+}\n
+", "4199291:sub_40137b": null, "4199296:cgc_get_syllable_for_note_id": "int cgc_get_syllable_for_note_id()\n
+{\n
+    unsigned long v0;  // [bp-0x20]\n
+    unsigned long v1;  // [bp-0x18]\n
+    unsigned int v2;  // [bp-0xc]\n
+    char v3;  // [bp-0x8]\n
+    unsigned long long v7;  // rbp\n
+    unsigned long v8;  // rsi\n
+    unsigned int v9;  // edi\n
+    unsigned long long v10;  // rax\n
+\n
+    v7 = &v3;\n
+    v1 = v8;\n
+    v0 = v9 - 1;\n
+    if (v0 > 6)\n
+    {\n
+        v2 = -902;\n
+        return;\n
+    }\n
+    v10 = v0;\n
+    goto *((4202500 + rax<8> * 4)) + 4202500;\n
+}\n
+", "4199557:sub_401485": null, "4199568:cgc_get_note_for_syllable_id": "int cgc_get_note_for_syllable_id()\n
+{\n
+    unsigned long v0;  // [bp-0x20]\n
+    unsigned long v1;  // [bp-0x18]\n
+    unsigned int v2;  // [bp-0xc]\n
+    char v3;  // [bp-0x8]\n
+    unsigned long long v7;  // rbp\n
+    unsigned long v8;  // rsi\n
+    unsigned int v9;  // edi\n
+    unsigned long long v10;  // rax\n
+\n
+    v7 = &v3;\n
+    v1 = v8;\n
+    v0 = v9 - 1;\n
+    if (v0 > 6)\n
+    {\n
+        v2 = -903;\n
+        return;\n
+    }\n
+    v10 = v0;\n
+    goto *((4202528 + rax<8> * 4)) + 4202528;\n
+}\n
+", "4199765:sub_401555": null, "4199776:cgc_get_next_note_id": "long long cgc_get_next_note_id(char *a0)\n
+{\n
+    unsigned long v0;  // [bp-0x20]\n
+    unsigned int v1;  // [bp-0xc]\n
+\n
+    v0 = *(a0) - 65;\n
+    if (v0 > 6)\n
+    {\n
+        v1 = -902;\n
+        return v1;\n
+    }\n
+    goto *((4202556 + (stack_base)[32] * 4)) + 4202556;\n
+}\n
+", "4199925:sub_4015f5": null, "4199936:cgc_get_next_syllable_id": "long long cgc_get_next_syllable_id(char a0[3], char *a1)\n
+{\n
+    char v0;  // [bp-0x23]\n
+    char v1;  // [bp-0x22]\n
+    char v2;  // [bp-0x21]\n
+    unsigned int v3;  // [bp-0xc]\n
+\n
+    v2 = a0[0];\n
+    v1 = a0[1];\n
+    v0 = a0[2];\n
+    if (v2 == 85 && v1 == 116)\n
+    {\n
+        *(a1) = 2;\n
+        v3 = 1;\n
+        return v3;\n
+    }\n
+    if (v2 == 82 && v1 == 101)\n
+    {\n
+        *(a1) = 2;\n
+        v3 = 2;\n
+        return v3;\n
+    }\n
+    if (v2 == 77 && v1 == 105)\n
+    {\n
+        *(a1) = 2;\n
+        v3 = 3;\n
+        return v3;\n
+    }\n
+    if (v2 == 70 && v1 == 97)\n
+    {\n
+        *(a1) = 2;\n
+        v3 = 4;\n
+        return v3;\n
+    }\n
+    if (v2 == 83 && v1 == 111 && v0 == 108)\n
+    {\n
+        *(a1) = 3;\n
+        v3 = 5;\n
+        return v3;\n
+    }\n
+    if (v2 == 76 && v1 == 97)\n
+    {\n
+        *(a1) = 2;\n
+        v3 = 6;\n
+        return v3;\n
+    }\n
+    if (v2 == 83 && v1 == 105)\n
+    {\n
+        *(a1) = 2;\n
+        v3 = 7;\n
+        return v3;\n
+    }\n
+    v3 = -903;\n
+    return v3;\n
+}\n
+", "4200377:sub_4017b9": null, "4200384:cgc_write_note_to_buf": "long long cgc_write_note_to_buf(unsigned long long a0, char *a1)\n
+{\n
+    char v0;  // [bp-0x1d]\n
+    unsigned int v1;  // [bp-0x1c]\n
+    unsigned int v2;  // [bp-0xc]\n
+\n
+    v2 = a0;\n
+    v1 = 1;\n
+    v0 = 0;\n
+    v1 = cgc_get_note_for_syllable_id(a0, a1);\n
+    if (!v1)\n
+    {\n
+        *(a1) = v0;\n
+        v1 = 1;\n
+        return v1;\n
+    }\n
+    return v1;\n
+}\n
+", "4200461:sub_40180d": null, "4200464:cgc_write_syllable_to_buf": "long long cgc_write_syllable_to_buf(unsigned long long a0, char a1[3])\n
+{\n
+    char v0;  // [bp-0x1f]\n
+    char v1;  // [bp-0x1e]\n
+    char v2;  // [bp-0x1d]\n
+    unsigned int v3;  // [bp-0x1c]\n
+    unsigned int v4;  // [bp-0xc]\n
+\n
+    v4 = a0;\n
+    v3 = 2;\n
+    memset(&v0, 0, 3);\n
+    v3 = cgc_get_syllable_for_note_id(a0, 0);\n
+    if (0 < v3)\n
+    {\n
+        a1[0] = v0;\n
+        a1[1] = v1;\n
+    }\n
+    if (v3 == 3)\n
+        a1[2] = v2;\n
+    return v3;\n
+}\n
+", "4200580:sub_401884": null, "4200592:cgc_process_syllables": "long long cgc_process_syllables(unsigned long a0, unsigned long a1, unsigned long a2)\n
+{\n
+    char v0;  // [bp-0x45]\n
+    unsigned int v1;  // [bp-0x44]\n
+    char v2;  // [bp-0x3d]\n
+    unsigned int v3;  // [bp-0x3c]\n
+    char *v4;  // [bp-0x38], Other Possible Types: unsigned long\n
+    char v5[3];  // [bp-0x30], Other Possible Types: unsigned long\n
+    unsigned int v6;  // [bp-0x24]\n
+    unsigned int v7;  // [bp-0xc], Other Possible Types: unsigned long\n
+\n
+    v7 = a0;\n
+    v6 = 1;\n
+    *(&v5) = a1;\n
+    v4 = a2;\n
+    v3 = 0;\n
+    memset(&v2, 0, 1);\n
+    v1 = 0;\n
+    while (true)\n
+    {\n
+        v0 = 0;\n
+        if (0 < v6)\n
+            v0 = 0 < v7;\n
+        if (!(v0 & 1))\n
+            break;\n
+        v3 = cgc_get_next_syllable_id(v5, &v2);\n
+        if (0 >= v3)\n
+        {\n
+            v6 = v3;\n
+        }\n
+        else\n
+        {\n
+            v5 = &v5[v2];\n
+            v7 = v7 - v2;\n
+            v6 = cgc_write_note_to_buf(v3, v4);\n
+            if (v6 == 1)\n
+            {\n
+                v4 += v6;\n
+                v1 = v6 + v1;\n
+            }\n
+        }\n
+    }\n
+    if (0 < v6)\n
+        v6 = v1;\n
+    return v6;\n
+}\n
+", "4200861:sub_40199d": null, "4200864:cgc_process_notes": "long long cgc_process_notes(unsigned long a0, unsigned long a1, unsigned long a2)\n
+{\n
+    char v0;  // [bp-0x41]\n
+    unsigned int v1;  // [bp-0x40]\n
+    unsigned int v2;  // [bp-0x3c]\n
+    char *v3;  // [bp-0x38], Other Possible Types: unsigned long\n
+    char v4[3];  // [bp-0x30], Other Possible Types: unsigned long\n
+    unsigned int v5;  // [bp-0x24]\n
+    unsigned int v6;  // [bp-0xc], Other Possible Types: unsigned long\n
+\n
+    v6 = a0;\n
+    v5 = 1;\n
+    *(&v4) = a1;\n
+    v3 = a2;\n
+    v2 = 0;\n
+    v1 = 0;\n
+    while (true)\n
+    {\n
+        v0 = 0;\n
+        if (0 < v5)\n
+        {\n
+            v0 = 0;\n
+            if (4094 > v1)\n
+                v0 = 0 < v6;\n
+        }\n
+        if (!(v0 & 1))\n
+            break;\n
+        v2 = cgc_get_next_note_id(v3);\n
+        if (0 >= v2)\n
+        {\n
+            v5 = v2;\n
+LABEL_401a92:\n
+        }\n
+        else\n
+        {\n
+            v3 += 1;\n
+            v6 = v6 - 1;\n
+            v5 = cgc_write_syllable_to_buf(v2, v4);\n
+            if (v5 != 2 && !(3 == v5))\n
+                goto LABEL_401a87;\n
+            v4 += v5;\n
+            v1 = v5 + v1;\n
+LABEL_401a87:\n
+            goto LABEL_401a92;\n
+        }\n
+    }\n
+    if (0 < v5)\n
+        v5 = v1;\n
+    return v5;\n
+}\n
+", "4201137:sub_401ab1": null, "4201152:cgc_send_syllables": "long long cgc_send_syllables(unsigned long a0, unsigned long long a1)\n
+{\n
+    return cgc_send(a1, a0);\n
+}\n
+", "4201191:sub_401ae7": null, "4201200:cgc_send_notes": "long long cgc_send_notes(unsigned long a0, unsigned long long a1)\n
+{\n
+    return cgc_send(a1, a0);\n
+}\n
+", "4201239:sub_401b17": null, "4201248:cgc_recv_bytes_count": "long long cgc_recv_bytes_count()\n
+{\n
+    char v0;  // [bp-0xc]\n
+    unsigned long long v2;  // rdi\n
+\n
+    memset(&v0, 0, 4);\n
+    if (cgc_recv_all(&v0, 4) != 4)\n
+    {\n
+        cgc__terminate(v2);\n
+        return *(&v0);\n
+    }\n
+    return *(&v0);\n
+}\n
+", "4201323:sub_401b6b": null, "4201328:cgc_to_syllables": "long long cgc_to_syllables(unsigned long a0, unsigned long a1)\n
+{\n
+    unsigned int v0;  // [bp-0x30]\n
+    unsigned int v1;  // [bp-0x2c]\n
+    unsigned int v2;  // [bp-0x28]\n
+    unsigned int v3;  // [bp-0x24]\n
+    unsigned int v4;  // [bp-0xc]\n
+\n
+    v3 = 0;\n
+    v2 = 0;\n
+    v1 = cgc_recv_bytes_count();\n
+    if (0 >= v1)\n
+    {\n
+        v4 = -906;\n
+        return v4;\n
+    }\n
+    else if (0x800 >= v1)\n
+    {\n
+        v0 = v1;\n
+        if (v0 != cgc_recv_all(a1, v1))\n
+            cgc__terminate(a0);\n
+        v2 = cgc_process_notes(v1, a0, a1);\n
+        if (0 < v2)\n
+        {\n
+            cgc_send_syllables(v2, a0);\n
+            v3 = 0;\n
+        }\n
+        else if (!v2)\n
+        {\n
+            v3 = -907;\n
+        }\n
+        else\n
+        {\n
+            v3 = v2;\n
+        }\n
+        v4 = v3;\n
+        return v4;\n
+    }\n
+    else\n
+    {\n
+        v4 = -904;\n
+        return v4;\n
+    }\n
+}\n
+", "4201561:sub_401c59": null, "4201568:cgc_to_notes": "long long cgc_to_notes(unsigned long a0, unsigned long a1)\n
+{\n
+    unsigned int v0;  // [bp-0x30]\n
+    unsigned int v1;  // [bp-0x2c]\n
+    unsigned int v2;  // [bp-0x28]\n
+    unsigned int v3;  // [bp-0x24]\n
+    unsigned int v4;  // [bp-0xc]\n
+\n
+    v3 = 0;\n
+    v2 = 0;\n
+    v1 = cgc_recv_bytes_count();\n
+    if (0 >= v1)\n
+    {\n
+        v4 = -907;\n
+        return v4;\n
+    }\n
+    else if (0x1000 >= v1)\n
+    {\n
+        v0 = v1;\n
+        if (v0 != cgc_recv_all(a0, v1))\n
+            cgc__terminate(a0);\n
+        v2 = cgc_process_syllables(v1, a0, a1);\n
+        if (0 < v2)\n
+        {\n
+            cgc_send_notes(v2, a1);\n
+            v3 = 0;\n
+        }\n
+        else if (!v2)\n
+        {\n
+            v3 = -906;\n
+        }\n
+        else\n
+        {\n
+            v3 = v2;\n
+        }\n
+        v4 = v3;\n
+        return v4;\n
+    }\n
+    else\n
+    {\n
+        v4 = -905;\n
+        return v4;\n
+    }\n
+}\n
+", "4201801:sub_401d49": null, "4201808:main": "int main(unsigned long long a0, unsigned long a1)\n
+{\n
+    unsigned int v0;  // [bp-0x34]\n
+    char v1;  // [bp-0x30]\n
+    char v2;  // [bp-0x28]\n
+    unsigned int v3;  // [bp-0x20]\n
+    char v4;  // [bp-0x1c]\n
+    unsigned long v5;  // [bp-0x18]\n
+    unsigned int v6;  // [bp-0x10]\n
+    unsigned int v7;  // [bp-0xc]\n
+\n
+    v7 = 0;\n
+    v6 = a0;\n
+    v5 = a1;\n
+    memset(&v4, 0, 4);\n
+    v3 = 0;\n
+    if (cgc_allocate(a0, 0, 4))\n
+        cgc__terminate(a0);\n
+    if (cgc_allocate(a0, 0, 4))\n
+        cgc__terminate(a0);\n
+    while (true)\n
+    {\n
+        if (cgc_recv_all(&v4, 4) != 4)\n
+            cgc__terminate(a0);\n
+        v0 = *(&v4);\n
+        if (v0 == 804619)\n
+        {\n
+            v3 = cgc_to_syllables(*(&v2), *(&v1));\n
+        }\n
+        else if (v0 != 1128809)\n
+        {\n
+            v3 = -901;\n
+        }\n
+        else\n
+        {\n
+            v3 = cgc_to_notes(*(&v2), *(&v1));\n
+        }\n
+        if (v3 < 0)\n
+            break;\n
+        cgc_memset(*(&v2), 0, 0x1000);\n
+        cgc_memset(*(&v1), 0, 0x1000);\n
+    }\n
+    cgc_send(&v3, 4);\n
+    return v3;\n
+}\n
+", "4202136:_fini": "long long _fini()\n
+{\n
+    unsigned long v1;  // rax\n
+\n
+    return v1;\n
+}\n
+", "5242880:__libc_start_main": null, "5242888:cgc__terminate": null, "5242896:memset": null, "5242904:cgc_transmit": null, "5242912:cgc_allocate": null, "5242920:cgc_receive": null, "6295632:UnresolvableJumpTarget": null, "6295640:UnresolvableCallTarget": null}

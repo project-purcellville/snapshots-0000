@@ -1,0 +1,5774 @@
+{"4202496:_init": "extern struct_0 *g_411230;\n
+\n
+long long _init()\n
+{\n
+    struct struct_0 **v1;  // rax, Other Possible Types: unsigned long\n
+\n
+    v1 = g_411230;\n
+    if (g_411230)\n
+        v1 = g_411230();\n
+    return v1;\n
+}\n
+", "4202528:sub_402020": "extern unsigned long long g_411250;\n
+\n
+long long sub_402020()\n
+{\n
+    unsigned long v0;  // [bp-0x8]\n
+\n
+    v0 = g_411250;\n
+    goto *(4264536);\n
+}\n
+", "4202540:sub_40202c": null, "4202544:cgc__terminate": "// attributes: PLT stub\n
+int cgc__terminate()\n
+{\n
+    ::libc.so.0::cgc__terminate();\n
+    return;\n
+}\n
+", "4202560:memset": "// attributes: PLT stub\n
+void* memset(void* block, unsigned int c, unsigned int size)\n
+{\n
+    return ::libc.so.0::memset(block, c, size);\n
+}\n
+", "4202576:cgc_transmit": "// attributes: PLT stub\n
+int cgc_transmit()\n
+{\n
+    ::libc.so.0::cgc_transmit();\n
+    return;\n
+}\n
+", "4202592:cgc_allocate": "// attributes: PLT stub\n
+int cgc_allocate()\n
+{\n
+    ::libc.so.0::cgc_allocate();\n
+    return;\n
+}\n
+", "4202608:cgc_receive": "// attributes: PLT stub\n
+int cgc_receive()\n
+{\n
+    ::libc.so.0::cgc_receive();\n
+    return;\n
+}\n
+", "4202624:__cxa_finalize": "// attributes: PLT stub\n
+char * __cxa_finalize()\n
+{\n
+    goto *(4264512);\n
+}\n
+", "4202640:_start": "long long _start()\n
+{\n
+    unsigned long v0;  // [bp+0x0], Other Possible Types: char\n
+    unsigned long v1;  // [bp+0x8]\n
+    unsigned long long v2;  // rsi\n
+    unsigned long v3;  // rax\n
+    unsigned long long v4;  // rdx\n
+\n
+    v2 = *(&v0);\n
+    v0 = v3;\n
+    __libc_start_main(main, v2, &v1, 0, 0, v4); /* do not return */\n
+}\n
+", "4202677:sub_4020b5": null, "4202678:sub_4020b6": null, "4202688:deregister_tm_clones": "extern char __bss_start;\n
+extern unsigned long long g_411228;\n
+\n
+long long deregister_tm_clones()\n
+{\n
+    return &__bss_start;\n
+}\n
+", "4202729:sub_4020e9": null, "4202736:register_tm_clones": "extern unsigned long long g_411238;\n
+\n
+long long register_tm_clones()\n
+{\n
+    return 0;\n
+}\n
+", "4202793:sub_402129": null, "4202800:__do_global_dtors_aux": "extern char __bss_start;\n
+extern unsigned long long g_411240;\n
+\n
+long long __do_global_dtors_aux()\n
+{\n
+    unsigned long v0;  // [bp-0x8]\n
+    unsigned long v2;  // rax\n
+\n
+    if (__bss_start)\n
+        return v2;\n
+    *(&v0) = rbp<8>;\n
+    if (!g_411240)\n
+    {\n
+        __bss_start = 1;\n
+        return deregister_tm_clones();\n
+    }\n
+    __cxa_finalize();\n
+}\n
+", "4202853:sub_402165": null, "4202857:sub_402169": null, "4202864:frame_dummy": "long long frame_dummy()\n
+{\n
+    return register_tm_clones();\n
+}\n
+", "4202873:sub_402179": null, "4202880:cgc_is_non_printable": "long long cgc_is_non_printable(unsigned long a0)\n
+{\n
+    char v0;  // [bp-0x9]\n
+\n
+    if (!cgc_is_printable(a0))\n
+    {\n
+        v0 = 1;\n
+        return v0;\n
+    }\n
+    v0 = 0;\n
+    return v0;\n
+}\n
+", "4202939:sub_4021bb": null, "4202944:cgc_is_printable": "long long cgc_is_printable(unsigned long a0)\n
+{\n
+    char v0;  // [bp-0x9]\n
+\n
+    if (cgc_is_digit(a0) != 1 && cgc_is_letter(a0) != 1 && cgc_is_symbol(a0) != 1)\n
+    {\n
+        v0 = 0;\n
+        return v0;\n
+    }\n
+    v0 = 1;\n
+    return v0;\n
+}\n
+", "4203056:cgc_is_digit": "long long cgc_is_digit(unsigned long a0)\n
+{\n
+    char v0;  // [bp-0x9]\n
+\n
+    if (48 <= a0 && 57 >= a0)\n
+    {\n
+        v0 = 1;\n
+        return v0;\n
+    }\n
+    v0 = 0;\n
+    return v0;\n
+}\n
+", "4203119:sub_40226f": null, "4203120:cgc_is_letter": "long long cgc_is_letter(unsigned long a0)\n
+{\n
+    char v0;  // [bp-0x9]\n
+\n
+    if (cgc_is_upper(a0) != 1 && cgc_is_lower(a0) != 1)\n
+    {\n
+        v0 = 0;\n
+        return v0;\n
+    }\n
+    v0 = 1;\n
+    return v0;\n
+}\n
+", "4203207:sub_4022c7": null, "4203216:cgc_is_symbol": "long long cgc_is_symbol(unsigned long a0)\n
+{\n
+    char v0;  // [bp-0x9]\n
+\n
+    if (33 <= a0 && a0 <= 47)\n
+        goto LABEL_402352;\n
+    if (58 <= a0 && a0 <= 64)\n
+        goto LABEL_402352;\n
+    if (91 <= a0 && a0 <= 96)\n
+        goto LABEL_402352;\n
+    if (123 > a0)\n
+    {\n
+LABEL_40235b:\n
+        v0 = 0;\n
+        return v0;\n
+    }\n
+    else if (!(a0 <= 126))\n
+    {\n
+        goto LABEL_40235b;\n
+    }\n
+LABEL_402352:\n
+    v0 = 1;\n
+    return v0;\n
+}\n
+", "4203365:sub_402365": null, "4203376:cgc_is_hexdigit": "long long cgc_is_hexdigit(unsigned long a0)\n
+{\n
+    char v0;  // [bp-0x9]\n
+\n
+    if (cgc_is_digit(a0) != 1)\n
+    {\n
+        if (97 <= a0 && !(102 < a0))\n
+            goto LABEL_4023db;\n
+        if (65 > a0)\n
+        {\n
+LABEL_4023e4:\n
+            v0 = 0;\n
+            return v0;\n
+        }\n
+        else if (70 < a0)\n
+        {\n
+            goto LABEL_4023e4;\n
+        }\n
+    }\n
+LABEL_4023db:\n
+    v0 = 1;\n
+    return v0;\n
+}\n
+", "4203506:sub_4023f2": null, "4203520:cgc_is_upper": "long long cgc_is_upper(unsigned long a0)\n
+{\n
+    char v0;  // [bp-0x9]\n
+\n
+    if (65 <= a0 && 90 >= a0)\n
+    {\n
+        v0 = 1;\n
+        return v0;\n
+    }\n
+    v0 = 0;\n
+    return v0;\n
+}\n
+", "4203583:sub_40243f": null, "4203584:cgc_is_lower": "long long cgc_is_lower(unsigned long a0)\n
+{\n
+    char v0;  // [bp-0x9]\n
+\n
+    if (97 <= a0 && 122 >= a0)\n
+    {\n
+        v0 = 1;\n
+        return v0;\n
+    }\n
+    v0 = 0;\n
+    return v0;\n
+}\n
+", "4203647:sub_40247f": null, "4203648:cgc_toupper": "long long cgc_toupper(unsigned long a0)\n
+{\n
+    unsigned int v0;  // [bp-0x10]\n
+\n
+    if (!cgc_is_lower(a0))\n
+    {\n
+        v0 = a0;\n
+        return v0;\n
+    }\n
+    v0 = a0 + -32;\n
+    return v0;\n
+}\n
+", "4203714:sub_4024c2": null, "4203728:cgc_tolower": "long long cgc_tolower(unsigned long a0)\n
+{\n
+    unsigned int v0;  // [bp-0x10]\n
+\n
+    if (!cgc_is_upper(a0))\n
+    {\n
+        v0 = a0;\n
+        return v0;\n
+    }\n
+    v0 = a0 + 32;\n
+    return v0;\n
+}\n
+", "4203794:sub_402512": null, "4203808:cgc_todigit": "long long cgc_todigit(unsigned long a0, unsigned long a1)\n
+{\n
+    char v0;  // [bp-0x9]\n
+\n
+    if (a1 >= 2 && a1 <= 16 && a0 < a1)\n
+    {\n
+        if (a0 >= 10)\n
+        {\n
+            v0 = a0 + 87;\n
+            return v0;\n
+        }\n
+        v0 = a0 + 48;\n
+        return v0;\n
+    }\n
+    v0 = 0;\n
+    return v0;\n
+}\n
+", "4203901:sub_40257d": null, "4203904:cgc_fromdigit": "long long cgc_fromdigit(unsigned long a0, unsigned long a1)\n
+{\n
+    unsigned int v0;  // [bp-0x1c]\n
+    unsigned int v1;  // [bp-0x18]\n
+    char v2;  // [bp-0xd]\n
+    unsigned int v3;  // [bp-0xc]\n
+\n
+    v2 = a0;\n
+    if (a1 >= 2 && a1 <= 16)\n
+    {\n
+        v2 = cgc_tolower(v2);\n
+        if (!cgc_is_digit(v2))\n
+            v1 = v2 + -87;\n
+        else\n
+            v1 = v2 - 48;\n
+        if (v1 >= 0 && v1 < a1)\n
+        {\n
+            v0 = v1;\n
+            goto LABEL_402618;\n
+        }\n
+        v0 = -15;\n
+LABEL_402618:\n
+        v3 = v0;\n
+        return v3;\n
+    }\n
+    v3 = -15;\n
+    return v3;\n
+}\n
+", "4204071:sub_402627": null, "4204080:cgc_itohex": "typedef struct struct_0 {\n
+    char field_0;\n
+    char field_1;\n
+    char field_2;\n
+    char field_3;\n
+} struct_0;\n
+\n
+long long cgc_itohex(char a0[9], unsigned long a1, unsigned long a2)\n
+{\n
+    struct_0 *v0;  // [bp-0x20]\n
+    unsigned int v1;  // [bp-0x14]\n
+\n
+    v1 = a1;\n
+    v0 = &v1;\n
+    a0[0] = cgc_todigit((v0->field_3 >> 4) & 15, 16);\n
+    a0[1] = cgc_todigit(v0->field_3 & 15, 16);\n
+    a0[2] = cgc_todigit((v0->field_2 >> 4) & 15, 16);\n
+    a0[3] = cgc_todigit(v0->field_2 & 15, 16);\n
+    a0[4] = cgc_todigit((v0->field_1 >> 4) & 15, 16);\n
+    a0[5] = cgc_todigit(v0->field_1 & 15, 16);\n
+    a0[6] = cgc_todigit((v0->field_0 >> 4) & 15, 16);\n
+    a0[7] = cgc_todigit(v0->field_0 & 15, 16);\n
+    a0[8] = a2;\n
+    return a0;\n
+}\n
+", "4204377:sub_402759": null, "4204384:cgc_utostr": "long long cgc_utostr(char *a0, unsigned long a1, unsigned long a2, unsigned long a3)\n
+{\n
+    unsigned int v0;  // [bp-0x34]\n
+    unsigned long v1;  // [bp-0x30]\n
+    unsigned int v2;  // [bp-0x28]\n
+    char v3;  // [bp-0x21]\n
+    unsigned int v4;  // [bp-0x20], Other Possible Types: unsigned long\n
+    unsigned int v5;  // [bp-0xc]\n
+    unsigned long v7;  // rcx\n
+    unsigned long v8;  // rcx\n
+\n
+    v4 = a2;\n
+    v3 = a3;\n
+    v2 = 0;\n
+    v1 = v4;\n
+    v0 = 0;\n
+    if (!a0)\n
+    {\n
+        v5 = -1;\n
+        return v5;\n
+    }\n
+    else if (a1 >= 2)\n
+    {\n
+        do\n
+        {\n
+            v1 = (0 CONCAT v1) /m 10;\n
+            v2 += 1;\n
+        } while (v1);\n
+        if (v2 >= a1)\n
+        {\n
+            v5 = -1;\n
+            return v5;\n
+        }\n
+        v7 = v2;\n
+        v2 = v7 - 1;\n
+        a0[v7] = v3;\n
+        do\n
+        {\n
+            v0 = (0 CONCAT v4) /m 10 >> 32;\n
+            v8 = v2;\n
+            v2 = v8 - 1;\n
+            a0[v8] = v0 + 48;\n
+            v4 = (0 CONCAT v4) /m 10;\n
+        } while (v4);\n
+        v5 = 0;\n
+        return v5;\n
+    }\n
+    else\n
+    {\n
+        v5 = -1;\n
+        return v5;\n
+    }\n
+}\n
+", "4204642:sub_402862": null, "4204656:cgc_itostr": "long long cgc_itostr(char *a0, unsigned long a1, unsigned long a2, unsigned long a3)\n
+{\n
+    unsigned int v0;  // [bp-0x40]\n
+    unsigned int v1;  // [bp-0x3c]\n
+    void* v2;  // [bp-0x38], Other Possible Types: unsigned long\n
+    void* v3;  // [bp-0x30], Other Possible Types: unsigned long\n
+    unsigned int v4;  // [bp-0x28]\n
+    char v5;  // [bp-0x21]\n
+    unsigned int v6;  // [bp-0xc]\n
+    unsigned long v8;  // rcx\n
+    unsigned long v9;  // rcx\n
+    unsigned long v10;  // rcx\n
+\n
+    v5 = a3;\n
+    v4 = 0;\n
+    v3 = 0;\n
+    v2 = 0;\n
+    v1 = 0;\n
+    if (!a0)\n
+    {\n
+        v6 = -1;\n
+        return v6;\n
+    }\n
+    else if (a1 >= 2)\n
+    {\n
+        if (a2 < 0)\n
+        {\n
+            if (a1 >= 3)\n
+            {\n
+                v8 = v4;\n
+                v4 = v8 + 1;\n
+                a0[v8] = 45;\n
+            }\n
+            else\n
+            {\n
+                v6 = -1;\n
+                return v6;\n
+            }\n
+        }\n
+        if (a2 < 0)\n
+            v0 = -(a2);\n
+        else\n
+            v0 = a2;\n
+        v2 = v0;\n
+        v3 = v2;\n
+        do\n
+        {\n
+            v3 = (0 CONCAT v3) /m 10;\n
+            v4 += 1;\n
+        } while (v3);\n
+        if (v4 >= a1)\n
+        {\n
+            v6 = -1;\n
+            return v6;\n
+        }\n
+        v9 = v4;\n
+        v4 = v9 - 1;\n
+        a0[v9] = v5;\n
+        do\n
+        {\n
+            v1 = (0 CONCAT v2) /m 10 >> 64;\n
+            v10 = v4;\n
+            v4 = v10 - 1;\n
+            a0[v10] = v1 + 48;\n
+            v2 = (0 CONCAT v2) /m 10;\n
+        } while (v2);\n
+        v6 = 0;\n
+        return v6;\n
+    }\n
+    else\n
+    {\n
+        v6 = -1;\n
+        return v6;\n
+    }\n
+}\n
+", "4205026:sub_4029e2": null, "4205040:cgc_strtou": "long long cgc_strtou(char *a0, unsigned long a1, unsigned int *a2)\n
+{\n
+    char v0;  // [bp-0x3d]\n
+    unsigned int v1;  // [bp-0x3c]\n
+    void* v2;  // [bp-0x38], Other Possible Types: unsigned long\n
+    void* v3;  // [bp-0x30], Other Possible Types: unsigned long\n
+    char *v4;  // [bp-0x18]\n
+    unsigned long v5;  // [bp-0x10], Other Possible Types: unsigned long long\n
+    char *v7;  // rax\n
+\n
+    v4 = a0;\n
+    v3 = 0;\n
+    v2 = 0;\n
+    if (a1 >= 2 && a1 <= 16)\n
+    {\n
+        while (true)\n
+        {\n
+            v0 = 0;\n
+            if (*(v4))\n
+            {\n
+                v7 = v4;\n
+                v4 = v7 + 1;\n
+                v1 = cgc_fromdigit(*(v7), a1);\n
+                v0 = v1 != -15;\n
+            }\n
+            if (!(v0 & 1))\n
+            {\n
+                *(a2) = v2;\n
+                v5 = v3;\n
+                return v5;\n
+            }\n
+            v2 *= a1;\n
+            if (v2 > 4294967295)\n
+            {\n
+                v5 = -15;\n
+                return v5;\n
+            }\n
+            else if (4294967295 - v1 >= v2)\n
+            {\n
+                v2 = v1 + v2;\n
+                v3 += 1;\n
+            }\n
+            else\n
+            {\n
+                v5 = -15;\n
+                return v5;\n
+            }\n
+        }\n
+    }\n
+    v5 = -15;\n
+    return v5;\n
+}\n
+", "4205323:sub_402b0b": null, "4205328:cgc_strtoi": "long long cgc_strtoi(char *a0, unsigned long a1, unsigned int *a2)\n
+{\n
+    unsigned int v0;  // [bp-0x3c]\n
+    unsigned int v1;  // [bp-0x38]\n
+    unsigned int v2;  // [bp-0x34]\n
+    unsigned long v3;  // [bp-0x30]\n
+    unsigned long v4;  // [bp-0x10], Other Possible Types: unsigned long long\n
+\n
+    v1 = 0;\n
+    if (*(a0) == 45)\n
+        v1 = 1;\n
+    v3 = cgc_strtou(&a0[v1], a1, &v2);\n
+    if (v3 == -15)\n
+    {\n
+        v4 = -15;\n
+        return v4;\n
+    }\n
+    else if (v2 <= v1 + 2147483647)\n
+    {\n
+        if (v1)\n
+            v0 = -(v2);\n
+        else\n
+            v0 = v2;\n
+        *(a2) = v0;\n
+        v4 = v3 + v1;\n
+        return v4;\n
+    }\n
+    else\n
+    {\n
+        v4 = -15;\n
+        return v4;\n
+    }\n
+}\n
+", "4205523:sub_402bd3": null, "4205536:cgc_list_create_node": "long long cgc_list_create_node(unsigned long a0)\n
+{\n
+    unsigned long long v0[3];  // [bp-0x20]\n
+    unsigned long long v1[3];  // [bp-0x10], Other Possible Types: unsigned long\n
+\n
+    v0[0] = cgc_malloc(24);\n
+    if (!v0)\n
+    {\n
+        v1[0] = v0;\n
+        return v1;\n
+    }\n
+    v0[0] = a0;\n
+    v0[1] = 0;\n
+    v0[2] = 0;\n
+    v1 = v0;\n
+    return v1;\n
+}\n
+", "4205640:sub_402c48": null, "4205648:cgc_list_destroy_node": "typedef struct struct_1 {\n
+    char padding_0[32];\n
+    struct struct_0 *field_20;\n
+} struct_1;\n
+\n
+typedef struct struct_0 {\n
+    struct struct_0 *field_0;\n
+} struct_0;\n
+\n
+long long cgc_list_destroy_node(struct_1 *a0, struct struct_2 **a1)\n
+{\n
+    if (a0->field_20)\n
+        a0->field_20(*(a1)->field_0);\n
+    *(a1)->field_0 = 0;\n
+    *(a1)->field_8 = 0;\n
+    *(a1)->field_10 = 0;\n
+    cgc_free(*(a1));\n
+    *(a1) = 0;\n
+    return a1;\n
+}\n
+", "4205773:sub_402ccd": null, "4205776:cgc_list_init": "typedef struct struct_0 {\n
+    unsigned int field_0;\n
+    char padding_4[4];\n
+    unsigned long long field_8;\n
+    unsigned long long field_10;\n
+    unsigned long long field_18;\n
+    unsigned long long field_20;\n
+} struct_0;\n
+\n
+long long cgc_list_init(struct_0 *a0, unsigned long a1)\n
+{\n
+    a0->field_0 = 0;\n
+    a0->field_8 = 0;\n
+    a0->field_10 = &a0->field_8;\n
+    a0->field_18 = &a0->field_8;\n
+    a0->field_20 = a1;\n
+    return a0;\n
+}\n
+", "4205856:cgc_list_destroy": "typedef struct struct_0 {\n
+    unsigned int field_0;\n
+    char padding_4[12];\n
+    unsigned long long field_10;\n
+    unsigned long long field_18;\n
+    unsigned long long field_20;\n
+} struct_0;\n
+\n
+long long cgc_list_destroy(struct_0 *a0)\n
+{\n
+    unsigned long long v0[3];  // [bp-0x18]\n
+\n
+    while (cgc_list_head_node(a0))\n
+    {\n
+        v0[0] = cgc_list_pop(a0);\n
+        cgc_list_destroy_node(a0, v0);\n
+    }\n
+    a0->field_0 = 0;\n
+    a0->field_10 = 0;\n
+    a0->field_18 = 0;\n
+    a0->field_20 = 0;\n
+    return a0;\n
+}\n
+", "4205974:sub_402d96": null, "4205984:cgc_list_head_node": "typedef struct struct_0 {\n
+    char padding_0[16];\n
+    unsigned long long field_10;\n
+} struct_0;\n
+\n
+long long cgc_list_head_node(struct_0 *a0)\n
+{\n
+    void* v0;  // [bp-0x10], Other Possible Types: unsigned long\n
+\n
+    if (&a0->padding_0[8] == a0->field_10)\n
+    {\n
+        v0 = 0;\n
+        return v0;\n
+    }\n
+    v0 = a0->field_10;\n
+    return v0;\n
+}\n
+", "4206045:sub_402ddd": null, "4206048:cgc_list_pop": "long long cgc_list_pop(void* a0)\n
+{\n
+    unsigned long long v0;  // [bp-0x20]\n
+    unsigned long v1;  // [bp-0x10]\n
+\n
+    v0 = cgc_list_head_node(a0);\n
+    if (!v0)\n
+    {\n
+        v1 = v0;\n
+        return v1;\n
+    }\n
+    cgc_list_remove_node(a0, v0);\n
+    v1 = v0;\n
+    return v1;\n
+}\n
+", "4206129:sub_402e31": null, "4206144:cgc_list_insert_before_node": "typedef struct struct_2 {\n
+    char padding_0[8];\n
+    struct struct_0 *field_8;\n
+    struct struct_1 *field_10;\n
+} struct_2;\n
+\n
+typedef struct struct_0 {\n
+    char padding_0[16];\n
+    unsigned long long field_10;\n
+} struct_0;\n
+\n
+typedef struct struct_1 {\n
+    char padding_0[8];\n
+    unsigned long long field_8;\n
+} struct_1;\n
+\n
+long long cgc_list_insert_before_node(struct_0 *a0, struct_2 *a1)\n
+{\n
+    struct_0 *v1;  // rax\n
+\n
+    a1->field_8 = a0;\n
+    a1->field_10 = a0->field_10;\n
+    a1->field_10->field_8 = a1;\n
+    v1 = a1->field_8;\n
+    v1->field_10 = a1;\n
+    return v1;\n
+}\n
+", "4206218:sub_402e8a": null, "4206224:cgc_list_insert_after_node": "typedef struct struct_0 {\n
+    char padding_0[8];\n
+    void* field_8;\n
+} struct_0;\n
+\n
+long long cgc_list_insert_after_node(struct_0 *a0, void* a1)\n
+{\n
+    return cgc_list_insert_before_node(a0->field_8, a1);\n
+}\n
+", "4206263:sub_402eb7": null, "4206272:cgc_list_insert_node_at_end": "long long cgc_list_insert_node_at_end(unsigned int *a0, void* a1)\n
+{\n
+    void* v0;  // [bp-0x20]\n
+\n
+    v0 = cgc_list_end_marker(a0);\n
+    cgc_list_insert_before_node(v0, a1);\n
+    *(a0) = *(a0) + 1;\n
+    return a0;\n
+}\n
+", "4206331:sub_402efb": null, "4206336:cgc_list_end_marker": "long long cgc_list_end_marker(unsigned long a0)\n
+{\n
+    return a0 + 8;\n
+}\n
+", "4206354:sub_402f12": null, "4206368:cgc_list_insert_at_end": "long long cgc_list_insert_at_end(unsigned int *a0, unsigned int a1)\n
+{\n
+    void* v0;  // [bp-0x20]\n
+\n
+    v0 = cgc_list_create_node(a1);\n
+    return cgc_list_insert_node_at_end(a0, v0);\n
+}\n
+", "4206416:cgc_list_insert_node_at_start": "long long cgc_list_insert_node_at_start(unsigned int *a0, void* a1)\n
+{\n
+    void* v0;  // [bp-0x20]\n
+\n
+    v0 = cgc_list_start_marker(a0);\n
+    cgc_list_insert_after_node(v0, a1);\n
+    *(a0) = *(a0) + 1;\n
+    return a0;\n
+}\n
+", "4206475:sub_402f8b": null, "4206480:cgc_list_start_marker": "long long cgc_list_start_marker(unsigned int a0)\n
+{\n
+    return cgc_list_end_marker(a0);\n
+}\n
+", "4206507:sub_402fab": null, "4206512:cgc_list_insert_at_start": "long long cgc_list_insert_at_start(unsigned int *a0, unsigned int a1)\n
+{\n
+    void* v0;  // [bp-0x20]\n
+\n
+    v0 = cgc_list_create_node(a1);\n
+    return cgc_list_insert_node_at_start(a0, v0);\n
+}\n
+", "4206560:cgc_list_insert_node_sorted": "long long cgc_list_insert_node_sorted(unsigned int *a0, unsigned long long *a1, struct struct_0 **a2, unsigned long a3)\n
+{\n
+    unsigned long long *v0;  // [bp-0x40]\n
+    char v1;  // [bp-0x31]\n
+    unsigned long long *v2;  // [bp-0x30], Other Possible Types: unsigned long\n
+    struct struct_0 **v3;  // [bp-0x20]\n
+\n
+    v3 = a2;\n
+    v2 = 0;\n
+    if (!*(a0))\n
+        return cgc_list_insert_node_at_start(a0, a1);\n
+    v2 = cgc_list_head_node(a0);\n
+    while (true)\n
+    {\n
+        v0 = v2;\n
+        v1 = 0;\n
+        if (v0 != cgc_list_end_marker(a0))\n
+            v1 = a3 != v3(*(a1), *(v2));\n
+        if (!(v1 & 1))\n
+            break;\n
+        v2 = cgc_list_next_node(v2);\n
+    }\n
+    cgc_list_insert_before_node(v2, a1);\n
+    *(a0) = *(a0) + 1;\n
+    return a0;\n
+}\n
+", "4206783:sub_4030bf": null, "4206784:cgc_list_next_node": "typedef struct struct_0 {\n
+    char padding_0[8];\n
+    unsigned long long field_8;\n
+} struct_0;\n
+\n
+long long cgc_list_next_node(struct_0 *a0)\n
+{\n
+    return a0->field_8;\n
+}\n
+", "4206802:sub_4030d2": null, "4206816:cgc_list_insert_sorted": "long long cgc_list_insert_sorted(unsigned int *a0, unsigned int a1, void* **a2, unsigned long a3)\n
+{\n
+    unsigned long long *v0;  // [bp-0x30]\n
+\n
+    v0 = cgc_list_create_node(a1);\n
+    return cgc_list_insert_node_sorted(a0, v0, a2, a3);\n
+}\n
+", "4206881:sub_403121": null, "4206896:cgc_list_remove_node": "typedef struct struct_2 {\n
+    char padding_0[8];\n
+    struct struct_1 *field_8;\n
+    struct struct_0 *field_10;\n
+} struct_2;\n
+\n
+typedef struct struct_0 {\n
+    char padding_0[8];\n
+    unsigned long long field_8;\n
+} struct_0;\n
+\n
+typedef struct struct_1 {\n
+    char padding_0[16];\n
+    unsigned long long field_10;\n
+} struct_1;\n
+\n
+long long cgc_list_remove_node(unsigned int *a0, struct_2 *a1)\n
+{\n
+    struct_1 *v0;  // [bp-0x28]\n
+    struct_0 *v1;  // [bp-0x20]\n
+\n
+    v1 = a1->field_10;\n
+    v0 = a1->field_8;\n
+    v1->field_8 = v0;\n
+    v0->field_10 = v1;\n
+    a1->field_10 = 0;\n
+    a1->field_8 = 0;\n
+    *(a0) = *(a0) - 1;\n
+    return a0;\n
+}\n
+", "4206993:sub_403191": null, "4207008:cgc_list_tail_node": "typedef struct struct_0 {\n
+    char padding_0[24];\n
+    unsigned long long field_18;\n
+} struct_0;\n
+\n
+long long cgc_list_tail_node(struct_0 *a0)\n
+{\n
+    void* v0;  // [bp-0x10], Other Possible Types: unsigned long\n
+\n
+    if (&a0->padding_0[8] == a0->field_18)\n
+    {\n
+        v0 = 0;\n
+        return v0;\n
+    }\n
+    v0 = a0->field_18;\n
+    return v0;\n
+}\n
+", "4207069:sub_4031dd": null, "4207072:cgc_list_length": "long long cgc_list_length(unsigned int *a0)\n
+{\n
+    return *(a0);\n
+}\n
+", "4207088:cgc_list_find_node_with_data": "typedef struct struct_0 {\n
+    unsigned long long field_0;\n
+    struct struct_0 *field_8;\n
+} struct_0;\n
+\n
+long long cgc_list_find_node_with_data(unsigned long a0, struct struct_1 **a1, unsigned long long a2)\n
+{\n
+    char v0;  // [bp-0x39]\n
+    unsigned long v1;  // [bp-0x38]\n
+    struct_0 *v2;  // [bp-0x30], Other Possible Types: unsigned long\n
+    struct struct_1 **v3;  // [bp-0x20]\n
+    struct_0 *v4;  // [bp-0x10], Other Possible Types: unsigned long\n
+\n
+    v3 = a1;\n
+    v2 = cgc_list_head_node(a0);\n
+    v1 = cgc_list_end_marker(a0);\n
+    while (true)\n
+    {\n
+        v0 = 0;\n
+        if (v2)\n
+            v0 = v2 != v1;\n
+        if (!(v0 & 1))\n
+        {\n
+            v4 = 0;\n
+            return v4;\n
+        }\n
+        if (v3(*(v2), a2) == 1)\n
+        {\n
+            v4 = v2;\n
+            return v4;\n
+        }\n
+        v2 = *((v2 + 8));\n
+    }\n
+}\n
+", "4207262:sub_40329e": null, "4207264:cgc_malloc": "extern unsigned int allocated_list;\n
+extern void* cgc_last;\n
+extern void* cgc_remaining;\n
+extern char free_list;\n
+\n
+long long cgc_malloc(unsigned long a0)\n
+{\n
+    void* v0;  // [bp-0x20], Other Possible Types: unsigned long\n
+    unsigned long long v1;  // [bp-0x18], Other Possible Types: unsigned long\n
+    void* v2;  // [bp-0x10], Other Possible Types: unsigned long\n
+    unsigned long long v4;  // rsi\n
+    unsigned long long v5;  // rdx\n
+\n
+    v1 = a0;\n
+    if (!v1)\n
+    {\n
+        v2 = 0;\n
+        return v2;\n
+    }\n
+    v1 += 24;\n
+    v0 = 0;\n
+    cgc_init_heap();\n
+    v0 = cgc_list_find_node_with_data(&free_list, cgc_is_enough_room, v1);\n
+    if (v0)\n
+    {\n
+        cgc_list_remove_node(&free_list, v0);\n
+    }\n
+    else\n
+    {\n
+        if (v1 <= cgc_remaining)\n
+        {\n
+            v0 = cgc_last;\n
+            cgc_remaining = cgc_remaining - v1;\n
+        }\n
+        else\n
+        {\n
+            if (cgc_remaining > 24)\n
+            {\n
+                cgc_set_block_size(cgc_last, cgc_remaining);\n
+                cgc_list_insert_node_at_end(&free_list, cgc_last);\n
+                cgc_last = 0;\n
+                cgc_remaining = 0;\n
+            }\n
+            if (cgc_allocate(&free_list, v4, v5))\n
+            {\n
+                v2 = 0;\n
+                return v2;\n
+            }\n
+            else if (!(v1 & 4095))\n
+            {\n
+                cgc_remaining = 0;\n
+            }\n
+            else\n
+            {\n
+                cgc_remaining = 0x1000 - (v1 & 4095);\n
+            }\n
+        }\n
+        cgc_set_block_size(v0, v1);\n
+        cgc_last = v0 + v1;\n
+    }\n
+    cgc_list_insert_node_at_end(&allocated_list, v0);\n
+    v2 = v0 + 24;\n
+    return v2;\n
+}\n
+", "4207689:sub_403449": null, "4207696:cgc_is_enough_room": "long long cgc_is_enough_room(unsigned long a0, unsigned long a1)\n
+{\n
+    char v0;  // [bp-0x9]\n
+\n
+    if (a0 >= a1)\n
+    {\n
+        v0 = 1;\n
+        return v0;\n
+    }\n
+    v0 = 0;\n
+    return v0;\n
+}\n
+", "4207741:sub_40347d": null, "4207744:cgc_set_block_size": "long long cgc_set_block_size(unsigned long long *a0, unsigned long a1)\n
+{\n
+    *(a0) = a1;\n
+    return a0;\n
+}\n
+", "4207769:sub_403499": null, "4207776:cgc_free": "extern unsigned int allocated_list;\n
+extern unsigned int free_list;\n
+\n
+long long cgc_free(unsigned long a0)\n
+{\n
+    void* v0;  // [bp-0x10], Other Possible Types: unsigned long\n
+\n
+    v0 = a0;\n
+    v0 -= 24;\n
+    cgc_list_remove_node(&allocated_list, v0);\n
+    return cgc_list_insert_node_at_end(&free_list, v0);\n
+}\n
+", "4207838:sub_4034de": null, "4207840:cgc_init_heap": "extern void allocated_list;\n
+extern char cgc_init_heap_done;\n
+extern void free_list;\n
+\n
+long long cgc_init_heap()\n
+{\n
+    if (!cgc_init_heap_done)\n
+    {\n
+        cgc_list_init(&allocated_list, 0);\n
+        cgc_init_heap_done = 1;\n
+        return cgc_list_init(&free_list, 0);\n
+    }\n
+    return 0;\n
+}\n
+", "4207902:sub_40351e": null, "4207904:cgc_memcmp": "long long cgc_memcmp(char *a0, char *a1, unsigned long a2)\n
+{\n
+    char v0;  // [bp-0x3d]\n
+    unsigned int v1;  // [bp-0x3c]\n
+    unsigned int v2;  // [bp-0xc]\n
+\n
+    if (!a2)\n
+    {\n
+        v2 = 0;\n
+        return v2;\n
+    }\n
+    v1 = 0;\n
+    while (true)\n
+    {\n
+        v0 = 0;\n
+        if (v1 < a2)\n
+            v0 = a0[v1] == a1[v1];\n
+        if (!(v0 & 1))\n
+            break;\n
+        v1 += 1;\n
+    }\n
+    if (v1 == a2)\n
+    {\n
+        v2 = 0;\n
+        return v2;\n
+    }\n
+    else if (a0[v1] <= a1[v1])\n
+    {\n
+        v2 = -1;\n
+        return v2;\n
+    }\n
+    else\n
+    {\n
+        v2 = 1;\n
+        return v2;\n
+    }\n
+}\n
+", "4208120:sub_4035f8": null, "4208128:cgc_memcpy": "long long cgc_memcpy(char *a0, char *a1, unsigned long a2)\n
+{\n
+    unsigned int v0;  // [bp-0x3c]\n
+    unsigned int v1;  // [bp-0xc]\n
+\n
+    if (!a2)\n
+    {\n
+        v1 = 0;\n
+        return v1;\n
+    }\n
+    for (v0 = 0; v0 < a2; v0 += 1)\n
+    {\n
+        a0[v0] = a1[v0];\n
+    }\n
+    v1 = a2;\n
+    return v1;\n
+}\n
+", "4208246:sub_403676": null, "4208256:cgc_memset": "long long cgc_memset(char *a0, unsigned long a1, unsigned long a2)\n
+{\n
+    unsigned int v0;  // [bp-0x2c]\n
+    unsigned int v1;  // [bp-0xc]\n
+\n
+    if (!a2)\n
+    {\n
+        v1 = 0;\n
+        return v1;\n
+    }\n
+    for (v0 = 0; v0 < a2; v0 += 1)\n
+    {\n
+        a0[v0] = a1;\n
+    }\n
+    v1 = a2;\n
+    return v1;\n
+}\n
+", "4208361:sub_4036e9": null, "4208368:cgc_recv_bytes": "long long cgc_recv_bytes(unsigned long long a0, unsigned long long a1, unsigned long long a2)\n
+{\n
+    unsigned long v0;  // [bp-0x38]\n
+    unsigned int v1;  // [bp-0x2c]\n
+    void* v2;  // [bp-0x28]\n
+    unsigned int v3;  // [bp-0x10]\n
+    unsigned int v4;  // [bp-0xc]\n
+    unsigned long long v6;  // rcx\n
+\n
+    v3 = a0;\n
+    if (a1 && a2)\n
+    {\n
+        v2 = 0;\n
+        v1 = 0;\n
+        for (v0 = a1; v2 < a2; v0 = v2 + v0)\n
+        {\n
+            if (cgc_receive(a0, a1, a2, v6))\n
+            {\n
+                v4 = -11;\n
+                return v4;\n
+            }\n
+            if (!v2)\n
+                break;\n
+            v1 += v2;\n
+        }\n
+        v4 = v1;\n
+        return v4;\n
+    }\n
+    v4 = -11;\n
+    return v4;\n
+}\n
+", "4208572:sub_4037bc": null, "4208576:cgc_recv_until_delim_n": "long long cgc_recv_until_delim_n(unsigned long long a0, unsigned long long a1, char *a2, unsigned long long a3)\n
+{\n
+    unsigned int v0;  // [bp-0x38]\n
+    unsigned int v1;  // [bp-0x34]\n
+    void* v2;  // [bp-0x30]\n
+    unsigned int v3;  // [bp-0x10]\n
+    unsigned int v4;  // [bp-0xc]\n
+\n
+    v3 = a0;\n
+    if (a2 && a3)\n
+    {\n
+        v2 = 0;\n
+        v1 = 0;\n
+        v0 = 0;\n
+        for (v0 = 0; v0 < a3; v0 += 1)\n
+        {\n
+            if (cgc_receive(a0, a1, a2, a3))\n
+            {\n
+                v4 = -11;\n
+                return v4;\n
+            }\n
+            if (!v2)\n
+                break;\n
+            v1 += 1;\n
+            if (a1 == a2[v0])\n
+                break;\n
+        }\n
+        if (a1 != a2[1 + v1])\n
+        {\n
+            v4 = -11;\n
+            return v4;\n
+        }\n
+        v4 = v1;\n
+        return v4;\n
+    }\n
+    v4 = -11;\n
+    return v4;\n
+}\n
+", "4208855:sub_4038d7": null, "4208864:cgc_send_bytes": "long long cgc_send_bytes(unsigned long long a0, unsigned long long a1, unsigned long long a2)\n
+{\n
+    unsigned long v0;  // [bp-0x38]\n
+    unsigned int v1;  // [bp-0x2c]\n
+    void* v2;  // [bp-0x28]\n
+    unsigned int v3;  // [bp-0x10]\n
+    unsigned int v4;  // [bp-0xc]\n
+    unsigned long long v6;  // rcx\n
+\n
+    v3 = a0;\n
+    if (a1 && a2)\n
+    {\n
+        v2 = 0;\n
+        v1 = 0;\n
+        for (v0 = a1; v1 < a2; v0 = v2 + v0)\n
+        {\n
+            if (cgc_transmit(a0, a1, a2, v6))\n
+            {\n
+                v4 = -9;\n
+                return v4;\n
+            }\n
+            if (!v2)\n
+                break;\n
+            v1 += v2;\n
+        }\n
+        v4 = v1;\n
+        return v4;\n
+    }\n
+    v4 = -9;\n
+    return v4;\n
+}\n
+", "4209064:sub_4039a8": null, "4209072:cgc_streq": "long long cgc_streq(char *a0, char *a1, unsigned long a2)\n
+{\n
+    unsigned int v0;  // [bp-0x28]\n
+    char *v1;  // [bp-0x20], Other Possible Types: unsigned long\n
+    char *v2;  // [bp-0x18], Other Possible Types: unsigned long\n
+    unsigned int v3;  // [bp-0xc]\n
+    char *v5;  // rax\n
+    unsigned int v6;  // eax\n
+    char *v7;  // rcx\n
+\n
+    v2 = a0;\n
+    v1 = a1;\n
+    v0 = cgc_strlen(v2, a2);\n
+    if (v0 != cgc_strlen(v1, a2))\n
+    {\n
+        v3 = -1;\n
+        return v3;\n
+    }\n
+    while (true)\n
+    {\n
+        if (*(v2) != a2)\n
+        {\n
+            v5 = v2;\n
+            v2 = v5 + 1;\n
+            v6 = *(v5);\n
+            v7 = v1;\n
+            v1 = v7 + 1;\n
+            if (v6 != *(v7))\n
+            {\n
+                v3 = -1;\n
+                return v3;\n
+            }\n
+        }\n
+        else\n
+        {\n
+            v3 = 0;\n
+            return v3;\n
+        }\n
+    }\n
+}\n
+", "4209248:cgc_strlen": "long long cgc_strlen(char *a0, unsigned long a1)\n
+{\n
+    unsigned int v0;  // [bp-0x20]\n
+    char *v1;  // [bp-0x18], Other Possible Types: unsigned long\n
+    unsigned int v2;  // [bp-0xc]\n
+\n
+    v1 = a0;\n
+    if (!v1)\n
+    {\n
+        v2 = 0;\n
+        return v2;\n
+    }\n
+    for (v0 = 0; a1 != *(v1); v0 += 1)\n
+    {\n
+        v1 += 1;\n
+    }\n
+    v2 = v0;\n
+    return v2;\n
+}\n
+", "4209349:sub_403ac5": null, "4209360:cgc_strcmp": "long long cgc_strcmp(char *a0, char *a1, unsigned long a2)\n
+{\n
+    char v0;  // [bp-0x22]\n
+    char *v1;  // [bp-0x20], Other Possible Types: unsigned long\n
+    char *v2;  // [bp-0x18], Other Possible Types: unsigned long\n
+    unsigned int v3;  // [bp-0xc]\n
+\n
+    v2 = a0;\n
+    v1 = a1;\n
+    while (true)\n
+    {\n
+        v0 = 0;\n
+        if (*(v2) != a2)\n
+        {\n
+            v0 = 0;\n
+            if (*(v1) != a2)\n
+                v0 = *(v2) == *(v1);\n
+        }\n
+        if (!(v0 & 1))\n
+            break;\n
+        v2 += 1;\n
+        v1 += 1;\n
+    }\n
+    if (*(v2) == a2 && *(v1) == a2)\n
+    {\n
+        v3 = 0;\n
+        return v3;\n
+    }\n
+    if (*(v2) < *(v1))\n
+    {\n
+        v3 = -1;\n
+        return v3;\n
+    }\n
+    v3 = 1;\n
+    return v3;\n
+}\n
+", "4209588:sub_403bb4": null, "4209600:cgc_vsnprintf": "typedef struct struct_0 {\n
+    char field_0;\n
+} struct_0;\n
+\n
+typedef struct struct_1 {\n
+    unsigned int field_0;\n
+    char padding_4[4];\n
+    struct struct_2 *field_8;\n
+    unsigned long long field_10;\n
+} struct_1;\n
+\n
+typedef struct struct_2 {\n
+    struct struct_0 *field_0;\n
+} struct_2;\n
+\n
+long long cgc_vsnprintf(unsigned long a0, unsigned long a1, unsigned long a2, unsigned long a3, struct_0 *a4, struct_1 *a5)\n
+{\n
+    unsigned int *v0;  // [bp-0x110], Other Possible Types: unsigned long\n
+    struct_1 *v1;  // [bp-0x108]\n
+    unsigned int v2;  // [bp-0xfc]\n
+    unsigned int *v3;  // [bp-0xf8], Other Possible Types: unsigned long\n
+    struct_1 *v4;  // [bp-0xf0]\n
+    unsigned int v5;  // [bp-0xe4]\n
+    struct struct_0 **v6;  // [bp-0xe0], Other Possible Types: unsigned long\n
+    struct_1 *v7;  // [bp-0xd8]\n
+    unsigned int v8;  // [bp-0xcc]\n
+    struct struct_0 **v9;  // [bp-0xc8], Other Possible Types: unsigned long\n
+    struct_1 *v10;  // [bp-0xc0]\n
+    unsigned int v11;  // [bp-0xb4]\n
+    unsigned int *v12;  // [bp-0xb0], Other Possible Types: unsigned long\n
+    struct_1 *v13;  // [bp-0xa8]\n
+    unsigned int v14;  // [bp-0x9c]\n
+    unsigned long v15;  // [bp-0x98]\n
+    unsigned int v16;  // [bp-0x90]\n
+    unsigned int v17;  // [bp-0x8c]\n
+    char v18;  // [bp-0x88]\n
+    struct_0 *v19;  // [bp-0x60], Other Possible Types: unsigned long\n
+    char v20;  // [bp-0x51]\n
+    void* v21;  // [bp-0x50], Other Possible Types: unsigned long, unsigned long long\n
+    char v22;  // [bp-0x41]\n
+    struct_0 *v23;  // [bp-0x40], Other Possible Types: unsigned long\n
+    char *v24;  // [bp-0x38], Other Possible Types: unsigned long\n
+    char v25;  // [bp-0x1a]\n
+    char v26;  // [bp-0x19]\n
+    struct_0 *v28;  // rax\n
+    unsigned long v29;  // rcx\n
+    struct_1 *v30;  // rcx\n
+    unsigned long long v31;  // rdx\n
+    unsigned int *v32;  // rax\n
+    struct_1 *v33;  // rcx\n
+    unsigned int *v34;  // rdx\n
+    struct_1 *v35;  // rcx\n
+    unsigned long long v36;  // rdx\n
+    struct struct_0 **v37;  // rax\n
+    struct_1 *v38;  // rcx\n
+    struct struct_0 **v39;  // rdx\n
+    struct_1 *v40;  // rcx\n
+    unsigned long long v41;  // rdx\n
+    struct struct_0 **v42;  // rax\n
+    struct_1 *v43;  // rcx\n
+    struct struct_0 **v44;  // rdx\n
+    struct_1 *v45;  // rcx\n
+    unsigned long long v46;  // rdx\n
+    unsigned int *v47;  // rax\n
+    struct_1 *v48;  // rcx\n
+    unsigned int *v49;  // rdx\n
+    struct_1 *v50;  // rcx\n
+    unsigned long long v51;  // rdx\n
+    unsigned int *v52;  // rax\n
+    struct_1 *v53;  // rcx\n
+    unsigned int *v54;  // rdx\n
+\n
+    v26 = a2;\n
+    v25 = a3;\n
+    v24 = 0;\n
+    v23 = a4;\n
+    if (!v23)\n
+        v23 = &v25;\n
+    while (true)\n
+    {\n
+        while (true)\n
+        {\n
+            do\n
+            {\n
+                if (*(v23) == v25)\n
+                {\n
+                    if (a1 <= 0)\n
+                        return v24;\n
+                    if (v24 < a1)\n
+                        *((a0 + v24)) = v25;\n
+                    else\n
+                        *((a0 + a1 - 1)) = v25;\n
+                    return v24;\n
+                }\n
+                if (*(v23) != v26)\n
+                {\n
+                    if (v24 >= a1)\n
+                    {\n
+                        v24 += 1;\n
+                        v23 += 1;\n
+                    }\n
+                    else\n
+                    {\n
+                        v28 = v23;\n
+                        v23 = v28 + 1;\n
+                        v29 = v24;\n
+                        v24 = v29 + 1;\n
+                        *((a0 + v29)) = v28->field_0;\n
+                    }\n
+LABEL_403c85:\n
+                    continue;\n
+                }\n
+                v22 = v25;\n
+                v21 = 0;\n
+                v20 = 0;\n
+                v19 = 0;\n
+                v17 = 0;\n
+                v16 = 0;\n
+                v23 += 1;\n
+            } while (*(v23) == v25);\n
+            v22 = *(v23);\n
+            v15 = v22 - 72;\n
+            switch (v15)\n
+            {\n
+            case 0:\n
+                v1 = a5;\n
+                v2 = v1->field_0;\n
+                if (v2 <= 40)\n
+                {\n
+                    v50 = v1;\n
+                    v51 = v2;\n
+                    v52 = v51 + v50->field_10;\n
+                    v50->field_0 = v51 + 8;\n
+                    v0 = v52;\n
+                }\n
+                else\n
+                {\n
+                    v53 = v1;\n
+                    v54 = v53->field_8;\n
+                    v53->field_8 = &v54[2];\n
+                    v0 = v54;\n
+                }\n
+                v17 = *(v0);\n
+                cgc_itohex(&v18, v17, v25);\n
+                v19 = &v18;\n
+                v21 = cgc_strlen(v19, v25);\n
+                break;\n
+            case 1:\n
+                v13 = a5;\n
+                v14 = v13->field_0;\n
+                if (v14 > 40)\n
+                {\n
+                    v33 = v13;\n
+                    v34 = v33->field_8;\n
+                    v33->field_8 = &v34[2];\n
+                    v12 = v34;\n
+                }\n
+                else\n
+                {\n
+                    v30 = v13;\n
+                    v31 = v14;\n
+                    v32 = v31 + v30->field_10;\n
+                    v30->field_0 = v31 + 8;\n
+                    v12 = v32;\n
+                }\n
+                v17 = *(v12);\n
+                cgc_itostr(&v18, 32, v17, v25);\n
+                v19 = &v18;\n
+                v21 = cgc_strlen(v19, v25);\n
+                break;\n
+            case 4:\n
+                v4 = a5;\n
+                v5 = v4->field_0;\n
+                if (v5 > 40)\n
+                {\n
+                    v48 = v4;\n
+                    v49 = v48->field_8;\n
+                    v48->field_8 = &v49[2];\n
+                    v3 = v49;\n
+                }\n
+                else\n
+                {\n
+                    v45 = v4;\n
+                    v46 = v5;\n
+                    v47 = v46 + v45->field_10;\n
+                    v45->field_0 = v46 + 8;\n
+                    v3 = v47;\n
+                }\n
+                v20 = *(v3);\n
+                if (!v20)\n
+                    v21 = 0;\n
+                else\n
+                    v21 = 1;\n
+                break;\n
+            case 11:\n
+                v7 = a5;\n
+                v8 = v7->field_0;\n
+                if (v8 > 40)\n
+                {\n
+                    v43 = v7;\n
+                    v44 = v43->field_8;\n
+                    v43->field_8 = &v44[1];\n
+                    v6 = v44;\n
+                }\n
+                else\n
+                {\n
+                    v40 = v7;\n
+                    v41 = v8;\n
+                    v42 = v41 + v40->field_10;\n
+                    v40->field_0 = v41 + 8;\n
+                    v6 = v42;\n
+                }\n
+                v19 = *(v6);\n
+                if (!v19)\n
+                    v21 = 0;\n
+                else\n
+                    v21 = cgc_strlen(v19, v25);\n
+                break;\n
+            case 13:\n
+                v10 = a5;\n
+                v11 = v10->field_0;\n
+                if (v11 > 40)\n
+                {\n
+                    v38 = v10;\n
+                    v39 = v38->field_8;\n
+                    v38->field_8 = &v39[1];\n
+                    v9 = v39;\n
+                }\n
+                else\n
+                {\n
+                    v35 = v10;\n
+                    v36 = v11;\n
+                    v37 = v36 + v35->field_10;\n
+                    v35->field_0 = v36 + 8;\n
+                    v9 = v37;\n
+                }\n
+                v17 = *(v9);\n
+                cgc_utostr(&v18, 32, v17, v25);\n
+                v19 = &v18;\n
+                v21 = cgc_strlen(v19, v25);\n
+                break;\n
+            default:\n
+                break;\n
+            }\n
+            v23 += 1;\n
+            v16 = (a1 - v24);\n
+            if (0 <= v16)\n
+                break;\n
+            v24 = &v24[v21];\n
+        }\n
+        if (v22 != 73 && v22 != 83 && v22 != 85 && !(v22 == 72))\n
+            goto LABEL_4040fd;\n
+        if (v21 <= v16)\n
+        {\n
+            cgc_memcpy(a0 + v24, v19, v21);\n
+            v24 = &v24[v21];\n
+        }\n
+        else\n
+        {\n
+            cgc_memcpy(a0 + v24, v19, v16);\n
+            v24 = v16 + v24;\n
+        }\n
+LABEL_4040fd:\n
+        if (v22 == 76 && v21 <= v16)\n
+        {\n
+            *((a0 + v24)) = v20;\n
+            v24 = &v24[v21];\n
+        }\n
+        goto LABEL_403c85;\n
+    }\n
+}\n
+", "4211100:sub_40419c": null, "4211104:cgc_vfdprintf": "typedef struct struct_0 {\n
+    char field_0;\n
+} struct_0;\n
+\n
+typedef struct struct_1 {\n
+    unsigned int field_0;\n
+    char padding_4[4];\n
+    struct struct_2 *field_8;\n
+    unsigned long long field_10;\n
+} struct_1;\n
+\n
+typedef struct struct_2 {\n
+    struct struct_0 *field_0;\n
+} struct_2;\n
+\n
+long long cgc_vfdprintf(unsigned long a0, unsigned long a1, unsigned long a2, char *a3, struct_1 *a4)\n
+{\n
+    struct struct_0 **v0;  // [bp-0x100], Other Possible Types: unsigned long\n
+    struct_1 *v1;  // [bp-0xf8]\n
+    unsigned int v2;  // [bp-0xec]\n
+    unsigned int *v3;  // [bp-0xe8], Other Possible Types: unsigned long\n
+    struct_1 *v4;  // [bp-0xe0]\n
+    unsigned int v5;  // [bp-0xd4]\n
+    struct struct_0 **v6;  // [bp-0xd0], Other Possible Types: unsigned long\n
+    struct_1 *v7;  // [bp-0xc8]\n
+    unsigned int v8;  // [bp-0xbc]\n
+    struct struct_0 **v9;  // [bp-0xb8], Other Possible Types: unsigned long\n
+    struct_1 *v10;  // [bp-0xb0]\n
+    unsigned int v11;  // [bp-0xa4]\n
+    unsigned int *v12;  // [bp-0xa0], Other Possible Types: unsigned long\n
+    struct_1 *v13;  // [bp-0x98]\n
+    unsigned int v14;  // [bp-0x8c]\n
+    unsigned long v15;  // [bp-0x88]\n
+    unsigned int v16;  // [bp-0x7c]\n
+    char v17;  // [bp-0x78]\n
+    struct_0 *v18;  // [bp-0x58], Other Possible Types: unsigned long\n
+    char v19;  // [bp-0x49]\n
+    void* v20;  // [bp-0x48], Other Possible Types: unsigned long, unsigned long long\n
+    char v21;  // [bp-0x39]\n
+    char *v22;  // [bp-0x38], Other Possible Types: unsigned long\n
+    void* v23;  // [bp-0x30], Other Possible Types: unsigned long\n
+    char *v24;  // [bp-0x20]\n
+    char v25;  // [bp-0x12]\n
+    unsigned int v26;  // [bp-0xc]\n
+    struct_1 *v28;  // rcx\n
+    unsigned long long v29;  // rdx\n
+    unsigned int *v30;  // rax\n
+    struct_1 *v31;  // rcx\n
+    unsigned int *v32;  // rdx\n
+    struct_1 *v33;  // rcx\n
+    unsigned long long v34;  // rdx\n
+    struct struct_0 **v35;  // rax\n
+    struct_1 *v36;  // rcx\n
+    struct struct_0 **v37;  // rdx\n
+    struct_1 *v38;  // rcx\n
+    unsigned long long v39;  // rdx\n
+    struct struct_0 **v40;  // rax\n
+    struct_1 *v41;  // rcx\n
+    struct struct_0 **v42;  // rdx\n
+    struct_1 *v43;  // rcx\n
+    unsigned long long v44;  // rdx\n
+    unsigned int *v45;  // rax\n
+    struct_1 *v46;  // rcx\n
+    unsigned int *v47;  // rdx\n
+    struct_1 *v48;  // rcx\n
+    unsigned long long v49;  // rdx\n
+    struct struct_0 **v50;  // rax\n
+    struct_1 *v51;  // rcx\n
+    struct struct_0 **v52;  // rdx\n
+\n
+    v25 = a2;\n
+    v24 = a3;\n
+    v23 = 0;\n
+    v22 = v24;\n
+    if (!v22)\n
+    {\n
+        v26 = v23;\n
+        return v26;\n
+    }\n
+    while (true)\n
+    {\n
+        while (true)\n
+        {\n
+            if (*(v22) == v25)\n
+            {\n
+                v26 = v23;\n
+                return v26;\n
+            }\n
+            if (*(v22) == a1)\n
+            {\n
+                v21 = v25;\n
+                v20 = 0;\n
+                v19 = 0;\n
+                v18 = 0;\n
+                v16 = 0;\n
+                v22 += 1;\n
+                if (*(v22) != v25)\n
+                    break;\n
+            }\n
+            else\n
+            {\n
+                cgc_send_bytes(a0, v22, 1);\n
+                v22 += 1;\n
+                v23 += 1;\n
+LABEL_404628:\n
+            }\n
+        }\n
+        v21 = *(v22);\n
+        v15 = v21 - 72;\n
+        switch (v15)\n
+        {\n
+        case 0:\n
+            v1 = a4;\n
+            v2 = v1->field_0;\n
+            if (v2 > 40)\n
+            {\n
+                v51 = v1;\n
+                v52 = v51->field_8;\n
+                v51->field_8 = &v52[1];\n
+                v0 = v52;\n
+            }\n
+            else\n
+            {\n
+                v48 = v1;\n
+                v49 = v2;\n
+                v50 = v49 + v48->field_10;\n
+                v48->field_0 = v49 + 8;\n
+                v0 = v50;\n
+            }\n
+            v16 = *(v0);\n
+            cgc_itohex(&v17, v16, v25);\n
+            v18 = &v17;\n
+            v20 = cgc_strlen(v18, v25);\n
+            break;\n
+        case 1:\n
+            v13 = a4;\n
+            v14 = v13->field_0;\n
+            if (v14 > 40)\n
+            {\n
+                v31 = v13;\n
+                v32 = v31->field_8;\n
+                v31->field_8 = &v32[2];\n
+                v12 = v32;\n
+            }\n
+            else\n
+            {\n
+                v28 = v13;\n
+                v29 = v14;\n
+                v30 = v29 + v28->field_10;\n
+                v28->field_0 = v29 + 8;\n
+                v12 = v30;\n
+            }\n
+            v16 = *(v12);\n
+            cgc_itostr(&v17, 32, v16, v25);\n
+            v18 = &v17;\n
+            v20 = cgc_strlen(v18, v25);\n
+            break;\n
+        case 4:\n
+            v4 = a4;\n
+            v5 = v4->field_0;\n
+            if (v5 <= 40)\n
+            {\n
+                v43 = v4;\n
+                v44 = v5;\n
+                v45 = v44 + v43->field_10;\n
+                v43->field_0 = v44 + 8;\n
+                v3 = v45;\n
+            }\n
+            else\n
+            {\n
+                v46 = v4;\n
+                v47 = v46->field_8;\n
+                v46->field_8 = &v47[2];\n
+                v3 = v47;\n
+            }\n
+            v19 = *(v3);\n
+            if (!v19)\n
+                v20 = 0;\n
+            else\n
+                v20 = 1;\n
+            break;\n
+        case 11:\n
+            v7 = a4;\n
+            v8 = v7->field_0;\n
+            if (v8 <= 40)\n
+            {\n
+                v38 = v7;\n
+                v39 = v8;\n
+                v40 = v39 + v38->field_10;\n
+                v38->field_0 = v39 + 8;\n
+                v6 = v40;\n
+            }\n
+            else\n
+            {\n
+                v41 = v7;\n
+                v42 = v41->field_8;\n
+                v41->field_8 = &v42[1];\n
+                v6 = v42;\n
+            }\n
+            v18 = *(v6);\n
+            if (!v18)\n
+                v20 = 0;\n
+            else\n
+                v20 = cgc_strlen(v18, v25);\n
+            break;\n
+        case 13:\n
+            v10 = a4;\n
+            v11 = v10->field_0;\n
+            if (v11 > 40)\n
+            {\n
+                v36 = v10;\n
+                v37 = v36->field_8;\n
+                v36->field_8 = &v37[1];\n
+                v9 = v37;\n
+            }\n
+            else\n
+            {\n
+                v33 = v10;\n
+                v34 = v11;\n
+                v35 = v34 + v33->field_10;\n
+                v33->field_0 = v34 + 8;\n
+                v9 = v35;\n
+            }\n
+            v16 = *(v9);\n
+            cgc_utostr(&v17, 32, v16, v25);\n
+            v18 = &v17;\n
+            v20 = cgc_strlen(v18, v25);\n
+            break;\n
+        default:\n
+            break;\n
+        }\n
+        if (0 < v20)\n
+        {\n
+            if (!v19)\n
+                v23 = cgc_send_bytes(a0, v18, v20) + v23;\n
+            else\n
+                v23 = cgc_send_bytes(a0, &v19, v20) + v23;\n
+        }\n
+        v22 += 1;\n
+        goto LABEL_404628;\n
+    }\n
+}\n
+", "4212288:cgc_snprintf": "long long cgc_snprintf(unsigned int a0, unsigned int a1, unsigned long a2, unsigned long a3, void* a4)\n
+{\n
+    char v0;  // [bp-0xf8]\n
+    unsigned long v1;  // [bp-0xd0]\n
+    int v2;  // [bp-0xc8]\n
+    int v3;  // [bp-0xb8]\n
+    int v4;  // [bp-0xa8]\n
+    int v5;  // [bp-0x98]\n
+    int v6;  // [bp-0x88]\n
+    int v7;  // [bp-0x78]\n
+    int v8;  // [bp-0x68]\n
+    int v9;  // [bp-0x58]\n
+    unsigned int v10;  // [bp-0x48]\n
+    unsigned int v11;  // [bp-0x44]\n
+    unsigned long v12;  // [bp-0x40]\n
+    unsigned long v13;  // [bp-0x38]\n
+    unsigned int v14;  // [bp-0x2c]\n
+    unsigned long v15;  // [bp+0x8]\n
+    char v16;  // al\n
+    int v17;  // xmm0\n
+    int v18;  // xmm1\n
+    int v19;  // xmm2\n
+    int v20;  // xmm3\n
+    int v21;  // xmm4\n
+    int v22;  // xmm5\n
+    int v23;  // xmm6\n
+    int v24;  // xmm7\n
+    unsigned long v25;  // r9\n
+\n
+    if (v16)\n
+    {\n
+        v2 = v17;\n
+        v3 = v18;\n
+        v4 = v19;\n
+        v5 = v20;\n
+        v6 = v21;\n
+        v7 = v22;\n
+        v8 = v23;\n
+        v9 = v24;\n
+    }\n
+    v1 = v25;\n
+    v13 = &v0;\n
+    v12 = &v15;\n
+    v11 = 48;\n
+    v10 = 40;\n
+    v14 = cgc_vsnprintf(a0, a1, a2, a3, a4, &v10);\n
+    return v14;\n
+}\n
+", "4212457:sub_4046e9": null, "4212464:cgc_fdprintf": "long long cgc_fdprintf(unsigned long a0, unsigned long a1, unsigned long a2, char *a3, unsigned long a4)\n
+{\n
+    char v0;  // [bp-0xe8]\n
+    unsigned long v1;  // [bp-0xc8]\n
+    unsigned long v2;  // [bp-0xc0]\n
+    int v3;  // [bp-0xb8]\n
+    int v4;  // [bp-0xa8]\n
+    int v5;  // [bp-0x98]\n
+    int v6;  // [bp-0x88]\n
+    int v7;  // [bp-0x78]\n
+    int v8;  // [bp-0x68]\n
+    int v9;  // [bp-0x58]\n
+    int v10;  // [bp-0x48]\n
+    unsigned int v11;  // [bp-0x38]\n
+    unsigned int v12;  // [bp-0x34]\n
+    unsigned long v13;  // [bp-0x30]\n
+    unsigned long v14;  // [bp-0x28]\n
+    unsigned int v15;  // [bp-0x1c]\n
+    unsigned long v16;  // [bp+0x8]\n
+    char v17;  // al\n
+    int v18;  // xmm0\n
+    int v19;  // xmm1\n
+    int v20;  // xmm2\n
+    int v21;  // xmm3\n
+    int v22;  // xmm4\n
+    int v23;  // xmm5\n
+    int v24;  // xmm6\n
+    int v25;  // xmm7\n
+    unsigned long v26;  // r9\n
+\n
+    if (v17)\n
+    {\n
+        v3 = v18;\n
+        v4 = v19;\n
+        v5 = v20;\n
+        v6 = v21;\n
+        v7 = v22;\n
+        v8 = v23;\n
+        v9 = v24;\n
+        v10 = v25;\n
+    }\n
+    v2 = v26;\n
+    v1 = a4;\n
+    v14 = &v0;\n
+    v13 = &v16;\n
+    v12 = 48;\n
+    v11 = 32;\n
+    v15 = cgc_vfdprintf(a0, a1, a2, a3, &v11);\n
+    return v15;\n
+}\n
+", "4212628:sub_404794": null, "4212640:cgc_fprintf": "long long cgc_fprintf(unsigned long a0, unsigned long a1, char *a2, unsigned long a3, unsigned long a4)\n
+{\n
+    char v0;  // [bp-0xe8]\n
+    unsigned long v1;  // [bp-0xd0]\n
+    unsigned long v2;  // [bp-0xc8]\n
+    unsigned long v3;  // [bp-0xc0]\n
+    int v4;  // [bp-0xb8]\n
+    int v5;  // [bp-0xa8]\n
+    int v6;  // [bp-0x98]\n
+    int v7;  // [bp-0x88]\n
+    int v8;  // [bp-0x78]\n
+    int v9;  // [bp-0x68]\n
+    int v10;  // [bp-0x58]\n
+    int v11;  // [bp-0x48]\n
+    unsigned int v12;  // [bp-0x38]\n
+    unsigned int v13;  // [bp-0x34]\n
+    unsigned long v14;  // [bp-0x30]\n
+    unsigned long v15;  // [bp-0x28]\n
+    unsigned int v16;  // [bp-0x1c]\n
+    unsigned long v17;  // [bp+0x8]\n
+    char v18;  // al\n
+    int v19;  // xmm0\n
+    int v20;  // xmm1\n
+    int v21;  // xmm2\n
+    int v22;  // xmm3\n
+    int v23;  // xmm4\n
+    int v24;  // xmm5\n
+    int v25;  // xmm6\n
+    int v26;  // xmm7\n
+    unsigned long v27;  // r9\n
+\n
+    if (v18)\n
+    {\n
+        v4 = v19;\n
+        v5 = v20;\n
+        v6 = v21;\n
+        v7 = v22;\n
+        v8 = v23;\n
+        v9 = v24;\n
+        v10 = v25;\n
+        v11 = v26;\n
+    }\n
+    v3 = v27;\n
+    v2 = a4;\n
+    v1 = a3;\n
+    v15 = &v0;\n
+    v14 = &v17;\n
+    v13 = 48;\n
+    v12 = 24;\n
+    v16 = cgc_vfdprintf(1, a0, a1, a2, &v12);\n
+    return v16;\n
+}\n
+", "4212811:sub_40484b": null, "4212816:cgc_send_status": "long long cgc_send_status(unsigned long long a0)\n
+{\n
+    if (cgc_send_bytes(3, a0, 2) != 2)\n
+        return cgc__terminate(3);\n
+    return 2;\n
+}\n
+", "4212878:sub_40488e": null, "4212880:cgc_process_cmd": "extern char T_CMD_DELIVER_ORDER;\n
+extern char T_CMD_QUIT;\n
+extern char T_CMD_SEAT_CUST;\n
+extern char T_CMD_TABLE_CLEAN_SET;\n
+extern char T_CMD_TAKE_ORDER;\n
+\n
+long long cgc_process_cmd()\n
+{\n
+    unsigned short v0;  // [bp-0x10]\n
+    char v1;  // [bp-0xd]\n
+\n
+    memset(&v1, 0, 5);\n
+    v0 = 0;\n
+    if (0 > cgc_recv_bytes(22, &v1, 4))\n
+        cgc__terminate(22);\n
+    if (!cgc_memcmp(&T_CMD_SEAT_CUST, &v1, 4))\n
+    {\n
+        cgc_cmd_seat_customers_at_table();\n
+        return v0;\n
+    }\n
+    if (!cgc_memcmp(&T_CMD_TAKE_ORDER, &v1, 4))\n
+    {\n
+        cgc_cmd_take_orders();\n
+    }\n
+    else if (!cgc_memcmp(&T_CMD_DELIVER_ORDER, &v1, 4))\n
+    {\n
+        cgc_cmd_deliver_orders();\n
+    }\n
+    else if (!cgc_memcmp(\"QNQNQ>Q>\", &v1, 4))\n
+    {\n
+        cgc_cmd_get_seat_count_at_table();\n
+    }\n
+    else if (!cgc_memcmp(\"Q>Q>\", &v1, 4))\n
+    {\n
+        cgc_cmd_get_table_status();\n
+    }\n
+    else if (!cgc_memcmp(&T_CMD_TABLE_CLEAN_SET, &v1, 4))\n
+    {\n
+        cgc_cmd_clean_and_set_table();\n
+    }\n
+    else if (!cgc_memcmp(&T_CMD_QUIT, &v1, 4))\n
+    {\n
+        cgc_cmd_quit();\n
+        v0 = 65534;\n
+    }\n
+    return v0;\n
+}\n
+", "4213308:sub_404a3c": null, "4213312:cgc_cmd_seat_customers_at_table": "extern unsigned long long STATUS_ERR;\n
+extern unsigned long long STATUS_OK;\n
+\n
+long long cgc_cmd_seat_customers_at_table()\n
+{\n
+    char v0;  // [bp-0x21]\n
+    void* v1;  // [bp-0x20], Other Possible Types: unsigned long long\n
+    void* v2;  // [bp-0x18]\n
+    char v3;  // [bp-0xd]\n
+    unsigned int v4;  // [bp-0xc]\n
+    unsigned long v6;  // rax, Other Possible Types: unsigned long long\n
+\n
+    v4 = 0;\n
+    v3 = 0;\n
+    v2 = 0;\n
+    v1 = 0;\n
+    if (0 > cgc_recv_bytes(22, &v3, 1))\n
+        cgc__terminate(22);\n
+    for (v0 = 0; v0 < v3; v0 += 1)\n
+    {\n
+        v1 = cgc_malloc(176);\n
+        if (!v1)\n
+            cgc__terminate(176);\n
+        if (0 > cgc_recv_bytes(22, v1, 4))\n
+            cgc__terminate(22);\n
+        cgc_append_customer_to_list(&v2, v1);\n
+    }\n
+    v4 = cgc_seat_customers(v3, v2);\n
+    if (v4)\n
+    {\n
+        v6 = cgc_send_status(&STATUS_ERR);\n
+        return v6;\n
+    }\n
+    v6 = cgc_send_status(&STATUS_OK);\n
+    return v6;\n
+}\n
+", "4213645:sub_404b8d": null, "4213648:cgc_cmd_take_orders": "typedef struct struct_0 {\n
+    char padding_0[8];\n
+    unsigned int field_8;\n
+    char padding_c[4];\n
+    unsigned long long field_10;\n
+} struct_0;\n
+\n
+long long cgc_cmd_take_orders()\n
+{\n
+    unsigned int v0;  // [bp-0x20]\n
+    char v1;  // [bp-0x19]\n
+    struct_0 *v2;  // [bp-0x18]\n
+    void* v3;  // [bp-0x10]\n
+\n
+    v3 = 0;\n
+    v2 = 0;\n
+    v1 = 0;\n
+    v1 = cgc_take_customer_orders(&v3);\n
+    if (cgc_send_bytes(3, &v1, 1) != 1)\n
+        cgc__terminate(3);\n
+    while (true)\n
+    {\n
+        if (0 >= v1)\n
+            return 0;\n
+        v2 = cgc_pop_order_from_list(&v3);\n
+        if (!v2)\n
+            return 0;\n
+        if (cgc_send_bytes(3, v2, 4) != 4)\n
+            cgc__terminate(3);\n
+        if (cgc_send_bytes(3, &v2->padding_0[4], 4) != 4)\n
+            cgc__terminate(3);\n
+        v0 = v2->field_8;\n
+        if (!v0)\n
+        {\n
+            if (cgc_send_bytes(3, v2->field_10, 24) != 24)\n
+                cgc__terminate(3);\n
+        }\n
+        else\n
+        {\n
+            if (v0 == 1)\n
+            {\n
+                if (cgc_send_bytes(3, v2->field_10, 84) != 84)\n
+                    cgc__terminate(3);\n
+            }\n
+            else\n
+            {\n
+                if (v0 == 2 && cgc_send_bytes(3, v2->field_10, 24) != 24)\n
+                    cgc__terminate(3);\n
+            }\n
+        }\n
+        v1 -= 1;\n
+    }\n
+}\n
+", "4214200:sub_404db8": null, "4214208:cgc_cmd_deliver_orders": "typedef struct struct_0 {\n
+    unsigned int field_0;\n
+    char padding_4[4];\n
+    unsigned int field_8;\n
+    char padding_c[4];\n
+    unsigned long long field_10;\n
+} struct_0;\n
+\n
+extern unsigned long long STATUS_ERR;\n
+extern unsigned long long STATUS_OK;\n
+\n
+long long cgc_cmd_deliver_orders()\n
+{\n
+    unsigned int v0;  // [bp-0x38]\n
+    char v1;  // [bp-0x32]\n
+    char v2;  // [bp-0x31]\n
+    unsigned int *v3;  // [bp-0x30]\n
+    unsigned int *v4;  // [bp-0x28]\n
+    unsigned int *v5;  // [bp-0x20]\n
+    struct_0 *v6;  // [bp-0x18]\n
+    void* v7;  // [bp-0x10]\n
+    unsigned long v9;  // rax, Other Possible Types: unsigned long long\n
+\n
+    v7 = 0;\n
+    v6 = 0;\n
+    v5 = 0;\n
+    v4 = 0;\n
+    v3 = 0;\n
+    v2 = 0;\n
+    v1 = 0;\n
+    if (0 > cgc_recv_bytes(22, &v1, 1))\n
+        cgc__terminate(22);\n
+    for (; 0 < v1; v1 -= 1)\n
+    {\n
+        v6 = cgc_malloc(32);\n
+        if (!v6)\n
+            cgc__terminate(32);\n
+        cgc_memset(v6, 0, 32);\n
+        v6->field_0 = 9;\n
+        if (0 > cgc_recv_bytes(22, &v6->padding_4, 4))\n
+            cgc__terminate(22);\n
+        if (0 > cgc_recv_bytes(22, &v6->field_8, 4))\n
+            cgc__terminate(22);\n
+        v0 = v6->field_8;\n
+        if (!v0)\n
+        {\n
+            v5 = cgc_malloc(32);\n
+            if (!v5)\n
+                cgc__terminate(32);\n
+            cgc_memset(v5, 0, 32);\n
+            *(v5) = v6->field_8;\n
+            if (0 > cgc_recv_bytes(22, v5 + 1, 20))\n
+                cgc__terminate(22);\n
+            cgc_print_appetizer(v5);\n
+            v6->field_10 = v5;\n
+        }\n
+        else if (v0 == 1)\n
+        {\n
+            v4 = cgc_malloc(92);\n
+            if (!v4)\n
+                cgc__terminate(92);\n
+            cgc_memset(v4, 0, 92);\n
+            *(v4) = v6->field_8;\n
+            if (0 > cgc_recv_bytes(22, v4 + 1, 80))\n
+                cgc__terminate(22);\n
+            cgc_print_meal(v4);\n
+            v6->field_10 = v4;\n
+        }\n
+        else if (v0 != 2)\n
+        {\n
+            cgc_free(v6);\n
+            v2 += 1;\n
+        }\n
+        else\n
+        {\n
+            v3 = cgc_malloc(32);\n
+            if (!v3)\n
+                cgc__terminate(32);\n
+            cgc_memset(v3, 0, 32);\n
+            *(v3) = v6->field_8;\n
+            if (0 > cgc_recv_bytes(22, v3 + 1, 20))\n
+                cgc__terminate(22);\n
+            cgc_print_dessert(v3);\n
+            v6->field_10 = v3;\n
+        }\n
+        cgc_append_order_to_list(&v7, v6);\n
+    }\n
+    v2 += cgc_deliver_customer_orders(&v7);\n
+    if (v2)\n
+    {\n
+        v9 = cgc_send_status(&STATUS_ERR);\n
+        return v9;\n
+    }\n
+    v9 = cgc_send_status(&STATUS_OK);\n
+    return v9;\n
+}\n
+", "4215159:sub_405177": null, "4215168:cgc_cmd_get_seat_count_at_table": "long long cgc_cmd_get_seat_count_at_table()\n
+{\n
+    char v0;  // [bp-0x9]\n
+\n
+    v0 = cgc_get_seats_count();\n
+    if (cgc_send_bytes(3, &v0, 1) != 1)\n
+        return cgc__terminate(3);\n
+    return 1;\n
+}\n
+", "4215241:sub_4051c9": null, "4215248:cgc_cmd_get_table_status": "long long cgc_cmd_get_table_status()\n
+{\n
+    unsigned int v0;  // [bp-0xc]\n
+\n
+    v0 = cgc_get_table_status();\n
+    if (cgc_send_bytes(3, &v0, 4) != 4)\n
+        return cgc__terminate(3);\n
+    return 4;\n
+}\n
+", "4215321:sub_405219": null, "4215328:cgc_cmd_clean_and_set_table": "extern unsigned long long STATUS_OK;\n
+\n
+long long cgc_cmd_clean_and_set_table()\n
+{\n
+    cgc_table_clean_and_set();\n
+    return cgc_send_status(&STATUS_OK);\n
+}\n
+", "4215351:sub_405237": null, "4215360:cgc_cmd_quit": "extern unsigned long long STATUS_OK;\n
+\n
+long long cgc_cmd_quit()\n
+{\n
+    return cgc_send_status(&STATUS_OK);\n
+}\n
+", "4215388:sub_40525c": null, "4215392:cgc_pop_customer_from_list": "typedef struct struct_0 {\n
+    char padding_0[168];\n
+    unsigned long long field_a8;\n
+} struct_0;\n
+\n
+long long cgc_pop_customer_from_list(struct struct_0 **a0)\n
+{\n
+    struct_0 *v0;  // [bp-0x20]\n
+    struct_0 *v1;  // [bp-0x10], Other Possible Types: unsigned long\n
+\n
+    if (!*(a0))\n
+    {\n
+        v1 = 0;\n
+        return v1;\n
+    }\n
+    v0 = *(a0);\n
+    *(a0) = v0->field_a8;\n
+    v1 = v0;\n
+    return v1;\n
+}\n
+", "4215471:sub_4052af": null, "4215472:cgc_append_customer_to_list": "typedef struct struct_0 {\n
+    struct struct_0 *field_0;\n
+    char padding_8[160];\n
+    unsigned long long field_a8;\n
+} struct_0;\n
+\n
+typedef struct struct_1 {\n
+    char padding_0[168];\n
+    unsigned long long field_a8;\n
+} struct_1;\n
+\n
+long long cgc_append_customer_to_list(struct_0 *a0, struct_1 *a1)\n
+{\n
+    struct_0 *v0;  // [bp-0x20], Other Possible Types: unsigned long\n
+\n
+    v0 = a0->field_0;\n
+    if (!v0)\n
+    {\n
+        a0->field_0 = &a1->padding_0;\n
+        return a0;\n
+    }\n
+    for (a1->field_a8 = 0; v0->field_a8; v0 = v0->field_a8);\n
+    *((v0 + 168)) = a1;\n
+    return v0;\n
+}\n
+", "4215604:sub_405334": null, "4215616:cgc_get_customer_list_size": "typedef struct struct_0 {\n
+    char padding_0[168];\n
+    struct struct_0 *field_a8;\n
+} struct_0;\n
+\n
+long long cgc_get_customer_list_size(struct_0 *a0)\n
+{\n
+    char v0;  // [bp-0x19]\n
+    struct_0 *v1;  // [bp-0x18], Other Possible Types: unsigned long\n
+\n
+    v1 = a0;\n
+    for (v0 = 0; v1; v0 += 1)\n
+    {\n
+        v1 = *((v1 + 168));\n
+    }\n
+    return v0;\n
+}\n
+", "4215682:sub_405382": null, "4215696:cgc_get_customer_by_id": "typedef struct struct_0 {\n
+    unsigned int field_0;\n
+    char padding_4[164];\n
+    struct struct_0 *field_a8;\n
+} struct_0;\n
+\n
+long long cgc_get_customer_by_id(struct_0 *a0, unsigned long a1)\n
+{\n
+    struct_0 *v0;  // [bp-0x28], Other Possible Types: unsigned long\n
+    struct_0 *v1;  // [bp-0x10], Other Possible Types: unsigned long\n
+\n
+    v0 = a0;\n
+    while (true)\n
+    {\n
+        if (!v0)\n
+        {\n
+            v1 = 0;\n
+            return v1;\n
+        }\n
+        else if (a1 != *(v0))\n
+        {\n
+            v0 = *((v0 + 168));\n
+        }\n
+        else\n
+        {\n
+            v1 = v0;\n
+            return v1;\n
+        }\n
+    }\n
+}\n
+", "4215789:sub_4053ed": null, "4215792:cgc_clear_customer_list": "long long cgc_clear_customer_list(struct struct_0 **a0)\n
+{\n
+    void* v0;  // [bp-0x20], Other Possible Types: unsigned int\n
+    unsigned long v1;  // [bp-0x18]\n
+\n
+    v1 = cgc_pop_customer_from_list(a0);\n
+    v0 = 0;\n
+    while (v1)\n
+    {\n
+        *(&v0) = v1;\n
+        v1 = cgc_pop_customer_from_list(a0);\n
+        cgc_free(*(&v0));\n
+    }\n
+    return 0;\n
+}\n
+", "4215878:sub_405446": null, "4215888:cgc_select_appetizer": "typedef struct struct_0 {\n
+    char padding_0[24];\n
+    struct struct_0 *field_18;\n
+} struct_0;\n
+\n
+long long cgc_select_appetizer(struct_0 *a0, unsigned int *a1)\n
+{\n
+    char v0;  // [bp-0x25]\n
+    unsigned int v1;  // [bp-0x24]\n
+    struct_0 *v2;  // [bp-0x20], Other Possible Types: unsigned long\n
+\n
+    v2 = a0;\n
+    v1 = *(a1) * *(a1) & 4095;\n
+    v1 = *((0x4347c000 + v1));\n
+    v1 = (0 CONCAT v1) /m cgc_get_appetizer_count() >> 32;\n
+    while (true)\n
+    {\n
+        v0 = 0;\n
+        if (v2)\n
+            v0 = 0 < v1;\n
+        if (!(v0 & 1))\n
+            break;\n
+        v2 = v2->field_18;\n
+        v1 -= 1;\n
+    }\n
+    return v2;\n
+}\n
+", "4216046:sub_4054ee": null, "4216048:cgc_select_meal": "typedef struct struct_0 {\n
+    char padding_0[84];\n
+    struct struct_0 *field_54;\n
+} struct_0;\n
+\n
+long long cgc_select_meal(struct_0 *a0, unsigned int *a1)\n
+{\n
+    char v0;  // [bp-0x25]\n
+    unsigned int v1;  // [bp-0x24]\n
+    struct_0 *v2;  // [bp-0x20], Other Possible Types: unsigned long\n
+\n
+    v2 = a0;\n
+    v1 = *(a1) * *(a1) & 4095;\n
+    v1 = *((0x4347c000 + v1));\n
+    v1 = (0 CONCAT v1) /m cgc_get_meal_count() >> 32;\n
+    while (true)\n
+    {\n
+        v0 = 0;\n
+        if (v2)\n
+            v0 = 0 < v1;\n
+        if (!(v0 & 1))\n
+            break;\n
+        v2 = *(&(&v2->padding_0)[1]);\n
+        v1 -= 1;\n
+    }\n
+    return v2;\n
+}\n
+", "4216206:sub_40558e": null, "4216208:cgc_select_dessert": "typedef struct struct_0 {\n
+    char padding_0[24];\n
+    struct struct_0 *field_18;\n
+} struct_0;\n
+\n
+long long cgc_select_dessert(struct_0 *a0, unsigned int *a1)\n
+{\n
+    char v0;  // [bp-0x25]\n
+    unsigned int v1;  // [bp-0x24]\n
+    struct_0 *v2;  // [bp-0x20], Other Possible Types: unsigned long\n
+\n
+    v2 = a0;\n
+    v1 = *(a1) * *(a1) & 4095;\n
+    v1 = *((0x4347c000 + v1));\n
+    v1 = (0 CONCAT v1) /m cgc_get_dessert_count() >> 32;\n
+    while (true)\n
+    {\n
+        v0 = 0;\n
+        if (v2)\n
+            v0 = 0 < v1;\n
+        if (!(v0 & 1))\n
+            break;\n
+        v2 = v2->field_18;\n
+        v1 -= 1;\n
+    }\n
+    return v2;\n
+}\n
+", "4216366:sub_40562e": null, "4216368:cgc_inspect_appetizer": "typedef struct struct_0 {\n
+    char padding_0[4];\n
+    char field_4;\n
+} struct_0;\n
+\n
+long long cgc_inspect_appetizer(struct_0 *a0, unsigned long a1)\n
+{\n
+    unsigned int v0;  // [bp-0x1c]\n
+    char v1;  // [bp-0x9]\n
+\n
+    v0 = a1;\n
+    if (!a0->field_4)\n
+    {\n
+        v1 = 255;\n
+        return v1;\n
+    }\n
+    v1 = 0;\n
+    return v1;\n
+}\n
+", "4216424:sub_405668": null, "4216432:cgc_inspect_meal": "typedef struct struct_0 {\n
+    char padding_0[4];\n
+    char field_4;\n
+} struct_0;\n
+\n
+long long cgc_inspect_meal(struct_0 *a0, unsigned long a1)\n
+{\n
+    unsigned int v0;  // [bp-0x1c]\n
+    char v1;  // [bp-0x9]\n
+\n
+    v0 = a1;\n
+    if (!a0->field_4)\n
+    {\n
+        v1 = 255;\n
+        return v1;\n
+    }\n
+    v1 = 0;\n
+    return v1;\n
+}\n
+", "4216488:sub_4056a8": null, "4216496:cgc_inspect_dessert": "typedef struct struct_0 {\n
+    char padding_0[4];\n
+    char field_4;\n
+} struct_0;\n
+\n
+long long cgc_inspect_dessert(struct_0 *a0, unsigned long a1)\n
+{\n
+    unsigned int v0;  // [bp-0x1c]\n
+    char v1;  // [bp-0x9]\n
+\n
+    v0 = a1;\n
+    if (!a0->field_4)\n
+    {\n
+        v1 = 255;\n
+        return v1;\n
+    }\n
+    v1 = 0;\n
+    return v1;\n
+}\n
+", "4216552:sub_4056e8": null, "4216560:cgc_accept_food": "long long cgc_accept_food(char *a0, char *a1, unsigned long a2)\n
+{\n
+    return cgc_memcpy(a1, a0, a2);\n
+}\n
+", "4216601:sub_405719": null, "4216608:cgc_print_customer": "long long cgc_print_customer(unsigned long a0)\n
+{\n
+    cgc_print_appetizer(a0 + 4);\n
+    cgc_print_meal(a0 + 36);\n
+    return cgc_print_dessert(a0 + 128);\n
+}\n
+", "4216673:sub_405761": null, "4216688:cgc_menu_setup": "extern char todays_menu;\n
+\n
+long long cgc_menu_setup()\n
+{\n
+    cgc_memset(&todays_menu, 0, 24);\n
+    return cgc_load_menu(&todays_menu);\n
+}\n
+", "4216725:sub_405795": null, "4216736:cgc_get_appetizer_list": "extern unsigned long long todays_menu;\n
+\n
+long long cgc_get_appetizer_list()\n
+{\n
+    return todays_menu;\n
+}\n
+", "4216749:sub_4057ad": null, "4216752:cgc_get_meal_list": "extern unsigned long long g_411310;\n
+\n
+long long cgc_get_meal_list()\n
+{\n
+    return g_411310;\n
+}\n
+", "4216765:sub_4057bd": null, "4216768:cgc_get_dessert_list": "extern unsigned long long g_411318;\n
+\n
+long long cgc_get_dessert_list()\n
+{\n
+    return g_411318;\n
+}\n
+", "4216781:sub_4057cd": null, "4216784:cgc_get_appetizer_count": "typedef struct struct_0 {\n
+    char padding_0[24];\n
+    struct struct_0 *field_18;\n
+} struct_0;\n
+\n
+extern struct_0 *todays_menu;\n
+\n
+long long cgc_get_appetizer_count()\n
+{\n
+    unsigned int v0;  // [bp-0x14]\n
+    struct_0 *v1;  // [bp-0x10], Other Possible Types: unsigned long\n
+\n
+    v1 = todays_menu;\n
+    for (v0 = 0; v1; v0 += 1)\n
+    {\n
+        v1 = v1->field_18;\n
+    }\n
+    return v0;\n
+}\n
+", "4216849:sub_405811": null, "4216864:cgc_get_meal_count": "typedef struct struct_0 {\n
+    char padding_0[84];\n
+    struct struct_0 *field_54;\n
+} struct_0;\n
+\n
+extern struct_0 *g_411310;\n
+\n
+long long cgc_get_meal_count()\n
+{\n
+    unsigned int v0;  // [bp-0x14]\n
+    struct_0 *v1;  // [bp-0x10], Other Possible Types: unsigned long\n
+\n
+    v1 = g_411310;\n
+    for (v0 = 0; v1; v0 += 1)\n
+    {\n
+        v1 = *(&(&v1->padding_0)[1]);\n
+    }\n
+    return v0;\n
+}\n
+", "4216929:sub_405861": null, "4216944:cgc_get_dessert_count": "typedef struct struct_0 {\n
+    char padding_0[24];\n
+    struct struct_0 *field_18;\n
+} struct_0;\n
+\n
+extern struct_0 *g_411318;\n
+\n
+long long cgc_get_dessert_count()\n
+{\n
+    unsigned int v0;  // [bp-0x14]\n
+    struct_0 *v1;  // [bp-0x10], Other Possible Types: unsigned long\n
+\n
+    v1 = g_411318;\n
+    for (v0 = 0; v1; v0 += 1)\n
+    {\n
+        v1 = v1->field_18;\n
+    }\n
+    return v0;\n
+}\n
+", "4217009:sub_4058b1": null, "4217024:cgc_print_appetizer": "long long cgc_print_appetizer(unsigned long a0)\n
+{\n
+    unsigned long v0;  // [bp-0x10]\n
+    unsigned long v2;  // rax\n
+\n
+    v0 = a0;\n
+    return v2;\n
+}\n
+", "4217039:sub_4058cf": null, "4217040:cgc_print_meal": "long long cgc_print_meal(unsigned long a0)\n
+{\n
+    unsigned long v0;  // [bp-0x10]\n
+    unsigned long v2;  // rax\n
+\n
+    v0 = a0;\n
+    return v2;\n
+}\n
+", "4217055:sub_4058df": null, "4217056:cgc_print_dessert": "long long cgc_print_dessert(unsigned long a0)\n
+{\n
+    unsigned long v0;  // [bp-0x10]\n
+    unsigned long v2;  // rax\n
+\n
+    v0 = a0;\n
+    return v2;\n
+}\n
+", "4217071:sub_4058ef": null, "4217072:cgc_pop_order_from_list": "typedef struct struct_0 {\n
+    char padding_0[24];\n
+    unsigned long long field_18;\n
+} struct_0;\n
+\n
+long long cgc_pop_order_from_list(struct struct_0 **a0)\n
+{\n
+    struct_0 *v0;  // [bp-0x20]\n
+    struct_0 *v1;  // [bp-0x10], Other Possible Types: unsigned long\n
+\n
+    if (!*(a0))\n
+    {\n
+        v1 = 0;\n
+        return v1;\n
+    }\n
+    v0 = *(a0);\n
+    *(a0) = v0->field_18;\n
+    v1 = v0;\n
+    return v1;\n
+}\n
+", "4217148:sub_40593c": null, "4217152:cgc_append_order_to_list": "long long cgc_append_order_to_list(unsigned long a0, unsigned long a1)\n
+{\n
+    unsigned long v0;  // [bp-0x20]\n
+\n
+    v0 = *(a0);\n
+    if (!v0)\n
+    {\n
+        *(a0) = a1;\n
+        return a0;\n
+    }\n
+    for (*((a1 + 24)) = 0; *((v0 + 24)); v0 = *((v0 + 24)));\n
+    *((v0 + 24)) = a1;\n
+    return v0;\n
+}\n
+", "4217272:sub_4059b8": null, "4217280:cgc_get_order_list_size": "typedef struct struct_0 {\n
+    char padding_0[24];\n
+    struct struct_0 *field_18;\n
+} struct_0;\n
+\n
+long long cgc_get_order_list_size(struct_0 *a0)\n
+{\n
+    char v0;  // [bp-0x19]\n
+    struct_0 *v1;  // [bp-0x18], Other Possible Types: unsigned long\n
+\n
+    v1 = a0;\n
+    for (v0 = 0; v1; v0 += 1)\n
+    {\n
+        v1 = *((v1 + 24));\n
+    }\n
+    return v0;\n
+}\n
+", "4217343:sub_4059ff": null, "4217344:cgc_setup": "long long cgc_setup()\n
+{\n
+    unsigned long long v1;  // rdi\n
+    unsigned long long v2;  // rsi\n
+    unsigned long long v3;  // rdx\n
+    unsigned long long v4;  // rcx\n
+    unsigned long long v5;  // r8\n
+    unsigned long long v6;  // r9\n
+\n
+    cgc_menu_setup();\n
+    return cgc_table_setup(v1, v2, v3, v4, v5, v6);\n
+}\n
+", "4217360:main": "int main(unsigned long a0, unsigned long a1)\n
+{\n
+    unsigned short v0;  // [bp-0x1a]\n
+    unsigned long v1;  // [bp-0x18]\n
+    unsigned int v2;  // [bp-0x10]\n
+    unsigned int v3;  // [bp-0xc]\n
+\n
+    v3 = 0;\n
+    v2 = a0;\n
+    v1 = a1;\n
+    v0 = 0;\n
+    cgc_setup();\n
+    do\n
+    {\n
+        v0 = cgc_process_cmd();\n
+    } while (v0 != -2);\n
+    return 0;\n
+}\n
+", "4217442:sub_405a62": null, "4217456:cgc_table_setup": "extern unsigned int g_411324;\n
+extern char g_411328;\n
+extern void* g_411330;\n
+extern unsigned int table;\n
+\n
+char cgc_table_setup()\n
+{\n
+    unsigned long long v1;  // rcx\n
+    unsigned long long v2;  // r8\n
+    unsigned long long v3;  // r9\n
+\n
+    cgc_memset(&table, 0, 24);\n
+    table = 9;\n
+    g_411324 = 0;\n
+    g_411328 = cgc_calculate_seats_count(&table, 0, 24, v1, v2, v3);\n
+    g_411330 = 0;\n
+    return g_411328;\n
+}\n
+", "4217523:sub_405ab3": null, "4217536:cgc_calculate_seats_count": "extern unsigned int table;\n
+\n
+long long cgc_calculate_seats_count()\n
+{\n
+    char *v0;  // [bp-0x18]\n
+    char v1;  // [bp-0x9]\n
+\n
+    v1 = 1;\n
+    v0 = 0x4347c000;\n
+    v1 = (v0[table] >> 31 CONCAT v0[table]) /m 10 >> 32;\n
+    if (2 > v1)\n
+        v1 += 2;\n
+    return v1;\n
+}\n
+", "4217613:sub_405b0d": null, "4217616:cgc_table_clean_and_set": "typedef struct struct_0 {\n
+    char padding_0[168];\n
+    unsigned long long field_a8;\n
+} struct_0;\n
+\n
+extern unsigned long long g_411330;\n
+\n
+long long cgc_table_clean_and_set()\n
+{\n
+    char v0;  // [bp-0x19]\n
+    void* v1;  // [bp-0x18], Other Possible Types: unsigned int\n
+    struct_0 *v2;  // [bp-0x10]\n
+\n
+    v2 = g_411330;\n
+    v1 = 0;\n
+    v0 = cgc_get_customer_list_size(v2);\n
+    while (true)\n
+    {\n
+        *(&v1) = cgc_pop_customer_from_list(&v2);\n
+        if (!*(&v1))\n
+            break;\n
+        cgc_free(*(&v1));\n
+    }\n
+    return cgc_table_setup();\n
+}\n
+", "4217733:sub_405b85": null, "4217744:cgc_get_seats_count": "extern char g_411328;\n
+\n
+long long cgc_get_seats_count()\n
+{\n
+    return g_411328;\n
+}\n
+", "4217767:sub_405ba7": null, "4217776:cgc_get_table_status": "extern unsigned int g_411324;\n
+\n
+long long cgc_get_table_status()\n
+{\n
+    return g_411324;\n
+}\n
+", "4217788:sub_405bbc": null, "4217792:cgc_seat_customers": "typedef struct struct_0 {\n
+    char padding_0[168];\n
+    unsigned long long field_a8;\n
+} struct_0;\n
+\n
+extern unsigned int g_411324;\n
+\n
+long long cgc_seat_customers(unsigned long a0, unsigned long a1)\n
+{\n
+    char v0;  // [bp-0x29]\n
+    void* v1;  // [bp-0x28], Other Possible Types: unsigned long long\n
+    unsigned int v2;  // [bp-0x1c]\n
+    struct_0 *v3;  // [bp-0x18]\n
+    unsigned int v4;  // [bp-0xc]\n
+\n
+    v3 = a1;\n
+    v2 = 0;\n
+    v1 = 0;\n
+    if (cgc_get_table_status())\n
+    {\n
+        cgc_clear_customer_list(&v3);\n
+        v4 = -1;\n
+        return v4;\n
+    }\n
+    for (v0 = 0; v0 < a0; v0 += 1)\n
+    {\n
+        v1 = cgc_pop_customer_from_list(&v3);\n
+        if (!v1)\n
+        {\n
+            v4 = -1;\n
+            return v4;\n
+        }\n
+        v2 = cgc_seat_customer(v1);\n
+        if (v2)\n
+        {\n
+            v4 = v2;\n
+            return v4;\n
+        }\n
+    }\n
+    if (0 < a0)\n
+        cgc_set_table_status(g_411324 + 1);\n
+    v4 = 0;\n
+    return v4;\n
+}\n
+", "4218061:sub_405ccd": null, "4218064:cgc_seat_customer": "extern char g_411330;\n
+\n
+long long cgc_seat_customer(unsigned long a0)\n
+{\n
+    unsigned long v0;  // [bp-0x20]\n
+    unsigned int v1;  // [bp-0xc]\n
+\n
+    v0 = g_411330;\n
+    if (!cgc_get_empty_seats_count())\n
+    {\n
+        v1 = -1;\n
+        return v1;\n
+    }\n
+    if (!v0)\n
+    {\n
+        g_411330 = a0;\n
+    }\n
+    else\n
+    {\n
+        for (*((a0 + 168)) = 0; *((v0 + 168)); v0 = *((v0 + 168)));\n
+        *((v0 + 168)) = a0;\n
+    }\n
+    v1 = 0;\n
+    return v1;\n
+}\n
+", "4218265:sub_405d99": null, "4218272:cgc_set_table_status": "extern char g_411324;\n
+\n
+long long cgc_set_table_status(unsigned long a0)\n
+{\n
+    *(&g_411324) = a0;\n
+    return a0;\n
+}\n
+", "4218290:sub_405db2": null, "4218304:cgc_take_customer_orders": "typedef struct struct_0 {\n
+    char padding_0[168];\n
+    struct struct_0 *field_a8;\n
+} struct_0;\n
+\n
+extern unsigned int g_411324;\n
+extern struct_0 *g_411330;\n
+\n
+long long cgc_take_customer_orders(unsigned int a0)\n
+{\n
+    void* v0;  // [bp-0x28], Other Possible Types: unsigned int\n
+    struct_0 *v1;  // [bp-0x20], Other Possible Types: unsigned long\n
+    char v2;  // [bp-0x11]\n
+\n
+    v2 = 0;\n
+    v1 = g_411330;\n
+    for (v0 = 0; v1; v1 = v1->field_a8)\n
+    {\n
+        *(&v0) = cgc_take_customer_order(v1);\n
+        if (*(&v0))\n
+        {\n
+            cgc_append_order_to_list(a0, *(&v0));\n
+            v2 += 1;\n
+        }\n
+    }\n
+    if (0 < v2)\n
+    {\n
+        cgc_set_table_status(g_411324 + 1);\n
+        return v2;\n
+    }\n
+    return v2;\n
+}\n
+", "4218480:cgc_take_customer_order": "typedef struct struct_0 {\n
+    unsigned int field_0;\n
+    unsigned int field_4;\n
+    unsigned int field_8;\n
+    char padding_c[4];\n
+    unsigned long long field_10;\n
+} struct_0;\n
+\n
+extern unsigned int g_411324;\n
+extern unsigned int table;\n
+\n
+long long cgc_take_customer_order(unsigned int *a0)\n
+{\n
+    unsigned int v0;  // [bp-0x24]\n
+    struct_0 *v1;  // [bp-0x20]\n
+    struct_0 *v2;  // [bp-0x10], Other Possible Types: unsigned long\n
+\n
+    v1 = cgc_malloc(32);\n
+    if (!v1)\n
+        cgc__terminate(32);\n
+    cgc_memset(v1, 0, 32);\n
+    v1->field_0 = table;\n
+    v1->field_4 = *(a0);\n
+    v0 = g_411324;\n
+    if (g_411324 == 1)\n
+    {\n
+        v1->field_8 = 0;\n
+        v1->field_10 = cgc_select_appetizer(cgc_get_appetizer_list(), a0);\n
+    }\n
+    else if (v0 == 3)\n
+    {\n
+        v1->field_8 = 1;\n
+        v1->field_10 = cgc_select_meal(cgc_get_meal_list(), a0);\n
+    }\n
+    else if (v0 == 5)\n
+    {\n
+        v1->field_8 = 2;\n
+        v1->field_10 = cgc_select_dessert(cgc_get_dessert_list(), a0);\n
+    }\n
+    else\n
+    {\n
+        cgc_free(v1);\n
+        v2 = 0;\n
+        return v2;\n
+    }\n
+    v2 = v1;\n
+    return v2;\n
+}\n
+", "4218828:sub_405fcc": null, "4218832:cgc_deliver_customer_orders": "typedef struct struct_0 {\n
+    char padding_0[4];\n
+    unsigned int field_4;\n
+    unsigned int field_8;\n
+    char padding_c[4];\n
+    unsigned long long field_10;\n
+} struct_0;\n
+\n
+typedef struct struct_1 {\n
+    char padding_0[4];\n
+    unsigned int field_4;\n
+    unsigned int field_8;\n
+    char padding_c[4];\n
+    char field_10;\n
+} struct_1;\n
+\n
+extern unsigned int g_411324;\n
+extern void* g_411330;\n
+\n
+long long cgc_deliver_customer_orders(void* *a0)\n
+{\n
+    unsigned int v0;  // [bp-0x2c]\n
+    void* v1;  // [bp-0x28], Other Possible Types: unsigned long long\n
+    struct_0 *v2;  // [bp-0x20], Other Possible Types: struct_1 *\n
+    char v3;  // [bp-0x12]\n
+    char v4;  // [bp-0x11]\n
+    char v5;  // [bp-0x8]\n
+    unsigned long long v7;  // rbp\n
+\n
+    v7 = &v5;\n
+    v4 = cgc_get_order_list_size(*(a0));\n
+    v3 = 0;\n
+    v2 = 0;\n
+    v1 = 0;\n
+    v0 = 0;\n
+    while (true)\n
+    {\n
+        v2 = cgc_pop_order_from_list(a0);\n
+        if (!v2)\n
+            break;\n
+        v1 = cgc_get_customer_by_id(g_411330, v2->field_4);\n
+        if (v1 && !cgc_give_food_to_customer(v1, v2->field_8, *(&v2->field_10)))\n
+            v3 += 1;\n
+        cgc_free(*(&v2->field_10));\n
+        cgc_free(v2);\n
+    }\n
+    if (0 < v3)\n
+    {\n
+        cgc_set_table_status(g_411324 + 1);\n
+        return v4 - v3;\n
+    }\n
+    return v4 - v3;\n
+}\n
+", "4219108:sub_4060e4": null, "4219120:cgc_give_food_to_customer": "typedef struct struct_1 {\n
+    unsigned int field_0;\n
+    char padding_4[156];\n
+    struct struct_0 *field_a0;\n
+} struct_1;\n
+\n
+typedef struct struct_0 {\n
+    struct struct_0 *field_0;\n
+} struct_0;\n
+\n
+extern unsigned int g_411324;\n
+\n
+long long cgc_give_food_to_customer(struct_1 *a0, unsigned long a1, char *a2)\n
+{\n
+    unsigned int v0;  // [bp-0x38]\n
+    unsigned int v1;  // [bp-0x34]\n
+    void* v2;  // [bp-0x30], Other Possible Types: unsigned long\n
+    unsigned int v3;  // [bp-0x28]\n
+    char v4;  // [bp-0x21]\n
+    unsigned int v5;  // [bp-0x14]\n
+\n
+    v5 = a1;\n
+    v4 = 0;\n
+    v3 = 0;\n
+    v2 = 0;\n
+    v1 = v5;\n
+    if (!v1)\n
+    {\n
+        v3 = 32;\n
+    }\n
+    else if (v1 == 1)\n
+    {\n
+        v3 = 92;\n
+    }\n
+    else if (v1 == 2)\n
+    {\n
+        v3 = 32;\n
+    }\n
+    else\n
+    {\n
+        v4 = 255;\n
+    }\n
+    v5 = cgc_get_delivery_foodtype_from_tablestatus(g_411324);\n
+    v0 = v5;\n
+    if (!v0)\n
+    {\n
+        v2 = &a0->padding_4;\n
+        a0->field_a0 = &cgc_inspect_appetizer;\n
+    }\n
+    else if (v0 == 1)\n
+    {\n
+        v2 = &a0->padding_4[32];\n
+        a0->field_a0 = &cgc_inspect_meal;\n
+    }\n
+    else if (v0 != 2)\n
+    {\n
+        v4 = 255;\n
+    }\n
+    else\n
+    {\n
+        v2 = &a0->padding_4[124];\n
+        a0->field_a0 = &cgc_inspect_dessert;\n
+    }\n
+    if (!v4)\n
+    {\n
+        cgc_accept_food(a2, v2, v3);\n
+        v4 = a0->field_a0(v2, a0->field_0);\n
+        return v4;\n
+    }\n
+    return v4;\n
+}\n
+", "4219575:sub_4062b7": null, "4219584:cgc_get_empty_seats_count": "long long cgc_get_empty_seats_count()\n
+{\n
+    char v0;  // [bp-0x18]\n
+    unsigned int v1;  // [bp-0x10]\n
+    char v2;  // [bp-0x9]\n
+    unsigned long long v4;  // rdi\n
+    unsigned long long v5;  // rsi\n
+    unsigned long long v6;  // rdx\n
+    unsigned long long v7;  // rcx\n
+    unsigned long long v8;  // r8\n
+    unsigned long long v9;  // r9\n
+\n
+    v1 = cgc_get_seats_count();\n
+    v2 = v1 - cgc_get_occupied_seats_count(v4, v5, v6, v7, v8, v9, *(&v0), v1);\n
+    return v2;\n
+}\n
+", "4219636:sub_4062f4": null, "4219648:cgc_get_occupied_seats_count": "typedef struct struct_0 {\n
+    char padding_0[168];\n
+    struct struct_0 *field_a8;\n
+} struct_0;\n
+\n
+extern struct_0 *g_411330;\n
+\n
+long long cgc_get_occupied_seats_count()\n
+{\n
+    struct_0 *v0;  // [bp-0x18], Other Possible Types: unsigned long\n
+    char v1;  // [bp-0x9]\n
+\n
+    v1 = 0;\n
+    for (v0 = g_411330; v0; v1 += 1)\n
+    {\n
+        v0 = *((v0 + 168));\n
+    }\n
+    return v1;\n
+}\n
+", "4219723:sub_40634b": null, "4219728:cgc_get_delivery_foodtype_from_tablestatus": "extern unsigned int g_411324;\n
+\n
+long long cgc_get_delivery_foodtype_from_tablestatus(unsigned long a0)\n
+{\n
+    unsigned int v0;  // [bp-0x14]\n
+    unsigned int v1;  // [bp-0x10]\n
+    unsigned int v2;  // [bp-0xc]\n
+\n
+    v2 = a0;\n
+    v1 = 0;\n
+    v0 = g_411324;\n
+    if (g_411324 == 2)\n
+    {\n
+        v1 = 0;\n
+        return v1;\n
+    }\n
+    else if (v0 == 4)\n
+    {\n
+        v1 = 1;\n
+        return v1;\n
+    }\n
+    else if (v0 != 6)\n
+    {\n
+        v1 = 3;\n
+        return v1;\n
+    }\n
+    else\n
+    {\n
+        v1 = 2;\n
+        return v1;\n
+    }\n
+}\n
+", "4219847:sub_4063c7": null, "4219856:cgc_load_menu": "long long cgc_load_menu(unsigned long long a0)\n
+{\n
+    char *v0;  // [bp-0x1308]\n
+    char *v1;  // [bp-0x1300]\n
+    char *v2;  // [bp-0x12f8]\n
+    char *v3;  // [bp-0x12f0]\n
+    char *v4;  // [bp-0x12e8]\n
+    char *v5;  // [bp-0x12e0]\n
+    char *v6;  // [bp-0x12d8]\n
+    char *v7;  // [bp-0x12d0]\n
+    char *v8;  // [bp-0x12c8]\n
+    char *v9;  // [bp-0x12c0]\n
+    char *v10;  // [bp-0x12b8]\n
+    char *v11;  // [bp-0x12b0]\n
+    char *v12;  // [bp-0x12a8]\n
+    char *v13;  // [bp-0x12a0]\n
+    char *v14;  // [bp-0x1298]\n
+    char *v15;  // [bp-0x1290]\n
+    char *v16;  // [bp-0x1288]\n
+    char *v17;  // [bp-0x1280]\n
+    char *v18;  // [bp-0x1278]\n
+    char *v19;  // [bp-0x1270]\n
+    char *v20;  // [bp-0x1268]\n
+    char *v21;  // [bp-0x1260]\n
+    char *v22;  // [bp-0x1258]\n
+    char *v23;  // [bp-0x1250]\n
+    char *v24;  // [bp-0x1248]\n
+    char *v25;  // [bp-0x1240]\n
+    char *v26;  // [bp-0x1238]\n
+    char *v27;  // [bp-0x1230]\n
+    char *v28;  // [bp-0x1228]\n
+    char *v29;  // [bp-0x1220]\n
+    char *v30;  // [bp-0x1218]\n
+    char *v31;  // [bp-0x1210]\n
+    char *v32;  // [bp-0x1208]\n
+    char *v33;  // [bp-0x1200]\n
+    char *v34;  // [bp-0x11f8]\n
+    char *v35;  // [bp-0x11f0]\n
+    char *v36;  // [bp-0x11e8]\n
+    char *v37;  // [bp-0x11e0]\n
+    char *v38;  // [bp-0x11d8]\n
+    char *v39;  // [bp-0x11d0]\n
+    char *v40;  // [bp-0x11c8]\n
+    char *v41;  // [bp-0x11c0]\n
+    char *v42;  // [bp-0x11b8]\n
+    char *v43;  // [bp-0x11b0]\n
+    char *v44;  // [bp-0x11a8]\n
+    char *v45;  // [bp-0x11a0]\n
+    char *v46;  // [bp-0x1198]\n
+    char *v47;  // [bp-0x1190]\n
+    char *v48;  // [bp-0x1188]\n
+    char *v49;  // [bp-0x1180]\n
+    char *v50;  // [bp-0x1178]\n
+    char *v51;  // [bp-0x1170]\n
+    char *v52;  // [bp-0x1168]\n
+    char *v53;  // [bp-0x1160]\n
+    char *v54;  // [bp-0x1158]\n
+    char *v55;  // [bp-0x1150]\n
+    char *v56;  // [bp-0x1148]\n
+    char *v57;  // [bp-0x1140]\n
+    char *v58;  // [bp-0x1138]\n
+    char *v59;  // [bp-0x1130]\n
+    char *v60;  // [bp-0x1128]\n
+    char *v61;  // [bp-0x1120]\n
+    char *v62;  // [bp-0x1118]\n
+    char *v63;  // [bp-0x1110]\n
+    char *v64;  // [bp-0x1108]\n
+    char *v65;  // [bp-0x1100]\n
+    char *v66;  // [bp-0x10f8]\n
+    char *v67;  // [bp-0x10f0]\n
+    char *v68;  // [bp-0x10e8]\n
+    char *v69;  // [bp-0x10e0]\n
+    char *v70;  // [bp-0x10d8]\n
+    char *v71;  // [bp-0x10d0]\n
+    char *v72;  // [bp-0x10c8]\n
+    char *v73;  // [bp-0x10c0]\n
+    char *v74;  // [bp-0x10b8]\n
+    char *v75;  // [bp-0x10b0]\n
+    char *v76;  // [bp-0x10a8]\n
+    char *v77;  // [bp-0x10a0]\n
+    char *v78;  // [bp-0x1098]\n
+    char *v79;  // [bp-0x1090]\n
+    char *v80;  // [bp-0x1088]\n
+    char *v81;  // [bp-0x1080]\n
+    char *v82;  // [bp-0x1078]\n
+    char *v83;  // [bp-0x1070]\n
+    char *v84;  // [bp-0x1068]\n
+    char *v85;  // [bp-0x1060]\n
+    char *v86;  // [bp-0x1058]\n
+    char *v87;  // [bp-0x1050]\n
+    char *v88;  // [bp-0x1048]\n
+    char *v89;  // [bp-0x1040]\n
+    char *v90;  // [bp-0x1038]\n
+    char *v91;  // [bp-0x1030]\n
+    char *v92;  // [bp-0x1028]\n
+    char *v93;  // [bp-0x1020]\n
+    char *v94;  // [bp-0x1018]\n
+    char *v95;  // [bp-0x1010]\n
+    char *v96;  // [bp-0x1008]\n
+    char *v97;  // [bp-0x1000]\n
+    char *v98;  // [bp-0xff8]\n
+    char *v99;  // [bp-0xff0]\n
+    char *v100;  // [bp-0xfe8]\n
+    char *v101;  // [bp-0xfe0]\n
+    char *v102;  // [bp-0xfd8]\n
+    char *v103;  // [bp-0xfd0]\n
+    char *v104;  // [bp-0xfc8]\n
+    char *v105;  // [bp-0xfc0]\n
+    char *v106;  // [bp-0xfb8]\n
+    char *v107;  // [bp-0xfb0]\n
+    char *v108;  // [bp-0xfa8]\n
+    char *v109;  // [bp-0xfa0]\n
+    char *v110;  // [bp-0xf98]\n
+    char *v111;  // [bp-0xf90]\n
+    char *v112;  // [bp-0xf88]\n
+    char *v113;  // [bp-0xf80]\n
+    char *v114;  // [bp-0xf78]\n
+    char *v115;  // [bp-0xf70]\n
+    char *v116;  // [bp-0xf68]\n
+    char *v117;  // [bp-0xf60]\n
+    char *v118;  // [bp-0xf58]\n
+    char *v119;  // [bp-0xf50]\n
+    char *v120;  // [bp-0xf48]\n
+    char *v121;  // [bp-0xf40]\n
+    char *v122;  // [bp-0xf38]\n
+    char *v123;  // [bp-0xf30]\n
+    char *v124;  // [bp-0xf28]\n
+    char *v125;  // [bp-0xf20]\n
+    char *v126;  // [bp-0xf18]\n
+    char *v127;  // [bp-0xf10]\n
+    char *v128;  // [bp-0xf08]\n
+    char *v129;  // [bp-0xf00]\n
+    char *v130;  // [bp-0xef8]\n
+    char *v131;  // [bp-0xef0]\n
+    char *v132;  // [bp-0xee8]\n
+    char *v133;  // [bp-0xee0]\n
+    char *v134;  // [bp-0xed8]\n
+    char *v135;  // [bp-0xed0]\n
+    char *v136;  // [bp-0xec8]\n
+    char *v137;  // [bp-0xec0]\n
+    char *v138;  // [bp-0xeb8]\n
+    char *v139;  // [bp-0xeb0]\n
+    char *v140;  // [bp-0xea8]\n
+    char *v141;  // [bp-0xea0]\n
+    char *v142;  // [bp-0xe98]\n
+    char *v143;  // [bp-0xe90]\n
+    char *v144;  // [bp-0xe88]\n
+    char *v145;  // [bp-0xe80]\n
+    char *v146;  // [bp-0xe78]\n
+    char *v147;  // [bp-0xe70]\n
+    char *v148;  // [bp-0xe68]\n
+    char *v149;  // [bp-0xe60]\n
+    char *v150;  // [bp-0xe58]\n
+    char *v151;  // [bp-0xe50]\n
+    char *v152;  // [bp-0xe48]\n
+    char *v153;  // [bp-0xe40]\n
+    char *v154;  // [bp-0xe38]\n
+    char *v155;  // [bp-0xe30]\n
+    char *v156;  // [bp-0xe28]\n
+    char *v157;  // [bp-0xe20]\n
+    char *v158;  // [bp-0xe18]\n
+    char *v159;  // [bp-0xe10]\n
+    char *v160;  // [bp-0xe08]\n
+    char *v161;  // [bp-0xe00]\n
+    char *v162;  // [bp-0xdf8]\n
+    char *v163;  // [bp-0xdf0]\n
+    char *v164;  // [bp-0xde8]\n
+    char *v165;  // [bp-0xde0]\n
+    char *v166;  // [bp-0xdd8]\n
+    char *v167;  // [bp-0xdd0]\n
+    char *v168;  // [bp-0xdc8]\n
+    char *v169;  // [bp-0xdc0]\n
+    char *v170;  // [bp-0xdb8]\n
+    char *v171;  // [bp-0xdb0]\n
+    char *v172;  // [bp-0xda8]\n
+    char *v173;  // [bp-0xda0]\n
+    char *v174;  // [bp-0xd98]\n
+    char *v175;  // [bp-0xd90]\n
+    char *v176;  // [bp-0xd88]\n
+    char *v177;  // [bp-0xd80]\n
+    char *v178;  // [bp-0xd78]\n
+    char *v179;  // [bp-0xd70]\n
+    char *v180;  // [bp-0xd68]\n
+    char *v181;  // [bp-0xd60]\n
+    char *v182;  // [bp-0xd58]\n
+    char *v183;  // [bp-0xd50]\n
+    char *v184;  // [bp-0xd48]\n
+    char *v185;  // [bp-0xd40]\n
+    char *v186;  // [bp-0xd38]\n
+    char *v187;  // [bp-0xd30]\n
+    char *v188;  // [bp-0xd28]\n
+    char *v189;  // [bp-0xd20]\n
+    char *v190;  // [bp-0xd18]\n
+    char *v191;  // [bp-0xd10]\n
+    char *v192;  // [bp-0xd08]\n
+    char *v193;  // [bp-0xd00]\n
+    char *v194;  // [bp-0xcf8]\n
+    char *v195;  // [bp-0xcf0]\n
+    char *v196;  // [bp-0xce8]\n
+    char *v197;  // [bp-0xce0]\n
+    char *v198;  // [bp-0xcd8]\n
+    char *v199;  // [bp-0xcd0]\n
+    char *v200;  // [bp-0xcc8]\n
+    char *v201;  // [bp-0xcc0]\n
+    char *v202;  // [bp-0xcb8]\n
+    char *v203;  // [bp-0xcb0]\n
+    char *v204;  // [bp-0xca8]\n
+    char *v205;  // [bp-0xca0]\n
+    char *v206;  // [bp-0xc98]\n
+    char *v207;  // [bp-0xc90]\n
+    char *v208;  // [bp-0xc88]\n
+    char *v209;  // [bp-0xc80]\n
+    char *v210;  // [bp-0xc78]\n
+    char *v211;  // [bp-0xc70]\n
+    char *v212;  // [bp-0xc68]\n
+    char *v213;  // [bp-0xc60]\n
+    char *v214;  // [bp-0xc58]\n
+    char *v215;  // [bp-0xc50]\n
+    char *v216;  // [bp-0xc48]\n
+    char *v217;  // [bp-0xc40]\n
+    char *v218;  // [bp-0xc38]\n
+    char *v219;  // [bp-0xc30]\n
+    char *v220;  // [bp-0xc28]\n
+    char *v221;  // [bp-0xc20]\n
+    char *v222;  // [bp-0xc18]\n
+    char *v223;  // [bp-0xc10]\n
+    char *v224;  // [bp-0xc08]\n
+    char *v225;  // [bp-0xc00]\n
+    char *v226;  // [bp-0xbf8]\n
+    char *v227;  // [bp-0xbf0]\n
+    char *v228;  // [bp-0xbe8]\n
+    char *v229;  // [bp-0xbe0]\n
+    char *v230;  // [bp-0xbd8]\n
+    char *v231;  // [bp-0xbd0]\n
+    char *v232;  // [bp-0xbc8]\n
+    char *v233;  // [bp-0xbc0]\n
+    char *v234;  // [bp-0xbb8]\n
+    char *v235;  // [bp-0xbb0]\n
+    char *v236;  // [bp-0xba8]\n
+    char *v237;  // [bp-0xba0]\n
+    char *v238;  // [bp-0xb98]\n
+    char *v239;  // [bp-0xb90]\n
+    char *v240;  // [bp-0xb88]\n
+    char *v241;  // [bp-0xb80]\n
+    char *v242;  // [bp-0xb78]\n
+    char *v243;  // [bp-0xb70]\n
+    char *v244;  // [bp-0xb68]\n
+    char *v245;  // [bp-0xb60]\n
+    char *v246;  // [bp-0xb58]\n
+    char *v247;  // [bp-0xb50]\n
+    char *v248;  // [bp-0xb48]\n
+    char *v249;  // [bp-0xb40]\n
+    char *v250;  // [bp-0xb38]\n
+    char *v251;  // [bp-0xb30]\n
+    char *v252;  // [bp-0xb28]\n
+    char *v253;  // [bp-0xb20]\n
+    char *v254;  // [bp-0xb18]\n
+    char *v255;  // [bp-0xb10]\n
+    char *v256;  // [bp-0xb08]\n
+    char *v257;  // [bp-0xb00]\n
+    char *v258;  // [bp-0xaf8]\n
+    char *v259;  // [bp-0xaf0]\n
+    char *v260;  // [bp-0xae8]\n
+    char *v261;  // [bp-0xae0]\n
+    char *v262;  // [bp-0xad8]\n
+    char *v263;  // [bp-0xad0]\n
+    char *v264;  // [bp-0xac8]\n
+    char *v265;  // [bp-0xac0]\n
+    char *v266;  // [bp-0xab8]\n
+    char *v267;  // [bp-0xab0]\n
+    char *v268;  // [bp-0xaa8]\n
+    char *v269;  // [bp-0xaa0]\n
+    char *v270;  // [bp-0xa98]\n
+    char *v271;  // [bp-0xa90]\n
+    char *v272;  // [bp-0xa88]\n
+    char *v273;  // [bp-0xa80]\n
+    char *v274;  // [bp-0xa78]\n
+    char *v275;  // [bp-0xa70]\n
+    char *v276;  // [bp-0xa68]\n
+    char *v277;  // [bp-0xa60]\n
+    char *v278;  // [bp-0xa58]\n
+    char *v279;  // [bp-0xa50]\n
+    char *v280;  // [bp-0xa48]\n
+    char *v281;  // [bp-0xa40]\n
+    char *v282;  // [bp-0xa38]\n
+    char *v283;  // [bp-0xa30]\n
+    char *v284;  // [bp-0xa28]\n
+    char *v285;  // [bp-0xa20]\n
+    char *v286;  // [bp-0xa18]\n
+    char *v287;  // [bp-0xa10]\n
+    char *v288;  // [bp-0xa08]\n
+    char *v289;  // [bp-0xa00]\n
+    char *v290;  // [bp-0x9f8]\n
+    char *v291;  // [bp-0x9f0]\n
+    char *v292;  // [bp-0x9e8]\n
+    char *v293;  // [bp-0x9e0]\n
+    char *v294;  // [bp-0x9d8]\n
+    char *v295;  // [bp-0x9d0]\n
+    char *v296;  // [bp-0x9c8]\n
+    char *v297;  // [bp-0x9c0]\n
+    char *v298;  // [bp-0x9b8]\n
+    char *v299;  // [bp-0x9b0]\n
+    char *v300;  // [bp-0x9a8]\n
+    char *v301;  // [bp-0x9a0]\n
+    char *v302;  // [bp-0x998]\n
+    char *v303;  // [bp-0x990]\n
+    char *v304;  // [bp-0x988]\n
+    char *v305;  // [bp-0x980]\n
+    char *v306;  // [bp-0x978]\n
+    char *v307;  // [bp-0x970]\n
+    char *v308;  // [bp-0x968]\n
+    char *v309;  // [bp-0x960]\n
+    char *v310;  // [bp-0x958]\n
+    char *v311;  // [bp-0x950]\n
+    char *v312;  // [bp-0x948]\n
+    char *v313;  // [bp-0x940]\n
+    char *v314;  // [bp-0x938]\n
+    char *v315;  // [bp-0x930]\n
+    char *v316;  // [bp-0x928]\n
+    char *v317;  // [bp-0x920]\n
+    char *v318;  // [bp-0x918]\n
+    char *v319;  // [bp-0x910]\n
+    char *v320;  // [bp-0x908]\n
+    char *v321;  // [bp-0x900]\n
+    char *v322;  // [bp-0x8f8]\n
+    char *v323;  // [bp-0x8f0]\n
+    char *v324;  // [bp-0x8e8]\n
+    char *v325;  // [bp-0x8e0]\n
+    char *v326;  // [bp-0x8d8]\n
+    char *v327;  // [bp-0x8d0]\n
+    char *v328;  // [bp-0x8c8]\n
+    char *v329;  // [bp-0x8c0]\n
+    char *v330;  // [bp-0x8b8]\n
+    char *v331;  // [bp-0x8b0]\n
+    char *v332;  // [bp-0x8a8]\n
+    char *v333;  // [bp-0x8a0]\n
+    char *v334;  // [bp-0x898]\n
+    char *v335;  // [bp-0x890]\n
+    char *v336;  // [bp-0x888]\n
+    char *v337;  // [bp-0x880]\n
+    char *v338;  // [bp-0x878]\n
+    char *v339;  // [bp-0x870]\n
+    char *v340;  // [bp-0x868]\n
+    char *v341;  // [bp-0x860]\n
+    char *v342;  // [bp-0x858]\n
+    char *v343;  // [bp-0x850]\n
+    char *v344;  // [bp-0x848]\n
+    char *v345;  // [bp-0x840]\n
+    char *v346;  // [bp-0x838]\n
+    char *v347;  // [bp-0x830]\n
+    char *v348;  // [bp-0x828]\n
+    char *v349;  // [bp-0x820]\n
+    char *v350;  // [bp-0x818]\n
+    char *v351;  // [bp-0x810]\n
+    char *v352;  // [bp-0x808]\n
+    char *v353;  // [bp-0x800]\n
+    char *v354;  // [bp-0x7f8]\n
+    char *v355;  // [bp-0x7f0]\n
+    char *v356;  // [bp-0x7e8]\n
+    char *v357;  // [bp-0x7e0]\n
+    char *v358;  // [bp-0x7d8]\n
+    char *v359;  // [bp-0x7d0]\n
+    char *v360;  // [bp-0x7c8]\n
+    char *v361;  // [bp-0x7c0]\n
+    char *v362;  // [bp-0x7b8]\n
+    char *v363;  // [bp-0x7b0]\n
+    char *v364;  // [bp-0x7a8]\n
+    char *v365;  // [bp-0x7a0]\n
+    char *v366;  // [bp-0x798]\n
+    char *v367;  // [bp-0x790]\n
+    char *v368;  // [bp-0x788]\n
+    char *v369;  // [bp-0x780]\n
+    char *v370;  // [bp-0x778]\n
+    char *v371;  // [bp-0x770]\n
+    char *v372;  // [bp-0x768]\n
+    char *v373;  // [bp-0x760]\n
+    char *v374;  // [bp-0x758]\n
+    char *v375;  // [bp-0x750]\n
+    char *v376;  // [bp-0x748]\n
+    char *v377;  // [bp-0x740]\n
+    char *v378;  // [bp-0x738]\n
+    char *v379;  // [bp-0x730]\n
+    char *v380;  // [bp-0x728]\n
+    char *v381;  // [bp-0x720]\n
+    char *v382;  // [bp-0x718]\n
+    char *v383;  // [bp-0x710]\n
+    char *v384;  // [bp-0x708]\n
+    char *v385;  // [bp-0x700]\n
+    char *v386;  // [bp-0x6f8]\n
+    char *v387;  // [bp-0x6f0]\n
+    char *v388;  // [bp-0x6e8]\n
+    char *v389;  // [bp-0x6e0]\n
+    char *v390;  // [bp-0x6d8]\n
+    char *v391;  // [bp-0x6d0]\n
+    char *v392;  // [bp-0x6c8]\n
+    char *v393;  // [bp-0x6c0]\n
+    char *v394;  // [bp-0x6b8]\n
+    char *v395;  // [bp-0x6b0]\n
+    char *v396;  // [bp-0x6a8]\n
+    char *v397;  // [bp-0x6a0]\n
+    char *v398;  // [bp-0x698]\n
+    char *v399;  // [bp-0x690]\n
+    char *v400;  // [bp-0x688]\n
+    char *v401;  // [bp-0x680]\n
+    char *v402;  // [bp-0x678]\n
+    char *v403;  // [bp-0x670]\n
+    char *v404;  // [bp-0x668]\n
+    char *v405;  // [bp-0x660]\n
+    char *v406;  // [bp-0x658]\n
+    char *v407;  // [bp-0x650]\n
+    char *v408;  // [bp-0x648]\n
+    char *v409;  // [bp-0x640]\n
+    char *v410;  // [bp-0x638]\n
+    char *v411;  // [bp-0x630]\n
+    char *v412;  // [bp-0x628]\n
+    char *v413;  // [bp-0x620]\n
+    char *v414;  // [bp-0x618]\n
+    char *v415;  // [bp-0x610]\n
+    char *v416;  // [bp-0x608]\n
+    char *v417;  // [bp-0x600]\n
+    char *v418;  // [bp-0x5f8]\n
+    char *v419;  // [bp-0x5f0]\n
+    char *v420;  // [bp-0x5e8]\n
+    char *v421;  // [bp-0x5e0]\n
+    char *v422;  // [bp-0x5d8]\n
+    char *v423;  // [bp-0x5d0]\n
+    char *v424;  // [bp-0x5c8]\n
+    char *v425;  // [bp-0x5c0]\n
+    char *v426;  // [bp-0x5b8]\n
+    char *v427;  // [bp-0x5b0]\n
+    char *v428;  // [bp-0x5a8]\n
+    char *v429;  // [bp-0x5a0]\n
+    char *v430;  // [bp-0x598]\n
+    char *v431;  // [bp-0x590]\n
+    char *v432;  // [bp-0x588]\n
+    char *v433;  // [bp-0x580]\n
+    char *v434;  // [bp-0x578]\n
+    char *v435;  // [bp-0x570]\n
+    char *v436;  // [bp-0x568]\n
+    char *v437;  // [bp-0x560]\n
+    char *v438;  // [bp-0x558]\n
+    char *v439;  // [bp-0x550]\n
+    char *v440;  // [bp-0x548]\n
+    char *v441;  // [bp-0x540]\n
+    char *v442;  // [bp-0x538]\n
+    char *v443;  // [bp-0x530]\n
+    char *v444;  // [bp-0x528]\n
+    char *v445;  // [bp-0x520]\n
+    char *v446;  // [bp-0x518]\n
+    char *v447;  // [bp-0x510]\n
+    char *v448;  // [bp-0x508]\n
+    char *v449;  // [bp-0x500]\n
+    char *v450;  // [bp-0x4f8]\n
+    char *v451;  // [bp-0x4f0]\n
+    char *v452;  // [bp-0x4e8]\n
+    char *v453;  // [bp-0x4e0]\n
+    char *v454;  // [bp-0x4d8]\n
+    char *v455;  // [bp-0x4d0]\n
+    char *v456;  // [bp-0x4c8]\n
+    char *v457;  // [bp-0x4c0]\n
+    char *v458;  // [bp-0x4b8]\n
+    char *v459;  // [bp-0x4b0]\n
+    char *v460;  // [bp-0x4a8]\n
+    char *v461;  // [bp-0x4a0]\n
+    char *v462;  // [bp-0x498]\n
+    char *v463;  // [bp-0x490]\n
+    char *v464;  // [bp-0x488]\n
+    char *v465;  // [bp-0x480]\n
+    char *v466;  // [bp-0x478]\n
+    char *v467;  // [bp-0x470]\n
+    char *v468;  // [bp-0x468]\n
+    char *v469;  // [bp-0x460]\n
+    char *v470;  // [bp-0x458]\n
+    char *v471;  // [bp-0x450]\n
+    char *v472;  // [bp-0x448]\n
+    char *v473;  // [bp-0x440]\n
+    char *v474;  // [bp-0x438]\n
+    char *v475;  // [bp-0x430]\n
+    char *v476;  // [bp-0x428]\n
+    char *v477;  // [bp-0x420]\n
+    char *v478;  // [bp-0x418]\n
+    char *v479;  // [bp-0x410]\n
+    char *v480;  // [bp-0x408]\n
+    char *v481;  // [bp-0x400]\n
+    char *v482;  // [bp-0x3f8]\n
+    char *v483;  // [bp-0x3f0]\n
+    char *v484;  // [bp-0x3e8]\n
+    char *v485;  // [bp-0x3e0]\n
+    char *v486;  // [bp-0x3d8]\n
+    char *v487;  // [bp-0x3d0]\n
+    char *v488;  // [bp-0x3c8]\n
+    char *v489;  // [bp-0x3c0]\n
+    char *v490;  // [bp-0x3b8]\n
+    char *v491;  // [bp-0x3b0]\n
+    char *v492;  // [bp-0x3a8]\n
+    char *v493;  // [bp-0x3a0]\n
+    char *v494;  // [bp-0x398]\n
+    char *v495;  // [bp-0x390]\n
+    char *v496;  // [bp-0x388]\n
+    char *v497;  // [bp-0x380]\n
+    char *v498;  // [bp-0x378]\n
+    char *v499;  // [bp-0x370]\n
+    char *v500;  // [bp-0x368]\n
+    char *v501;  // [bp-0x360]\n
+    char *v502;  // [bp-0x358]\n
+    char *v503;  // [bp-0x350]\n
+    char *v504;  // [bp-0x348]\n
+    char *v505;  // [bp-0x340]\n
+    char *v506;  // [bp-0x338]\n
+    char *v507;  // [bp-0x330]\n
+    char *v508;  // [bp-0x328]\n
+    char *v509;  // [bp-0x320]\n
+    char *v510;  // [bp-0x318]\n
+    char *v511;  // [bp-0x310]\n
+    char *v512;  // [bp-0x308]\n
+    char *v513;  // [bp-0x300]\n
+    char *v514;  // [bp-0x2f8]\n
+    char *v515;  // [bp-0x2f0]\n
+    char *v516;  // [bp-0x2e8]\n
+    char *v517;  // [bp-0x2e0]\n
+    char *v518;  // [bp-0x2d8]\n
+    char *v519;  // [bp-0x2d0]\n
+    char *v520;  // [bp-0x2c8]\n
+    char *v521;  // [bp-0x2c0]\n
+    char *v522;  // [bp-0x2b8]\n
+    char *v523;  // [bp-0x2b0]\n
+    char *v524;  // [bp-0x2a8]\n
+    char *v525;  // [bp-0x2a0]\n
+    char *v526;  // [bp-0x298]\n
+    char *v527;  // [bp-0x290]\n
+    char *v528;  // [bp-0x288]\n
+    char *v529;  // [bp-0x280]\n
+    char *v530;  // [bp-0x278]\n
+    char *v531;  // [bp-0x270]\n
+    char *v532;  // [bp-0x268]\n
+    char *v533;  // [bp-0x260]\n
+    char *v534;  // [bp-0x258]\n
+    char *v535;  // [bp-0x250]\n
+    char *v536;  // [bp-0x248]\n
+    char *v537;  // [bp-0x240]\n
+    char *v538;  // [bp-0x238]\n
+    char *v539;  // [bp-0x230]\n
+    char *v540;  // [bp-0x228]\n
+    char *v541;  // [bp-0x220]\n
+    char *v542;  // [bp-0x218]\n
+    char *v543;  // [bp-0x210]\n
+    char *v544;  // [bp-0x208]\n
+    char *v545;  // [bp-0x200]\n
+    char *v546;  // [bp-0x1f8]\n
+    char *v547;  // [bp-0x1f0]\n
+    char *v548;  // [bp-0x1e8]\n
+    char *v549;  // [bp-0x1e0]\n
+    char *v550;  // [bp-0x1d8]\n
+    char *v551;  // [bp-0x1d0]\n
+    char *v552;  // [bp-0x1c8]\n
+    char *v553;  // [bp-0x1c0]\n
+    char *v554;  // [bp-0x1b8]\n
+    char *v555;  // [bp-0x1b0]\n
+    char *v556;  // [bp-0x1a8]\n
+    char *v557;  // [bp-0x1a0]\n
+    char *v558;  // [bp-0x198]\n
+    char *v559;  // [bp-0x190]\n
+    char *v560;  // [bp-0x188]\n
+    char *v561;  // [bp-0x180]\n
+    char *v562;  // [bp-0x178]\n
+    char *v563;  // [bp-0x170]\n
+    char *v564;  // [bp-0x168]\n
+    char *v565;  // [bp-0x160]\n
+    char *v566;  // [bp-0x158]\n
+    char *v567;  // [bp-0x150]\n
+    char *v568;  // [bp-0x148]\n
+    char *v569;  // [bp-0x140]\n
+    char *v570;  // [bp-0x138]\n
+    char *v571;  // [bp-0x130]\n
+    char *v572;  // [bp-0x128]\n
+    char *v573;  // [bp-0x120]\n
+    char *v574;  // [bp-0x118]\n
+    char *v575;  // [bp-0x110]\n
+    char *v576;  // [bp-0x108]\n
+    char *v577;  // [bp-0x100]\n
+    char *v578;  // [bp-0xf8]\n
+    char *v579;  // [bp-0xf0]\n
+    char *v580;  // [bp-0xe8]\n
+    char *v581;  // [bp-0xe0]\n
+    char *v582;  // [bp-0xd8]\n
+    char *v583;  // [bp-0xd0]\n
+    char *v584;  // [bp-0xc8]\n
+    char *v585;  // [bp-0xc0]\n
+    char *v586;  // [bp-0xb8]\n
+    char *v587;  // [bp-0xb0]\n
+    char *v588;  // [bp-0xa8]\n
+    char *v589;  // [bp-0xa0]\n
+    char *v590;  // [bp-0x98]\n
+    char *v591;  // [bp-0x90]\n
+    char *v592;  // [bp-0x88]\n
+    char *v593;  // [bp-0x80]\n
+    char *v594;  // [bp-0x78]\n
+    char *v595;  // [bp-0x70]\n
+    char *v596;  // [bp-0x68]\n
+    char *v597;  // [bp-0x60]\n
+    char *v598;  // [bp-0x58]\n
+    char *v599;  // [bp-0x50]\n
+    char *v600;  // [bp-0x48], Other Possible Types: void*\n
+    char *v601;  // [bp-0x40], Other Possible Types: void*\n
+    char *v602;  // [bp-0x38], Other Possible Types: void*\n
+    char *v603;  // [bp-0x30], Other Possible Types: void*\n
+    unsigned int *v604;  // [bp-0x28]\n
+    unsigned int *v605;  // [bp-0x20]\n
+    unsigned int *v606;  // [bp-0x18]\n
+\n
+    v606 = 0;\n
+    v605 = 0;\n
+    v604 = 0;\n
+    v603 = 0;\n
+    v602 = 0;\n
+    v601 = 0;\n
+    v600 = 0;\n
+    v606 = cgc_malloc(32);\n
+    if (!v606)\n
+        cgc__terminate(32);\n
+    cgc_memset(v606, 0, 32);\n
+    *(v606) = 0;\n
+    v603 = \"ZbWWNoNM\";\n
+    v598 = &v606[1];\n
+    v599 = v603;\n
+    cgc_memcpy(v598, v599, cgc_strlen(v603, 0));\n
+    cgc_add_appetizer(a0, v606);\n
+    v606 = cgc_malloc(32);\n
+    if (!v606)\n
+        cgc__terminate(32);\n
+    cgc_memset(v606, 0, 32);\n
+    *(v606) = 0;\n
+    v603 = \"eDsELei\";\n
+    v596 = &v606[1];\n
+    v597 = v603;\n
+    cgc_memcpy(v596, v597, cgc_strlen(v603, 0));\n
+    cgc_add_appetizer(a0, v606);\n
+    v606 = cgc_malloc(32);\n
+    if (!v606)\n
+        cgc__terminate(32);\n
+    cgc_memset(v606, 0, 32);\n
+    *(v606) = 0;\n
+    v603 = \"WSpBFJFOZgwszDffv\";\n
+    v594 = &v606[1];\n
+    v595 = v603;\n
+    cgc_memcpy(v594, v595, cgc_strlen(v603, 0));\n
+    cgc_add_appetizer(a0, v606);\n
+    v606 = cgc_malloc(32);\n
+    if (!v606)\n
+        cgc__terminate(32);\n
+    cgc_memset(v606, 0, 32);\n
+    *(v606) = 0;\n
+    v603 = \"OjZiYi\";\n
+    v592 = &v606[1];\n
+    v593 = v603;\n
+    cgc_memcpy(v592, v593, cgc_strlen(v603, 0));\n
+    cgc_add_appetizer(a0, v606);\n
+    v606 = cgc_malloc(32);\n
+    if (!v606)\n
+        cgc__terminate(32);\n
+    cgc_memset(v606, 0, 32);\n
+    *(v606) = 0;\n
+    v603 = \"AnGOULFOGC\";\n
+    v590 = &v606[1];\n
+    v591 = v603;\n
+    cgc_memcpy(v590, v591, cgc_strlen(v603, 0));\n
+    cgc_add_appetizer(a0, v606);\n
+    v606 = cgc_malloc(32);\n
+    if (!v606)\n
+        cgc__terminate(32);\n
+    cgc_memset(v606, 0, 32);\n
+    *(v606) = 0;\n
+    v603 = \"cSOLkHLjNiSr\";\n
+    v588 = &v606[1];\n
+    v589 = v603;\n
+    cgc_memcpy(v588, v589, cgc_strlen(v603, 0));\n
+    cgc_add_appetizer(a0, v606);\n
+    v606 = cgc_malloc(32);\n
+    if (!v606)\n
+        cgc__terminate(32);\n
+    cgc_memset(v606, 0, 32);\n
+    *(v606) = 0;\n
+    v603 = \"dNlwfQlb\";\n
+    v586 = &v606[1];\n
+    v587 = v603;\n
+    cgc_memcpy(v586, v587, cgc_strlen(v603, 0));\n
+    cgc_add_appetizer(a0, v606);\n
+    v606 = cgc_malloc(32);\n
+    if (!v606)\n
+        cgc__terminate(32);\n
+    cgc_memset(v606, 0, 32);\n
+    *(v606) = 0;\n
+    v603 = \"Jdubqqhp\";\n
+    v584 = &v606[1];\n
+    v585 = v603;\n
+    cgc_memcpy(v584, v585, cgc_strlen(v603, 0));\n
+    cgc_add_appetizer(a0, v606);\n
+    v606 = cgc_malloc(32);\n
+    if (!v606)\n
+        cgc__terminate(32);\n
+    cgc_memset(v606, 0, 32);\n
+    *(v606) = 0;\n
+    v603 = \"ypDpTEmYTJNbgwuAAuk\";\n
+    v582 = &v606[1];\n
+    v583 = v603;\n
+    cgc_memcpy(v582, v583, cgc_strlen(v603, 0));\n
+    cgc_add_appetizer(a0, v606);\n
+    v606 = cgc_malloc(32);\n
+    if (!v606)\n
+        cgc__terminate(32);\n
+    cgc_memset(v606, 0, 32);\n
+    *(v606) = 0;\n
+    v603 = \"PxSfXOLhtqroMQEYuI\";\n
+    v580 = &v606[1];\n
+    v581 = v603;\n
+    cgc_memcpy(v580, v581, cgc_strlen(v603, 0));\n
+    cgc_add_appetizer(a0, v606);\n
+    v606 = cgc_malloc(32);\n
+    if (!v606)\n
+        cgc__terminate(32);\n
+    cgc_memset(v606, 0, 32);\n
+    *(v606) = 0;\n
+    v603 = \"KGLHaywX\";\n
+    v578 = &v606[1];\n
+    v579 = v603;\n
+    cgc_memcpy(v578, v579, cgc_strlen(v603, 0));\n
+    cgc_add_appetizer(a0, v606);\n
+    v606 = cgc_malloc(32);\n
+    if (!v606)\n
+        cgc__terminate(32);\n
+    cgc_memset(v606, 0, 32);\n
+    *(v606) = 0;\n
+    v603 = \"wTopgFWuWqFm\";\n
+    v576 = &v606[1];\n
+    v577 = v603;\n
+    cgc_memcpy(v576, v577, cgc_strlen(v603, 0));\n
+    cgc_add_appetizer(a0, v606);\n
+    v606 = cgc_malloc(32);\n
+    if (!v606)\n
+        cgc__terminate(32);\n
+    cgc_memset(v606, 0, 32);\n
+    *(v606) = 0;\n
+    v603 = \"exxhtKZQ\";\n
+    v574 = &v606[1];\n
+    v575 = v603;\n
+    cgc_memcpy(v574, v575, cgc_strlen(v603, 0));\n
+    cgc_add_appetizer(a0, v606);\n
+    v606 = cgc_malloc(32);\n
+    if (!v606)\n
+        cgc__terminate(32);\n
+    cgc_memset(v606, 0, 32);\n
+    *(v606) = 0;\n
+    v603 = \"JxQkslh\";\n
+    v572 = &v606[1];\n
+    v573 = v603;\n
+    cgc_memcpy(v572, v573, cgc_strlen(v603, 0));\n
+    cgc_add_appetizer(a0, v606);\n
+    v606 = cgc_malloc(32);\n
+    if (!v606)\n
+        cgc__terminate(32);\n
+    cgc_memset(v606, 0, 32);\n
+    *(v606) = 0;\n
+    v603 = \"OKtn\";\n
+    v570 = &v606[1];\n
+    v571 = v603;\n
+    cgc_memcpy(v570, v571, cgc_strlen(v603, 0));\n
+    cgc_add_appetizer(a0, v606);\n
+    v606 = cgc_malloc(32);\n
+    if (!v606)\n
+        cgc__terminate(32);\n
+    cgc_memset(v606, 0, 32);\n
+    *(v606) = 0;\n
+    v603 = \"sZlmZGiQPtIAh\";\n
+    v568 = &v606[1];\n
+    v569 = v603;\n
+    cgc_memcpy(v568, v569, cgc_strlen(v603, 0));\n
+    cgc_add_appetizer(a0, v606);\n
+    v606 = cgc_malloc(32);\n
+    if (!v606)\n
+        cgc__terminate(32);\n
+    cgc_memset(v606, 0, 32);\n
+    *(v606) = 0;\n
+    v603 = \"KvBPV\";\n
+    v566 = &v606[1];\n
+    v567 = v603;\n
+    cgc_memcpy(v566, v567, cgc_strlen(v603, 0));\n
+    cgc_add_appetizer(a0, v606);\n
+    v606 = cgc_malloc(32);\n
+    if (!v606)\n
+        cgc__terminate(32);\n
+    cgc_memset(v606, 0, 32);\n
+    *(v606) = 0;\n
+    v603 = \"YMiRPnuTZ\";\n
+    v564 = &v606[1];\n
+    v565 = v603;\n
+    cgc_memcpy(v564, v565, cgc_strlen(v603, 0));\n
+    cgc_add_appetizer(a0, v606);\n
+    v606 = cgc_malloc(32);\n
+    if (!v606)\n
+        cgc__terminate(32);\n
+    cgc_memset(v606, 0, 32);\n
+    *(v606) = 0;\n
+    v603 = \"vSyFUX\";\n
+    v562 = &v606[1];\n
+    v563 = v603;\n
+    cgc_memcpy(v562, v563, cgc_strlen(v603, 0));\n
+    cgc_add_appetizer(a0, v606);\n
+    v606 = cgc_malloc(32);\n
+    if (!v606)\n
+        cgc__terminate(32);\n
+    cgc_memset(v606, 0, 32);\n
+    *(v606) = 0;\n
+    v603 = \"koaVbUY\";\n
+    v560 = &v606[1];\n
+    v561 = v603;\n
+    cgc_memcpy(v560, v561, cgc_strlen(v603, 0));\n
+    cgc_add_appetizer(a0, v606);\n
+    v606 = cgc_malloc(32);\n
+    if (!v606)\n
+        cgc__terminate(32);\n
+    cgc_memset(v606, 0, 32);\n
+    *(v606) = 0;\n
+    v603 = \"vGlLNtRWMBPrSQIGBl\";\n
+    v558 = &v606[1];\n
+    v559 = v603;\n
+    cgc_memcpy(v558, v559, cgc_strlen(v603, 0));\n
+    cgc_add_appetizer(a0, v606);\n
+    v606 = cgc_malloc(32);\n
+    if (!v606)\n
+        cgc__terminate(32);\n
+    cgc_memset(v606, 0, 32);\n
+    *(v606) = 0;\n
+    v603 = \"VsdLokjwQPOmqX\";\n
+    v556 = &v606[1];\n
+    v557 = v603;\n
+    cgc_memcpy(v556, v557, cgc_strlen(v603, 0));\n
+    cgc_add_appetizer(a0, v606);\n
+    v606 = cgc_malloc(32);\n
+    if (!v606)\n
+        cgc__terminate(32);\n
+    cgc_memset(v606, 0, 32);\n
+    *(v606) = 0;\n
+    v603 = \"uMcUfcpDItFDs\";\n
+    v554 = &v606[1];\n
+    v555 = v603;\n
+    cgc_memcpy(v554, v555, cgc_strlen(v603, 0));\n
+    cgc_add_appetizer(a0, v606);\n
+    v606 = cgc_malloc(32);\n
+    if (!v606)\n
+        cgc__terminate(32);\n
+    cgc_memset(v606, 0, 32);\n
+    *(v606) = 0;\n
+    v603 = \"bdQ\";\n
+    v552 = &v606[1];\n
+    v553 = v603;\n
+    cgc_memcpy(v552, v553, cgc_strlen(v603, 0));\n
+    cgc_add_appetizer(a0, v606);\n
+    v606 = cgc_malloc(32);\n
+    if (!v606)\n
+        cgc__terminate(32);\n
+    cgc_memset(v606, 0, 32);\n
+    *(v606) = 0;\n
+    v603 = \"Snt\";\n
+    v550 = &v606[1];\n
+    v551 = v603;\n
+    cgc_memcpy(v550, v551, cgc_strlen(v603, 0));\n
+    cgc_add_appetizer(a0, v606);\n
+    v606 = cgc_malloc(32);\n
+    if (!v606)\n
+        cgc__terminate(32);\n
+    cgc_memset(v606, 0, 32);\n
+    *(v606) = 0;\n
+    v603 = \"BfJB\";\n
+    v548 = &v606[1];\n
+    v549 = v603;\n
+    cgc_memcpy(v548, v549, cgc_strlen(v603, 0));\n
+    cgc_add_appetizer(a0, v606);\n
+    v606 = cgc_malloc(32);\n
+    if (!v606)\n
+        cgc__terminate(32);\n
+    cgc_memset(v606, 0, 32);\n
+    *(v606) = 0;\n
+    v603 = \"eJpMHmjqGbdtZTaC\";\n
+    v546 = &v606[1];\n
+    v547 = v603;\n
+    cgc_memcpy(v546, v547, cgc_strlen(v603, 0));\n
+    cgc_add_appetizer(a0, v606);\n
+    v606 = cgc_malloc(32);\n
+    if (!v606)\n
+        cgc__terminate(32);\n
+    cgc_memset(v606, 0, 32);\n
+    *(v606) = 0;\n
+    v603 = \"BN\";\n
+    v544 = &v606[1];\n
+    v545 = v603;\n
+    cgc_memcpy(v544, v545, cgc_strlen(v603, 0));\n
+    cgc_add_appetizer(a0, v606);\n
+    v606 = cgc_malloc(32);\n
+    if (!v606)\n
+        cgc__terminate(32);\n
+    cgc_memset(v606, 0, 32);\n
+    *(v606) = 0;\n
+    v603 = \"OhPbcBnJFNBsfKxc\";\n
+    v542 = &v606[1];\n
+    v543 = v603;\n
+    cgc_memcpy(v542, v543, cgc_strlen(v603, 0));\n
+    cgc_add_appetizer(a0, v606);\n
+    v606 = cgc_malloc(32);\n
+    if (!v606)\n
+        cgc__terminate(32);\n
+    cgc_memset(v606, 0, 32);\n
+    *(v606) = 0;\n
+    v603 = \"MAEwIQ\";\n
+    v540 = &v606[1];\n
+    v541 = v603;\n
+    cgc_memcpy(v540, v541, cgc_strlen(v603, 0));\n
+    cgc_add_appetizer(a0, v606);\n
+    v606 = cgc_malloc(32);\n
+    if (!v606)\n
+        cgc__terminate(32);\n
+    cgc_memset(v606, 0, 32);\n
+    *(v606) = 0;\n
+    v603 = \"FbZsPlRYOfBimieMN\";\n
+    v538 = &v606[1];\n
+    v539 = v603;\n
+    cgc_memcpy(v538, v539, cgc_strlen(v603, 0));\n
+    cgc_add_appetizer(a0, v606);\n
+    v606 = cgc_malloc(32);\n
+    if (!v606)\n
+        cgc__terminate(32);\n
+    cgc_memset(v606, 0, 32);\n
+    *(v606) = 0;\n
+    v603 = \"tMyziPnmnv\";\n
+    v536 = &v606[1];\n
+    v537 = v603;\n
+    cgc_memcpy(v536, v537, cgc_strlen(v603, 0));\n
+    cgc_add_appetizer(a0, v606);\n
+    v606 = cgc_malloc(32);\n
+    if (!v606)\n
+        cgc__terminate(32);\n
+    cgc_memset(v606, 0, 32);\n
+    *(v606) = 0;\n
+    v603 = \"ENGodOMkSCcdp\";\n
+    v534 = &v606[1];\n
+    v535 = v603;\n
+    cgc_memcpy(v534, v535, cgc_strlen(v603, 0));\n
+    cgc_add_appetizer(a0, v606);\n
+    v606 = cgc_malloc(32);\n
+    if (!v606)\n
+        cgc__terminate(32);\n
+    cgc_memset(v606, 0, 32);\n
+    *(v606) = 0;\n
+    v603 = \"oW\";\n
+    v532 = &v606[1];\n
+    v533 = v603;\n
+    cgc_memcpy(v532, v533, cgc_strlen(v603, 0));\n
+    cgc_add_appetizer(a0, v606);\n
+    v606 = cgc_malloc(32);\n
+    if (!v606)\n
+        cgc__terminate(32);\n
+    cgc_memset(v606, 0, 32);\n
+    *(v606) = 0;\n
+    v603 = \"jqBfeUjRYCpwb\";\n
+    v530 = &v606[1];\n
+    v531 = v603;\n
+    cgc_memcpy(v530, v531, cgc_strlen(v603, 0));\n
+    cgc_add_appetizer(a0, v606);\n
+    v606 = cgc_malloc(32);\n
+    if (!v606)\n
+        cgc__terminate(32);\n
+    cgc_memset(v606, 0, 32);\n
+    *(v606) = 0;\n
+    v603 = \"I\";\n
+    v528 = &v606[1];\n
+    v529 = v603;\n
+    cgc_memcpy(v528, v529, cgc_strlen(v603, 0));\n
+    cgc_add_appetizer(a0, v606);\n
+    v606 = cgc_malloc(32);\n
+    if (!v606)\n
+        cgc__terminate(32);\n
+    cgc_memset(v606, 0, 32);\n
+    *(v606) = 0;\n
+    v603 = \"ZTRhTQBKSyHSvnA\";\n
+    v526 = &v606[1];\n
+    v527 = v603;\n
+    cgc_memcpy(v526, v527, cgc_strlen(v603, 0));\n
+    cgc_add_appetizer(a0, v606);\n
+    v606 = cgc_malloc(32);\n
+    if (!v606)\n
+        cgc__terminate(32);\n
+    cgc_memset(v606, 0, 32);\n
+    *(v606) = 0;\n
+    v603 = \"AAYAcqLF\";\n
+    v524 = &v606[1];\n
+    v525 = v603;\n
+    cgc_memcpy(v524, v525, cgc_strlen(v603, 0));\n
+    cgc_add_appetizer(a0, v606);\n
+    v606 = cgc_malloc(32);\n
+    if (!v606)\n
+        cgc__terminate(32);\n
+    cgc_memset(v606, 0, 32);\n
+    *(v606) = 0;\n
+    v603 = \"GdO\";\n
+    v522 = &v606[1];\n
+    v523 = v603;\n
+    cgc_memcpy(v522, v523, cgc_strlen(v603, 0));\n
+    cgc_add_appetizer(a0, v606);\n
+    v606 = cgc_malloc(32);\n
+    if (!v606)\n
+        cgc__terminate(32);\n
+    cgc_memset(v606, 0, 32);\n
+    *(v606) = 0;\n
+    v603 = \"OJGbM\";\n
+    v520 = &v606[1];\n
+    v521 = v603;\n
+    cgc_memcpy(v520, v521, cgc_strlen(v603, 0));\n
+    cgc_add_appetizer(a0, v606);\n
+    v606 = cgc_malloc(32);\n
+    if (!v606)\n
+        cgc__terminate(32);\n
+    cgc_memset(v606, 0, 32);\n
+    *(v606) = 0;\n
+    v603 = \"CvqK\";\n
+    v518 = &v606[1];\n
+    v519 = v603;\n
+    cgc_memcpy(v518, v519, cgc_strlen(v603, 0));\n
+    cgc_add_appetizer(a0, v606);\n
+    v606 = cgc_malloc(32);\n
+    if (!v606)\n
+        cgc__terminate(32);\n
+    cgc_memset(v606, 0, 32);\n
+    *(v606) = 0;\n
+    v603 = \"irsRWLUz\";\n
+    v516 = &v606[1];\n
+    v517 = v603;\n
+    cgc_memcpy(v516, v517, cgc_strlen(v603, 0));\n
+    cgc_add_appetizer(a0, v606);\n
+    v606 = cgc_malloc(32);\n
+    if (!v606)\n
+        cgc__terminate(32);\n
+    cgc_memset(v606, 0, 32);\n
+    *(v606) = 0;\n
+    v603 = \"apwd\";\n
+    v514 = &v606[1];\n
+    v515 = v603;\n
+    cgc_memcpy(v514, v515, cgc_strlen(v603, 0));\n
+    cgc_add_appetizer(a0, v606);\n
+    v606 = cgc_malloc(32);\n
+    if (!v606)\n
+        cgc__terminate(32);\n
+    cgc_memset(v606, 0, 32);\n
+    *(v606) = 0;\n
+    v603 = \"HbTGG\";\n
+    v512 = &v606[1];\n
+    v513 = v603;\n
+    cgc_memcpy(v512, v513, cgc_strlen(v603, 0));\n
+    cgc_add_appetizer(a0, v606);\n
+    v606 = cgc_malloc(32);\n
+    if (!v606)\n
+        cgc__terminate(32);\n
+    cgc_memset(v606, 0, 32);\n
+    *(v606) = 0;\n
+    v603 = \"giSPcyLgGK\";\n
+    v510 = &v606[1];\n
+    v511 = v603;\n
+    cgc_memcpy(v510, v511, cgc_strlen(v603, 0));\n
+    cgc_add_appetizer(a0, v606);\n
+    v606 = cgc_malloc(32);\n
+    if (!v606)\n
+        cgc__terminate(32);\n
+    cgc_memset(v606, 0, 32);\n
+    *(v606) = 0;\n
+    v603 = \"gBXDWHZEILFekw\";\n
+    v508 = &v606[1];\n
+    v509 = v603;\n
+    cgc_memcpy(v508, v509, cgc_strlen(v603, 0));\n
+    cgc_add_appetizer(a0, v606);\n
+    v606 = cgc_malloc(32);\n
+    if (!v606)\n
+        cgc__terminate(32);\n
+    cgc_memset(v606, 0, 32);\n
+    *(v606) = 0;\n
+    v603 = \"XLWfktopVr\";\n
+    v506 = &v606[1];\n
+    v507 = v603;\n
+    cgc_memcpy(v506, v507, cgc_strlen(v603, 0));\n
+    cgc_add_appetizer(a0, v606);\n
+    v606 = cgc_malloc(32);\n
+    if (!v606)\n
+        cgc__terminate(32);\n
+    cgc_memset(v606, 0, 32);\n
+    *(v606) = 0;\n
+    v603 = \"JhDmBevCueHq\";\n
+    v504 = &v606[1];\n
+    v505 = v603;\n
+    cgc_memcpy(v504, v505, cgc_strlen(v603, 0));\n
+    cgc_add_appetizer(a0, v606);\n
+    v606 = cgc_malloc(32);\n
+    if (!v606)\n
+        cgc__terminate(32);\n
+    cgc_memset(v606, 0, 32);\n
+    *(v606) = 0;\n
+    v603 = \"tve\";\n
+    v502 = &v606[1];\n
+    v503 = v603;\n
+    cgc_memcpy(v502, v503, cgc_strlen(v603, 0));\n
+    cgc_add_appetizer(a0, v606);\n
+    v606 = cgc_malloc(32);\n
+    if (!v606)\n
+        cgc__terminate(32);\n
+    cgc_memset(v606, 0, 32);\n
+    *(v606) = 0;\n
+    v603 = \"aUWYXBp\";\n
+    v500 = &v606[1];\n
+    v501 = v603;\n
+    cgc_memcpy(v500, v501, cgc_strlen(v603, 0));\n
+    cgc_add_appetizer(a0, v606);\n
+    v605 = cgc_malloc(92);\n
+    if (!v605)\n
+        cgc__terminate(92);\n
+    cgc_memset(v605, 0, 92);\n
+    *(v605) = 1;\n
+    v603 = \"Zj\";\n
+    v492 = &v605[1];\n
+    v493 = v603;\n
+    cgc_memcpy(v492, v493, cgc_strlen(v603, 0));\n
+    v602 = \"elHXoEkGJHTfXydBj\";\n
+    v494 = &v605[6];\n
+    v495 = v602;\n
+    cgc_memcpy(v494, v495, cgc_strlen(v602, 0));\n
+    v601 = \"BkngOfUoTmqtHOMAsSC\";\n
+    v496 = &v605[11];\n
+    v497 = v601;\n
+    cgc_memcpy(v496, v497, cgc_strlen(v601, 0));\n
+    v600 = \"XjMM\";\n
+    v498 = &v605[16];\n
+    v499 = v600;\n
+    cgc_memcpy(v498, v499, cgc_strlen(v600, 0));\n
+    cgc_add_meal(a0, v605);\n
+    v605 = cgc_malloc(92);\n
+    if (!v605)\n
+        cgc__terminate(92);\n
+    cgc_memset(v605, 0, 92);\n
+    *(v605) = 1;\n
+    v603 = \"eZlRse\";\n
+    v484 = &v605[1];\n
+    v485 = v603;\n
+    cgc_memcpy(v484, v485, cgc_strlen(v603, 0));\n
+    v602 = \"NTOvguiPgjPlEc\";\n
+    v486 = &v605[6];\n
+    v487 = v602;\n
+    cgc_memcpy(v486, v487, cgc_strlen(v602, 0));\n
+    v601 = \"RDyNWXZu\";\n
+    v488 = &v605[11];\n
+    v489 = v601;\n
+    cgc_memcpy(v488, v489, cgc_strlen(v601, 0));\n
+    v600 = \"gPRF\";\n
+    v490 = &v605[16];\n
+    v491 = v600;\n
+    cgc_memcpy(v490, v491, cgc_strlen(v600, 0));\n
+    cgc_add_meal(a0, v605);\n
+    v605 = cgc_malloc(92);\n
+    if (!v605)\n
+        cgc__terminate(92);\n
+    cgc_memset(v605, 0, 92);\n
+    *(v605) = 1;\n
+    v603 = \"XLmGtNwx\";\n
+    v476 = &v605[1];\n
+    v477 = v603;\n
+    cgc_memcpy(v476, v477, cgc_strlen(v603, 0));\n
+    v602 = \"DRgdveNnWklqvg\";\n
+    v478 = &v605[6];\n
+    v479 = v602;\n
+    cgc_memcpy(v478, v479, cgc_strlen(v602, 0));\n
+    v601 = \"peSjRFwkVUTWaBqkUZc\";\n
+    v480 = &v605[11];\n
+    v481 = v601;\n
+    cgc_memcpy(v480, v481, cgc_strlen(v601, 0));\n
+    v600 = \"vEicQun\";\n
+    v482 = &v605[16];\n
+    v483 = v600;\n
+    cgc_memcpy(v482, v483, cgc_strlen(v600, 0));\n
+    cgc_add_meal(a0, v605);\n
+    v605 = cgc_malloc(92);\n
+    if (!v605)\n
+        cgc__terminate(92);\n
+    cgc_memset(v605, 0, 92);\n
+    *(v605) = 1;\n
+    v603 = \"mEOcRZWoWATCb\";\n
+    v468 = &v605[1];\n
+    v469 = v603;\n
+    cgc_memcpy(v468, v469, cgc_strlen(v603, 0));\n
+    v602 = \"A\";\n
+    v470 = &v605[6];\n
+    v471 = v602;\n
+    cgc_memcpy(v470, v471, cgc_strlen(v602, 0));\n
+    v601 = \"uX\";\n
+    v472 = &v605[11];\n
+    v473 = v601;\n
+    cgc_memcpy(v472, v473, cgc_strlen(v601, 0));\n
+    v600 = \"C\";\n
+    v474 = &v605[16];\n
+    v475 = v600;\n
+    cgc_memcpy(v474, v475, cgc_strlen(v600, 0));\n
+    cgc_add_meal(a0, v605);\n
+    v605 = cgc_malloc(92);\n
+    if (!v605)\n
+        cgc__terminate(92);\n
+    cgc_memset(v605, 0, 92);\n
+    *(v605) = 1;\n
+    v603 = \"qk\";\n
+    v460 = &v605[1];\n
+    v461 = v603;\n
+    cgc_memcpy(v460, v461, cgc_strlen(v603, 0));\n
+    v602 = \"DImoNaZRWzYbjunIA\";\n
+    v462 = &v605[6];\n
+    v463 = v602;\n
+    cgc_memcpy(v462, v463, cgc_strlen(v602, 0));\n
+    v601 = \"HZQqWOurDrFhZYi\";\n
+    v464 = &v605[11];\n
+    v465 = v601;\n
+    cgc_memcpy(v464, v465, cgc_strlen(v601, 0));\n
+    v600 = \"jfKqdlVACidsVYrKT\";\n
+    v466 = &v605[16];\n
+    v467 = v600;\n
+    cgc_memcpy(v466, v467, cgc_strlen(v600, 0));\n
+    cgc_add_meal(a0, v605);\n
+    v605 = cgc_malloc(92);\n
+    if (!v605)\n
+        cgc__terminate(92);\n
+    cgc_memset(v605, 0, 92);\n
+    *(v605) = 1;\n
+    v603 = \"vhKkoZ\";\n
+    v452 = &v605[1];\n
+    v453 = v603;\n
+    cgc_memcpy(v452, v453, cgc_strlen(v603, 0));\n
+    v602 = \"QluJoiBdiPSjTREbfCV\";\n
+    v454 = &v605[6];\n
+    v455 = v602;\n
+    cgc_memcpy(v454, v455, cgc_strlen(v602, 0));\n
+    v601 = \"RGqRxjI\";\n
+    v456 = &v605[11];\n
+    v457 = v601;\n
+    cgc_memcpy(v456, v457, cgc_strlen(v601, 0));\n
+    v600 = \"jdoZXCoKrCHis\";\n
+    v458 = &v605[16];\n
+    v459 = v600;\n
+    cgc_memcpy(v458, v459, cgc_strlen(v600, 0));\n
+    cgc_add_meal(a0, v605);\n
+    v605 = cgc_malloc(92);\n
+    if (!v605)\n
+        cgc__terminate(92);\n
+    cgc_memset(v605, 0, 92);\n
+    *(v605) = 1;\n
+    v603 = \"KhVzoF\";\n
+    v444 = &v605[1];\n
+    v445 = v603;\n
+    cgc_memcpy(v444, v445, cgc_strlen(v603, 0));\n
+    v602 = \"TvAMOyYghpritkQKt\";\n
+    v446 = &v605[6];\n
+    v447 = v602;\n
+    cgc_memcpy(v446, v447, cgc_strlen(v602, 0));\n
+    v601 = \"YlkFYBvSqtQxU\";\n
+    v448 = &v605[11];\n
+    v449 = v601;\n
+    cgc_memcpy(v448, v449, cgc_strlen(v601, 0));\n
+    v600 = \"ossUKKxCsEPwAQuRc\";\n
+    v450 = &v605[16];\n
+    v451 = v600;\n
+    cgc_memcpy(v450, v451, cgc_strlen(v600, 0));\n
+    cgc_add_meal(a0, v605);\n
+    v605 = cgc_malloc(92);\n
+    if (!v605)\n
+        cgc__terminate(92);\n
+    cgc_memset(v605, 0, 92);\n
+    *(v605) = 1;\n
+    v603 = \"cGsWHxAeFkByvPuAnb\";\n
+    v436 = &v605[1];\n
+    v437 = v603;\n
+    cgc_memcpy(v436, v437, cgc_strlen(v603, 0));\n
+    v602 = \"u\";\n
+    v438 = &v605[6];\n
+    v439 = v602;\n
+    cgc_memcpy(v438, v439, cgc_strlen(v602, 0));\n
+    v601 = \"UYBeUiccXeIdacmo\";\n
+    v440 = &v605[11];\n
+    v441 = v601;\n
+    cgc_memcpy(v440, v441, cgc_strlen(v601, 0));\n
+    v600 = \"skLRiJW\";\n
+    v442 = &v605[16];\n
+    v443 = v600;\n
+    cgc_memcpy(v442, v443, cgc_strlen(v600, 0));\n
+    cgc_add_meal(a0, v605);\n
+    v605 = cgc_malloc(92);\n
+    if (!v605)\n
+        cgc__terminate(92);\n
+    cgc_memset(v605, 0, 92);\n
+    *(v605) = 1;\n
+    v603 = \"Dzs\";\n
+    v428 = &v605[1];\n
+    v429 = v603;\n
+    cgc_memcpy(v428, v429, cgc_strlen(v603, 0));\n
+    v602 = \"hUN\";\n
+    v430 = &v605[6];\n
+    v431 = v602;\n
+    cgc_memcpy(v430, v431, cgc_strlen(v602, 0));\n
+    v601 = \"RrvWQClGLc\";\n
+    v432 = &v605[11];\n
+    v433 = v601;\n
+    cgc_memcpy(v432, v433, cgc_strlen(v601, 0));\n
+    v600 = \"E\";\n
+    v434 = &v605[16];\n
+    v435 = v600;\n
+    cgc_memcpy(v434, v435, cgc_strlen(v600, 0));\n
+    cgc_add_meal(a0, v605);\n
+    v605 = cgc_malloc(92);\n
+    if (!v605)\n
+        cgc__terminate(92);\n
+    cgc_memset(v605, 0, 92);\n
+    *(v605) = 1;\n
+    v603 = \"LPWgXP\";\n
+    v420 = &v605[1];\n
+    v421 = v603;\n
+    cgc_memcpy(v420, v421, cgc_strlen(v603, 0));\n
+    v602 = \"ZgQkrAsglrUFknMGX\";\n
+    v422 = &v605[6];\n
+    v423 = v602;\n
+    cgc_memcpy(v422, v423, cgc_strlen(v602, 0));\n
+    v601 = \"MOoJtdbGKwI\";\n
+    v424 = &v605[11];\n
+    v425 = v601;\n
+    cgc_memcpy(v424, v425, cgc_strlen(v601, 0));\n
+    v600 = \"CzfnjxBK\";\n
+    v426 = &v605[16];\n
+    v427 = v600;\n
+    cgc_memcpy(v426, v427, cgc_strlen(v600, 0));\n
+    cgc_add_meal(a0, v605);\n
+    v605 = cgc_malloc(92);\n
+    if (!v605)\n
+        cgc__terminate(92);\n
+    cgc_memset(v605, 0, 92);\n
+    *(v605) = 1;\n
+    v603 = \"mD\";\n
+    v412 = &v605[1];\n
+    v413 = v603;\n
+    cgc_memcpy(v412, v413, cgc_strlen(v603, 0));\n
+    v602 = \"Es\";\n
+    v414 = &v605[6];\n
+    v415 = v602;\n
+    cgc_memcpy(v414, v415, cgc_strlen(v602, 0));\n
+    v601 = \"uqiFNVKzPFeoMm\";\n
+    v416 = &v605[11];\n
+    v417 = v601;\n
+    cgc_memcpy(v416, v417, cgc_strlen(v601, 0));\n
+    v600 = \"GoAPHgyqAHYxl\";\n
+    v418 = &v605[16];\n
+    v419 = v600;\n
+    cgc_memcpy(v418, v419, cgc_strlen(v600, 0));\n
+    cgc_add_meal(a0, v605);\n
+    v605 = cgc_malloc(92);\n
+    if (!v605)\n
+        cgc__terminate(92);\n
+    cgc_memset(v605, 0, 92);\n
+    *(v605) = 1;\n
+    v603 = \"DvCF\";\n
+    v404 = &v605[1];\n
+    v405 = v603;\n
+    cgc_memcpy(v404, v405, cgc_strlen(v603, 0));\n
+    v602 = \"pHIEymqeAycJijjFFk\";\n
+    v406 = &v605[6];\n
+    v407 = v602;\n
+    cgc_memcpy(v406, v407, cgc_strlen(v602, 0));\n
+    v601 = \"e\";\n
+    v408 = &v605[11];\n
+    v409 = v601;\n
+    cgc_memcpy(v408, v409, cgc_strlen(v601, 0));\n
+    v600 = \"IyWZnR\";\n
+    v410 = &v605[16];\n
+    v411 = v600;\n
+    cgc_memcpy(v410, v411, cgc_strlen(v600, 0));\n
+    cgc_add_meal(a0, v605);\n
+    v605 = cgc_malloc(92);\n
+    if (!v605)\n
+        cgc__terminate(92);\n
+    cgc_memset(v605, 0, 92);\n
+    *(v605) = 1;\n
+    v603 = \"QblFGrOfyuS\";\n
+    v396 = &v605[1];\n
+    v397 = v603;\n
+    cgc_memcpy(v396, v397, cgc_strlen(v603, 0));\n
+    v602 = \"T\";\n
+    v398 = &v605[6];\n
+    v399 = v602;\n
+    cgc_memcpy(v398, v399, cgc_strlen(v602, 0));\n
+    v601 = \"BZzN\";\n
+    v400 = &v605[11];\n
+    v401 = v601;\n
+    cgc_memcpy(v400, v401, cgc_strlen(v601, 0));\n
+    v600 = \"GtrPWzKW\";\n
+    v402 = &v605[16];\n
+    v403 = v600;\n
+    cgc_memcpy(v402, v403, cgc_strlen(v600, 0));\n
+    cgc_add_meal(a0, v605);\n
+    v605 = cgc_malloc(92);\n
+    if (!v605)\n
+        cgc__terminate(92);\n
+    cgc_memset(v605, 0, 92);\n
+    *(v605) = 1;\n
+    v603 = \"FXEHUTFUF\";\n
+    v388 = &v605[1];\n
+    v389 = v603;\n
+    cgc_memcpy(v388, v389, cgc_strlen(v603, 0));\n
+    v602 = \"McSUxQepzTIeu\";\n
+    v390 = &v605[6];\n
+    v391 = v602;\n
+    cgc_memcpy(v390, v391, cgc_strlen(v602, 0));\n
+    v601 = \"VIfO\";\n
+    v392 = &v605[11];\n
+    v393 = v601;\n
+    cgc_memcpy(v392, v393, cgc_strlen(v601, 0));\n
+    v600 = \"qg\";\n
+    v394 = &v605[16];\n
+    v395 = v600;\n
+    cgc_memcpy(v394, v395, cgc_strlen(v600, 0));\n
+    cgc_add_meal(a0, v605);\n
+    v605 = cgc_malloc(92);\n
+    if (!v605)\n
+        cgc__terminate(92);\n
+    cgc_memset(v605, 0, 92);\n
+    *(v605) = 1;\n
+    v603 = \"hqWsFPYCvuQ\";\n
+    v380 = &v605[1];\n
+    v381 = v603;\n
+    cgc_memcpy(v380, v381, cgc_strlen(v603, 0));\n
+    v602 = \"fPIeUkgPhYG\";\n
+    v382 = &v605[6];\n
+    v383 = v602;\n
+    cgc_memcpy(v382, v383, cgc_strlen(v602, 0));\n
+    v601 = \"mWWjU\";\n
+    v384 = &v605[11];\n
+    v385 = v601;\n
+    cgc_memcpy(v384, v385, cgc_strlen(v601, 0));\n
+    v600 = \"NBmQapgAdNh\";\n
+    v386 = &v605[16];\n
+    v387 = v600;\n
+    cgc_memcpy(v386, v387, cgc_strlen(v600, 0));\n
+    cgc_add_meal(a0, v605);\n
+    v605 = cgc_malloc(92);\n
+    if (!v605)\n
+        cgc__terminate(92);\n
+    cgc_memset(v605, 0, 92);\n
+    *(v605) = 1;\n
+    v603 = \"hEftYexRZsXkUncI\";\n
+    v372 = &v605[1];\n
+    v373 = v603;\n
+    cgc_memcpy(v372, v373, cgc_strlen(v603, 0));\n
+    v602 = \"oWQHyVMOfSyaKEib\";\n
+    v374 = &v605[6];\n
+    v375 = v602;\n
+    cgc_memcpy(v374, v375, cgc_strlen(v602, 0));\n
+    v601 = \"PHdBEJSkmyKM\";\n
+    v376 = &v605[11];\n
+    v377 = v601;\n
+    cgc_memcpy(v376, v377, cgc_strlen(v601, 0));\n
+    v600 = \"WuHadHwnipvH\";\n
+    v378 = &v605[16];\n
+    v379 = v600;\n
+    cgc_memcpy(v378, v379, cgc_strlen(v600, 0));\n
+    cgc_add_meal(a0, v605);\n
+    v605 = cgc_malloc(92);\n
+    if (!v605)\n
+        cgc__terminate(92);\n
+    cgc_memset(v605, 0, 92);\n
+    *(v605) = 1;\n
+    v603 = \"gbK\";\n
+    v364 = &v605[1];\n
+    v365 = v603;\n
+    cgc_memcpy(v364, v365, cgc_strlen(v603, 0));\n
+    v602 = \"r\";\n
+    v366 = &v605[6];\n
+    v367 = v602;\n
+    cgc_memcpy(v366, v367, cgc_strlen(v602, 0));\n
+    v601 = \"g\";\n
+    v368 = &v605[11];\n
+    v369 = v601;\n
+    cgc_memcpy(v368, v369, cgc_strlen(v601, 0));\n
+    v600 = \"CHSfCaUqj\";\n
+    v370 = &v605[16];\n
+    v371 = v600;\n
+    cgc_memcpy(v370, v371, cgc_strlen(v600, 0));\n
+    cgc_add_meal(a0, v605);\n
+    v605 = cgc_malloc(92);\n
+    if (!v605)\n
+        cgc__terminate(92);\n
+    cgc_memset(v605, 0, 92);\n
+    *(v605) = 1;\n
+    v603 = \"FyYzVa\";\n
+    v356 = &v605[1];\n
+    v357 = v603;\n
+    cgc_memcpy(v356, v357, cgc_strlen(v603, 0));\n
+    v602 = \"X\";\n
+    v358 = &v605[6];\n
+    v359 = v602;\n
+    cgc_memcpy(v358, v359, cgc_strlen(v602, 0));\n
+    v601 = \"ImwYuQymbIIGAb\";\n
+    v360 = &v605[11];\n
+    v361 = v601;\n
+    cgc_memcpy(v360, v361, cgc_strlen(v601, 0));\n
+    v600 = \"vZmZhVnBnTwEUnuNKAh\";\n
+    v362 = &v605[16];\n
+    v363 = v600;\n
+    cgc_memcpy(v362, v363, cgc_strlen(v600, 0));\n
+    cgc_add_meal(a0, v605);\n
+    v605 = cgc_malloc(92);\n
+    if (!v605)\n
+        cgc__terminate(92);\n
+    cgc_memset(v605, 0, 92);\n
+    *(v605) = 1;\n
+    v603 = \"QjLlpYhdEwffGsyObxr\";\n
+    v348 = &v605[1];\n
+    v349 = v603;\n
+    cgc_memcpy(v348, v349, cgc_strlen(v603, 0));\n
+    v602 = \"mIUZITpftBvcMifY\";\n
+    v350 = &v605[6];\n
+    v351 = v602;\n
+    cgc_memcpy(v350, v351, cgc_strlen(v602, 0));\n
+    v601 = \"EqSfGGewaUntOuFNlRQ\";\n
+    v352 = &v605[11];\n
+    v353 = v601;\n
+    cgc_memcpy(v352, v353, cgc_strlen(v601, 0));\n
+    v600 = \"zWOFfCwKkwDTnIFX\";\n
+    v354 = &v605[16];\n
+    v355 = v600;\n
+    cgc_memcpy(v354, v355, cgc_strlen(v600, 0));\n
+    cgc_add_meal(a0, v605);\n
+    v605 = cgc_malloc(92);\n
+    if (!v605)\n
+        cgc__terminate(92);\n
+    cgc_memset(v605, 0, 92);\n
+    *(v605) = 1;\n
+    v603 = \"E\";\n
+    v340 = &v605[1];\n
+    v341 = v603;\n
+    cgc_memcpy(v340, v341, cgc_strlen(v603, 0));\n
+    v602 = \"AtjGgIxYASTCOC\";\n
+    v342 = &v605[6];\n
+    v343 = v602;\n
+    cgc_memcpy(v342, v343, cgc_strlen(v602, 0));\n
+    v601 = \"aOVAVDAvqbpKPQzs\";\n
+    v344 = &v605[11];\n
+    v345 = v601;\n
+    cgc_memcpy(v344, v345, cgc_strlen(v601, 0));\n
+    v600 = \"GTzDwFtOZBGsbbM\";\n
+    v346 = &v605[16];\n
+    v347 = v600;\n
+    cgc_memcpy(v346, v347, cgc_strlen(v600, 0));\n
+    cgc_add_meal(a0, v605);\n
+    v605 = cgc_malloc(92);\n
+    if (!v605)\n
+        cgc__terminate(92);\n
+    cgc_memset(v605, 0, 92);\n
+    *(v605) = 1;\n
+    v603 = \"lZhdeTslbTBK\";\n
+    v332 = &v605[1];\n
+    v333 = v603;\n
+    cgc_memcpy(v332, v333, cgc_strlen(v603, 0));\n
+    v602 = \"pwqEZDoh\";\n
+    v334 = &v605[6];\n
+    v335 = v602;\n
+    cgc_memcpy(v334, v335, cgc_strlen(v602, 0));\n
+    v601 = \"gmpwZynj\";\n
+    v336 = &v605[11];\n
+    v337 = v601;\n
+    cgc_memcpy(v336, v337, cgc_strlen(v601, 0));\n
+    v600 = \"cr\";\n
+    v338 = &v605[16];\n
+    v339 = v600;\n
+    cgc_memcpy(v338, v339, cgc_strlen(v600, 0));\n
+    cgc_add_meal(a0, v605);\n
+    v605 = cgc_malloc(92);\n
+    if (!v605)\n
+        cgc__terminate(92);\n
+    cgc_memset(v605, 0, 92);\n
+    *(v605) = 1;\n
+    v603 = \"Hcb\";\n
+    v324 = &v605[1];\n
+    v325 = v603;\n
+    cgc_memcpy(v324, v325, cgc_strlen(v603, 0));\n
+    v602 = \"Tqzl\";\n
+    v326 = &v605[6];\n
+    v327 = v602;\n
+    cgc_memcpy(v326, v327, cgc_strlen(v602, 0));\n
+    v601 = \"VoiXIgGAtoNHMq\";\n
+    v328 = &v605[11];\n
+    v329 = v601;\n
+    cgc_memcpy(v328, v329, cgc_strlen(v601, 0));\n
+    v600 = \"mROScjgKBz\";\n
+    v330 = &v605[16];\n
+    v331 = v600;\n
+    cgc_memcpy(v330, v331, cgc_strlen(v600, 0));\n
+    cgc_add_meal(a0, v605);\n
+    v605 = cgc_malloc(92);\n
+    if (!v605)\n
+        cgc__terminate(92);\n
+    cgc_memset(v605, 0, 92);\n
+    *(v605) = 1;\n
+    v603 = \"caloY\";\n
+    v316 = &v605[1];\n
+    v317 = v603;\n
+    cgc_memcpy(v316, v317, cgc_strlen(v603, 0));\n
+    v602 = \"KYlwUCwgkhh\";\n
+    v318 = &v605[6];\n
+    v319 = v602;\n
+    cgc_memcpy(v318, v319, cgc_strlen(v602, 0));\n
+    v601 = \"MLxIEz\";\n
+    v320 = &v605[11];\n
+    v321 = v601;\n
+    cgc_memcpy(v320, v321, cgc_strlen(v601, 0));\n
+    v600 = \"SxzeyKTHsODuUk\";\n
+    v322 = &v605[16];\n
+    v323 = v600;\n
+    cgc_memcpy(v322, v323, cgc_strlen(v600, 0));\n
+    cgc_add_meal(a0, v605);\n
+    v605 = cgc_malloc(92);\n
+    if (!v605)\n
+        cgc__terminate(92);\n
+    cgc_memset(v605, 0, 92);\n
+    *(v605) = 1;\n
+    v603 = \"cwoMLL\";\n
+    v308 = &v605[1];\n
+    v309 = v603;\n
+    cgc_memcpy(v308, v309, cgc_strlen(v603, 0));\n
+    v602 = \"sKykXwqm\";\n
+    v310 = &v605[6];\n
+    v311 = v602;\n
+    cgc_memcpy(v310, v311, cgc_strlen(v602, 0));\n
+    v601 = \"NXaG\";\n
+    v312 = &v605[11];\n
+    v313 = v601;\n
+    cgc_memcpy(v312, v313, cgc_strlen(v601, 0));\n
+    v600 = \"qryLVWWEwEx\";\n
+    v314 = &v605[16];\n
+    v315 = v600;\n
+    cgc_memcpy(v314, v315, cgc_strlen(v600, 0));\n
+    cgc_add_meal(a0, v605);\n
+    v605 = cgc_malloc(92);\n
+    if (!v605)\n
+        cgc__terminate(92);\n
+    cgc_memset(v605, 0, 92);\n
+    *(v605) = 1;\n
+    v603 = \"hoPyZCWLbzlEdS\";\n
+    v300 = &v605[1];\n
+    v301 = v603;\n
+    cgc_memcpy(v300, v301, cgc_strlen(v603, 0));\n
+    v602 = \"nJNOemZLRA\";\n
+    v302 = &v605[6];\n
+    v303 = v602;\n
+    cgc_memcpy(v302, v303, cgc_strlen(v602, 0));\n
+    v601 = \"QqpfnCul\";\n
+    v304 = &v605[11];\n
+    v305 = v601;\n
+    cgc_memcpy(v304, v305, cgc_strlen(v601, 0));\n
+    v600 = \"hKxFhOFanfnrmMMo\";\n
+    v306 = &v605[16];\n
+    v307 = v600;\n
+    cgc_memcpy(v306, v307, cgc_strlen(v600, 0));\n
+    cgc_add_meal(a0, v605);\n
+    v605 = cgc_malloc(92);\n
+    if (!v605)\n
+        cgc__terminate(92);\n
+    cgc_memset(v605, 0, 92);\n
+    *(v605) = 1;\n
+    v603 = \"HBjxBFrofPKcLh\";\n
+    v292 = &v605[1];\n
+    v293 = v603;\n
+    cgc_memcpy(v292, v293, cgc_strlen(v603, 0));\n
+    v602 = \"HQXkYe\";\n
+    v294 = &v605[6];\n
+    v295 = v602;\n
+    cgc_memcpy(v294, v295, cgc_strlen(v602, 0));\n
+    v601 = \"HVtZCfTbqD\";\n
+    v296 = &v605[11];\n
+    v297 = v601;\n
+    cgc_memcpy(v296, v297, cgc_strlen(v601, 0));\n
+    v600 = \"TrkhFsCcoSRkwftoT\";\n
+    v298 = &v605[16];\n
+    v299 = v600;\n
+    cgc_memcpy(v298, v299, cgc_strlen(v600, 0));\n
+    cgc_add_meal(a0, v605);\n
+    v605 = cgc_malloc(92);\n
+    if (!v605)\n
+        cgc__terminate(92);\n
+    cgc_memset(v605, 0, 92);\n
+    *(v605) = 1;\n
+    v603 = \"tsiK\";\n
+    v284 = &v605[1];\n
+    v285 = v603;\n
+    cgc_memcpy(v284, v285, cgc_strlen(v603, 0));\n
+    v602 = \"bYqcAspvb\";\n
+    v286 = &v605[6];\n
+    v287 = v602;\n
+    cgc_memcpy(v286, v287, cgc_strlen(v602, 0));\n
+    v601 = \"zuFxOQEXKMHzJCHmTX\";\n
+    v288 = &v605[11];\n
+    v289 = v601;\n
+    cgc_memcpy(v288, v289, cgc_strlen(v601, 0));\n
+    v600 = \"urVZe\";\n
+    v290 = &v605[16];\n
+    v291 = v600;\n
+    cgc_memcpy(v290, v291, cgc_strlen(v600, 0));\n
+    cgc_add_meal(a0, v605);\n
+    v605 = cgc_malloc(92);\n
+    if (!v605)\n
+        cgc__terminate(92);\n
+    cgc_memset(v605, 0, 92);\n
+    *(v605) = 1;\n
+    v603 = \"hBfkvxWNYNKAWOzmasc\";\n
+    v276 = &v605[1];\n
+    v277 = v603;\n
+    cgc_memcpy(v276, v277, cgc_strlen(v603, 0));\n
+    v602 = \"gxqlPTpMapFtlDNcN\";\n
+    v278 = &v605[6];\n
+    v279 = v602;\n
+    cgc_memcpy(v278, v279, cgc_strlen(v602, 0));\n
+    v601 = \"svzMcxufKVy\";\n
+    v280 = &v605[11];\n
+    v281 = v601;\n
+    cgc_memcpy(v280, v281, cgc_strlen(v601, 0));\n
+    v600 = \"oLvwcIJsXjzJYrnK\";\n
+    v282 = &v605[16];\n
+    v283 = v600;\n
+    cgc_memcpy(v282, v283, cgc_strlen(v600, 0));\n
+    cgc_add_meal(a0, v605);\n
+    v605 = cgc_malloc(92);\n
+    if (!v605)\n
+        cgc__terminate(92);\n
+    cgc_memset(v605, 0, 92);\n
+    *(v605) = 1;\n
+    v603 = \"wuXVqAIWyTbaeTq\";\n
+    v268 = &v605[1];\n
+    v269 = v603;\n
+    cgc_memcpy(v268, v269, cgc_strlen(v603, 0));\n
+    v602 = \"ucayTRX\";\n
+    v270 = &v605[6];\n
+    v271 = v602;\n
+    cgc_memcpy(v270, v271, cgc_strlen(v602, 0));\n
+    v601 = \"jLIxECdyrhWfwuhZ\";\n
+    v272 = &v605[11];\n
+    v273 = v601;\n
+    cgc_memcpy(v272, v273, cgc_strlen(v601, 0));\n
+    v600 = \"OFpbDRbVfx\";\n
+    v274 = &v605[16];\n
+    v275 = v600;\n
+    cgc_memcpy(v274, v275, cgc_strlen(v600, 0));\n
+    cgc_add_meal(a0, v605);\n
+    v605 = cgc_malloc(92);\n
+    if (!v605)\n
+        cgc__terminate(92);\n
+    cgc_memset(v605, 0, 92);\n
+    *(v605) = 1;\n
+    v603 = \"zkbsnHsQYNpgrMw\";\n
+    v260 = &v605[1];\n
+    v261 = v603;\n
+    cgc_memcpy(v260, v261, cgc_strlen(v603, 0));\n
+    v602 = \"TgHn\";\n
+    v262 = &v605[6];\n
+    v263 = v602;\n
+    cgc_memcpy(v262, v263, cgc_strlen(v602, 0));\n
+    v601 = \"PrzysxmuxvWGic\";\n
+    v264 = &v605[11];\n
+    v265 = v601;\n
+    cgc_memcpy(v264, v265, cgc_strlen(v601, 0));\n
+    v600 = \"LLEdnN\";\n
+    v266 = &v605[16];\n
+    v267 = v600;\n
+    cgc_memcpy(v266, v267, cgc_strlen(v600, 0));\n
+    cgc_add_meal(a0, v605);\n
+    v605 = cgc_malloc(92);\n
+    if (!v605)\n
+        cgc__terminate(92);\n
+    cgc_memset(v605, 0, 92);\n
+    *(v605) = 1;\n
+    v603 = \"n\";\n
+    v252 = &v605[1];\n
+    v253 = v603;\n
+    cgc_memcpy(v252, v253, cgc_strlen(v603, 0));\n
+    v602 = \"KoXHZsrHnUtQi\";\n
+    v254 = &v605[6];\n
+    v255 = v602;\n
+    cgc_memcpy(v254, v255, cgc_strlen(v602, 0));\n
+    v601 = \"FriJyufIKULUYxS\";\n
+    v256 = &v605[11];\n
+    v257 = v601;\n
+    cgc_memcpy(v256, v257, cgc_strlen(v601, 0));\n
+    v600 = \"KkUZp\";\n
+    v258 = &v605[16];\n
+    v259 = v600;\n
+    cgc_memcpy(v258, v259, cgc_strlen(v600, 0));\n
+    cgc_add_meal(a0, v605);\n
+    v605 = cgc_malloc(92);\n
+    if (!v605)\n
+        cgc__terminate(92);\n
+    cgc_memset(v605, 0, 92);\n
+    *(v605) = 1;\n
+    v603 = \"kcIlkHphxKeZWiyh\";\n
+    v244 = &v605[1];\n
+    v245 = v603;\n
+    cgc_memcpy(v244, v245, cgc_strlen(v603, 0));\n
+    v602 = \"wAkD\";\n
+    v246 = &v605[6];\n
+    v247 = v602;\n
+    cgc_memcpy(v246, v247, cgc_strlen(v602, 0));\n
+    v601 = \"oNKz\";\n
+    v248 = &v605[11];\n
+    v249 = v601;\n
+    cgc_memcpy(v248, v249, cgc_strlen(v601, 0));\n
+    v600 = \"QlpxCsSSsfAsT\";\n
+    v250 = &v605[16];\n
+    v251 = v600;\n
+    cgc_memcpy(v250, v251, cgc_strlen(v600, 0));\n
+    cgc_add_meal(a0, v605);\n
+    v605 = cgc_malloc(92);\n
+    if (!v605)\n
+        cgc__terminate(92);\n
+    cgc_memset(v605, 0, 92);\n
+    *(v605) = 1;\n
+    v603 = \"IPZfoyxxrvYzwNmcndJ\";\n
+    v236 = &v605[1];\n
+    v237 = v603;\n
+    cgc_memcpy(v236, v237, cgc_strlen(v603, 0));\n
+    v602 = \"HwOSnePDOXk\";\n
+    v238 = &v605[6];\n
+    v239 = v602;\n
+    cgc_memcpy(v238, v239, cgc_strlen(v602, 0));\n
+    v601 = \"BNqrexKmxzwYqR\";\n
+    v240 = &v605[11];\n
+    v241 = v601;\n
+    cgc_memcpy(v240, v241, cgc_strlen(v601, 0));\n
+    v600 = \"ZzTFYA\";\n
+    v242 = &v605[16];\n
+    v243 = v600;\n
+    cgc_memcpy(v242, v243, cgc_strlen(v600, 0));\n
+    cgc_add_meal(a0, v605);\n
+    v605 = cgc_malloc(92);\n
+    if (!v605)\n
+        cgc__terminate(92);\n
+    cgc_memset(v605, 0, 92);\n
+    *(v605) = 1;\n
+    v603 = \"xGimYTMbTGurv\";\n
+    v228 = &v605[1];\n
+    v229 = v603;\n
+    cgc_memcpy(v228, v229, cgc_strlen(v603, 0));\n
+    v602 = \"yg\";\n
+    v230 = &v605[6];\n
+    v231 = v602;\n
+    cgc_memcpy(v230, v231, cgc_strlen(v602, 0));\n
+    v601 = \"fVAqrTHHLKaZimlJqjI\";\n
+    v232 = &v605[11];\n
+    v233 = v601;\n
+    cgc_memcpy(v232, v233, cgc_strlen(v601, 0));\n
+    v600 = \"VbDaKZELJ\";\n
+    v234 = &v605[16];\n
+    v235 = v600;\n
+    cgc_memcpy(v234, v235, cgc_strlen(v600, 0));\n
+    cgc_add_meal(a0, v605);\n
+    v605 = cgc_malloc(92);\n
+    if (!v605)\n
+        cgc__terminate(92);\n
+    cgc_memset(v605, 0, 92);\n
+    *(v605) = 1;\n
+    v603 = \"UmXu\";\n
+    v220 = &v605[1];\n
+    v221 = v603;\n
+    cgc_memcpy(v220, v221, cgc_strlen(v603, 0));\n
+    v602 = \"ormjxbdGdKYIQejskBV\";\n
+    v222 = &v605[6];\n
+    v223 = v602;\n
+    cgc_memcpy(v222, v223, cgc_strlen(v602, 0));\n
+    v601 = \"pSBIfScXYfA\";\n
+    v224 = &v605[11];\n
+    v225 = v601;\n
+    cgc_memcpy(v224, v225, cgc_strlen(v601, 0));\n
+    v600 = \"OZIGfmINguZcpfi\";\n
+    v226 = &v605[16];\n
+    v227 = v600;\n
+    cgc_memcpy(v226, v227, cgc_strlen(v600, 0));\n
+    cgc_add_meal(a0, v605);\n
+    v605 = cgc_malloc(92);\n
+    if (!v605)\n
+        cgc__terminate(92);\n
+    cgc_memset(v605, 0, 92);\n
+    *(v605) = 1;\n
+    v603 = \"vZgXTmEfJrxpukXLiy\";\n
+    v212 = &v605[1];\n
+    v213 = v603;\n
+    cgc_memcpy(v212, v213, cgc_strlen(v603, 0));\n
+    v602 = \"iAQFY\";\n
+    v214 = &v605[6];\n
+    v215 = v602;\n
+    cgc_memcpy(v214, v215, cgc_strlen(v602, 0));\n
+    v601 = \"iCw\";\n
+    v216 = &v605[11];\n
+    v217 = v601;\n
+    cgc_memcpy(v216, v217, cgc_strlen(v601, 0));\n
+    v600 = \"ipsiSSCBtPZzgLWkRby\";\n
+    v218 = &v605[16];\n
+    v219 = v600;\n
+    cgc_memcpy(v218, v219, cgc_strlen(v600, 0));\n
+    cgc_add_meal(a0, v605);\n
+    v605 = cgc_malloc(92);\n
+    if (!v605)\n
+        cgc__terminate(92);\n
+    cgc_memset(v605, 0, 92);\n
+    *(v605) = 1;\n
+    v603 = \"GatLliocExXqUDhGGg\";\n
+    v204 = &v605[1];\n
+    v205 = v603;\n
+    cgc_memcpy(v204, v205, cgc_strlen(v603, 0));\n
+    v602 = \"BdCRYrsIW\";\n
+    v206 = &v605[6];\n
+    v207 = v602;\n
+    cgc_memcpy(v206, v207, cgc_strlen(v602, 0));\n
+    v601 = \"UvmPPZRWNmeKuh\";\n
+    v208 = &v605[11];\n
+    v209 = v601;\n
+    cgc_memcpy(v208, v209, cgc_strlen(v601, 0));\n
+    v600 = \"BUIfblmlpKYpnXzK\";\n
+    v210 = &v605[16];\n
+    v211 = v600;\n
+    cgc_memcpy(v210, v211, cgc_strlen(v600, 0));\n
+    cgc_add_meal(a0, v605);\n
+    v605 = cgc_malloc(92);\n
+    if (!v605)\n
+        cgc__terminate(92);\n
+    cgc_memset(v605, 0, 92);\n
+    *(v605) = 1;\n
+    v603 = \"mxCEajsFOx\";\n
+    v196 = &v605[1];\n
+    v197 = v603;\n
+    cgc_memcpy(v196, v197, cgc_strlen(v603, 0));\n
+    v602 = \"jMHek\";\n
+    v198 = &v605[6];\n
+    v199 = v602;\n
+    cgc_memcpy(v198, v199, cgc_strlen(v602, 0));\n
+    v601 = \"oqBIFUSsfGLwuqp\";\n
+    v200 = &v605[11];\n
+    v201 = v601;\n
+    cgc_memcpy(v200, v201, cgc_strlen(v601, 0));\n
+    v600 = \"tpQdTrVfwEbVqCGC\";\n
+    v202 = &v605[16];\n
+    v203 = v600;\n
+    cgc_memcpy(v202, v203, cgc_strlen(v600, 0));\n
+    cgc_add_meal(a0, v605);\n
+    v605 = cgc_malloc(92);\n
+    if (!v605)\n
+        cgc__terminate(92);\n
+    cgc_memset(v605, 0, 92);\n
+    *(v605) = 1;\n
+    v603 = \"Ie\";\n
+    v188 = &v605[1];\n
+    v189 = v603;\n
+    cgc_memcpy(v188, v189, cgc_strlen(v603, 0));\n
+    v602 = \"yvwHDjpJGkOO\";\n
+    v190 = &v605[6];\n
+    v191 = v602;\n
+    cgc_memcpy(v190, v191, cgc_strlen(v602, 0));\n
+    v601 = \"eQgFSsFgTQtQT\";\n
+    v192 = &v605[11];\n
+    v193 = v601;\n
+    cgc_memcpy(v192, v193, cgc_strlen(v601, 0));\n
+    v600 = \"VhbNDL\";\n
+    v194 = &v605[16];\n
+    v195 = v600;\n
+    cgc_memcpy(v194, v195, cgc_strlen(v600, 0));\n
+    cgc_add_meal(a0, v605);\n
+    v605 = cgc_malloc(92);\n
+    if (!v605)\n
+        cgc__terminate(92);\n
+    cgc_memset(v605, 0, 92);\n
+    *(v605) = 1;\n
+    v603 = \"MW\";\n
+    v180 = &v605[1];\n
+    v181 = v603;\n
+    cgc_memcpy(v180, v181, cgc_strlen(v603, 0));\n
+    v602 = \"pVAbrgTmfsf\";\n
+    v182 = &v605[6];\n
+    v183 = v602;\n
+    cgc_memcpy(v182, v183, cgc_strlen(v602, 0));\n
+    v601 = \"NDkwNvbbHkmg\";\n
+    v184 = &v605[11];\n
+    v185 = v601;\n
+    cgc_memcpy(v184, v185, cgc_strlen(v601, 0));\n
+    v600 = \"eqlYvUouwSFcet\";\n
+    v186 = &v605[16];\n
+    v187 = v600;\n
+    cgc_memcpy(v186, v187, cgc_strlen(v600, 0));\n
+    cgc_add_meal(a0, v605);\n
+    v605 = cgc_malloc(92);\n
+    if (!v605)\n
+        cgc__terminate(92);\n
+    cgc_memset(v605, 0, 92);\n
+    *(v605) = 1;\n
+    v603 = \"PZVEoFhIc\";\n
+    v172 = &v605[1];\n
+    v173 = v603;\n
+    cgc_memcpy(v172, v173, cgc_strlen(v603, 0));\n
+    v602 = \"tCfePusRu\";\n
+    v174 = &v605[6];\n
+    v175 = v602;\n
+    cgc_memcpy(v174, v175, cgc_strlen(v602, 0));\n
+    v601 = \"d\";\n
+    v176 = &v605[11];\n
+    v177 = v601;\n
+    cgc_memcpy(v176, v177, cgc_strlen(v601, 0));\n
+    v600 = \"IyghjY\";\n
+    v178 = &v605[16];\n
+    v179 = v600;\n
+    cgc_memcpy(v178, v179, cgc_strlen(v600, 0));\n
+    cgc_add_meal(a0, v605);\n
+    v605 = cgc_malloc(92);\n
+    if (!v605)\n
+        cgc__terminate(92);\n
+    cgc_memset(v605, 0, 92);\n
+    *(v605) = 1;\n
+    v603 = \"AsY\";\n
+    v164 = &v605[1];\n
+    v165 = v603;\n
+    cgc_memcpy(v164, v165, cgc_strlen(v603, 0));\n
+    v602 = \"pfvxYeTqc\";\n
+    v166 = &v605[6];\n
+    v167 = v602;\n
+    cgc_memcpy(v166, v167, cgc_strlen(v602, 0));\n
+    v601 = \"ZTxaQoNQYaIBBY\";\n
+    v168 = &v605[11];\n
+    v169 = v601;\n
+    cgc_memcpy(v168, v169, cgc_strlen(v601, 0));\n
+    v600 = \"YRbgJKV\";\n
+    v170 = &v605[16];\n
+    v171 = v600;\n
+    cgc_memcpy(v170, v171, cgc_strlen(v600, 0));\n
+    cgc_add_meal(a0, v605);\n
+    v605 = cgc_malloc(92);\n
+    if (!v605)\n
+        cgc__terminate(92);\n
+    cgc_memset(v605, 0, 92);\n
+    *(v605) = 1;\n
+    v603 = \"k\";\n
+    v156 = &v605[1];\n
+    v157 = v603;\n
+    cgc_memcpy(v156, v157, cgc_strlen(v603, 0));\n
+    v602 = \"rwUiJ\";\n
+    v158 = &v605[6];\n
+    v159 = v602;\n
+    cgc_memcpy(v158, v159, cgc_strlen(v602, 0));\n
+    v601 = \"RrNSfpsriLJXJAn\";\n
+    v160 = &v605[11];\n
+    v161 = v601;\n
+    cgc_memcpy(v160, v161, cgc_strlen(v601, 0));\n
+    v600 = \"YtC\";\n
+    v162 = &v605[16];\n
+    v163 = v600;\n
+    cgc_memcpy(v162, v163, cgc_strlen(v600, 0));\n
+    cgc_add_meal(a0, v605);\n
+    v605 = cgc_malloc(92);\n
+    if (!v605)\n
+        cgc__terminate(92);\n
+    cgc_memset(v605, 0, 92);\n
+    *(v605) = 1;\n
+    v603 = \"EBzXJGYjGffCyBiPp\";\n
+    v148 = &v605[1];\n
+    v149 = v603;\n
+    cgc_memcpy(v148, v149, cgc_strlen(v603, 0));\n
+    v602 = \"QSILluzPFyZZbEsE\";\n
+    v150 = &v605[6];\n
+    v151 = v602;\n
+    cgc_memcpy(v150, v151, cgc_strlen(v602, 0));\n
+    v601 = \"wtddywMhBwD\";\n
+    v152 = &v605[11];\n
+    v153 = v601;\n
+    cgc_memcpy(v152, v153, cgc_strlen(v601, 0));\n
+    v600 = \"mLyAdUlsMGFhP\";\n
+    v154 = &v605[16];\n
+    v155 = v600;\n
+    cgc_memcpy(v154, v155, cgc_strlen(v600, 0));\n
+    cgc_add_meal(a0, v605);\n
+    v605 = cgc_malloc(92);\n
+    if (!v605)\n
+        cgc__terminate(92);\n
+    cgc_memset(v605, 0, 92);\n
+    *(v605) = 1;\n
+    v603 = \"vbWrs\";\n
+    v140 = &v605[1];\n
+    v141 = v603;\n
+    cgc_memcpy(v140, v141, cgc_strlen(v603, 0));\n
+    v602 = \"xWBdzcvZQTf\";\n
+    v142 = &v605[6];\n
+    v143 = v602;\n
+    cgc_memcpy(v142, v143, cgc_strlen(v602, 0));\n
+    v601 = \"QdjRhFJ\";\n
+    v144 = &v605[11];\n
+    v145 = v601;\n
+    cgc_memcpy(v144, v145, cgc_strlen(v601, 0));\n
+    v600 = \"UhIQDYCNZ\";\n
+    v146 = &v605[16];\n
+    v147 = v600;\n
+    cgc_memcpy(v146, v147, cgc_strlen(v600, 0));\n
+    cgc_add_meal(a0, v605);\n
+    v605 = cgc_malloc(92);\n
+    if (!v605)\n
+        cgc__terminate(92);\n
+    cgc_memset(v605, 0, 92);\n
+    *(v605) = 1;\n
+    v603 = \"mCObWa\";\n
+    v132 = &v605[1];\n
+    v133 = v603;\n
+    cgc_memcpy(v132, v133, cgc_strlen(v603, 0));\n
+    v602 = \"An\";\n
+    v134 = &v605[6];\n
+    v135 = v602;\n
+    cgc_memcpy(v134, v135, cgc_strlen(v602, 0));\n
+    v601 = \"AFygdlesQryFQJPbBiq\";\n
+    v136 = &v605[11];\n
+    v137 = v601;\n
+    cgc_memcpy(v136, v137, cgc_strlen(v601, 0));\n
+    v600 = \"gWvmtTG\";\n
+    v138 = &v605[16];\n
+    v139 = v600;\n
+    cgc_memcpy(v138, v139, cgc_strlen(v600, 0));\n
+    cgc_add_meal(a0, v605);\n
+    v605 = cgc_malloc(92);\n
+    if (!v605)\n
+        cgc__terminate(92);\n
+    cgc_memset(v605, 0, 92);\n
+    *(v605) = 1;\n
+    v603 = \"JssjKtCzNVAeX\";\n
+    v124 = &v605[1];\n
+    v125 = v603;\n
+    cgc_memcpy(v124, v125, cgc_strlen(v603, 0));\n
+    v602 = \"IXrWDMTGKTAPatTSl\";\n
+    v126 = &v605[6];\n
+    v127 = v602;\n
+    cgc_memcpy(v126, v127, cgc_strlen(v602, 0));\n
+    v601 = \"CtvtzAZHCYnxfk\";\n
+    v128 = &v605[11];\n
+    v129 = v601;\n
+    cgc_memcpy(v128, v129, cgc_strlen(v601, 0));\n
+    v600 = \"TeWfgjhdilcO\";\n
+    v130 = &v605[16];\n
+    v131 = v600;\n
+    cgc_memcpy(v130, v131, cgc_strlen(v600, 0));\n
+    cgc_add_meal(a0, v605);\n
+    v605 = cgc_malloc(92);\n
+    if (!v605)\n
+        cgc__terminate(92);\n
+    cgc_memset(v605, 0, 92);\n
+    *(v605) = 1;\n
+    v603 = \"HakKrdXeRCpQJ\";\n
+    v116 = &v605[1];\n
+    v117 = v603;\n
+    cgc_memcpy(v116, v117, cgc_strlen(v603, 0));\n
+    v602 = \"FKnGclTRQFvjz\";\n
+    v118 = &v605[6];\n
+    v119 = v602;\n
+    cgc_memcpy(v118, v119, cgc_strlen(v602, 0));\n
+    v601 = \"vJpUnutIkgpm\";\n
+    v120 = &v605[11];\n
+    v121 = v601;\n
+    cgc_memcpy(v120, v121, cgc_strlen(v601, 0));\n
+    v600 = \"bLsFqgMw\";\n
+    v122 = &v605[16];\n
+    v123 = v600;\n
+    cgc_memcpy(v122, v123, cgc_strlen(v600, 0));\n
+    cgc_add_meal(a0, v605);\n
+    v605 = cgc_malloc(92);\n
+    if (!v605)\n
+        cgc__terminate(92);\n
+    cgc_memset(v605, 0, 92);\n
+    *(v605) = 1;\n
+    v603 = \"VdI\";\n
+    v108 = &v605[1];\n
+    v109 = v603;\n
+    cgc_memcpy(v108, v109, cgc_strlen(v603, 0));\n
+    v602 = \"rDnCfN\";\n
+    v110 = &v605[6];\n
+    v111 = v602;\n
+    cgc_memcpy(v110, v111, cgc_strlen(v602, 0));\n
+    v601 = \"qe\";\n
+    v112 = &v605[11];\n
+    v113 = v601;\n
+    cgc_memcpy(v112, v113, cgc_strlen(v601, 0));\n
+    v600 = \"EijGXvaPpbk\";\n
+    v114 = &v605[16];\n
+    v115 = v600;\n
+    cgc_memcpy(v114, v115, cgc_strlen(v600, 0));\n
+    cgc_add_meal(a0, v605);\n
+    v605 = cgc_malloc(92);\n
+    if (!v605)\n
+        cgc__terminate(92);\n
+    cgc_memset(v605, 0, 92);\n
+    *(v605) = 1;\n
+    v603 = \"wePMzfShzImZDOTgLc\";\n
+    v100 = &v605[1];\n
+    v101 = v603;\n
+    cgc_memcpy(v100, v101, cgc_strlen(v603, 0));\n
+    v602 = \"Zxpb\";\n
+    v102 = &v605[6];\n
+    v103 = v602;\n
+    cgc_memcpy(v102, v103, cgc_strlen(v602, 0));\n
+    v601 = \"YsiGeamwZgFEp\";\n
+    v104 = &v605[11];\n
+    v105 = v601;\n
+    cgc_memcpy(v104, v105, cgc_strlen(v601, 0));\n
+    v600 = \"HDeBa\";\n
+    v106 = &v605[16];\n
+    v107 = v600;\n
+    cgc_memcpy(v106, v107, cgc_strlen(v600, 0));\n
+    cgc_add_meal(a0, v605);\n
+    v604 = cgc_malloc(32);\n
+    if (!v604)\n
+        cgc__terminate(32);\n
+    cgc_memset(v604, 0, 32);\n
+    *(v604) = 2;\n
+    v603 = \"AKPReWjkKZRnRsGvRDU\";\n
+    v98 = &v604[1];\n
+    v99 = v603;\n
+    cgc_memcpy(v98, v99, cgc_strlen(v603, 0));\n
+    cgc_add_dessert(a0, v604);\n
+    v604 = cgc_malloc(32);\n
+    if (!v604)\n
+        cgc__terminate(32);\n
+    cgc_memset(v604, 0, 32);\n
+    *(v604) = 2;\n
+    v603 = \"xvvfIjwJxxoX\";\n
+    v96 = &v604[1];\n
+    v97 = v603;\n
+    cgc_memcpy(v96, v97, cgc_strlen(v603, 0));\n
+    cgc_add_dessert(a0, v604);\n
+    v604 = cgc_malloc(32);\n
+    if (!v604)\n
+        cgc__terminate(32);\n
+    cgc_memset(v604, 0, 32);\n
+    *(v604) = 2;\n
+    v603 = \"EcVatQDxgHwEwd\";\n
+    v94 = &v604[1];\n
+    v95 = v603;\n
+    cgc_memcpy(v94, v95, cgc_strlen(v603, 0));\n
+    cgc_add_dessert(a0, v604);\n
+    v604 = cgc_malloc(32);\n
+    if (!v604)\n
+        cgc__terminate(32);\n
+    cgc_memset(v604, 0, 32);\n
+    *(v604) = 2;\n
+    v603 = \"xL\";\n
+    v92 = &v604[1];\n
+    v93 = v603;\n
+    cgc_memcpy(v92, v93, cgc_strlen(v603, 0));\n
+    cgc_add_dessert(a0, v604);\n
+    v604 = cgc_malloc(32);\n
+    if (!v604)\n
+        cgc__terminate(32);\n
+    cgc_memset(v604, 0, 32);\n
+    *(v604) = 2;\n
+    v603 = \"CGabmQUFBiTiyg\";\n
+    v90 = &v604[1];\n
+    v91 = v603;\n
+    cgc_memcpy(v90, v91, cgc_strlen(v603, 0));\n
+    cgc_add_dessert(a0, v604);\n
+    v604 = cgc_malloc(32);\n
+    if (!v604)\n
+        cgc__terminate(32);\n
+    cgc_memset(v604, 0, 32);\n
+    *(v604) = 2;\n
+    v603 = \"OLgmcumpKx\";\n
+    v88 = &v604[1];\n
+    v89 = v603;\n
+    cgc_memcpy(v88, v89, cgc_strlen(v603, 0));\n
+    cgc_add_dessert(a0, v604);\n
+    v604 = cgc_malloc(32);\n
+    if (!v604)\n
+        cgc__terminate(32);\n
+    cgc_memset(v604, 0, 32);\n
+    *(v604) = 2;\n
+    v603 = \"ZOrnojF\";\n
+    v86 = &v604[1];\n
+    v87 = v603;\n
+    cgc_memcpy(v86, v87, cgc_strlen(v603, 0));\n
+    cgc_add_dessert(a0, v604);\n
+    v604 = cgc_malloc(32);\n
+    if (!v604)\n
+        cgc__terminate(32);\n
+    cgc_memset(v604, 0, 32);\n
+    *(v604) = 2;\n
+    v603 = \"ejxWijyBhfjzOi\";\n
+    v84 = &v604[1];\n
+    v85 = v603;\n
+    cgc_memcpy(v84, v85, cgc_strlen(v603, 0));\n
+    cgc_add_dessert(a0, v604);\n
+    v604 = cgc_malloc(32);\n
+    if (!v604)\n
+        cgc__terminate(32);\n
+    cgc_memset(v604, 0, 32);\n
+    *(v604) = 2;\n
+    v603 = \"wZyEJHaU\";\n
+    v82 = &v604[1];\n
+    v83 = v603;\n
+    cgc_memcpy(v82, v83, cgc_strlen(v603, 0));\n
+    cgc_add_dessert(a0, v604);\n
+    v604 = cgc_malloc(32);\n
+    if (!v604)\n
+        cgc__terminate(32);\n
+    cgc_memset(v604, 0, 32);\n
+    *(v604) = 2;\n
+    v603 = \"SQGmFKASiGI\";\n
+    v80 = &v604[1];\n
+    v81 = v603;\n
+    cgc_memcpy(v80, v81, cgc_strlen(v603, 0));\n
+    cgc_add_dessert(a0, v604);\n
+    v604 = cgc_malloc(32);\n
+    if (!v604)\n
+        cgc__terminate(32);\n
+    cgc_memset(v604, 0, 32);\n
+    *(v604) = 2;\n
+    v603 = \"tmdsFsKDge\";\n
+    v78 = &v604[1];\n
+    v79 = v603;\n
+    cgc_memcpy(v78, v79, cgc_strlen(v603, 0));\n
+    cgc_add_dessert(a0, v604);\n
+    v604 = cgc_malloc(32);\n
+    if (!v604)\n
+        cgc__terminate(32);\n
+    cgc_memset(v604, 0, 32);\n
+    *(v604) = 2;\n
+    v603 = \"cOkXtVctEuoeCFHQGzT\";\n
+    v76 = &v604[1];\n
+    v77 = v603;\n
+    cgc_memcpy(v76, v77, cgc_strlen(v603, 0));\n
+    cgc_add_dessert(a0, v604);\n
+    v604 = cgc_malloc(32);\n
+    if (!v604)\n
+        cgc__terminate(32);\n
+    cgc_memset(v604, 0, 32);\n
+    *(v604) = 2;\n
+    v603 = \"FZSdmjxmSVL\";\n
+    v74 = &v604[1];\n
+    v75 = v603;\n
+    cgc_memcpy(v74, v75, cgc_strlen(v603, 0));\n
+    cgc_add_dessert(a0, v604);\n
+    v604 = cgc_malloc(32);\n
+    if (!v604)\n
+        cgc__terminate(32);\n
+    cgc_memset(v604, 0, 32);\n
+    *(v604) = 2;\n
+    v603 = \"dKRAFyzUnzoKLKD\";\n
+    v72 = &v604[1];\n
+    v73 = v603;\n
+    cgc_memcpy(v72, v73, cgc_strlen(v603, 0));\n
+    cgc_add_dessert(a0, v604);\n
+    v604 = cgc_malloc(32);\n
+    if (!v604)\n
+        cgc__terminate(32);\n
+    cgc_memset(v604, 0, 32);\n
+    *(v604) = 2;\n
+    v603 = \"fegevMNqQD\";\n
+    v70 = &v604[1];\n
+    v71 = v603;\n
+    cgc_memcpy(v70, v71, cgc_strlen(v603, 0));\n
+    cgc_add_dessert(a0, v604);\n
+    v604 = cgc_malloc(32);\n
+    if (!v604)\n
+        cgc__terminate(32);\n
+    cgc_memset(v604, 0, 32);\n
+    *(v604) = 2;\n
+    v603 = \"VCmTydTBVQCeLQ\";\n
+    v68 = &v604[1];\n
+    v69 = v603;\n
+    cgc_memcpy(v68, v69, cgc_strlen(v603, 0));\n
+    cgc_add_dessert(a0, v604);\n
+    v604 = cgc_malloc(32);\n
+    if (!v604)\n
+        cgc__terminate(32);\n
+    cgc_memset(v604, 0, 32);\n
+    *(v604) = 2;\n
+    v603 = \"loyAbN\";\n
+    v66 = &v604[1];\n
+    v67 = v603;\n
+    cgc_memcpy(v66, v67, cgc_strlen(v603, 0));\n
+    cgc_add_dessert(a0, v604);\n
+    v604 = cgc_malloc(32);\n
+    if (!v604)\n
+        cgc__terminate(32);\n
+    cgc_memset(v604, 0, 32);\n
+    *(v604) = 2;\n
+    v603 = \"JnOZlrmpv\";\n
+    v64 = &v604[1];\n
+    v65 = v603;\n
+    cgc_memcpy(v64, v65, cgc_strlen(v603, 0));\n
+    cgc_add_dessert(a0, v604);\n
+    v604 = cgc_malloc(32);\n
+    if (!v604)\n
+        cgc__terminate(32);\n
+    cgc_memset(v604, 0, 32);\n
+    *(v604) = 2;\n
+    v603 = \"YZdBWVBsuGQ\";\n
+    v62 = &v604[1];\n
+    v63 = v603;\n
+    cgc_memcpy(v62, v63, cgc_strlen(v603, 0));\n
+    cgc_add_dessert(a0, v604);\n
+    v604 = cgc_malloc(32);\n
+    if (!v604)\n
+        cgc__terminate(32);\n
+    cgc_memset(v604, 0, 32);\n
+    *(v604) = 2;\n
+    v603 = \"suwkMLdoZTwWHsivcVs\";\n
+    v60 = &v604[1];\n
+    v61 = v603;\n
+    cgc_memcpy(v60, v61, cgc_strlen(v603, 0));\n
+    cgc_add_dessert(a0, v604);\n
+    v604 = cgc_malloc(32);\n
+    if (!v604)\n
+        cgc__terminate(32);\n
+    cgc_memset(v604, 0, 32);\n
+    *(v604) = 2;\n
+    v603 = \"nvoEWCpENpxDVuUGh\";\n
+    v58 = &v604[1];\n
+    v59 = v603;\n
+    cgc_memcpy(v58, v59, cgc_strlen(v603, 0));\n
+    cgc_add_dessert(a0, v604);\n
+    v604 = cgc_malloc(32);\n
+    if (!v604)\n
+        cgc__terminate(32);\n
+    cgc_memset(v604, 0, 32);\n
+    *(v604) = 2;\n
+    v603 = \"kDnXpp\";\n
+    v56 = &v604[1];\n
+    v57 = v603;\n
+    cgc_memcpy(v56, v57, cgc_strlen(v603, 0));\n
+    cgc_add_dessert(a0, v604);\n
+    v604 = cgc_malloc(32);\n
+    if (!v604)\n
+        cgc__terminate(32);\n
+    cgc_memset(v604, 0, 32);\n
+    *(v604) = 2;\n
+    v603 = \"jsffGu\";\n
+    v54 = &v604[1];\n
+    v55 = v603;\n
+    cgc_memcpy(v54, v55, cgc_strlen(v603, 0));\n
+    cgc_add_dessert(a0, v604);\n
+    v604 = cgc_malloc(32);\n
+    if (!v604)\n
+        cgc__terminate(32);\n
+    cgc_memset(v604, 0, 32);\n
+    *(v604) = 2;\n
+    v603 = \"VSJGQCLjpWi\";\n
+    v52 = &v604[1];\n
+    v53 = v603;\n
+    cgc_memcpy(v52, v53, cgc_strlen(v603, 0));\n
+    cgc_add_dessert(a0, v604);\n
+    v604 = cgc_malloc(32);\n
+    if (!v604)\n
+        cgc__terminate(32);\n
+    cgc_memset(v604, 0, 32);\n
+    *(v604) = 2;\n
+    v603 = \"yaSAoGMePbTvXYszZpd\";\n
+    v50 = &v604[1];\n
+    v51 = v603;\n
+    cgc_memcpy(v50, v51, cgc_strlen(v603, 0));\n
+    cgc_add_dessert(a0, v604);\n
+    v604 = cgc_malloc(32);\n
+    if (!v604)\n
+        cgc__terminate(32);\n
+    cgc_memset(v604, 0, 32);\n
+    *(v604) = 2;\n
+    v603 = \"YQOfPYMomTxSMKIZJPj\";\n
+    v48 = &v604[1];\n
+    v49 = v603;\n
+    cgc_memcpy(v48, v49, cgc_strlen(v603, 0));\n
+    cgc_add_dessert(a0, v604);\n
+    v604 = cgc_malloc(32);\n
+    if (!v604)\n
+        cgc__terminate(32);\n
+    cgc_memset(v604, 0, 32);\n
+    *(v604) = 2;\n
+    v603 = \"pesQByVw\";\n
+    v46 = &v604[1];\n
+    v47 = v603;\n
+    cgc_memcpy(v46, v47, cgc_strlen(v603, 0));\n
+    cgc_add_dessert(a0, v604);\n
+    v604 = cgc_malloc(32);\n
+    if (!v604)\n
+        cgc__terminate(32);\n
+    cgc_memset(v604, 0, 32);\n
+    *(v604) = 2;\n
+    v603 = \"Y\";\n
+    v44 = &v604[1];\n
+    v45 = v603;\n
+    cgc_memcpy(v44, v45, cgc_strlen(v603, 0));\n
+    cgc_add_dessert(a0, v604);\n
+    v604 = cgc_malloc(32);\n
+    if (!v604)\n
+        cgc__terminate(32);\n
+    cgc_memset(v604, 0, 32);\n
+    *(v604) = 2;\n
+    v603 = \"jqkl\";\n
+    v42 = &v604[1];\n
+    v43 = v603;\n
+    cgc_memcpy(v42, v43, cgc_strlen(v603, 0));\n
+    cgc_add_dessert(a0, v604);\n
+    v604 = cgc_malloc(32);\n
+    if (!v604)\n
+        cgc__terminate(32);\n
+    cgc_memset(v604, 0, 32);\n
+    *(v604) = 2;\n
+    v603 = \"CrBjW\";\n
+    v40 = &v604[1];\n
+    v41 = v603;\n
+    cgc_memcpy(v40, v41, cgc_strlen(v603, 0));\n
+    cgc_add_dessert(a0, v604);\n
+    v604 = cgc_malloc(32);\n
+    if (!v604)\n
+        cgc__terminate(32);\n
+    cgc_memset(v604, 0, 32);\n
+    *(v604) = 2;\n
+    v603 = \"TWYFRqe\";\n
+    v38 = &v604[1];\n
+    v39 = v603;\n
+    cgc_memcpy(v38, v39, cgc_strlen(v603, 0));\n
+    cgc_add_dessert(a0, v604);\n
+    v604 = cgc_malloc(32);\n
+    if (!v604)\n
+        cgc__terminate(32);\n
+    cgc_memset(v604, 0, 32);\n
+    *(v604) = 2;\n
+    v603 = \"UalYcxsnHdUOwB\";\n
+    v36 = &v604[1];\n
+    v37 = v603;\n
+    cgc_memcpy(v36, v37, cgc_strlen(v603, 0));\n
+    cgc_add_dessert(a0, v604);\n
+    v604 = cgc_malloc(32);\n
+    if (!v604)\n
+        cgc__terminate(32);\n
+    cgc_memset(v604, 0, 32);\n
+    *(v604) = 2;\n
+    v603 = \"GRBycFmDIEcoTP\";\n
+    v34 = &v604[1];\n
+    v35 = v603;\n
+    cgc_memcpy(v34, v35, cgc_strlen(v603, 0));\n
+    cgc_add_dessert(a0, v604);\n
+    v604 = cgc_malloc(32);\n
+    if (!v604)\n
+        cgc__terminate(32);\n
+    cgc_memset(v604, 0, 32);\n
+    *(v604) = 2;\n
+    v603 = \"oleZre\";\n
+    v32 = &v604[1];\n
+    v33 = v603;\n
+    cgc_memcpy(v32, v33, cgc_strlen(v603, 0));\n
+    cgc_add_dessert(a0, v604);\n
+    v604 = cgc_malloc(32);\n
+    if (!v604)\n
+        cgc__terminate(32);\n
+    cgc_memset(v604, 0, 32);\n
+    *(v604) = 2;\n
+    v603 = \"kXwjlceRFOuSLDl\";\n
+    v30 = &v604[1];\n
+    v31 = v603;\n
+    cgc_memcpy(v30, v31, cgc_strlen(v603, 0));\n
+    cgc_add_dessert(a0, v604);\n
+    v604 = cgc_malloc(32);\n
+    if (!v604)\n
+        cgc__terminate(32);\n
+    cgc_memset(v604, 0, 32);\n
+    *(v604) = 2;\n
+    v603 = \"qWyXwZXJFkDH\";\n
+    v28 = &v604[1];\n
+    v29 = v603;\n
+    cgc_memcpy(v28, v29, cgc_strlen(v603, 0));\n
+    cgc_add_dessert(a0, v604);\n
+    v604 = cgc_malloc(32);\n
+    if (!v604)\n
+        cgc__terminate(32);\n
+    cgc_memset(v604, 0, 32);\n
+    *(v604) = 2;\n
+    v603 = \"GbjNxstDxKmrM\";\n
+    v26 = &v604[1];\n
+    v27 = v603;\n
+    cgc_memcpy(v26, v27, cgc_strlen(v603, 0));\n
+    cgc_add_dessert(a0, v604);\n
+    v604 = cgc_malloc(32);\n
+    if (!v604)\n
+        cgc__terminate(32);\n
+    cgc_memset(v604, 0, 32);\n
+    *(v604) = 2;\n
+    v603 = \"NMLxnTqga\";\n
+    v24 = &v604[1];\n
+    v25 = v603;\n
+    cgc_memcpy(v24, v25, cgc_strlen(v603, 0));\n
+    cgc_add_dessert(a0, v604);\n
+    v604 = cgc_malloc(32);\n
+    if (!v604)\n
+        cgc__terminate(32);\n
+    cgc_memset(v604, 0, 32);\n
+    *(v604) = 2;\n
+    v603 = \"PneNgwQjz\";\n
+    v22 = &v604[1];\n
+    v23 = v603;\n
+    cgc_memcpy(v22, v23, cgc_strlen(v603, 0));\n
+    cgc_add_dessert(a0, v604);\n
+    v604 = cgc_malloc(32);\n
+    if (!v604)\n
+        cgc__terminate(32);\n
+    cgc_memset(v604, 0, 32);\n
+    *(v604) = 2;\n
+    v603 = \"yQyOP\";\n
+    v20 = &v604[1];\n
+    v21 = v603;\n
+    cgc_memcpy(v20, v21, cgc_strlen(v603, 0));\n
+    cgc_add_dessert(a0, v604);\n
+    v604 = cgc_malloc(32);\n
+    if (!v604)\n
+        cgc__terminate(32);\n
+    cgc_memset(v604, 0, 32);\n
+    *(v604) = 2;\n
+    v603 = \"ozox\";\n
+    v18 = &v604[1];\n
+    v19 = v603;\n
+    cgc_memcpy(v18, v19, cgc_strlen(v603, 0));\n
+    cgc_add_dessert(a0, v604);\n
+    v604 = cgc_malloc(32);\n
+    if (!v604)\n
+        cgc__terminate(32);\n
+    cgc_memset(v604, 0, 32);\n
+    *(v604) = 2;\n
+    v603 = \"AcdZXwJxQVoZbt\";\n
+    v16 = &v604[1];\n
+    v17 = v603;\n
+    cgc_memcpy(v16, v17, cgc_strlen(v603, 0));\n
+    cgc_add_dessert(a0, v604);\n
+    v604 = cgc_malloc(32);\n
+    if (!v604)\n
+        cgc__terminate(32);\n
+    cgc_memset(v604, 0, 32);\n
+    *(v604) = 2;\n
+    v603 = \"smmGG\";\n
+    v14 = &v604[1];\n
+    v15 = v603;\n
+    cgc_memcpy(v14, v15, cgc_strlen(v603, 0));\n
+    cgc_add_dessert(a0, v604);\n
+    v604 = cgc_malloc(32);\n
+    if (!v604)\n
+        cgc__terminate(32);\n
+    cgc_memset(v604, 0, 32);\n
+    *(v604) = 2;\n
+    v603 = \"XR\";\n
+    v12 = &v604[1];\n
+    v13 = v603;\n
+    cgc_memcpy(v12, v13, cgc_strlen(v603, 0));\n
+    cgc_add_dessert(a0, v604);\n
+    v604 = cgc_malloc(32);\n
+    if (!v604)\n
+        cgc__terminate(32);\n
+    cgc_memset(v604, 0, 32);\n
+    *(v604) = 2;\n
+    v603 = \"Amb\";\n
+    v10 = &v604[1];\n
+    v11 = v603;\n
+    cgc_memcpy(v10, v11, cgc_strlen(v603, 0));\n
+    cgc_add_dessert(a0, v604);\n
+    v604 = cgc_malloc(32);\n
+    if (!v604)\n
+        cgc__terminate(32);\n
+    cgc_memset(v604, 0, 32);\n
+    *(v604) = 2;\n
+    v603 = \"hBKpQJTqUVKJ\";\n
+    v8 = &v604[1];\n
+    v9 = v603;\n
+    cgc_memcpy(v8, v9, cgc_strlen(v603, 0));\n
+    cgc_add_dessert(a0, v604);\n
+    v604 = cgc_malloc(32);\n
+    if (!v604)\n
+        cgc__terminate(32);\n
+    cgc_memset(v604, 0, 32);\n
+    *(v604) = 2;\n
+    v603 = \"gBuAyZnrOXNVwInMU\";\n
+    v6 = &v604[1];\n
+    v7 = v603;\n
+    cgc_memcpy(v6, v7, cgc_strlen(v603, 0));\n
+    cgc_add_dessert(a0, v604);\n
+    v604 = cgc_malloc(32);\n
+    if (!v604)\n
+        cgc__terminate(32);\n
+    cgc_memset(v604, 0, 32);\n
+    *(v604) = 2;\n
+    v603 = \"m\";\n
+    v4 = &v604[1];\n
+    v5 = v603;\n
+    cgc_memcpy(v4, v5, cgc_strlen(v603, 0));\n
+    cgc_add_dessert(a0, v604);\n
+    v604 = cgc_malloc(32);\n
+    if (!v604)\n
+        cgc__terminate(32);\n
+    cgc_memset(v604, 0, 32);\n
+    *(v604) = 2;\n
+    v603 = \"cJVIJ\";\n
+    v2 = &v604[1];\n
+    v3 = v603;\n
+    cgc_memcpy(v2, v3, cgc_strlen(v603, 0));\n
+    cgc_add_dessert(a0, v604);\n
+    v604 = cgc_malloc(32);\n
+    if (!v604)\n
+        cgc__terminate(32);\n
+    cgc_memset(v604, 0, 32);\n
+    *(v604) = 2;\n
+    v603 = \"Jhu\";\n
+    v0 = &v604[1];\n
+    v1 = v603;\n
+    cgc_memcpy(v0, v1, cgc_strlen(v603, 0));\n
+    return cgc_add_dessert(a0, v604);\n
+}\n
+", "4251838:sub_40e0be": null, "4251840:cgc_add_appetizer": "long long cgc_add_appetizer(unsigned long a0, unsigned long a1)\n
+{\n
+    unsigned long v0;  // [bp-0x20]\n
+\n
+    if (!v0)\n
+    {\n
+        *(a0) = a1;\n
+        return a0;\n
+    }\n
+    for (v0 = *(a0); *((v0 + 24)); v0 = *((v0 + 24)));\n
+    *((v0 + 24)) = a1;\n
+    return v0;\n
+}\n
+", "4251948:sub_40e12c": null, "4251952:cgc_add_meal": "typedef struct struct_0 {\n
+    char padding_0[8];\n
+    struct struct_0 *field_8;\n
+    char padding_10[68];\n
+    unsigned long long field_54;\n
+} struct_0;\n
+\n
+long long cgc_add_meal(struct_0 *a0, unsigned long a1)\n
+{\n
+    struct_0 *v0;  // [bp-0x20], Other Possible Types: unsigned long\n
+\n
+    if (!v0)\n
+    {\n
+        a0->field_8 = a1;\n
+        return a0;\n
+    }\n
+    for (v0 = a0->field_8; *(&(&v0->padding_10)[1]); v0 = *(&(&v0->padding_10)[1]));\n
+    *((v0 + 84)) = a1;\n
+    return v0;\n
+}\n
+", "4252062:sub_40e19e": null, "4252064:cgc_add_dessert": "long long cgc_add_dessert(struct struct_0 *a0[4], unsigned long a1)\n
+{\n
+    struct struct_0 *v0[4];  // [bp-0x20], Other Possible Types: unsigned long\n
+\n
+    if (!v0)\n
+    {\n
+        a0[2] = a1;\n
+        return a0;\n
+    }\n
+    for (v0[0] = a0[2]; v0[3]; v0 = v0[3]);\n
+    *((v0 + 24)) = a1;\n
+    return v0;\n
+}\n
+", "4252176:_fini": "long long _fini()\n
+{\n
+    unsigned long v1;  // rax\n
+\n
+    return v1;\n
+}\n
+", "5242880:__libc_start_main": null, "5242888:cgc__terminate": null, "5242896:memset": null, "5242904:cgc_transmit": null, "5242912:cgc_allocate": null, "5242920:cgc_receive": null, "6295632:UnresolvableJumpTarget": null, "6295640:UnresolvableCallTarget": null}

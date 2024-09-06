@@ -1,0 +1,5178 @@
+{"4198400:sub_401000": "int sub_401000(unsigned int v6, unsigned int a0, unsigned int a1)\n
+{\n
+    unsigned int v0;  // [bp-0x18]\n
+    char v1;  // [bp-0x14]\n
+    void* v2;  // [bp-0x10], Other Possible Types: unsigned int\n
+    unsigned int v3;  // [bp-0xc]\n
+    unsigned int v4;  // [bp-0x4]\n
+    char v5;  // [bp+0x0]\n
+\n
+    v4 = &v5;\n
+    v2 = 0;\n
+    while (true)\n
+    {\n
+        if (a1)\n
+        {\n
+            v0 = &v1;\n
+            if (cgc_receive(v6, a0 + v2, a1))\n
+            {\n
+                v3 = -1;\n
+                return v3;\n
+            }\n
+            a1 -= *(&v1);\n
+            v2 = *(&v1) + v2;\n
+        }\n
+        else\n
+        {\n
+            v3 = v2;\n
+            return v3;\n
+        }\n
+    }\n
+}\n
+", "4198529:sub_401081": null, "4198544:sub_401090": "int sub_401090(unsigned int v6, unsigned int a0, unsigned int a1)\n
+{\n
+    unsigned int v0;  // [bp-0x18]\n
+    char v1;  // [bp-0x14]\n
+    void* v2;  // [bp-0x10], Other Possible Types: unsigned int\n
+    unsigned int v3;  // [bp-0xc]\n
+    unsigned int v4;  // [bp-0x4]\n
+    char v5;  // [bp+0x0]\n
+\n
+    v4 = &v5;\n
+    v2 = 0;\n
+    while (true)\n
+    {\n
+        if (a1)\n
+        {\n
+            v0 = &v1;\n
+            if (cgc_transmit(v6, a0 + v2, a1))\n
+            {\n
+                v3 = -1;\n
+                return v3;\n
+            }\n
+            a1 -= *(&v1);\n
+            v2 = *(&v1) + v2;\n
+        }\n
+        else\n
+        {\n
+            v3 = v2;\n
+            return v3;\n
+        }\n
+    }\n
+}\n
+", "4198673:sub_401111": null, "4198688:sub_401120": "int sub_401120(char *v3, unsigned int a0, unsigned int a1)\n
+{\n
+    char *v0;  // [bp-0x8], Other Possible Types: unsigned int\n
+    unsigned int v1;  // [bp-0x4]\n
+    char v2;  // [bp+0x0]\n
+    char *v4;  // eax\n
+    unsigned int v5;  // eax\n
+    char *v6;  // eax\n
+\n
+    v1 = &v2;\n
+    v0 = v4;\n
+    v0 = v3;\n
+    while (true)\n
+    {\n
+        v5 = a1;\n
+        a1 = v5 - 1;\n
+        if (!v5)\n
+            break;\n
+        v6 = v0;\n
+        v0 = v6 + 1;\n
+        *(v6) = a0;\n
+    }\n
+    return v3;\n
+}\n
+", "4198758:sub_401166": null, "4198768:sub_401170": "int sub_401170(char *v4, char *a0, unsigned int a1)\n
+{\n
+    char *v0;  // [bp-0xc], Other Possible Types: unsigned int\n
+    int tmp_19;  // tmp #19\n
+    char *v1;  // [bp-0x8], Other Possible Types: unsigned int\n
+    unsigned int v2;  // [bp-0x4]\n
+    char v3;  // [bp+0x0]\n
+    unsigned int v5;  // eax\n
+    char *v6;  // eax\n
+    char *v7;  // eax\n
+\n
+    v2 = &v3;\n
+    v1 = v4;\n
+    v0 = a0;\n
+    while (true)\n
+    {\n
+        v5 = a1;\n
+        a1 = v5 - 1;\n
+        if (!v5)\n
+            break;\n
+        v6 = v0;\n
+        v0 = v6 + 1;\n
+        tmp_19 = *(v6);\n
+        v7 = v1;\n
+        v1 = v7 + 1;\n
+        *(v7) = tmp_19;\n
+    }\n
+    return v4;\n
+}\n
+", "4198854:sub_4011c6": null, "4198864:sub_4011d0": "int sub_4011d0(char *v5, char *a0, unsigned int a1)\n
+{\n
+    unsigned int v0;  // [bp-0x10]\n
+    int tmp_19;  // tmp #19\n
+    char *v1;  // [bp-0xc], Other Possible Types: unsigned int\n
+    char *v2;  // [bp-0x8], Other Possible Types: unsigned int\n
+    unsigned int v3;  // [bp-0x4]\n
+    char v4;  // [bp+0x0]\n
+    char *v6;  // eax\n
+    char *v7;  // eax\n
+    char *v8;  // eax\n
+    char *v9;  // eax\n
+\n
+    v3 = &v4;\n
+    v1 = v5;\n
+    v0 = a0;\n
+    if (v1 == v0)\n
+    {\n
+        v2 = v1;\n
+        return v2;\n
+    }\n
+    if (v0 < v1)\n
+    {\n
+        while (true)\n
+        {\n
+            v6 = a1;\n
+            a1 = v6 + 1;\n
+            if (!v6)\n
+                break;\n
+            v1[a1] = *((v0 + a1));\n
+        }\n
+    }\n
+    else\n
+    {\n
+        while (true)\n
+        {\n
+            v7 = a1;\n
+            a1 = v7 + 1;\n
+            if (!v7)\n
+                break;\n
+            v8 = v0;\n
+            v0 = v8 + 1;\n
+            tmp_19 = *(v8);\n
+            v9 = v1;\n
+            v1 = v9 + 1;\n
+            *(v9) = tmp_19;\n
+        }\n
+    }\n
+    v2 = v5;\n
+    return v2;\n
+}\n
+", "4199059:sub_401293": null, "4199072:sub_4012a0": "int sub_4012a0(char *v3)\n
+{\n
+    void* v0;  // [bp-0x8], Other Possible Types: unsigned int\n
+    unsigned int v1;  // [bp-0x4]\n
+    char v2;  // [bp+0x0]\n
+    unsigned int v4;  // eax\n
+    char *v5;  // eax\n
+\n
+    v1 = &v2;\n
+    v0 = v4;\n
+    v0 = 0;\n
+    while (true)\n
+    {\n
+        v5 = v3;\n
+        v3 = v5 + 1;\n
+        if (!*(v5))\n
+            break;\n
+        v0 += 1;\n
+    }\n
+    return v0;\n
+}\n
+", "4199128:sub_4012d8": null, "4199136:sub_4012e0": "int sub_4012e0(char *v4, unsigned int a0)\n
+{\n
+    char v0;  // [bp-0x9]\n
+    void* v1;  // [bp-0x8], Other Possible Types: unsigned int\n
+    unsigned int v2;  // [bp-0x4]\n
+    char v3;  // [bp+0x0]\n
+    unsigned int v5;  // ecx\n
+    char *v6;  // eax\n
+\n
+    v2 = &v3;\n
+    v1 = 0;\n
+    while (true)\n
+    {\n
+        v5 = a0;\n
+        a0 = v5 - 1;\n
+        v0 = 0;\n
+        if (v5)\n
+        {\n
+            v6 = v4;\n
+            v4 = v6 + 1;\n
+            v0 = *(v6);\n
+        }\n
+        if (!(v0 & 1))\n
+            break;\n
+        v1 += 1;\n
+    }\n
+    return v1;\n
+}\n
+", "4199241:sub_401349": null, "4199248:sub_401350": "int sub_401350(char *v4, char *a0)\n
+{\n
+    unsigned int v0;  // [bp-0x8]\n
+    char v1;  // [bp-0x5]\n
+    unsigned int v2;  // [bp-0x4]\n
+    char v3;  // [bp+0x0]\n
+    unsigned int v5;  // eax\n
+\n
+    v2 = &v3;\n
+    v0 = v5;\n
+    while (true)\n
+    {\n
+        v1 = 0;\n
+        if (*(v4))\n
+            v1 = *(v4) == *(a0);\n
+        if (!(v1 & 1))\n
+            break;\n
+        v4 += 1;\n
+        a0 += 1;\n
+    }\n
+    return *(v4) - *(a0);\n
+}\n
+", "4199361:sub_4013c1": null, "4199376:sub_4013d0": "int sub_4013d0(char *v4, char *a0, unsigned int a1)\n
+{\n
+    unsigned int v0;  // [bp-0x8]\n
+    char v1;  // [bp-0x5]\n
+    unsigned int v2;  // [bp-0x4]\n
+    char v3;  // [bp+0x0]\n
+    unsigned int v5;  // eax\n
+\n
+    v2 = &v3;\n
+    v0 = v5;\n
+    while (true)\n
+    {\n
+        a1 -= 1;\n
+        v1 = 0;\n
+        if (a1)\n
+        {\n
+            v1 = 0;\n
+            if (*(v4))\n
+                v1 = *(v4) == *(a0);\n
+        }\n
+        if (!(v1 & 1))\n
+            break;\n
+        v4 += 1;\n
+        a0 += 1;\n
+    }\n
+    return *(v4) - *(a0);\n
+}\n
+", "4199515:sub_40145b": null, "4199520:sub_401460": "int sub_401460(unsigned int v3, unsigned int a0)\n
+{\n
+    char *v0;  // [bp-0x8], Other Possible Types: unsigned int\n
+    unsigned int v1;  // [bp-0x4]\n
+    char v2;  // [bp+0x0]\n
+    char *v4;  // eax\n
+\n
+    v1 = &v2;\n
+    v0 = v4;\n
+    for (v0 = 0; v0[a0]; v0 += 1)\n
+    {\n
+        v0[v3] = v0[a0];\n
+    }\n
+    v0[v3] = 0;\n
+    return v3;\n
+}\n
+", "4199603:sub_4014b3": null, "4199616:sub_4014c0": "int sub_4014c0(unsigned int v4, unsigned int a0, unsigned int a1)\n
+{\n
+    char v0;  // [bp-0x9]\n
+    char *v1;  // [bp-0x8], Other Possible Types: unsigned int\n
+    unsigned int v2;  // [bp-0x4]\n
+    char v3;  // [bp+0x0]\n
+\n
+    v2 = &v3;\n
+    v1 = 0;\n
+    while (true)\n
+    {\n
+        v0 = 0;\n
+        if (v1 < a1)\n
+            v0 = v1[a0];\n
+        if (!(v0 & 1))\n
+            break;\n
+        *((v4 + v1)) = *((a0 + v1));\n
+        v1 += 1;\n
+    }\n
+    for (; v1 < a1; v1 += 1)\n
+    {\n
+        *((v4 + v1)) = 0;\n
+    }\n
+    return v4;\n
+}\n
+", "4199771:sub_40155b": null, "4199776:sub_401560": "int sub_401560(char *v3, unsigned int a0)\n
+{\n
+    unsigned int v0;  // [bp-0x8]\n
+    unsigned int v1;  // [bp-0x4]\n
+    char v2;  // [bp+0x0]\n
+\n
+    v1 = &v2;\n
+    v0 = v3;\n
+    v3 = &v3[sub_4012a0(v3)];\n
+    sub_401460(v3, a0);\n
+    return v0;\n
+}\n
+", "4199837:sub_40159d": null, "4199840:sub_4015a0": "int sub_4015a0(char *v3, unsigned int a0, unsigned int a1)\n
+{\n
+    char *v0;  // [bp-0x8]\n
+    unsigned int v1;  // [bp-0x4]\n
+    char v2;  // [bp+0x0]\n
+\n
+    v1 = &v2;\n
+    v0 = v3;\n
+    v3 = &v3[sub_4012a0(v3)];\n
+    sub_4014c0(v3, a0, a1);\n
+    v3[a1] = 0;\n
+    return v0;\n
+}\n
+", "4199921:sub_4015f1": null, "4199936:sub_401600": "int sub_401600(char *v3, char a0)\n
+{\n
+    char *v0;  // [bp-0x8], Other Possible Types: unsigned int\n
+    unsigned int v1;  // [bp-0x4]\n
+    char v2;  // [bp+0x0]\n
+    char *v4;  // eax\n
+\n
+    v1 = &v2;\n
+    v0 = v4;\n
+    while (true)\n
+    {\n
+        if (!*(v3))\n
+        {\n
+            v0 = 0;\n
+            return v0;\n
+        }\n
+        else if (*(v3) != a0)\n
+        {\n
+            v3 += 1;\n
+        }\n
+        else\n
+        {\n
+            v0 = v3;\n
+            return v0;\n
+        }\n
+    }\n
+}\n
+", "4200021:sub_401655": null, "4200032:sub_401660": "int sub_401660(char *v4, char a0)\n
+{\n
+    char *v0;  // [bp-0xc]\n
+    char *v1;  // [bp-0x8], Other Possible Types: unsigned int\n
+    unsigned int v2;  // [bp-0x4]\n
+    char v3;  // [bp+0x0]\n
+\n
+    v2 = &v3;\n
+    for (v0 = v4; *(v4); v4 += 1);\n
+    while (true)\n
+    {\n
+        if (v4 < v0)\n
+        {\n
+            v1 = 0;\n
+            return v1;\n
+        }\n
+        else if (*(v4) != a0)\n
+        {\n
+            v4 -= 1;\n
+        }\n
+        else\n
+        {\n
+            v1 = v4;\n
+            return v1;\n
+        }\n
+    }\n
+}\n
+", "4200161:sub_4016e1": null, "4200176:sub_4016f0": "extern struct_0 *g_408098;\n
+\n
+int sub_4016f0(char *v5, char a0)\n
+{\n
+    char *v0;  // [bp-0x10]\n
+    char *v1;  // [bp-0xc]\n
+    char *v2;  // [bp-0x8], Other Possible Types: unsigned int\n
+    unsigned int v3;  // [bp-0x4]\n
+    char v4;  // [bp+0x0]\n
+\n
+    v3 = &v4;\n
+    if (v5)\n
+    {\n
+LABEL_401735:\n
+        if (g_408098 && !(!sub_4012a0(g_408098)))\n
+            goto LABEL_401760;\n
+        g_408098 = v5;\n
+LABEL_401760:\n
+        for (; g_408098->field_0 == a0; g_408098 = g_408098 + 1);\n
+        if (!sub_4012a0(g_408098))\n
+        {\n
+            v2 = 0;\n
+            return v2;\n
+        }\n
+        v0 = &g_408098->field_0;\n
+        v1 = sub_401600(g_408098, a0);\n
+        if (!v1)\n
+        {\n
+            g_408098 = 0;\n
+        }\n
+        else\n
+        {\n
+            *(v1) = 0;\n
+            g_408098 = &v1[1];\n
+        }\n
+        v2 = v0;\n
+        return v2;\n
+    }\n
+    else\n
+    {\n
+        if (g_408098 && !(!sub_4012a0(g_408098)))\n
+            goto LABEL_401735;\n
+        v2 = 0;\n
+        return v2;\n
+    }\n
+}\n
+", "4200464:sub_401810": "extern unsigned int g_408000;\n
+extern char g_40809c;\n
+\n
+int sub_401810(unsigned int v13)\n
+{\n
+    unsigned int v0;  // [bp-0x30]\n
+    void* v1;  // [bp-0x2c], Other Possible Types: unsigned int\n
+    unsigned int *v2;  // [bp-0x28], Other Possible Types: unsigned int\n
+    char v3;  // [bp-0x21]\n
+    unsigned int v4;  // [bp-0x20]\n
+    unsigned int *v5;  // [bp-0x1c]\n
+    unsigned int *v6;  // [bp-0x18]\n
+    unsigned int v7;  // [bp-0x14]\n
+    unsigned int v8;  // [bp-0x10]\n
+    unsigned int *v9;  // [bp-0xc], Other Possible Types: unsigned int\n
+    void* v10;  // [bp-0x8], Other Possible Types: unsigned int\n
+    unsigned int v11;  // [bp-0x4]\n
+    char v12;  // [bp+0x0]\n
+    unsigned int v14;  // ecx\n
+\n
+    v11 = &v12;\n
+    v9 = 0;\n
+    if ((v13 + 3 & -0x4) + 8 < v13)\n
+    {\n
+        v10 = 0;\n
+        return v10;\n
+    }\n
+    v13 = (v13 + 3 & -0x4) + 8;\n
+    if (v13 < g_408000)\n
+        v13 = g_408000;\n
+    if (v13 > 4095)\n
+    {\n
+        v10 = sub_401a10();\n
+        return v10;\n
+    }\n
+    v4 = sub_401a80();\n
+    v8 = v4 - sub_401a80();\n
+    if (v8 >= 8)\n
+    {\n
+        v10 = 0;\n
+        return v10;\n
+    }\n
+    while (true)\n
+    {\n
+        v3 = 0;\n
+        if (!v9)\n
+            v3 = v8 < 8;\n
+        if (!(v3 & 1))\n
+            break;\n
+        v14 = v8;\n
+        v8 = v14 + 1;\n
+        v0 = v13;\n
+        v7 = sub_401ac0(&(&g_40809c)[8 * v14], sub_401b30);\n
+        if (v7)\n
+            v2 = -5 + v7;\n
+        else\n
+            v2 = 0;\n
+        v6 = v2;\n
+        v9 = v6;\n
+    }\n
+    if (!v9)\n
+    {\n
+        v9 = sub_401ba0();\n
+    }\n
+    else\n
+    {\n
+        v5 = v9;\n
+        if (!v5)\n
+            v1 = 0;\n
+        else\n
+            v1 = v5 + 1;\n
+        sub_401c00(&(&g_40809c)[8 + 8 * v8]);\n
+    }\n
+    sub_401c70();\n
+    if ((*(v9) & -2) > v13)\n
+        v9 = sub_401ca0(v9);\n
+    v10 = sub_401d30();\n
+    return v10;\n
+}\n
+", "4200961:sub_401a01": null, "4200976:sub_401a10": "int sub_401a10(unsigned int v5)\n
+{\n
+    unsigned int v0;  // [bp-0x10]\n
+    unsigned int *v1;  // [bp-0xc]\n
+    void* v2;  // [bp-0x8], Other Possible Types: unsigned int\n
+    unsigned int v3;  // [bp-0x4]\n
+    char v4;  // [bp+0x0]\n
+\n
+    v3 = &v4;\n
+    v0 = &v1;\n
+    if (cgc_allocate(v5, 0))\n
+    {\n
+        v2 = 0;\n
+        return v2;\n
+    }\n
+    *(v1) = v5;\n
+    sub_401c70();\n
+    v2 = sub_401d30();\n
+    return v2;\n
+}\n
+", "4201075:sub_401a73": null, "4201088:sub_401a80": "int sub_401a80(unsigned int v3)\n
+{\n
+    void* v0;  // [bp-0x8], Other Possible Types: unsigned int\n
+    unsigned int v1;  // [bp-0x4]\n
+    char v2;  // [bp+0x0]\n
+    unsigned int v4;  // eax\n
+\n
+    v1 = &v2;\n
+    v0 = v4;\n
+    v0 = 0;\n
+    while (true)\n
+    {\n
+        v3 >>= 1;\n
+        if (!v3)\n
+            break;\n
+        v0 += 1;\n
+    }\n
+    return v0;\n
+}\n
+", "4201141:sub_401ab5": null, "4201152:sub_401ac0": "int sub_401ac0(struct struct_0 **v5, struct struct_0 **a0, unsigned int a1)\n
+{\n
+    unsigned int v0;  // [bp-0x10]\n
+    struct struct_0 **v1;  // [bp-0xc], Other Possible Types: unsigned int\n
+    struct struct_0 **v2;  // [bp-0x8], Other Possible Types: unsigned int\n
+    unsigned int v3;  // [bp-0x4]\n
+    char v4;  // [bp+0x0]\n
+\n
+    v3 = &v4;\n
+    v1 = &*(v5)->field_0;\n
+    while (true)\n
+    {\n
+        if (v1)\n
+        {\n
+            v0 = a1;\n
+            if (a0(v1))\n
+            {\n
+                v2 = v1;\n
+                return v2;\n
+            }\n
+            v1 = *(v1);\n
+        }\n
+        else\n
+        {\n
+            v2 = 0;\n
+            return v2;\n
+        }\n
+    }\n
+}\n
+", "4201256:sub_401b28": null, "4201264:sub_401b30": "int sub_401b30(unsigned int v7, unsigned int a0)\n
+{\n
+    unsigned int *v0;  // [bp-0x18], Other Possible Types: unsigned int\n
+    unsigned int *v1;  // [bp-0x14]\n
+    unsigned int v2;  // [bp-0x10]\n
+    unsigned int *v3;  // [bp-0xc]\n
+    unsigned int v4;  // [bp-0x8]\n
+    unsigned int v5;  // [bp-0x4]\n
+    char v6;  // [bp+0x0]\n
+\n
+    v5 = &v6;\n
+    v4 = a0;\n
+    v2 = v7;\n
+    if (!v2)\n
+        v0 = 0;\n
+    else\n
+        v0 = -5 + v2;\n
+    v1 = v0;\n
+    v3 = v1;\n
+    return !((*(v3) & -2) < v4);\n
+}\n
+", "4201364:sub_401b94": null, "4201376:sub_401ba0": "int sub_401ba0()\n
+{\n
+    struct struct_0 **v0;  // [bp-0x10]\n
+    unsigned int *v1;  // [bp-0xc]\n
+    unsigned int v2;  // [bp-0x8]\n
+    unsigned int v3;  // [bp-0x4]\n
+    char v4;  // [bp+0x0]\n
+\n
+    v3 = &v4;\n
+    v0 = &v1;\n
+    if (cgc_allocate(0x1000, 0))\n
+    {\n
+        v2 = 0;\n
+        return v2;\n
+    }\n
+    *(v1) = 0x1000;\n
+    sub_401e40();\n
+    v2 = v1;\n
+    return v2;\n
+}\n
+", "4201466:sub_401bfa": null, "4201472:sub_401c00": "typedef struct struct_0 {\n
+    struct struct_1 *field_0;\n
+    struct struct_2 *field_4;\n
+} struct_0;\n
+\n
+typedef struct struct_1 {\n
+    unsigned int field_0;\n
+    unsigned int field_4;\n
+} struct_1;\n
+\n
+typedef struct struct_2 {\n
+    unsigned int field_0;\n
+} struct_2;\n
+\n
+int sub_401c00(unsigned int v2[2], struct_0 *a0)\n
+{\n
+    unsigned int v0;  // [bp-0x4]\n
+    char v1;  // [bp+0x0]\n
+    unsigned int v3;  // eax\n
+\n
+    v0 = &v1;\n
+    if (!a0)\n
+        return v2;\n
+    if (!a0->field_4)\n
+        v2[0] = a0->field_0;\n
+    else\n
+        a0->field_4->field_0 = a0->field_0;\n
+    if (!a0->field_0)\n
+    {\n
+        v3 = v2;\n
+        *((v3 + 4)) = a0->field_4;\n
+        return v2;\n
+    }\n
+    v3 = a0->field_0;\n
+    *((v3 + 4)) = a0->field_4;\n
+    return a0->field_0;\n
+}\n
+", "4201582:sub_401c6e": null, "4201584:sub_401c70": "int sub_401c70(unsigned int *v2)\n
+{\n
+    unsigned int v0;  // [bp-0x4]\n
+    char v1;  // [bp+0x0]\n
+    unsigned int *v3;  // eax\n
+\n
+    v0 = &v1;\n
+    v3 = v2;\n
+    *(v3) = *(v3) | 1;\n
+    *((-4 + v2 + (*(v2) & -2))) = *(v2);\n
+    return v2;\n
+}\n
+", "4201622:sub_401c96": null, "4201632:sub_401ca0": "extern unsigned int g_408000;\n
+\n
+int sub_401ca0(unsigned int *v5, unsigned int a0)\n
+{\n
+    unsigned int v0;  // [bp-0x10]\n
+    unsigned int *v1;  // [bp-0xc]\n
+    unsigned int *v2;  // [bp-0x8], Other Possible Types: unsigned int\n
+    unsigned int v3;  // [bp-0x4]\n
+    char v4;  // [bp+0x0]\n
+\n
+    v3 = &v4;\n
+    v1 = v5 + a0;\n
+    v0 = *(v5) & -2;\n
+    if ((*(v5) & -2) <= a0 + g_408000)\n
+    {\n
+        v2 = v5;\n
+        return v2;\n
+    }\n
+    *(v5) = a0;\n
+    sub_401c70(v5);\n
+    *(v1) = v0 - a0;\n
+    sub_401c70(v1);\n
+    sub_401d30();\n
+    sub_401d40();\n
+    v2 = v5;\n
+    return v2;\n
+}\n
+", "4201774:sub_401d2e": null, "4201776:sub_401d30": "int sub_401d30(unsigned int v2)\n
+{\n
+    unsigned int v0;  // [bp-0x4]\n
+    char v1;  // [bp+0x0]\n
+\n
+    v0 = &v1;\n
+    return 4 + v2;\n
+}\n
+", "4201792:sub_401d40": "extern unsigned int g_408000;\n
+extern char g_40809c;\n
+\n
+int sub_401d40(unsigned int v6)\n
+{\n
+    unsigned int v0;  // [bp-0x14]\n
+    unsigned int v1;  // [bp-0x10]\n
+    unsigned int v2;  // [bp-0xc]\n
+    unsigned int *v3;  // [bp-0x8]\n
+    unsigned int v4;  // [bp-0x4]\n
+    char v5;  // [bp+0x0]\n
+    unsigned int *v7;  // eax, Other Possible Types: unsigned int\n
+\n
+    v4 = &v5;\n
+    v7 = sub_401df0();\n
+    v3 = v7;\n
+    if (!v6)\n
+        return v7;\n
+    sub_401e40();\n
+    v3 = sub_401e70();\n
+    v1 = sub_401a80(*(v3) & -2);\n
+    v2 = v1 - sub_401a80(g_408000);\n
+    if (v2 >= 8)\n
+        v2 = 7;\n
+    v0 = sub_4020f0;\n
+    v7 = sub_402060(&(&g_40809c)[8 * v2], v3 + 1);\n
+    return v7;\n
+}\n
+", "4201961:sub_401de9": null, "4201968:sub_401df0": "int sub_401df0(unsigned int v5)\n
+{\n
+    void* v0;  // [bp-0x10], Other Possible Types: unsigned int\n
+    unsigned int v1;  // [bp-0xc]\n
+    unsigned int v2;  // [bp-0x8]\n
+    unsigned int v3;  // [bp-0x4]\n
+    char v4;  // [bp+0x0]\n
+\n
+    v3 = &v4;\n
+    v2 = v5;\n
+    if (!v2)\n
+        v0 = 0;\n
+    else\n
+        v0 = -5 + v2;\n
+    v1 = v0;\n
+    return v1;\n
+}\n
+", "4202037:sub_401e35": null, "4202048:sub_401e40": "int sub_401e40(unsigned int *v2)\n
+{\n
+    unsigned int v0;  // [bp-0x4]\n
+    char v1;  // [bp+0x0]\n
+    unsigned int *v3;  // eax\n
+\n
+    v0 = &v1;\n
+    v3 = v2;\n
+    *(v3) = *(v3) & -2;\n
+    *((-4 + v2 + (*(v2) & -2))) = *(v2);\n
+    return v2;\n
+}\n
+", "4202086:sub_401e66": null, "4202096:sub_401e70": "typedef struct struct_0 {\n
+    unsigned int field_-4;\n
+    unsigned int field_0;\n
+} struct_0;\n
+\n
+extern unsigned int g_408000;\n
+extern char g_40809c;\n
+\n
+int sub_401e70(struct_0 *v11)\n
+{\n
+    void* v0;  // [bp-0x28], Other Possible Types: unsigned int\n
+    unsigned int v1;  // [bp-0x24]\n
+    void* v2;  // [bp-0x20], Other Possible Types: unsigned int\n
+    unsigned int v3;  // [bp-0x1c]\n
+    unsigned int *v4;  // [bp-0x18]\n
+    unsigned int *v5;  // [bp-0x14]\n
+    unsigned int v6;  // [bp-0x10]\n
+    unsigned int *v7;  // [bp-0xc], Other Possible Types: unsigned int\n
+    unsigned int *v8;  // [bp-0x8], Other Possible Types: unsigned int\n
+    unsigned int v9;  // [bp-0x4]\n
+    char v10;  // [bp+0x0]\n
+\n
+    v9 = &v10;\n
+    v8 = 0;\n
+    v7 = 0;\n
+    if ((v11 & 4095))\n
+        v7 = v11 + -(v11->field_0 & -2);\n
+    if (((v11 + (v11->field_-4 & -2)) & 4095))\n
+        v8 = v11 + (v11->field_-4 & -2);\n
+    if (v7 && !(*(v7) & 1))\n
+    {\n
+        v3 = sub_401a80(*(v7) & -2);\n
+        v6 = v3 - sub_401a80(g_408000);\n
+        if (v6 < 8)\n
+        {\n
+            v5 = v7;\n
+            if (!v5)\n
+                v2 = 0;\n
+            else\n
+                v2 = v5 + 1;\n
+            sub_401c00(&(&g_40809c)[8 * v6], v2);\n
+            *(v7) = (v11->field_-4 & -2) + (*(v7) & -2);\n
+            sub_401e40(v7);\n
+            v11 = v7;\n
+        }\n
+    }\n
+    if (!v8)\n
+    {\n
+        return v11;\n
+    }\n
+    else if ((*(v8) & 1))\n
+    {\n
+        return v11;\n
+    }\n
+    else\n
+    {\n
+        v1 = sub_401a80(*(v8) & -2);\n
+        v6 = v1 - sub_401a80(g_408000);\n
+        if (v6 >= 8)\n
+            return v11;\n
+        v4 = v8;\n
+        if (!v4)\n
+            v0 = 0;\n
+        else\n
+            v0 = v4 + 1;\n
+        sub_401c00(&(&g_40809c)[8 * v6], v0);\n
+        *(v11) = (*(v11) & -2) + (*(v8) & -2);\n
+        sub_401e40(v11);\n
+    }\n
+}\n
+", "4202588:sub_40205c": null, "4202592:sub_402060": "int sub_402060(struct struct_0 **v4, unsigned int a0, struct struct_0 **a1)\n
+{\n
+    unsigned int v0;  // [bp-0xc]\n
+    struct struct_0 **v1;  // [bp-0x8], Other Possible Types: unsigned int\n
+    unsigned int v2;  // [bp-0x4]\n
+    char v3;  // [bp+0x0]\n
+    unsigned int v5;  // eax\n
+\n
+    v2 = &v3;\n
+    v1 = &*(v4)->field_0;\n
+    while (true)\n
+    {\n
+        if (!v1)\n
+        {\n
+            v5 = sub_4023a0(v4);\n
+            return v5;\n
+        }\n
+        else if (a1(a0) < 0)\n
+        {\n
+            v1 = *(v1);\n
+        }\n
+        else\n
+        {\n
+            v0 = a0;\n
+            v5 = sub_4022a0(v4, v1);\n
+            return v5;\n
+        }\n
+    }\n
+}\n
+", "4202723:sub_4020e3": null, "4202736:sub_4020f0": "int sub_4020f0(unsigned int v10, unsigned int a0)\n
+{\n
+    unsigned int *v0;  // [bp-0x24], Other Possible Types: unsigned int\n
+    unsigned int *v1;  // [bp-0x20], Other Possible Types: unsigned int\n
+    unsigned int *v2;  // [bp-0x1c]\n
+    unsigned int v3;  // [bp-0x18]\n
+    unsigned int *v4;  // [bp-0x14]\n
+    unsigned int *v5;  // [bp-0x10]\n
+    unsigned int v6;  // [bp-0xc]\n
+    unsigned int *v7;  // [bp-0x8]\n
+    unsigned int v8;  // [bp-0x4]\n
+    char v9;  // [bp+0x0]\n
+\n
+    v8 = &v9;\n
+    v6 = v10;\n
+    if (!v6)\n
+        v1 = 0;\n
+    else\n
+        v1 = -5 + v6;\n
+    v5 = v1;\n
+    v7 = v5;\n
+    v3 = a0;\n
+    if (!v3)\n
+        v0 = 0;\n
+    else\n
+        v0 = -5 + v3;\n
+    v2 = v0;\n
+    v4 = v2;\n
+    return (*(v4) & -2) - (*(v7) & -2);\n
+}\n
+", "4202887:sub_402187": null, "4202896:sub_402190": "int sub_402190(unsigned int v3)\n
+{\n
+    char *v0;  // [bp-0x8]\n
+    unsigned int v1;  // [bp-0x4]\n
+    char v2;  // [bp+0x0]\n
+\n
+    v1 = &v2;\n
+    v0 = sub_401810(v3);\n
+    if (v0)\n
+    {\n
+        sub_401120(v0, 0, v3);\n
+        return v0;\n
+    }\n
+    return v0;\n
+}\n
+", "4202965:sub_4021d5": null, "4202976:sub_4021e0": "int sub_4021e0(char *v6, unsigned int a0)\n
+{\n
+    unsigned int v0;  // [bp-0x14]\n
+    char *v1;  // [bp-0x10]\n
+    unsigned int v2;  // [bp-0xc]\n
+    unsigned int v3;  // [bp-0x8]\n
+    unsigned int v4;  // [bp-0x4]\n
+    char v5;  // [bp+0x0]\n
+\n
+    v4 = &v5;\n
+    if (!v6)\n
+    {\n
+        v3 = sub_401810(a0);\n
+        return v3;\n
+    }\n
+    v2 = (*(sub_401df0(v6)) & -2) - 8;\n
+    if (a0 == v2)\n
+    {\n
+        v3 = v6;\n
+        return v3;\n
+    }\n
+    v1 = sub_401810(a0);\n
+    if (a0 < v2)\n
+        v0 = a0;\n
+    else\n
+        v0 = v2;\n
+    sub_401170(v1, v6, v0);\n
+    sub_401d40(v6);\n
+    v3 = v1;\n
+    return v3;\n
+}\n
+", "4203155:sub_402293": null, "4203168:sub_4022a0": "typedef struct struct_1 {\n
+    struct struct_0 *field_0;\n
+    struct struct_2 *field_4;\n
+} struct_1;\n
+\n
+typedef struct struct_3 {\n
+    char padding_0[4];\n
+    struct struct_2 *field_4;\n
+} struct_3;\n
+\n
+typedef struct struct_0 {\n
+    char padding_0[4];\n
+    unsigned int field_4;\n
+} struct_0;\n
+\n
+typedef struct struct_2 {\n
+    unsigned int field_0;\n
+} struct_2;\n
+\n
+int sub_4022a0(struct_1 *v2, struct_3 *a0, unsigned int a1[2])\n
+{\n
+    unsigned int v0;  // [bp-0x4]\n
+    char v1;  // [bp+0x0]\n
+    struct_1 *v3;  // eax, Other Possible Types: unsigned int, struct_3 *\n
+    unsigned int v4[2];  // ecx\n
+\n
+    v0 = &v1;\n
+    if (!a1)\n
+        return v2;\n
+    a1[1] = 0;\n
+    a1[0] = 0;\n
+    if (!v2->field_0 && !v2->field_4)\n
+    {\n
+        v4 = a1;\n
+        v2->field_4 = &v4[0];\n
+        v3 = v2;\n
+        *(v3) = v4;\n
+        return v2;\n
+    }\n
+    if (!a0)\n
+    {\n
+        a1[1] = v2->field_4;\n
+        v2->field_4->field_0 = a1;\n
+        a1[0] = 0;\n
+        v3 = v2;\n
+        v3->field_4 = &a1[0];\n
+    }\n
+    else if (a0 == v2->field_0)\n
+    {\n
+        a1[0] = v2->field_0;\n
+        v2->field_0->field_4 = a1;\n
+        a1[1] = 0;\n
+        v3 = v2;\n
+        v3->field_0 = &a1[0];\n
+    }\n
+    else\n
+    {\n
+        a1[1] = a0->field_4;\n
+        a1[0] = a0;\n
+        a0->field_4->field_0 = a1;\n
+        v3 = a0;\n
+        v3->field_4 = &a1[0];\n
+    }\n
+    return v3;\n
+}\n
+", "4203424:sub_4023a0": "typedef struct struct_0 {\n
+    char padding_0[4];\n
+    unsigned int field_4;\n
+} struct_0;\n
+\n
+int sub_4023a0(struct_0 *v2, unsigned int a0)\n
+{\n
+    unsigned int v0;  // [bp-0x4]\n
+    char v1;  // [bp+0x0]\n
+\n
+    v0 = &v1;\n
+    return sub_4023d0(v2, v2->field_4, a0);\n
+}\n
+", "4203469:sub_4023cd": null, "4203472:sub_4023d0": "int sub_4023d0(void* *v2, void* *a0, unsigned int a1[2])\n
+{\n
+    unsigned int v0;  // [bp-0x4]\n
+    char v1;  // [bp+0x0]\n
+    unsigned int v3;  // eax\n
+\n
+    v0 = &v1;\n
+    if (a0)\n
+    {\n
+        v3 = sub_4022a0(v2, *(a0), a1);\n
+        return v3;\n
+    }\n
+    v3 = sub_4022a0(v2, *(v2), a1);\n
+    return v3;\n
+}\n
+", "4203568:sub_402430": "int sub_402430(struct struct_0 **v3)\n
+{\n
+    unsigned int v0;  // [bp-0x8]\n
+    unsigned int v1;  // [bp-0x4]\n
+    char v2;  // [bp+0x0]\n
+    unsigned int v4;  // eax\n
+\n
+    v1 = &v2;\n
+    v4 = sub_402190(48);\n
+    *(v3) = v4;\n
+    if (!v4)\n
+    {\n
+        v0 = -1;\n
+        return v0;\n
+    }\n
+    *(v3)->field_10 = 0;\n
+    v0 = 0;\n
+    return v0;\n
+}\n
+", "4203642:sub_40247a": null, "4203648:sub_402480": "int sub_402480(unsigned int *v2)\n
+{\n
+    unsigned int v0;  // [bp-0x4]\n
+    char v1;  // [bp+0x0]\n
+\n
+    v0 = &v1;\n
+    return sub_4024a0(*(v2));\n
+}\n
+", "4203673:sub_402499": null, "4203680:sub_4024a0": "typedef struct struct_0 {\n
+    char padding_0[40];\n
+    unsigned int field_28;\n
+} struct_0;\n
+\n
+int sub_4024a0(unsigned int v28[9])\n
+{\n
+    struct_0 *v0;  // [bp-0x6c], Other Possible Types: unsigned int\n
+    struct_0 *v1;  // [bp-0x68], Other Possible Types: unsigned int\n
+    struct_0 *v2;  // [bp-0x64], Other Possible Types: unsigned int\n
+    struct_0 *v3;  // [bp-0x60], Other Possible Types: unsigned int\n
+    struct_0 *v4;  // [bp-0x5c], Other Possible Types: unsigned int\n
+    unsigned int v5[10];  // [bp-0x58], Other Possible Types: unsigned int\n
+    unsigned int v6[10];  // [bp-0x54], Other Possible Types: unsigned int\n
+    unsigned int v7[10];  // [bp-0x50], Other Possible Types: unsigned int\n
+    unsigned int v8[10];  // [bp-0x4c], Other Possible Types: unsigned int\n
+    unsigned int v9[10];  // [bp-0x48], Other Possible Types: unsigned int\n
+    struct_0 *v10;  // [bp-0x44]\n
+    unsigned int v11;  // [bp-0x40]\n
+    struct_0 *v12;  // [bp-0x3c]\n
+    unsigned int v13;  // [bp-0x38]\n
+    struct_0 *v14;  // [bp-0x34]\n
+    unsigned int v15;  // [bp-0x30]\n
+    unsigned int v16[10];  // [bp-0x2c]\n
+    unsigned int v17;  // [bp-0x28]\n
+    unsigned int v18[10];  // [bp-0x24]\n
+    unsigned int v19;  // [bp-0x20]\n
+    unsigned int v20[10];  // [bp-0x1c]\n
+    unsigned int v21;  // [bp-0x18]\n
+    struct_0 *v22;  // [bp-0x14], Other Possible Types: unsigned int\n
+    struct_0 *v23;  // [bp-0x10], Other Possible Types: unsigned int\n
+    unsigned int v24[10];  // [bp-0xc], Other Possible Types: unsigned int\n
+    unsigned int v25[10];  // [bp-0x8], Other Possible Types: unsigned int\n
+    unsigned int v26;  // [bp-0x4]\n
+    char v27;  // [bp+0x0]\n
+\n
+    v26 = &v27;\n
+    v21 = v28[8];\n
+    if (!v21)\n
+        v9 = 0;\n
+    else\n
+        v9[0] = -37 + v21;\n
+    v20[0] = v9;\n
+    v25[0] = v20;\n
+    if (!v25)\n
+    {\n
+        v7[0] = 0;\n
+    }\n
+    else\n
+    {\n
+        v19 = v25[9];\n
+        if (!v19)\n
+            v8 = 0;\n
+        else\n
+            v8[0] = -37 + v19;\n
+        v18[0] = v8;\n
+        v7 = v18;\n
+    }\n
+    for (v24[0] = v7; v25; v24 = v5)\n
+    {\n
+        sub_401d40(*((v25 + 32)));\n
+        sub_401d40(v25);\n
+        v25 = v24;\n
+        if (!v25)\n
+        {\n
+            v5[0] = 0;\n
+        }\n
+        else\n
+        {\n
+            v17 = *((v25 + 36));\n
+            if (!v17)\n
+                v6 = 0;\n
+            else\n
+                v6[0] = -37 + v17;\n
+            v16[0] = v6;\n
+            v5 = v16;\n
+        }\n
+    }\n
+    v15 = v28[6];\n
+    if (!v15)\n
+        v4 = 0;\n
+    else\n
+        v4 = -41 + v15;\n
+    v14 = v4;\n
+    v23 = v14;\n
+    if (!v23)\n
+    {\n
+        v2 = 0;\n
+    }\n
+    else\n
+    {\n
+        v13 = v23->field_28;\n
+        if (!v13)\n
+            v3 = 0;\n
+        else\n
+            v3 = -41 + v13;\n
+        v12 = v3;\n
+        v2 = v12;\n
+    }\n
+    for (v22 = v2; v23; v22 = v0)\n
+    {\n
+        sub_4024a0(v23);\n
+        v23 = v22;\n
+        if (!v23)\n
+        {\n
+            v0 = 0;\n
+        }\n
+        else\n
+        {\n
+            v11 = *((v23 + 40));\n
+            if (!v11)\n
+                v1 = 0;\n
+            else\n
+                v1 = -41 + v11;\n
+            v10 = v1;\n
+            v0 = v10;\n
+        }\n
+    }\n
+    return sub_401d40(v28);\n
+}\n
+", "4204273:sub_4026f1": null, "4204288:sub_402700": "typedef struct struct_0 {\n
+    char padding_0[20];\n
+    struct struct_0 *field_14;\n
+} struct_0;\n
+\n
+int sub_402700(struct struct_0 **v16, char *a0, unsigned int a1)\n
+{\n
+    unsigned int v0[9];  // [bp-0x3c], Other Possible Types: unsigned int\n
+    struct_0 *v1;  // [bp-0x38], Other Possible Types: unsigned int\n
+    unsigned int v2[9];  // [bp-0x34]\n
+    unsigned int v3;  // [bp-0x30]\n
+    struct_0 *v4;  // [bp-0x2c]\n
+    unsigned int v5;  // [bp-0x28]\n
+    char *v6;  // [bp-0x24], Other Possible Types: unsigned int\n
+    char *v7;  // [bp-0x20]\n
+    unsigned int v8;  // [bp-0x1c]\n
+    unsigned int v9[9];  // [bp-0x18]\n
+    unsigned int v10;  // [bp-0x14]\n
+    struct_0 *v11;  // [bp-0x10], Other Possible Types: unsigned int\n
+    struct_0 *v12;  // [bp-0xc], Other Possible Types: unsigned int\n
+    struct_0 *v13;  // [bp-0x8], Other Possible Types: unsigned int\n
+    unsigned int v14;  // [bp-0x4]\n
+    char v15;  // [bp+0x0]\n
+\n
+    v14 = &v15;\n
+    v12 = 0;\n
+    v11 = *(v16);\n
+    v8 = sub_4012a0(a0);\n
+    if (!v8)\n
+    {\n
+        v13 = *(v16);\n
+        return v13;\n
+    }\n
+    v7 = sub_402190(v8 + 1);\n
+    if (!v7)\n
+    {\n
+        v13 = 0;\n
+        return v13;\n
+    }\n
+    sub_4014c0(v7, a0, v8);\n
+    v6 = sub_4016f0(v7, 47);\n
+    while (true)\n
+    {\n
+        if (!v6)\n
+        {\n
+LABEL_40292c:\n
+            v12 = v11;\n
+            break;\n
+        }\n
+        else\n
+        {\n
+            if (!v11)\n
+                goto LABEL_40292c;\n
+            if (!sub_401350(v6, \".\"))\n
+            {\n
+LABEL_40290e:\n
+                v6 = sub_4016f0(NULL, 47);\n
+            }\n
+            else\n
+            {\n
+                if (!sub_401350(v6, \"..\"))\n
+                {\n
+                    v11 = v11->field_14;\n
+                    goto LABEL_40290e;\n
+                }\n
+                v10 = &v11[1].padding_0[8];\n
+                v5 = sub_402950(v11 + 1, sub_4029c0);\n
+                if (!v5)\n
+                    v1 = 0;\n
+                else\n
+                    v1 = -41 + v5;\n
+                v4 = v1;\n
+                v11 = v4;\n
+                if (v11)\n
+                {\n
+LABEL_402909:\n
+                    goto LABEL_40290e;\n
+                }\n
+                else\n
+                {\n
+                    if (a1)\n
+                    {\n
+                        v3 = sub_402950(v10, sub_402a40);\n
+                        if (!v3)\n
+                            v0 = 0;\n
+                        else\n
+                            v0[0] = -37 + v3;\n
+                        v2[0] = v0;\n
+                        v9[0] = v2;\n
+                        if (v9 && v9[5])\n
+                        {\n
+                            v11 = sub_402700(v16, v9[8], a1);\n
+                            goto LABEL_402909;\n
+                        }\n
+                    }\n
+                    break;\n
+                }\n
+            }\n
+        }\n
+    }\n
+    sub_401d40(v7);\n
+    v13 = v12;\n
+    return v13;\n
+}\n
+", "4204875:sub_40294b": null, "4204880:sub_402950": "int sub_402950(struct struct_0 **v5, struct struct_0 **a0, unsigned int a1)\n
+{\n
+    unsigned int v0;  // [bp-0x10]\n
+    struct struct_0 **v1;  // [bp-0xc], Other Possible Types: unsigned int\n
+    struct struct_0 **v2;  // [bp-0x8], Other Possible Types: unsigned int\n
+    unsigned int v3;  // [bp-0x4]\n
+    char v4;  // [bp+0x0]\n
+\n
+    v3 = &v4;\n
+    v1 = &*(v5)->field_0;\n
+    while (true)\n
+    {\n
+        if (v1)\n
+        {\n
+            v0 = a1;\n
+            if (a0(v1))\n
+            {\n
+                v2 = v1;\n
+                return v2;\n
+            }\n
+            v1 = *(v1);\n
+        }\n
+        else\n
+        {\n
+            v2 = 0;\n
+            return v2;\n
+        }\n
+    }\n
+}\n
+", "4204984:sub_4029b8": null, "4204992:sub_4029c0": "int sub_4029c0(unsigned int v7, unsigned int a0)\n
+{\n
+    void* v0;  // [bp-0x18], Other Possible Types: unsigned int\n
+    char *v1;  // [bp-0x14]\n
+    unsigned int v2;  // [bp-0x10]\n
+    unsigned int v3;  // [bp-0xc]\n
+    char *v4;  // [bp-0x8]\n
+    unsigned int v5;  // [bp-0x4]\n
+    char v6;  // [bp+0x0]\n
+\n
+    v5 = &v6;\n
+    v3 = v7;\n
+    if (!v3)\n
+        v0 = 0;\n
+    else\n
+        v0 = -41 + v3;\n
+    v2 = v0;\n
+    v4 = v2;\n
+    v1 = a0;\n
+    return !sub_4013d0(v4, v1, 16);\n
+}\n
+", "4205110:sub_402a36": null, "4205120:sub_402a40": "int sub_402a40(unsigned int v7, unsigned int a0)\n
+{\n
+    void* v0;  // [bp-0x18], Other Possible Types: unsigned int\n
+    char *v1;  // [bp-0x14]\n
+    unsigned int v2;  // [bp-0x10]\n
+    unsigned int v3;  // [bp-0xc]\n
+    char *v4;  // [bp-0x8]\n
+    unsigned int v5;  // [bp-0x4]\n
+    char v6;  // [bp+0x0]\n
+\n
+    v5 = &v6;\n
+    v3 = v7;\n
+    if (!v3)\n
+        v0 = 0;\n
+    else\n
+        v0 = -37 + v3;\n
+    v2 = v0;\n
+    v4 = v2;\n
+    v1 = a0;\n
+    return !sub_4013d0(v4, v1, 16);\n
+}\n
+", "4205238:sub_402ab6": null, "4205248:sub_402ac0": "int sub_402ac0(unsigned int *v12, char *a0, unsigned int a1)\n
+{\n
+    unsigned int v0[9];  // [bp-0x2c], Other Possible Types: unsigned int\n
+    unsigned int v1[9];  // [bp-0x28], Other Possible Types: unsigned int\n
+    unsigned int v2[9];  // [bp-0x24]\n
+    unsigned int v3;  // [bp-0x20]\n
+    char *v4;  // [bp-0x1c], Other Possible Types: unsigned int\n
+    char *v5;  // [bp-0x18]\n
+    unsigned int v6;  // [bp-0x14]\n
+    unsigned int v7;  // [bp-0x10]\n
+    unsigned int v8[9];  // [bp-0xc], Other Possible Types: unsigned int\n
+    unsigned int v9[9];  // [bp-0x8], Other Possible Types: unsigned int\n
+    unsigned int v10;  // [bp-0x4]\n
+    char v11;  // [bp+0x0]\n
+    char *v13;  // eax\n
+\n
+    v10 = &v11;\n
+    v8[0] = 0;\n
+    v7 = *(v12);\n
+    v6 = sub_4012a0(a0);\n
+    if (a0[1 + v6] == 47)\n
+    {\n
+        v9[0] = 0;\n
+        return v9;\n
+    }\n
+    v5 = sub_402190(v6 + 1);\n
+    if (!v5)\n
+    {\n
+        v9 = 0;\n
+        return v9;\n
+    }\n
+    sub_4014c0(v5, a0, v6 + 1);\n
+    v4 = sub_401660(v5, 47);\n
+    if (!v4)\n
+    {\n
+        v4 = v5;\n
+    }\n
+    else\n
+    {\n
+        v13 = v4;\n
+        v4 = v13 + 1;\n
+        *(v13) = 0;\n
+        v7 = sub_402700(v12, v5, a1);\n
+    }\n
+    if (v7)\n
+    {\n
+        v3 = sub_402950(v7 + 32, sub_402a40, v4);\n
+        if (!v3)\n
+            v1 = 0;\n
+        else\n
+            v1[0] = -37 + v3;\n
+        v2[0] = v1;\n
+        v8 = v2;\n
+    }\n
+    sub_401d40(v5);\n
+    if (v8 && a1 && *((v8 + 20)))\n
+    {\n
+        v0 = sub_402ac0(v12, *((v8 + 32)), a1);\n
+        goto LABEL_402c5a;\n
+    }\n
+    v0[0] = v8;\n
+LABEL_402c5a:\n
+    v9 = v0;\n
+    return v9;\n
+}\n
+", "4205672:sub_402c68": null, "4205680:sub_402c70": "typedef struct struct_0 {\n
+    char padding_0[20];\n
+    struct struct_0 *field_14;\n
+} struct_0;\n
+\n
+int sub_402c70(unsigned int *v8, struct_0 *a0)\n
+{\n
+    struct_0 *v0;  // [bp-0x1c], Other Possible Types: unsigned int\n
+    unsigned int v1;  // [bp-0x18]\n
+    unsigned int v2;  // [bp-0x14]\n
+    char *v3;  // [bp-0x10], Other Possible Types: unsigned int\n
+    char *v4;  // [bp-0xc]\n
+    char *v5;  // [bp-0x8], Other Possible Types: unsigned int\n
+    unsigned int v6;  // [bp-0x4]\n
+    char v7;  // [bp+0x0]\n
+\n
+    v6 = &v7;\n
+    v1 = 1;\n
+    v0 = a0;\n
+    if (!v3)\n
+    {\n
+        v5 = 0;\n
+        return v5;\n
+    }\n
+    for (v3 = sub_402190(1); v0 != *(v8); v0 = v0->field_14)\n
+    {\n
+        v2 = sub_4012e0(v0, 16);\n
+        v4 = sub_4021e0(v3, v1 + v2 + 1);\n
+        if (!v4)\n
+        {\n
+            sub_401d40(v3);\n
+            v5 = 0;\n
+            return v5;\n
+        }\n
+        v3 = v4;\n
+        sub_4011d0(v3 + v2 + 1, v3, v1);\n
+        *((v3 + v2)) = 47;\n
+        sub_401170(v3, v0, v2);\n
+        v1 = v2 + 1 + v1;\n
+    }\n
+    if (v1 <= 0)\n
+    {\n
+        v3 = sub_402190(2);\n
+        if (!v3)\n
+        {\n
+            v5 = 0;\n
+            return v5;\n
+        }\n
+    }\n
+    else\n
+    {\n
+        v4 = sub_4021e0(v3, v1 + 1);\n
+        if (!v4)\n
+        {\n
+            sub_401d40(v3);\n
+            v5 = 0;\n
+            return v5;\n
+        }\n
+        v3 = v4;\n
+        sub_4011d0(v3 + 1, v3, v1);\n
+    }\n
+    *(v3) = 47;\n
+    v5 = v3;\n
+    return v5;\n
+}\n
+", "4206105:sub_402e19": null, "4206112:sub_402e20": "typedef struct struct_0 {\n
+    char padding_0[24];\n
+    void* field_18;\n
+} struct_0;\n
+\n
+int sub_402e20(unsigned int *v6, struct_0 *a0)\n
+{\n
+    unsigned int v0;  // [bp-0x14]\n
+    char *v1;  // [bp-0x10]\n
+    unsigned int v2;  // [bp-0xc]\n
+    void* v3;  // [bp-0x8], Other Possible Types: unsigned int\n
+    unsigned int v4;  // [bp-0x4]\n
+    char v5;  // [bp+0x0]\n
+\n
+    v4 = &v5;\n
+    v0 = sub_4012e0(a0, 16);\n
+    v1 = sub_402c70(v6, a0->field_18);\n
+    if (!v1)\n
+    {\n
+        v3 = 0;\n
+        return v3;\n
+    }\n
+    v2 = sub_4021e0(v1, sub_4012a0(v1) + v0 + 1);\n
+    if (!v2)\n
+    {\n
+        sub_401d40(v1);\n
+        v3 = 0;\n
+        return v3;\n
+    }\n
+    v1 = v2;\n
+    sub_4015a0(v1, a0, v0);\n
+    v3 = v1;\n
+    return v3;\n
+}\n
+", "4206303:sub_402edf": null, "4206304:sub_402ee0": "typedef struct struct_0 {\n
+    char padding_0[16];\n
+    unsigned int field_10;\n
+} struct_0;\n
+\n
+int sub_402ee0(struct struct_0 **v5, char *a0)\n
+{\n
+    struct_0 *v0;  // [bp-0x10]\n
+    struct_0 *v1;  // [bp-0xc]\n
+    unsigned int v2;  // [bp-0x8]\n
+    unsigned int v3;  // [bp-0x4]\n
+    char v4;  // [bp+0x0]\n
+\n
+    v3 = &v4;\n
+    v1 = sub_402700(v5, a0, 0);\n
+    if (v1)\n
+    {\n
+        v2 = v1->field_10;\n
+        return v2;\n
+    }\n
+    v0 = sub_402ac0(v5, a0, 0);\n
+    if (!v0)\n
+    {\n
+        v2 = -1;\n
+        return v2;\n
+    }\n
+    v2 = v0->field_10;\n
+    return v2;\n
+}\n
+", "4206444:sub_402f6c": null, "4206448:sub_402f70": "typedef struct struct_0 {\n
+    char padding_0[32];\n
+    unsigned int field_20;\n
+} struct_0;\n
+\n
+int sub_402f70(unsigned int *v4, unsigned int a0, char *a1, unsigned int *a2)\n
+{\n
+    struct_0 *v0;  // [bp-0xc]\n
+    unsigned int v1;  // [bp-0x8]\n
+    unsigned int v2;  // [bp-0x4]\n
+    char v3;  // [bp+0x0]\n
+\n
+    v2 = &v3;\n
+    v0 = sub_402ac0(v4, a1, 1);\n
+    if (!v0)\n
+    {\n
+        v1 = -1;\n
+        return v1;\n
+    }\n
+    if (a2)\n
+        *(a2) = v0->field_20;\n
+    v1 = 0;\n
+    return v1;\n
+}\n
+", "4206552:sub_402fd8": null, "4206560:sub_402fe0": "int sub_402fe0(unsigned int *v4, unsigned int a0, char *a1, unsigned int a2, unsigned int a3)\n
+{\n
+    unsigned int v0[9];  // [bp-0xc], Other Possible Types: unsigned int\n
+    unsigned int v1;  // [bp-0x8]\n
+    unsigned int v2;  // [bp-0x4]\n
+    char v3;  // [bp+0x0]\n
+\n
+    v2 = &v3;\n
+    v0[0] = sub_402ac0(v4, a1, 1);\n
+    if (!v0)\n
+    {\n
+        v0 = sub_4030f0(v4);\n
+        if (v0 && a0 != *((v0 + 16)) && a0)\n
+        {\n
+            sub_403220(v4, 0);\n
+            v1 = -1;\n
+            return v1;\n
+        }\n
+    }\n
+    if (!v0)\n
+    {\n
+        v1 = -1;\n
+        return v1;\n
+    }\n
+    if (a0 != *((v0 + 16)) && a0)\n
+    {\n
+        v1 = -1;\n
+        return v1;\n
+    }\n
+    sub_401d40(*((v0 + 32)));\n
+    *((v0 + 32)) = a2;\n
+    *((v0 + 28)) = a3;\n
+    v1 = 0;\n
+    return v1;\n
+}\n
+", "4206825:sub_4030e9": null, "4206832:sub_4030f0": "int sub_4030f0(unsigned int *v8, char *a0)\n
+{\n
+    char *v0;  // [bp-0x1c], Other Possible Types: unsigned int\n
+    char *v1;  // [bp-0x18]\n
+    unsigned int v2;  // [bp-0x14]\n
+    unsigned int v3;  // [bp-0x10]\n
+    void* v4;  // [bp-0xc], Other Possible Types: unsigned int\n
+    void* v5;  // [bp-0x8], Other Possible Types: unsigned int\n
+    unsigned int v6;  // [bp-0x4]\n
+    char v7;  // [bp+0x0]\n
+    char *v9;  // eax\n
+\n
+    v6 = &v7;\n
+    v4 = 0;\n
+    v3 = *(v8);\n
+    v2 = sub_4012a0(a0);\n
+    if (a0[1 + v2] == 47)\n
+    {\n
+        v5 = 0;\n
+        return v5;\n
+    }\n
+    v1 = sub_402190(v2 + 1);\n
+    if (!v1)\n
+    {\n
+        v5 = 0;\n
+        return v5;\n
+    }\n
+    sub_4014c0(v1, a0, v2 + 1);\n
+    v0 = sub_401660(v1, 47);\n
+    if (!v0)\n
+    {\n
+        v0 = v1;\n
+    }\n
+    else\n
+    {\n
+        v9 = v0;\n
+        v0 = v9 + 1;\n
+        *(v9) = 0;\n
+        v3 = sub_402700(v8, v1, 1);\n
+    }\n
+    if (v3)\n
+        v4 = sub_403540(v8, v3);\n
+    sub_401d40(v1);\n
+    v5 = v4;\n
+    return v5;\n
+}\n
+", "4207121:sub_403211": null, "4207136:sub_403220": "int sub_403220(unsigned int v6, unsigned int a0, unsigned int a1[9])\n
+{\n
+    unsigned int v0;  // [bp-0x14]\n
+    void* v1;  // [bp-0x10], Other Possible Types: unsigned int\n
+    unsigned int v2[9];  // [bp-0xc]\n
+    unsigned int v3;  // [bp-0x8]\n
+    unsigned int v4;  // [bp-0x4]\n
+    char v5;  // [bp+0x0]\n
+\n
+    v4 = &v5;\n
+    if (a0 != a1[4] && a0)\n
+    {\n
+        v3 = -1;\n
+        return v3;\n
+    }\n
+    v2[0] = a1;\n
+    if (!v2)\n
+        v1 = 0;\n
+    else\n
+        v1 = v2 + 1;\n
+    v0 = v1;\n
+    sub_403910(a1[6] + 32);\n
+    sub_401d40(a1[8]);\n
+    sub_401d40(a1);\n
+    v3 = 0;\n
+    return v3;\n
+}\n
+", "4207292:sub_4032bc": null, "4207296:sub_4032c0": "int sub_4032c0(unsigned int *v8, char *a0)\n
+{\n
+    char *v0;  // [bp-0x1c], Other Possible Types: unsigned int\n
+    char *v1;  // [bp-0x18]\n
+    unsigned int v2;  // [bp-0x14]\n
+    unsigned int v3;  // [bp-0x10]\n
+    void* v4;  // [bp-0xc], Other Possible Types: unsigned int\n
+    void* v5;  // [bp-0x8], Other Possible Types: unsigned int\n
+    unsigned int v6;  // [bp-0x4]\n
+    char v7;  // [bp+0x0]\n
+    unsigned int v9;  // ecx\n
+    char *v10;  // eax\n
+\n
+    v6 = &v7;\n
+    v4 = 0;\n
+    v3 = *(v8);\n
+    v2 = sub_4012a0(a0);\n
+    v1 = sub_402190(v2 + 1);\n
+    if (!v1)\n
+    {\n
+        v5 = 0;\n
+        return v5;\n
+    }\n
+    sub_4014c0(v1, a0, v2 + 1);\n
+    for (; v1[1 + v2] == 47; v1[1 + v9] = 0)\n
+    {\n
+        v9 = v2;\n
+        v2 = v9 - 1;\n
+    }\n
+    v0 = sub_401660(v1, 47);\n
+    if (!v0)\n
+    {\n
+        v0 = v1;\n
+    }\n
+    else\n
+    {\n
+        v10 = v0;\n
+        v0 = v10 + 1;\n
+        *(v10) = 0;\n
+        v3 = sub_402700(v8, v1, 1);\n
+    }\n
+    if (v3)\n
+        v4 = sub_4033f0(v8, v3);\n
+    sub_401d40(v1);\n
+    v5 = v4;\n
+    return v5;\n
+}\n
+", "4207599:sub_4033ef": null, "4207600:sub_4033f0": "typedef struct struct_0 {\n
+    char padding_0[16];\n
+    unsigned int field_10;\n
+} struct_0;\n
+\n
+int sub_4033f0(unsigned int v7, struct_0 *a0, unsigned int a1)\n
+{\n
+    unsigned int v0[6];  // [bp-0x18], Other Possible Types: unsigned int\n
+    unsigned int v1[6];  // [bp-0x14]\n
+    unsigned int v2;  // [bp-0x10]\n
+    unsigned int v3[6];  // [bp-0xc]\n
+    unsigned int v4[6];  // [bp-0x8], Other Possible Types: unsigned int\n
+    unsigned int v5;  // [bp-0x4]\n
+    char v6;  // [bp+0x0]\n
+\n
+    v5 = &v6;\n
+    if (sub_402950(&a0[1].padding_0[12], sub_402a40, a1))\n
+    {\n
+        v4[0] = 0;\n
+        return v4;\n
+    }\n
+    v2 = sub_402950(&a0[1].padding_0[4], sub_4029c0, a1);\n
+    if (!v2)\n
+        v0 = 0;\n
+    else\n
+        v0[0] = -41 + v2;\n
+    v1[0] = v0;\n
+    v3[0] = v1;\n
+    if (v3)\n
+    {\n
+        v4 = v3;\n
+        return v4;\n
+    }\n
+    v3[0] = sub_402190(48);\n
+    if (v3)\n
+    {\n
+        sub_4014c0(v3, a1, 16);\n
+        v3[4] = a0->field_10;\n
+        v3[5] = a0;\n
+        sub_403510(&a0[1].padding_0[4]);\n
+    }\n
+    v4 = v3;\n
+    return v4;\n
+}\n
+", "4207882:sub_40350a": null, "4207888:sub_403510": "int sub_403510(unsigned int *v2, unsigned int a0)\n
+{\n
+    unsigned int v0;  // [bp-0x4]\n
+    char v1;  // [bp+0x0]\n
+\n
+    v0 = &v1;\n
+    return sub_403980(v2, *(v2), a0);\n
+}\n
+", "4207932:sub_40353c": null, "4207936:sub_403540": "typedef struct struct_0 {\n
+    char padding_0[16];\n
+    unsigned int field_10;\n
+} struct_0;\n
+\n
+int sub_403540(unsigned int v7, struct_0 *a0, unsigned int a1)\n
+{\n
+    unsigned int v0[7];  // [bp-0x18], Other Possible Types: unsigned int\n
+    unsigned int v1[7];  // [bp-0x14]\n
+    unsigned int v2;  // [bp-0x10]\n
+    unsigned int v3[7];  // [bp-0xc]\n
+    unsigned int v4[7];  // [bp-0x8], Other Possible Types: unsigned int\n
+    unsigned int v5;  // [bp-0x4]\n
+    char v6;  // [bp+0x0]\n
+\n
+    v5 = &v6;\n
+    if (sub_402950(&a0[1].padding_0[4], sub_4029c0, a1))\n
+    {\n
+        v4[0] = 0;\n
+        return v4;\n
+    }\n
+    v2 = sub_402950(&a0[1].padding_0[12], sub_402a40, a1);\n
+    if (!v2)\n
+        v0 = 0;\n
+    else\n
+        v0[0] = -37 + v2;\n
+    v1[0] = v0;\n
+    v3[0] = v1;\n
+    if (v3)\n
+    {\n
+        v4 = v3;\n
+        return v4;\n
+    }\n
+    v3[0] = sub_402190(44);\n
+    if (v3)\n
+    {\n
+        sub_4014c0(v3, a1, 16);\n
+        v3[4] = a0->field_10;\n
+        v3[6] = a0;\n
+        sub_403510(&a0[1].padding_0[12], &v3[1 + 2]);\n
+    }\n
+    v4 = v3;\n
+    return v4;\n
+}\n
+", "4208218:sub_40365a": null, "4208224:sub_403660": "typedef struct struct_0 {\n
+    char padding_0[16];\n
+    unsigned int field_10;\n
+} struct_0;\n
+\n
+typedef struct struct_1 {\n
+    char padding_0[16];\n
+    unsigned int field_10;\n
+    unsigned int field_14;\n
+    char padding_18[4];\n
+    unsigned int field_1c;\n
+    char *field_20;\n
+} struct_1;\n
+\n
+typedef struct struct_2 {\n
+    char padding_0[20];\n
+    unsigned int field_14;\n
+    char padding_18[8];\n
+    char *field_20;\n
+} struct_2;\n
+\n
+int sub_403660(struct struct_0 **v14, unsigned int a0, char *a1, char *a2)\n
+{\n
+    char v0;  // [bp-0x31]\n
+    unsigned int v1;  // [bp-0x30]\n
+    char *v2;  // [bp-0x2c], Other Possible Types: unsigned int\n
+    char *v3;  // [bp-0x28]\n
+    unsigned int v4;  // [bp-0x24]\n
+    unsigned int v5;  // [bp-0x20]\n
+    struct_0 *v6;  // [bp-0x1c]\n
+    unsigned int v7;  // [bp-0x18]\n
+    struct_2 *v8;  // [bp-0x14], Other Possible Types: unsigned int\n
+    struct_1 *v9;  // [bp-0x10]\n
+    unsigned int v10;  // [bp-0xc]\n
+    unsigned int v11;  // [bp-0x8]\n
+    unsigned int v12;  // [bp-0x4]\n
+    char v13;  // [bp+0x0]\n
+    char *v15;  // eax\n
+\n
+    v12 = &v13;\n
+    v10 = -1;\n
+    v6 = *(v14);\n
+    v5 = sub_4012a0(a1);\n
+    if (a1[1 + v5] == 47)\n
+    {\n
+        v11 = -1;\n
+        return v11;\n
+    }\n
+    else if (!sub_402ac0(v14, a1, 0))\n
+    {\n
+        v3 = sub_402190(v5 + 1);\n
+        if (!v3)\n
+        {\n
+            v11 = -1;\n
+            return v11;\n
+        }\n
+        sub_4014c0(v3, a1, v5 + 1);\n
+        v2 = sub_401660(v3, 47);\n
+        if (!v2)\n
+        {\n
+            v2 = v3;\n
+            v1 = *(v14)->field_10;\n
+        }\n
+        else\n
+        {\n
+            v15 = v2;\n
+            v2 = v15 + 1;\n
+            *(v15) = 0;\n
+            v6 = sub_402700(v14, v3, 1);\n
+            if (!v6)\n
+                goto LABEL_4038f7;\n
+            v1 = v6->field_10;\n
+        }\n
+        if (a0 != v1 && !(!a0))\n
+            goto LABEL_4038f7;\n
+        v4 = sub_4012a0(a2);\n
+        v7 = sub_402190(v4 + 1);\n
+        if (v7)\n
+        {\n
+            sub_4014c0(v7, a2, v4 + 1);\n
+            v9 = sub_4030f0(v14, a1);\n
+            if (v9)\n
+            {\n
+                v9->field_10 = a0;\n
+                v9->field_14 = 1;\n
+                v9->field_1c = v4 + 1;\n
+                v9->field_20 = v7;\n
+                v8 = sub_402ac0(v14, v9->field_20, 0);\n
+                while (true)\n
+                {\n
+                    v0 = 0;\n
+                    if (v8)\n
+                        v0 = v8->field_14;\n
+                    if (!(v0 & 1))\n
+                    {\n
+                        v10 = 0;\n
+                        break;\n
+                    }\n
+                    else if (v8 != v9)\n
+                    {\n
+                        v8 = sub_402ac0(v14, v8->field_20, 0);\n
+                    }\n
+                    else\n
+                    {\n
+                        sub_403220(v14, a0, v9);\n
+                        break;\n
+                    }\n
+                }\n
+            }\n
+        }\n
+LABEL_4038f7:\n
+        sub_401d40(v3);\n
+        v11 = v10;\n
+        return v11;\n
+    }\n
+    else\n
+    {\n
+        v11 = -1;\n
+        return v11;\n
+    }\n
+}\n
+", "4208912:sub_403910": "typedef struct struct_0 {\n
+    struct struct_1 *field_0;\n
+    struct struct_2 *field_4;\n
+} struct_0;\n
+\n
+typedef struct struct_1 {\n
+    unsigned int field_0;\n
+    unsigned int field_4;\n
+} struct_1;\n
+\n
+typedef struct struct_2 {\n
+    unsigned int field_0;\n
+} struct_2;\n
+\n
+int sub_403910(unsigned int v2[2], struct_0 *a0)\n
+{\n
+    unsigned int v0;  // [bp-0x4]\n
+    char v1;  // [bp+0x0]\n
+    unsigned int v3;  // eax\n
+\n
+    v0 = &v1;\n
+    if (!a0)\n
+        return v2;\n
+    if (!a0->field_4)\n
+        v2[0] = a0->field_0;\n
+    else\n
+        a0->field_4->field_0 = a0->field_0;\n
+    if (!a0->field_0)\n
+    {\n
+        v3 = v2;\n
+        *((v3 + 4)) = a0->field_4;\n
+        return v2;\n
+    }\n
+    v3 = a0->field_0;\n
+    *((v3 + 4)) = a0->field_4;\n
+    return a0->field_0;\n
+}\n
+", "4209022:sub_40397e": null, "4209024:sub_403980": "typedef struct struct_1 {\n
+    struct struct_0 *field_0;\n
+    struct struct_2 *field_4;\n
+} struct_1;\n
+\n
+typedef struct struct_3 {\n
+    char padding_0[4];\n
+    struct struct_2 *field_4;\n
+} struct_3;\n
+\n
+typedef struct struct_0 {\n
+    char padding_0[4];\n
+    unsigned int field_4;\n
+} struct_0;\n
+\n
+typedef struct struct_2 {\n
+    unsigned int field_0;\n
+} struct_2;\n
+\n
+int sub_403980(struct_1 *v2, struct_3 *a0, unsigned int a1[2])\n
+{\n
+    unsigned int v0;  // [bp-0x4]\n
+    char v1;  // [bp+0x0]\n
+    struct_1 *v3;  // eax, Other Possible Types: unsigned int, struct_3 *\n
+    unsigned int v4[2];  // ecx\n
+\n
+    v0 = &v1;\n
+    if (!a1)\n
+        return v2;\n
+    a1[1] = 0;\n
+    a1[0] = 0;\n
+    if (!v2->field_0 && !v2->field_4)\n
+    {\n
+        v4 = a1;\n
+        v2->field_4 = &v4[0];\n
+        v3 = v2;\n
+        *(v3) = v4;\n
+        return v2;\n
+    }\n
+    if (!a0)\n
+    {\n
+        a1[1] = v2->field_4;\n
+        v2->field_4->field_0 = a1;\n
+        a1[0] = 0;\n
+        v3 = v2;\n
+        v3->field_4 = &a1[0];\n
+    }\n
+    else if (a0 == v2->field_0)\n
+    {\n
+        a1[0] = v2->field_0;\n
+        v2->field_0->field_4 = a1;\n
+        a1[1] = 0;\n
+        v3 = v2;\n
+        v3->field_0 = &a1[0];\n
+    }\n
+    else\n
+    {\n
+        a1[1] = a0->field_4;\n
+        a1[0] = a0;\n
+        a0->field_4->field_0 = a1;\n
+        v3 = a0;\n
+        v3->field_4 = &a1[0];\n
+    }\n
+    return v3;\n
+}\n
+", "4209280:sub_403a80": "typedef struct struct_1 {\n
+    struct struct_0 *field_0;\n
+    struct struct_2 *field_4;\n
+} struct_1;\n
+\n
+typedef struct struct_3 {\n
+    char padding_0[4];\n
+    struct struct_2 *field_4;\n
+} struct_3;\n
+\n
+typedef struct struct_0 {\n
+    char padding_0[4];\n
+    unsigned int field_4;\n
+} struct_0;\n
+\n
+typedef struct struct_2 {\n
+    unsigned int field_0;\n
+} struct_2;\n
+\n
+int sub_403980(struct_1 *v2, struct_3 *a0, unsigned int a1[2])\n
+{\n
+    unsigned int v0;  // [bp-0x4]\n
+    char v1;  // [bp+0x0]\n
+    struct_1 *v3;  // eax, Other Possible Types: unsigned int, struct_3 *\n
+    unsigned int v4[2];  // ecx\n
+\n
+    v0 = &v1;\n
+    if (!a1)\n
+        return v2;\n
+    a1[1] = 0;\n
+    a1[0] = 0;\n
+    if (!v2->field_0 && !v2->field_4)\n
+    {\n
+        v4 = a1;\n
+        v2->field_4 = &v4[0];\n
+        v3 = v2;\n
+        *(v3) = v4;\n
+        return v2;\n
+    }\n
+    if (!a0)\n
+    {\n
+        a1[1] = v2->field_4;\n
+        v2->field_4->field_0 = a1;\n
+        a1[0] = 0;\n
+        v3 = v2;\n
+        v3->field_4 = &a1[0];\n
+    }\n
+    else if (a0 == v2->field_0)\n
+    {\n
+        a1[0] = v2->field_0;\n
+        v2->field_0->field_4 = a1;\n
+        a1[1] = 0;\n
+        v3 = v2;\n
+        v3->field_0 = &a1[0];\n
+    }\n
+    else\n
+    {\n
+        a1[1] = a0->field_4;\n
+        a1[0] = a0;\n
+        a0->field_4->field_0 = a1;\n
+        v3 = a0;\n
+        v3->field_4 = &a1[0];\n
+    }\n
+    return v3;\n
+}\n
+", "4209644:sub_403bec": null, "4209648:sub_403bf0": "typedef struct struct_2 {\n
+    char padding_0[20];\n
+    unsigned int field_14;\n
+    char padding_18[4];\n
+    unsigned int field_1c;\n
+    char *field_20;\n
+    unsigned int field_24;\n
+} struct_2;\n
+\n
+extern unsigned int g_4080dc;\n
+extern struct_1 *g_4080e0;\n
+\n
+int sub_403bf0()\n
+{\n
+    unsigned int v0;  // [bp-0x38]\n
+    char *v1;  // [bp-0x34]\n
+    unsigned int v2[10];  // [bp-0x2c], Other Possible Types: unsigned int\n
+    unsigned int v3[10];  // [bp-0x28], Other Possible Types: unsigned int\n
+    unsigned int v4[10];  // [bp-0x24]\n
+    unsigned int v5;  // [bp-0x20]\n
+    unsigned int v6[10];  // [bp-0x1c]\n
+    unsigned int v7;  // [bp-0x18]\n
+    unsigned int v8[10];  // [bp-0x14], Other Possible Types: unsigned int\n
+    struct_2 *v9;  // [bp-0x10]\n
+    struct struct_0 **v10;  // [bp-0xc]\n
+    char v11;  // [bp-0x8]\n
+    unsigned int v12;  // [bp-0x4]\n
+    char v13;  // [bp+0x0]\n
+    unsigned int v15[10];  // eax, Other Possible Types: unsigned int\n
+\n
+    v12 = &v13;\n
+    v10 = 0;\n
+    v7 = g_4080e0->field_20;\n
+    if (!v7)\n
+        v3 = 0;\n
+    else\n
+        v3[0] = -37 + v7;\n
+    v6[0] = v3;\n
+    v15 = v6;\n
+    while (true)\n
+    {\n
+        v9 = v15;\n
+        if (!v9)\n
+            break;\n
+        if (!v9->field_14)\n
+        {\n
+            v8[0] = v9;\n
+        }\n
+        else\n
+        {\n
+            v8 = sub_402ac0(&g_4080dc, v9->field_20, 1);\n
+            if (!v8)\n
+                goto LABEL_403cf7;\n
+        }\n
+        if (!cgc_allocate(*((v8 + 28)), 1))\n
+        {\n
+            v0 = *(&v11);\n
+            v1 = *((v8 + 32));\n
+            sub_401170(v0, v1, *((v8 + 28)));\n
+            v10 = *(&v11);\n
+            v10(v0, v1);\n
+            cgc_deallocate(*(&v11));\n
+        }\n
+LABEL_403cf7:\n
+        v5 = v9->field_24;\n
+        if (v5)\n
+            v2[0] = -37 + v5;\n
+        else\n
+            v2 = 0;\n
+        v4[0] = v2;\n
+        v15 = v4;\n
+    }\n
+    return v15;\n
+}\n
+", "4209982:sub_403d3e": null, "4209984:sub_403d40": "extern struct_0 *g_4080dc;\n
+extern void* g_4080e4;\n
+\n
+int sub_403d40()\n
+{\n
+    unsigned int v0;  // [bp-0x28]\n
+    char *v1;  // [bp-0x24], Other Possible Types: unsigned int\n
+    char v2;  // [bp-0x1d]\n
+    char v3;  // [bp-0xd]\n
+    unsigned int v4;  // [bp-0xc]\n
+    unsigned int v5;  // [bp-0x8]\n
+    unsigned int v6;  // [bp-0x4]\n
+    char v7;  // [bp+0x0]\n
+\n
+    v6 = &v7;\n
+    v4 = -1;\n
+    if (sub_401000(0, &v2, 16) != 16)\n
+    {\n
+        v5 = -1;\n
+        return v5;\n
+    }\n
+    v3 = 0;\n
+    v1 = sub_402c70(&g_4080dc, g_4080e4);\n
+    if (!v1)\n
+    {\n
+        v5 = -1;\n
+        return v5;\n
+    }\n
+    v1 = sub_4043e0(v1);\n
+    if (v1)\n
+    {\n
+        v0 = sub_402700(&g_4080dc, v1, 1);\n
+        if (v0)\n
+        {\n
+            g_4080e4 = v0;\n
+            v4 = 0;\n
+        }\n
+    }\n
+    sub_401d40(v1);\n
+    v5 = v4;\n
+    return v5;\n
+}\n
+", "4210219:sub_403e2b": null, "4210224:sub_403e30": "typedef struct struct_0 {\n
+    char padding_0[28];\n
+    unsigned int field_1c;\n
+} struct_0;\n
+\n
+extern unsigned int g_4080dc;\n
+extern void* g_4080e4;\n
+\n
+int sub_403e30()\n
+{\n
+    struct_0 *v0;  // [bp-0x2c]\n
+    char *v1;  // [bp-0x28], Other Possible Types: unsigned int\n
+    unsigned int v2;  // [bp-0x24]\n
+    char v3;  // [bp-0x1d]\n
+    char v4;  // [bp-0xd]\n
+    unsigned int v5;  // [bp-0xc]\n
+    unsigned int v6;  // [bp-0x8]\n
+    unsigned int v7;  // [bp-0x4]\n
+    char v8;  // [bp+0x0]\n
+\n
+    v7 = &v8;\n
+    v5 = -1;\n
+    if (sub_401000(0, &v3, 16) != 16)\n
+    {\n
+        v6 = -1;\n
+        return v6;\n
+    }\n
+    v4 = 0;\n
+    v1 = sub_402c70(&g_4080dc, g_4080e4);\n
+    if (!v1)\n
+    {\n
+        v6 = -1;\n
+        return v6;\n
+    }\n
+    v1 = sub_4043e0(v1);\n
+    if (v1)\n
+    {\n
+        v0 = sub_402ac0(&g_4080dc, v1, 1);\n
+        if (v0 && !sub_402f70(&g_4080dc, 1000, v1, &v2))\n
+        {\n
+            sub_401090(1, v2, v0->field_1c);\n
+            v5 = 0;\n
+        }\n
+    }\n
+    sub_401d40(v1);\n
+    v6 = v5;\n
+    return v6;\n
+}\n
+", "4210530:sub_403f62": null, "4210544:sub_403f70": "extern unsigned int g_4080dc;\n
+extern void* g_4080e4;\n
+\n
+int sub_403f70()\n
+{\n
+    unsigned int v0;  // [bp-0x34]\n
+    char *v1;  // [bp-0x30], Other Possible Types: unsigned int\n
+    unsigned int v2;  // [bp-0x2c]\n
+    char v3;  // [bp-0x28]\n
+    char v4;  // [bp-0x21]\n
+    char v5;  // [bp-0x11]\n
+    unsigned int v6;  // [bp-0x10]\n
+    unsigned int v7;  // [bp-0xc]\n
+    unsigned int v8;  // [bp-0x4]\n
+    char v9;  // [bp+0x0]\n
+\n
+    v8 = &v9;\n
+    v6 = -1;\n
+    if (sub_401000(0, &v4, 16) != 16)\n
+    {\n
+        v7 = -1;\n
+        return v7;\n
+    }\n
+    v5 = 0;\n
+    if (sub_401000(0, &v3, 4) != 4)\n
+    {\n
+        v7 = -1;\n
+        return v7;\n
+    }\n
+    else if (*(&v3) <= 4088)\n
+    {\n
+        v2 = sub_402190(*(&v3));\n
+        if (!v2)\n
+        {\n
+            v7 = -1;\n
+            return v7;\n
+        }\n
+        if (sub_401000(0, v2, *(&v3)) == *(&v3))\n
+        {\n
+            v1 = sub_402c70(&g_4080dc, g_4080e4);\n
+            if (v1)\n
+            {\n
+                v1 = sub_4043e0(v1);\n
+                if (v1)\n
+                {\n
+                    v0 = sub_4030f0(&g_4080dc, v1);\n
+                    if (v0 && !sub_402fe0(&g_4080dc, 1000, v1, v2, *(&v3)))\n
+                    {\n
+                        sub_401d40(v1);\n
+                        v7 = 0;\n
+                        return v7;\n
+                    }\n
+                }\n
+                sub_401d40(v1);\n
+            }\n
+        }\n
+        sub_401d40(v2);\n
+        v7 = v6;\n
+        return v7;\n
+    }\n
+    else\n
+    {\n
+        v7 = -1;\n
+        return v7;\n
+    }\n
+}\n
+", "4210994:sub_404132": null, "4211008:sub_404140": "extern unsigned int g_4080dc;\n
+extern void* g_4080e4;\n
+\n
+int sub_404140()\n
+{\n
+    char *v0;  // [bp-0x2c]\n
+    char *v1;  // [bp-0x28], Other Possible Types: unsigned int\n
+    char v2;  // [bp-0x24]\n
+    char v3;  // [bp-0x1d]\n
+    char v4;  // [bp-0xd]\n
+    void* v5;  // [bp-0xc], Other Possible Types: unsigned int\n
+    unsigned int v6;  // [bp-0x8]\n
+    unsigned int v7;  // [bp-0x4]\n
+    char v8;  // [bp+0x0]\n
+\n
+    v7 = &v8;\n
+    v5 = -1;\n
+    if (sub_401000(0, &v3, 16) != 16)\n
+    {\n
+        v6 = -1;\n
+        return v6;\n
+    }\n
+    v4 = 0;\n
+    if (sub_401000(0, &v2, 4) != 4)\n
+    {\n
+        v6 = -1;\n
+        return v6;\n
+    }\n
+    else if (*(&v2) <= 4088)\n
+    {\n
+        v0 = sub_402190(*(&v2) + 1);\n
+        if (!v0)\n
+        {\n
+            v6 = -1;\n
+            return v6;\n
+        }\n
+        if (sub_401000(0, v0, *(&v2)) == *(&v2))\n
+        {\n
+            v1 = sub_402c70(&g_4080dc, g_4080e4);\n
+            if (v1)\n
+            {\n
+                v1 = sub_4043e0(v1);\n
+                if (v1 && !sub_403660(&g_4080dc, 1000, v1, v0))\n
+                    v5 = 0;\n
+                sub_401d40(v1);\n
+            }\n
+        }\n
+        sub_401d40(v0);\n
+        v6 = v5;\n
+        return v6;\n
+    }\n
+    else\n
+    {\n
+        v6 = -1;\n
+        return v6;\n
+    }\n
+}\n
+", "4211398:sub_4042c6": null, "4211408:sub_4042d0": "extern unsigned int g_4080dc;\n
+extern void* g_4080e4;\n
+\n
+int sub_4042d0()\n
+{\n
+    unsigned int v0[9];  // [bp-0x28]\n
+    char *v1;  // [bp-0x24], Other Possible Types: unsigned int\n
+    char v2;  // [bp-0x1d]\n
+    char v3;  // [bp-0xd]\n
+    unsigned int v4;  // [bp-0xc]\n
+    unsigned int v5;  // [bp-0x8]\n
+    unsigned int v6;  // [bp-0x4]\n
+    char v7;  // [bp+0x0]\n
+\n
+    v6 = &v7;\n
+    v4 = -1;\n
+    if (sub_401000(0, &v2, 16) != 16)\n
+    {\n
+        v5 = -1;\n
+        return v5;\n
+    }\n
+    v3 = 0;\n
+    v1 = sub_402c70(&g_4080dc, g_4080e4);\n
+    if (!v1)\n
+    {\n
+        v5 = -1;\n
+        return v5;\n
+    }\n
+    v1 = sub_4043e0(v1);\n
+    if (v1)\n
+    {\n
+        v0[0] = sub_402ac0(&g_4080dc, v1, 1);\n
+        if (v0 && !sub_403220(&g_4080dc, 1000, v0))\n
+            v4 = 0;\n
+    }\n
+    sub_401d40(v1);\n
+    v5 = v4;\n
+    return v5;\n
+}\n
+", "4211678:sub_4043de": null, "4211680:sub_4043e0": "int sub_4043e0(char *v5, unsigned int a0)\n
+{\n
+    unsigned int v0;  // [bp-0x10]\n
+    unsigned int v1;  // [bp-0xc]\n
+    void* v2;  // [bp-0x8], Other Possible Types: unsigned int\n
+    unsigned int v3;  // [bp-0x4]\n
+    char v4;  // [bp+0x0]\n
+\n
+    v3 = &v4;\n
+    v0 = sub_4012a0(v5);\n
+    v1 = sub_4021e0(v5, v0 + 18);\n
+    if (!v1)\n
+    {\n
+        sub_401d40(v5);\n
+        v2 = 0;\n
+        return v2;\n
+    }\n
+    v5 = v1;\n
+    sub_401560(v5, \"/\");\n
+    sub_4015a0(v5, a0, 16);\n
+    v5[17 + v0] = 0;\n
+    v2 = v5;\n
+    return v2;\n
+}\n
+", "4211856:sub_404490": "int sub_404490()\n
+{\n
+    unsigned int v0;  // [bp-0x8]\n
+    unsigned int v1;  // [bp-0x4]\n
+    char v2;  // [bp+0x0]\n
+\n
+    v1 = &v2;\n
+    sub_4045b0();\n
+    sub_4045c0();\n
+    sub_4045e0();\n
+    v0 = 1;\n
+    if (!sub_404bb0())\n
+    {\n
+        v0 = 7;\n
+        sub_405290();\n
+    }\n
+    sub_405460();\n
+    v1 = sub_405490;\n
+    sub_404880();\n
+    if (sub_404580())\n
+    {\n
+        v1 = 7;\n
+        sub_405290();\n
+    }\n
+    sub_405020();\n
+    if (sub_405120())\n
+    {\n
+        v1 = sub_404fc0;\n
+        __setusermatherr();\n
+    }\n
+    sub_4050a0();\n
+    sub_4050b0();\n
+    sub_405070();\n
+    v1 = sub_405010();\n
+    _configthreadlocale();\n
+    if (sub_405060())\n
+        sub_4045a0();\n
+    sub_405250();\n
+    if (sub_405260())\n
+    {\n
+        v1 = 7;\n
+        sub_405290();\n
+        return 0;\n
+    }\n
+    return 0;\n
+}\n
+", "4212048:sub_404550": "int sub_404550()\n
+{\n
+    unsigned int v0;  // [bp-0x4]\n
+    char v1;  // [bp+0x0]\n
+\n
+    v0 = &v1;\n
+    sub_4050c0();\n
+    return 0;\n
+}\n
+", "4212064:sub_404560": "int sub_404560()\n
+{\n
+    unsigned int v0;  // [bp-0x8]\n
+    unsigned int v1;  // [bp-0x4]\n
+    char v2;  // [bp+0x0]\n
+\n
+    v1 = &v2;\n
+    sub_405270();\n
+    v0 = sub_405000();\n
+    return _set_new_mode();\n
+}\n
+", "4212096:sub_404580": "int sub_404580()\n
+{\n
+    unsigned int v0;  // [bp-0x4]\n
+    char v1;  // [bp+0x0]\n
+\n
+    v0 = &v1;\n
+    return _configure_narrow_argv(sub_404fd0());\n
+}\n
+", "4212128:sub_4045a0": "int sub_4045a0()\n
+{\n
+    unsigned int v0;  // [bp-0x4]\n
+    char v1;  // [bp+0x0]\n
+\n
+    v0 = &v1;\n
+    return _initialize_narrow_environment();\n
+}\n
+", "4212144:sub_4045b0": "int sub_4045b0()\n
+{\n
+    unsigned int v0;  // [bp-0x4]\n
+    char v1;  // [bp+0x0]\n
+\n
+    v0 = &v1;\n
+    return _set_app_type(1);\n
+}\n
+", "4212160:sub_4045c0": "int sub_4045c0()\n
+{\n
+    unsigned int v0;  // [bp-0x4]\n
+    char v1;  // [bp+0x0]\n
+\n
+    v0 = &v1;\n
+    return _set_fmode(sub_404ff0());\n
+}\n
+", "4212192:sub_4045e0": "int sub_4045e0()\n
+{\n
+    char v0;  // [bp-0x8]\n
+    unsigned int v1;  // [bp-0x4]\n
+    char v2;  // [bp+0x0]\n
+    unsigned int *v4;  // eax\n
+    unsigned int v5;  // ecx\n
+\n
+    v1 = &v2;\n
+    v4 = __p__commode(sub_404fe0(*(&v0)));\n
+    *(v4) = v5;\n
+    return v4;\n
+}\n
+", "4212224:sub_404600": "int sub_404600()\n
+{\n
+    unsigned int v0;  // [bp-0x14]\n
+    unsigned int v1;  // [bp-0x10]\n
+    unsigned int v2;  // [bp-0xc]\n
+    unsigned int v3;  // [bp-0x8]\n
+    unsigned int v4;  // [bp-0x4]\n
+    char v5;  // [bp+0x0]\n
+\n
+    v4 = &v5;\n
+    v3 = _get_initial_narrow_environment();\n
+    v2 = *(__p___argv());\n
+    v1 = *(__p___argc());\n
+    v0 = v3;\n
+    return sub_403a80(v1, v2);\n
+}\n
+", "4212288:sub_404640": "extern char g_407240;\n
+extern char g_407248;\n
+extern char g_40724c;\n
+extern struct_0 *g_407258;\n
+extern char g_4078a8;\n
+extern unsigned int g_408040;\n
+extern unsigned int g_4080e8;\n
+\n
+int sub_404640()\n
+{\n
+    char v0;  // [bp-0x58]\n
+    unsigned int v1;  // [bp-0x4c]\n
+    unsigned int v2;  // [bp-0x44]\n
+    struct struct_0 **v3;  // [bp-0x40]\n
+    unsigned int v4;  // [bp-0x3c]\n
+    unsigned int v5;  // [bp-0x30]\n
+    struct struct_0 **v6;  // [bp-0x2c]\n
+    struct struct_0 **v7;  // [bp-0x28]\n
+    struct struct_0 **v8;  // [bp-0x24]\n
+    char v9;  // [bp-0x1e]\n
+    char v10;  // [bp-0x1d]\n
+    unsigned int v11;  // [bp-0x1c]\n
+    unsigned int v12;  // [bp-0x14]\n
+    unsigned int v13;  // [bp-0x10]\n
+    void* v14;  // [bp-0xc], Other Possible Types: unsigned int\n
+    void* v15;  // [bp-0x8], Other Possible Types: unsigned int\n
+    struct struct_0 **v16;  // [bp-0x4], Other Possible Types: unsigned int, void*\n
+    char v17;  // [bp+0x0]\n
+    unsigned int v18;  // [bp+0x4]\n
+    unsigned int v19;  // [bp+0x8]\n
+    unsigned int v21;  // ebx\n
+    unsigned int v22;  // edi\n
+    unsigned int v23;  // esi\n
+    unsigned int v25;  // eax\n
+\n
+    v16 = &v17;\n
+    v15 = -2;\n
+    v14 = &g_4078a8;\n
+    v13 = sub_4054c0;\n
+    v12 = *([D] x86g_use_seg_selector(ldt<8>, gdt<8>, Conv(16->32, fs<2>), 0x0<32>));\n
+    v1 = v21;\n
+    v14 ^= g_408040;\n
+    *([D] x86g_use_seg_selector(ldt<8>, gdt<8>, Conv(16->32, fs<2>), 0x0<32>)) = &v12;\n
+    v11 = &v0;\n
+    if (!sub_404b20(1, g_408040 ^ &v16, v22, v23))\n
+        sub_405290();\n
+    v10 = 0;\n
+    v15 = 0;\n
+    v9 = sub_404aa0();\n
+    if (g_4080e8 == 1)\n
+    {\n
+        v16 = 7;\n
+        sub_405290();\n
+    }\n
+    else if (g_4080e8)\n
+    {\n
+        v10 = 1;\n
+    }\n
+    else\n
+    {\n
+        g_4080e8 = 1;\n
+        v16 = &g_407258;\n
+        v15 = &g_40724c;\n
+        if (_initterm_e(*(&v17)))\n
+        {\n
+            v4 = 255;\n
+            v15 = -2;\n
+            v25 = v4;\n
+            goto LABEL_404849;\n
+        }\n
+        else\n
+        {\n
+            v16 = &g_407248;\n
+            v15 = &g_407240;\n
+            _initterm(*(&v17));\n
+            g_4080e8 = 2;\n
+        }\n
+    }\n
+    v16 = v9;\n
+    sub_404af0();\n
+    v8 = sub_405150();\n
+    if (*(v8))\n
+    {\n
+        v16 = v8;\n
+        if (sub_404970())\n
+        {\n
+            v3 = &*(v8)->field_0;\n
+            v16 = 0;\n
+            v15 = 2;\n
+            v14 = 0;\n
+            v6 = v3;\n
+            sub_405500(v18, v19);\n
+            v6(v18, v19);\n
+        }\n
+    }\n
+    v7 = sub_405160();\n
+    if (*(v7))\n
+    {\n
+        v16 = v7;\n
+        if (sub_404970())\n
+        {\n
+            v16 = *(v7);\n
+            _register_thread_local_exe_atexit_callback();\n
+        }\n
+    }\n
+    v5 = sub_404600();\n
+    if (!sub_4051c0())\n
+    {\n
+        v16 = v5;\n
+        exit();\n
+    }\n
+    if (!v10)\n
+        _cexit();\n
+    v16 = 0;\n
+    v15 = 1;\n
+    sub_404b70(*(&v17));\n
+    v2 = v5;\n
+    v15 = -2;\n
+    v25 = v2;\n
+LABEL_404849:\n
+    *([D] x86g_use_seg_selector(ldt<8>, gdt<8>, Conv(16->32, fs<2>), 0x0<32>)) = v12;\n
+    return v25;\n
+}\n
+", "4212703:sub_4047df": "int sub_4047df()\n
+{\n
+    unsigned int v0;  // [bp-0x4]\n
+\n
+    v0 = -2;\n
+}\n
+", "4212712:sub_4047e8": "int sub_4047e8()\n
+{\n
+    unsigned int v0;  // [bp-0x30]\n
+    char v1;  // [bp-0x14]\n
+    unsigned int v2;  // [bp-0x4]\n
+\n
+    v0 = *(*(*(&v1)));\n
+    v2 = *(&v1);\n
+    _seh_filter_exe(v0);\n
+    return;\n
+}\n
+", "4212739:sub_404803": "extern char g_404811;\n
+\n
+int sub_404803()\n
+{\n
+    unsigned int v0;  // [bp-0x44]\n
+    unsigned int v1;  // [bp-0x34]\n
+    char v2;  // [bp-0x30]\n
+    char v3;  // [bp-0x19]\n
+    char v4;  // [bp-0x18]\n
+    unsigned int v5;  // [bp-0x4]\n
+\n
+    v1 = *(&v2);\n
+    *((*(&v4) - 4)) = &g_404811;\n
+    if (!sub_4051c0())\n
+    {\n
+        v5 = v1;\n
+        _exit();\n
+    }\n
+    if (!v3)\n
+        _c_exit();\n
+    v0 = v1;\n
+    v5 = -2;\n
+}\n
+", "4212802:sub_404842": "int sub_404842()\n
+{\n
+    unsigned int v0;  // [bp-0x4]\n
+\n
+    v0 = -2;\n
+}\n
+", "4212832:sub_404860": "int sub_404860()\n
+{\n
+    unsigned int v0;  // [bp-0x4]\n
+    char v1;  // [bp+0x0]\n
+\n
+    v0 = &v1;\n
+    sub_404ed0();\n
+    return sub_404640();\n
+}\n
+", "4212848:_start": "int _start()\n
+{\n
+    unsigned int v0;  // [bp-0x4]\n
+    char v1;  // [bp+0x0]\n
+\n
+    v0 = &v1;\n
+    return sub_404860();\n
+}\n
+", "4212864:sub_404880": "int sub_404880(unsigned int v3)\n
+{\n
+    unsigned int v0;  // [bp-0x8]\n
+    unsigned int v1;  // [bp-0x4]\n
+    char v2;  // [bp+0x0]\n
+    unsigned int v4;  // ecx\n
+\n
+    v1 = &v2;\n
+    if (sub_4048b0(v3, v4))\n
+    {\n
+        v0 = 0;\n
+        return v0;\n
+    }\n
+    v0 = -1;\n
+    return v0;\n
+}\n
+", "4212912:sub_4048b0": "extern unsigned int g_4080f4;\n
+\n
+int sub_4048b0(unsigned int v5)\n
+{\n
+    unsigned int v0;  // [bp-0x10]\n
+    void* v1;  // [bp-0xc], Other Possible Types: unsigned int\n
+    void* v2;  // [bp-0x8], Other Possible Types: unsigned int\n
+    unsigned int v3;  // [bp-0x4]\n
+    char v4;  // [bp+0x0]\n
+\n
+    v3 = &v4;\n
+    v0 = g_4080f4;\n
+    if (v0 != -1)\n
+    {\n
+        if (_register_onexit_function(&g_4080f4))\n
+            v1 = 0;\n
+        else\n
+            v1 = v5;\n
+        return v1;\n
+    }\n
+    else\n
+    {\n
+        if (_crt_atexit(v5))\n
+            v2 = 0;\n
+        else\n
+            v2 = v5;\n
+        return v2;\n
+    }\n
+}\n
+", "4212968:sub_4048e8": "int sub_4048e8()\n
+{\n
+}\n
+", "4213024:sub_404920": "extern unsigned int g_408100;\n
+\n
+int sub_404920(unsigned int v5)\n
+{\n
+    unsigned int v0;  // [bp-0x10]\n
+    unsigned int v1;  // [bp-0xc]\n
+    unsigned int v2;  // [bp-0x8]\n
+    unsigned int v3;  // [bp-0x4]\n
+    char v4;  // [bp+0x0]\n
+    unsigned int v6;  // eax\n
+\n
+    v3 = &v4;\n
+    v2 = g_408100;\n
+    if (v2 == -1)\n
+    {\n
+        v0 = v5;\n
+        v6 = _crt_at_quick_exit();\n
+        return v6;\n
+    }\n
+    v1 = v5;\n
+    v0 = v1;\n
+    v6 = _register_onexit_function(&g_408100);\n
+    return v6;\n
+}\n
+", "4213058:sub_404942": "int sub_404942()\n
+{\n
+}\n
+", "4213088:sub_404960": "int sub_404960()\n
+{\n
+    unsigned int v0;  // [bp-0x4]\n
+    char v1;  // [bp+0x0]\n
+\n
+    v0 = &v1;\n
+    return *([D] x86g_use_seg_selector(ldt<8>, gdt<8>, Conv(16->32, fs<2>), 0x18<32>));\n
+}\n
+", "4213104:sub_404970": "typedef struct struct_0 {\n
+    char padding_0[36];\n
+    unsigned int field_24;\n
+} struct_0;\n
+\n
+extern char g_400000;\n
+extern char g_4078c8;\n
+extern unsigned int g_408040;\n
+\n
+int sub_404970(unsigned int v18)\n
+{\n
+    char v0;  // [bp-0x4c]\n
+    char v1;  // [bp-0x48]\n
+    char v2;  // [bp-0x44]\n
+    unsigned int v3;  // [bp-0x38]\n
+    unsigned int v4;  // [bp-0x34]\n
+    struct_0 *v5;  // [bp-0x2c]\n
+    unsigned int v6;  // [bp-0x28]\n
+    struct_0 *v7;  // [bp-0x20]\n
+    struct_0 *v8;  // [bp-0x1f]\n
+    struct_0 *v9;  // [bp-0x1e]\n
+    struct_0 *v10;  // [bp-0x1d]\n
+    unsigned int v11;  // [bp-0x1c]\n
+    unsigned int v12;  // [bp-0x14]\n
+    unsigned int v13;  // [bp-0x10]\n
+    unsigned int v14;  // [bp-0xc]\n
+    void* v15;  // [bp-0x8], Other Possible Types: unsigned int\n
+    unsigned int v16;  // [bp-0x4]\n
+    char v17;  // [bp+0x0]\n
+    struct_0 *v19;  // eax, Other Possible Types: unsigned int\n
+\n
+    v16 = &v17;\n
+    v15 = -2;\n
+    v14 = &g_4078c8;\n
+    v13 = sub_4054c0;\n
+    v12 = *([D] x86g_use_seg_selector(ldt<8>, gdt<8>, Conv(16->32, fs<2>), 0x0<32>));\n
+    v14 ^= g_408040;\n
+    *([D] x86g_use_seg_selector(ldt<8>, gdt<8>, Conv(16->32, fs<2>), 0x0<32>)) = &v12;\n
+    v11 = &v0;\n
+    v4 = v18;\n
+    v6 = &g_400000;\n
+    v15 = 0;\n
+    v19 = sub_404dd0(v6, g_408040 ^ &v16, *(&v1), *(&v2));\n
+    if (!v19)\n
+    {\n
+        *(&v10) = 0;\n
+        v15 = -2;\n
+        *(&v19) = v10;\n
+    }\n
+    else\n
+    {\n
+        v3 = v4 - v6;\n
+        v19 = sub_404e40(v6);\n
+        v5 = v19;\n
+        if (!v5)\n
+        {\n
+            *(&v9) = 0;\n
+            v15 = -2;\n
+            *(&v19) = v9;\n
+        }\n
+        else\n
+        {\n
+            v19 = v5;\n
+            if (!(*((v19 + 36)) & 0x80000000))\n
+            {\n
+                *(&v7) = 1;\n
+                v15 = -2;\n
+                *(&v19) = v7;\n
+            }\n
+            else\n
+            {\n
+                *(&v8) = 0;\n
+                v15 = -2;\n
+                *(&v19) = v8;\n
+            }\n
+        }\n
+    }\n
+    *([D] x86g_use_seg_selector(ldt<8>, gdt<8>, Conv(16->32, fs<2>), 0x0<32>)) = v12;\n
+    return v19;\n
+}\n
+", "4213309:sub_404a3d": "int sub_404a3d()\n
+{\n
+    unsigned int v0;  // [bp-0x4]\n
+\n
+    v0 = -2;\n
+}\n
+", "4213318:sub_404a46": "int sub_404a46()\n
+{\n
+    unsigned int v0;  // [bp-0x38]\n
+    void* v1;  // [bp-0x2c], Other Possible Types: unsigned int\n
+    char v2;  // [bp-0x14]\n
+\n
+    v0 = *(*(*(&v2)));\n
+    if (v0 == 3221225477)\n
+    {\n
+        v1 = 1;\n
+        return;\n
+    }\n
+    v1 = 0;\n
+    return;\n
+}\n
+", "4213357:sub_404a6d": "int sub_404a6d()\n
+{\n
+    char v0;  // [bp-0x1d]\n
+    unsigned int v1;  // [bp-0x4]\n
+\n
+    v0 = 0;\n
+    v1 = -2;\n
+}\n
+", "4213376:sub_404a80": "int sub_404a80()\n
+{\n
+    unsigned int v0;  // [bp-0x4]\n
+\n
+    v0 = -2;\n
+}\n
+", "4213408:sub_404aa0": "extern unsigned int g_4080ec;\n
+\n
+int sub_404aa0()\n
+{\n
+    int tmp_4;  // tmp #4\n
+    int tmp_0;  // tmp #0\n
+    unsigned int v0;  // [bp-0xc]\n
+    unsigned int v1;  // [bp-0x8]\n
+    unsigned int v2;  // [bp-0x4]\n
+    char v3;  // [bp+0x0]\n
+    unsigned int v5;  // eax\n
+    unsigned int v6;  // ecx\n
+\n
+    v2 = &v3;\n
+    v5 = sub_405ce0();\n
+    if (!v5)\n
+    {\n
+        *(&v5) = 0;\n
+        return v5;\n
+    }\n
+    v1 = *((sub_404960() + 4));\n
+    while (true)\n
+    {\n
+        v6 = v1;\n
+        tmp_4 = 0;\n
+        g_4080ec = v6;\n
+        if (!g_4080ec)\n
+        {\n
+            tmp_0 = 0;\n
+            g_4080ec = v6;\n
+            v5 = 0;\n
+        }\n
+        else\n
+        {\n
+            tmp_0 = 0;\n
+            g_4080ec = v6;\n
+            v5 = g_4080ec;\n
+        }\n
+        v0 = v5;\n
+        if (!v0)\n
+        {\n
+            *(&v5) = 0;\n
+            return v5;\n
+        }\n
+        v5 = v1;\n
+        if (v5 == v0)\n
+        {\n
+            *(&v5) = 1;\n
+            return v5;\n
+        }\n
+    }\n
+}\n
+", "4213488:sub_404af0": "extern void* g_4080ec;\n
+\n
+int sub_404af0(char v2)\n
+{\n
+    unsigned int v0;  // [bp-0x4]\n
+    int tmp_3;  // tmp #3\n
+    int tmp_8;  // tmp #8\n
+    int tmp_6;  // tmp #6\n
+    char v1;  // [bp+0x0]\n
+    unsigned int v3;  // eax\n
+\n
+    v0 = &v1;\n
+    v3 = sub_405ce0();\n
+    if (!v3)\n
+        return v3;\n
+    v3 = v2;\n
+    if (!v3)\n
+    {\n
+        tmp_3 = g_4080ec;\n
+        g_4080ec = 0;\n
+        tmp_8 = CasCmpNE(tmp_6, tmp_3);\n
+        if (tmp_8)\n
+            goto LABEL_0x404b0f;\n
+        return v2;\n
+    }\n
+    return v2;\n
+}\n
+", "4213536:sub_404b20": "extern char g_4080f0;\n
+\n
+int sub_404b20(unsigned int v3)\n
+{\n
+    void* v0;  // [bp-0x8]\n
+    unsigned int v1;  // [bp-0x4]\n
+    char v2;  // [bp+0x0]\n
+    unsigned int v4;  // eax, Other Possible Types: char\n
+\n
+    v1 = &v2;\n
+    if (!v3)\n
+        g_4080f0 = 1;\n
+    sub_405850();\n
+    v4 = sub_406080();\n
+    if (!v4)\n
+    {\n
+        v4 = 0;\n
+        return v4;\n
+    }\n
+    v4 = sub_406080();\n
+    if (v4)\n
+    {\n
+        *(&v4) = 1;\n
+        return v4;\n
+    }\n
+    v0 = 0;\n
+    v4 = sub_406090();\n
+    *(&v4) = 0;\n
+    return v4;\n
+}\n
+", "4213616:sub_404b70": "extern char g_4080f0;\n
+\n
+int sub_404b70(char v2, char a0)\n
+{\n
+    unsigned int v0;  // [bp-0x4]\n
+    char v1;  // [bp+0x0]\n
+    unsigned int v3;  // eax\n
+\n
+    v0 = &v1;\n
+    if (g_4080f0 && a0)\n
+        return 1;\n
+    sub_406090(v2);\n
+    v3 = sub_406090();\n
+    *(&v3) = 1;\n
+    return v3;\n
+}\n
+", "4213680:sub_404bb0": "extern char g_4080f1;\n
+extern unsigned int g_4080f4;\n
+extern unsigned int g_4080f8;\n
+extern unsigned int g_4080fc;\n
+extern unsigned int g_408100;\n
+extern unsigned int g_408104;\n
+extern unsigned int g_408108;\n
+\n
+int sub_404bb0(unsigned int v10)\n
+{\n
+    unsigned int v0;  // [bp-0x24]\n
+    unsigned int v1;  // [bp-0x20]\n
+    unsigned int v2;  // [bp-0x1c]\n
+    unsigned int v3;  // [bp-0x18]\n
+    unsigned int v4;  // [bp-0x14]\n
+    unsigned int v5;  // [bp-0x10]\n
+    unsigned int v6;  // [bp-0xc]\n
+    unsigned int v7;  // [bp-0x8]\n
+    unsigned int *v8;  // [bp-0x4]\n
+    char v9;  // [bp+0x0]\n
+    unsigned int v11;  // eax\n
+\n
+    v8 = &v9;\n
+    if (g_4080f1)\n
+        return 1;\n
+    if (v10 && v10 != 1)\n
+    {\n
+        v0 = 5;\n
+        sub_405290();\n
+    }\n
+    if (sub_405ce0() && !v10)\n
+    {\n
+        v8 = &g_4080f4;\n
+        v11 = _initialize_onexit_table();\n
+        if (v11)\n
+        {\n
+            *(&v11) = 0;\n
+            return v11;\n
+        }\n
+        v8 = &g_408100;\n
+        v11 = _initialize_onexit_table();\n
+        if (v11)\n
+        {\n
+            *(&v11) = 0;\n
+            return v11;\n
+        }\n
+        goto LABEL_404c76;\n
+    }\n
+    v7 = -1;\n
+    v4 = v7;\n
+    v5 = v7;\n
+    v6 = v7;\n
+    g_4080f4 = v4;\n
+    g_4080f8 = v5;\n
+    g_4080fc = v6;\n
+    v1 = v7;\n
+    v2 = v7;\n
+    v3 = v7;\n
+    g_408100 = v1;\n
+    g_408104 = v2;\n
+    v11 = v3;\n
+    g_408108 = v11;\n
+LABEL_404c76:\n
+    g_4080f1 = 1;\n
+    *(&v11) = 1;\n
+    return v11;\n
+}\n
+", "4213904:sub_404c90": "typedef struct struct_0 {\n
+    char field_0;\n
+} struct_0;\n
+\n
+int sub_404c90(unsigned int v5, unsigned int a0, unsigned int a1, struct struct_1 **a2, unsigned int a3, unsigned int a4)\n
+{\n
+    unsigned int v0;  // [bp-0x10]\n
+    struct struct_1 **v1;  // [bp-0xc]\n
+    struct struct_1 **v2;  // [bp-0x8], Other Possible Types: unsigned int\n
+    struct_0 *v3;  // [bp-0x4], Other Possible Types: unsigned int\n
+    char v4;  // [bp+0x0]\n
+\n
+    v3 = &v4;\n
+    if (!sub_405ce0() && a0 == 1)\n
+    {\n
+        v1 = a2;\n
+        v0 = a1;\n
+        v2 = v1;\n
+        sub_405500(v5, 0);\n
+        v2(v5, a0);\n
+    }\n
+    v3 = a4;\n
+    v2 = a3;\n
+    return _seh_filter_dll(*(&v4));\n
+}\n
+", "4213984:sub_404ce0": "int sub_404ce0()\n
+{\n
+    unsigned int v0;  // [bp-0x4]\n
+    char v1;  // [bp+0x0]\n
+    unsigned int v3;  // eax\n
+\n
+    v0 = &v1;\n
+    v3 = sub_404bb0(0);\n
+    *(&v3) = (!v3 ? 1 : 0);\n
+    return v3;\n
+}\n
+", "4214016:sub_404d00": "int sub_404d00()\n
+{\n
+    unsigned int v0;  // [bp-0x4]\n
+    char v1;  // [bp+0x0]\n
+    unsigned int v3;  // eax, Other Possible Types: char\n
+\n
+    v0 = &v1;\n
+    if (sub_405ce0())\n
+    {\n
+        v3 = sub_405850();\n
+    }\n
+    else\n
+    {\n
+        v3 = sub_404580();\n
+        if (v3)\n
+        {\n
+            v3 = 0;\n
+            return v3;\n
+        }\n
+        v3 = sub_4045a0();\n
+    }\n
+    *(&v3) = 1;\n
+    return v3;\n
+}\n
+", "4214064:sub_404d30": "extern char g_4080f4;\n
+\n
+int sub_404d30()\n
+{\n
+    unsigned int v0;  // [bp-0x8]\n
+    unsigned int v1;  // [bp-0x4]\n
+    char v2;  // [bp+0x0]\n
+    unsigned int v4;  // eax\n
+\n
+    v1 = &v2;\n
+    if (sub_405ce0())\n
+    {\n
+        v0 = &g_4080f4;\n
+        v4 = _execute_onexit_table();\n
+        return v4;\n
+    }\n
+    v4 = sub_4060d0();\n
+    if (!v4)\n
+    {\n
+        v4 = _cexit();\n
+        return v4;\n
+    }\n
+    return v4;\n
+}\n
+", "4214112:sub_404d60": "int sub_404d60()\n
+{\n
+    unsigned int v0;  // [bp-0x4]\n
+    char v1;  // [bp+0x0]\n
+\n
+    v0 = &v1;\n
+    sub_4060a0(0);\n
+    return sub_4060a0();\n
+}\n
+", "4214144:sub_404d80": "int sub_404d80()\n
+{\n
+    unsigned int v0;  // [bp-0x4]\n
+    char v1;  // [bp+0x0]\n
+    unsigned int v3;  // eax, Other Possible Types: char\n
+\n
+    v0 = &v1;\n
+    v3 = sub_4060b0();\n
+    if (!v3)\n
+    {\n
+        v3 = 0;\n
+        return v3;\n
+    }\n
+    v3 = sub_4060b0();\n
+    if (v3)\n
+    {\n
+        *(&v3) = 1;\n
+        return v3;\n
+    }\n
+    v3 = sub_4060c0();\n
+    *(&v3) = 0;\n
+    return v3;\n
+}\n
+", "4214192:sub_404db0": "char sub_404db0()\n
+{\n
+    unsigned int v0;  // [bp-0x4]\n
+    char v1;  // [bp+0x0]\n
+\n
+    v0 = &v1;\n
+    sub_4060c0();\n
+    sub_4060c0();\n
+    return 1;\n
+}\n
+", "4214224:sub_404dd0": "typedef struct struct_0 {\n
+    unsigned short field_0;\n
+    char padding_2[58];\n
+    unsigned int field_3c;\n
+} struct_0;\n
+\n
+int sub_404dd0(struct_0 *v6)\n
+{\n
+    unsigned short *v0;  // [bp-0x14]\n
+    struct_0 *v1;  // [bp-0x10]\n
+    struct_0 *v2;  // [bp-0xc]\n
+    struct_0 *v3;  // [bp-0x8]\n
+    unsigned int v4;  // [bp-0x4]\n
+    char v5;  // [bp+0x0]\n
+    struct_0 *v7;  // al, Other Possible Types: unsigned int\n
+\n
+    v4 = &v5;\n
+    if (!v6)\n
+    {\n
+        v7 = 0;\n
+        return v7;\n
+    }\n
+    v7 = v6;\n
+    v3 = v7;\n
+    if (v3->field_0 != 23117)\n
+    {\n
+        *(&v7) = 0;\n
+        return v7;\n
+    }\n
+    v1 = v3 + v3->field_3c;\n
+    v2 = v1;\n
+    v7 = v2;\n
+    if (*(v7) != 17744)\n
+    {\n
+        *(&v7) = 0;\n
+        return v7;\n
+    }\n
+    v0 = &v2->padding_2[22];\n
+    v7 = *(v0);\n
+    *(&v7) = (v7 == 267 ? 0 : 1);\n
+    return v7;\n
+}\n
+", "4214336:sub_404e40": "typedef struct struct_0 {\n
+    char padding_0[60];\n
+    unsigned int field_3c;\n
+} struct_0;\n
+\n
+int sub_404e40(struct_0 *v8, unsigned int a0)\n
+{\n
+    unsigned int v0;  // [bp-0x1c]\n
+    unsigned short v1[11];  // [bp-0x18]\n
+    unsigned int v2[4];  // [bp-0x14]\n
+    struct_0 *v3;  // [bp-0x10]\n
+    unsigned short v4[11];  // [bp-0xc]\n
+    unsigned int v5[4];  // [bp-0x8], Other Possible Types: unsigned int\n
+    unsigned int v6;  // [bp-0x4]\n
+    char v7;  // [bp+0x0]\n
+\n
+    v6 = &v7;\n
+    v3 = v8;\n
+    *(&v1[0]) = &v3->padding_0[v3->field_3c];\n
+    *(&v4[0]) = v1;\n
+    v2[0] = 24 + v4 + v4[10];\n
+    v0 = 40 * v4[3] + v2;\n
+    v5[0] = v2;\n
+    while (true)\n
+    {\n
+        if (v5 != v0)\n
+        {\n
+            if (a0 >= v5[3] && a0 < v5[3] + v5[2])\n
+                return v5;\n
+            v5 = &v5[2 + 2];\n
+        }\n
+        else\n
+        {\n
+            return 0;\n
+        }\n
+    }\n
+}\n
+", "4214480:sub_404ed0": "extern unsigned int g_408040;\n
+extern unsigned int g_408080;\n
+\n
+int sub_404ed0()\n
+{\n
+    unsigned int v0;  // [bp-0x8]\n
+    unsigned int v1;  // [bp-0x4]\n
+    char v2;  // [bp+0x0]\n
+    unsigned int v3;  // [bp+0x4]\n
+    unsigned int v4;  // eax\n
+\n
+    v1 = &v2;\n
+    if (g_408040 != 3141592654)\n
+    {\n
+        v4 = g_408040 & -0x10000;\n
+        if (v4)\n
+        {\n
+            g_408080 = ~(g_408040);\n
+            return g_408040 & -0x10000;\n
+        }\n
+    }\n
+    v4 = sub_404f50(v3);\n
+    v0 = v4;\n
+    if (v0 == 3141592654)\n
+    {\n
+        v0 = 3141592655;\n
+    }\n
+    else if (!(v0 & -0x10000))\n
+    {\n
+        v4 = (v0 | 18193) * 0x10000 | v0;\n
+        v0 = v4;\n
+    }\n
+    g_408040 = v0;\n
+    g_408080 = ~(v0);\n
+    return v4;\n
+}\n
+", "4214608:sub_404f50": "int sub_404f50()\n
+{\n
+    unsigned long long v0;  // [bp-0x18]\n
+    char v1;  // [bp-0x14]\n
+    void* v2;  // [bp-0x10]\n
+    void* v3;  // [bp-0xc]\n
+    unsigned int v4;  // [bp-0x8]\n
+    unsigned int v5;  // [bp-0x4]\n
+    char v6;  // [bp+0x0]\n
+\n
+    v5 = &v6;\n
+    v2 = 0;\n
+    v3 = 0;\n
+    GetSystemTimeAsFileTime(&v2);\n
+    v4 = v2;\n
+    v4 ^= v3;\n
+    v4 = GetCurrentThreadId() ^ v4;\n
+    v4 = GetCurrentProcessId() ^ v4;\n
+    QueryPerformanceCounter(&v0);\n
+    v4 ^= v0;\n
+    v4 ^= *(&v1);\n
+    v4 ^= &v4;\n
+    return v4;\n
+}\n
+", "4214720:sub_404fc0": "int sub_404fc0()\n
+{\n
+    unsigned int v0;  // [bp-0x4]\n
+    char v1;  // [bp+0x0]\n
+\n
+    v0 = &v1;\n
+    return 0;\n
+}\n
+", "4214736:sub_404fd0": "int sub_404fd0()\n
+{\n
+    unsigned int v0;  // [bp-0x4]\n
+    char v1;  // [bp+0x0]\n
+\n
+    v0 = &v1;\n
+    return 1;\n
+}\n
+", "4214752:sub_404fe0": "int sub_404fe0()\n
+{\n
+    unsigned int v0;  // [bp-0x4]\n
+    char v1;  // [bp+0x0]\n
+\n
+    v0 = &v1;\n
+    return 0;\n
+}\n
+", "4214768:sub_404ff0": "int sub_404ff0()\n
+{\n
+    unsigned int v0;  // [bp-0x4]\n
+    char v1;  // [bp+0x0]\n
+\n
+    v0 = &v1;\n
+    return 0x4000;\n
+}\n
+", "4214784:sub_405000": "int sub_405000()\n
+{\n
+    unsigned int v0;  // [bp-0x4]\n
+    char v1;  // [bp+0x0]\n
+\n
+    v0 = &v1;\n
+    return 0;\n
+}\n
+", "4214800:sub_405010": "int sub_405010()\n
+{\n
+    unsigned int v0;  // [bp-0x4]\n
+    char v1;  // [bp+0x0]\n
+\n
+    v0 = &v1;\n
+    return 0;\n
+}\n
+", "4214816:sub_405020": "extern void g_408110;\n
+\n
+int sub_405020()\n
+{\n
+    unsigned int v0;  // [bp-0x4]\n
+    char v1;  // [bp+0x0]\n
+\n
+    v0 = &v1;\n
+    return InitializeSListHead(&g_408110);\n
+}\n
+", "4214848:sub_405040": "extern unsigned int g_408110;\n
+\n
+int sub_405040()\n
+{\n
+    unsigned int v0;  // [bp-0x4]\n
+    char v1;  // [bp+0x0]\n
+\n
+    v0 = &v1;\n
+    return __std_type_info_destroy_list(&g_408110);\n
+}\n
+", "4214880:sub_405060": "char sub_405060()\n
+{\n
+    unsigned int v0;  // [bp-0x4]\n
+    char v1;  // [bp+0x0]\n
+\n
+    v0 = &v1;\n
+    return 1;\n
+}\n
+", "4214896:sub_405070": "int sub_405070()\n
+{\n
+    unsigned int v0;  // [bp-0x4]\n
+    char v1;  // [bp+0x0]\n
+    unsigned int v3;  // eax\n
+\n
+    v0 = &v1;\n
+    v3 = _controlfp_s(0, 0x10000, 0x30000);\n
+    if (v3)\n
+    {\n
+        v3 = sub_405290();\n
+        return v3;\n
+    }\n
+    return v3;\n
+}\n
+", "4214944:sub_4050a0": "int sub_4050a0()\n
+{\n
+    unsigned int v0;  // [bp-0x4]\n
+    char v1;  // [bp+0x0]\n
+    unsigned int v3;  // eax\n
+\n
+    v0 = &v1;\n
+    return v3;\n
+}\n
+", "4214960:sub_4050b0": "int sub_4050b0()\n
+{\n
+    unsigned int v0;  // [bp-0x4]\n
+    char v1;  // [bp+0x0]\n
+    unsigned int v3;  // eax\n
+\n
+    v0 = &v1;\n
+    return v3;\n
+}\n
+", "4214976:sub_4050c0": "int sub_4050c0()\n
+{\n
+    unsigned int v0[2];  // [bp-0xc]\n
+    unsigned int v1[2];  // [bp-0x8]\n
+    unsigned int v2;  // [bp-0x4]\n
+    char v3;  // [bp+0x0]\n
+    unsigned int v5[2];  // eax\n
+    unsigned int v7;  // edx\n
+    unsigned int v8[2];  // eax\n
+    unsigned int v9[2];  // ecx\n
+    unsigned int v11;  // eax\n
+    unsigned int v12[2];  // ecx\n
+\n
+    v2 = &v3;\n
+    v1[0] = sub_405100();\n
+    v5 = v1;\n
+    v7 = v5[1];\n
+    v8 = v1;\n
+    v8[0] = v5[0] | 36;\n
+    v8[1] = v7;\n
+    v0[0] = sub_405110(v0, v1);\n
+    v9 = v0;\n
+    v11 = v9[1];\n
+    v12 = v0;\n
+    v12[0] = v9[0] | 2;\n
+    v12[1] = v11;\n
+    return v11;\n
+}\n
+", "4215040:sub_405100": "extern char g_408118;\n
+\n
+int sub_405100()\n
+{\n
+    unsigned int v0;  // [bp-0x4]\n
+    char v1;  // [bp+0x0]\n
+\n
+    v0 = &v1;\n
+    return &g_408118;\n
+}\n
+", "4215056:sub_405110": "extern char g_408120;\n
+\n
+int sub_405110()\n
+{\n
+    unsigned int v0;  // [bp-0x4]\n
+    char v1;  // [bp+0x0]\n
+\n
+    v0 = &v1;\n
+    return &g_408120;\n
+}\n
+", "4215072:sub_405120": "extern unsigned int g_408024;\n
+\n
+int sub_405120()\n
+{\n
+    unsigned int v0;  // [bp-0x8]\n
+    unsigned int v1;  // [bp-0x4]\n
+    char v2;  // [bp+0x0]\n
+    unsigned int v4;  // ecx\n
+\n
+    v1 = &v2;\n
+    v0 = v4;\n
+    if (!g_408024)\n
+    {\n
+        v0 = 1;\n
+        return v0;\n
+    }\n
+    v0 = 0;\n
+    return v0;\n
+}\n
+", "4215120:sub_405150": "extern char g_40812c;\n
+\n
+int sub_405150()\n
+{\n
+    unsigned int v0;  // [bp-0x4]\n
+    char v1;  // [bp+0x0]\n
+\n
+    v0 = &v1;\n
+    return &g_40812c;\n
+}\n
+", "4215136:sub_405160": "extern char g_408130;\n
+\n
+int sub_405160()\n
+{\n
+    unsigned int v0;  // [bp-0x4]\n
+    char v1;  // [bp+0x0]\n
+\n
+    v0 = &v1;\n
+    return &g_408130;\n
+}\n
+", "4215152:sub_405170": "extern void* g_408134;\n
+\n
+int sub_405170()\n
+{\n
+    unsigned int v0;  // [bp-0x4]\n
+    char v1;  // [bp+0x0]\n
+    unsigned int v3;  // eax\n
+\n
+    v0 = &v1;\n
+    g_408134 = 0;\n
+    return v3;\n
+}\n
+", "4215168:sub_405180": "typedef struct STARTUPINFOW {\n
+    unsigned int cb;\n
+    char *lpReserved;\n
+    char *lpDesktop;\n
+    char *lpTitle;\n
+    unsigned int dwX;\n
+    unsigned int dwY;\n
+    unsigned int dwXSize;\n
+    unsigned int dwYSize;\n
+    unsigned int dwXCountChars;\n
+    unsigned int dwYCountChars;\n
+    unsigned int dwFillAttribute;\n
+    unsigned int dwFlags;\n
+    unsigned short wShowWindow;\n
+    unsigned short cbReserved2;\n
+    char *lpReserved2;\n
+    unsigned int *hStdInput;\n
+    unsigned int *hStdOutput;\n
+    unsigned int *hStdError;\n
+} STARTUPINFOW;\n
+\n
+int sub_405180()\n
+{\n
+    STARTUPINFOW v0;  // [bp-0x4c]\n
+    char v1;  // [bp-0x20]\n
+    char v2;  // [bp-0x1c]\n
+    unsigned int v3;  // [bp-0x8]\n
+    unsigned int v4;  // [bp-0x4]\n
+    char v5;  // [bp+0x0]\n
+\n
+    v4 = &v5;\n
+    memset(&v0, 0);\n
+    GetStartupInfoW(&v0);\n
+    if (!(*(&v1) & 1))\n
+    {\n
+        v3 = 10;\n
+        return v3;\n
+    }\n
+    v3 = *(&v2);\n
+    return v3;\n
+}\n
+", "4215232:sub_4051c0": "typedef struct struct_0 {\n
+    unsigned short field_0;\n
+    char padding_2[22];\n
+    unsigned short field_18;\n
+    char padding_1a[34];\n
+    unsigned int field_3c;\n
+    char padding_40[52];\n
+    unsigned int field_74;\n
+} struct_0;\n
+\n
+int sub_4051c0()\n
+{\n
+    struct_0 *v0;  // [bp-0xc]\n
+    struct_0 *v1;  // [bp-0x8]\n
+    unsigned int v2;  // [bp-0x4]\n
+    char v3;  // [bp+0x0]\n
+    struct_0 *v5;  // eax, Other Possible Types: unsigned int\n
+\n
+    v2 = &v3;\n
+    v5 = GetModuleHandleW(NULL);\n
+    v1 = v5;\n
+    if (!v1)\n
+    {\n
+        *(&v5) = 0;\n
+        return v5;\n
+    }\n
+    v5 = v1;\n
+    if (*(v5) != 23117)\n
+    {\n
+        *(&v5) = 0;\n
+        return v5;\n
+    }\n
+    v5 = v1 + v1->field_3c;\n
+    v0 = v5;\n
+    if (*(&v0->field_0) != 17744)\n
+    {\n
+        *(&v5) = 0;\n
+        return v5;\n
+    }\n
+    v5 = v0->field_18;\n
+    if (v5 != 267)\n
+    {\n
+        *(&v5) = 0;\n
+        return v5;\n
+    }\n
+    else if (v0->field_74 > 14)\n
+    {\n
+        v5 = 8 * 14;\n
+        *(&v5) = (!*((120 + &v0->field_0 + v5)) ? 1 : 0);\n
+        return v5;\n
+    }\n
+    else\n
+    {\n
+        *(&v5) = 0;\n
+        return v5;\n
+    }\n
+}\n
+", "4215376:sub_405250": "int sub_405250()\n
+{\n
+    unsigned int v0;  // [bp-0x4]\n
+    char v1;  // [bp+0x0]\n
+\n
+    v0 = &v1;\n
+    return 0;\n
+}\n
+", "4215392:sub_405260": "int sub_405260()\n
+{\n
+    unsigned int v0;  // [bp-0x4]\n
+    char v1;  // [bp+0x0]\n
+\n
+    v0 = &v1;\n
+    return sub_4053d0();\n
+}\n
+", "4215408:sub_405270": "int sub_405270()\n
+{\n
+    unsigned int v0;  // [bp-0x4]\n
+    char v1;  // [bp+0x0]\n
+\n
+    v0 = &v1;\n
+    return SetUnhandledExceptionFilter(sub_4053e0);\n
+}\n
+", "4215440:sub_405290": "typedef struct struct_0 {\n
+    char field_0;\n
+} struct_0;\n
+\n
+int sub_405290()\n
+{\n
+    unsigned int v0;  // [bp-0x334]\n
+    unsigned int v1;  // [bp-0x330], Other Possible Types: char\n
+    unsigned short v2;  // [bp-0x2a4]\n
+    unsigned short v3;  // [bp-0x2a0]\n
+    unsigned short v4;  // [bp-0x29c]\n
+    unsigned short v5;  // [bp-0x298]\n
+    unsigned int v6;  // [bp-0x294]\n
+    unsigned int v7;  // [bp-0x290]\n
+    unsigned int v8;  // [bp-0x28c]\n
+    unsigned int v9;  // [bp-0x288]\n
+    unsigned int v10;  // [bp-0x284]\n
+    unsigned int v11;  // [bp-0x280]\n
+    unsigned int v12;  // [bp-0x27c]\n
+    unsigned int v13;  // [bp-0x278]\n
+    unsigned short v14;  // [bp-0x274]\n
+    unsigned int v15;  // [bp-0x270]\n
+    unsigned int v16;  // [bp-0x26c]\n
+    unsigned short v17;  // [bp-0x268]\n
+    char v18;  // [bp-0x64], Other Possible Types: unsigned int\n
+    unsigned int v19;  // [bp-0x60]\n
+    unsigned int v20;  // [bp-0x58]\n
+    struct_0 *v21;  // [bp-0x14]\n
+    struct_0 *v22;  // [bp-0x10]\n
+    unsigned int v23;  // [bp-0xc]\n
+    char v24;  // [bp-0x6]\n
+    char v25;  // [bp-0x5]\n
+    unsigned int v26;  // [bp-0x4]\n
+    char v27;  // [bp+0x0]\n
+    unsigned int v29;  // ecx\n
+    unsigned int v30;  // edx\n
+    unsigned int v31;  // ebx\n
+    unsigned int v32;  // esi\n
+    unsigned int v33;  // edi\n
+    unsigned short v34;  // ss\n
+    unsigned short v35;  // cs\n
+    unsigned short v36;  // ds\n
+    unsigned short v37;  // es\n
+    unsigned short v38;  // fs\n
+    unsigned short v39;  // gs\n
+    unsigned int v40;  // d\n
+    unsigned int v41;  // id\n
+    unsigned int v42;  // ac\n
+    unsigned int v43;  // ebp\n
+\n
+    v26 = &v27;\n
+    if (!IsProcessorFeaturePresent(23))\n
+    {\n
+        sub_405170();\n
+        v11 = memset(&v1, 0);\n
+        v10 = v29;\n
+        v9 = v30;\n
+        v8 = v31;\n
+        v7 = v32;\n
+        v6 = v33;\n
+        v17 = v34;\n
+        v14 = v35;\n
+        v5 = v36;\n
+        v4 = v37;\n
+        v3 = v38;\n
+        v2 = v39;\n
+        v0 = [D] x86g_calculate_eflags_all(0x3<32>, BaseOffset(stack_base, -828), 0xc<32>, 0x0<32>) | 514 | v40 & 0x400 | v41 * 0x200000 & 0x200000 | v42 * 0x40000 & 0x40000;\n
+        v15 = v0;\n
+        v1 = 65537;\n
+        v13 = *(&v27);\n
+        v16 = &v27;\n
+        v12 = v26;\n
+        memset(&v18, 0);\n
+        v18 = 1073741845;\n
+        v19 = 1;\n
+        v20 = *(&v27);\n
+        if (IsDebuggerPresent() == 1)\n
+            v25 = 1;\n
+        else\n
+            v25 = 0;\n
+        v24 = v25;\n
+        v21 = &v18;\n
+        v22 = &v1;\n
+        SetUnhandledExceptionFilter(NULL);\n
+        v23 = UnhandledExceptionFilter(&v21);\n
+        if (v23)\n
+        {\n
+            v43 = v26;\n
+            return;\n
+        }\n
+        else if (v24)\n
+        {\n
+            v43 = v26;\n
+            return;\n
+        }\n
+        else\n
+        {\n
+            sub_405170();\n
+            v43 = v26;\n
+            return;\n
+        }\n
+    }\n
+}\n
+", "4215465:sub_4052a9": "int sub_4052a9()\n
+{\n
+    [D] Unsupported jumpkind Ijk_NoDecode at address 4215465\n
+}\n
+", "4215760:sub_4053d0": "int sub_4053d0()\n
+{\n
+    unsigned int v0;  // [bp-0x4]\n
+    char v1;  // [bp+0x0]\n
+\n
+    v0 = &v1;\n
+    return 0;\n
+}\n
+", "4215776:sub_4053e0": "typedef struct struct_0 {\n
+    struct struct_1 *field_0;\n
+    unsigned int field_4;\n
+} struct_0;\n
+\n
+typedef struct struct_1 {\n
+    unsigned int field_0;\n
+    char padding_4[12];\n
+    unsigned int field_10;\n
+    unsigned int field_14;\n
+} struct_1;\n
+\n
+int sub_4053e0(struct_0 *v4)\n
+{\n
+    unsigned int v0;  // [bp-0xc]\n
+    unsigned int v1[6];  // [bp-0x8]\n
+    unsigned int v2;  // [bp-0x4]\n
+    char v3;  // [bp+0x0]\n
+\n
+    v2 = &v3;\n
+    v1[0] = v4->field_0;\n
+    if (v1[0] != 3765269347)\n
+    {\n
+        return 0;\n
+    }\n
+    else if (v1[4] != 3)\n
+    {\n
+        return 0;\n
+    }\n
+    else\n
+    {\n
+        if (v1[5] != 429065504 && v1[5] != 429065505 && v1[5] != 429065506 && v1[5] != 0x1994000)\n
+            return 0;\n
+        *(__current_exception()) = v1;\n
+        v0 = v4->field_4;\n
+        *(__current_exception_context()) = v0;\n
+        terminate();\n
+        return 0;\n
+    }\n
+}\n
+", "4215904:sub_405460": "extern struct_0 *g_40789c;\n
+\n
+int sub_405460()\n
+{\n
+    struct struct_0 **v2;  // esi\n
+    struct struct_0 **v3;  // eax\n
+\n
+    v2 = &g_40789c;\n
+    v3 = &g_40789c;\n
+    return &g_40789c;\n
+}\n
+", "4215952:sub_405490": "extern struct_0 *g_4078a4;\n
+\n
+int sub_405490()\n
+{\n
+    struct struct_0 **v2;  // esi\n
+    struct struct_0 **v3;  // eax\n
+\n
+    v2 = &g_4078a4;\n
+    v3 = &g_4078a4;\n
+    return &g_4078a4;\n
+}\n
+", "4216000:sub_4054c0": "extern unsigned int g_408040;\n
+\n
+int sub_4054c0(unsigned int *v2, unsigned int a0, unsigned int a1, unsigned int a2)\n
+{\n
+    unsigned int v0;  // [bp-0x4]\n
+    char v1;  // [bp+0x0]\n
+\n
+    v0 = &v1;\n
+    *(v2) = sub_4060e0(*(v2));\n
+    return _except_handler4_common(&g_408040, sub_405d10, v2, a0, a1);\n
+}\n
+", "4216064:sub_405500": "int sub_405500()\n
+{\n
+    unsigned int v0;  // [bp-0x8]\n
+    unsigned int v1;  // [bp-0x4]\n
+    char v2;  // [bp+0x0]\n
+    unsigned int v4;  // ecx\n
+    unsigned int v5;  // eax\n
+\n
+    v1 = &v2;\n
+    v0 = v4;\n
+    v0 = v4;\n
+    return v5;\n
+}\n
+", "4216080:sub_405510": "int sub_405510(unsigned int *v2, unsigned int a0)\n
+{\n
+    unsigned int v0;  // [bp-0x4]\n
+    int tmp_4;  // tmp #4\n
+    int tmp_22;  // tmp #22\n
+    int tmp_7;  // tmp #7\n
+    char v1;  // [bp+0x0]\n
+    unsigned int *v3;  // ecx\n
+\n
+    v0 = &v1;\n
+    v3 = v2;\n
+    tmp_4 = *(v3);\n
+    *(v3) = a0;\n
+    tmp_22 = CasCmpNE(tmp_7, tmp_4);\n
+    if (tmp_22)\n
+        goto LABEL_0x405519;\n
+    return tmp_4;\n
+}\n
+", "4216096:sub_405520": "int sub_405520(unsigned int *v3)\n
+{\n
+    unsigned int v0;  // [bp-0x8]\n
+    unsigned int v1;  // [bp-0x4]\n
+    char v2;  // [bp+0x0]\n
+    unsigned int v4;  // ecx\n
+\n
+    v1 = &v2;\n
+    v0 = v4;\n
+    v0 = *(v3);\n
+    return v0;\n
+}\n
+", "4216128:sub_405540": "int sub_405540(unsigned int *v2)\n
+{\n
+    unsigned int v0;  // [bp-0x4]\n
+    char v1;  // [bp+0x0]\n
+\n
+    v0 = &v1;\n
+    return sub_405520(v2);\n
+}\n
+", "4216160:sub_405560": "extern unsigned int g_408138;\n
+\n
+int sub_405560(unsigned int v3)\n
+{\n
+    unsigned int v0;  // [bp-0x8]\n
+    unsigned int v1;  // [bp-0x4]\n
+    char v2;  // [bp+0x0]\n
+    unsigned int v4;  // ecx\n
+\n
+    v1 = &v2;\n
+    v0 = v4;\n
+    v0 = sub_405510(&g_408138, v3);\n
+    return v0;\n
+}\n
+", "4216192:sub_405580": "extern char g_405500;\n
+extern unsigned int g_409000;\n
+\n
+int sub_405580()\n
+{\n
+    unsigned int v0;  // [bp-0x8]\n
+    unsigned int v1;  // [bp-0x4]\n
+    char v2;  // [bp+0x0]\n
+    unsigned int v4;  // ecx\n
+\n
+    v1 = &v2;\n
+    v0 = v4;\n
+    if (sub_405540(&g_409000) != sub_405500)\n
+    {\n
+        v0 = 1;\n
+        return v0;\n
+    }\n
+    v0 = 0;\n
+    return v0;\n
+}\n
+", "4216240:sub_4055b0": "extern char g_407180;\n
+\n
+int sub_4055b0(unsigned int v6)\n
+{\n
+    unsigned int v0;  // [bp-0x14]\n
+    unsigned int v1;  // [bp-0x10]\n
+    unsigned int v2;  // [bp-0xc]\n
+    unsigned int v3;  // [bp-0x8]\n
+    unsigned int v4;  // [bp-0x4]\n
+    char v5;  // [bp+0x0]\n
+\n
+    v4 = &v5;\n
+    v3 = &g_407180;\n
+    v1 = &g_407180;\n
+    v0 = v1 - v3;\n
+    if (v6 - v3 <= v0)\n
+    {\n
+        v2 = 1;\n
+        return v2;\n
+    }\n
+    v2 = 0;\n
+    return v2;\n
+}\n
+", "4216304:sub_4055f0": "extern unsigned int g_409008;\n
+\n
+int sub_4055f0(unsigned int v3)\n
+{\n
+    struct struct_0 **v0;  // [bp-0x8]\n
+    unsigned int v1;  // [bp-0x4]\n
+    char v2;  // [bp+0x0]\n
+    struct struct_0 **v4;  // ecx\n
+    struct struct_0 **v5;  // eax, Other Possible Types: unsigned int\n
+\n
+    v1 = &v2;\n
+    v0 = v4;\n
+    v5 = sub_405540(&g_409008);\n
+    v0 = v5;\n
+    if (v0)\n
+    {\n
+        v5 = v0();\n
+        return v5;\n
+    }\n
+    return v5;\n
+}\n
+", "4216352:sub_405620": "extern unsigned int g_408138;\n
+\n
+int sub_405620(unsigned int v4)\n
+{\n
+    struct struct_0 **v0;  // [bp-0xc]\n
+    struct struct_0 **v1;  // [bp-0x8]\n
+    unsigned int v2;  // [bp-0x4]\n
+    char v3;  // [bp+0x0]\n
+    struct struct_0 **v5;  // eax, Other Possible Types: unsigned int\n
+\n
+    v2 = &v3;\n
+    v5 = sub_405540(&g_408138);\n
+    v1 = v5;\n
+    if (v1)\n
+    {\n
+        v0 = v1;\n
+        sub_405500();\n
+        v5 = v0();\n
+        return v5;\n
+    }\n
+    return v5;\n
+}\n
+", "4216416:sub_405660": "int sub_405660()\n
+{\n
+    unsigned int v0;  // [bp-0x4]\n
+    char v1;  // [bp+0x0]\n
+    unsigned int v3;  // eax\n
+\n
+    v0 = &v1;\n
+    return v3;\n
+}\n
+", "4216432:sub_405670": "int sub_405670(unsigned int v2)\n
+{\n
+    unsigned int v0;  // [bp-0x4]\n
+    char v1;  // [bp+0x0]\n
+    unsigned int v3;  // eax\n
+\n
+    v0 = &v1;\n
+    v3 = sub_4055b0(v2);\n
+    if (!v3)\n
+        return v3;\n
+    [D] Unsupported jumpkind Ijk_SigTRAP at address 4216451\n
+}\n
+", "4216464:sub_405690": "int sub_405690(unsigned int v2)\n
+{\n
+    unsigned int v0;  // [bp-0x4]\n
+    char v1;  // [bp+0x0]\n
+    unsigned int v3;  // eax\n
+\n
+    v0 = &v1;\n
+    v3 = sub_4055b0(v2);\n
+    if (!v3)\n
+        return v3;\n
+}\n
+", "4216489:sub_4056a9": "int sub_4056a9()\n
+{\n
+    [D] Unsupported jumpkind Ijk_NoDecode at address 4216489\n
+}\n
+", "4216496:sub_4056b0": "int sub_4056b0(unsigned int v2)\n
+{\n
+    unsigned int v0;  // [bp-0x4]\n
+    char v1;  // [bp+0x0]\n
+    unsigned int v3;  // eax\n
+\n
+    v0 = &v1;\n
+    v3 = sub_4055b0(v2);\n
+    if (v3)\n
+    {\n
+        v3 = sub_4055f0(v2);\n
+        return v3;\n
+    }\n
+    return v3;\n
+}\n
+", "4216544:sub_4056e0": "int sub_4056e0(unsigned int v2)\n
+{\n
+    unsigned int v0;  // [bp-0x4]\n
+    char v1;  // [bp+0x0]\n
+    unsigned int v3;  // eax\n
+\n
+    v0 = &v1;\n
+    v3 = sub_4055b0(v2);\n
+    if (v3)\n
+    {\n
+        v3 = sub_405620(v2);\n
+        return v3;\n
+    }\n
+    return v3;\n
+}\n
+", "4216592:sub_405710": "extern char g_407180;\n
+\n
+int sub_405710(unsigned int v5, unsigned int a0, unsigned int a1)\n
+{\n
+    unsigned int v0;  // [bp-0x10]\n
+    unsigned int v1;  // [bp-0xc]\n
+    unsigned int v2;  // [bp-0x8]\n
+    unsigned int v3;  // [bp-0x4]\n
+    char v4;  // [bp+0x0]\n
+\n
+    v3 = &v4;\n
+    v1 = &g_407180;\n
+    v0 = v1 + a0;\n
+    if (v5 - v0 > a1)\n
+    {\n
+        v2 = 1;\n
+        return v2;\n
+    }\n
+    v2 = 0;\n
+    return v2;\n
+}\n
+", "4216656:sub_405750": "int sub_405750(unsigned int v2, unsigned int a0, unsigned int a1)\n
+{\n
+    unsigned int v0;  // [bp-0x4]\n
+    char v1;  // [bp+0x0]\n
+    unsigned int v3;  // eax\n
+\n
+    v0 = &v1;\n
+    v3 = sub_405710(v2, a0, a1);\n
+    if (!v3)\n
+        return v3;\n
+    v3 = sub_4055b0(v2);\n
+    if (!v3)\n
+        return v3;\n
+    [D] Unsupported jumpkind Ijk_SigTRAP at address 4216699\n
+}\n
+", "4216704:sub_405780": "int sub_405780(unsigned int v2, unsigned int a0, unsigned int a1)\n
+{\n
+    unsigned int v0;  // [bp-0x4]\n
+    char v1;  // [bp+0x0]\n
+    unsigned int v3;  // eax\n
+\n
+    v0 = &v1;\n
+    v3 = sub_405710(v2, a0, a1);\n
+    if (!v3)\n
+        return v3;\n
+    v3 = sub_4055b0(v2);\n
+    if (!v3)\n
+        return v3;\n
+}\n
+", "4216753:sub_4057b1": "int sub_4057b1()\n
+{\n
+    [D] Unsupported jumpkind Ijk_NoDecode at address 4216753\n
+}\n
+", "4216768:sub_4057c0": "int sub_4057c0()\n
+{\n
+    unsigned int v0;  // [bp-0x4]\n
+    char v1;  // [bp+0x0]\n
+    unsigned int v3;  // eax\n
+\n
+    v0 = &v1;\n
+    return v3;\n
+}\n
+", "4216784:sub_4057d0": "int sub_4057d0(unsigned int v2, unsigned int a0, unsigned int a1)\n
+{\n
+    unsigned int v0;  // [bp-0x4]\n
+    char v1;  // [bp+0x0]\n
+    unsigned int v3;  // eax\n
+\n
+    v0 = &v1;\n
+    v3 = sub_405710(v2, a0, a1);\n
+    if (!v3)\n
+        return v3;\n
+    v3 = sub_4055b0(v2);\n
+    if (v3)\n
+    {\n
+        v3 = sub_4055f0(v2);\n
+        return v3;\n
+    }\n
+    return v3;\n
+}\n
+", "4216848:sub_405810": "int sub_405810(unsigned int v2, unsigned int a0, unsigned int a1)\n
+{\n
+    unsigned int v0;  // [bp-0x4]\n
+    char v1;  // [bp+0x0]\n
+    unsigned int v3;  // eax\n
+\n
+    v0 = &v1;\n
+    v3 = sub_405710(v2, a0, a1);\n
+    if (!v3)\n
+        return v3;\n
+    v3 = sub_4055b0(v2);\n
+    if (v3)\n
+    {\n
+        v3 = sub_405620(v2);\n
+        return v3;\n
+    }\n
+    return v3;\n
+}\n
+", "4216912:sub_405850": "extern unsigned int g_408040;\n
+extern unsigned int g_408088;\n
+extern unsigned int g_40808c;\n
+extern unsigned int g_408090;\n
+extern unsigned int g_40813c;\n
+extern unsigned int g_408140;\n
+extern unsigned int g_408144;\n
+\n
+int sub_405850()\n
+{\n
+    unsigned int v0;  // [bp-0x6c]\n
+    int tmp_5;  // tmp #5\n
+    unsigned int v1;  // [bp-0x68]\n
+    unsigned int v2;  // [bp-0x64]\n
+    void* v3;  // [bp-0x60]\n
+    unsigned int v4;  // [bp-0x5c]\n
+    void* v5;  // [bp-0x58]\n
+    unsigned int v6;  // [bp-0x54]\n
+    void* v7;  // [bp-0x50]\n
+    unsigned int v8;  // [bp-0x4c]\n
+    void* v9;  // [bp-0x48]\n
+    void* v10;  // [bp-0x44], Other Possible Types: unsigned int\n
+    void* v11;  // [bp-0x40], Other Possible Types: unsigned int\n
+    unsigned int v12;  // [bp-0x3c]\n
+    void* v13;  // [bp-0x38], Other Possible Types: unsigned int\n
+    unsigned int v14;  // [bp-0x34]\n
+    unsigned int v15;  // [bp-0x30]\n
+    void* v16;  // [bp-0x2c], Other Possible Types: unsigned int\n
+    void* v17;  // [bp-0x28], Other Possible Types: unsigned int\n
+    unsigned int v18;  // [bp-0x24]\n
+    unsigned int v19;  // [bp-0x20]\n
+    char v20;  // [bp-0x19]\n
+    void* v21;  // [bp-0x18], Other Possible Types: unsigned int\n
+    unsigned int v22;  // [bp-0x14]\n
+    void* v23;  // [bp-0x10], Other Possible Types: unsigned int\n
+    unsigned int v24;  // [bp-0xc]\n
+    unsigned int v25;  // [bp-0x8]\n
+    unsigned int v26;  // [bp-0x4]\n
+    char v27;  // [bp+0x0]\n
+    unsigned int v29;  // ebx\n
+    unsigned int v30;  // esi\n
+    unsigned int v31;  // edx\n
+    unsigned int v32;  // edx\n
+    unsigned int v33;  // edx\n
+    unsigned int v38;  // ebp\n
+\n
+    v26 = &v27;\n
+    v25 = g_408040 ^ &v26;\n
+    v1 = v29;\n
+    v0 = v30;\n
+    g_408140 = 0;\n
+    g_408090 = g_408090 | 1;\n
+    if (!IsProcessorFeaturePresent(10))\n
+    {\n
+        sub_405d10();\n
+        v38 = v26;\n
+        return;\n
+    }\n
+    [D] t4294967295 = DIRTY 1 TODO(effects) ::: x86g_dirtyhelper_CPUID_sse3(GSPTR)\n
+    [D] MBusEvent-Imbe_Fence\n
+    v21 = 0;\n
+    v22 = v29;\n
+    v23 = 0;\n
+    v24 = v31;\n
+    v12 = v21;\n
+    v32 = v22 ^ 1970169159 | v24 ^ 1231384169 | v23 ^ 1818588270;\n
+    if (!v32)\n
+        v13 = 1;\n
+    else\n
+        v13 = 0;\n
+    v20 = v13;\n
+    [D] t4294967295 = DIRTY 1 TODO(effects) ::: x86g_dirtyhelper_CPUID_sse3(GSPTR)\n
+    [D] MBusEvent-Imbe_Fence\n
+    v21 = 1;\n
+    v22 = v29;\n
+    v23 = 0;\n
+    v24 = v32;\n
+    v19 = v21;\n
+    if (v20)\n
+    {\n
+        if ((v19 & 268386288) != 67264 && (v19 & 268386288) != 132704 && (v19 & 268386288) != 132720 && (v19 & 268386288) != 198224 && (v19 & 268386288) != 198240 && !((v19 & 268386288) == 198256))\n
+            goto LABEL_40599b;\n
+        g_408144 = g_408144 | 1;\n
+    }\n
+LABEL_40599b:\n
+    v18 = v23;\n
+    v17 = 0;\n
+    v11 = 0;\n
+    v10 = 0;\n
+    v16 = 0;\n
+    if (v12 >= 7)\n
+    {\n
+        [D] t4294967295 = DIRTY 1 TODO(effects) ::: x86g_dirtyhelper_CPUID_sse3(GSPTR)\n
+        [D] MBusEvent-Imbe_Fence\n
+        v21 = 7;\n
+        v22 = v29;\n
+        v23 = 0;\n
+        v24 = v18;\n
+        v17 = v22;\n
+        v11 = v24;\n
+        if ((v22 & 0x200))\n
+            g_408144 = g_408144 | 2;\n
+        v33 = 4;\n
+        if (v21 >= 1)\n
+        {\n
+            [D] t4294967295 = DIRTY 1 TODO(effects) ::: x86g_dirtyhelper_CPUID_sse3(GSPTR)\n
+            [D] MBusEvent-Imbe_Fence\n
+            v21 = 7;\n
+            v22 = v29;\n
+            v23 = 1;\n
+            v24 = 4;\n
+            v33 = 4 * 3;\n
+            v10 = v24;\n
+        }\n
+        if (v12 >= 36)\n
+        {\n
+            [D] t4294967295 = DIRTY 1 TODO(effects) ::: x86g_dirtyhelper_CPUID_sse3(GSPTR)\n
+            [D] MBusEvent-Imbe_Fence\n
+            v21 = 36;\n
+            v22 = v29;\n
+            v23 = 0;\n
+            v24 = v33;\n
+            v16 = v22;\n
+        }\n
+    }\n
+    g_408140 = 1;\n
+    g_408090 = g_408090 | 2;\n
+    g_408088 = g_408088 & -2;\n
+    g_40808c = g_40808c;\n
+    if ((v18 & 0x100000))\n
+    {\n
+        g_408140 = 2;\n
+        g_408090 = g_408090 | 4;\n
+        g_408088 = g_408088 & -17;\n
+        g_40808c = g_40808c;\n
+        if ((v18 & 0x8000000) && (v18 & 0x10000000))\n
+        {\n
+            [D] t5 = DIRTY 1 TODO(effects) ::: x86g_dirtyhelper_XGETBV(t4)\n
+            v14 = tmp_5;\n
+            v15 = tmp_5 >> 32;\n
+            v8 = v14 & 6;\n
+            v9 = 0;\n
+            if (v8 == 6 && !v9)\n
+            {\n
+                g_408140 = 3;\n
+                g_408090 = g_408090 | 8;\n
+                if ((v17 & 32))\n
+                {\n
+                    g_408140 = 5;\n
+                    g_408090 = g_408090 | 32;\n
+                    g_408088 = g_408088 & -3;\n
+                    g_40808c = g_40808c;\n
+                    if ((v17 & 0xd0030000) == 0xd0030000)\n
+                    {\n
+                        v6 = v14 & 224;\n
+                        v7 = 0;\n
+                        if (v6 == 224 && !v7)\n
+                        {\n
+                            g_408140 = 6;\n
+                            g_408090 = g_408090 | 64;\n
+                            g_408088 = g_408088 & -37;\n
+                            g_40808c = g_40808c;\n
+                        }\n
+                    }\n
+                }\n
+                if ((v11 & 0x800000))\n
+                {\n
+                    g_408088 = g_408088 & -16777217;\n
+                    g_40808c = g_40808c;\n
+                }\n
+                if ((v10 & 0x80000))\n
+                {\n
+                    v4 = v14 & 224;\n
+                    v5 = 0;\n
+                    if (v4 == 224 && !v5)\n
+                    {\n
+                        g_40813c = v16 & 262399;\n
+                        v2 = v16 >> 16 & 7;\n
+                        v3 = 0;\n
+                        g_408088 = ~(v2 | 16777256) & g_408088;\n
+                        g_40808c = ~(v3) & g_40808c;\n
+                        if (g_40813c > 1)\n
+                        {\n
+                            g_408088 = g_408088 & -65;\n
+                            g_40808c = g_40808c;\n
+                        }\n
+                    }\n
+                }\n
+            }\n
+        }\n
+    }\n
+}\n
+", "4218080:sub_405ce0": "extern unsigned int g_408094;\n
+\n
+int sub_405ce0()\n
+{\n
+    unsigned int v0;  // [bp-0x8]\n
+    unsigned int v1;  // [bp-0x4]\n
+    char v2;  // [bp+0x0]\n
+    unsigned int v4;  // ecx\n
+\n
+    v1 = &v2;\n
+    v0 = v4;\n
+    if (g_408094)\n
+    {\n
+        v0 = 1;\n
+        return v0;\n
+    }\n
+    v0 = 0;\n
+    return v0;\n
+}\n
+", "4218128:sub_405d10": "extern unsigned int g_408040;\n
+extern unsigned int g_408080;\n
+extern unsigned int g_408150;\n
+extern unsigned int g_408154;\n
+extern unsigned int g_40815c;\n
+extern unsigned int g_408160;\n
+extern unsigned int g_408164;\n
+extern unsigned int g_4081a0;\n
+extern unsigned short g_40822c;\n
+extern unsigned short g_408230;\n
+extern unsigned short g_408234;\n
+extern unsigned short g_408238;\n
+extern unsigned int g_40823c;\n
+extern unsigned int g_408240;\n
+extern unsigned int g_408244;\n
+extern unsigned int g_408248;\n
+extern unsigned int g_40824c;\n
+extern unsigned int g_408250;\n
+extern unsigned int g_408254;\n
+extern unsigned int g_408258;\n
+extern unsigned short g_40825c;\n
+extern unsigned int g_408260;\n
+extern unsigned int g_408264;\n
+extern unsigned short g_408268;\n
+\n
+int sub_405d10()\n
+{\n
+    unsigned int v0;  // [bp-0x32c]\n
+    unsigned int v1;  // [bp-0xc]\n
+    unsigned int v2;  // [bp-0x8]\n
+    unsigned int v3;  // [bp-0x4]\n
+    char v4;  // [bp+0x0]\n
+    unsigned int v5;  // [bp+0x4]\n
+    unsigned int v6;  // ecx\n
+    unsigned int v7;  // eax\n
+    unsigned int v8;  // edx\n
+    unsigned int v9;  // ebx\n
+    unsigned int v10;  // esi\n
+    unsigned int v11;  // edi\n
+    unsigned short v12;  // ss\n
+    unsigned short v13;  // cs\n
+    unsigned short v14;  // ds\n
+    unsigned short v15;  // es\n
+    unsigned short v16;  // fs\n
+    unsigned short v17;  // gs\n
+    unsigned int v18;  // d\n
+    unsigned int v19;  // id\n
+    unsigned int v20;  // ac\n
+    unsigned int v21;  // ebp\n
+\n
+    if (v6 == g_408040)\n
+        return;\n
+    v3 = &v4;\n
+    v7 = IsProcessorFeaturePresent(23);\n
+    if (!v7)\n
+    {\n
+        g_408250 = v7;\n
+        g_40824c = v6;\n
+        g_408248 = v8;\n
+        g_408244 = v9;\n
+        g_408240 = v10;\n
+        g_40823c = v11;\n
+        g_408268 = v12;\n
+        g_40825c = v13;\n
+        g_408238 = v14;\n
+        g_408234 = v15;\n
+        g_408230 = v16;\n
+        g_40822c = v17;\n
+        v0 = [D] x86g_calculate_eflags_all(0xf<32>, 0x0<32>, 0x0<32>, 0x0<32>) | 514 | v18 & 0x400 | v19 * 0x200000 & 0x200000 | v20 * 0x40000 & 0x40000;\n
+        g_408260 = v0;\n
+        g_408254 = v3;\n
+        g_408258 = *(&v4);\n
+        g_408264 = &v5;\n
+        g_4081a0 = 65537;\n
+        g_40815c = g_408258;\n
+        g_408150 = 3221226505;\n
+        g_408154 = 1;\n
+        g_408160 = 1;\n
+        g_408164 = 2;\n
+        v1 = g_408040;\n
+        v2 = g_408080;\n
+        sub_406050();\n
+        v21 = v3;\n
+        return;\n
+    }\n
+}\n
+", "4218144:sub_405d20": "extern unsigned int g_408150;\n
+extern unsigned int g_408154;\n
+extern unsigned int g_40815c;\n
+extern unsigned int g_408160;\n
+extern unsigned int g_408164;\n
+extern unsigned short g_40822c;\n
+extern unsigned short g_408230;\n
+extern unsigned short g_408234;\n
+extern unsigned short g_408238;\n
+extern unsigned int g_40823c;\n
+extern unsigned int g_408240;\n
+extern unsigned int g_408244;\n
+extern unsigned int g_408248;\n
+extern unsigned int g_40824c;\n
+extern unsigned int g_408250;\n
+extern unsigned int g_408254;\n
+extern unsigned int g_408258;\n
+extern unsigned short g_40825c;\n
+extern unsigned int g_408260;\n
+extern unsigned int g_408264;\n
+extern unsigned short g_408268;\n
+\n
+int sub_405d20()\n
+{\n
+    unsigned int v0;  // [bp-0x324]\n
+    unsigned int v1;  // [bp-0x4]\n
+    char v2;  // [bp+0x0]\n
+    unsigned int v3;  // [bp+0x4]\n
+    unsigned int v4;  // eax\n
+    unsigned int v5;  // ecx\n
+    unsigned int v6;  // edx\n
+    unsigned int v7;  // ebx\n
+    unsigned int v8;  // esi\n
+    unsigned int v9;  // edi\n
+    unsigned short v10;  // ss\n
+    unsigned short v11;  // cs\n
+    unsigned short v12;  // ds\n
+    unsigned short v13;  // es\n
+    unsigned short v14;  // fs\n
+    unsigned short v15;  // gs\n
+    unsigned int v16;  // d\n
+    unsigned int v17;  // id\n
+    unsigned int v18;  // ac\n
+    unsigned int v19;  // ebp\n
+\n
+    v1 = &v2;\n
+    v4 = IsProcessorFeaturePresent(23);\n
+    if (!v4)\n
+    {\n
+        g_408250 = v4;\n
+        g_40824c = v5;\n
+        g_408248 = v6;\n
+        g_408244 = v7;\n
+        g_408240 = v8;\n
+        g_40823c = v9;\n
+        g_408268 = v10;\n
+        g_40825c = v11;\n
+        g_408238 = v12;\n
+        g_408234 = v13;\n
+        g_408230 = v14;\n
+        g_40822c = v15;\n
+        v0 = [D] x86g_calculate_eflags_all(0xf<32>, 0x0<32>, 0x0<32>, 0x0<32>) | 514 | v16 & 0x400 | v17 * 0x200000 & 0x200000 | v18 * 0x40000 & 0x40000;\n
+        g_408260 = v0;\n
+        g_408254 = v1;\n
+        g_408258 = *(&v2);\n
+        g_408264 = &v3;\n
+        g_40815c = g_408258;\n
+        g_408150 = 3221226505;\n
+        g_408154 = 1;\n
+        g_408160 = 1;\n
+        g_408164 = v3;\n
+        sub_406050();\n
+        v19 = v1;\n
+        return;\n
+    }\n
+}\n
+", "4218169:sub_405d39": "int sub_405d39()\n
+{\n
+    [D] Unsupported jumpkind Ijk_NoDecode at address 4218169\n
+}\n
+", "4218368:sub_405e00": "extern unsigned int g_408150;\n
+extern unsigned int g_408154;\n
+extern unsigned int g_40815c;\n
+extern unsigned int g_408160;\n
+extern unsigned int g_408164;\n
+extern char g_408168;\n
+extern unsigned short g_40822c;\n
+extern unsigned short g_408230;\n
+extern unsigned short g_408234;\n
+extern unsigned short g_408238;\n
+extern unsigned int g_40823c;\n
+extern unsigned int g_408240;\n
+extern unsigned int g_408244;\n
+extern unsigned int g_408248;\n
+extern unsigned int g_40824c;\n
+extern unsigned int g_408250;\n
+extern unsigned int g_408254;\n
+extern unsigned int g_408258;\n
+extern unsigned short g_40825c;\n
+extern unsigned int g_408260;\n
+extern unsigned int g_408264;\n
+extern unsigned short g_408268;\n
+\n
+int sub_405e00()\n
+{\n
+    unsigned int v0;  // [bp-0x328]\n
+    unsigned int v1[1056859];  // [bp-0x8], Other Possible Types: unsigned int\n
+    unsigned int v2;  // [bp-0x4]\n
+    char v3;  // [bp+0x0]\n
+    unsigned int v4;  // [bp+0x4]\n
+    void* v5;  // [bp+0x8], Other Possible Types: unsigned int, char\n
+    char v6;  // [bp+0xc]\n
+    unsigned int v7;  // eax\n
+    unsigned int v8;  // ecx\n
+    unsigned int v9;  // edx\n
+    unsigned int v10;  // ebx\n
+    unsigned int v11;  // esi\n
+    unsigned int v12;  // edi\n
+    unsigned short v13;  // ss\n
+    unsigned short v14;  // cs\n
+    unsigned short v15;  // ds\n
+    unsigned short v16;  // es\n
+    unsigned short v17;  // fs\n
+    unsigned short v18;  // gs\n
+    unsigned int v19;  // d\n
+    unsigned int v20;  // id\n
+    unsigned int v21;  // ac\n
+    unsigned int v22;  // ebp\n
+\n
+    v2 = &v3;\n
+    v7 = IsProcessorFeaturePresent(23);\n
+    if (!v7)\n
+    {\n
+        g_408250 = v7;\n
+        g_40824c = v8;\n
+        g_408248 = v9;\n
+        g_408244 = v10;\n
+        g_408240 = v11;\n
+        g_40823c = v12;\n
+        g_408268 = v13;\n
+        g_40825c = v14;\n
+        g_408238 = v15;\n
+        g_408234 = v16;\n
+        g_408230 = v17;\n
+        g_40822c = v18;\n
+        v0 = [D] x86g_calculate_eflags_all(0xf<32>, 0x0<32>, 0x0<32>, 0x0<32>) | 514 | v19 & 0x400 | v20 * 0x200000 & 0x200000 | v21 * 0x40000 & 0x40000;\n
+        g_408260 = v0;\n
+        g_408254 = v2;\n
+        g_408258 = *(&v3);\n
+        g_408264 = &v4;\n
+        g_40815c = g_408258;\n
+        g_408150 = 3221226505;\n
+        g_408154 = 1;\n
+        if (*(&v5) > 0 && !*(&v6))\n
+            v5 = 0;\n
+        if (v5 > 14)\n
+            v5 -= 1;\n
+        g_408160 = v5 + 1;\n
+        g_408164 = v4;\n
+        for (v1[0] = 0; v1 < v5; v1 = &v1[0] + 1)\n
+        {\n
+            *((0x4 * v1 + &g_408168)) = *((*(&v6) + v1 * 4));\n
+        }\n
+        sub_406050();\n
+        v22 = v2;\n
+        return;\n
+    }\n
+}\n
+", "4218393:sub_405e19": "int sub_405e19()\n
+{\n
+    [D] Unsupported jumpkind Ijk_NoDecode at address 4218393\n
+}\n
+", "4218672:sub_405f30": "int sub_405f30()\n
+{\n
+    unsigned int v0;  // [bp-0x4]\n
+    char v1;  // [bp+0x0]\n
+\n
+    v0 = &v1;\n
+    return sub_405d20(8);\n
+}\n
+", "4218715:sub_405f5b": "int sub_405f5b()\n
+{\n
+    [D] Unsupported jumpkind Ijk_NoDecode at address 4218715\n
+}\n
+", "4218960:sub_406050": "typedef struct EXCEPTION_POINTERS {\n
+    struct EXCEPTION_RECORD *ExceptionRecord;\n
+    struct CONTEXT *ContextRecord;\n
+} EXCEPTION_POINTERS;\n
+\n
+typedef struct EXCEPTION_RECORD {\n
+    unsigned int ExceptionCode;\n
+    unsigned int ExceptionFlags;\n
+    void* ExceptionRecord;\n
+    void* ExceptionAddress;\n
+    unsigned int NumberParameters;\n
+    unsigned int *ExceptionInformation[15];\n
+} EXCEPTION_RECORD;\n
+\n
+typedef struct CONTEXT {\n
+    unsigned int ContextFlags;\n
+    unsigned int Dr0;\n
+    unsigned int Dr1;\n
+    unsigned int Dr2;\n
+    unsigned int Dr3;\n
+    unsigned int Dr6;\n
+    unsigned int Dr7;\n
+    FLOATING_SAVE_AREA FloatSave;\n
+    unsigned int SegGs;\n
+    unsigned int SegFs;\n
+    unsigned int SegEs;\n
+    unsigned int SegDs;\n
+    unsigned int Edi;\n
+    unsigned int Esi;\n
+    unsigned int Ebx;\n
+    unsigned int Edx;\n
+    unsigned int Ecx;\n
+    unsigned int Eax;\n
+    unsigned int Ebp;\n
+    unsigned int Eip;\n
+    unsigned int SegCs;\n
+    unsigned int EFlags;\n
+    unsigned int Esp;\n
+    unsigned int SegSs;\n
+    char ExtendedRegisters[512];\n
+} CONTEXT;\n
+\n
+typedef struct FLOATING_SAVE_AREA {\n
+    unsigned int ControlWord;\n
+    unsigned int StatusWord;\n
+    unsigned int TagWord;\n
+    unsigned int ErrorOffset;\n
+    unsigned int ErrorSelector;\n
+    unsigned int DataOffset;\n
+    unsigned int DataSelector;\n
+    char RegisterArea[80];\n
+    unsigned int Spare0;\n
+} FLOATING_SAVE_AREA;\n
+\n
+int sub_406050(EXCEPTION_POINTERS *v2)\n
+{\n
+    unsigned int v0;  // [bp-0x4]\n
+    char v1;  // [bp+0x0]\n
+\n
+    v0 = &v1;\n
+    SetUnhandledExceptionFilter(NULL);\n
+    UnhandledExceptionFilter(v2);\n
+    return TerminateProcess(GetCurrentProcess(), 3221226505);\n
+}\n
+", "4219008:sub_406080": "char sub_406080()\n
+{\n
+    unsigned int v0;  // [bp-0x4]\n
+    char v1;  // [bp+0x0]\n
+\n
+    v0 = &v1;\n
+    return 1;\n
+}\n
+", "4219024:sub_406090": "char sub_406090()\n
+{\n
+    unsigned int v0;  // [bp-0x4]\n
+    char v1;  // [bp+0x0]\n
+\n
+    v0 = &v1;\n
+    return 1;\n
+}\n
+", "4219040:sub_4060a0": "char sub_4060a0()\n
+{\n
+    unsigned int v0;  // [bp-0x4]\n
+    char v1;  // [bp+0x0]\n
+\n
+    v0 = &v1;\n
+    return 1;\n
+}\n
+", "4219056:sub_4060b0": "char sub_4060b0()\n
+{\n
+    unsigned int v0;  // [bp-0x4]\n
+    char v1;  // [bp+0x0]\n
+\n
+    v0 = &v1;\n
+    return 1;\n
+}\n
+", "4219072:sub_4060c0": "char sub_4060c0()\n
+{\n
+    unsigned int v0;  // [bp-0x4]\n
+    char v1;  // [bp+0x0]\n
+\n
+    v0 = &v1;\n
+    return 1;\n
+}\n
+", "4219088:sub_4060d0": "int sub_4060d0()\n
+{\n
+    unsigned int v0;  // [bp-0x4]\n
+    char v1;  // [bp+0x0]\n
+\n
+    v0 = &v1;\n
+    return 0;\n
+}\n
+", "4219104:sub_4060e0": "extern unsigned int g_408140;\n
+\n
+int sub_4060e0(unsigned int v23)\n
+{\n
+    unsigned int v0;  // [bp-0x58]\n
+    unsigned int v1;  // [bp-0x54]\n
+    unsigned int v2;  // [bp-0x50]\n
+    unsigned int v3;  // [bp-0x4c]\n
+    unsigned int v4;  // [bp-0x48]\n
+    unsigned int v5;  // [bp-0x44]\n
+    unsigned int v6;  // [bp-0x40]\n
+    unsigned int v7;  // [bp-0x3c]\n
+    unsigned int v8;  // [bp-0x38]\n
+    unsigned int v9;  // [bp-0x34]\n
+    unsigned int v10;  // [bp-0x30]\n
+    unsigned int v11;  // [bp-0x2c]\n
+    unsigned int v12;  // [bp-0x28]\n
+    unsigned int v13;  // [bp-0x24]\n
+    unsigned int v14;  // [bp-0x20]\n
+    unsigned int v15;  // [bp-0x1c]\n
+    unsigned int v16;  // [bp-0x18]\n
+    unsigned int v17;  // [bp-0x14]\n
+    unsigned int v18;  // [bp-0x10]\n
+    unsigned int v19;  // [bp-0xc]\n
+    unsigned int v20;  // [bp-0x8]\n
+    unsigned int v21;  // [bp-0x4]\n
+    char v22;  // [bp+0x0]\n
+\n
+    v21 = &v22;\n
+    if (g_408140 < 1)\n
+        return v23;\n
+    if (v23 != 3221226164 && v23 != 3221226165)\n
+        return v23;\n
+    v18 = 1;\n
+    v17 = 2;\n
+    v16 = 4;\n
+    v15 = 8;\n
+    v14 = 16;\n
+    v13 = 32;\n
+    v12 = 63;\n
+    v11 = 128;\n
+    v10 = 0x100;\n
+    v9 = 0x200;\n
+    v8 = 0x400;\n
+    v7 = 0x800;\n
+    v6 = 0x1000;\n
+    v5 = 129;\n
+    v4 = 258;\n
+    v3 = 516;\n
+    v2 = 1032;\n
+    v1 = 2064;\n
+    v0 = 4128;\n
+    v19 = [D] x86g_create_mxcsr(And(sseround<4>, 0x3<32>));\n
+    v20 = v19 ^ 63;\n
+    return (!(v20 & 129) ? (!(v20 & 516) ? (!(v20 & 258) ? (!(v20 & 1032) ? (!(v20 & 2064) ? (!(v20 & 4128) ? v23 : 3221225615) : 3221225619) : 3221225617) : 3221225616) : 3221225614) : 3221225616);\n
+}\n
+", "4219412:cgc_receive": "int cgc_receive()\n
+{\n
+    return ::kernel32.dll::cgc_receive();\n
+}\n
+", "4219418:cgc_transmit": "int cgc_transmit()\n
+{\n
+    return ::kernel32.dll::cgc_transmit();\n
+}\n
+", "4219424:cgc_allocate": "int cgc_allocate()\n
+{\n
+    return ::kernel32.dll::cgc_allocate();\n
+}\n
+", "4219430:cgc_deallocate": "int cgc_deallocate()\n
+{\n
+    return ::kernel32.dll::cgc_deallocate();\n
+}\n
+", "4219436:sub_40622c": "int sub_40622c(unsigned long long *v0)\n
+{\n
+    return QueryPerformanceCounter(v0);\n
+}\n
+", "4219442:sub_406232": "int sub_406232()\n
+{\n
+    return GetCurrentProcessId();\n
+}\n
+", "4219448:sub_406238": "int sub_406238()\n
+{\n
+    return GetCurrentThreadId();\n
+}\n
+", "4219454:sub_40623e": "int sub_40623e(unsigned int v0[2])\n
+{\n
+    return GetSystemTimeAsFileTime(v0);\n
+}\n
+", "4219460:sub_406244": "int sub_406244(void* v0)\n
+{\n
+    return InitializeSListHead(v0);\n
+}\n
+", "4219466:sub_40624a": "int sub_40624a()\n
+{\n
+    return IsDebuggerPresent();\n
+}\n
+", "4219472:sub_406250": "typedef struct EXCEPTION_POINTERS {\n
+    struct EXCEPTION_RECORD *ExceptionRecord;\n
+    struct CONTEXT *ContextRecord;\n
+} EXCEPTION_POINTERS;\n
+\n
+typedef struct EXCEPTION_RECORD {\n
+    unsigned int ExceptionCode;\n
+    unsigned int ExceptionFlags;\n
+    void* ExceptionRecord;\n
+    void* ExceptionAddress;\n
+    unsigned int NumberParameters;\n
+    unsigned int *ExceptionInformation[15];\n
+} EXCEPTION_RECORD;\n
+\n
+typedef struct CONTEXT {\n
+    unsigned int ContextFlags;\n
+    unsigned int Dr0;\n
+    unsigned int Dr1;\n
+    unsigned int Dr2;\n
+    unsigned int Dr3;\n
+    unsigned int Dr6;\n
+    unsigned int Dr7;\n
+    FLOATING_SAVE_AREA FloatSave;\n
+    unsigned int SegGs;\n
+    unsigned int SegFs;\n
+    unsigned int SegEs;\n
+    unsigned int SegDs;\n
+    unsigned int Edi;\n
+    unsigned int Esi;\n
+    unsigned int Ebx;\n
+    unsigned int Edx;\n
+    unsigned int Ecx;\n
+    unsigned int Eax;\n
+    unsigned int Ebp;\n
+    unsigned int Eip;\n
+    unsigned int SegCs;\n
+    unsigned int EFlags;\n
+    unsigned int Esp;\n
+    unsigned int SegSs;\n
+    char ExtendedRegisters[512];\n
+} CONTEXT;\n
+\n
+typedef struct FLOATING_SAVE_AREA {\n
+    unsigned int ControlWord;\n
+    unsigned int StatusWord;\n
+    unsigned int TagWord;\n
+    unsigned int ErrorOffset;\n
+    unsigned int ErrorSelector;\n
+    unsigned int DataOffset;\n
+    unsigned int DataSelector;\n
+    char RegisterArea[80];\n
+    unsigned int Spare0;\n
+} FLOATING_SAVE_AREA;\n
+\n
+int sub_406250(EXCEPTION_POINTERS *v0)\n
+{\n
+    return UnhandledExceptionFilter(v0);\n
+}\n
+", "4219478:sub_406256": "int sub_406256(void* v0)\n
+{\n
+    return SetUnhandledExceptionFilter(v0);\n
+}\n
+", "4219484:sub_40625c": "typedef struct STARTUPINFOW {\n
+    unsigned int cb;\n
+    char *lpReserved;\n
+    char *lpDesktop;\n
+    char *lpTitle;\n
+    unsigned int dwX;\n
+    unsigned int dwY;\n
+    unsigned int dwXSize;\n
+    unsigned int dwYSize;\n
+    unsigned int dwXCountChars;\n
+    unsigned int dwYCountChars;\n
+    unsigned int dwFillAttribute;\n
+    unsigned int dwFlags;\n
+    unsigned short wShowWindow;\n
+    unsigned short cbReserved2;\n
+    char *lpReserved2;\n
+    unsigned int *hStdInput;\n
+    unsigned int *hStdOutput;\n
+    unsigned int *hStdError;\n
+} STARTUPINFOW;\n
+\n
+int sub_40625c(STARTUPINFOW *v0)\n
+{\n
+    return GetStartupInfoW(v0);\n
+}\n
+", "4219490:sub_406262": "int sub_406262(unsigned int v0)\n
+{\n
+    return IsProcessorFeaturePresent(v0);\n
+}\n
+", "4219496:sub_406268": "int sub_406268(char *v0)\n
+{\n
+    return GetModuleHandleW(v0);\n
+}\n
+", "4219502:__current_exception": "int __current_exception()\n
+{\n
+    return ::kernel32.dll::__current_exception();\n
+}\n
+", "4219508:__current_exception_context": "int __current_exception_context()\n
+{\n
+    return ::kernel32.dll::__current_exception_context();\n
+}\n
+", "4219514:__std_type_info_destroy_list": "int __std_type_info_destroy_list()\n
+{\n
+    return ::kernel32.dll::__std_type_info_destroy_list();\n
+}\n
+", "4219520:_except_handler4_common": "int _except_handler4_common()\n
+{\n
+    return ::kernel32.dll::_except_handler4_common();\n
+}\n
+", "4219526:memset": "int memset()\n
+{\n
+    return ::kernel32.dll::memset();\n
+}\n
+", "4219532:__p___argc": "int __p___argc()\n
+{\n
+    return ::kernel32.dll::__p___argc();\n
+}\n
+", "4219538:__p___argv": "int __p___argv()\n
+{\n
+    return ::kernel32.dll::__p___argv();\n
+}\n
+", "4219544:__p__commode": "int __p__commode()\n
+{\n
+    return ::kernel32.dll::__p__commode();\n
+}\n
+", "4219550:__setusermatherr": "int __setusermatherr()\n
+{\n
+    return ::kernel32.dll::__setusermatherr();\n
+}\n
+", "4219556:_c_exit": "int _c_exit()\n
+{\n
+    return ::kernel32.dll::_c_exit();\n
+}\n
+", "4219562:_cexit": "int _cexit()\n
+{\n
+    return ::kernel32.dll::_cexit();\n
+}\n
+", "4219568:_configthreadlocale": "int _configthreadlocale()\n
+{\n
+    return ::kernel32.dll::_configthreadlocale();\n
+}\n
+", "4219574:_configure_narrow_argv": "int _configure_narrow_argv()\n
+{\n
+    return ::kernel32.dll::_configure_narrow_argv();\n
+}\n
+", "4219580:_controlfp_s": "int _controlfp_s()\n
+{\n
+    return ::kernel32.dll::_controlfp_s();\n
+}\n
+", "4219586:_crt_at_quick_exit": "int _crt_at_quick_exit()\n
+{\n
+    return ::kernel32.dll::_crt_at_quick_exit();\n
+}\n
+", "4219592:_crt_atexit": "int _crt_atexit()\n
+{\n
+    return ::kernel32.dll::_crt_atexit();\n
+}\n
+", "4219598:_execute_onexit_table": "int _execute_onexit_table()\n
+{\n
+    return ::kernel32.dll::_execute_onexit_table();\n
+}\n
+", "4219604:_exit": "int _exit()\n
+{\n
+    return ::kernel32.dll::_exit();\n
+}\n
+", "4219610:_get_initial_narrow_environment": "int _get_initial_narrow_environment()\n
+{\n
+    return ::kernel32.dll::_get_initial_narrow_environment();\n
+}\n
+", "4219616:_initialize_narrow_environment": "int _initialize_narrow_environment()\n
+{\n
+    return ::kernel32.dll::_initialize_narrow_environment();\n
+}\n
+", "4219622:_initialize_onexit_table": "int _initialize_onexit_table()\n
+{\n
+    return ::kernel32.dll::_initialize_onexit_table();\n
+}\n
+", "4219628:_initterm": "int _initterm()\n
+{\n
+    return ::kernel32.dll::_initterm();\n
+}\n
+", "4219634:_initterm_e": "int _initterm_e()\n
+{\n
+    return ::kernel32.dll::_initterm_e();\n
+}\n
+", "4219640:_register_onexit_function": "int _register_onexit_function()\n
+{\n
+    return ::kernel32.dll::_register_onexit_function();\n
+}\n
+", "4219646:_register_thread_local_exe_atexit_callback": "int _register_thread_local_exe_atexit_callback()\n
+{\n
+    return ::kernel32.dll::_register_thread_local_exe_atexit_callback();\n
+}\n
+", "4219652:_seh_filter_dll": "int _seh_filter_dll()\n
+{\n
+    return ::kernel32.dll::_seh_filter_dll();\n
+}\n
+", "4219658:_seh_filter_exe": "int _seh_filter_exe()\n
+{\n
+    return ::kernel32.dll::_seh_filter_exe();\n
+}\n
+", "4219664:_set_app_type": "int _set_app_type()\n
+{\n
+    return ::kernel32.dll::_set_app_type();\n
+}\n
+", "4219670:_set_fmode": "int _set_fmode()\n
+{\n
+    return ::kernel32.dll::_set_fmode();\n
+}\n
+", "4219676:_set_new_mode": "int _set_new_mode()\n
+{\n
+    return ::kernel32.dll::_set_new_mode();\n
+}\n
+", "4219682:exit": "int exit()\n
+{\n
+    return ::kernel32.dll::exit();\n
+}\n
+", "4219688:terminate": "int terminate()\n
+{\n
+    return ::kernel32.dll::terminate();\n
+}\n
+", "4219694:sub_40632e": "int sub_40632e()\n
+{\n
+    return GetCurrentProcess();\n
+}\n
+", "4219700:sub_406334": "int sub_406334(unsigned int *v0, unsigned int a0)\n
+{\n
+    return TerminateProcess(v0, a0);\n
+}\n
+", "5242880:cgc_allocate": null, "5242884:cgc_deallocate": null, "5242888:cgc_receive": null, "5242892:cgc_transmit": null, "5242896:GetCurrentProcess": null, "5242900:GetCurrentProcessId": null, "5242904:GetCurrentThreadId": null, "5242908:GetModuleHandleW": null, "5242912:GetStartupInfoW": null, "5242916:GetSystemTimeAsFileTime": null, "5242920:InitializeSListHead": null, "5242924:IsDebuggerPresent": null, "5242928:IsProcessorFeaturePresent": null, "5242932:QueryPerformanceCounter": null, "5242936:SetUnhandledExceptionFilter": null, "5242940:TerminateProcess": null, "5242944:UnhandledExceptionFilter": null, "5242948:__current_exception": null, "5242952:__current_exception_context": null, "5242956:__std_type_info_destroy_list": null, "5242960:_except_handler4_common": null, "5242964:memset": null, "5242968:__p___argc": null, "5242972:__p___argv": null, "5242976:__p__commode": null, "5242980:__setusermatherr": null, "5242984:_c_exit": null, "5242988:_cexit": null, "5242992:_configthreadlocale": null, "5242996:_configure_narrow_argv": null, "5243000:_controlfp_s": null, "5243004:_crt_at_quick_exit": null, "5243008:_crt_atexit": null, "5243012:_execute_onexit_table": null, "5243016:_exit": null, "5243020:_get_initial_narrow_environment": null, "5243024:_initialize_narrow_environment": null, "5243028:_initialize_onexit_table": null, "5243032:_initterm": null, "5243036:_initterm_e": null, "5243040:_register_onexit_function": null, "5243044:_register_thread_local_exe_atexit_callback": null, "5243048:_seh_filter_dll": null, "5243052:_seh_filter_exe": null, "5243056:_set_app_type": null, "5243060:_set_fmode": null, "5243064:_set_new_mode": null, "5243068:exit": null, "5243072:terminate": null, "6295596:UnresolvableCallTarget": null}

@@ -1,0 +1,4585 @@
+{"268439552:cgc_check_timeout": "int cgc_check_timeout(unsigned int v3[2])\n
+{\n
+    unsigned int v0;  // [bp-0x8]\n
+    unsigned int v1;  // [bp-0x4]\n
+    char v2;  // [bp+0x0]\n
+    unsigned int v4;  // eax\n
+\n
+    v1 = &v2;\n
+    v0 = v4;\n
+    if (!v3)\n
+    {\n
+        v0 = 0;\n
+        return v0;\n
+    }\n
+    if (0 <= v3[0] && 0 <= v3[1])\n
+    {\n
+        v0 = 0;\n
+        return v0;\n
+    }\n
+    v0 = 3;\n
+    return v0;\n
+}\n
+", "268439635:sub_10001053": null, "268439648:cgc__terminate": "int cgc__terminate(unsigned int v0)\n
+{\n
+    exit(v0);\n
+    return cgc_transmit(v0);\n
+}\n
+", "268439680:cgc_transmit": "int cgc_transmit(unsigned int v5, unsigned int a0, unsigned int a1, unsigned int *a2)\n
+{\n
+    unsigned int v0;  // [bp-0x10]\n
+    unsigned int v1;  // [bp-0xc]\n
+    void* v2;  // [bp-0x8], Other Possible Types: unsigned int\n
+    unsigned int v3;  // [bp-0x4]\n
+    char v4;  // [bp+0x0]\n
+\n
+    v3 = &v4;\n
+    v0 = a1;\n
+    v1 = _write(v5, a0);\n
+    if (v1 < 0)\n
+    {\n
+        v2 = *(_errno());\n
+        return v2;\n
+    }\n
+    if (a2)\n
+        *(a2) = v1;\n
+    v2 = 0;\n
+    return v2;\n
+}\n
+", "268439790:sub_100010ee": null, "268439792:cgc_receive": "int cgc_receive(unsigned int v5, char *a0, unsigned int a1, unsigned int *a2)\n
+{\n
+    unsigned int v0;  // [bp-0x10]\n
+    unsigned int v1;  // [bp-0xc]\n
+    void* v2;  // [bp-0x8], Other Possible Types: unsigned int\n
+    unsigned int v3;  // [bp-0x4]\n
+    char v4;  // [bp+0x0]\n
+\n
+    v3 = &v4;\n
+    v0 = a1;\n
+    v1 = _read(v5, a0);\n
+    if (v1 < 0)\n
+    {\n
+        v2 = *(_errno());\n
+        return v2;\n
+    }\n
+    if (a2)\n
+    {\n
+        if (!v1 && *(a0) == 10)\n
+            v1 += 1;\n
+        *(a2) = v1;\n
+    }\n
+    v2 = 0;\n
+    return v2;\n
+}\n
+", "268439936:cgc_poll_fd_set": "typedef struct OVERLAPPED {\n
+    unsigned int *Internal;\n
+    unsigned int *InternalHigh;\n
+    char Anonymous;\n
+    char padding_9[7];\n
+    unsigned int *hEvent;\n
+} OVERLAPPED;\n
+\n
+int cgc_poll_fd_set(unsigned int *v6, unsigned int *a0, unsigned int a1)\n
+{\n
+    OVERLAPPED v0;  // [bp-0x20]\n
+    unsigned int *v1;  // [bp-0x10]\n
+    unsigned int *v2;  // [bp-0xc]\n
+    unsigned int *v3;  // [bp-0x8], Other Possible Types: unsigned int\n
+    unsigned int v4;  // [bp-0x4]\n
+    char v5;  // [bp+0x0]\n
+    unsigned int *v7;  // eax, Other Possible Types: unsigned int\n
+    unsigned int *v8;  // eax\n
+    unsigned int *v9;  // eax\n
+    unsigned int v10;  // ecx\n
+\n
+    v4 = &v5;\n
+    v7 = v6;\n
+    for (v3 = 0; v3 < 23; v3 = v7)\n
+    {\n
+        if ((v6[v3 >> 5] & 1 << (v3 & 31 & 31)))\n
+        {\n
+            v2 = _get_osfhandle();\n
+            memset(&v0, 0);\n
+            v0.hEvent = CreateEventA(NULL, 1, 0, NULL);\n
+            if (!a1)\n
+                WriteFile(v2, NULL, 0, NULL, &v0);\n
+            else\n
+                ReadFile(v2, NULL, 0, NULL, &v0);\n
+            if (!WaitForSingleObject(v1, 0))\n
+            {\n
+                v8 = a0;\n
+                *(v8) = *(v8) + 1;\n
+            }\n
+            else\n
+            {\n
+                v9 = v6;\n
+                v10 = v3 >> 5;\n
+                v9[v10] = (1 << (v3 & 31 & 31) ^ -1) & v9[v10];\n
+            }\n
+        }\n
+        v7 = v3 + 1;\n
+    }\n
+    return v7;\n
+}\n
+", "268440317:sub_100012fd": null, "268440320:cgc_fdwait": "typedef struct struct_0 {\n
+    char field_0;\n
+} struct_0;\n
+\n
+int cgc_fdwait(unsigned int v10, unsigned int *a0, unsigned int *a1, unsigned int a2[2], unsigned int *a3)\n
+{\n
+    unsigned int v0;  // [bp-0x80]\n
+    void* v1;  // [bp-0x7c]\n
+    void* v2;  // [bp-0x78], Other Possible Types: unsigned int\n
+    void* v3;  // [bp-0x74], Other Possible Types: unsigned int\n
+    struct_0 *v4;  // [bp-0x70], Other Possible Types: unsigned int\n
+    char v5;  // [bp-0x6c]\n
+    unsigned int v6;  // [bp-0x10]\n
+    unsigned int v7;  // [bp-0xc]\n
+    unsigned int v8;  // [bp-0x4]\n
+    char v9;  // [bp+0x0]\n
+    struct_0 *v11;  // eax\n
+    unsigned int v12;  // eax\n
+\n
+    v8 = &v9;\n
+    v6 = cgc_check_timeout(a2);\n
+    if (v6)\n
+    {\n
+        v7 = v6;\n
+        return v7;\n
+    }\n
+    if (0 <= v10 && v10 <= 32)\n
+    {\n
+        v4 = 0;\n
+        for (v3 = 0; v3 < 32; v3 += 1)\n
+        {\n
+            if (a0 && !(!(a0[v3 >> 5] & 1 << (v3 & 31 & 31))))\n
+                goto LABEL_100013dc;\n
+            if (!a1)\n
+                goto LABEL_1000140e;\n
+            if (!(a1[v3 >> 5] & 1 << (v3 & 31 & 31)))\n
+                goto LABEL_1000140e;\n
+LABEL_100013dc:\n
+            if (v3 >= 23)\n
+            {\n
+                v7 = 1;\n
+                return v7;\n
+            }\n
+            v11 = v4;\n
+            v4 = v11 + 1;\n
+            *((&v5 + 0x4 * v11)) = _get_osfhandle();\n
+LABEL_1000140e:\n
+        }\n
+        v2 = 0;\n
+        if (a2)\n
+        {\n
+            v0 = a2[0] * 1000;\n
+            v12 = a2[1];\n
+            v2 = v0 + (v12 >> 31 CONCAT v12) /m 1000;\n
+        }\n
+        if (WaitForMultipleObjects(v4, &v5, 0, v2) == -1)\n
+        {\n
+            v7 = GetLastError();\n
+            return v7;\n
+        }\n
+        v1 = 0;\n
+        if (a0)\n
+            cgc_poll_fd_set(a0, &v1, 1);\n
+        if (a1)\n
+            cgc_poll_fd_set(a1, &v1, 0);\n
+        if (a3)\n
+            *(a3) = v1;\n
+        v7 = 0;\n
+        return v7;\n
+    }\n
+    v7 = 3;\n
+    return v7;\n
+}\n
+", "268440848:cgc_allocate": "int cgc_allocate(unsigned int *v5, unsigned int a0, unsigned int *a1)\n
+{\n
+    unsigned int v0;  // [bp-0x10]\n
+    unsigned int v1;  // [bp-0xc]\n
+    void* v2;  // [bp-0x8], Other Possible Types: unsigned int\n
+    unsigned int v3;  // [bp-0x4]\n
+    char v4;  // [bp+0x0]\n
+\n
+    v3 = &v4;\n
+    v1 = (a0 ? 4 : 64);\n
+    v0 = VirtualAlloc(NULL, v5, 0x3000, v1);\n
+    if (!v0)\n
+    {\n
+        v2 = GetLastError();\n
+        return v2;\n
+    }\n
+    if (a1)\n
+        *(a1) = v0;\n
+    v2 = 0;\n
+    return v2;\n
+}\n
+", "268440985:sub_10001599": null, "268440992:cgc_deallocate": "int cgc_deallocate(void* v3, unsigned int a0)\n
+{\n
+    void* v0;  // [bp-0x8], Other Possible Types: unsigned int\n
+    unsigned int v1;  // [bp-0x4]\n
+    char v2;  // [bp+0x0]\n
+\n
+    v1 = &v2;\n
+    if (VirtualFree(v3, NULL, 0x8000))\n
+    {\n
+        v0 = 0;\n
+        return v0;\n
+    }\n
+    v0 = GetLastError();\n
+    return v0;\n
+}\n
+", "268441075:sub_100015f3": null, "268441088:cgc_random": "extern unsigned int g_10007098;\n
+\n
+int cgc_random(unsigned int v3, unsigned int a0, unsigned int *a1)\n
+{\n
+    unsigned int v0;  // [bp-0x8]\n
+    unsigned int v1;  // [bp-0x4]\n
+    char v2;  // [bp+0x0]\n
+\n
+    v1 = &v2;\n
+    sub_10001940();\n
+    v0 = v3;\n
+    cgc_aes_get_bytes(g_10007098, a0);\n
+    if (a1)\n
+    {\n
+        *(a1) = a0;\n
+        return 0;\n
+    }\n
+    return 0;\n
+}\n
+", "268441161:sub_10001649": null, "268441168:cgc_getenv_uint": "int cgc_getenv_uint(char *v5)\n
+{\n
+    unsigned int v0;  // [bp-0x10]\n
+    char *v1;  // [bp-0xc]\n
+    void* v2;  // [bp-0x8], Other Possible Types: unsigned int\n
+    unsigned int v3;  // [bp-0x4]\n
+    char v4;  // [bp+0x0]\n
+\n
+    v3 = &v4;\n
+    v1 = getenv(v5);\n
+    if (v1)\n
+    {\n
+        v0 = atoi(v1);\n
+        if (v0 > 0)\n
+        {\n
+            v2 = v0;\n
+            return v2;\n
+        }\n
+    }\n
+    v2 = 0;\n
+    return v2;\n
+}\n
+", "268441258:sub_100016aa": null, "268441264:cgc_init_ipc_pipes": "int cgc_init_ipc_pipes()\n
+{\n
+    unsigned int v0;  // [bp-0x20]\n
+    void* v1;  // [bp-0x1c], Other Possible Types: unsigned int\n
+    unsigned int v2;  // [bp-0x18]\n
+    void* v3;  // [bp-0x14], Other Possible Types: unsigned int\n
+    void* v4;  // [bp-0x10], Other Possible Types: unsigned int\n
+    char v5;  // [bp-0xc]\n
+    unsigned int v6;  // [bp-0x4]\n
+    char v7;  // [bp+0x0]\n
+\n
+    v6 = &v7;\n
+    memset(&v5, 0);\n
+    v4 = 0;\n
+    v3 = 0;\n
+    v2 = cgc_getenv_uint(\"PIPE_COUNT\");\n
+    if (v2 > 99)\n
+        v2 = 99;\n
+    for (v1 = 0; v1 < v2; v1 += 1)\n
+    {\n
+        v0 = v1;\n
+        snprintf(&v5, 8, \"PIPE_%d\");\n
+        v4 = cgc_getenv_uint(&v5);\n
+        if (v4)\n
+        {\n
+            v3 = _open_osfhandle(v4);\n
+            if (v3 != v1 + 3)\n
+                _dup2(v3);\n
+        }\n
+    }\n
+    return v1;\n
+}\n
+", "268441515:sub_100017ab": null, "268441520:DllMain": "int DllMain(unsigned int v0, unsigned int a0, unsigned int a1)\n
+{\n
+    if (a0 == 1)\n
+    {\n
+        setvbuf(__acrt_iob_func(), NULL, 4, 0);\n
+        sub_10001810(v0, a0, a1);\n
+        cgc_init_ipc_pipes();\n
+        return 1;\n
+    }\n
+    return 1;\n
+}\n
+", "268441615:sub_1000180f": null, "268441616:sub_10001810": "extern unsigned int g_10007098;\n
+\n
+int sub_10001810()\n
+{\n
+    int <0x10001810[is_2]|Stack bp, 1 B>;  // [bp+0x0]\n
+    unsigned int v0;  // [bp-0x10]\n
+    void* v1;  // [bp-0xc], Other Possible Types: unsigned int\n
+    unsigned int v2;  // [bp-0x8]\n
+    unsigned int v3;  // [bp-0x4]\n
+    unsigned int v4;  // [bp+0x0]\n
+    unsigned int v5;  // [bp+0x4]\n
+    unsigned int v6;  // [bp+0x8]\n
+\n
+    v3 = &<0x10001810[is_2]|Stack bp, 1 B>;\n
+    v1 = VirtualAlloc(0x4347c000, 0x1000, 0x2000, 4);\n
+    if (v1 != 0x4347c000)\n
+    {\n
+        v0 = 0x4347c000 - v1;\n
+        VirtualFree(v1, NULL, 0x8000);\n
+        v1 = VirtualAlloc(v1, v0 + 0x1000, 0x2000, 4);\n
+    }\n
+    v2 = VirtualAlloc(0x4347c000, 0x1000, 0x1000, 4);\n
+    if (v2 != 0x4347c000)\n
+    {\n
+        fprintf(__acrt_iob_func());\n
+        exit(1);\n
+    }\n
+    sub_10001940();\n
+    v4 = g_10007098;\n
+    v5 = 0x1000;\n
+    v6 = v2;\n
+    return cgc_aes_get_bytes(v5, v6);\n
+}\n
+", "268441915:sub_1000193b": null, "268441920:sub_10001940": "typedef struct struct_0 {\n
+    char field_0;\n
+} struct_0;\n
+\n
+extern unsigned int g_10007098;\n
+\n
+int sub_10001940()\n
+{\n
+    struct_0 *v0;  // [bp-0x44]\n
+    void* v1;  // [bp-0x40], Other Possible Types: unsigned int\n
+    unsigned int v2;  // [bp-0x3c]\n
+    unsigned int v3;  // [bp-0x38]\n
+    char v4;  // [bp-0x34]\n
+    unsigned int v5;  // [bp-0x4]\n
+    char v6;  // [bp+0x0]\n
+    unsigned int v8;  // eax\n
+\n
+    v5 = &v6;\n
+    if (g_10007098)\n
+        return v8;\n
+    memcpy(&v4, \"seedseedseedseed0123456789abcdef\");\n
+    v3 = getenv(\"seed\");\n
+    if (v3 && strlen() == 96)\n
+    {\n
+        v2 = v3;\n
+        for (v1 = 0; v1 < 48; v1 += 1)\n
+        {\n
+            v0 = &(&v4)[v1];\n
+            sscanf(v2, \"%2hhx\");\n
+            v2 += 2;\n
+        }\n
+    }\n
+    g_10007098 = malloc(81);\n
+    v0 = &v4;\n
+    v0 = v0;\n
+    v8 = cgc_init_prng(g_10007098);\n
+    return v8;\n
+}\n
+", "268442160:sprintf": "int sprintf(unsigned int v5, unsigned int a0)\n
+{\n
+    unsigned int v0;  // [bp-0x10]\n
+    unsigned int v1;  // [bp-0xc]\n
+    unsigned int v2;  // [bp-0x8]\n
+    unsigned int v3;  // [bp-0x4]\n
+    char v4;  // [bp+0x0]\n
+    char v6;  // [bp+0xc]\n
+    unsigned int v7;  // esi\n
+    unsigned int v8;  // esi\n
+\n
+    v3 = &v4;\n
+    v2 = v7;\n
+    v0 = &v6;\n
+    v1 = _vsprintf_l(v5, a0, 0, v0);\n
+    v8 = v2;\n
+    return v1;\n
+}\n
+", "268442224:vsprintf": "int vsprintf(unsigned int v3, unsigned int a0, unsigned int a1)\n
+{\n
+    char v0;  // [bp-0x8]\n
+    unsigned int v1;  // [bp-0x4]\n
+    char v2;  // [bp+0x0]\n
+\n
+    v1 = &v2;\n
+    return _vsnprintf_l(v3, -1, a0, 0, a1, *(&v0));\n
+}\n
+", "268442304:_snprintf": "int _snprintf(unsigned int v6, unsigned int a0, unsigned int a1)\n
+{\n
+    unsigned int v0;  // [bp-0x14]\n
+    unsigned int v1;  // [bp-0x10]\n
+    unsigned int v2;  // [bp-0xc]\n
+    unsigned int v3;  // [bp-0x8]\n
+    unsigned int v4;  // [bp-0x4]\n
+    char v5;  // [bp+0x0]\n
+    char v7;  // [bp+0x10]\n
+    unsigned int v8;  // edi\n
+    unsigned int v9;  // esi\n
+    unsigned int v10;  // esi\n
+    unsigned int v11;  // edi\n
+\n
+    v4 = &v5;\n
+    v3 = v8;\n
+    v2 = v9;\n
+    v0 = &v7;\n
+    v1 = _vsnprintf(v6, a0, a1, v0);\n
+    v10 = v2;\n
+    v11 = v3;\n
+    return v1;\n
+}\n
+", "268442384:_vsnprintf": "int _vsnprintf(unsigned int v3, unsigned int a0, unsigned int a1, unsigned int a2)\n
+{\n
+    char v0;  // [bp-0x8]\n
+    unsigned int v1;  // [bp-0x4]\n
+    char v2;  // [bp+0x0]\n
+    unsigned int v4;  // esi\n
+\n
+    v1 = &v2;\n
+    return _vsnprintf_l(v3, a0, a1, 0, a2, v4, *(&v0));\n
+}\n
+", "268442464:snprintf": "int snprintf(unsigned int v6, unsigned int a0, unsigned int a1)\n
+{\n
+    unsigned int v0;  // [bp-0x14]\n
+    unsigned int v1;  // [bp-0x10]\n
+    unsigned int v2;  // [bp-0xc]\n
+    unsigned int v3;  // [bp-0x8]\n
+    unsigned int v4;  // [bp-0x4]\n
+    char v5;  // [bp+0x0]\n
+    char v7;  // [bp+0x10]\n
+    unsigned int v8;  // edi\n
+    unsigned int v9;  // esi\n
+    unsigned int v10;  // esi\n
+    unsigned int v11;  // edi\n
+\n
+    v4 = &v5;\n
+    v3 = v8;\n
+    v2 = v9;\n
+    v0 = &v7;\n
+    v1 = vsnprintf(v6, a0, a1, v0);\n
+    v10 = v2;\n
+    v11 = v3;\n
+    return v1;\n
+}\n
+", "268442544:_vsprintf_l": "int _vsprintf_l(unsigned int v3, unsigned int a0, unsigned int a1, unsigned int a2)\n
+{\n
+    unsigned int v0;  // [bp-0x8]\n
+    unsigned int v1;  // [bp-0x4]\n
+    char v2;  // [bp+0x0]\n
+    unsigned int v4;  // esi\n
+    unsigned int v6;  // esi\n
+\n
+    v1 = &v2;\n
+    v0 = v4;\n
+    v6 = v0;\n
+    return _vsnprintf_l(v3, -1, a0, a1, a2, v4);\n
+}\n
+", "268442624:_vsnprintf_l": "int _vsnprintf_l(unsigned int v8, unsigned int a0, unsigned int a1, unsigned int a2, unsigned int a3)\n
+{\n
+    unsigned int v0;  // [bp-0x28]\n
+    unsigned int v1;  // [bp-0x24]\n
+    unsigned int v2;  // [bp-0x20]\n
+    unsigned int v3;  // [bp-0x1c]\n
+    unsigned int v4;  // [bp-0x18]\n
+    unsigned int v5;  // [bp-0x14]\n
+    unsigned int v6;  // [bp-0x4]\n
+    char v7;  // [bp+0x0]\n
+    unsigned int v9[2];  // eax\n
+    unsigned int v12;  // edx\n
+\n
+    v6 = &v7;\n
+    v2 = a3;\n
+    v3 = a2;\n
+    v9 = __local_stdio_printf_options();\n
+    v12 = v9[1];\n
+    v4 = v9[0] | 1;\n
+    v0 = v2;\n
+    v5 = __stdio_common_vsprintf(v4, v12, v8, a0, a1, v3);\n
+    if (v5 < 0)\n
+    {\n
+        v1 = -1;\n
+        return v1;\n
+    }\n
+    v1 = v5;\n
+    return v1;\n
+}\n
+", "268442768:__local_stdio_printf_options": "extern char g_100070a0;\n
+\n
+int __local_stdio_printf_options()\n
+{\n
+    unsigned int v0;  // [bp-0x4]\n
+    char v1;  // [bp+0x0]\n
+\n
+    v0 = &v1;\n
+    return &g_100070a0;\n
+}\n
+", "268442784:sscanf": "int sscanf(unsigned int v5, unsigned int a0)\n
+{\n
+    unsigned int v0;  // [bp-0x10]\n
+    unsigned int v1;  // [bp-0xc]\n
+    unsigned int v2;  // [bp-0x8]\n
+    unsigned int v3;  // [bp-0x4]\n
+    char v4;  // [bp+0x0]\n
+    char v6;  // [bp+0xc]\n
+    unsigned int v7;  // esi\n
+    unsigned int v8;  // esi\n
+\n
+    v3 = &v4;\n
+    v2 = v7;\n
+    v0 = &v6;\n
+    v1 = _vsscanf_l(v5, a0, 0, v0);\n
+    v8 = v2;\n
+    return v1;\n
+}\n
+", "268442848:_vsscanf_l": "int _vsscanf_l(unsigned int v5, unsigned int a0, unsigned int a1, unsigned int a2)\n
+{\n
+    unsigned int v0;  // [bp-0x1c]\n
+    unsigned int v1;  // [bp-0x18]\n
+    unsigned int v2;  // [bp-0x14]\n
+    unsigned int v3;  // [bp-0x4]\n
+    char v4;  // [bp+0x0]\n
+    unsigned int v6[2];  // eax\n
+\n
+    v3 = &v4;\n
+    v1 = a2;\n
+    v6 = __local_stdio_scanf_options();\n
+    v2 = v6[0];\n
+    v0 = v1;\n
+    return __stdio_common_vsscanf(v2, v6[1], v5, -1, a0, a1);\n
+}\n
+", "268442944:__local_stdio_scanf_options": "extern char g_100070a8;\n
+\n
+int __local_stdio_scanf_options()\n
+{\n
+    unsigned int v0;  // [bp-0x4]\n
+    char v1;  // [bp+0x0]\n
+\n
+    v0 = &v1;\n
+    return &g_100070a8;\n
+}\n
+", "268442960:vsnprintf": "int vsnprintf(unsigned int v7, unsigned int a0, unsigned int a1, unsigned int a2)\n
+{\n
+    unsigned int v0;  // [bp-0x24]\n
+    unsigned int v1;  // [bp-0x20]\n
+    unsigned int v2;  // [bp-0x1c]\n
+    unsigned int v3;  // [bp-0x18]\n
+    unsigned int v4;  // [bp-0x14]\n
+    unsigned int v5;  // [bp-0x4]\n
+    char v6;  // [bp+0x0]\n
+    unsigned int v8[2];  // eax\n
+    unsigned int v11;  // edx\n
+\n
+    v5 = &v6;\n
+    v2 = a2;\n
+    v8 = __local_stdio_printf_options();\n
+    v11 = v8[1];\n
+    v3 = v8[0] | 2;\n
+    v0 = v2;\n
+    v4 = __stdio_common_vsprintf(v3, v11, v7, a0, a1, 0);\n
+    if (v4 < 0)\n
+    {\n
+        v1 = -1;\n
+        return v1;\n
+    }\n
+    v1 = v4;\n
+    return v1;\n
+}\n
+", "268443104:fprintf": "int fprintf(unsigned int v5, unsigned int a0)\n
+{\n
+    unsigned int v0;  // [bp-0x10]\n
+    unsigned int v1;  // [bp-0xc]\n
+    unsigned int v2;  // [bp-0x8]\n
+    unsigned int v3;  // [bp-0x4]\n
+    char v4;  // [bp+0x0]\n
+    char v6;  // [bp+0xc]\n
+    unsigned int v7;  // esi\n
+    unsigned int v8;  // esi\n
+\n
+    v3 = &v4;\n
+    v2 = v7;\n
+    v0 = &v6;\n
+    v1 = _vfprintf_l(v5, a0, 0, v0);\n
+    v8 = v2;\n
+    return v1;\n
+}\n
+", "268443168:_vfprintf_l": "int _vfprintf_l(unsigned int v5, unsigned int a0, unsigned int a1, unsigned int a2)\n
+{\n
+    unsigned int v0;  // [bp-0x1c]\n
+    unsigned int v1;  // [bp-0x18]\n
+    unsigned int v2;  // [bp-0x14]\n
+    unsigned int v3;  // [bp-0x4]\n
+    char v4;  // [bp+0x0]\n
+    unsigned int v6[2];  // eax\n
+\n
+    v3 = &v4;\n
+    v1 = a2;\n
+    v6 = __local_stdio_printf_options();\n
+    v2 = v6[0];\n
+    v0 = v1;\n
+    return __stdio_common_vfprintf(v2, v6[1], v5, a0, a1);\n
+}\n
+", "268443264:cgc_init_prng": "typedef struct struct_0 {\n
+    char padding_0[80];\n
+    char field_50;\n
+} struct_0;\n
+\n
+int cgc_init_prng(struct_0 *v2, unsigned int a0)\n
+{\n
+    unsigned int v0;  // [bp-0x4]\n
+    char v1;  // [bp+0x0]\n
+\n
+    v0 = &v1;\n
+    memset(v2, 0, 81);\n
+    memcpy(v2, a0);\n
+    v2->field_50 = 16;\n
+    return v2;\n
+}\n
+", "268443343:sub_10001ecf": null, "268443344:cgc_aes_get_bytes": "typedef struct struct_0 {\n
+    char padding_0[80];\n
+    char field_50;\n
+} struct_0;\n
+\n
+int cgc_aes_get_bytes(struct_0 *v5, unsigned int a0, unsigned int a1)\n
+{\n
+    struct_0 *v0;  // [bp-0x14]\n
+    int tmp_23;  // tmp #23\n
+    int tmp_37;  // tmp #37\n
+    char v1;  // [bp-0xd]\n
+    char *v2;  // [bp-0xc], Other Possible Types: unsigned int\n
+    unsigned int v3;  // [bp-0x4]\n
+    char v4;  // [bp+0x0]\n
+    struct_0 *v6;  // edx\n
+    char *v8;  // ecx\n
+\n
+    v3 = &v4;\n
+    v2 = 0;\n
+    while (v2 < a0)\n
+    {\n
+        if (v5->field_50 >= 16)\n
+        {\n
+            v0 = v5;\n
+            cgc_gen_block();\n
+        }\n
+        while (true)\n
+        {\n
+            v1 = 0;\n
+            if (v5->field_50 < 16)\n
+                v1 = v2 < a0;\n
+            if (!(v1 & 1))\n
+                break;\n
+            v6 = v5;\n
+            tmp_23 = v6->field_50;\n
+            v6->field_50 = v6->field_50 + 1;\n
+            tmp_37 = v5->padding_0[64 + tmp_23];\n
+            v8 = v2;\n
+            v2 = v8 + 1;\n
+            v8[a1] = tmp_37;\n
+        }\n
+    }\n
+    return v2;\n
+}\n
+", "268443517:sub_10001f7d": null, "268443520:cgc_gen_block": "typedef struct struct_1 {\n
+    char padding_0[80];\n
+    char field_50;\n
+} struct_1;\n
+\n
+typedef struct struct_0 {\n
+    char field_0;\n
+} struct_0;\n
+\n
+int cgc_gen_block(struct_1 *v5)\n
+{\n
+    struct_0 *v0;  // [bp-0x1c], Other Possible Types: struct_1 *\n
+    char v1;  // [bp-0x15]\n
+    char v2;  // [bp-0x14]\n
+    unsigned int v3;  // [bp-0x4]\n
+    char v4;  // [bp+0x0]\n
+    unsigned int v6;  // eax\n
+    struct_1 *v7;  // eax\n
+    unsigned int v8;  // ecx\n
+\n
+    v3 = &v4;\n
+    v0 = &v5->padding_0[48];\n
+    AES128_ECB_encrypt(&v5->padding_0[32], &v5->padding_0[16]);\n
+    v0 = &v2;\n
+    cgc_xor(&v5->padding_0[48], v5);\n
+    v0 = &v5->padding_0[64];\n
+    AES128_ECB_encrypt(&v2, &v5->padding_0[16]);\n
+    v5->field_50 = 0;\n
+    v0 = &v2;\n
+    cgc_xor(&v5->padding_0[48], &v5->padding_0[64]);\n
+    v0 = v5;\n
+    AES128_ECB_encrypt(&v2, &v5->padding_0[16]);\n
+    v1 = 15;\n
+    while (true)\n
+    {\n
+        v6 = v1;\n
+        if (v6 < 0)\n
+            return v1;\n
+        v7 = v5;\n
+        v8 = v1;\n
+        v7->padding_0[32 + v8] = v7->padding_0[32 + v8] + 1;\n
+        v6 = v5->padding_0[32 + v1];\n
+        if (v6)\n
+            return v5->padding_0[32 + v1];\n
+        v1 -= 1;\n
+    }\n
+}\n
+", "268443769:sub_10002079": null, "268443776:cgc_xor": "int cgc_xor(char *v3, unsigned int a0, unsigned int a1)\n
+{\n
+    char *v0;  // [bp-0x8], Other Possible Types: unsigned int\n
+    unsigned int v1;  // [bp-0x4]\n
+    char v2;  // [bp+0x0]\n
+    char *v4;  // eax\n
+    char *v5;  // eax, Other Possible Types: unsigned int\n
+\n
+    v1 = &v2;\n
+    v0 = v4;\n
+    v5 = v3;\n
+    for (v0 = 0; v0 < 16; v0 = v5)\n
+    {\n
+        *((a1 + v0)) = v3[v0] ^ *((a0 + v0));\n
+        v5 = v0 + 1;\n
+    }\n
+    return v5;\n
+}\n
+", "268443872:cgc_sinl": "int cgc_sinl()\n
+{\n
+    unsigned int v1;  // ftop\n
+    unsigned int v2;  // ftop\n
+    unsigned int v3;  // ftop\n
+    unsigned int v4;  // fc3210\n
+    unsigned int v5;  // fc3210\n
+    char v6;  // al\n
+    char v7;  // ah\n
+    unsigned int v8;  // eax\n
+\n
+    [D] t1 = DIRTY 1 TODO(effects) ::: x86g_dirtyhelper_loadF80le(t2)\n
+    v2 = v1 - 1;\n
+    if ([D] GetI(136:I8x8)[t4,0])\n
+    {\n
+        [D] t1 = DIRTY 1 TODO(effects) ::: x86g_dirtyhelper_loadF80le(t2)\n
+        v3 = v2 - 1;\n
+        [D] PutI(72:F64x8)[t4,0] = t7\n
+        [D] PutI(136:I8x8)[t4,0] = 0x01\n
+    }\n
+    else\n
+    {\n
+        [D] t1 = DIRTY 1 TODO(effects) ::: x86g_dirtyhelper_loadF80le(t2)\n
+        v3 = v2 - 1;\n
+        [D] PutI(72:F64x8)[t4,0] = t7\n
+        [D] PutI(136:I8x8)[t4,0] = 0x01\n
+    }\n
+    [D] PutI(72:F64x8)[t10,0] = t18\n
+    [D] PutI(136:I8x8)[t10,0] = 0x01\n
+    v5 = v4 & -1025 | !((([D] GetI(136:I8x8)[t10,0] ? [D] GetI(72:F64x8)[t10,0] : nan) >> 52 & 2047) <= 1085) * 0x400;\n
+    v6 = (v3 & 7) * 0x800 | v5 & 0x4700;\n
+    v7 = ((v3 & 7) * 0x800 | v5 & 0x4700) >> 8;\n
+    if (((([D] x86g_calculate_eflags_all(cc_op<4>, cc_dep1<4>, cc_dep2<4>, cc_ndep<4>) & 0x800 | v8 >> 8 & 213) >> 2) & 1) == 1)\n
+    {\n
+        [D] PutI(72:F64x8)[t10,0] = t18\n
+        [D] PutI(136:I8x8)[t10,0] = 0x01\n
+        return cgc_twopi_rem();\n
+    }\n
+    return v8;\n
+}\n
+", "268443878:cgc_sinf": "int cgc_sinf(unsigned int v0)\n
+{\n
+    if ([D] GetI(136:I8x8)[t3,0])\n
+    {\n
+        [D] PutI(72:F64x8)[t3,0] = t6\n
+        [D] PutI(136:I8x8)[t3,0] = 0x01\n
+    }\n
+    else\n
+    {\n
+        [D] PutI(72:F64x8)[t3,0] = t6\n
+        [D] PutI(136:I8x8)[t3,0] = 0x01\n
+    }\n
+}\n
+", "268443884:cgc_sin": "int cgc_sinf(unsigned int v0)\n
+{\n
+    if ([D] GetI(136:I8x8)[t3,0])\n
+    {\n
+        [D] PutI(72:F64x8)[t3,0] = t6\n
+        [D] PutI(136:I8x8)[t3,0] = 0x01\n
+    }\n
+    else\n
+    {\n
+        [D] PutI(72:F64x8)[t3,0] = t6\n
+        [D] PutI(136:I8x8)[t3,0] = 0x01\n
+    }\n
+}\n
+", "268443904:cgc_cosl": "int cgc_cosl()\n
+{\n
+    unsigned int v1;  // ftop\n
+    unsigned int v2;  // ftop\n
+    unsigned int v3;  // ftop\n
+    unsigned int v4;  // fc3210\n
+    unsigned int v5;  // fc3210\n
+    char v6;  // al\n
+    char v7;  // ah\n
+    unsigned int v8;  // eax\n
+\n
+    [D] t1 = DIRTY 1 TODO(effects) ::: x86g_dirtyhelper_loadF80le(t2)\n
+    v2 = v1 - 1;\n
+    if ([D] GetI(136:I8x8)[t4,0])\n
+    {\n
+        [D] t1 = DIRTY 1 TODO(effects) ::: x86g_dirtyhelper_loadF80le(t2)\n
+        v3 = v2 - 1;\n
+        [D] PutI(72:F64x8)[t4,0] = t7\n
+        [D] PutI(136:I8x8)[t4,0] = 0x01\n
+    }\n
+    else\n
+    {\n
+        [D] t1 = DIRTY 1 TODO(effects) ::: x86g_dirtyhelper_loadF80le(t2)\n
+        v3 = v2 - 1;\n
+        [D] PutI(72:F64x8)[t4,0] = t7\n
+        [D] PutI(136:I8x8)[t4,0] = 0x01\n
+    }\n
+    [D] PutI(72:F64x8)[t10,0] = t18\n
+    [D] PutI(136:I8x8)[t10,0] = 0x01\n
+    v5 = v4 & -1025 | !((([D] GetI(136:I8x8)[t10,0] ? [D] GetI(72:F64x8)[t10,0] : nan) >> 52 & 2047) <= 1085) * 0x400;\n
+    v6 = (v3 & 7) * 0x800 | v5 & 0x4700;\n
+    v7 = ((v3 & 7) * 0x800 | v5 & 0x4700) >> 8;\n
+    if (((([D] x86g_calculate_eflags_all(cc_op<4>, cc_dep1<4>, cc_dep2<4>, cc_ndep<4>) & 0x800 | v8 >> 8 & 213) >> 2) & 1) == 1)\n
+    {\n
+        [D] PutI(72:F64x8)[t10,0] = t18\n
+        [D] PutI(136:I8x8)[t10,0] = 0x01\n
+        return cgc_twopi_rem();\n
+    }\n
+    return v8;\n
+}\n
+", "268443910:cgc_cosf": "int cgc_cosf(unsigned int v0)\n
+{\n
+    if ([D] GetI(136:I8x8)[t3,0])\n
+    {\n
+        [D] PutI(72:F64x8)[t3,0] = t6\n
+        [D] PutI(136:I8x8)[t3,0] = 0x01\n
+    }\n
+    else\n
+    {\n
+        [D] PutI(72:F64x8)[t3,0] = t6\n
+        [D] PutI(136:I8x8)[t3,0] = 0x01\n
+    }\n
+}\n
+", "268443916:cgc_cos": "int cgc_cosf(unsigned int v0)\n
+{\n
+    if ([D] GetI(136:I8x8)[t3,0])\n
+    {\n
+        [D] PutI(72:F64x8)[t3,0] = t6\n
+        [D] PutI(136:I8x8)[t3,0] = 0x01\n
+    }\n
+    else\n
+    {\n
+        [D] PutI(72:F64x8)[t3,0] = t6\n
+        [D] PutI(136:I8x8)[t3,0] = 0x01\n
+    }\n
+}\n
+", "268443936:cgc_tanl": "int cgc_tanl()\n
+{\n
+    unsigned int v1;  // ftop\n
+    unsigned int v2;  // ftop\n
+    unsigned int v3;  // ftop\n
+    unsigned int v4;  // ftop\n
+    unsigned int v5;  // fc3210\n
+    unsigned int v6;  // fc3210\n
+    char v7;  // al\n
+    char v8;  // ah\n
+    unsigned int v9;  // eax\n
+\n
+    [D] t1 = DIRTY 1 TODO(effects) ::: x86g_dirtyhelper_loadF80le(t2)\n
+    v2 = v1 - 1;\n
+    if ([D] GetI(136:I8x8)[t4,0])\n
+    {\n
+        [D] t1 = DIRTY 1 TODO(effects) ::: x86g_dirtyhelper_loadF80le(t2)\n
+        v3 = v2 - 1;\n
+        [D] PutI(72:F64x8)[t4,0] = t7\n
+        [D] PutI(136:I8x8)[t4,0] = 0x01\n
+    }\n
+    else\n
+    {\n
+        [D] t1 = DIRTY 1 TODO(effects) ::: x86g_dirtyhelper_loadF80le(t2)\n
+        v3 = v2 - 1;\n
+        [D] PutI(72:F64x8)[t4,0] = t7\n
+        [D] PutI(136:I8x8)[t4,0] = 0x01\n
+    }\n
+    [D] PutI(72:F64x8)[t14,0] = t22\n
+    [D] PutI(136:I8x8)[t14,0] = 0x01\n
+    v4 = v3 - ((([D] GetI(136:I8x8)[t14,0] ? [D] GetI(72:F64x8)[t14,0] : nan) >> 52 & 2047) <= 1085);\n
+    [D] PutI(72:F64x8)[t26,0] = t34\n
+    [D] PutI(136:I8x8)[t26,0] = 0x01\n
+    [D] PutI(136:I8x8)[t26,0] = t31\n
+    v6 = v5 & -1025 | !((([D] GetI(136:I8x8)[t14,0] ? [D] GetI(72:F64x8)[t14,0] : nan) >> 52 & 2047) <= 1085) * 0x400;\n
+    v7 = (v4 & 7) * 0x800 | v6 & 0x4700;\n
+    v8 = ((v4 & 7) * 0x800 | v6 & 0x4700) >> 8;\n
+    if (((([D] x86g_calculate_eflags_all(cc_op<4>, cc_dep1<4>, cc_dep2<4>, cc_ndep<4>) & 0x800 | v9 >> 8 & 213) >> 2) & 1) == 1)\n
+    {\n
+        [D] PutI(72:F64x8)[t14,0] = t22\n
+        [D] PutI(136:I8x8)[t14,0] = 0x01\n
+        [D] PutI(72:F64x8)[t26,0] = t34\n
+        [D] PutI(136:I8x8)[t26,0] = 0x01\n
+        [D] PutI(136:I8x8)[t26,0] = t31\n
+        [D] PutI(72:F64x8)[t47,0] = t48\n
+        [D] PutI(136:I8x8)[t47,0] = 0x01\n
+        [D] PutI(136:I8x8)[t47,0] = 0x00\n
+        return cgc_twopi_rem();\n
+    }\n
+    [D] PutI(72:F64x8)[t2,0] = t3\n
+    [D] PutI(136:I8x8)[t2,0] = 0x01\n
+    [D] PutI(136:I8x8)[t2,0] = 0x00\n
+    return v9;\n
+}\n
+", "268443942:cgc_tanf": "int cgc_tanf(unsigned int v0)\n
+{\n
+    if ([D] GetI(136:I8x8)[t3,0])\n
+    {\n
+        [D] PutI(72:F64x8)[t3,0] = t6\n
+        [D] PutI(136:I8x8)[t3,0] = 0x01\n
+    }\n
+    else\n
+    {\n
+        [D] PutI(72:F64x8)[t3,0] = t6\n
+        [D] PutI(136:I8x8)[t3,0] = 0x01\n
+    }\n
+}\n
+", "268443948:cgc_tan": "int cgc_tanf(unsigned int v0)\n
+{\n
+    if ([D] GetI(136:I8x8)[t3,0])\n
+    {\n
+        [D] PutI(72:F64x8)[t3,0] = t6\n
+        [D] PutI(136:I8x8)[t3,0] = 0x01\n
+    }\n
+    else\n
+    {\n
+        [D] PutI(72:F64x8)[t3,0] = t6\n
+        [D] PutI(136:I8x8)[t3,0] = 0x01\n
+    }\n
+}\n
+", "268443972:cgc_twopi_rem": "int cgc_twopi_rem()\n
+{\n
+    unsigned int v1;  // ftop\n
+    unsigned int v2;  // ftop\n
+    unsigned int v3;  // fc3210\n
+    char v4;  // al\n
+    char v5;  // ah\n
+\n
+    v2 = v1 - 1;\n
+    [D] PutI(72:F64x8)[t2,0] = t5\n
+    [D] PutI(136:I8x8)[t2,0] = 0x01\n
+    [D] PutI(72:F64x8)[t12,0] = t13\n
+    [D] PutI(136:I8x8)[t12,0] = 0x01\n
+    [D] PutI(72:F64x8)[t32,0] = t36\n
+    [D] PutI(136:I8x8)[t32,0] = 0x01\n
+    [D] PutI(72:F64x8)[t32,1] = t29\n
+    [D] PutI(136:I8x8)[t32,1] = 0x01\n
+    do\n
+    {\n
+        [D] PutI(72:F64x8)[t7,0] = t19\n
+        [D] PutI(136:I8x8)[t7,0] = 0x01\n
+        v3 = [D] PRemC3210F64(0x00000000,t4,t11);\n
+        v4 = (v2 & 7) * 0x800 | v3 & 0x4700;\n
+        v5 = ((v2 & 7) * 0x800 | v3 & 0x4700) >> 8;\n
+    } while (((([D] x86g_calculate_eflags_all(0x0<32>, cc_dep1<4>, 0x0<32>, 0x0<32>) & 0x800 | eax<4> / 0x100 & 213) >> 2) & 1) == 1);\n
+    [D] PutI(72:F64x8)[t2,1] = t3\n
+    [D] PutI(136:I8x8)[t2,1] = 0x01\n
+    [D] PutI(136:I8x8)[t2,0] = 0x00\n
+    return eax<4>;\n
+}\n
+", "268443988:cgc_remainderl": "int cgc_remainderl()\n
+{\n
+    unsigned int v1;  // ftop\n
+    unsigned int v2;  // ftop\n
+    unsigned int v3;  // ftop\n
+    unsigned int v4;  // ftop\n
+    unsigned int v5;  // ftop\n
+    unsigned int v6;  // fc3210\n
+    char v7;  // al\n
+    char v8;  // ah\n
+\n
+    [D] t1 = DIRTY 1 TODO(effects) ::: x86g_dirtyhelper_loadF80le(t2)\n
+    v2 = v1 - 1;\n
+    if ([D] GetI(136:I8x8)[t4,0])\n
+    {\n
+        [D] t1 = DIRTY 1 TODO(effects) ::: x86g_dirtyhelper_loadF80le(t2)\n
+        v3 = v2 - 1;\n
+        [D] PutI(72:F64x8)[t4,0] = t7\n
+        [D] PutI(136:I8x8)[t4,0] = 0x01\n
+    }\n
+    else\n
+    {\n
+        [D] t1 = DIRTY 1 TODO(effects) ::: x86g_dirtyhelper_loadF80le(t2)\n
+        v3 = v2 - 1;\n
+        [D] PutI(72:F64x8)[t4,0] = t7\n
+        [D] PutI(136:I8x8)[t4,0] = 0x01\n
+    }\n
+    [D] t1 = DIRTY 1 TODO(effects) ::: x86g_dirtyhelper_loadF80le(t2)\n
+    v4 = v3 - 1;\n
+    if ([D] GetI(136:I8x8)[t4,0])\n
+    {\n
+        [D] t1 = DIRTY 1 TODO(effects) ::: x86g_dirtyhelper_loadF80le(t2)\n
+        v5 = v4 - 1;\n
+        [D] PutI(72:F64x8)[t4,0] = t7\n
+        [D] PutI(136:I8x8)[t4,0] = 0x01\n
+    }\n
+    else\n
+    {\n
+        [D] t1 = DIRTY 1 TODO(effects) ::: x86g_dirtyhelper_loadF80le(t2)\n
+        v5 = v4 - 1;\n
+        [D] PutI(72:F64x8)[t4,0] = t7\n
+        [D] PutI(136:I8x8)[t4,0] = 0x01\n
+    }\n
+    do\n
+    {\n
+        [D] PutI(72:F64x8)[t7,0] = t19\n
+        [D] PutI(136:I8x8)[t7,0] = 0x01\n
+        v6 = [D] PRem1C3210F64(0x00000000,t4,t11);\n
+        v7 = (v5 & 7) * 0x800 | v6 & 0x4700;\n
+        v8 = ((v5 & 7) * 0x800 | v6 & 0x4700) >> 8;\n
+    } while (((([D] x86g_calculate_eflags_all(0x0<32>, cc_dep1<4>, 0x0<32>, 0x0<32>) & 0x800 | eax<4> / 0x100 & 213) >> 2) & 1) == 1);\n
+    [D] PutI(72:F64x8)[t2,1] = t3\n
+    [D] PutI(136:I8x8)[t2,1] = 0x01\n
+    [D] PutI(136:I8x8)[t2,0] = 0x00\n
+    return eax<4>;\n
+}\n
+", "268443998:cgc_remainderf": "int cgc_remainderf(unsigned int v0, unsigned int a0)\n
+{\n
+    if ([D] GetI(136:I8x8)[t3,0])\n
+    {\n
+        [D] PutI(72:F64x8)[t3,0] = t6\n
+        [D] PutI(136:I8x8)[t3,0] = 0x01\n
+    }\n
+    else\n
+    {\n
+        [D] PutI(72:F64x8)[t3,0] = t6\n
+        [D] PutI(136:I8x8)[t3,0] = 0x01\n
+    }\n
+    if ([D] GetI(136:I8x8)[t3,0])\n
+    {\n
+        [D] PutI(72:F64x8)[t3,0] = t6\n
+        [D] PutI(136:I8x8)[t3,0] = 0x01\n
+    }\n
+    else\n
+    {\n
+        [D] PutI(72:F64x8)[t3,0] = t6\n
+        [D] PutI(136:I8x8)[t3,0] = 0x01\n
+    }\n
+}\n
+", "268444008:cgc_remainder": "int cgc_remainder()\n
+{\n
+    if ([D] GetI(136:I8x8)[t3,0])\n
+    {\n
+        [D] PutI(72:F64x8)[t3,0] = t6\n
+        [D] PutI(136:I8x8)[t3,0] = 0x01\n
+    }\n
+    else\n
+    {\n
+        [D] PutI(72:F64x8)[t3,0] = t6\n
+        [D] PutI(136:I8x8)[t3,0] = 0x01\n
+    }\n
+    [D] PutI(72:F64x8)[t3,0] = t6\n
+    [D] PutI(136:I8x8)[t3,0] = 0x01\n
+}\n
+", "268444027:cgc_logl": "int cgc_logl()\n
+{\n
+    unsigned int v1;  // eax\n
+\n
+    [D] t1 = DIRTY 1 TODO(effects) ::: x86g_dirtyhelper_loadF80le(t2)\n
+    if ([D] GetI(136:I8x8)[t4,0])\n
+    {\n
+        [D] t1 = DIRTY 1 TODO(effects) ::: x86g_dirtyhelper_loadF80le(t2)\n
+        [D] PutI(72:F64x8)[t4,0] = t7\n
+        [D] PutI(136:I8x8)[t4,0] = 0x01\n
+    }\n
+    else\n
+    {\n
+        [D] t1 = DIRTY 1 TODO(effects) ::: x86g_dirtyhelper_loadF80le(t2)\n
+        [D] PutI(72:F64x8)[t4,0] = t7\n
+        [D] PutI(136:I8x8)[t4,0] = 0x01\n
+    }\n
+    [D] PutI(72:F64x8)[t4,0] = t7\n
+    [D] PutI(136:I8x8)[t4,0] = 0x01\n
+    [D] PutI(72:F64x8)[t17,0] = t21\n
+    [D] PutI(136:I8x8)[t17,0] = 0x01\n
+    [D] PutI(72:F64x8)[t17,1] = t14\n
+    [D] PutI(136:I8x8)[t17,1] = 0x01\n
+    [D] PutI(72:F64x8)[t32,1] = t33\n
+    [D] PutI(136:I8x8)[t32,1] = 0x01\n
+    [D] PutI(136:I8x8)[t32,0] = 0x00\n
+    return v1;\n
+}\n
+", "268444033:cgc_logf": "int cgc_logf(unsigned int v0)\n
+{\n
+    if ([D] GetI(136:I8x8)[t3,0])\n
+    {\n
+        [D] PutI(72:F64x8)[t3,0] = t6\n
+        [D] PutI(136:I8x8)[t3,0] = 0x01\n
+    }\n
+    else\n
+    {\n
+        [D] PutI(72:F64x8)[t3,0] = t6\n
+        [D] PutI(136:I8x8)[t3,0] = 0x01\n
+    }\n
+}\n
+", "268444039:cgc_log": "int cgc_logf(unsigned int v0)\n
+{\n
+    if ([D] GetI(136:I8x8)[t3,0])\n
+    {\n
+        [D] PutI(72:F64x8)[t3,0] = t6\n
+        [D] PutI(136:I8x8)[t3,0] = 0x01\n
+    }\n
+    else\n
+    {\n
+        [D] PutI(72:F64x8)[t3,0] = t6\n
+        [D] PutI(136:I8x8)[t3,0] = 0x01\n
+    }\n
+}\n
+", "268444050:cgc_log10l": "int cgc_log10l()\n
+{\n
+    unsigned int v1;  // eax\n
+\n
+    [D] t1 = DIRTY 1 TODO(effects) ::: x86g_dirtyhelper_loadF80le(t2)\n
+    if ([D] GetI(136:I8x8)[t4,0])\n
+    {\n
+        [D] t1 = DIRTY 1 TODO(effects) ::: x86g_dirtyhelper_loadF80le(t2)\n
+        [D] PutI(72:F64x8)[t4,0] = t7\n
+        [D] PutI(136:I8x8)[t4,0] = 0x01\n
+    }\n
+    else\n
+    {\n
+        [D] t1 = DIRTY 1 TODO(effects) ::: x86g_dirtyhelper_loadF80le(t2)\n
+        [D] PutI(72:F64x8)[t4,0] = t7\n
+        [D] PutI(136:I8x8)[t4,0] = 0x01\n
+    }\n
+    [D] PutI(72:F64x8)[t4,0] = t7\n
+    [D] PutI(136:I8x8)[t4,0] = 0x01\n
+    [D] PutI(72:F64x8)[t17,0] = t21\n
+    [D] PutI(136:I8x8)[t17,0] = 0x01\n
+    [D] PutI(72:F64x8)[t17,1] = t14\n
+    [D] PutI(136:I8x8)[t17,1] = 0x01\n
+    [D] PutI(72:F64x8)[t32,1] = t33\n
+    [D] PutI(136:I8x8)[t32,1] = 0x01\n
+    [D] PutI(136:I8x8)[t32,0] = 0x00\n
+    return v1;\n
+}\n
+", "268444056:cgc_log10f": "int cgc_log10f(unsigned int v0)\n
+{\n
+    if ([D] GetI(136:I8x8)[t3,0])\n
+    {\n
+        [D] PutI(72:F64x8)[t3,0] = t6\n
+        [D] PutI(136:I8x8)[t3,0] = 0x01\n
+    }\n
+    else\n
+    {\n
+        [D] PutI(72:F64x8)[t3,0] = t6\n
+        [D] PutI(136:I8x8)[t3,0] = 0x01\n
+    }\n
+}\n
+", "268444062:cgc_log10": "int cgc_log10f(unsigned int v0)\n
+{\n
+    if ([D] GetI(136:I8x8)[t3,0])\n
+    {\n
+        [D] PutI(72:F64x8)[t3,0] = t6\n
+        [D] PutI(136:I8x8)[t3,0] = 0x01\n
+    }\n
+    else\n
+    {\n
+        [D] PutI(72:F64x8)[t3,0] = t6\n
+        [D] PutI(136:I8x8)[t3,0] = 0x01\n
+    }\n
+}\n
+", "268444073:cgc_significandl": "int cgc_significandl()\n
+{\n
+    unsigned int v1;  // eax\n
+\n
+    [D] t1 = DIRTY 1 TODO(effects) ::: x86g_dirtyhelper_loadF80le(t2)\n
+    if ([D] GetI(136:I8x8)[t4,0])\n
+    {\n
+        [D] t1 = DIRTY 1 TODO(effects) ::: x86g_dirtyhelper_loadF80le(t2)\n
+        [D] PutI(72:F64x8)[t4,0] = t7\n
+        [D] PutI(136:I8x8)[t4,0] = 0x01\n
+    }\n
+    else\n
+    {\n
+        [D] t1 = DIRTY 1 TODO(effects) ::: x86g_dirtyhelper_loadF80le(t2)\n
+        [D] PutI(72:F64x8)[t4,0] = t7\n
+        [D] PutI(136:I8x8)[t4,0] = 0x01\n
+    }\n
+    [D] PutI(72:F64x8)[t11,0] = t19\n
+    [D] PutI(136:I8x8)[t11,0] = 0x01\n
+    [D] PutI(72:F64x8)[t22,0] = t25\n
+    [D] PutI(136:I8x8)[t22,0] = 0x01\n
+    [D] PutI(72:F64x8)[t31,1] = t32\n
+    [D] PutI(136:I8x8)[t31,1] = 0x01\n
+    [D] PutI(136:I8x8)[t31,0] = 0x00\n
+    return v1;\n
+}\n
+", "268444079:cgc_significandf": "int cgc_significandf(unsigned int v0)\n
+{\n
+    if ([D] GetI(136:I8x8)[t3,0])\n
+    {\n
+        [D] PutI(72:F64x8)[t3,0] = t6\n
+        [D] PutI(136:I8x8)[t3,0] = 0x01\n
+    }\n
+    else\n
+    {\n
+        [D] PutI(72:F64x8)[t3,0] = t6\n
+        [D] PutI(136:I8x8)[t3,0] = 0x01\n
+    }\n
+}\n
+", "268444085:cgc_significand": "int cgc_significandf(unsigned int v0)\n
+{\n
+    if ([D] GetI(136:I8x8)[t3,0])\n
+    {\n
+        [D] PutI(72:F64x8)[t3,0] = t6\n
+        [D] PutI(136:I8x8)[t3,0] = 0x01\n
+    }\n
+    else\n
+    {\n
+        [D] PutI(72:F64x8)[t3,0] = t6\n
+        [D] PutI(136:I8x8)[t3,0] = 0x01\n
+    }\n
+}\n
+", "268444094:cgc_scalbnl": "int cgc_scalbnl()\n
+{\n
+    if ([D] GetI(136:I8x8)[t4,0])\n
+    {\n
+        [D] PutI(72:F64x8)[t3,0] = t6\n
+        [D] PutI(136:I8x8)[t3,0] = 0x01\n
+    }\n
+    else\n
+    {\n
+        [D] PutI(72:F64x8)[t3,0] = t6\n
+        [D] PutI(136:I8x8)[t3,0] = 0x01\n
+    }\n
+    [D] t1 = DIRTY 1 TODO(effects) ::: x86g_dirtyhelper_loadF80le(t2)\n
+    if ([D] GetI(136:I8x8)[t4,0])\n
+    {\n
+        [D] t1 = DIRTY 1 TODO(effects) ::: x86g_dirtyhelper_loadF80le(t2)\n
+        [D] PutI(72:F64x8)[t4,0] = t7\n
+        [D] PutI(136:I8x8)[t4,0] = 0x01\n
+    }\n
+    else\n
+    {\n
+        [D] t1 = DIRTY 1 TODO(effects) ::: x86g_dirtyhelper_loadF80le(t2)\n
+        [D] PutI(72:F64x8)[t4,0] = t7\n
+        [D] PutI(136:I8x8)[t4,0] = 0x01\n
+    }\n
+    [D] PutI(72:F64x8)[t2,0] = t3\n
+    [D] PutI(136:I8x8)[t2,0] = 0x01\n
+    [D] PutI(72:F64x8)[t19,1] = t20\n
+    [D] PutI(136:I8x8)[t19,1] = 0x01\n
+    [D] PutI(136:I8x8)[t19,0] = 0x00\n
+    return;\n
+}\n
+", "268444104:cgc_scalbnf": "int cgc_scalbnf(unsigned int v0, unsigned int a0)\n
+{\n
+    if ([D] GetI(136:I8x8)[t3,0])\n
+    {\n
+        [D] PutI(72:F64x8)[t3,0] = t6\n
+        [D] PutI(136:I8x8)[t3,0] = 0x01\n
+    }\n
+    else\n
+    {\n
+        [D] PutI(72:F64x8)[t3,0] = t6\n
+        [D] PutI(136:I8x8)[t3,0] = 0x01\n
+    }\n
+    if ([D] GetI(136:I8x8)[t3,0])\n
+    {\n
+        [D] PutI(72:F64x8)[t3,0] = t6\n
+        [D] PutI(136:I8x8)[t3,0] = 0x01\n
+    }\n
+    else\n
+    {\n
+        [D] PutI(72:F64x8)[t3,0] = t6\n
+        [D] PutI(136:I8x8)[t3,0] = 0x01\n
+    }\n
+}\n
+", "268444114:cgc_scalbn": "int cgc_scalbn()\n
+{\n
+    if ([D] GetI(136:I8x8)[t3,0])\n
+    {\n
+        [D] PutI(72:F64x8)[t3,0] = t6\n
+        [D] PutI(136:I8x8)[t3,0] = 0x01\n
+    }\n
+    else\n
+    {\n
+        [D] PutI(72:F64x8)[t3,0] = t6\n
+        [D] PutI(136:I8x8)[t3,0] = 0x01\n
+    }\n
+    [D] PutI(72:F64x8)[t3,0] = t6\n
+    [D] PutI(136:I8x8)[t3,0] = 0x01\n
+}\n
+", "268444127:cgc_scalblnl": "int cgc_scalblnl()\n
+{\n
+    return cgc_scalbnl();\n
+}\n
+", "268444129:cgc_scalblnf": "int cgc_scalblnf(unsigned int v0, unsigned int a0)\n
+{\n
+    return cgc_scalbnf(v0, a0);\n
+}\n
+", "268444131:cgc_scalbln": "int cgc_scalbln()\n
+{\n
+    return cgc_scalbn();\n
+}\n
+", "268444133:cgc_rintl": "int cgc_rintl()\n
+{\n
+    unsigned int v1;  // eax\n
+\n
+    [D] t1 = DIRTY 1 TODO(effects) ::: x86g_dirtyhelper_loadF80le(t2)\n
+    if ([D] GetI(136:I8x8)[t4,0])\n
+    {\n
+        [D] t1 = DIRTY 1 TODO(effects) ::: x86g_dirtyhelper_loadF80le(t2)\n
+        [D] PutI(72:F64x8)[t4,0] = t7\n
+        [D] PutI(136:I8x8)[t4,0] = 0x01\n
+    }\n
+    else\n
+    {\n
+        [D] t1 = DIRTY 1 TODO(effects) ::: x86g_dirtyhelper_loadF80le(t2)\n
+        [D] PutI(72:F64x8)[t4,0] = t7\n
+        [D] PutI(136:I8x8)[t4,0] = 0x01\n
+    }\n
+    [D] PutI(72:F64x8)[t2,0] = t3\n
+    [D] PutI(136:I8x8)[t2,0] = 0x01\n
+    return v1;\n
+}\n
+", "268444139:cgc_rintf": "int cgc_rintf(unsigned int v0)\n
+{\n
+    if ([D] GetI(136:I8x8)[t3,0])\n
+    {\n
+        [D] PutI(72:F64x8)[t3,0] = t6\n
+        [D] PutI(136:I8x8)[t3,0] = 0x01\n
+    }\n
+    else\n
+    {\n
+        [D] PutI(72:F64x8)[t3,0] = t6\n
+        [D] PutI(136:I8x8)[t3,0] = 0x01\n
+    }\n
+}\n
+", "268444145:cgc_rint": "int cgc_rintf(unsigned int v0)\n
+{\n
+    if ([D] GetI(136:I8x8)[t3,0])\n
+    {\n
+        [D] PutI(72:F64x8)[t3,0] = t6\n
+        [D] PutI(136:I8x8)[t3,0] = 0x01\n
+    }\n
+    else\n
+    {\n
+        [D] PutI(72:F64x8)[t3,0] = t6\n
+        [D] PutI(136:I8x8)[t3,0] = 0x01\n
+    }\n
+}\n
+", "268444152:cgc_sqrtl": "int cgc_sqrtl()\n
+{\n
+    unsigned int v1;  // eax\n
+\n
+    [D] t1 = DIRTY 1 TODO(effects) ::: x86g_dirtyhelper_loadF80le(t2)\n
+    if ([D] GetI(136:I8x8)[t4,0])\n
+    {\n
+        [D] t1 = DIRTY 1 TODO(effects) ::: x86g_dirtyhelper_loadF80le(t2)\n
+        [D] PutI(72:F64x8)[t4,0] = t7\n
+        [D] PutI(136:I8x8)[t4,0] = 0x01\n
+    }\n
+    else\n
+    {\n
+        [D] t1 = DIRTY 1 TODO(effects) ::: x86g_dirtyhelper_loadF80le(t2)\n
+        [D] PutI(72:F64x8)[t4,0] = t7\n
+        [D] PutI(136:I8x8)[t4,0] = 0x01\n
+    }\n
+    [D] PutI(72:F64x8)[t2,0] = t3\n
+    [D] PutI(136:I8x8)[t2,0] = 0x01\n
+    return v1;\n
+}\n
+", "268444158:cgc_sqrtf": "int cgc_sqrtf(unsigned int v0)\n
+{\n
+    if ([D] GetI(136:I8x8)[t3,0])\n
+    {\n
+        [D] PutI(72:F64x8)[t3,0] = t6\n
+        [D] PutI(136:I8x8)[t3,0] = 0x01\n
+    }\n
+    else\n
+    {\n
+        [D] PutI(72:F64x8)[t3,0] = t6\n
+        [D] PutI(136:I8x8)[t3,0] = 0x01\n
+    }\n
+}\n
+", "268444164:cgc_sqrt": "int cgc_sqrtf(unsigned int v0)\n
+{\n
+    if ([D] GetI(136:I8x8)[t3,0])\n
+    {\n
+        [D] PutI(72:F64x8)[t3,0] = t6\n
+        [D] PutI(136:I8x8)[t3,0] = 0x01\n
+    }\n
+    else\n
+    {\n
+        [D] PutI(72:F64x8)[t3,0] = t6\n
+        [D] PutI(136:I8x8)[t3,0] = 0x01\n
+    }\n
+}\n
+", "268444171:cgc_fabsl": "int cgc_fabsl()\n
+{\n
+    unsigned int v1;  // eax\n
+\n
+    [D] t1 = DIRTY 1 TODO(effects) ::: x86g_dirtyhelper_loadF80le(t2)\n
+    if ([D] GetI(136:I8x8)[t4,0])\n
+    {\n
+        [D] t1 = DIRTY 1 TODO(effects) ::: x86g_dirtyhelper_loadF80le(t2)\n
+        [D] PutI(72:F64x8)[t4,0] = t7\n
+        [D] PutI(136:I8x8)[t4,0] = 0x01\n
+    }\n
+    else\n
+    {\n
+        [D] t1 = DIRTY 1 TODO(effects) ::: x86g_dirtyhelper_loadF80le(t2)\n
+        [D] PutI(72:F64x8)[t4,0] = t7\n
+        [D] PutI(136:I8x8)[t4,0] = 0x01\n
+    }\n
+    [D] PutI(72:F64x8)[t2,0] = t3\n
+    [D] PutI(136:I8x8)[t2,0] = 0x01\n
+    return v1;\n
+}\n
+", "268444177:cgc_fabsf": "int cgc_fabsf(unsigned int v0)\n
+{\n
+    if ([D] GetI(136:I8x8)[t3,0])\n
+    {\n
+        [D] PutI(72:F64x8)[t3,0] = t6\n
+        [D] PutI(136:I8x8)[t3,0] = 0x01\n
+    }\n
+    else\n
+    {\n
+        [D] PutI(72:F64x8)[t3,0] = t6\n
+        [D] PutI(136:I8x8)[t3,0] = 0x01\n
+    }\n
+}\n
+", "268444183:cgc_fabs": "int cgc_fabsf(unsigned int v0)\n
+{\n
+    if ([D] GetI(136:I8x8)[t3,0])\n
+    {\n
+        [D] PutI(72:F64x8)[t3,0] = t6\n
+        [D] PutI(136:I8x8)[t3,0] = 0x01\n
+    }\n
+    else\n
+    {\n
+        [D] PutI(72:F64x8)[t3,0] = t6\n
+        [D] PutI(136:I8x8)[t3,0] = 0x01\n
+    }\n
+}\n
+", "268444190:cgc_atan2l": "int cgc_atan2l()\n
+{\n
+    unsigned int v1;  // eax\n
+\n
+    [D] t1 = DIRTY 1 TODO(effects) ::: x86g_dirtyhelper_loadF80le(t2)\n
+    if ([D] GetI(136:I8x8)[t4,0])\n
+    {\n
+        [D] t1 = DIRTY 1 TODO(effects) ::: x86g_dirtyhelper_loadF80le(t2)\n
+        [D] PutI(72:F64x8)[t4,0] = t7\n
+        [D] PutI(136:I8x8)[t4,0] = 0x01\n
+    }\n
+    else\n
+    {\n
+        [D] t1 = DIRTY 1 TODO(effects) ::: x86g_dirtyhelper_loadF80le(t2)\n
+        [D] PutI(72:F64x8)[t4,0] = t7\n
+        [D] PutI(136:I8x8)[t4,0] = 0x01\n
+    }\n
+    [D] t1 = DIRTY 1 TODO(effects) ::: x86g_dirtyhelper_loadF80le(t2)\n
+    if ([D] GetI(136:I8x8)[t4,0])\n
+    {\n
+        [D] t1 = DIRTY 1 TODO(effects) ::: x86g_dirtyhelper_loadF80le(t2)\n
+        [D] PutI(72:F64x8)[t4,0] = t7\n
+        [D] PutI(136:I8x8)[t4,0] = 0x01\n
+    }\n
+    else\n
+    {\n
+        [D] t1 = DIRTY 1 TODO(effects) ::: x86g_dirtyhelper_loadF80le(t2)\n
+        [D] PutI(72:F64x8)[t4,0] = t7\n
+        [D] PutI(136:I8x8)[t4,0] = 0x01\n
+    }\n
+    [D] PutI(72:F64x8)[t2,1] = t3\n
+    [D] PutI(136:I8x8)[t2,1] = 0x01\n
+    [D] PutI(136:I8x8)[t2,0] = 0x00\n
+    return v1;\n
+}\n
+", "268444200:cgc_atan2f": "int cgc_atan2f(unsigned int v0, unsigned int a0)\n
+{\n
+    if ([D] GetI(136:I8x8)[t3,0])\n
+    {\n
+        [D] PutI(72:F64x8)[t3,0] = t6\n
+        [D] PutI(136:I8x8)[t3,0] = 0x01\n
+    }\n
+    else\n
+    {\n
+        [D] PutI(72:F64x8)[t3,0] = t6\n
+        [D] PutI(136:I8x8)[t3,0] = 0x01\n
+    }\n
+    if ([D] GetI(136:I8x8)[t3,0])\n
+    {\n
+        [D] PutI(72:F64x8)[t3,0] = t6\n
+        [D] PutI(136:I8x8)[t3,0] = 0x01\n
+    }\n
+    else\n
+    {\n
+        [D] PutI(72:F64x8)[t3,0] = t6\n
+        [D] PutI(136:I8x8)[t3,0] = 0x01\n
+    }\n
+}\n
+", "268444210:cgc_atan2": "int cgc_atan2()\n
+{\n
+    if ([D] GetI(136:I8x8)[t3,0])\n
+    {\n
+        [D] PutI(72:F64x8)[t3,0] = t6\n
+        [D] PutI(136:I8x8)[t3,0] = 0x01\n
+    }\n
+    else\n
+    {\n
+        [D] PutI(72:F64x8)[t3,0] = t6\n
+        [D] PutI(136:I8x8)[t3,0] = 0x01\n
+    }\n
+    [D] PutI(72:F64x8)[t3,0] = t6\n
+    [D] PutI(136:I8x8)[t3,0] = 0x01\n
+}\n
+", "268444221:cgc_log2l": "int cgc_log2l()\n
+{\n
+    unsigned int v1;  // eax\n
+\n
+    [D] t1 = DIRTY 1 TODO(effects) ::: x86g_dirtyhelper_loadF80le(t2)\n
+    if ([D] GetI(136:I8x8)[t4,0])\n
+    {\n
+        [D] t1 = DIRTY 1 TODO(effects) ::: x86g_dirtyhelper_loadF80le(t2)\n
+        [D] PutI(72:F64x8)[t4,0] = t7\n
+        [D] PutI(136:I8x8)[t4,0] = 0x01\n
+    }\n
+    else\n
+    {\n
+        [D] t1 = DIRTY 1 TODO(effects) ::: x86g_dirtyhelper_loadF80le(t2)\n
+        [D] PutI(72:F64x8)[t4,0] = t7\n
+        [D] PutI(136:I8x8)[t4,0] = 0x01\n
+    }\n
+    [D] PutI(72:F64x8)[t4,0] = t7\n
+    [D] PutI(136:I8x8)[t4,0] = 0x01\n
+    [D] PutI(72:F64x8)[t17,0] = t21\n
+    [D] PutI(136:I8x8)[t17,0] = 0x01\n
+    [D] PutI(72:F64x8)[t17,1] = t14\n
+    [D] PutI(136:I8x8)[t17,1] = 0x01\n
+    [D] PutI(72:F64x8)[t32,1] = t33\n
+    [D] PutI(136:I8x8)[t32,1] = 0x01\n
+    [D] PutI(136:I8x8)[t32,0] = 0x00\n
+    return v1;\n
+}\n
+", "268444227:cgc_log2f": "int cgc_log2f(unsigned int v0)\n
+{\n
+    if ([D] GetI(136:I8x8)[t3,0])\n
+    {\n
+        [D] PutI(72:F64x8)[t3,0] = t6\n
+        [D] PutI(136:I8x8)[t3,0] = 0x01\n
+    }\n
+    else\n
+    {\n
+        [D] PutI(72:F64x8)[t3,0] = t6\n
+        [D] PutI(136:I8x8)[t3,0] = 0x01\n
+    }\n
+}\n
+", "268444233:cgc_log2": "int cgc_log2f(unsigned int v0)\n
+{\n
+    if ([D] GetI(136:I8x8)[t3,0])\n
+    {\n
+        [D] PutI(72:F64x8)[t3,0] = t6\n
+        [D] PutI(136:I8x8)[t3,0] = 0x01\n
+    }\n
+    else\n
+    {\n
+        [D] PutI(72:F64x8)[t3,0] = t6\n
+        [D] PutI(136:I8x8)[t3,0] = 0x01\n
+    }\n
+}\n
+", "268444244:cgc_exp2l": "int cgc_exp2l()\n
+{\n
+    [D] t1 = DIRTY 1 TODO(effects) ::: x86g_dirtyhelper_loadF80le(t2)\n
+    if ([D] GetI(136:I8x8)[t4,0])\n
+    {\n
+        [D] t1 = DIRTY 1 TODO(effects) ::: x86g_dirtyhelper_loadF80le(t2)\n
+        [D] PutI(72:F64x8)[t4,0] = t7\n
+        [D] PutI(136:I8x8)[t4,0] = 0x01\n
+        return cgc_exp2x();\n
+    }\n
+    [D] t1 = DIRTY 1 TODO(effects) ::: x86g_dirtyhelper_loadF80le(t2)\n
+    [D] PutI(72:F64x8)[t4,0] = t7\n
+    [D] PutI(136:I8x8)[t4,0] = 0x01\n
+    return cgc_exp2x();\n
+}\n
+", "268444250:cgc_exp2f": "int cgc_exp2f(unsigned int v0)\n
+{\n
+    if ([D] GetI(136:I8x8)[t3,0])\n
+    {\n
+        [D] PutI(72:F64x8)[t3,0] = t6\n
+        [D] PutI(136:I8x8)[t3,0] = 0x01\n
+        return cgc_exp2x();\n
+    }\n
+    [D] PutI(72:F64x8)[t3,0] = t6\n
+    [D] PutI(136:I8x8)[t3,0] = 0x01\n
+    return cgc_exp2x();\n
+}\n
+", "268444256:cgc_exp2": "int cgc_exp2f(unsigned int v0)\n
+{\n
+    if ([D] GetI(136:I8x8)[t3,0])\n
+    {\n
+        [D] PutI(72:F64x8)[t3,0] = t6\n
+        [D] PutI(136:I8x8)[t3,0] = 0x01\n
+        return cgc_exp2x();\n
+    }\n
+    [D] PutI(72:F64x8)[t3,0] = t6\n
+    [D] PutI(136:I8x8)[t3,0] = 0x01\n
+    return cgc_exp2x();\n
+}\n
+", "268444262:cgc_exp2x": "int cgc_exp2x()\n
+{\n
+    unsigned int v1;  // eax\n
+\n
+    [D] PutI(72:F64x8)[t12,0] = t15\n
+    [D] PutI(136:I8x8)[t12,0] = 0x01\n
+    [D] PutI(72:F64x8)[t21,0] = t22\n
+    [D] PutI(136:I8x8)[t21,0] = 0x01\n
+    [D] PutI(72:F64x8)[t33,0] = t34\n
+    [D] PutI(136:I8x8)[t33,0] = 0x01\n
+    [D] PutI(72:F64x8)[t53,0] = t57\n
+    [D] PutI(136:I8x8)[t53,0] = 0x01\n
+    [D] PutI(72:F64x8)[t53,1] = t50\n
+    [D] PutI(136:I8x8)[t53,1] = 0x01\n
+    [D] PutI(72:F64x8)[t68,0] = t69\n
+    [D] PutI(136:I8x8)[t68,0] = 0x01\n
+    [D] PutI(72:F64x8)[t78,0] = t81\n
+    [D] PutI(136:I8x8)[t78,0] = 0x01\n
+    [D] PutI(72:F64x8)[t88,1] = t89\n
+    [D] PutI(136:I8x8)[t88,1] = 0x01\n
+    [D] PutI(136:I8x8)[t88,0] = 0x00\n
+    [D] PutI(72:F64x8)[t108,0] = t109\n
+    [D] PutI(136:I8x8)[t108,0] = 0x01\n
+    [D] PutI(72:F64x8)[t125,1] = t126\n
+    [D] PutI(136:I8x8)[t125,1] = 0x01\n
+    [D] PutI(136:I8x8)[t125,0] = 0x00\n
+    return v1;\n
+}\n
+", "268444281:cgc_powl": "int cgc_powl()\n
+{\n
+    [D] t1 = DIRTY 1 TODO(effects) ::: x86g_dirtyhelper_loadF80le(t2)\n
+    if ([D] GetI(136:I8x8)[t4,0])\n
+    {\n
+        [D] t1 = DIRTY 1 TODO(effects) ::: x86g_dirtyhelper_loadF80le(t2)\n
+        [D] PutI(72:F64x8)[t4,0] = t7\n
+        [D] PutI(136:I8x8)[t4,0] = 0x01\n
+    }\n
+    else\n
+    {\n
+        [D] t1 = DIRTY 1 TODO(effects) ::: x86g_dirtyhelper_loadF80le(t2)\n
+        [D] PutI(72:F64x8)[t4,0] = t7\n
+        [D] PutI(136:I8x8)[t4,0] = 0x01\n
+    }\n
+    [D] t1 = DIRTY 1 TODO(effects) ::: x86g_dirtyhelper_loadF80le(t2)\n
+    if ([D] GetI(136:I8x8)[t4,0])\n
+    {\n
+        [D] t1 = DIRTY 1 TODO(effects) ::: x86g_dirtyhelper_loadF80le(t2)\n
+        [D] PutI(72:F64x8)[t4,0] = t7\n
+        [D] PutI(136:I8x8)[t4,0] = 0x01\n
+    }\n
+    else\n
+    {\n
+        [D] t1 = DIRTY 1 TODO(effects) ::: x86g_dirtyhelper_loadF80le(t2)\n
+        [D] PutI(72:F64x8)[t4,0] = t7\n
+        [D] PutI(136:I8x8)[t4,0] = 0x01\n
+    }\n
+    [D] PutI(72:F64x8)[t0,1] = t1\n
+    [D] PutI(136:I8x8)[t0,1] = 0x01\n
+    [D] PutI(136:I8x8)[t0,0] = 0x00\n
+    return cgc_exp2x();\n
+}\n
+", "268444291:cgc_powf": "int cgc_powf(unsigned int v0, unsigned int a0)\n
+{\n
+    if ([D] GetI(136:I8x8)[t3,0])\n
+    {\n
+        [D] PutI(72:F64x8)[t3,0] = t6\n
+        [D] PutI(136:I8x8)[t3,0] = 0x01\n
+    }\n
+    else\n
+    {\n
+        [D] PutI(72:F64x8)[t3,0] = t6\n
+        [D] PutI(136:I8x8)[t3,0] = 0x01\n
+    }\n
+    if ([D] GetI(136:I8x8)[t3,0])\n
+    {\n
+        [D] PutI(72:F64x8)[t3,0] = t6\n
+        [D] PutI(136:I8x8)[t3,0] = 0x01\n
+    }\n
+    else\n
+    {\n
+        [D] PutI(72:F64x8)[t3,0] = t6\n
+        [D] PutI(136:I8x8)[t3,0] = 0x01\n
+    }\n
+}\n
+", "268444301:cgc_pow": "int cgc_pow()\n
+{\n
+    if ([D] GetI(136:I8x8)[t3,0])\n
+    {\n
+        [D] PutI(72:F64x8)[t3,0] = t6\n
+        [D] PutI(136:I8x8)[t3,0] = 0x01\n
+    }\n
+    else\n
+    {\n
+        [D] PutI(72:F64x8)[t3,0] = t6\n
+        [D] PutI(136:I8x8)[t3,0] = 0x01\n
+    }\n
+    [D] PutI(72:F64x8)[t3,0] = t6\n
+    [D] PutI(136:I8x8)[t3,0] = 0x01\n
+}\n
+", "268444313:cgc_expl": "int cgc_expl()\n
+{\n
+    [D] t1 = DIRTY 1 TODO(effects) ::: x86g_dirtyhelper_loadF80le(t2)\n
+    if ([D] GetI(136:I8x8)[t4,0])\n
+    {\n
+        [D] t1 = DIRTY 1 TODO(effects) ::: x86g_dirtyhelper_loadF80le(t2)\n
+        [D] PutI(72:F64x8)[t4,0] = t7\n
+        [D] PutI(136:I8x8)[t4,0] = 0x01\n
+    }\n
+    else\n
+    {\n
+        [D] t1 = DIRTY 1 TODO(effects) ::: x86g_dirtyhelper_loadF80le(t2)\n
+        [D] PutI(72:F64x8)[t4,0] = t7\n
+        [D] PutI(136:I8x8)[t4,0] = 0x01\n
+    }\n
+    [D] PutI(72:F64x8)[t0,0] = t3\n
+    [D] PutI(136:I8x8)[t0,0] = 0x01\n
+    [D] PutI(72:F64x8)[t10,1] = t11\n
+    [D] PutI(136:I8x8)[t10,1] = 0x01\n
+    [D] PutI(136:I8x8)[t10,0] = 0x00\n
+    return cgc_exp2x();\n
+}\n
+", "268444319:cgc_expf": "int cgc_expf(unsigned int v0)\n
+{\n
+    if ([D] GetI(136:I8x8)[t3,0])\n
+    {\n
+        [D] PutI(72:F64x8)[t3,0] = t6\n
+        [D] PutI(136:I8x8)[t3,0] = 0x01\n
+    }\n
+    else\n
+    {\n
+        [D] PutI(72:F64x8)[t3,0] = t6\n
+        [D] PutI(136:I8x8)[t3,0] = 0x01\n
+    }\n
+}\n
+", "268444325:cgc_exp": "int cgc_expf(unsigned int v0)\n
+{\n
+    if ([D] GetI(136:I8x8)[t3,0])\n
+    {\n
+        [D] PutI(72:F64x8)[t3,0] = t6\n
+        [D] PutI(136:I8x8)[t3,0] = 0x01\n
+    }\n
+    else\n
+    {\n
+        [D] PutI(72:F64x8)[t3,0] = t6\n
+        [D] PutI(136:I8x8)[t3,0] = 0x01\n
+    }\n
+}\n
+", "268444335:cgc_setjmp": "int cgc_setjmp()\n
+{\n
+    char v0;  // [bp+0x0]\n
+    unsigned int v1[6];  // [bp+0x4]\n
+    unsigned int v2[6];  // ecx\n
+    unsigned int v3;  // ebx\n
+    unsigned int v4;  // esi\n
+    unsigned int v5;  // edi\n
+\n
+    v2 = v1;\n
+    v2[0] = *(&v0);\n
+    v2[1] = v3;\n
+    v2[2] = &v0;\n
+    v2[3] = &v0;\n
+    v2[4] = v4;\n
+    v2[5] = v5;\n
+    return;\n
+}\n
+", "268444362:cgc_longjmp": "int cgc_longjmp(unsigned int v1[6], unsigned int a0)\n
+{\n
+    unsigned int v0;  // [bp+0x0]\n
+    unsigned int v3;  // eax\n
+\n
+    v3 = a0;\n
+    if (!v3)\n
+        v3 += 1;\n
+    v0 = v1[0];\n
+    return v3;\n
+}\n
+", "268444400:sub_100022f0": "extern char g_10005224;\n
+extern char g_10005228;\n
+extern char g_1000522c;\n
+extern struct_0 *g_10005230;\n
+extern char g_10006050;\n
+extern unsigned int g_10007040;\n
+extern unsigned int g_100070b0;\n
+extern unsigned int g_100070d0;\n
+\n
+int sub_100022f0(unsigned int v12, unsigned int a0)\n
+{\n
+    unsigned int v0;  // [bp-0x30]\n
+    struct struct_0 **v1;  // [bp-0x2c]\n
+    struct struct_0 **v2;  // [bp-0x28]\n
+    struct struct_0 **v3;  // [bp-0x24]\n
+    char v4;  // [bp-0x1e]\n
+    char v5;  // [bp-0x1d]\n
+    unsigned int v6;  // [bp-0x14]\n
+    unsigned int v7;  // [bp-0x10]\n
+    unsigned int v8;  // [bp-0xc]\n
+    void* v9;  // [bp-0x8], Other Possible Types: unsigned int\n
+    struct struct_0 **v10;  // [bp-0x4], Other Possible Types: unsigned int\n
+    char v11;  // [bp+0x0]\n
+    unsigned int v14;  // ebx\n
+    unsigned int v15;  // edi\n
+    unsigned int v16;  // esi\n
+    unsigned int v18;  // eax\n
+\n
+    v10 = &v11;\n
+    v9 = -2;\n
+    v8 = &g_10006050;\n
+    v7 = sub_10003360;\n
+    v6 = *([D] x86g_use_seg_selector(ldt<8>, gdt<8>, Conv(16->32, fs<2>), 0x0<32>));\n
+    v0 = v14;\n
+    v8 ^= g_10007040;\n
+    *([D] x86g_use_seg_selector(ldt<8>, gdt<8>, Conv(16->32, fs<2>), 0x0<32>)) = &v6;\n
+    if (!sub_10002c20(0, g_10007040 ^ &v10, v15, v16))\n
+    {\n
+        v18 = 0;\n
+    }\n
+    else\n
+    {\n
+        v4 = sub_10002ba0();\n
+        v5 = 1;\n
+        v9 = 0;\n
+        if (g_100070d0)\n
+            sub_10003130();\n
+        g_100070d0 = 1;\n
+        if (sub_10002de0())\n
+        {\n
+            sub_10003300();\n
+            sub_10002900();\n
+            sub_10002940();\n
+            v10 = &g_10005230;\n
+            v9 = &g_1000522c;\n
+            if (!_initterm_e(*(&v11)) && sub_10002e00())\n
+            {\n
+                v10 = &g_10005228;\n
+                v9 = &g_10005224;\n
+                _initterm(*(&v11));\n
+                g_100070d0 = 2;\n
+                v5 = 0;\n
+            }\n
+        }\n
+        v9 = -2;\n
+        sub_100023d8();\n
+        if (v5)\n
+        {\n
+            v18 = 0;\n
+        }\n
+        else\n
+        {\n
+            v3 = sub_10003000();\n
+            if (*(v3))\n
+            {\n
+                v10 = v3;\n
+                if (sub_10002a70())\n
+                {\n
+                    v1 = &*(v3)->field_0;\n
+                    v10 = a0;\n
+                    v9 = 2;\n
+                    v8 = v12;\n
+                    v2 = v1;\n
+                    sub_100033a0(v12, a0);\n
+                    v2(v12, a0);\n
+                }\n
+            }\n
+            g_100070b0 = g_100070b0 + 1;\n
+            v18 = 1;\n
+        }\n
+    }\n
+    *([D] x86g_use_seg_selector(ldt<8>, gdt<8>, Conv(16->32, fs<2>), 0x0<32>)) = v6;\n
+    return v18;\n
+}\n
+", "268444632:sub_100023d8": "int sub_100023d8()\n
+{\n
+    char v0;  // [bp-0x1a]\n
+    unsigned int v1;  // [bp-0x4]\n
+\n
+    v1 = v0;\n
+    sub_10002bf0();\n
+    return;\n
+}\n
+", "268444768:sub_10002460": "typedef struct struct_0 {\n
+    char field_0;\n
+} struct_0;\n
+\n
+extern char g_10006070;\n
+extern unsigned int g_10007040;\n
+extern unsigned int g_100070b0;\n
+extern void* g_100070d0;\n
+\n
+int sub_10002460(char v9)\n
+{\n
+    unsigned int v0;  // [bp-0x38]\n
+    unsigned int v1;  // [bp-0x24]\n
+    char v2;  // [bp-0x1d]\n
+    unsigned int v3;  // [bp-0x14]\n
+    unsigned int v4;  // [bp-0x10]\n
+    unsigned int v5;  // [bp-0xc]\n
+    void* v6;  // [bp-0x8], Other Possible Types: unsigned int\n
+    struct_0 *v7;  // [bp-0x4], Other Possible Types: void*\n
+    char v8;  // [bp+0x0]\n
+    void* v12;  // eax, Other Possible Types: unsigned int\n
+    unsigned int v13;  // edi\n
+    unsigned int v14;  // esi\n
+    unsigned int v15;  // ebx\n
+\n
+    v7 = &v8;\n
+    v6 = -2;\n
+    v5 = &g_10006070;\n
+    v4 = sub_10003360;\n
+    v3 = *([D] x86g_use_seg_selector(ldt<8>, gdt<8>, Conv(16->32, fs<2>), 0x0<32>));\n
+    v5 ^= g_10007040;\n
+    *([D] x86g_use_seg_selector(ldt<8>, gdt<8>, Conv(16->32, fs<2>), 0x0<32>)) = &v3;\n
+    if (g_100070b0 <= 0)\n
+    {\n
+        v12 = 0;\n
+    }\n
+    else\n
+    {\n
+        g_100070b0 = g_100070b0 - 1;\n
+        v1 = 1;\n
+        v6 = 0;\n
+        v2 = sub_10002ba0(g_10007040 ^ &v7, v13, v14, v15);\n
+        v6 = 1;\n
+        if (g_100070d0 != 2)\n
+        {\n
+            v0 = 7;\n
+            sub_10003130();\n
+        }\n
+        sub_10002e30();\n
+        sub_10002920();\n
+        sub_10003330();\n
+        g_100070d0 = 0;\n
+        v6 = 0;\n
+        sub_10002502();\n
+        v7 = 0;\n
+        v6 = v9;\n
+        if (!sub_10002c70(*(&v8)))\n
+            v1 = 0;\n
+        v6 = -2;\n
+        sub_1000253b();\n
+        v12 = v1;\n
+    }\n
+    *([D] x86g_use_seg_selector(ldt<8>, gdt<8>, Conv(16->32, fs<2>), 0x0<32>)) = v3;\n
+    return v12;\n
+}\n
+", "268444930:sub_10002502": "int sub_10002502()\n
+{\n
+    char v0;  // [bp-0x19]\n
+    unsigned int v1;  // [bp-0x4]\n
+\n
+    v1 = v0;\n
+    sub_10002bf0();\n
+    return;\n
+}\n
+", "268444987:sub_1000253b": "int sub_1000253b()\n
+{\n
+    return sub_10002e60();\n
+}\n
+", "268445024:sub_10002560": "int sub_10002560(unsigned int v4, unsigned int a0, unsigned int a1)\n
+{\n
+    unsigned int v0;  // [bp-0xc]\n
+    char v1;  // [bp-0x5]\n
+    unsigned int v2;  // [bp-0x4]\n
+    char v3;  // [bp+0x0]\n
+    unsigned int v5;  // eax\n
+\n
+    v2 = &v3;\n
+    v0 = a0;\n
+    switch (v0)\n
+    {\n
+    case 0:\n
+        if (a1)\n
+        {\n
+            v1 = 1;\n
+            break;\n
+        }\n
+        else\n
+        {\n
+            v1 = 0;\n
+            break;\n
+        }\n
+        v5 = sub_10002460(v1);\n
+        return v5;\n
+    case 1:\n
+        v5 = sub_100022f0(v4, a1);\n
+        return v5;\n
+    case 2:\n
+        v5 = sub_10002e80();\n
+        return v5;\n
+    case 3:\n
+        v5 = sub_10002eb0();\n
+        return v5;\n
+    default:\n
+        return 1;\n
+    }\n
+}\n
+", "268445152:sub_100025e0": "int sub_100025e0(unsigned int v2, unsigned int a0, unsigned int a1)\n
+{\n
+    unsigned int v0;  // [bp-0x4]\n
+    char v1;  // [bp+0x0]\n
+\n
+    v0 = &v1;\n
+    return sub_10002560(v2, a0, a1);\n
+}\n
+", "268445184:sub_10002600": "int sub_10002600(unsigned int v5, unsigned int a0, unsigned int a1)\n
+{\n
+    unsigned int v3;  // [bp-0x4]\n
+    char v4;  // [bp+0x0]\n
+\n
+    v3 = &v4;\n
+    return 1;\n
+}\n
+", "268445264:sub_10002650": "typedef struct struct_0 {\n
+    char field_0;\n
+} struct_0;\n
+\n
+extern char g_10006098;\n
+extern unsigned int g_10007040;\n
+extern unsigned int g_100070b0;\n
+\n
+int sub_10002650(unsigned int v12, unsigned int a0, unsigned int a1)\n
+{\n
+    unsigned int v0;  // [bp-0x34]\n
+    unsigned int v1;  // [bp-0x30]\n
+    unsigned int v2;  // [bp-0x2c]\n
+    unsigned int v3;  // [bp-0x28]\n
+    unsigned int v4;  // [bp-0x20]\n
+    struct_0 *v5;  // [bp-0x1c]\n
+    unsigned int v6;  // [bp-0x14]\n
+    unsigned int v7;  // [bp-0x10]\n
+    unsigned int v8;  // [bp-0xc]\n
+    void* v9;  // [bp-0x8], Other Possible Types: unsigned int\n
+    unsigned int v10;  // [bp-0x4]\n
+    char v11;  // [bp+0x0]\n
+    unsigned int v13;  // ebx\n
+    unsigned int v14;  // esi\n
+    unsigned int v15;  // edi\n
+    void* v16;  // eax, Other Possible Types: unsigned int\n
+\n
+    v10 = &v11;\n
+    v9 = -2;\n
+    v8 = &g_10006098;\n
+    v7 = sub_10003360;\n
+    v6 = *([D] x86g_use_seg_selector(ldt<8>, gdt<8>, Conv(16->32, fs<2>), 0x0<32>));\n
+    v3 = v13;\n
+    v2 = v14;\n
+    v1 = v15;\n
+    v8 ^= g_10007040;\n
+    v0 = g_10007040 ^ &v10;\n
+    *([D] x86g_use_seg_selector(ldt<8>, gdt<8>, Conv(16->32, fs<2>), 0x0<32>)) = &v6;\n
+    v5 = &v0;\n
+    if (!a0 && g_100070b0 <= 0)\n
+    {\n
+        v16 = 0;\n
+        goto LABEL_100027c4;\n
+    }\n
+    v4 = 1;\n
+    v9 = 0;\n
+    if (a0 != 1 && !(a0 == 2))\n
+        goto LABEL_100026f1;\n
+    v4 = sub_10002600(v12, a0, a1);\n
+    if (!v4)\n
+        goto LABEL_1000277b;\n
+    v4 = sub_10002560(v12, a0, a1);\n
+    if (!v4)\n
+        goto LABEL_1000277b;\n
+LABEL_100026f1:\n
+    v10 = a1;\n
+    v9 = a0;\n
+    v8 = v12;\n
+    v4 = DllMain(v12, a0, a1);\n
+    if (a0 == 1 && !v4)\n
+    {\n
+        v10 = a1;\n
+        v9 = 0;\n
+        v8 = v12;\n
+        DllMain(v12, a0, a1);\n
+        v10 = a1;\n
+        v9 = 0;\n
+        v8 = v12;\n
+        sub_10002560(v12, a0, a1);\n
+        v10 = a1;\n
+        v9 = 0;\n
+        v8 = v12;\n
+        sub_10002600(v12, a0, a1);\n
+    }\n
+    if (a0 && !(a0 == 3))\n
+        goto LABEL_1000277b;\n
+    v10 = a1;\n
+    v9 = a0;\n
+    v8 = v12;\n
+    v4 = sub_10002560(v12, a0, a1);\n
+    if (v4)\n
+    {\n
+        v10 = a1;\n
+        v9 = a0;\n
+        v8 = v12;\n
+        v4 = sub_10002600(v12, a0, a1);\n
+    }\n
+LABEL_1000277b:\n
+    v9 = -2;\n
+    v16 = v4;\n
+LABEL_100027c4:\n
+    *([D] x86g_use_seg_selector(ldt<8>, gdt<8>, Conv(16->32, fs<2>), 0x0<32>)) = v6;\n
+    return v16;\n
+}\n
+", "268445572:sub_10002784": "int sub_10002784()\n
+{\n
+    unsigned int v0;  // [bp-0x20]\n
+    char v1;  // [bp-0x14]\n
+    unsigned int v2;  // [bp-0x4]\n
+    char v4;  // [bp+0x8]\n
+    char v5;  // [bp+0xc]\n
+    char v6;  // [bp+0x10]\n
+\n
+    v0 = *(*(*(&v1)));\n
+    v2 = *(&v1);\n
+    sub_10002d90(*(&v4), *(&v5), *(&v6), sub_10002560, v0);\n
+    return;\n
+}\n
+", "268445616:sub_100027b0": "int sub_100027b0()\n
+{\n
+    void* v0;  // [bp-0x1c]\n
+    unsigned int v1;  // [bp-0x4]\n
+\n
+    v0 = 0;\n
+    v1 = -2;\n
+}\n
+", "268445664:_start": "int _start(unsigned int v2, unsigned int a0, unsigned int a1)\n
+{\n
+    unsigned int v0;  // [bp-0x4]\n
+    char v1;  // [bp+0x0]\n
+\n
+    v0 = &v1;\n
+    if (a0 != 1)\n
+        return sub_10002650(v2, a0, a1);\n
+    sub_10002810();\n
+    return sub_10002650(v2, a0, a1);\n
+}\n
+", "268445712:sub_10002810": "extern unsigned int g_10007040;\n
+extern unsigned int g_10007080;\n
+\n
+int sub_10002810()\n
+{\n
+    unsigned int v0;  // [bp-0x8]\n
+    unsigned int v1;  // [bp-0x4]\n
+    char v2;  // [bp+0x0]\n
+    unsigned int v3;  // [bp+0x4]\n
+    unsigned int v4;  // eax\n
+\n
+    v1 = &v2;\n
+    if (g_10007040 != 3141592654)\n
+    {\n
+        v4 = g_10007040 & -0x10000;\n
+        if (v4)\n
+        {\n
+            g_10007080 = ~(g_10007040);\n
+            return g_10007040 & -0x10000;\n
+        }\n
+    }\n
+    v4 = sub_10002890(v3);\n
+    v0 = v4;\n
+    if (v0 == 3141592654)\n
+    {\n
+        v0 = 3141592655;\n
+    }\n
+    else if (!(v0 & -0x10000))\n
+    {\n
+        v4 = (v0 | 18193) * 0x10000 | v0;\n
+        v0 = v4;\n
+    }\n
+    g_10007040 = v0;\n
+    g_10007080 = ~(v0);\n
+    return v4;\n
+}\n
+", "268445840:sub_10002890": "int sub_10002890()\n
+{\n
+    unsigned long long v0;  // [bp-0x18]\n
+    char v1;  // [bp-0x14]\n
+    void* v2;  // [bp-0x10]\n
+    void* v3;  // [bp-0xc]\n
+    unsigned int v4;  // [bp-0x8]\n
+    unsigned int v5;  // [bp-0x4]\n
+    char v6;  // [bp+0x0]\n
+\n
+    v5 = &v6;\n
+    v2 = 0;\n
+    v3 = 0;\n
+    GetSystemTimeAsFileTime(&v2);\n
+    v4 = v2;\n
+    v4 ^= v3;\n
+    v4 = GetCurrentThreadId() ^ v4;\n
+    v4 = GetCurrentProcessId() ^ v4;\n
+    QueryPerformanceCounter(&v0);\n
+    v4 ^= v0;\n
+    v4 ^= *(&v1);\n
+    v4 ^= &v4;\n
+    return v4;\n
+}\n
+", "268445952:sub_10002900": "extern void g_100070b8;\n
+\n
+int sub_10002900()\n
+{\n
+    unsigned int v0;  // [bp-0x4]\n
+    char v1;  // [bp+0x0]\n
+\n
+    v0 = &v1;\n
+    return InitializeSListHead(&g_100070b8);\n
+}\n
+", "268445984:sub_10002920": "extern unsigned int g_100070b8;\n
+\n
+int sub_10002920()\n
+{\n
+    unsigned int v0;  // [bp-0x4]\n
+    char v1;  // [bp+0x0]\n
+\n
+    v0 = &v1;\n
+    return __std_type_info_destroy_list(&g_100070b8);\n
+}\n
+", "268446016:sub_10002940": "int sub_10002940()\n
+{\n
+    unsigned int v0[2];  // [bp-0xc]\n
+    unsigned int v1[2];  // [bp-0x8]\n
+    unsigned int v2;  // [bp-0x4]\n
+    char v3;  // [bp+0x0]\n
+    unsigned int v5[2];  // eax\n
+    unsigned int v7;  // edx\n
+    unsigned int v8[2];  // eax\n
+    unsigned int v9[2];  // ecx\n
+    unsigned int v11;  // eax\n
+    unsigned int v12[2];  // ecx\n
+\n
+    v2 = &v3;\n
+    v1[0] = __local_stdio_printf_options();\n
+    v5 = v1;\n
+    v7 = v5[1];\n
+    v8 = v1;\n
+    v8[0] = v5[0] | 36;\n
+    v8[1] = v7;\n
+    v0[0] = __local_stdio_scanf_options();\n
+    v9 = v0;\n
+    v11 = v9[1];\n
+    v12 = v0;\n
+    v12[0] = v9[0] | 2;\n
+    v12[1] = v11;\n
+    return v11;\n
+}\n
+", "268446080:sub_10002980": "int sub_10002980(unsigned int v3)\n
+{\n
+    unsigned int v0;  // [bp-0x8]\n
+    unsigned int v1;  // [bp-0x4]\n
+    char v2;  // [bp+0x0]\n
+    unsigned int v4;  // ecx\n
+\n
+    v1 = &v2;\n
+    if (sub_100029b0(v3, v4))\n
+    {\n
+        v0 = 0;\n
+        return v0;\n
+    }\n
+    v0 = -1;\n
+    return v0;\n
+}\n
+", "268446128:sub_100029b0": "extern unsigned int g_100070dc;\n
+\n
+int sub_100029b0(unsigned int v5)\n
+{\n
+    unsigned int v0;  // [bp-0x10]\n
+    void* v1;  // [bp-0xc], Other Possible Types: unsigned int\n
+    void* v2;  // [bp-0x8], Other Possible Types: unsigned int\n
+    unsigned int v3;  // [bp-0x4]\n
+    char v4;  // [bp+0x0]\n
+\n
+    v3 = &v4;\n
+    v0 = g_100070dc;\n
+    if (v0 != -1)\n
+    {\n
+        if (_register_onexit_function(&g_100070dc))\n
+            v1 = 0;\n
+        else\n
+            v1 = v5;\n
+        return v1;\n
+    }\n
+    else\n
+    {\n
+        if (_crt_atexit(v5))\n
+            v2 = 0;\n
+        else\n
+            v2 = v5;\n
+        return v2;\n
+    }\n
+}\n
+", "268446184:sub_100029e8": "int sub_100029e8()\n
+{\n
+}\n
+", "268446240:sub_10002a20": "extern unsigned int g_100070e8;\n
+\n
+int sub_10002a20(unsigned int v5)\n
+{\n
+    unsigned int v0;  // [bp-0x10]\n
+    unsigned int v1;  // [bp-0xc]\n
+    unsigned int v2;  // [bp-0x8]\n
+    unsigned int v3;  // [bp-0x4]\n
+    char v4;  // [bp+0x0]\n
+    unsigned int v6;  // eax\n
+\n
+    v3 = &v4;\n
+    v2 = g_100070e8;\n
+    if (v2 == -1)\n
+    {\n
+        v0 = v5;\n
+        v6 = _crt_at_quick_exit();\n
+        return v6;\n
+    }\n
+    v1 = v5;\n
+    v0 = v1;\n
+    v6 = _register_onexit_function(&g_100070e8);\n
+    return v6;\n
+}\n
+", "268446274:sub_10002a42": "int sub_10002a42()\n
+{\n
+}\n
+", "268446304:sub_10002a60": "int sub_10002a60()\n
+{\n
+    unsigned int v0;  // [bp-0x4]\n
+    char v1;  // [bp+0x0]\n
+\n
+    v0 = &v1;\n
+    return *([D] x86g_use_seg_selector(ldt<8>, gdt<8>, Conv(16->32, fs<2>), 0x18<32>));\n
+}\n
+", "268446320:sub_10002a70": "typedef struct struct_0 {\n
+    char padding_0[36];\n
+    unsigned int field_24;\n
+} struct_0;\n
+\n
+extern char g_10000000;\n
+extern char g_100060b8;\n
+extern unsigned int g_10007040;\n
+\n
+int sub_10002a70(unsigned int v18)\n
+{\n
+    char v0;  // [bp-0x4c]\n
+    char v1;  // [bp-0x48]\n
+    char v2;  // [bp-0x44]\n
+    unsigned int v3;  // [bp-0x38]\n
+    unsigned int v4;  // [bp-0x34]\n
+    struct_0 *v5;  // [bp-0x2c]\n
+    unsigned int v6;  // [bp-0x28]\n
+    struct_0 *v7;  // [bp-0x20]\n
+    struct_0 *v8;  // [bp-0x1f]\n
+    struct_0 *v9;  // [bp-0x1e]\n
+    struct_0 *v10;  // [bp-0x1d]\n
+    unsigned int v11;  // [bp-0x1c]\n
+    unsigned int v12;  // [bp-0x14]\n
+    unsigned int v13;  // [bp-0x10]\n
+    unsigned int v14;  // [bp-0xc]\n
+    void* v15;  // [bp-0x8], Other Possible Types: unsigned int\n
+    unsigned int v16;  // [bp-0x4]\n
+    char v17;  // [bp+0x0]\n
+    struct_0 *v19;  // eax, Other Possible Types: unsigned int\n
+\n
+    v16 = &v17;\n
+    v15 = -2;\n
+    v14 = &g_100060b8;\n
+    v13 = sub_10003360;\n
+    v12 = *([D] x86g_use_seg_selector(ldt<8>, gdt<8>, Conv(16->32, fs<2>), 0x0<32>));\n
+    v14 ^= g_10007040;\n
+    *([D] x86g_use_seg_selector(ldt<8>, gdt<8>, Conv(16->32, fs<2>), 0x0<32>)) = &v12;\n
+    v11 = &v0;\n
+    v4 = v18;\n
+    v6 = &g_10000000;\n
+    v15 = 0;\n
+    v19 = sub_10002f00(v6, g_10007040 ^ &v16, *(&v1), *(&v2));\n
+    if (!v19)\n
+    {\n
+        *(&v10) = 0;\n
+        v15 = -2;\n
+        *(&v19) = v10;\n
+    }\n
+    else\n
+    {\n
+        v3 = v4 - v6;\n
+        v19 = sub_10002f70(v6);\n
+        v5 = v19;\n
+        if (!v5)\n
+        {\n
+            *(&v9) = 0;\n
+            v15 = -2;\n
+            *(&v19) = v9;\n
+        }\n
+        else\n
+        {\n
+            v19 = v5;\n
+            if (!(*((v19 + 36)) & 0x80000000))\n
+            {\n
+                *(&v7) = 1;\n
+                v15 = -2;\n
+                *(&v19) = v7;\n
+            }\n
+            else\n
+            {\n
+                *(&v8) = 0;\n
+                v15 = -2;\n
+                *(&v19) = v8;\n
+            }\n
+        }\n
+    }\n
+    *([D] x86g_use_seg_selector(ldt<8>, gdt<8>, Conv(16->32, fs<2>), 0x0<32>)) = v12;\n
+    return v19;\n
+}\n
+", "268446525:sub_10002b3d": "int sub_10002b3d()\n
+{\n
+    unsigned int v0;  // [bp-0x4]\n
+\n
+    v0 = -2;\n
+}\n
+", "268446534:sub_10002b46": "int sub_10002b46()\n
+{\n
+    unsigned int v0;  // [bp-0x38]\n
+    void* v1;  // [bp-0x2c], Other Possible Types: unsigned int\n
+    char v2;  // [bp-0x14]\n
+\n
+    v0 = *(*(*(&v2)));\n
+    if (v0 == 3221225477)\n
+    {\n
+        v1 = 1;\n
+        return;\n
+    }\n
+    v1 = 0;\n
+    return;\n
+}\n
+", "268446573:sub_10002b6d": "int sub_10002b6d()\n
+{\n
+    char v0;  // [bp-0x1d]\n
+    unsigned int v1;  // [bp-0x4]\n
+\n
+    v0 = 0;\n
+    v1 = -2;\n
+}\n
+", "268446592:sub_10002b80": "int sub_10002b80()\n
+{\n
+    unsigned int v0;  // [bp-0x4]\n
+\n
+    v0 = -2;\n
+}\n
+", "268446624:sub_10002ba0": "extern unsigned int g_100070d4;\n
+\n
+int sub_10002ba0()\n
+{\n
+    int tmp_4;  // tmp #4\n
+    int tmp_0;  // tmp #0\n
+    unsigned int v0;  // [bp-0xc]\n
+    unsigned int v1;  // [bp-0x8]\n
+    unsigned int v2;  // [bp-0x4]\n
+    char v3;  // [bp+0x0]\n
+    unsigned int v5;  // eax\n
+    unsigned int v6;  // ecx\n
+\n
+    v2 = &v3;\n
+    v5 = sub_10003b90();\n
+    if (!v5)\n
+    {\n
+        *(&v5) = 0;\n
+        return v5;\n
+    }\n
+    v1 = *((sub_10002a60() + 4));\n
+    while (true)\n
+    {\n
+        v6 = v1;\n
+        tmp_4 = 0;\n
+        g_100070d4 = v6;\n
+        if (!g_100070d4)\n
+        {\n
+            tmp_0 = 0;\n
+            g_100070d4 = v6;\n
+            v5 = 0;\n
+        }\n
+        else\n
+        {\n
+            tmp_0 = 0;\n
+            g_100070d4 = v6;\n
+            v5 = g_100070d4;\n
+        }\n
+        v0 = v5;\n
+        if (!v0)\n
+        {\n
+            *(&v5) = 0;\n
+            return v5;\n
+        }\n
+        v5 = v1;\n
+        if (v5 == v0)\n
+        {\n
+            *(&v5) = 1;\n
+            return v5;\n
+        }\n
+    }\n
+}\n
+", "268446704:sub_10002bf0": "extern void* g_100070d4;\n
+\n
+int sub_10002bf0(char v2)\n
+{\n
+    unsigned int v0;  // [bp-0x4]\n
+    int tmp_3;  // tmp #3\n
+    int tmp_8;  // tmp #8\n
+    int tmp_6;  // tmp #6\n
+    char v1;  // [bp+0x0]\n
+    unsigned int v3;  // eax\n
+\n
+    v0 = &v1;\n
+    v3 = sub_10003b90();\n
+    if (!v3)\n
+        return v3;\n
+    v3 = v2;\n
+    if (!v3)\n
+    {\n
+        tmp_3 = g_100070d4;\n
+        g_100070d4 = 0;\n
+        tmp_8 = CasCmpNE(tmp_6, tmp_3);\n
+        if (tmp_8)\n
+            goto LABEL_0x10002c0f;\n
+        return v2;\n
+    }\n
+    return v2;\n
+}\n
+", "268446752:sub_10002c20": "extern char g_100070d8;\n
+\n
+int sub_10002c20(unsigned int v3)\n
+{\n
+    void* v0;  // [bp-0x8]\n
+    unsigned int v1;  // [bp-0x4]\n
+    char v2;  // [bp+0x0]\n
+    unsigned int v4;  // eax, Other Possible Types: char\n
+\n
+    v1 = &v2;\n
+    if (!v3)\n
+        g_100070d8 = 1;\n
+    sub_100036f0();\n
+    v4 = sub_10003f30();\n
+    if (!v4)\n
+    {\n
+        v4 = 0;\n
+        return v4;\n
+    }\n
+    v4 = sub_10003f30();\n
+    if (v4)\n
+    {\n
+        *(&v4) = 1;\n
+        return v4;\n
+    }\n
+    v0 = 0;\n
+    v4 = sub_10003f40();\n
+    *(&v4) = 0;\n
+    return v4;\n
+}\n
+", "268446832:sub_10002c70": "extern char g_100070d8;\n
+\n
+int sub_10002c70(char v2, char a0)\n
+{\n
+    unsigned int v0;  // [bp-0x4]\n
+    char v1;  // [bp+0x0]\n
+    unsigned int v3;  // eax\n
+\n
+    v0 = &v1;\n
+    if (g_100070d8 && a0)\n
+        return 1;\n
+    sub_10003f40(v2);\n
+    v3 = sub_10003f40();\n
+    *(&v3) = 1;\n
+    return v3;\n
+}\n
+", "268446896:sub_10002cb0": "extern char g_100070d9;\n
+extern unsigned int g_100070dc;\n
+extern unsigned int g_100070e0;\n
+extern unsigned int g_100070e4;\n
+extern unsigned int g_100070e8;\n
+extern unsigned int g_100070ec;\n
+extern unsigned int g_100070f0;\n
+\n
+int sub_10002cb0(unsigned int v10)\n
+{\n
+    unsigned int v0;  // [bp-0x24]\n
+    unsigned int v1;  // [bp-0x20]\n
+    unsigned int v2;  // [bp-0x1c]\n
+    unsigned int v3;  // [bp-0x18]\n
+    unsigned int v4;  // [bp-0x14]\n
+    unsigned int v5;  // [bp-0x10]\n
+    unsigned int v6;  // [bp-0xc]\n
+    unsigned int v7;  // [bp-0x8]\n
+    unsigned int *v8;  // [bp-0x4]\n
+    char v9;  // [bp+0x0]\n
+    unsigned int v11;  // eax\n
+\n
+    v8 = &v9;\n
+    if (g_100070d9)\n
+        return 1;\n
+    if (v10 && v10 != 1)\n
+    {\n
+        v0 = 5;\n
+        sub_10003130();\n
+    }\n
+    if (sub_10003b90() && !v10)\n
+    {\n
+        v8 = &g_100070dc;\n
+        v11 = _initialize_onexit_table();\n
+        if (v11)\n
+        {\n
+            *(&v11) = 0;\n
+            return v11;\n
+        }\n
+        v8 = &g_100070e8;\n
+        v11 = _initialize_onexit_table();\n
+        if (v11)\n
+        {\n
+            *(&v11) = 0;\n
+            return v11;\n
+        }\n
+        goto LABEL_10002d76;\n
+    }\n
+    v7 = -1;\n
+    v4 = v7;\n
+    v5 = v7;\n
+    v6 = v7;\n
+    g_100070dc = v4;\n
+    g_100070e0 = v5;\n
+    g_100070e4 = v6;\n
+    v1 = v7;\n
+    v2 = v7;\n
+    v3 = v7;\n
+    g_100070e8 = v1;\n
+    g_100070ec = v2;\n
+    v11 = v3;\n
+    g_100070f0 = v11;\n
+LABEL_10002d76:\n
+    g_100070d9 = 1;\n
+    *(&v11) = 1;\n
+    return v11;\n
+}\n
+", "268447120:sub_10002d90": "typedef struct struct_0 {\n
+    char field_0;\n
+} struct_0;\n
+\n
+int sub_10002d90(unsigned int v5, unsigned int a0, unsigned int a1, struct struct_1 **a2, unsigned int a3, unsigned int a4)\n
+{\n
+    unsigned int v0;  // [bp-0x10]\n
+    struct struct_1 **v1;  // [bp-0xc]\n
+    struct struct_1 **v2;  // [bp-0x8], Other Possible Types: unsigned int\n
+    struct_0 *v3;  // [bp-0x4], Other Possible Types: unsigned int\n
+    char v4;  // [bp+0x0]\n
+\n
+    v3 = &v4;\n
+    if (!sub_10003b90() && a0 == 1)\n
+    {\n
+        v1 = a2;\n
+        v0 = a1;\n
+        v2 = v1;\n
+        sub_100033a0(v5, 0);\n
+        v2(v5, a0);\n
+    }\n
+    v3 = a4;\n
+    v2 = a3;\n
+    return _seh_filter_dll(*(&v4));\n
+}\n
+", "268447200:sub_10002de0": "int sub_10002de0()\n
+{\n
+    unsigned int v0;  // [bp-0x4]\n
+    char v1;  // [bp+0x0]\n
+    unsigned int v3;  // eax\n
+\n
+    v0 = &v1;\n
+    v3 = sub_10002cb0(0);\n
+    *(&v3) = (!v3 ? 1 : 0);\n
+    return v3;\n
+}\n
+", "268447232:sub_10002e00": "int sub_10002e00()\n
+{\n
+    unsigned int v0;  // [bp-0x4]\n
+    char v1;  // [bp+0x0]\n
+    unsigned int v3;  // eax, Other Possible Types: char\n
+\n
+    v0 = &v1;\n
+    if (sub_10003b90())\n
+    {\n
+        v3 = sub_100036f0();\n
+    }\n
+    else\n
+    {\n
+        v3 = sub_10002ed0();\n
+        if (v3)\n
+        {\n
+            v3 = 0;\n
+            return v3;\n
+        }\n
+        v3 = sub_10002ef0();\n
+    }\n
+    *(&v3) = 1;\n
+    return v3;\n
+}\n
+", "268447280:sub_10002e30": "extern char g_100070dc;\n
+\n
+int sub_10002e30()\n
+{\n
+    unsigned int v0;  // [bp-0x8]\n
+    unsigned int v1;  // [bp-0x4]\n
+    char v2;  // [bp+0x0]\n
+    unsigned int v4;  // eax\n
+\n
+    v1 = &v2;\n
+    if (sub_10003b90())\n
+    {\n
+        v0 = &g_100070dc;\n
+        v4 = _execute_onexit_table();\n
+        return v4;\n
+    }\n
+    v4 = sub_10003f80();\n
+    if (!v4)\n
+    {\n
+        v4 = _cexit();\n
+        return v4;\n
+    }\n
+    return v4;\n
+}\n
+", "268447328:sub_10002e60": "int sub_10002e60()\n
+{\n
+    unsigned int v0;  // [bp-0x4]\n
+    char v1;  // [bp+0x0]\n
+\n
+    v0 = &v1;\n
+    sub_10003f50(0);\n
+    return sub_10003f50();\n
+}\n
+", "268447360:sub_10002e80": "int sub_10002e80()\n
+{\n
+    unsigned int v0;  // [bp-0x4]\n
+    char v1;  // [bp+0x0]\n
+    unsigned int v3;  // eax, Other Possible Types: char\n
+\n
+    v0 = &v1;\n
+    v3 = sub_10003f60();\n
+    if (!v3)\n
+    {\n
+        v3 = 0;\n
+        return v3;\n
+    }\n
+    v3 = sub_10003f60();\n
+    if (v3)\n
+    {\n
+        *(&v3) = 1;\n
+        return v3;\n
+    }\n
+    v3 = sub_10003f70();\n
+    *(&v3) = 0;\n
+    return v3;\n
+}\n
+", "268447408:sub_10002eb0": "char sub_10002eb0()\n
+{\n
+    unsigned int v0;  // [bp-0x4]\n
+    char v1;  // [bp+0x0]\n
+\n
+    v0 = &v1;\n
+    sub_10003f70();\n
+    sub_10003f70();\n
+    return 1;\n
+}\n
+", "268447440:sub_10002ed0": "int sub_10002ed0()\n
+{\n
+    unsigned int v0;  // [bp-0x4]\n
+    char v1;  // [bp+0x0]\n
+\n
+    v0 = &v1;\n
+    return _configure_narrow_argv(sub_10003b80());\n
+}\n
+", "268447472:sub_10002ef0": "int sub_10002ef0()\n
+{\n
+    unsigned int v0;  // [bp-0x4]\n
+    char v1;  // [bp+0x0]\n
+\n
+    v0 = &v1;\n
+    return _initialize_narrow_environment();\n
+}\n
+", "268447488:sub_10002f00": "typedef struct struct_0 {\n
+    unsigned short field_0;\n
+    char padding_2[58];\n
+    unsigned int field_3c;\n
+} struct_0;\n
+\n
+int sub_10002f00(struct_0 *v6)\n
+{\n
+    unsigned short *v0;  // [bp-0x14]\n
+    struct_0 *v1;  // [bp-0x10]\n
+    struct_0 *v2;  // [bp-0xc]\n
+    struct_0 *v3;  // [bp-0x8]\n
+    unsigned int v4;  // [bp-0x4]\n
+    char v5;  // [bp+0x0]\n
+    struct_0 *v7;  // al, Other Possible Types: unsigned int\n
+\n
+    v4 = &v5;\n
+    if (!v6)\n
+    {\n
+        v7 = 0;\n
+        return v7;\n
+    }\n
+    v7 = v6;\n
+    v3 = v7;\n
+    if (v3->field_0 != 23117)\n
+    {\n
+        *(&v7) = 0;\n
+        return v7;\n
+    }\n
+    v1 = v3 + v3->field_3c;\n
+    v2 = v1;\n
+    v7 = v2;\n
+    if (*(v7) != 17744)\n
+    {\n
+        *(&v7) = 0;\n
+        return v7;\n
+    }\n
+    v0 = &v2->padding_2[22];\n
+    v7 = *(v0);\n
+    *(&v7) = (v7 == 267 ? 0 : 1);\n
+    return v7;\n
+}\n
+", "268447600:sub_10002f70": "typedef struct struct_0 {\n
+    char padding_0[60];\n
+    unsigned int field_3c;\n
+} struct_0;\n
+\n
+int sub_10002f70(struct_0 *v8, unsigned int a0)\n
+{\n
+    unsigned int v0;  // [bp-0x1c]\n
+    unsigned short v1[11];  // [bp-0x18]\n
+    unsigned int v2[4];  // [bp-0x14]\n
+    struct_0 *v3;  // [bp-0x10]\n
+    unsigned short v4[11];  // [bp-0xc]\n
+    unsigned int v5[4];  // [bp-0x8], Other Possible Types: unsigned int\n
+    unsigned int v6;  // [bp-0x4]\n
+    char v7;  // [bp+0x0]\n
+\n
+    v6 = &v7;\n
+    v3 = v8;\n
+    *(&v1[0]) = &v3->padding_0[v3->field_3c];\n
+    *(&v4[0]) = v1;\n
+    v2[0] = 24 + v4 + v4[10];\n
+    v0 = 40 * v4[3] + v2;\n
+    v5[0] = v2;\n
+    while (true)\n
+    {\n
+        if (v5 == v0)\n
+            return 0;\n
+        if (a0 >= v5[3] && a0 < v5[3] + v5[2])\n
+            return v5;\n
+        v5 = &v5[2 + 2];\n
+    }\n
+}\n
+", "268447744:sub_10003000": "extern char g_100070f4;\n
+\n
+int sub_10003000()\n
+{\n
+    unsigned int v0;  // [bp-0x4]\n
+    char v1;  // [bp+0x0]\n
+\n
+    v0 = &v1;\n
+    return &g_100070f4;\n
+}\n
+", "268447760:sub_10003010": "extern void* g_100070f8;\n
+\n
+int sub_10003010()\n
+{\n
+    unsigned int v0;  // [bp-0x4]\n
+    char v1;  // [bp+0x0]\n
+    unsigned int v3;  // eax\n
+\n
+    v0 = &v1;\n
+    g_100070f8 = 0;\n
+    return v3;\n
+}\n
+", "268447776:sub_10003020": "typedef struct STARTUPINFOW {\n
+    unsigned int cb;\n
+    char *lpReserved;\n
+    char *lpDesktop;\n
+    char *lpTitle;\n
+    unsigned int dwX;\n
+    unsigned int dwY;\n
+    unsigned int dwXSize;\n
+    unsigned int dwYSize;\n
+    unsigned int dwXCountChars;\n
+    unsigned int dwYCountChars;\n
+    unsigned int dwFillAttribute;\n
+    unsigned int dwFlags;\n
+    unsigned short wShowWindow;\n
+    unsigned short cbReserved2;\n
+    char *lpReserved2;\n
+    unsigned int *hStdInput;\n
+    unsigned int *hStdOutput;\n
+    unsigned int *hStdError;\n
+} STARTUPINFOW;\n
+\n
+int sub_10003020()\n
+{\n
+    STARTUPINFOW v0;  // [bp-0x4c]\n
+    char v1;  // [bp-0x20]\n
+    char v2;  // [bp-0x1c]\n
+    unsigned int v3;  // [bp-0x8]\n
+    unsigned int v4;  // [bp-0x4]\n
+    char v5;  // [bp+0x0]\n
+\n
+    v4 = &v5;\n
+    memset(&v0, 0);\n
+    GetStartupInfoW(&v0);\n
+    if (!(*(&v1) & 1))\n
+    {\n
+        v3 = 10;\n
+        return v3;\n
+    }\n
+    v3 = *(&v2);\n
+    return v3;\n
+}\n
+", "268447840:sub_10003060": "typedef struct struct_0 {\n
+    unsigned short field_0;\n
+    char padding_2[22];\n
+    unsigned short field_18;\n
+    char padding_1a[34];\n
+    unsigned int field_3c;\n
+    char padding_40[52];\n
+    unsigned int field_74;\n
+} struct_0;\n
+\n
+int sub_10003060()\n
+{\n
+    struct_0 *v0;  // [bp-0xc]\n
+    struct_0 *v1;  // [bp-0x8]\n
+    unsigned int v2;  // [bp-0x4]\n
+    char v3;  // [bp+0x0]\n
+    struct_0 *v5;  // eax, Other Possible Types: unsigned int\n
+\n
+    v2 = &v3;\n
+    v5 = GetModuleHandleW(NULL);\n
+    v1 = v5;\n
+    if (!v1)\n
+    {\n
+        *(&v5) = 0;\n
+        return v5;\n
+    }\n
+    v5 = v1;\n
+    if (*(v5) != 23117)\n
+    {\n
+        *(&v5) = 0;\n
+        return v5;\n
+    }\n
+    v5 = v1 + v1->field_3c;\n
+    v0 = v5;\n
+    if (*(&v0->field_0) != 17744)\n
+    {\n
+        *(&v5) = 0;\n
+        return v5;\n
+    }\n
+    v5 = v0->field_18;\n
+    if (v5 != 267)\n
+    {\n
+        *(&v5) = 0;\n
+        return v5;\n
+    }\n
+    else if (v0->field_74 > 14)\n
+    {\n
+        v5 = 8 * 14;\n
+        *(&v5) = (!*((120 + &v0->field_0 + v5)) ? 1 : 0);\n
+        return v5;\n
+    }\n
+    else\n
+    {\n
+        *(&v5) = 0;\n
+        return v5;\n
+    }\n
+}\n
+", "268447984:sub_100030f0": "int sub_100030f0()\n
+{\n
+    unsigned int v0;  // [bp-0x4]\n
+    char v1;  // [bp+0x0]\n
+\n
+    v0 = &v1;\n
+    return 0;\n
+}\n
+", "268448000:sub_10003100": "int sub_10003100()\n
+{\n
+    unsigned int v0;  // [bp-0x4]\n
+    char v1;  // [bp+0x0]\n
+\n
+    v0 = &v1;\n
+    return sub_10003270();\n
+}\n
+", "268448016:sub_10003110": "int sub_10003110()\n
+{\n
+    unsigned int v0;  // [bp-0x4]\n
+    char v1;  // [bp+0x0]\n
+\n
+    v0 = &v1;\n
+    return SetUnhandledExceptionFilter(sub_10003280);\n
+}\n
+", "268448048:sub_10003130": "typedef struct struct_0 {\n
+    char field_0;\n
+} struct_0;\n
+\n
+int sub_10003130()\n
+{\n
+    unsigned int v0;  // [bp-0x334]\n
+    unsigned int v1;  // [bp-0x330], Other Possible Types: char\n
+    unsigned short v2;  // [bp-0x2a4]\n
+    unsigned short v3;  // [bp-0x2a0]\n
+    unsigned short v4;  // [bp-0x29c]\n
+    unsigned short v5;  // [bp-0x298]\n
+    unsigned int v6;  // [bp-0x294]\n
+    unsigned int v7;  // [bp-0x290]\n
+    unsigned int v8;  // [bp-0x28c]\n
+    unsigned int v9;  // [bp-0x288]\n
+    unsigned int v10;  // [bp-0x284]\n
+    unsigned int v11;  // [bp-0x280]\n
+    unsigned int v12;  // [bp-0x27c]\n
+    unsigned int v13;  // [bp-0x278]\n
+    unsigned short v14;  // [bp-0x274]\n
+    unsigned int v15;  // [bp-0x270]\n
+    unsigned int v16;  // [bp-0x26c]\n
+    unsigned short v17;  // [bp-0x268]\n
+    unsigned int v18;  // [bp-0x64], Other Possible Types: char\n
+    unsigned int v19;  // [bp-0x60]\n
+    unsigned int v20;  // [bp-0x58]\n
+    struct_0 *v21;  // [bp-0x14]\n
+    struct_0 *v22;  // [bp-0x10]\n
+    unsigned int v23;  // [bp-0xc]\n
+    char v24;  // [bp-0x6]\n
+    char v25;  // [bp-0x5]\n
+    unsigned int v26;  // [bp-0x4]\n
+    char v27;  // [bp+0x0]\n
+    unsigned int v29;  // ecx\n
+    unsigned int v30;  // edx\n
+    unsigned int v31;  // ebx\n
+    unsigned int v32;  // esi\n
+    unsigned int v33;  // edi\n
+    unsigned short v34;  // ss\n
+    unsigned short v35;  // cs\n
+    unsigned short v36;  // ds\n
+    unsigned short v37;  // es\n
+    unsigned short v38;  // fs\n
+    unsigned short v39;  // gs\n
+    unsigned int v40;  // d\n
+    unsigned int v41;  // id\n
+    unsigned int v42;  // ac\n
+    unsigned int v43;  // ebp\n
+\n
+    v26 = &v27;\n
+    if (!IsProcessorFeaturePresent(23))\n
+    {\n
+        sub_10003010();\n
+        v11 = memset(&v1, 0);\n
+        v10 = v29;\n
+        v9 = v30;\n
+        v8 = v31;\n
+        v7 = v32;\n
+        v6 = v33;\n
+        v17 = v34;\n
+        v14 = v35;\n
+        v5 = v36;\n
+        v4 = v37;\n
+        v3 = v38;\n
+        v2 = v39;\n
+        v0 = [D] x86g_calculate_eflags_all(0x3<32>, BaseOffset(stack_base, -828), 0xc<32>, 0x0<32>) | 514 | v40 & 0x400 | v41 * 0x200000 & 0x200000 | v42 * 0x40000 & 0x40000;\n
+        v15 = v0;\n
+        v1 = 65537;\n
+        v13 = *(&v27);\n
+        v16 = &v27;\n
+        v12 = v26;\n
+        memset(&v18, 0);\n
+        v18 = 1073741845;\n
+        v19 = 1;\n
+        v20 = *(&v27);\n
+        if (IsDebuggerPresent() == 1)\n
+            v25 = 1;\n
+        else\n
+            v25 = 0;\n
+        v24 = v25;\n
+        v21 = &v18;\n
+        v22 = &v1;\n
+        SetUnhandledExceptionFilter(NULL);\n
+        v23 = UnhandledExceptionFilter(&v21);\n
+        if (v23)\n
+        {\n
+            v43 = v26;\n
+            return;\n
+        }\n
+        else if (v24)\n
+        {\n
+            v43 = v26;\n
+            return;\n
+        }\n
+        else\n
+        {\n
+            sub_10003010();\n
+            v43 = v26;\n
+            return;\n
+        }\n
+    }\n
+}\n
+", "268448073:sub_10003149": "int sub_10003149()\n
+{\n
+    [D] Unsupported jumpkind Ijk_NoDecode at address 268448073\n
+}\n
+", "268448368:sub_10003270": "int sub_10003270()\n
+{\n
+    unsigned int v0;  // [bp-0x4]\n
+    char v1;  // [bp+0x0]\n
+\n
+    v0 = &v1;\n
+    return 0;\n
+}\n
+", "268448384:sub_10003280": "typedef struct struct_0 {\n
+    struct struct_1 *field_0;\n
+    unsigned int field_4;\n
+} struct_0;\n
+\n
+typedef struct struct_1 {\n
+    unsigned int field_0;\n
+    char padding_4[12];\n
+    unsigned int field_10;\n
+    unsigned int field_14;\n
+} struct_1;\n
+\n
+int sub_10003280(struct_0 *v4)\n
+{\n
+    unsigned int v0;  // [bp-0xc]\n
+    unsigned int v1[6];  // [bp-0x8]\n
+    unsigned int v2;  // [bp-0x4]\n
+    char v3;  // [bp+0x0]\n
+\n
+    v2 = &v3;\n
+    v1[0] = v4->field_0;\n
+    if (v1[0] != 3765269347)\n
+    {\n
+        return 0;\n
+    }\n
+    else if (v1[4] != 3)\n
+    {\n
+        return 0;\n
+    }\n
+    else\n
+    {\n
+        if (v1[5] != 429065504 && v1[5] != 429065505 && v1[5] != 429065506 && v1[5] != 0x1994000)\n
+            return 0;\n
+        *(__current_exception()) = v1;\n
+        v0 = v4->field_4;\n
+        *(__current_exception_context()) = v0;\n
+        terminate();\n
+        return 0;\n
+    }\n
+}\n
+", "268448512:sub_10003300": "extern struct_0 *g_10006040;\n
+\n
+int sub_10003300()\n
+{\n
+    struct struct_0 **v2;  // esi\n
+    struct struct_0 **v3;  // eax\n
+\n
+    v2 = &g_10006040;\n
+    v3 = &g_10006040;\n
+    return &g_10006040;\n
+}\n
+", "268448560:sub_10003330": "extern struct_0 *g_10006048;\n
+\n
+int sub_10003330()\n
+{\n
+    struct struct_0 **v2;  // esi\n
+    struct struct_0 **v3;  // eax\n
+\n
+    v2 = &g_10006048;\n
+    v3 = &g_10006048;\n
+    return &g_10006048;\n
+}\n
+", "268448608:sub_10003360": "extern unsigned int g_10007040;\n
+\n
+int sub_10003360(unsigned int *v2, unsigned int a0, unsigned int a1, unsigned int a2)\n
+{\n
+    unsigned int v0;  // [bp-0x4]\n
+    char v1;  // [bp+0x0]\n
+\n
+    v0 = &v1;\n
+    *(v2) = sub_10003f90(*(v2));\n
+    return _except_handler4_common(&g_10007040, sub_10003bc0, v2, a0, a1);\n
+}\n
+", "268448672:sub_100033a0": "int sub_100033a0()\n
+{\n
+    unsigned int v0;  // [bp-0x8]\n
+    unsigned int v1;  // [bp-0x4]\n
+    char v2;  // [bp+0x0]\n
+    unsigned int v4;  // ecx\n
+    unsigned int v5;  // eax\n
+\n
+    v1 = &v2;\n
+    v0 = v4;\n
+    v0 = v4;\n
+    return v5;\n
+}\n
+", "268448688:sub_100033b0": "int sub_100033b0(unsigned int *v2, unsigned int a0)\n
+{\n
+    unsigned int v0;  // [bp-0x4]\n
+    int tmp_4;  // tmp #4\n
+    int tmp_22;  // tmp #22\n
+    int tmp_7;  // tmp #7\n
+    char v1;  // [bp+0x0]\n
+    unsigned int *v3;  // ecx\n
+\n
+    v0 = &v1;\n
+    v3 = v2;\n
+    tmp_4 = *(v3);\n
+    *(v3) = a0;\n
+    tmp_22 = CasCmpNE(tmp_7, tmp_4);\n
+    if (tmp_22)\n
+        goto LABEL_0x100033b9;\n
+    return tmp_4;\n
+}\n
+", "268448704:sub_100033c0": "int sub_100033c0(unsigned int *v3)\n
+{\n
+    unsigned int v0;  // [bp-0x8]\n
+    unsigned int v1;  // [bp-0x4]\n
+    char v2;  // [bp+0x0]\n
+    unsigned int v4;  // ecx\n
+\n
+    v1 = &v2;\n
+    v0 = v4;\n
+    v0 = *(v3);\n
+    return v0;\n
+}\n
+", "268448736:sub_100033e0": "int sub_100033e0(unsigned int *v2)\n
+{\n
+    unsigned int v0;  // [bp-0x4]\n
+    char v1;  // [bp+0x0]\n
+\n
+    v0 = &v1;\n
+    return sub_100033c0(v2);\n
+}\n
+", "268448768:sub_10003400": "extern unsigned int g_100070fc;\n
+\n
+int sub_10003400(unsigned int v3)\n
+{\n
+    unsigned int v0;  // [bp-0x8]\n
+    unsigned int v1;  // [bp-0x4]\n
+    char v2;  // [bp+0x0]\n
+    unsigned int v4;  // ecx\n
+\n
+    v1 = &v2;\n
+    v0 = v4;\n
+    v0 = sub_100033b0(&g_100070fc, v3);\n
+    return v0;\n
+}\n
+", "268448800:sub_10003420": "extern char g_100033a0;\n
+extern unsigned int g_10008000;\n
+\n
+int sub_10003420()\n
+{\n
+    unsigned int v0;  // [bp-0x8]\n
+    unsigned int v1;  // [bp-0x4]\n
+    char v2;  // [bp+0x0]\n
+    unsigned int v4;  // ecx\n
+\n
+    v1 = &v2;\n
+    v0 = v4;\n
+    if (sub_100033e0(&g_10008000) != sub_100033a0)\n
+    {\n
+        v0 = 1;\n
+        return v0;\n
+    }\n
+    v0 = 0;\n
+    return v0;\n
+}\n
+", "268448848:sub_10003450": "extern char g_10005180;\n
+\n
+int sub_10003450(unsigned int v6)\n
+{\n
+    unsigned int v0;  // [bp-0x14]\n
+    unsigned int v1;  // [bp-0x10]\n
+    unsigned int v2;  // [bp-0xc]\n
+    unsigned int v3;  // [bp-0x8]\n
+    unsigned int v4;  // [bp-0x4]\n
+    char v5;  // [bp+0x0]\n
+\n
+    v4 = &v5;\n
+    v3 = &g_10005180;\n
+    v1 = &g_10005180;\n
+    v0 = v1 - v3;\n
+    if (v6 - v3 <= v0)\n
+    {\n
+        v2 = 1;\n
+        return v2;\n
+    }\n
+    v2 = 0;\n
+    return v2;\n
+}\n
+", "268448912:sub_10003490": "extern unsigned int g_10008008;\n
+\n
+int sub_10003490(unsigned int v3)\n
+{\n
+    struct struct_0 **v0;  // [bp-0x8]\n
+    unsigned int v1;  // [bp-0x4]\n
+    char v2;  // [bp+0x0]\n
+    struct struct_0 **v4;  // ecx\n
+    struct struct_0 **v5;  // eax, Other Possible Types: unsigned int\n
+\n
+    v1 = &v2;\n
+    v0 = v4;\n
+    v5 = sub_100033e0(&g_10008008);\n
+    v0 = v5;\n
+    if (v0)\n
+    {\n
+        v5 = v0();\n
+        return v5;\n
+    }\n
+    return v5;\n
+}\n
+", "268448960:sub_100034c0": "extern unsigned int g_100070fc;\n
+\n
+int sub_100034c0(unsigned int v4)\n
+{\n
+    struct struct_0 **v0;  // [bp-0xc]\n
+    struct struct_0 **v1;  // [bp-0x8]\n
+    unsigned int v2;  // [bp-0x4]\n
+    char v3;  // [bp+0x0]\n
+    struct struct_0 **v5;  // eax, Other Possible Types: unsigned int\n
+\n
+    v2 = &v3;\n
+    v5 = sub_100033e0(&g_100070fc);\n
+    v1 = v5;\n
+    if (v1)\n
+    {\n
+        v0 = v1;\n
+        sub_100033a0();\n
+        v5 = v0();\n
+        return v5;\n
+    }\n
+    return v5;\n
+}\n
+", "268449024:sub_10003500": "int sub_10003500()\n
+{\n
+    unsigned int v0;  // [bp-0x4]\n
+    char v1;  // [bp+0x0]\n
+    unsigned int v3;  // eax\n
+\n
+    v0 = &v1;\n
+    return v3;\n
+}\n
+", "268449040:sub_10003510": "int sub_10003510(unsigned int v2)\n
+{\n
+    unsigned int v0;  // [bp-0x4]\n
+    char v1;  // [bp+0x0]\n
+    unsigned int v3;  // eax\n
+\n
+    v0 = &v1;\n
+    v3 = sub_10003450(v2);\n
+    if (!v3)\n
+        return v3;\n
+    [D] Unsupported jumpkind Ijk_SigTRAP at address 268449059\n
+}\n
+", "268449072:sub_10003530": "int sub_10003530(unsigned int v2)\n
+{\n
+    unsigned int v0;  // [bp-0x4]\n
+    char v1;  // [bp+0x0]\n
+    unsigned int v3;  // eax\n
+\n
+    v0 = &v1;\n
+    v3 = sub_10003450(v2);\n
+    if (!v3)\n
+        return v3;\n
+}\n
+", "268449097:sub_10003549": "int sub_10003549()\n
+{\n
+    [D] Unsupported jumpkind Ijk_NoDecode at address 268449097\n
+}\n
+", "268449104:sub_10003550": "int sub_10003550(unsigned int v2)\n
+{\n
+    unsigned int v0;  // [bp-0x4]\n
+    char v1;  // [bp+0x0]\n
+    unsigned int v3;  // eax\n
+\n
+    v0 = &v1;\n
+    v3 = sub_10003450(v2);\n
+    if (v3)\n
+    {\n
+        v3 = sub_10003490(v2);\n
+        return v3;\n
+    }\n
+    return v3;\n
+}\n
+", "268449152:sub_10003580": "int sub_10003580(unsigned int v2)\n
+{\n
+    unsigned int v0;  // [bp-0x4]\n
+    char v1;  // [bp+0x0]\n
+    unsigned int v3;  // eax\n
+\n
+    v0 = &v1;\n
+    v3 = sub_10003450(v2);\n
+    if (v3)\n
+    {\n
+        v3 = sub_100034c0(v2);\n
+        return v3;\n
+    }\n
+    return v3;\n
+}\n
+", "268449200:sub_100035b0": "extern char g_10005180;\n
+\n
+int sub_100035b0(unsigned int v5, unsigned int a0, unsigned int a1)\n
+{\n
+    unsigned int v0;  // [bp-0x10]\n
+    unsigned int v1;  // [bp-0xc]\n
+    unsigned int v2;  // [bp-0x8]\n
+    unsigned int v3;  // [bp-0x4]\n
+    char v4;  // [bp+0x0]\n
+\n
+    v3 = &v4;\n
+    v1 = &g_10005180;\n
+    v0 = v1 + a0;\n
+    if (v5 - v0 > a1)\n
+    {\n
+        v2 = 1;\n
+        return v2;\n
+    }\n
+    v2 = 0;\n
+    return v2;\n
+}\n
+", "268449264:sub_100035f0": "int sub_100035f0(unsigned int v2, unsigned int a0, unsigned int a1)\n
+{\n
+    unsigned int v0;  // [bp-0x4]\n
+    char v1;  // [bp+0x0]\n
+    unsigned int v3;  // eax\n
+\n
+    v0 = &v1;\n
+    v3 = sub_100035b0(v2, a0, a1);\n
+    if (!v3)\n
+        return v3;\n
+    v3 = sub_10003450(v2);\n
+    if (!v3)\n
+        return v3;\n
+    [D] Unsupported jumpkind Ijk_SigTRAP at address 268449307\n
+}\n
+", "268449312:sub_10003620": "int sub_10003620(unsigned int v2, unsigned int a0, unsigned int a1)\n
+{\n
+    unsigned int v0;  // [bp-0x4]\n
+    char v1;  // [bp+0x0]\n
+    unsigned int v3;  // eax\n
+\n
+    v0 = &v1;\n
+    v3 = sub_100035b0(v2, a0, a1);\n
+    if (!v3)\n
+        return v3;\n
+    v3 = sub_10003450(v2);\n
+    if (!v3)\n
+        return v3;\n
+}\n
+", "268449361:sub_10003651": "int sub_10003651()\n
+{\n
+    [D] Unsupported jumpkind Ijk_NoDecode at address 268449361\n
+}\n
+", "268449376:sub_10003660": "int sub_10003660()\n
+{\n
+    unsigned int v0;  // [bp-0x4]\n
+    char v1;  // [bp+0x0]\n
+    unsigned int v3;  // eax\n
+\n
+    v0 = &v1;\n
+    return v3;\n
+}\n
+", "268449392:sub_10003670": "int sub_10003670(unsigned int v2, unsigned int a0, unsigned int a1)\n
+{\n
+    unsigned int v0;  // [bp-0x4]\n
+    char v1;  // [bp+0x0]\n
+    unsigned int v3;  // eax\n
+\n
+    v0 = &v1;\n
+    v3 = sub_100035b0(v2, a0, a1);\n
+    if (!v3)\n
+        return v3;\n
+    v3 = sub_10003450(v2);\n
+    if (v3)\n
+    {\n
+        v3 = sub_10003490(v2);\n
+        return v3;\n
+    }\n
+    return v3;\n
+}\n
+", "268449456:sub_100036b0": "int sub_100036b0(unsigned int v2, unsigned int a0, unsigned int a1)\n
+{\n
+    unsigned int v0;  // [bp-0x4]\n
+    char v1;  // [bp+0x0]\n
+    unsigned int v3;  // eax\n
+\n
+    v0 = &v1;\n
+    v3 = sub_100035b0(v2, a0, a1);\n
+    if (!v3)\n
+        return v3;\n
+    v3 = sub_10003450(v2);\n
+    if (v3)\n
+    {\n
+        v3 = sub_100034c0(v2);\n
+        return v3;\n
+    }\n
+    return v3;\n
+}\n
+", "268449520:sub_100036f0": "extern char g_10000000;\n
+extern unsigned int g_10007040;\n
+extern unsigned int g_10007088;\n
+extern unsigned int g_1000708c;\n
+extern unsigned int g_10007090;\n
+extern unsigned int g_10007100;\n
+extern unsigned int g_10007104;\n
+extern unsigned int g_10007108;\n
+\n
+int sub_100036f0()\n
+{\n
+    unsigned int v0;  // [bp-0x6c]\n
+    int tmp_5;  // tmp #5\n
+    unsigned int v1;  // [bp-0x68]\n
+    unsigned int v2;  // [bp-0x64]\n
+    void* v3;  // [bp-0x60]\n
+    unsigned int v4;  // [bp-0x5c]\n
+    void* v5;  // [bp-0x58]\n
+    unsigned int v6;  // [bp-0x54]\n
+    void* v7;  // [bp-0x50]\n
+    unsigned int v8;  // [bp-0x4c]\n
+    void* v9;  // [bp-0x48]\n
+    void* v10;  // [bp-0x44], Other Possible Types: unsigned int\n
+    void* v11;  // [bp-0x40], Other Possible Types: unsigned int\n
+    unsigned int v12;  // [bp-0x3c]\n
+    void* v13;  // [bp-0x38], Other Possible Types: unsigned int\n
+    unsigned int v14;  // [bp-0x34]\n
+    unsigned int v15;  // [bp-0x30]\n
+    void* v16;  // [bp-0x2c], Other Possible Types: unsigned int\n
+    void* v17;  // [bp-0x28], Other Possible Types: unsigned int\n
+    unsigned int v18;  // [bp-0x24]\n
+    unsigned int v19;  // [bp-0x20]\n
+    char v20;  // [bp-0x19]\n
+    void* v21;  // [bp-0x18], Other Possible Types: unsigned int\n
+    unsigned int v22;  // [bp-0x14]\n
+    void* v23;  // [bp-0x10], Other Possible Types: unsigned int\n
+    unsigned int v24;  // [bp-0xc]\n
+    unsigned int v25;  // [bp-0x8]\n
+    unsigned int v26;  // [bp-0x4]\n
+    char v27;  // [bp+0x0]\n
+    unsigned int v29;  // ebx\n
+    unsigned int v30;  // esi\n
+    unsigned int v31;  // edx\n
+    unsigned int v32;  // edx\n
+    unsigned int v33;  // edx\n
+    unsigned int v38;  // ebp\n
+\n
+    v26 = &v27;\n
+    v25 = g_10007040 ^ &v26;\n
+    v1 = v29;\n
+    v0 = v30;\n
+    g_10007104 = 0;\n
+    g_10007090 = g_10007090 | 1;\n
+    if (!IsProcessorFeaturePresent(10))\n
+    {\n
+        sub_10003bc0();\n
+        v38 = v26;\n
+        return;\n
+    }\n
+    [D] t4294967295 = DIRTY 1 TODO(effects) ::: x86g_dirtyhelper_CPUID_sse3(GSPTR)\n
+    [D] MBusEvent-Imbe_Fence\n
+    v21 = 0;\n
+    v22 = v29;\n
+    v23 = 0;\n
+    v24 = v31;\n
+    v12 = v21;\n
+    v32 = v22 ^ 1970169159 | v24 ^ 1231384169 | v23 ^ 1818588270;\n
+    if (!v32)\n
+        v13 = 1;\n
+    else\n
+        v13 = 0;\n
+    v20 = v13;\n
+    [D] t4294967295 = DIRTY 1 TODO(effects) ::: x86g_dirtyhelper_CPUID_sse3(GSPTR)\n
+    [D] MBusEvent-Imbe_Fence\n
+    v21 = 1;\n
+    v22 = v29;\n
+    v23 = 0;\n
+    v24 = v32;\n
+    v19 = v21;\n
+    if (v20)\n
+    {\n
+        if ((v19 & 268386288) != 67264 && (v19 & 268386288) != 132704 && (v19 & 268386288) != 132720 && (v19 & 268386288) != 198224 && (v19 & 268386288) != 198240 && !((v19 & 268386288) == 198256))\n
+            goto LABEL_1000383b;\n
+        g_10007108 = g_10007108 | 1;\n
+    }\n
+LABEL_1000383b:\n
+    v18 = v23;\n
+    v17 = 0;\n
+    v11 = 0;\n
+    v10 = 0;\n
+    v16 = 0;\n
+    if (v12 >= 7)\n
+    {\n
+        [D] t4294967295 = DIRTY 1 TODO(effects) ::: x86g_dirtyhelper_CPUID_sse3(GSPTR)\n
+        [D] MBusEvent-Imbe_Fence\n
+        v21 = 7;\n
+        v22 = v29;\n
+        v23 = 0;\n
+        v24 = v18;\n
+        v17 = v22;\n
+        v11 = v24;\n
+        if ((v22 & 0x200))\n
+            g_10007108 = g_10007108 | 2;\n
+        v33 = 4;\n
+        if (v21 >= 1)\n
+        {\n
+            [D] t4294967295 = DIRTY 1 TODO(effects) ::: x86g_dirtyhelper_CPUID_sse3(GSPTR)\n
+            [D] MBusEvent-Imbe_Fence\n
+            v21 = 7;\n
+            v22 = v29;\n
+            v23 = 1;\n
+            v24 = 4;\n
+            v33 = 4 * 3;\n
+            v10 = v24;\n
+        }\n
+        if (v12 >= 36)\n
+        {\n
+            [D] t4294967295 = DIRTY 1 TODO(effects) ::: x86g_dirtyhelper_CPUID_sse3(GSPTR)\n
+            [D] MBusEvent-Imbe_Fence\n
+            v21 = 36;\n
+            v22 = v29;\n
+            v23 = 0;\n
+            v24 = v33;\n
+            v16 = v22;\n
+        }\n
+    }\n
+    g_10007104 = 1;\n
+    g_10007090 = g_10007090 | 2;\n
+    g_10007088 = g_10007088 & -2;\n
+    g_1000708c = g_1000708c;\n
+    if ((v18 & 0x100000))\n
+    {\n
+        g_10007104 = 2;\n
+        g_10007090 = g_10007090 | 4;\n
+        g_10007088 = g_10007088 & -17;\n
+        g_1000708c = g_1000708c;\n
+        if ((v18 & 0x8000000) && (v18 & 0x10000000))\n
+        {\n
+            [D] t5 = DIRTY 1 TODO(effects) ::: x86g_dirtyhelper_XGETBV(t4)\n
+            v14 = tmp_5;\n
+            v15 = tmp_5 >> 32;\n
+            v8 = v14 & 6;\n
+            v9 = 0;\n
+            if (v8 == 6 && !v9)\n
+            {\n
+                g_10007104 = 3;\n
+                g_10007090 = g_10007090 | 8;\n
+                if ((v17 & 32))\n
+                {\n
+                    g_10007104 = 5;\n
+                    g_10007090 = g_10007090 | 32;\n
+                    g_10007088 = g_10007088 & -3;\n
+                    g_1000708c = g_1000708c;\n
+                    if ((v17 & 0xd0030000) == 0xd0030000)\n
+                    {\n
+                        v6 = v14 & 224;\n
+                        v7 = 0;\n
+                        if (v6 == 224 && !v7)\n
+                        {\n
+                            g_10007104 = 6;\n
+                            g_10007090 = g_10007090 | 64;\n
+                            g_10007088 = g_10007088 & -37;\n
+                            g_1000708c = g_1000708c;\n
+                        }\n
+                    }\n
+                }\n
+                if ((v11 & 0x800000))\n
+                {\n
+                    g_10007088 = g_10007088 & -16777217;\n
+                    g_1000708c = g_1000708c;\n
+                }\n
+                if ((v10 & 0x80000))\n
+                {\n
+                    v4 = v14 & 224;\n
+                    v5 = 0;\n
+                    if (v4 == 224 && !v5)\n
+                    {\n
+                        g_10007100 = v16 & 262399;\n
+                        v2 = v16 >> 16 & 7;\n
+                        v3 = 0;\n
+                        g_10007088 = ~(v2 | 16777256) & g_10007088;\n
+                        g_1000708c = ~(v3) & g_1000708c;\n
+                        if (g_10007100 > 1)\n
+                        {\n
+                            g_10007088 = g_10007088 & -65;\n
+                            g_1000708c = g_1000708c;\n
+                        }\n
+                    }\n
+                }\n
+            }\n
+        }\n
+    }\n
+}\n
+", "268450688:sub_10003b80": "int sub_10003b80()\n
+{\n
+    unsigned int v0;  // [bp-0x4]\n
+    char v1;  // [bp+0x0]\n
+\n
+    v0 = &v1;\n
+    return 1;\n
+}\n
+", "268450704:sub_10003b90": "extern unsigned int g_10007094;\n
+\n
+int sub_10003b90()\n
+{\n
+    unsigned int v0;  // [bp-0x8]\n
+    unsigned int v1;  // [bp-0x4]\n
+    char v2;  // [bp+0x0]\n
+    unsigned int v4;  // ecx\n
+\n
+    v1 = &v2;\n
+    v0 = v4;\n
+    if (g_10007094)\n
+    {\n
+        v0 = 1;\n
+        return v0;\n
+    }\n
+    v0 = 0;\n
+    return v0;\n
+}\n
+", "268450752:sub_10003bc0": "extern unsigned int g_10007040;\n
+extern unsigned int g_10007080;\n
+extern unsigned int g_10007110;\n
+extern unsigned int g_10007114;\n
+extern unsigned int g_1000711c;\n
+extern unsigned int g_10007120;\n
+extern unsigned int g_10007124;\n
+extern unsigned int g_10007160;\n
+extern unsigned short g_100071ec;\n
+extern unsigned short g_100071f0;\n
+extern unsigned short g_100071f4;\n
+extern unsigned short g_100071f8;\n
+extern unsigned int g_100071fc;\n
+extern unsigned int g_10007200;\n
+extern unsigned int g_10007204;\n
+extern unsigned int g_10007208;\n
+extern unsigned int g_1000720c;\n
+extern unsigned int g_10007210;\n
+extern unsigned int g_10007214;\n
+extern unsigned int g_10007218;\n
+extern unsigned short g_1000721c;\n
+extern unsigned int g_10007220;\n
+extern unsigned int g_10007224;\n
+extern unsigned short g_10007228;\n
+\n
+int sub_10003bc0()\n
+{\n
+    unsigned int v0;  // [bp-0x32c]\n
+    unsigned int v1;  // [bp-0xc]\n
+    unsigned int v2;  // [bp-0x8]\n
+    unsigned int v3;  // [bp-0x4]\n
+    char v4;  // [bp+0x0]\n
+    unsigned int v5;  // [bp+0x4]\n
+    unsigned int v6;  // ecx\n
+    unsigned int v7;  // eax\n
+    unsigned int v8;  // edx\n
+    unsigned int v9;  // ebx\n
+    unsigned int v10;  // esi\n
+    unsigned int v11;  // edi\n
+    unsigned short v12;  // ss\n
+    unsigned short v13;  // cs\n
+    unsigned short v14;  // ds\n
+    unsigned short v15;  // es\n
+    unsigned short v16;  // fs\n
+    unsigned short v17;  // gs\n
+    unsigned int v18;  // d\n
+    unsigned int v19;  // id\n
+    unsigned int v20;  // ac\n
+    unsigned int v21;  // ebp\n
+\n
+    if (v6 == g_10007040)\n
+        return;\n
+    v3 = &v4;\n
+    v7 = IsProcessorFeaturePresent(23);\n
+    if (!v7)\n
+    {\n
+        g_10007210 = v7;\n
+        g_1000720c = v6;\n
+        g_10007208 = v8;\n
+        g_10007204 = v9;\n
+        g_10007200 = v10;\n
+        g_100071fc = v11;\n
+        g_10007228 = v12;\n
+        g_1000721c = v13;\n
+        g_100071f8 = v14;\n
+        g_100071f4 = v15;\n
+        g_100071f0 = v16;\n
+        g_100071ec = v17;\n
+        v0 = [D] x86g_calculate_eflags_all(0xf<32>, 0x0<32>, 0x0<32>, 0x0<32>) | 514 | v18 & 0x400 | v19 * 0x200000 & 0x200000 | v20 * 0x40000 & 0x40000;\n
+        g_10007220 = v0;\n
+        g_10007214 = v3;\n
+        g_10007218 = *(&v4);\n
+        g_10007224 = &v5;\n
+        g_10007160 = 65537;\n
+        g_1000711c = g_10007218;\n
+        g_10007110 = 3221226505;\n
+        g_10007114 = 1;\n
+        g_10007120 = 1;\n
+        g_10007124 = 2;\n
+        v1 = g_10007040;\n
+        v2 = g_10007080;\n
+        sub_10003f00();\n
+        v21 = v3;\n
+        return;\n
+    }\n
+}\n
+", "268450768:sub_10003bd0": "extern unsigned int g_10007110;\n
+extern unsigned int g_10007114;\n
+extern unsigned int g_1000711c;\n
+extern unsigned int g_10007120;\n
+extern unsigned int g_10007124;\n
+extern unsigned short g_100071ec;\n
+extern unsigned short g_100071f0;\n
+extern unsigned short g_100071f4;\n
+extern unsigned short g_100071f8;\n
+extern unsigned int g_100071fc;\n
+extern unsigned int g_10007200;\n
+extern unsigned int g_10007204;\n
+extern unsigned int g_10007208;\n
+extern unsigned int g_1000720c;\n
+extern unsigned int g_10007210;\n
+extern unsigned int g_10007214;\n
+extern unsigned int g_10007218;\n
+extern unsigned short g_1000721c;\n
+extern unsigned int g_10007220;\n
+extern unsigned int g_10007224;\n
+extern unsigned short g_10007228;\n
+\n
+int sub_10003bd0()\n
+{\n
+    unsigned int v0;  // [bp-0x324]\n
+    unsigned int v1;  // [bp-0x4]\n
+    char v2;  // [bp+0x0]\n
+    unsigned int v3;  // [bp+0x4]\n
+    unsigned int v4;  // eax\n
+    unsigned int v5;  // ecx\n
+    unsigned int v6;  // edx\n
+    unsigned int v7;  // ebx\n
+    unsigned int v8;  // esi\n
+    unsigned int v9;  // edi\n
+    unsigned short v10;  // ss\n
+    unsigned short v11;  // cs\n
+    unsigned short v12;  // ds\n
+    unsigned short v13;  // es\n
+    unsigned short v14;  // fs\n
+    unsigned short v15;  // gs\n
+    unsigned int v16;  // d\n
+    unsigned int v17;  // id\n
+    unsigned int v18;  // ac\n
+    unsigned int v19;  // ebp\n
+\n
+    v1 = &v2;\n
+    v4 = IsProcessorFeaturePresent(23);\n
+    if (!v4)\n
+    {\n
+        g_10007210 = v4;\n
+        g_1000720c = v5;\n
+        g_10007208 = v6;\n
+        g_10007204 = v7;\n
+        g_10007200 = v8;\n
+        g_100071fc = v9;\n
+        g_10007228 = v10;\n
+        g_1000721c = v11;\n
+        g_100071f8 = v12;\n
+        g_100071f4 = v13;\n
+        g_100071f0 = v14;\n
+        g_100071ec = v15;\n
+        v0 = [D] x86g_calculate_eflags_all(0xf<32>, 0x0<32>, 0x0<32>, 0x0<32>) | 514 | v16 & 0x400 | v17 * 0x200000 & 0x200000 | v18 * 0x40000 & 0x40000;\n
+        g_10007220 = v0;\n
+        g_10007214 = v1;\n
+        g_10007218 = *(&v2);\n
+        g_10007224 = &v3;\n
+        g_1000711c = g_10007218;\n
+        g_10007110 = 3221226505;\n
+        g_10007114 = 1;\n
+        g_10007120 = 1;\n
+        g_10007124 = v3;\n
+        sub_10003f00();\n
+        v19 = v1;\n
+        return;\n
+    }\n
+}\n
+", "268450793:sub_10003be9": "int sub_10003be9()\n
+{\n
+    [D] Unsupported jumpkind Ijk_NoDecode at address 268450793\n
+}\n
+", "268450992:sub_10003cb0": "extern unsigned int g_10007110;\n
+extern unsigned int g_10007114;\n
+extern unsigned int g_1000711c;\n
+extern unsigned int g_10007120;\n
+extern unsigned int g_10007124;\n
+extern char g_10007128;\n
+extern unsigned short g_100071ec;\n
+extern unsigned short g_100071f0;\n
+extern unsigned short g_100071f4;\n
+extern unsigned short g_100071f8;\n
+extern unsigned int g_100071fc;\n
+extern unsigned int g_10007200;\n
+extern unsigned int g_10007204;\n
+extern unsigned int g_10007208;\n
+extern unsigned int g_1000720c;\n
+extern unsigned int g_10007210;\n
+extern unsigned int g_10007214;\n
+extern unsigned int g_10007218;\n
+extern unsigned short g_1000721c;\n
+extern unsigned int g_10007220;\n
+extern unsigned int g_10007224;\n
+extern unsigned short g_10007228;\n
+\n
+int sub_10003cb0()\n
+{\n
+    unsigned int v0;  // [bp-0x328]\n
+    unsigned int v1[67116107];  // [bp-0x8], Other Possible Types: unsigned int\n
+    unsigned int v2;  // [bp-0x4]\n
+    char v3;  // [bp+0x0]\n
+    unsigned int v4;  // [bp+0x4]\n
+    void* v5;  // [bp+0x8], Other Possible Types: unsigned int, char\n
+    char v6;  // [bp+0xc]\n
+    unsigned int v7;  // eax\n
+    unsigned int v8;  // ecx\n
+    unsigned int v9;  // edx\n
+    unsigned int v10;  // ebx\n
+    unsigned int v11;  // esi\n
+    unsigned int v12;  // edi\n
+    unsigned short v13;  // ss\n
+    unsigned short v14;  // cs\n
+    unsigned short v15;  // ds\n
+    unsigned short v16;  // es\n
+    unsigned short v17;  // fs\n
+    unsigned short v18;  // gs\n
+    unsigned int v19;  // d\n
+    unsigned int v20;  // id\n
+    unsigned int v21;  // ac\n
+    unsigned int v22;  // ebp\n
+\n
+    v2 = &v3;\n
+    v7 = IsProcessorFeaturePresent(23);\n
+    if (!v7)\n
+    {\n
+        g_10007210 = v7;\n
+        g_1000720c = v8;\n
+        g_10007208 = v9;\n
+        g_10007204 = v10;\n
+        g_10007200 = v11;\n
+        g_100071fc = v12;\n
+        g_10007228 = v13;\n
+        g_1000721c = v14;\n
+        g_100071f8 = v15;\n
+        g_100071f4 = v16;\n
+        g_100071f0 = v17;\n
+        g_100071ec = v18;\n
+        v0 = [D] x86g_calculate_eflags_all(0xf<32>, 0x0<32>, 0x0<32>, 0x0<32>) | 514 | v19 & 0x400 | v20 * 0x200000 & 0x200000 | v21 * 0x40000 & 0x40000;\n
+        g_10007220 = v0;\n
+        g_10007214 = v2;\n
+        g_10007218 = *(&v3);\n
+        g_10007224 = &v4;\n
+        g_1000711c = g_10007218;\n
+        g_10007110 = 3221226505;\n
+        g_10007114 = 1;\n
+        if (*(&v5) > 0 && !*(&v6))\n
+            v5 = 0;\n
+        if (v5 > 14)\n
+            v5 -= 1;\n
+        g_10007120 = v5 + 1;\n
+        g_10007124 = v4;\n
+        for (v1[0] = 0; v1 < v5; v1 = &v1[0] + 1)\n
+        {\n
+            *((0x4 * v1 + &g_10007128)) = *((*(&v6) + v1 * 4));\n
+        }\n
+        sub_10003f00();\n
+        v22 = v2;\n
+        return;\n
+    }\n
+}\n
+", "268451017:sub_10003cc9": "int sub_10003cc9()\n
+{\n
+    [D] Unsupported jumpkind Ijk_NoDecode at address 268451017\n
+}\n
+", "268451296:sub_10003de0": "int sub_10003de0()\n
+{\n
+    unsigned int v0;  // [bp-0x4]\n
+    char v1;  // [bp+0x0]\n
+\n
+    v0 = &v1;\n
+    return sub_10003bd0(8);\n
+}\n
+", "268451339:sub_10003e0b": "int sub_10003e0b()\n
+{\n
+    [D] Unsupported jumpkind Ijk_NoDecode at address 268451339\n
+}\n
+", "268451584:sub_10003f00": "typedef struct EXCEPTION_POINTERS {\n
+    struct EXCEPTION_RECORD *ExceptionRecord;\n
+    struct CONTEXT *ContextRecord;\n
+} EXCEPTION_POINTERS;\n
+\n
+typedef struct EXCEPTION_RECORD {\n
+    unsigned int ExceptionCode;\n
+    unsigned int ExceptionFlags;\n
+    void* ExceptionRecord;\n
+    void* ExceptionAddress;\n
+    unsigned int NumberParameters;\n
+    unsigned int *ExceptionInformation[15];\n
+} EXCEPTION_RECORD;\n
+\n
+typedef struct CONTEXT {\n
+    unsigned int ContextFlags;\n
+    unsigned int Dr0;\n
+    unsigned int Dr1;\n
+    unsigned int Dr2;\n
+    unsigned int Dr3;\n
+    unsigned int Dr6;\n
+    unsigned int Dr7;\n
+    FLOATING_SAVE_AREA FloatSave;\n
+    unsigned int SegGs;\n
+    unsigned int SegFs;\n
+    unsigned int SegEs;\n
+    unsigned int SegDs;\n
+    unsigned int Edi;\n
+    unsigned int Esi;\n
+    unsigned int Ebx;\n
+    unsigned int Edx;\n
+    unsigned int Ecx;\n
+    unsigned int Eax;\n
+    unsigned int Ebp;\n
+    unsigned int Eip;\n
+    unsigned int SegCs;\n
+    unsigned int EFlags;\n
+    unsigned int Esp;\n
+    unsigned int SegSs;\n
+    char ExtendedRegisters[512];\n
+} CONTEXT;\n
+\n
+typedef struct FLOATING_SAVE_AREA {\n
+    unsigned int ControlWord;\n
+    unsigned int StatusWord;\n
+    unsigned int TagWord;\n
+    unsigned int ErrorOffset;\n
+    unsigned int ErrorSelector;\n
+    unsigned int DataOffset;\n
+    unsigned int DataSelector;\n
+    char RegisterArea[80];\n
+    unsigned int Spare0;\n
+} FLOATING_SAVE_AREA;\n
+\n
+int sub_10003f00(EXCEPTION_POINTERS *v2)\n
+{\n
+    unsigned int v0;  // [bp-0x4]\n
+    char v1;  // [bp+0x0]\n
+\n
+    v0 = &v1;\n
+    SetUnhandledExceptionFilter(NULL);\n
+    UnhandledExceptionFilter(v2);\n
+    return TerminateProcess(GetCurrentProcess(), 3221226505);\n
+}\n
+", "268451632:sub_10003f30": "char sub_10003f30()\n
+{\n
+    unsigned int v0;  // [bp-0x4]\n
+    char v1;  // [bp+0x0]\n
+\n
+    v0 = &v1;\n
+    return 1;\n
+}\n
+", "268451648:sub_10003f40": "char sub_10003f40()\n
+{\n
+    unsigned int v0;  // [bp-0x4]\n
+    char v1;  // [bp+0x0]\n
+\n
+    v0 = &v1;\n
+    return 1;\n
+}\n
+", "268451664:sub_10003f50": "char sub_10003f50()\n
+{\n
+    unsigned int v0;  // [bp-0x4]\n
+    char v1;  // [bp+0x0]\n
+\n
+    v0 = &v1;\n
+    return 1;\n
+}\n
+", "268451680:sub_10003f60": "char sub_10003f60()\n
+{\n
+    unsigned int v0;  // [bp-0x4]\n
+    char v1;  // [bp+0x0]\n
+\n
+    v0 = &v1;\n
+    return 1;\n
+}\n
+", "268451696:sub_10003f70": "char sub_10003f70()\n
+{\n
+    unsigned int v0;  // [bp-0x4]\n
+    char v1;  // [bp+0x0]\n
+\n
+    v0 = &v1;\n
+    return 1;\n
+}\n
+", "268451712:sub_10003f80": "int sub_10003f80()\n
+{\n
+    unsigned int v0;  // [bp-0x4]\n
+    char v1;  // [bp+0x0]\n
+\n
+    v0 = &v1;\n
+    return 0;\n
+}\n
+", "268451728:sub_10003f90": "extern unsigned int g_10007104;\n
+\n
+int sub_10003f90(unsigned int v23)\n
+{\n
+    unsigned int v0;  // [bp-0x58]\n
+    unsigned int v1;  // [bp-0x54]\n
+    unsigned int v2;  // [bp-0x50]\n
+    unsigned int v3;  // [bp-0x4c]\n
+    unsigned int v4;  // [bp-0x48]\n
+    unsigned int v5;  // [bp-0x44]\n
+    unsigned int v6;  // [bp-0x40]\n
+    unsigned int v7;  // [bp-0x3c]\n
+    unsigned int v8;  // [bp-0x38]\n
+    unsigned int v9;  // [bp-0x34]\n
+    unsigned int v10;  // [bp-0x30]\n
+    unsigned int v11;  // [bp-0x2c]\n
+    unsigned int v12;  // [bp-0x28]\n
+    unsigned int v13;  // [bp-0x24]\n
+    unsigned int v14;  // [bp-0x20]\n
+    unsigned int v15;  // [bp-0x1c]\n
+    unsigned int v16;  // [bp-0x18]\n
+    unsigned int v17;  // [bp-0x14]\n
+    unsigned int v18;  // [bp-0x10]\n
+    unsigned int v19;  // [bp-0xc]\n
+    unsigned int v20;  // [bp-0x8]\n
+    unsigned int v21;  // [bp-0x4]\n
+    char v22;  // [bp+0x0]\n
+\n
+    v21 = &v22;\n
+    if (g_10007104 < 1)\n
+        return v23;\n
+    if (v23 != 3221226164 && v23 != 3221226165)\n
+        return v23;\n
+    v18 = 1;\n
+    v17 = 2;\n
+    v16 = 4;\n
+    v15 = 8;\n
+    v14 = 16;\n
+    v13 = 32;\n
+    v12 = 63;\n
+    v11 = 128;\n
+    v10 = 0x100;\n
+    v9 = 0x200;\n
+    v8 = 0x400;\n
+    v7 = 0x800;\n
+    v6 = 0x1000;\n
+    v5 = 129;\n
+    v4 = 258;\n
+    v3 = 516;\n
+    v2 = 1032;\n
+    v1 = 2064;\n
+    v0 = 4128;\n
+    v19 = [D] x86g_create_mxcsr(And(sseround<4>, 0x3<32>));\n
+    v20 = v19 ^ 63;\n
+    return (!(v20 & 129) ? (!(v20 & 516) ? (!(v20 & 258) ? (!(v20 & 1032) ? (!(v20 & 2064) ? (!(v20 & 4128) ? v23 : 3221225615) : 3221225619) : 3221225617) : 3221225616) : 3221225614) : 3221225616);\n
+}\n
+", "268452036:sub_100040c4": "typedef struct SECURITY_ATTRIBUTES {\n
+    unsigned int nLength;\n
+    void* lpSecurityDescriptor;\n
+    unsigned int bInheritHandle;\n
+} SECURITY_ATTRIBUTES;\n
+\n
+int sub_100040c4(SECURITY_ATTRIBUTES *v0, unsigned int a0, unsigned int a1, char *a2)\n
+{\n
+    return CreateEventA(v0, a0, a1, a2);\n
+}\n
+", "268452042:sub_100040ca": "typedef struct OVERLAPPED {\n
+    unsigned int *Internal;\n
+    unsigned int *InternalHigh;\n
+    char Anonymous;\n
+    char padding_9[7];\n
+    unsigned int *hEvent;\n
+} OVERLAPPED;\n
+\n
+int sub_100040ca(unsigned int *v0, char *a0, unsigned int a1, unsigned int *a2, OVERLAPPED *a3)\n
+{\n
+    return ReadFile(v0, a0, a1, a2, a3);\n
+}\n
+", "268452048:sub_100040d0": "typedef struct OVERLAPPED {\n
+    unsigned int *Internal;\n
+    unsigned int *InternalHigh;\n
+    char Anonymous;\n
+    char padding_9[7];\n
+    unsigned int *hEvent;\n
+} OVERLAPPED;\n
+\n
+int sub_100040d0(unsigned int *v0, char *a0, unsigned int a1, unsigned int *a2, OVERLAPPED *a3)\n
+{\n
+    return WriteFile(v0, a0, a1, a2, a3);\n
+}\n
+", "268452054:sub_100040d6": "int sub_100040d6(unsigned int *v0, unsigned int a0)\n
+{\n
+    return WaitForSingleObject(v0, a0);\n
+}\n
+", "268452060:sub_100040dc": "int sub_100040dc(unsigned int v0, unsigned int **a0, unsigned int a1, unsigned int a2)\n
+{\n
+    return WaitForMultipleObjects(v0, a0, a1, a2);\n
+}\n
+", "268452066:sub_100040e2": "int sub_100040e2()\n
+{\n
+    return GetLastError();\n
+}\n
+", "268452072:sub_100040e8": "int sub_100040e8(void* v0, unsigned int *a0, unsigned int a1, unsigned int a2)\n
+{\n
+    return VirtualAlloc(v0, a0, a1, a2);\n
+}\n
+", "268452078:sub_100040ee": "int sub_100040ee(void* v0, unsigned int *a0, unsigned int a1)\n
+{\n
+    return VirtualFree(v0, a0, a1);\n
+}\n
+", "268452084:AES128_ECB_encrypt": "int AES128_ECB_encrypt()\n
+{\n
+    return ::kernel32.dll::AES128_ECB_encrypt();\n
+}\n
+", "268452090:sub_100040fa": "int sub_100040fa(unsigned long long *v0)\n
+{\n
+    return QueryPerformanceCounter(v0);\n
+}\n
+", "268452096:sub_10004100": "int sub_10004100()\n
+{\n
+    return GetCurrentProcessId();\n
+}\n
+", "268452102:sub_10004106": "int sub_10004106()\n
+{\n
+    return GetCurrentThreadId();\n
+}\n
+", "268452108:sub_1000410c": "int sub_1000410c(unsigned int v0[2])\n
+{\n
+    return GetSystemTimeAsFileTime(v0);\n
+}\n
+", "268452114:sub_10004112": "int sub_10004112(void* v0)\n
+{\n
+    return InitializeSListHead(v0);\n
+}\n
+", "268452120:sub_10004118": "int sub_10004118()\n
+{\n
+    return IsDebuggerPresent();\n
+}\n
+", "268452126:sub_1000411e": "typedef struct EXCEPTION_POINTERS {\n
+    struct EXCEPTION_RECORD *ExceptionRecord;\n
+    struct CONTEXT *ContextRecord;\n
+} EXCEPTION_POINTERS;\n
+\n
+typedef struct EXCEPTION_RECORD {\n
+    unsigned int ExceptionCode;\n
+    unsigned int ExceptionFlags;\n
+    void* ExceptionRecord;\n
+    void* ExceptionAddress;\n
+    unsigned int NumberParameters;\n
+    unsigned int *ExceptionInformation[15];\n
+} EXCEPTION_RECORD;\n
+\n
+typedef struct CONTEXT {\n
+    unsigned int ContextFlags;\n
+    unsigned int Dr0;\n
+    unsigned int Dr1;\n
+    unsigned int Dr2;\n
+    unsigned int Dr3;\n
+    unsigned int Dr6;\n
+    unsigned int Dr7;\n
+    FLOATING_SAVE_AREA FloatSave;\n
+    unsigned int SegGs;\n
+    unsigned int SegFs;\n
+    unsigned int SegEs;\n
+    unsigned int SegDs;\n
+    unsigned int Edi;\n
+    unsigned int Esi;\n
+    unsigned int Ebx;\n
+    unsigned int Edx;\n
+    unsigned int Ecx;\n
+    unsigned int Eax;\n
+    unsigned int Ebp;\n
+    unsigned int Eip;\n
+    unsigned int SegCs;\n
+    unsigned int EFlags;\n
+    unsigned int Esp;\n
+    unsigned int SegSs;\n
+    char ExtendedRegisters[512];\n
+} CONTEXT;\n
+\n
+typedef struct FLOATING_SAVE_AREA {\n
+    unsigned int ControlWord;\n
+    unsigned int StatusWord;\n
+    unsigned int TagWord;\n
+    unsigned int ErrorOffset;\n
+    unsigned int ErrorSelector;\n
+    unsigned int DataOffset;\n
+    unsigned int DataSelector;\n
+    char RegisterArea[80];\n
+    unsigned int Spare0;\n
+} FLOATING_SAVE_AREA;\n
+\n
+int sub_1000411e(EXCEPTION_POINTERS *v0)\n
+{\n
+    return UnhandledExceptionFilter(v0);\n
+}\n
+", "268452132:sub_10004124": "int sub_10004124(void* v0)\n
+{\n
+    return SetUnhandledExceptionFilter(v0);\n
+}\n
+", "268452138:sub_1000412a": "typedef struct STARTUPINFOW {\n
+    unsigned int cb;\n
+    char *lpReserved;\n
+    char *lpDesktop;\n
+    char *lpTitle;\n
+    unsigned int dwX;\n
+    unsigned int dwY;\n
+    unsigned int dwXSize;\n
+    unsigned int dwYSize;\n
+    unsigned int dwXCountChars;\n
+    unsigned int dwYCountChars;\n
+    unsigned int dwFillAttribute;\n
+    unsigned int dwFlags;\n
+    unsigned short wShowWindow;\n
+    unsigned short cbReserved2;\n
+    char *lpReserved2;\n
+    unsigned int *hStdInput;\n
+    unsigned int *hStdOutput;\n
+    unsigned int *hStdError;\n
+} STARTUPINFOW;\n
+\n
+int sub_1000412a(STARTUPINFOW *v0)\n
+{\n
+    return GetStartupInfoW(v0);\n
+}\n
+", "268452144:sub_10004130": "int sub_10004130(unsigned int v0)\n
+{\n
+    return IsProcessorFeaturePresent(v0);\n
+}\n
+", "268452150:sub_10004136": "int sub_10004136(char *v0)\n
+{\n
+    return GetModuleHandleW(v0);\n
+}\n
+", "268452156:__current_exception": "int __current_exception()\n
+{\n
+    return ::kernel32.dll::__current_exception();\n
+}\n
+", "268452162:__current_exception_context": "int __current_exception_context()\n
+{\n
+    return ::kernel32.dll::__current_exception_context();\n
+}\n
+", "268452168:__std_type_info_destroy_list": "int __std_type_info_destroy_list()\n
+{\n
+    return ::kernel32.dll::__std_type_info_destroy_list();\n
+}\n
+", "268452174:_except_handler4_common": "int _except_handler4_common()\n
+{\n
+    return ::kernel32.dll::_except_handler4_common();\n
+}\n
+", "268452180:memcpy": "int memcpy()\n
+{\n
+    return ::kernel32.dll::memcpy();\n
+}\n
+", "268452186:memset": "int memset()\n
+{\n
+    return ::kernel32.dll::memset();\n
+}\n
+", "268452192:_cexit": "int _cexit()\n
+{\n
+    return ::kernel32.dll::_cexit();\n
+}\n
+", "268452198:_configure_narrow_argv": "int _configure_narrow_argv()\n
+{\n
+    return ::kernel32.dll::_configure_narrow_argv();\n
+}\n
+", "268452204:_crt_at_quick_exit": "int _crt_at_quick_exit()\n
+{\n
+    return ::kernel32.dll::_crt_at_quick_exit();\n
+}\n
+", "268452210:_crt_atexit": "int _crt_atexit()\n
+{\n
+    return ::kernel32.dll::_crt_atexit();\n
+}\n
+", "268452216:_dup2": "int _dup2()\n
+{\n
+    return ::kernel32.dll::_dup2();\n
+}\n
+", "268452222:_execute_onexit_table": "int _execute_onexit_table()\n
+{\n
+    return ::kernel32.dll::_execute_onexit_table();\n
+}\n
+", "268452228:_get_osfhandle": "int _get_osfhandle()\n
+{\n
+    return ::kernel32.dll::_get_osfhandle();\n
+}\n
+", "268452234:sub_1000418a": "int sub_1000418a()\n
+{\n
+    return __acrt_iob_func();\n
+}\n
+", "268452240:sub_10004190": "int sub_10004190(unsigned int v0, unsigned int a0, unsigned int a1, unsigned int a2, unsigned int a3)\n
+{\n
+    return __stdio_common_vfprintf(v0, a0, a1, a2, a3);\n
+}\n
+", "268452246:sub_10004196": "int sub_10004196(unsigned int v0, unsigned int a0, unsigned int a1, unsigned int a2, unsigned int a3, unsigned int a4)\n
+{\n
+    return __stdio_common_vsprintf(v0, a0, a1, a2, a3, a4);\n
+}\n
+", "268452252:sub_1000419c": "int sub_1000419c(unsigned int v0, unsigned int a0, unsigned int a1, unsigned int a2, unsigned int a3, unsigned int a4)\n
+{\n
+    return __stdio_common_vsscanf(v0, a0, a1, a2, a3, a4);\n
+}\n
+", "268452258:sub_100041a2": "int sub_100041a2()\n
+{\n
+    return _errno();\n
+}\n
+", "268452264:sub_100041a8": "int sub_100041a8(char *v0)\n
+{\n
+    return atoi(v0);\n
+}\n
+", "268452270:sub_100041ae": "int sub_100041ae(unsigned int v0)\n
+{\n
+    return exit(v0);\n
+}\n
+", "268452276:sub_100041b4": "int sub_100041b4(char *v0)\n
+{\n
+    return getenv(v0);\n
+}\n
+", "268452282:sub_100041ba": "int sub_100041ba(unsigned int v0)\n
+{\n
+    return malloc(v0);\n
+}\n
+", "268452288:sub_100041c0": "typedef struct FILE_t {\n
+    unsigned int _flags;\n
+    char *_IO_read_ptr;\n
+    char *_IO_read_end;\n
+    char *_IO_read_base;\n
+    char *_IO_write_base;\n
+    char *_IO_write_ptr;\n
+    char *_IO_write_end;\n
+    char *_IO_buf_base;\n
+    char *_IO_buf_end;\n
+    char *_IO_save_base;\n
+    char *_IO_backup_base;\n
+    char *_IO_save_end;\n
+    struct _IO_marker *_markers;\n
+    struct _IO_marker *_chain;\n
+    unsigned int _fileno;\n
+    unsigned int _flags2;\n
+    unsigned int _old_offset;\n
+    unsigned short _cur_column;\n
+    char _vtable_offset;\n
+    char _shortbuf[1];\n
+    struct _IO_marker *_lock;\n
+    char padding_4c[4];\n
+    unsigned long long _offset;\n
+    struct _IO_codecvt *_codecvt;\n
+    struct _IO_wide_data *_wide_data;\n
+    void* _freeres_list;\n
+    char __pad5;\n
+    char padding_65[3];\n
+    unsigned int _mode;\n
+    char _unused2[20];\n
+} FILE_t;\n
+\n
+typedef struct _IO_marker {\n
+    struct _IO_marker *_next;\n
+    struct _IO_marker *_sbuf;\n
+    unsigned int _pos;\n
+} _IO_marker;\n
+\n
+typedef struct _IO_codecvt {\n
+    char __cd_out;\n
+} _IO_codecvt;\n
+\n
+typedef struct _IO_wide_data {\n
+    unsigned short *_IO_read_ptr;\n
+    unsigned short *_IO_read_end;\n
+    unsigned short *_IO_read_base;\n
+    unsigned short *_IO_write_base;\n
+    unsigned short *_IO_write_ptr;\n
+    unsigned short *_IO_write_end;\n
+    unsigned short *_IO_buf_base;\n
+    unsigned short *_IO_buf_end;\n
+    unsigned short *_IO_save_base;\n
+    unsigned short *_IO_backup_base;\n
+    unsigned short *_IO_save_end;\n
+    __mbstate_t _IO_state;\n
+    char padding_31[3];\n
+    char _IO_last_state;\n
+    char padding_35[7];\n
+    unsigned short _shortbuf[1];\n
+    _IO_marker _wide_vtable;\n
+} _IO_wide_data;\n
+\n
+typedef struct __mbstate_t {\n
+    unsigned int __count;\n
+    char __value;\n
+} __mbstate_t;\n
+\n
+int sub_100041c0(FILE_t *v0, char *a0, unsigned int a1, unsigned int a2)\n
+{\n
+    return setvbuf(v0, a0, a1, a2);\n
+}\n
+", "268452294:_initialize_narrow_environment": "int _initialize_narrow_environment()\n
+{\n
+    return ::kernel32.dll::_initialize_narrow_environment();\n
+}\n
+", "268452300:_initialize_onexit_table": "int _initialize_onexit_table()\n
+{\n
+    return ::kernel32.dll::_initialize_onexit_table();\n
+}\n
+", "268452306:_initterm": "int _initterm()\n
+{\n
+    return ::kernel32.dll::_initterm();\n
+}\n
+", "268452312:_initterm_e": "int _initterm_e()\n
+{\n
+    return ::kernel32.dll::_initterm_e();\n
+}\n
+", "268452318:_open_osfhandle": "int _open_osfhandle()\n
+{\n
+    return ::kernel32.dll::_open_osfhandle();\n
+}\n
+", "268452324:_read": "int _read()\n
+{\n
+    return ::kernel32.dll::_read();\n
+}\n
+", "268452330:_register_onexit_function": "int _register_onexit_function()\n
+{\n
+    return ::kernel32.dll::_register_onexit_function();\n
+}\n
+", "268452336:_seh_filter_dll": "int _seh_filter_dll()\n
+{\n
+    return ::kernel32.dll::_seh_filter_dll();\n
+}\n
+", "268452342:_write": "int _write()\n
+{\n
+    return ::kernel32.dll::_write();\n
+}\n
+", "268452348:strlen": "int strlen()\n
+{\n
+    return ::kernel32.dll::strlen();\n
+}\n
+", "268452354:terminate": "int terminate()\n
+{\n
+    return ::kernel32.dll::terminate();\n
+}\n
+", "268452360:sub_10004208": "int sub_10004208()\n
+{\n
+    return GetCurrentProcess();\n
+}\n
+", "268452366:sub_1000420e": "int sub_1000420e(unsigned int *v0, unsigned int a0)\n
+{\n
+    return TerminateProcess(v0, a0);\n
+}\n
+", "269484032:CreateEventA": null, "269484036:GetCurrentProcess": null, "269484040:GetCurrentProcessId": null, "269484044:GetCurrentThreadId": null, "269484048:GetLastError": null, "269484052:GetModuleHandleW": null, "269484056:GetStartupInfoW": null, "269484060:GetSystemTimeAsFileTime": null, "269484064:InitializeSListHead": null, "269484068:IsDebuggerPresent": null, "269484072:IsProcessorFeaturePresent": null, "269484076:QueryPerformanceCounter": null, "269484080:ReadFile": null, "269484084:SetUnhandledExceptionFilter": null, "269484088:TerminateProcess": null, "269484092:UnhandledExceptionFilter": null, "269484096:VirtualAlloc": null, "269484100:VirtualFree": null, "269484104:WaitForMultipleObjects": null, "269484108:WaitForSingleObject": null, "269484112:WriteFile": null, "269484116:AES128_ECB_encrypt": null, "269484120:__current_exception": null, "269484124:__current_exception_context": null, "269484128:__std_type_info_destroy_list": null, "269484132:_except_handler4_common": null, "269484136:memcpy": null, "269484140:memset": null, "269484144:__acrt_iob_func": null, "269484148:__stdio_common_vfprintf": null, "269484152:__stdio_common_vsprintf": null, "269484156:__stdio_common_vsscanf": null, "269484160:_cexit": null, "269484164:_configure_narrow_argv": null, "269484168:_crt_at_quick_exit": null, "269484172:_crt_atexit": null, "269484176:_dup2": null, "269484180:_errno": null, "269484184:_execute_onexit_table": null, "269484188:_get_osfhandle": null, "269484192:_initialize_narrow_environment": null, "269484196:_initialize_onexit_table": null, "269484200:_initterm": null, "269484204:_initterm_e": null, "269484208:_open_osfhandle": null, "269484212:_read": null, "269484216:_register_onexit_function": null, "269484220:_seh_filter_dll": null, "269484224:_write": null, "269484228:atoi": null, "269484232:exit": null, "269484236:getenv": null, "269484240:malloc": null, "269484244:setvbuf": null, "269484248:strlen": null, "269484252:terminate": null, "270536748:UnresolvableCallTarget": null}

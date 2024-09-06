@@ -1,0 +1,453 @@
+{"4198400:_init": "extern struct_0 *g_403410;\n
+\n
+long long _init()\n
+{\n
+    struct struct_0 **v1;  // rax, Other Possible Types: unsigned long\n
+\n
+    v1 = g_403410;\n
+    if (g_403410)\n
+        v1 = g_403410();\n
+    return v1;\n
+}\n
+", "4198432:sub_401020": "extern unsigned long long g_403430;\n
+\n
+long long sub_401020()\n
+{\n
+    unsigned long v0;  // [bp-0x8]\n
+\n
+    v0 = g_403430;\n
+    goto *(4207672);\n
+}\n
+", "4198444:sub_40102c": null, "4198448:cgc_fdwait": "// attributes: PLT stub\n
+int cgc_fdwait()\n
+{\n
+    ::libc.so.0::cgc_fdwait();\n
+    return;\n
+}\n
+", "4198464:memset": "// attributes: PLT stub\n
+void* memset(void* block, unsigned int c, unsigned int size)\n
+{\n
+    return ::libc.so.0::memset(block, c, size);\n
+}\n
+", "4198480:cgc_transmit": "// attributes: PLT stub\n
+int cgc_transmit()\n
+{\n
+    ::libc.so.0::cgc_transmit();\n
+    return;\n
+}\n
+", "4198496:cgc_receive": "// attributes: PLT stub\n
+int cgc_receive()\n
+{\n
+    ::libc.so.0::cgc_receive();\n
+    return;\n
+}\n
+", "4198512:__cxa_finalize": "// attributes: PLT stub\n
+char * __cxa_finalize()\n
+{\n
+    goto *(4207648);\n
+}\n
+", "4198528:_start": "long long _start()\n
+{\n
+    unsigned long v0;  // [bp+0x0], Other Possible Types: char\n
+    unsigned long v1;  // [bp+0x8]\n
+    unsigned long long v2;  // rsi\n
+    unsigned long v3;  // rax\n
+    unsigned long long v4;  // rdx\n
+\n
+    v2 = *(&v0);\n
+    v0 = v3;\n
+    __libc_start_main(main, v2, &v1, 0, 0, v4); /* do not return */\n
+}\n
+", "4198565:sub_4010a5": null, "4198566:sub_4010a6": null, "4198576:deregister_tm_clones": "extern char __TMC_END__;\n
+extern unsigned long long g_403408;\n
+\n
+long long deregister_tm_clones()\n
+{\n
+    return &__TMC_END__;\n
+}\n
+", "4198617:sub_4010d9": null, "4198624:register_tm_clones": "extern unsigned long long g_403418;\n
+\n
+long long register_tm_clones()\n
+{\n
+    return 0;\n
+}\n
+", "4198681:sub_401119": null, "4198688:__do_global_dtors_aux": "extern char __TMC_END__;\n
+extern unsigned long long g_403420;\n
+\n
+long long __do_global_dtors_aux()\n
+{\n
+    unsigned long v0;  // [bp-0x8]\n
+    unsigned long v2;  // rax\n
+\n
+    if (__TMC_END__)\n
+        return v2;\n
+    *(&v0) = rbp<8>;\n
+    if (!g_403420)\n
+    {\n
+        __TMC_END__ = 1;\n
+        return deregister_tm_clones();\n
+    }\n
+    __cxa_finalize();\n
+}\n
+", "4198741:sub_401155": null, "4198745:sub_401159": null, "4198752:frame_dummy": "long long frame_dummy()\n
+{\n
+    return register_tm_clones();\n
+}\n
+", "4198761:sub_401169": null, "4198768:cgc_receive_all": "long long cgc_receive_all(unsigned long long a0, unsigned long long a1, unsigned long long a2, unsigned long long *a3)\n
+{\n
+    unsigned int v0;  // [bp-0xd0]\n
+    unsigned int v1;  // [bp-0xcc]\n
+    unsigned int v2;  // [bp-0xc8]\n
+    unsigned int v3;  // [bp-0xc4]\n
+    unsigned long long v4;  // [bp-0xc0], Other Possible Types: char\n
+    void* v5;  // [bp-0x40]\n
+    unsigned long v6;  // [bp-0x38]\n
+    unsigned int v7;  // [bp-0x2c]\n
+    unsigned long v8;  // [bp-0x20]\n
+    unsigned long v9;  // [bp-0x18]\n
+    unsigned int v10;  // [bp-0x10]\n
+    unsigned int v11;  // [bp-0xc]\n
+    unsigned long long v13;  // r8\n
+\n
+    v10 = a0;\n
+    v9 = a1;\n
+    v8 = a2;\n
+    v7 = 0;\n
+    v6 = a2;\n
+    v5 = 0;\n
+    v3 = 0;\n
+    for (v2 = 0; v2 < 16; v2 += 1)\n
+    {\n
+        *(&(&v4)[8 * v2]) = 0;\n
+    }\n
+    v4 = *(&v4) | 1;\n
+    v0 = 0;\n
+    v1 = 50000;\n
+    while (true)\n
+    {\n
+        if (v8 - v6 == a2)\n
+        {\n
+            if (a3)\n
+                *(a3) = a2;\n
+            v11 = v7;\n
+            return v11;\n
+        }\n
+        v5 = 0;\n
+        v3 = 0;\n
+        if ((Not (Not (0x0<32> == Call(0x401030<64>, <SimCCSystemVAMD64>: [rdi<8>, rsi<8>, rdx<8>, rcx<8>, r8<8>], ret: eax<4>, fp_ret: no-fp-ret-value))))) { Goto None } else { Goto None }\n
+        if (!v3)\n
+        {\n
+            *(a3) = a2 - v6;\n
+            v11 = v7;\n
+            return v11;\n
+        }\n
+        v7 = cgc_receive(a0, a1, a2, a3);\n
+        if (v7)\n
+        {\n
+            v11 = v7;\n
+            return v11;\n
+        }\n
+        if (v5)\n
+        {\n
+            v6 -= v5;\n
+        }\n
+        else\n
+        {\n
+            if (a3)\n
+                *(a3) = a2 - v6;\n
+            v11 = v7;\n
+            return v11;\n
+        }\n
+    }\n
+}\n
+", "4199231:sub_40133f": null, "4199232:cgc_transmit_all": "long long cgc_transmit_all(unsigned long long a0, unsigned long long a1, unsigned long long a2, unsigned long long *a3)\n
+{\n
+    void* v0;  // [bp-0x40]\n
+    unsigned long v1;  // [bp-0x38]\n
+    unsigned int v2;  // [bp-0x2c]\n
+    unsigned long v3;  // [bp-0x18]\n
+    unsigned int v4;  // [bp-0x10]\n
+    unsigned int v5;  // [bp-0xc]\n
+\n
+    v4 = a0;\n
+    v3 = a1;\n
+    v2 = 0;\n
+    v1 = a2 + 1;\n
+    for (v0 = 0; v1 != 1; v1 -= v0)\n
+    {\n
+        v0 = 0;\n
+        v2 = cgc_transmit(a0, a1, a2, a3);\n
+        if (v2)\n
+        {\n
+            v5 = v2;\n
+            return v5;\n
+        }\n
+    }\n
+    if (a3)\n
+        *(a3) = a2;\n
+    v5 = v2;\n
+    return v5;\n
+}\n
+", "4199415:sub_4013f7": null, "4199424:cgc_memset": "long long cgc_memset(char *a0, unsigned long a1, unsigned long a2)\n
+{\n
+    void* v0;  // [bp-0x28]\n
+    unsigned long v1;  // [bp-0x20]\n
+\n
+    v1 = a2;\n
+    v1 += 1;\n
+    for (v0 = 0; v1 != 1; v1 -= 1)\n
+    {\n
+        a0[2 + v1] = a1;\n
+    }\n
+    return a0;\n
+}\n
+", "4199521:sub_401461": null, "4199536:cgc_memcmp": "long long cgc_memcmp(char *a0, char *a1, unsigned long a2)\n
+{\n
+    unsigned int v0;  // [bp-0x2c]\n
+    unsigned long v1;  // [bp-0x28]\n
+    unsigned int v2;  // [bp-0xc]\n
+\n
+    v1 = a2;\n
+    v1 += 1;\n
+    v0 = 1;\n
+    while (true)\n
+    {\n
+        if (v0 >= v1)\n
+        {\n
+            v2 = 0;\n
+            return v2;\n
+        }\n
+        else if (a0[1 + v0] > a1[1 + v0])\n
+        {\n
+            v2 = v0;\n
+            return v2;\n
+        }\n
+        else if (a0[1 + v0] >= a1[1 + v0])\n
+        {\n
+            v0 += 1;\n
+        }\n
+        else\n
+        {\n
+            v2 = -(v0);\n
+            return v2;\n
+        }\n
+    }\n
+}\n
+", "4199724:sub_40152c": null, "4199728:cgc_memcpy": "long long cgc_memcpy(char *a0, char *a1, unsigned long a2)\n
+{\n
+    unsigned long v0;  // [bp-0x20]\n
+\n
+    v0 = a2;\n
+    for (v0 += 1; v0 != 1; v0 -= 1)\n
+    {\n
+        a0[2 + v0] = a1[2 + v0];\n
+    }\n
+    return v0 - 1;\n
+}\n
+", "4199823:sub_40158f": null, "4199824:cgc_defrag": "extern unsigned long long cgc_ct_index;\n
+extern unsigned long long cgc_depth;\n
+extern unsigned long long cgc_rx_index;\n
+extern char ct;\n
+extern char rx_buf;\n
+\n
+long long cgc_defrag(unsigned long a0)\n
+{\n
+    char v0;  // [bp-0x10028]\n
+    void* v1;  // [bp-0x20], Other Possible Types: unsigned long\n
+    char v2;  // [bp-0x15]\n
+    unsigned int v3;  // [bp-0x14]\n
+\n
+    v3 = 0;\n
+    v1 = 0;\n
+    cgc_depth = cgc_depth + 1;\n
+    memset(&v0, 0, 0x10000);\n
+    for (v1 = 0; v1 < a0; v1 += 1)\n
+    {\n
+        if (0x100 <= cgc_rx_index)\n
+        {\n
+            v3 = -15;\n
+            break;\n
+        }\n
+        else\n
+        {\n
+            v2 = (&rx_buf)[cgc_rx_index];\n
+            cgc_rx_index = cgc_rx_index + 1;\n
+            if (!(v2 & 128))\n
+            {\n
+                (&ct)[cgc_ct_index] = v2;\n
+                cgc_ct_index = cgc_ct_index + 1;\n
+            }\n
+            else\n
+            {\n
+                v3 = cgc_defrag(v2 & 127);\n
+                if (v3)\n
+                    break;\n
+            }\n
+        }\n
+    }\n
+    cgc_depth = cgc_depth - 1;\n
+    return v3;\n
+}\n
+", "4200134:sub_4016c6": null, "4200144:cgc_exercise_stack": "long long cgc_exercise_stack()\n
+{\n
+    char v0;  // [bp-0x7ff008]\n
+\n
+    return memset(&v0, 0, 0x7ff000);\n
+}\n
+", "4200183:sub_4016f7": null, "4200192:main": "extern unsigned long long PKT_CONNTERM_ACK;\n
+extern unsigned long long PKT_CONNTERM_ERR;\n
+extern char PKT_EXIT;\n
+extern unsigned long long PKT_EXIT_ACK;\n
+extern unsigned long long PKT_INVALID_SZ;\n
+extern unsigned long long PKT_OTP_ACK;\n
+extern char cgc_PKT_CONNTERM;\n
+extern void* cgc_ct_index;\n
+extern char cgc_otp;\n
+extern void* cgc_rx_index;\n
+extern char ct;\n
+extern char rx_buf;\n
+extern void* rx_bytes;\n
+extern void* tx_bytes;\n
+\n
+int main(unsigned long a0, unsigned long a1)\n
+{\n
+    unsigned long v0;  // [bp-0x50]\n
+    unsigned long v1;  // [bp-0x48]\n
+    char **v2;  // [bp-0x40]\n
+    char *v3;  // [bp-0x38], Other Possible Types: unsigned long\n
+    unsigned long long v4;  // [bp-0x30], Other Possible Types: unsigned long\n
+    void* v5;  // [bp-0x28], Other Possible Types: unsigned long long\n
+    unsigned int v6;  // [bp-0x1c]\n
+    unsigned long v7;  // [bp-0x18]\n
+    unsigned int v8;  // [bp-0x10]\n
+    unsigned int v9;  // [bp-0xc]\n
+\n
+    v9 = 0;\n
+    v8 = a0;\n
+    v7 = a1;\n
+    v6 = 0;\n
+    v5 = 0;\n
+    v4 = 0x100;\n
+    v3 = 0;\n
+    cgc_exercise_stack();\n
+    v2 = 0xba2bb000;\n
+    v1 = &cgc_otp;\n
+    *(v2) = v1;\n
+    while (true)\n
+    {\n
+        rx_bytes = 0;\n
+        cgc_memset(&rx_buf, 0, 0x100);\n
+        v6 = cgc_receive_all(0, &rx_buf, 0x100, &rx_bytes);\n
+        if (v6)\n
+        {\n
+            v6 = -7;\n
+            return v6;\n
+        }\n
+        if (rx_bytes == 42 && !cgc_memcmp(&rx_buf, &PKT_EXIT, 42))\n
+            break;\n
+        if (rx_bytes != v4)\n
+        {\n
+            v6 = cgc_transmit_all(1, &PKT_INVALID_SZ, 0x100, NULL);\n
+            if (v6)\n
+            {\n
+                v6 = -8;\n
+                return v6;\n
+            }\n
+        }\n
+        else\n
+        {\n
+            v0 = v5;\n
+            if (!v0)\n
+            {\n
+                if (!cgc_memcmp(&rx_buf, &cgc_PKT_CONNTERM, 0x100))\n
+                {\n
+                    v6 = cgc_transmit_all(1, &PKT_CONNTERM_ACK, 0x100, NULL);\n
+                    if (v6)\n
+                    {\n
+                        v6 = -8;\n
+                        return v6;\n
+                    }\n
+                    v5 = 1;\n
+                    v4 = 16;\n
+                }\n
+                else\n
+                {\n
+                    v6 = cgc_transmit_all(1, &PKT_CONNTERM_ERR, 0x100, NULL);\n
+                    if (v6)\n
+                    {\n
+                        v6 = -8;\n
+                        return v6;\n
+                    }\n
+                    continue;\n
+                }\n
+            }\n
+            else\n
+            {\n
+                if (v0 == 1)\n
+                {\n
+                    cgc_memcpy(*(v2), &rx_buf, 16);\n
+                    v5 = 2;\n
+                    v4 = 0x100;\n
+                    v6 = cgc_transmit_all(1, &PKT_OTP_ACK, 16, NULL);\n
+                    if (v6)\n
+                    {\n
+                        v6 = -8;\n
+                        return v6;\n
+                    }\n
+                }\n
+                else\n
+                {\n
+                    if (v0 != 2)\n
+                    {\n
+                        v6 = -13;\n
+                        return v6;\n
+                    }\n
+                    if (!cgc_memcmp(&rx_buf, &cgc_PKT_CONNTERM, 0x100))\n
+                    {\n
+                        v5 = 1;\n
+                        v4 = 16;\n
+                        continue;\n
+                    }\n
+                    else if (rx_buf != 255)\n
+                    {\n
+                        cgc_rx_index = 0;\n
+                        cgc_ct_index = 0;\n
+                        cgc_memset(&ct, 0, 0x100);\n
+                        cgc_defrag(0x100);\n
+                        for (v3 = 0; v3 < cgc_ct_index; v3 += 1)\n
+                        {\n
+                            (&ct)[v3] = (&ct)[v3] ^ (*(v2))[v3 & 15];\n
+                        }\n
+                        tx_bytes = 0;\n
+                        v6 = cgc_transmit_all(1, &ct, cgc_ct_index, &tx_bytes);\n
+                        if (v6)\n
+                        {\n
+                            v6 = -8;\n
+                            return v6;\n
+                        }\n
+                    }\n
+                    else\n
+                    {\n
+                        v6 = cgc_transmit_all(1, &rx_buf, 255, NULL);\n
+                        if ((Not (Not (0x0<32> == Load(addr=stack_base-28, size=4, endness=Iend_LE))))) { Goto None } else { Goto None }\n
+                        continue;\n
+                    }\n
+                }\n
+            }\n
+        }\n
+    }\n
+    v6 = cgc_transmit_all(1, &PKT_EXIT_ACK, 42, NULL);\n
+    if (v6)\n
+    {\n
+        v6 = -8;\n
+        return v6;\n
+    }\n
+    return v6;\n
+}\n
+", "4201252:_fini": "long long _fini()\n
+{\n
+    unsigned long v1;  // rax\n
+\n
+    return v1;\n
+}\n
+", "5242880:__libc_start_main": null, "5242888:cgc_fdwait": null, "5242896:memset": null, "5242904:cgc_transmit": null, "5242912:cgc_receive": null, "6295632:UnresolvableJumpTarget": null, "6295640:UnresolvableCallTarget": null}

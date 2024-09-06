@@ -1,0 +1,544 @@
+{"4202496:_init": "extern struct_0 *g_404b68;\n
+\n
+long long _init()\n
+{\n
+    struct struct_0 **v1;  // rax, Other Possible Types: unsigned long\n
+\n
+    v1 = g_404b68;\n
+    if (g_404b68)\n
+        v1 = g_404b68();\n
+    return v1;\n
+}\n
+", "4202528:sub_402020": "extern unsigned long long g_404b88;\n
+\n
+long long sub_402020()\n
+{\n
+    unsigned long v0;  // [bp-0x8]\n
+\n
+    v0 = g_404b88;\n
+    goto *(4213648);\n
+}\n
+", "4202540:sub_40202c": null, "4202544:cgc__terminate": "// attributes: PLT stub\n
+int cgc__terminate()\n
+{\n
+    ::libc.so.0::cgc__terminate();\n
+    return;\n
+}\n
+", "4202560:memset": "// attributes: PLT stub\n
+void* memset(void* block, unsigned int c, unsigned int size)\n
+{\n
+    return ::libc.so.0::memset(block, c, size);\n
+}\n
+", "4202576:cgc_transmit": "// attributes: PLT stub\n
+int cgc_transmit()\n
+{\n
+    ::libc.so.0::cgc_transmit();\n
+    return;\n
+}\n
+", "4202592:cgc_allocate": "// attributes: PLT stub\n
+int cgc_allocate()\n
+{\n
+    ::libc.so.0::cgc_allocate();\n
+    return;\n
+}\n
+", "4202608:cgc_receive": "// attributes: PLT stub\n
+int cgc_receive()\n
+{\n
+    ::libc.so.0::cgc_receive();\n
+    return;\n
+}\n
+", "4202624:__cxa_finalize": "// attributes: PLT stub\n
+char * __cxa_finalize()\n
+{\n
+    goto *(4213624);\n
+}\n
+", "4202640:_start": "long long _start()\n
+{\n
+    unsigned long v0;  // [bp+0x0], Other Possible Types: char\n
+    unsigned long v1;  // [bp+0x8]\n
+    unsigned long long v2;  // rsi\n
+    unsigned long v3;  // rax\n
+    unsigned long long v4;  // rdx\n
+\n
+    v2 = *(&v0);\n
+    v0 = v3;\n
+    __libc_start_main(main, v2, &v1, 0, 0, v4); /* do not return */\n
+}\n
+", "4202677:sub_4020b5": null, "4202678:sub_4020b6": null, "4202688:deregister_tm_clones": "extern char __TMC_END__;\n
+extern unsigned long long g_404b60;\n
+\n
+long long deregister_tm_clones()\n
+{\n
+    return &__TMC_END__;\n
+}\n
+", "4202729:sub_4020e9": null, "4202736:register_tm_clones": "extern unsigned long long g_404b70;\n
+\n
+long long register_tm_clones()\n
+{\n
+    return 0;\n
+}\n
+", "4202793:sub_402129": null, "4202800:__do_global_dtors_aux": "extern char __TMC_END__;\n
+extern unsigned long long g_404b78;\n
+\n
+long long __do_global_dtors_aux()\n
+{\n
+    unsigned long v0;  // [bp-0x8]\n
+    unsigned long v2;  // rax\n
+\n
+    if (__TMC_END__)\n
+        return v2;\n
+    *(&v0) = rbp<8>;\n
+    if (!g_404b78)\n
+    {\n
+        __TMC_END__ = 1;\n
+        return deregister_tm_clones();\n
+    }\n
+    __cxa_finalize();\n
+}\n
+", "4202853:sub_402165": null, "4202857:sub_402169": null, "4202864:frame_dummy": "long long frame_dummy()\n
+{\n
+    return register_tm_clones();\n
+}\n
+", "4202873:sub_402179": null, "4202880:cgc_strlen": "long long cgc_strlen(char *a0)\n
+{\n
+    char *v0;  // [bp-0x20], Other Possible Types: unsigned long\n
+    char *v1;  // [bp-0x10], Other Possible Types: unsigned long\n
+\n
+    v0 = 0;\n
+    if (!a0)\n
+    {\n
+        v1 = 0;\n
+        return v1;\n
+    }\n
+    for (v0 = 0; a0[v0]; v0 += 1);\n
+    v1 = v0;\n
+    return v1;\n
+}\n
+", "4202985:sub_4021e9": null, "4202992:cgc_transmit_all": "long long cgc_transmit_all(unsigned long long a0, unsigned long long a1)\n
+{\n
+    unsigned int v0;  // [bp-0x34]\n
+    void* v1;  // [bp-0x30], Other Possible Types: unsigned long\n
+    void* v2;  // [bp-0x28]\n
+    void* v3;  // [bp-0x10], Other Possible Types: unsigned long\n
+    unsigned long long v5;  // rdx\n
+    unsigned long long v6;  // rcx\n
+\n
+    v2 = 0;\n
+    v1 = 0;\n
+    v0 = 0;\n
+    if (!a0)\n
+    {\n
+        v3 = 0;\n
+        return v3;\n
+    }\n
+    do\n
+    {\n
+        v0 = cgc_transmit(a0, a1, v5, v6);\n
+        if (!v0 && !(!v2))\n
+            continue;\n
+        cgc__terminate(a0);\n
+        v1 = v2 + v1;\n
+    } while (v1 < a1);\n
+    v3 = a1;\n
+    return v3;\n
+}\n
+", "4203164:sub_40229c": null, "4203168:cgc_transmit_str": "long long cgc_transmit_str(char *a0)\n
+{\n
+    unsigned long long v0;  // [bp-0x18]\n
+\n
+    v0 = cgc_strlen(a0);\n
+    return cgc_transmit_all(a0, v0);\n
+}\n
+", "4203212:sub_4022cc": null, "4203216:cgc_receive_all": "long long cgc_receive_all(unsigned long long a0, unsigned long long a1)\n
+{\n
+    unsigned int v0;  // [bp-0x34]\n
+    void* v1;  // [bp-0x30], Other Possible Types: unsigned long\n
+    void* v2;  // [bp-0x28]\n
+    void* v3;  // [bp-0x10], Other Possible Types: unsigned long\n
+    unsigned long long v5;  // rdx\n
+    unsigned long long v6;  // rcx\n
+\n
+    v2 = 0;\n
+    v1 = 0;\n
+    v0 = 0;\n
+    if (!a0)\n
+    {\n
+        v3 = 0;\n
+        return v3;\n
+    }\n
+    do\n
+    {\n
+        v0 = cgc_receive(a0, a1, v5, v6);\n
+        if (!v0 && !(!v2))\n
+            continue;\n
+        cgc__terminate(a0);\n
+        v1 = v2 + v1;\n
+    } while (v1 < a1);\n
+    v3 = a1;\n
+    return v3;\n
+}\n
+", "4203385:sub_402379": null, "4203392:cgc_readline": "long long cgc_readline(char *a0, unsigned long long a1)\n
+{\n
+    char v0;  // [bp-0x39]\n
+    void* v1;  // [bp-0x38]\n
+    char v2;  // [bp-0x2d]\n
+    unsigned int v3;  // [bp-0x2c]\n
+    char *v4;  // [bp-0x28], Other Possible Types: unsigned long\n
+    char *v5;  // [bp-0x10], Other Possible Types: unsigned long\n
+    unsigned long long v7;  // rdx\n
+    unsigned long long v8;  // rcx\n
+\n
+    if (!a0)\n
+    {\n
+        v5 = 0;\n
+        return v5;\n
+    }\n
+    v4 = 0;\n
+    v3 = 0;\n
+    v2 = 0;\n
+    v1 = 0;\n
+    do\n
+    {\n
+        v3 = cgc_receive(a0, a1, v7, v8);\n
+        if (!v3 && !(!v1))\n
+            continue;\n
+        cgc__terminate(a0);\n
+        a0[v4] = v2;\n
+        v4 += 1;\n
+        v0 = 0;\n
+        if (v2 != 10)\n
+            v0 = v4 < a1;\n
+    } while ((v0 & 1));\n
+    v5 = v4;\n
+    return v5;\n
+}\n
+", "4203600:cgc_rotN": "extern char gValidChars;\n
+\n
+long long cgc_rotN(unsigned long a0, unsigned long a1)\n
+{\n
+    unsigned int v0;  // [bp-0x14]\n
+    unsigned int v1;  // [bp-0x10]\n
+    char v2;  // [bp-0x9]\n
+\n
+    v1 = a1;\n
+    v0 = 0;\n
+    v1 = (0 CONCAT v1) /m 62 >> 64;\n
+    if (a0 >= 97 && a0 <= 122)\n
+    {\n
+        v0 = a0 - 97;\n
+        goto LABEL_402503;\n
+    }\n
+    if (a0 >= 65 && a0 <= 90)\n
+    {\n
+        v0 = a0 + -39;\n
+        goto LABEL_402503;\n
+    }\n
+    if (a0 >= 48 && a0 <= 57)\n
+    {\n
+        v0 = a0 + 4;\n
+LABEL_402503:\n
+        v0 = v1 + v0;\n
+        v0 = (0 CONCAT v0) /m 62 >> 64;\n
+        v2 = *((4214128 + v0));\n
+        return v2;\n
+    }\n
+    v2 = a0;\n
+    return v2;\n
+}\n
+", "4203840:cgc_strrotcpy": "long long cgc_strrotcpy(unsigned long a0, char *a1, unsigned long a2)\n
+{\n
+    char *v0;  // [bp-0x30], Other Possible Types: unsigned long\n
+    char *v1;  // [bp-0x10], Other Possible Types: unsigned long\n
+\n
+    if (a1 && a0)\n
+    {\n
+        v0 = 0;\n
+        for (v0 = 0; a1[v0]; v0 += 1)\n
+        {\n
+            *((a0 + v0)) = cgc_rotN(a1[v0], a2);\n
+        }\n
+        *((a0 + v0)) = 0;\n
+        v1 = v0;\n
+        return v1;\n
+    }\n
+    v1 = 0;\n
+    return v1;\n
+}\n
+", "4204013:sub_4025ed": null, "4204016:cgc_init": "extern unsigned long long cgc_gWordData;\n
+extern unsigned long long cgc_gWords;\n
+extern char *gSeedWords;\n
+\n
+long long cgc_init(unsigned long long a0)\n
+{\n
+    unsigned long v0;  // [bp-0x40], Other Possible Types: unsigned int\n
+    void* v1;  // [bp-0x38]\n
+    unsigned int v2;  // [bp-0x2c]\n
+    void* v3;  // [bp-0x28], Other Possible Types: unsigned long\n
+    unsigned long long v4;  // [bp-0x20]\n
+    unsigned int v5;  // [bp-0x14]\n
+    unsigned int v6;  // [bp-0xc]\n
+    unsigned long long v8;  // rsi\n
+    unsigned long long v9;  // rdx\n
+\n
+    v5 = 0;\n
+    v4 = 51;\n
+    v5 = cgc_allocate(a0, v8, v9);\n
+    if (v5)\n
+    {\n
+        v6 = v5;\n
+        return v6;\n
+    }\n
+    v3 = 0;\n
+    v2 = 0;\n
+    for (v2 = 0; v2 < v4; v2 += 1)\n
+    {\n
+        v3 = cgc_strlen((&gSeedWords)[v2]) + v3;\n
+        v3 += 1;\n
+    }\n
+    v5 = cgc_allocate(a0, v8, v9);\n
+    if (v5)\n
+    {\n
+        v6 = v5;\n
+        return v6;\n
+    }\n
+    v1 = 0;\n
+    *(&v0) = cgc_gWordData;\n
+    for (v2 = 0; v2 < v4; v2 += 1)\n
+    {\n
+        *((cgc_gWords + v2 * 8)) = *(&v0);\n
+        v0 = cgc_strrotcpy(*(&v0), (&gSeedWords)[v2], a0) + *(&v0);\n
+        v0 += 1;\n
+    }\n
+    for (; v2 < 0x200; v2 += 1)\n
+    {\n
+        *((cgc_gWords + v2 * 8)) = 0;\n
+    }\n
+    v6 = 0;\n
+    return v6;\n
+}\n
+", "4204407:sub_402777": null, "4204416:cgc_toInt": "long long cgc_toInt(unsigned long a0, unsigned long a1)\n
+{\n
+    unsigned int v0;  // [bp-0x14]\n
+    unsigned int v1;  // [bp-0xc]\n
+\n
+    v0 = 0;\n
+    if (a0 >= 48 && a0 <= 57)\n
+    {\n
+        v0 = a0 - 48;\n
+        if (a1 >= 48 && a1 <= 57)\n
+        {\n
+            v0 *= 10;\n
+            v0 = a1 - 48 + v0;\n
+            v1 = v0;\n
+            return v1;\n
+        }\n
+        if (!a1)\n
+        {\n
+            v1 = 0;\n
+            return v1;\n
+        }\n
+        v1 = v0;\n
+        return v1;\n
+    }\n
+    v1 = 0;\n
+    return v1;\n
+}\n
+", "4204580:sub_402824": null, "4204592:cgc_RANDOM": "extern unsigned int gRandRegister;\n
+\n
+long long cgc_RANDOM()\n
+{\n
+    gRandRegister = (((gRandRegister >> 31) ^ (gRandRegister >> 6) ^ (gRandRegister >> 4) ^ (gRandRegister >> 2) ^ (gRandRegister >> 1) ^ gRandRegister) & 1) * 0x80000000 | (gRandRegister >> 1);\n
+    return gRandRegister;\n
+}\n
+", "4204686:sub_40288e": null, "4204688:cgc_strcmp": "long long cgc_strcmp(char *a0, char *a1)\n
+{\n
+    unsigned int v0;  // [bp-0x24]\n
+    unsigned int v1;  // [bp-0xc]\n
+\n
+    if (a0)\n
+    {\n
+        if (a1)\n
+        {\n
+            for (v0 = 0; a0[v0]; v0 += 1)\n
+            {\n
+                if (!a1[v0])\n
+                {\n
+                    v1 = 1;\n
+                    return v1;\n
+                }\n
+                else if (a0[v0] < a1[v0])\n
+                {\n
+                    v1 = -1;\n
+                    return v1;\n
+                }\n
+                else if (a0[v0] > a1[v0])\n
+                {\n
+                    v1 = 1;\n
+                    return v1;\n
+                }\n
+            }\n
+            if (!a1[v0])\n
+            {\n
+                v1 = 0;\n
+                return v1;\n
+            }\n
+            v1 = -1;\n
+            return v1;\n
+        }\n
+        else\n
+        {\n
+            v1 = 1;\n
+            return v1;\n
+        }\n
+    }\n
+    else\n
+    {\n
+        if (a1)\n
+        {\n
+            v1 = -1;\n
+            return v1;\n
+        }\n
+        v1 = 0;\n
+        return v1;\n
+    }\n
+}\n
+", "4204982:sub_4029b6": null, "4204992:cgc_my_srand": "extern char gRandRegister;\n
+\n
+long long cgc_my_srand(unsigned long a0)\n
+{\n
+    *(&gRandRegister) = a0;\n
+    return a0;\n
+}\n
+", "4205010:sub_4029d2": null, "4205024:cgc_scramble": "long long cgc_scramble(char *a0, char *a1, unsigned long a2)\n
+{\n
+    char v0;  // [bp-0x29]\n
+    unsigned int v1;  // [bp-0x28]\n
+    unsigned int v2;  // [bp-0x24]\n
+\n
+    if (!(a0 && a1))\n
+        return a0;\n
+    v2 = 0;\n
+    v1 = ((0 CONCAT cgc_RANDOM()) /m 3 >> 32) + 2;\n
+    while (true)\n
+    {\n
+        v0 = 0;\n
+        if (a1[v2])\n
+            v0 = v2 < a2;\n
+        if (!(v0 & 1))\n
+            break;\n
+        if (a1[v2] >= 97 && a1[v2] <= 122)\n
+            goto LABEL_402ae0;\n
+        if (a1[v2] >= 65 && a1[v2] <= 90)\n
+            goto LABEL_402ae0;\n
+        if (a1[v2] < 48)\n
+        {\n
+LABEL_402b1d:\n
+            a0[v2] = a1[v2];\n
+LABEL_402b33:\n
+            v2 += 1;\n
+        }\n
+        else\n
+        {\n
+            if (!(a1[v2] <= 57))\n
+                goto LABEL_402b1d;\n
+LABEL_402ae0:\n
+            if ((0 CONCAT v2) /m v1 >> 32)\n
+                a0[v2] = a1[v2];\n
+            else\n
+                a0[v2] = 95;\n
+            goto LABEL_402b33;\n
+        }\n
+    }\n
+    a0[v2] = 0;\n
+    return a0;\n
+}\n
+", "4205395:sub_402b53": null, "4205408:main": "extern char cgc_gWords;\n
+\n
+int main(unsigned long a0, unsigned long a1)\n
+{\n
+    char v0;  // [bp-0x71]\n
+    unsigned long v1;  // [bp-0x70]\n
+    unsigned int v2;  // [bp-0x64]\n
+    unsigned int v3;  // [bp-0x60]\n
+    unsigned int v4;  // [bp-0x5c]\n
+    char v5;  // [bp-0x58]\n
+    char v6;  // [bp-0x57]\n
+    unsigned long v7;  // [bp-0x18]\n
+    unsigned int v8;  // [bp-0x10]\n
+    unsigned int v9;  // [bp-0xc]\n
+\n
+    v9 = 0;\n
+    v8 = a0;\n
+    v7 = a1;\n
+    memset(&v5, 0, 64);\n
+    v4 = 0;\n
+    v3 = 0;\n
+    v2 = 0;\n
+    v1 = 0;\n
+    v0 = 10;\n
+    cgc_transmit_str(\"Please Enter a 2 Digit Number\\n
+\");\n
+    v1 = cgc_readline(&v5, 64);\n
+    if (!v1)\n
+        cgc__terminate(\"Please Enter a 2 Digit Number\\n
+\");\n
+    v4 = cgc_toInt(v5, v6);\n
+    if (cgc_init(v4 + 1))\n
+    {\n
+        v9 = -1;\n
+        return v9;\n
+    }\n
+    cgc_my_srand(*(&v5));\n
+    for (v4 = 0; v4 < 10; v4 += 1)\n
+    {\n
+        if (!v4)\n
+            cgc_transmit_str(\"Word: \");\n
+        else\n
+            cgc_transmit_str(\"Next Word: \");\n
+        v2 = (0 CONCAT cgc_RANDOM()) /m 51 >> 64;\n
+        cgc_scramble(&v5, *((cgc_gWords + v2 * 8)), 64);\n
+        cgc_transmit_str(&v5);\n
+        cgc_transmit_all(&v0, 1);\n
+        v1 = cgc_readline(&v5, 64);\n
+        if (!v1)\n
+            cgc__terminate(a0);\n
+        *(&v4 + v1) = 0;\n
+        if (cgc_strcmp(&v5, *((cgc_gWords + (v2 << 3)))))\n
+        {\n
+            cgc_transmit_str(\"You Lose\\n
+\");\n
+            v9 = 0;\n
+            return v9;\n
+        }\n
+    }\n
+    cgc_transmit_str(\"Final Round. Chose another 2 digit number\\n
+\");\n
+    v1 = cgc_readline(&v5, 64);\n
+    if (!v1)\n
+        cgc__terminate(\"Final Round. Chose another 2 digit number\\n
+\");\n
+    v4 = cgc_toInt(v5, v6);\n
+    v4 = (0 CONCAT v4) /m 51 >> 64;\n
+    cgc_scramble(&v5, *((cgc_gWords + v4 * 8)), 64);\n
+    cgc_transmit_str(&v5);\n
+    cgc_transmit_all(&v0, 1);\n
+    v1 = cgc_readline(&v5, 64);\n
+    if (!v1)\n
+        cgc__terminate(a0);\n
+    *(&v4 + v1) = 0;\n
+    if (!cgc_strcmp(&v5, *((cgc_gWords + (v4 << 3)))))\n
+        cgc_transmit_str(\"You Win!\\n
+\");\n
+    else\n
+        cgc_transmit_str(\"You Lose\\n
+\");\n
+    v9 = 0;\n
+    return v9;\n
+}\n
+", "4206136:_fini": "long long _fini()\n
+{\n
+    unsigned long v1;  // rax\n
+\n
+    return v1;\n
+}\n
+", "5242880:__libc_start_main": null, "5242888:cgc__terminate": null, "5242896:memset": null, "5242904:cgc_transmit": null, "5242912:cgc_allocate": null, "5242920:cgc_receive": null, "6295632:UnresolvableJumpTarget": null, "6295640:UnresolvableCallTarget": null}
