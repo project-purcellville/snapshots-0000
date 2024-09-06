@@ -18,7 +18,7 @@ but with all newline `\n` chars appended with actual newline characters. This ma
 files invalid JSON, however it makes the decompilation diff manageable to review. Check below
 for an example snippet.
 
-```json
+```
 {"4198400:_init": "extern struct_0 *g_406b44;\n
 \n
 int _init()\n
