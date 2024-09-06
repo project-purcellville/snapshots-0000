@@ -1,0 +1,4266 @@
+{"4206592:_init": "extern struct_0 *g_40f2a8;\n
+\n
+long long _init()\n
+{\n
+    struct struct_0 **v1;  // rax, Other Possible Types: unsigned long\n
+\n
+    v1 = g_40f2a8;\n
+    if (g_40f2a8)\n
+        v1 = g_40f2a8();\n
+    return v1;\n
+}\n
+", "4206624:sub_403020": "extern unsigned long long g_40f2c8;\n
+\n
+long long sub_403020()\n
+{\n
+    unsigned long v0;  // [bp-0x8]\n
+\n
+    v0 = g_40f2c8;\n
+    goto *(4256464);\n
+}\n
+", "4206636:sub_40302c": null, "4206640:cgc__terminate": "// attributes: PLT stub\n
+int cgc__terminate()\n
+{\n
+    ::libc.so.0::cgc__terminate();\n
+    return;\n
+}\n
+", "4206656:memset": "// attributes: PLT stub\n
+void* memset(void* block, unsigned int c, unsigned int size)\n
+{\n
+    return ::libc.so.0::memset(block, c, size);\n
+}\n
+", "4206672:cgc_transmit": "// attributes: PLT stub\n
+int cgc_transmit()\n
+{\n
+    ::libc.so.0::cgc_transmit();\n
+    return;\n
+}\n
+", "4206688:cgc_allocate": "// attributes: PLT stub\n
+int cgc_allocate()\n
+{\n
+    ::libc.so.0::cgc_allocate();\n
+    return;\n
+}\n
+", "4206704:cgc_receive": "// attributes: PLT stub\n
+int cgc_receive()\n
+{\n
+    ::libc.so.0::cgc_receive();\n
+    return;\n
+}\n
+", "4206720:__cxa_finalize": "// attributes: PLT stub\n
+char * __cxa_finalize()\n
+{\n
+    goto *(4256440);\n
+}\n
+", "4206736:_start": "long long _start()\n
+{\n
+    char v0;  // [bp+0x0], Other Possible Types: unsigned long\n
+    unsigned long v1;  // [bp+0x8]\n
+    unsigned long long v2;  // rsi\n
+    unsigned long v3;  // rax\n
+    unsigned long long v4;  // rdx\n
+\n
+    v2 = *(&v0);\n
+    v0 = v3;\n
+    __libc_start_main(main, v2, &v1, 0, 0, v4); /* do not return */\n
+}\n
+", "4206773:sub_4030b5": null, "4206774:sub_4030b6": null, "4206784:deregister_tm_clones": "extern char __bss_start;\n
+extern unsigned long long g_40f2a0;\n
+\n
+long long deregister_tm_clones()\n
+{\n
+    return &__bss_start;\n
+}\n
+", "4206825:sub_4030e9": null, "4206832:register_tm_clones": "extern unsigned long long g_40f2b0;\n
+\n
+long long register_tm_clones()\n
+{\n
+    return 0;\n
+}\n
+", "4206889:sub_403129": null, "4206896:__do_global_dtors_aux": "extern char completed.0;\n
+extern unsigned long long g_40f2b8;\n
+\n
+long long __do_global_dtors_aux()\n
+{\n
+    unsigned long v0;  // [bp-0x8]\n
+    unsigned long v2;  // rax\n
+\n
+    if (completed.0)\n
+        return v2;\n
+    *(&v0) = rbp<8>;\n
+    if (!g_40f2b8)\n
+    {\n
+        completed.0 = 1;\n
+        return deregister_tm_clones();\n
+    }\n
+    __cxa_finalize();\n
+}\n
+", "4206949:sub_403165": null, "4206953:sub_403169": null, "4206960:frame_dummy": "long long frame_dummy()\n
+{\n
+    return register_tm_clones();\n
+}\n
+", "4206969:sub_403179": null, "4206976:cgc_list_create_node": "long long cgc_list_create_node(unsigned long a0)\n
+{\n
+    unsigned long long v0[3];  // [bp-0x20]\n
+    unsigned long long v1[3];  // [bp-0x10], Other Possible Types: unsigned long\n
+\n
+    v0[0] = cgc_malloc(24);\n
+    if (!v0)\n
+    {\n
+        v1[0] = v0;\n
+        return v1;\n
+    }\n
+    v0[0] = a0;\n
+    v0[1] = 0;\n
+    v0[2] = 0;\n
+    v1 = v0;\n
+    return v1;\n
+}\n
+", "4207080:sub_4031e8": null, "4207088:cgc_list_destroy_node": "typedef struct struct_2 {\n
+    char padding_0[32];\n
+    struct struct_1 *field_20;\n
+} struct_2;\n
+\n
+typedef struct struct_1 {\n
+    struct struct_1 *field_0;\n
+} struct_1;\n
+\n
+long long cgc_list_destroy_node(struct_2 *a0, struct struct_0 **a1)\n
+{\n
+    if (a0->field_20)\n
+        a0->field_20(*(a1)->field_0);\n
+    *(a1)->field_0 = 0;\n
+    *(a1)->field_8 = 0;\n
+    *(a1)->field_10 = 0;\n
+    cgc_free(*(a1));\n
+    *(a1) = 0;\n
+    return a1;\n
+}\n
+", "4207213:sub_40326d": null, "4207216:cgc_list_init": "typedef struct struct_0 {\n
+    unsigned int field_0;\n
+    char padding_4[4];\n
+    unsigned long long field_8;\n
+    unsigned long long field_10;\n
+    unsigned long long field_18;\n
+    unsigned long long field_20;\n
+} struct_0;\n
+\n
+long long cgc_list_init(struct_0 *a0, unsigned long a1)\n
+{\n
+    a0->field_0 = 0;\n
+    a0->field_8 = 0;\n
+    a0->field_10 = &a0->field_8;\n
+    a0->field_18 = &a0->field_8;\n
+    a0->field_20 = a1;\n
+    return a0;\n
+}\n
+", "4207296:cgc_list_destroy": "typedef struct struct_0 {\n
+    unsigned int field_0;\n
+    char padding_4[12];\n
+    unsigned long long field_10;\n
+    unsigned long long field_18;\n
+    unsigned long long field_20;\n
+} struct_0;\n
+\n
+long long cgc_list_destroy(struct_0 *a0)\n
+{\n
+    unsigned long long v0[3];  // [bp-0x18]\n
+\n
+    while (cgc_list_head_node(a0))\n
+    {\n
+        v0[0] = cgc_list_pop(a0);\n
+        cgc_list_destroy_node(a0, v0);\n
+    }\n
+    a0->field_0 = 0;\n
+    a0->field_10 = 0;\n
+    a0->field_18 = 0;\n
+    a0->field_20 = 0;\n
+    return a0;\n
+}\n
+", "4207414:sub_403336": null, "4207424:cgc_list_head_node": "typedef struct struct_0 {\n
+    char padding_0[16];\n
+    unsigned long long field_10;\n
+} struct_0;\n
+\n
+long long cgc_list_head_node(struct_0 *a0)\n
+{\n
+    void* v0;  // [bp-0x10], Other Possible Types: unsigned long\n
+\n
+    if (&a0->padding_0[8] == a0->field_10)\n
+    {\n
+        v0 = 0;\n
+        return v0;\n
+    }\n
+    v0 = a0->field_10;\n
+    return v0;\n
+}\n
+", "4207485:sub_40337d": null, "4207488:cgc_list_pop": "long long cgc_list_pop(void* a0)\n
+{\n
+    unsigned long long v0;  // [bp-0x20]\n
+    unsigned long v1;  // [bp-0x10]\n
+\n
+    v0 = cgc_list_head_node(a0);\n
+    if (!v0)\n
+    {\n
+        v1 = v0;\n
+        return v1;\n
+    }\n
+    cgc_list_remove_node(a0, v0);\n
+    v1 = v0;\n
+    return v1;\n
+}\n
+", "4207569:sub_4033d1": null, "4207584:cgc_list_insert_before_node": "typedef struct struct_2 {\n
+    char padding_0[8];\n
+    struct struct_0 *field_8;\n
+    struct struct_1 *field_10;\n
+} struct_2;\n
+\n
+typedef struct struct_0 {\n
+    char padding_0[16];\n
+    unsigned long long field_10;\n
+} struct_0;\n
+\n
+typedef struct struct_1 {\n
+    char padding_0[8];\n
+    unsigned long long field_8;\n
+} struct_1;\n
+\n
+long long cgc_list_insert_before_node(struct_0 *a0, struct_2 *a1)\n
+{\n
+    struct_2 *v0;  // [bp-0x18]\n
+    struct_0 *v2;  // rax\n
+\n
+    v0 = a1;\n
+    a1->field_8 = a0;\n
+    a1->field_10 = a0->field_10;\n
+    a1->field_10->field_8 = a1;\n
+    v2 = a1->field_8;\n
+    v2->field_10 = a1;\n
+    return v2;\n
+}\n
+", "4207658:sub_40342a": null, "4207664:cgc_list_insert_after_node": "typedef struct struct_0 {\n
+    char padding_0[8];\n
+    void* field_8;\n
+} struct_0;\n
+\n
+long long cgc_list_insert_after_node(struct_0 *a0, void* a1)\n
+{\n
+    return cgc_list_insert_before_node(a0->field_8, a1);\n
+}\n
+", "4207703:sub_403457": null, "4207712:cgc_list_insert_node_at_end": "long long cgc_list_insert_node_at_end(unsigned int *a0, void* a1)\n
+{\n
+    void* v0;  // [bp-0x20]\n
+\n
+    v0 = cgc_list_end_marker(a0);\n
+    cgc_list_insert_before_node(v0, a1);\n
+    *(a0) = *(a0) + 1;\n
+    return a0;\n
+}\n
+", "4207771:sub_40349b": null, "4207776:cgc_list_end_marker": "long long cgc_list_end_marker(unsigned long a0)\n
+{\n
+    return a0 + 8;\n
+}\n
+", "4207794:sub_4034b2": null, "4207808:cgc_list_insert_at_end": "long long cgc_list_insert_at_end(unsigned int *a0, unsigned int a1)\n
+{\n
+    void* v0;  // [bp-0x20]\n
+\n
+    v0 = cgc_list_create_node(a1);\n
+    return cgc_list_insert_node_at_end(a0, v0);\n
+}\n
+", "4207856:cgc_list_insert_node_at_start": "long long cgc_list_insert_node_at_start(unsigned int *a0, void* a1)\n
+{\n
+    void* v0;  // [bp-0x20]\n
+\n
+    v0 = cgc_list_start_marker(a0);\n
+    cgc_list_insert_after_node(v0, a1);\n
+    *(a0) = *(a0) + 1;\n
+    return a0;\n
+}\n
+", "4207915:sub_40352b": null, "4207920:cgc_list_start_marker": "long long cgc_list_start_marker(unsigned int a0)\n
+{\n
+    return cgc_list_end_marker(a0);\n
+}\n
+", "4207947:sub_40354b": null, "4207952:cgc_list_insert_at_start": "long long cgc_list_insert_at_start(unsigned int *a0, unsigned int a1)\n
+{\n
+    void* v0;  // [bp-0x20]\n
+\n
+    v0 = cgc_list_create_node(a1);\n
+    return cgc_list_insert_node_at_start(a0, v0);\n
+}\n
+", "4208000:cgc_list_insert_node_sorted": "long long cgc_list_insert_node_sorted(unsigned int *a0, unsigned long long *a1, struct struct_0 **a2, unsigned long a3)\n
+{\n
+    unsigned long long *v0;  // [bp-0x40]\n
+    char v1;  // [bp-0x31]\n
+    unsigned long long *v2;  // [bp-0x30], Other Possible Types: unsigned long\n
+    struct struct_0 **v3;  // [bp-0x20]\n
+\n
+    v3 = a2;\n
+    v2 = 0;\n
+    if (!*(a0))\n
+        return cgc_list_insert_node_at_start(a0, a1);\n
+    v2 = cgc_list_head_node(a0);\n
+    while (true)\n
+    {\n
+        v0 = v2;\n
+        v1 = 0;\n
+        if (v0 != cgc_list_end_marker(a0))\n
+            v1 = a3 != v3(*(a1), *(v2));\n
+        if (!(v1 & 1))\n
+            break;\n
+        v2 = cgc_list_next_node(v2);\n
+    }\n
+    cgc_list_insert_before_node(v2, a1);\n
+    *(a0) = *(a0) + 1;\n
+    return a0;\n
+}\n
+", "4208223:sub_40365f": null, "4208224:cgc_list_next_node": "typedef struct struct_0 {\n
+    char padding_0[8];\n
+    unsigned long long field_8;\n
+} struct_0;\n
+\n
+long long cgc_list_next_node(struct_0 *a0)\n
+{\n
+    return a0->field_8;\n
+}\n
+", "4208242:sub_403672": null, "4208256:cgc_list_insert_sorted": "long long cgc_list_insert_sorted(unsigned int *a0, unsigned int a1, void* **a2, unsigned long a3)\n
+{\n
+    unsigned long long *v0;  // [bp-0x30]\n
+\n
+    v0 = cgc_list_create_node(a1);\n
+    return cgc_list_insert_node_sorted(a0, v0, a2, a3);\n
+}\n
+", "4208321:sub_4036c1": null, "4208336:cgc_list_remove_node": "typedef struct struct_2 {\n
+    char padding_0[8];\n
+    struct struct_0 *field_8;\n
+    struct struct_1 *field_10;\n
+} struct_2;\n
+\n
+typedef struct struct_1 {\n
+    char padding_0[8];\n
+    unsigned long long field_8;\n
+} struct_1;\n
+\n
+typedef struct struct_0 {\n
+    char padding_0[16];\n
+    unsigned long long field_10;\n
+} struct_0;\n
+\n
+long long cgc_list_remove_node(unsigned int *a0, struct_2 *a1)\n
+{\n
+    struct_0 *v0;  // [bp-0x28]\n
+    struct_1 *v1;  // [bp-0x20]\n
+\n
+    v1 = a1->field_10;\n
+    v0 = a1->field_8;\n
+    v1->field_8 = v0;\n
+    v0->field_10 = v1;\n
+    a1->field_10 = 0;\n
+    a1->field_8 = 0;\n
+    *(a0) = *(a0) - 1;\n
+    return a0;\n
+}\n
+", "4208433:sub_403731": null, "4208448:cgc_list_tail_node": "typedef struct struct_0 {\n
+    char padding_0[24];\n
+    unsigned long long field_18;\n
+} struct_0;\n
+\n
+long long cgc_list_tail_node(struct_0 *a0)\n
+{\n
+    void* v0;  // [bp-0x10], Other Possible Types: unsigned long\n
+\n
+    if (&a0->padding_0[8] == a0->field_18)\n
+    {\n
+        v0 = 0;\n
+        return v0;\n
+    }\n
+    v0 = a0->field_18;\n
+    return v0;\n
+}\n
+", "4208509:sub_40377d": null, "4208512:cgc_list_length": "long long cgc_list_length(unsigned int *a0)\n
+{\n
+    return *(a0);\n
+}\n
+", "4208528:cgc_list_find_node_with_data": "typedef struct struct_0 {\n
+    unsigned long long field_0;\n
+    struct struct_0 *field_8;\n
+} struct_0;\n
+\n
+long long cgc_list_find_node_with_data(unsigned long a0, struct struct_1 **a1, unsigned long long a2)\n
+{\n
+    char v0;  // [bp-0x39]\n
+    unsigned long v1;  // [bp-0x38]\n
+    struct_0 *v2;  // [bp-0x30], Other Possible Types: unsigned long\n
+    struct struct_1 **v3;  // [bp-0x20]\n
+    struct_0 *v4;  // [bp-0x10], Other Possible Types: unsigned long\n
+\n
+    v3 = a1;\n
+    v2 = cgc_list_head_node(a0);\n
+    v1 = cgc_list_end_marker(a0);\n
+    while (true)\n
+    {\n
+        v0 = 0;\n
+        if (v2)\n
+            v0 = v2 != v1;\n
+        if (!(v0 & 1))\n
+        {\n
+            v4 = 0;\n
+            return v4;\n
+        }\n
+        else if (v3(v2->field_0, a2) != 1)\n
+        {\n
+            v2 = v2->field_8;\n
+        }\n
+        else\n
+        {\n
+            v4 = v2;\n
+            return v4;\n
+        }\n
+    }\n
+}\n
+", "4208702:sub_40383e": null, "4208704:cgc_malloc": "extern unsigned int allocated_list;\n
+extern void* cgc_last;\n
+extern void* cgc_remaining;\n
+extern char free_list;\n
+\n
+long long cgc_malloc(unsigned long a0)\n
+{\n
+    void* v0;  // [bp-0x20], Other Possible Types: unsigned long\n
+    unsigned long long v1;  // [bp-0x18], Other Possible Types: unsigned long\n
+    void* v2;  // [bp-0x10], Other Possible Types: unsigned long\n
+    unsigned long long v4;  // rsi\n
+    unsigned long long v5;  // rdx\n
+\n
+    v1 = a0;\n
+    if (!v1)\n
+    {\n
+        v2 = 0;\n
+        return v2;\n
+    }\n
+    v1 += 24;\n
+    v0 = 0;\n
+    cgc_init_heap();\n
+    v0 = cgc_list_find_node_with_data(&free_list, cgc_is_enough_room, v1);\n
+    if (v0)\n
+    {\n
+        cgc_list_remove_node(&free_list, v0);\n
+    }\n
+    else\n
+    {\n
+        if (v1 <= cgc_remaining)\n
+        {\n
+            v0 = cgc_last;\n
+            cgc_remaining = cgc_remaining - v1;\n
+        }\n
+        else\n
+        {\n
+            if (cgc_remaining > 24)\n
+            {\n
+                cgc_set_block_size(cgc_last, cgc_remaining);\n
+                cgc_list_insert_node_at_end(&free_list, cgc_last);\n
+                cgc_last = 0;\n
+                cgc_remaining = 0;\n
+            }\n
+            if (cgc_allocate(&free_list, v4, v5))\n
+            {\n
+                v2 = 0;\n
+                return v2;\n
+            }\n
+            else if (!(v1 & 4095))\n
+            {\n
+                cgc_remaining = 0;\n
+            }\n
+            else\n
+            {\n
+                cgc_remaining = 0x1000 - (v1 & 4095);\n
+            }\n
+        }\n
+        cgc_set_block_size(v0, v1);\n
+        cgc_last = v0 + v1;\n
+    }\n
+    cgc_list_insert_node_at_end(&allocated_list, v0);\n
+    v2 = v0 + 24;\n
+    return v2;\n
+}\n
+", "4209129:sub_4039e9": null, "4209136:cgc_is_enough_room": "long long cgc_is_enough_room(unsigned long a0, unsigned long a1)\n
+{\n
+    char v0;  // [bp-0x9]\n
+\n
+    if (a0 >= a1)\n
+    {\n
+        v0 = 1;\n
+        return v0;\n
+    }\n
+    v0 = 0;\n
+    return v0;\n
+}\n
+", "4209181:sub_403a1d": null, "4209184:cgc_set_block_size": "long long cgc_set_block_size(unsigned long long *a0, unsigned long a1)\n
+{\n
+    *(a0) = a1;\n
+    return a0;\n
+}\n
+", "4209209:sub_403a39": null, "4209216:cgc_free": "extern unsigned int allocated_list;\n
+extern unsigned int free_list;\n
+\n
+long long cgc_free(unsigned long a0)\n
+{\n
+    void* v0;  // [bp-0x10], Other Possible Types: unsigned long\n
+\n
+    v0 = a0;\n
+    v0 -= 24;\n
+    cgc_list_remove_node(&allocated_list, v0);\n
+    return cgc_list_insert_node_at_end(&free_list, v0);\n
+}\n
+", "4209278:sub_403a7e": null, "4209280:cgc_init_heap": "extern void allocated_list;\n
+extern char cgc_init_heap_done;\n
+extern void free_list;\n
+\n
+long long cgc_init_heap()\n
+{\n
+    if (!cgc_init_heap_done)\n
+    {\n
+        cgc_list_init(&allocated_list, 0);\n
+        cgc_init_heap_done = 1;\n
+        return cgc_list_init(&free_list, 0);\n
+    }\n
+    return 0;\n
+}\n
+", "4209342:sub_403abe": null, "4209344:cgc_memcmp": "long long cgc_memcmp(char *a0, char *a1, unsigned long a2)\n
+{\n
+    char v0;  // [bp-0x3d]\n
+    unsigned int v1;  // [bp-0x3c]\n
+    unsigned int v2;  // [bp-0xc]\n
+\n
+    if (!a2)\n
+    {\n
+        v2 = 0;\n
+        return v2;\n
+    }\n
+    v1 = 0;\n
+    while (true)\n
+    {\n
+        v0 = 0;\n
+        if (v1 < a2)\n
+            v0 = a0[v1] == a1[v1];\n
+        if (!(v0 & 1))\n
+            break;\n
+        v1 += 1;\n
+    }\n
+    if (v1 == a2)\n
+    {\n
+        v2 = 0;\n
+        return v2;\n
+    }\n
+    else if (a0[v1] <= a1[v1])\n
+    {\n
+        v2 = -1;\n
+        return v2;\n
+    }\n
+    else\n
+    {\n
+        v2 = 1;\n
+        return v2;\n
+    }\n
+}\n
+", "4209560:sub_403b98": null, "4209568:cgc_memcpy": "long long cgc_memcpy(char *a0, char *a1, unsigned long a2)\n
+{\n
+    unsigned int v0;  // [bp-0x3c]\n
+    unsigned int v1;  // [bp-0xc]\n
+\n
+    if (!a2)\n
+    {\n
+        v1 = 0;\n
+        return v1;\n
+    }\n
+    for (v0 = 0; v0 < a2; v0 += 1)\n
+    {\n
+        a0[v0] = a1[v0];\n
+    }\n
+    v1 = a2;\n
+    return v1;\n
+}\n
+", "4209686:sub_403c16": null, "4209696:cgc_memset": "long long cgc_memset(char *a0, unsigned long a1, unsigned long a2)\n
+{\n
+    unsigned int v0;  // [bp-0x2c]\n
+    unsigned int v1;  // [bp-0xc]\n
+\n
+    if (!a2)\n
+    {\n
+        v1 = 0;\n
+        return v1;\n
+    }\n
+    for (v0 = 0; v0 < a2; v0 += 1)\n
+    {\n
+        a0[v0] = a1;\n
+    }\n
+    v1 = a2;\n
+    return v1;\n
+}\n
+", "4209801:sub_403c89": null, "4209808:cgc_recv_bytes": "long long cgc_recv_bytes(unsigned long long a0, unsigned long long a1, unsigned long long a2)\n
+{\n
+    unsigned long v0;  // [bp-0x38]\n
+    unsigned int v1;  // [bp-0x2c]\n
+    void* v2;  // [bp-0x28]\n
+    unsigned int v3;  // [bp-0x10]\n
+    unsigned int v4;  // [bp-0xc]\n
+    unsigned long long v6;  // rcx\n
+\n
+    v3 = a0;\n
+    if (a1 && a2)\n
+    {\n
+        v2 = 0;\n
+        v1 = 0;\n
+        for (v0 = a1; v2 < a2; v0 = v2 + v0)\n
+        {\n
+            if (cgc_receive(a0, a1, a2, v6))\n
+            {\n
+                v4 = -11;\n
+                return v4;\n
+            }\n
+            if (!v2)\n
+                break;\n
+            v1 += v2;\n
+        }\n
+        v4 = v1;\n
+        return v4;\n
+    }\n
+    v4 = -11;\n
+    return v4;\n
+}\n
+", "4210012:sub_403d5c": null, "4210016:cgc_recv_until_delim_n": "long long cgc_recv_until_delim_n(unsigned long a0, unsigned long a1, char *a2, unsigned long a3)\n
+{\n
+    void* v0;  // [bp-0x40], Other Possible Types: unsigned long\n
+    unsigned int v1;  // [bp-0x38]\n
+    char v2;  // [bp-0x31]\n
+    char *v3;  // [bp-0x30], Other Possible Types: unsigned long\n
+    unsigned int v4;  // [bp-0x24]\n
+    char *v5;  // [bp-0x10], Other Possible Types: unsigned long\n
+    unsigned long v7;  // rcx\n
+\n
+    v4 = a3;\n
+    if (a2 && v4)\n
+    {\n
+        v3 = 0;\n
+        v2 = 0;\n
+        v1 = 0;\n
+        for (v0 = 0; v0 < v4; v0 += 1)\n
+        {\n
+            v2 = cgc_recv_char(a0, &v1);\n
+            if (v2 == -1)\n
+            {\n
+                if (v1 == -11)\n
+                {\n
+                    v5 = -11;\n
+                    return v5;\n
+                }\n
+                if (v1 == -1)\n
+                    break;\n
+            }\n
+            v7 = v3;\n
+            v3 = v7 + 1;\n
+            a2[v7] = v2;\n
+            if (a1 == v2)\n
+                break;\n
+        }\n
+        if (a1 != a2[1 + v3])\n
+        {\n
+            v5 = -11;\n
+            return v5;\n
+        }\n
+        v5 = v3;\n
+        return v5;\n
+    }\n
+    v5 = -11;\n
+    return v5;\n
+}\n
+", "4210329:sub_403e99": null, "4210336:cgc_recv_char": "extern unsigned long long recv_files[3];\n
+\n
+long long cgc_recv_char(unsigned long long a0, unsigned int *a1)\n
+{\n
+    unsigned long long v0[3];  // [bp-0x30]\n
+    char v1;  // [bp-0x21]\n
+    unsigned long v2;  // [bp-0x10], Other Possible Types: unsigned long long\n
+    unsigned long long v4;  // rdx\n
+    unsigned long long v5;  // rcx\n
+    unsigned long long v7[3];  // rax\n
+\n
+    v1 = 0;\n
+    v0[0] = 0;\n
+    if (a0)\n
+    {\n
+        v2 = -11;\n
+        return v2;\n
+    }\n
+    v0[0] = &recv_files[0];\n
+    *(a1) = 0;\n
+    if (v0[2] && !(v0[2] - 1 < v0[1]))\n
+        goto LABEL_403fab;\n
+    v0[1] = 0;\n
+    v0[2] = 0;\n
+    if (cgc_receive(a0, a1, v4, v5))\n
+    {\n
+        *(a1) = -11;\n
+        v2 = -1;\n
+        return v2;\n
+    }\n
+    else if (!v0[2])\n
+    {\n
+        *(a1) = -1;\n
+        v2 = -1;\n
+        return v2;\n
+    }\n
+LABEL_403fab:\n
+    v1 = *(24 + &v0[0] + v0[1]);\n
+    v7 = v0;\n
+    v7[1] = v7[1] + 1;\n
+    v2 = v1;\n
+    return v2;\n
+}\n
+", "4210657:sub_403fe1": null, "4210672:cgc_send_bytes": "long long cgc_send_bytes(unsigned long long a0, unsigned long long a1, unsigned long long a2)\n
+{\n
+    unsigned long v0;  // [bp-0x38]\n
+    unsigned int v1;  // [bp-0x2c]\n
+    void* v2;  // [bp-0x28]\n
+    unsigned int v3;  // [bp-0x10]\n
+    unsigned int v4;  // [bp-0xc]\n
+    unsigned long long v6;  // rcx\n
+\n
+    v3 = a0;\n
+    if (a1 && a2)\n
+    {\n
+        v2 = 0;\n
+        v1 = 0;\n
+        for (v0 = a1; v1 < a2; v0 = v2 + v0)\n
+        {\n
+            if (cgc_transmit(a0, a1, a2, v6))\n
+            {\n
+                v4 = -9;\n
+                return v4;\n
+            }\n
+            if (!v2)\n
+                break;\n
+            v1 += v2;\n
+        }\n
+        v4 = v1;\n
+        return v4;\n
+    }\n
+    v4 = -9;\n
+    return v4;\n
+}\n
+", "4210872:sub_4040b8": null, "4210880:cgc_streq": "long long cgc_streq(char *a0, char *a1, unsigned long a2)\n
+{\n
+    unsigned int v0;  // [bp-0x28]\n
+    char *v1;  // [bp-0x20], Other Possible Types: unsigned long\n
+    char *v2;  // [bp-0x18], Other Possible Types: unsigned long\n
+    unsigned int v3;  // [bp-0xc]\n
+    char *v5;  // rax\n
+    unsigned int v6;  // eax\n
+    char *v7;  // rcx\n
+\n
+    v2 = a0;\n
+    v1 = a1;\n
+    v0 = cgc_strlen(v2, a2);\n
+    if (v0 != cgc_strlen(v1, a2))\n
+    {\n
+        v3 = -1;\n
+        return v3;\n
+    }\n
+    while (true)\n
+    {\n
+        if (*(v2) != a2)\n
+        {\n
+            v5 = v2;\n
+            v2 = v5 + 1;\n
+            v6 = *(v5);\n
+            v7 = v1;\n
+            v1 = v7 + 1;\n
+            if (v6 != *(v7))\n
+            {\n
+                v3 = -1;\n
+                return v3;\n
+            }\n
+        }\n
+        else\n
+        {\n
+            v3 = 0;\n
+            return v3;\n
+        }\n
+    }\n
+}\n
+", "4211056:cgc_strlen": "long long cgc_strlen(char *a0, unsigned long a1)\n
+{\n
+    unsigned int v0;  // [bp-0x20]\n
+    char *v1;  // [bp-0x18], Other Possible Types: unsigned long\n
+    unsigned int v2;  // [bp-0xc]\n
+\n
+    v1 = a0;\n
+    if (!v1)\n
+    {\n
+        v2 = 0;\n
+        return v2;\n
+    }\n
+    for (v0 = 0; a1 != *(v1); v0 += 1)\n
+    {\n
+        v1 += 1;\n
+    }\n
+    v2 = v0;\n
+    return v2;\n
+}\n
+", "4211157:sub_4041d5": null, "4211168:cgc_strcmp": "long long cgc_strcmp(char *a0, char *a1, unsigned long a2)\n
+{\n
+    char v0;  // [bp-0x22]\n
+    char *v1;  // [bp-0x20], Other Possible Types: unsigned long\n
+    char *v2;  // [bp-0x18], Other Possible Types: unsigned long\n
+    unsigned int v3;  // [bp-0xc]\n
+\n
+    v2 = a0;\n
+    v1 = a1;\n
+    while (true)\n
+    {\n
+        v0 = 0;\n
+        if (*(v2) != a2)\n
+        {\n
+            v0 = 0;\n
+            if (*(v1) != a2)\n
+                v0 = *(v2) == *(v1);\n
+        }\n
+        if (!(v0 & 1))\n
+            break;\n
+        v2 += 1;\n
+        v1 += 1;\n
+    }\n
+    if (*(v2) == a2 && *(v1) == a2)\n
+    {\n
+        v3 = 0;\n
+        return v3;\n
+    }\n
+    if (*(v2) < *(v1))\n
+    {\n
+        v3 = -1;\n
+        return v3;\n
+    }\n
+    v3 = 1;\n
+    return v3;\n
+}\n
+", "4211396:sub_4042c4": null, "4211408:cgc_load_inventory": "typedef struct struct_0 {\n
+    char padding_0[136];\n
+    unsigned int field_88;\n
+    unsigned int field_8c;\n
+    unsigned long long field_90;\n
+    unsigned int field_98;\n
+} struct_0;\n
+\n
+extern unsigned long long onsale_fn;\n
+\n
+long long cgc_load_inventory(unsigned int *a0)\n
+{\n
+    struct_0 *v0;  // [bp-0x828]\n
+    char *v1;  // [bp-0x820]\n
+    char *v2;  // [bp-0x818]\n
+    char *v3;  // [bp-0x810]\n
+    struct_0 *v4;  // [bp-0x808]\n
+    char *v5;  // [bp-0x800]\n
+    char *v6;  // [bp-0x7f8]\n
+    char *v7;  // [bp-0x7f0]\n
+    struct_0 *v8;  // [bp-0x7e8]\n
+    char *v9;  // [bp-0x7e0]\n
+    char *v10;  // [bp-0x7d8]\n
+    char *v11;  // [bp-0x7d0]\n
+    struct_0 *v12;  // [bp-0x7c8]\n
+    char *v13;  // [bp-0x7c0]\n
+    char *v14;  // [bp-0x7b8]\n
+    char *v15;  // [bp-0x7b0]\n
+    struct_0 *v16;  // [bp-0x7a8]\n
+    char *v17;  // [bp-0x7a0]\n
+    char *v18;  // [bp-0x798]\n
+    char *v19;  // [bp-0x790]\n
+    struct_0 *v20;  // [bp-0x788]\n
+    char *v21;  // [bp-0x780]\n
+    char *v22;  // [bp-0x778]\n
+    char *v23;  // [bp-0x770]\n
+    struct_0 *v24;  // [bp-0x768]\n
+    char *v25;  // [bp-0x760]\n
+    char *v26;  // [bp-0x758]\n
+    char *v27;  // [bp-0x750]\n
+    struct_0 *v28;  // [bp-0x748]\n
+    char *v29;  // [bp-0x740]\n
+    char *v30;  // [bp-0x738]\n
+    char *v31;  // [bp-0x730]\n
+    struct_0 *v32;  // [bp-0x728]\n
+    char *v33;  // [bp-0x720]\n
+    char *v34;  // [bp-0x718]\n
+    char *v35;  // [bp-0x710]\n
+    struct_0 *v36;  // [bp-0x708]\n
+    char *v37;  // [bp-0x700]\n
+    char *v38;  // [bp-0x6f8]\n
+    char *v39;  // [bp-0x6f0]\n
+    struct_0 *v40;  // [bp-0x6e8]\n
+    char *v41;  // [bp-0x6e0]\n
+    char *v42;  // [bp-0x6d8]\n
+    char *v43;  // [bp-0x6d0]\n
+    struct_0 *v44;  // [bp-0x6c8]\n
+    char *v45;  // [bp-0x6c0]\n
+    char *v46;  // [bp-0x6b8]\n
+    char *v47;  // [bp-0x6b0]\n
+    struct_0 *v48;  // [bp-0x6a8]\n
+    char *v49;  // [bp-0x6a0]\n
+    char *v50;  // [bp-0x698]\n
+    char *v51;  // [bp-0x690]\n
+    struct_0 *v52;  // [bp-0x688]\n
+    char *v53;  // [bp-0x680]\n
+    char *v54;  // [bp-0x678]\n
+    char *v55;  // [bp-0x670]\n
+    struct_0 *v56;  // [bp-0x668]\n
+    char *v57;  // [bp-0x660]\n
+    char *v58;  // [bp-0x658]\n
+    char *v59;  // [bp-0x650]\n
+    struct_0 *v60;  // [bp-0x648]\n
+    char *v61;  // [bp-0x640]\n
+    char *v62;  // [bp-0x638]\n
+    char *v63;  // [bp-0x630]\n
+    struct_0 *v64;  // [bp-0x628]\n
+    char *v65;  // [bp-0x620]\n
+    char *v66;  // [bp-0x618]\n
+    char *v67;  // [bp-0x610]\n
+    struct_0 *v68;  // [bp-0x608]\n
+    char *v69;  // [bp-0x600]\n
+    char *v70;  // [bp-0x5f8]\n
+    char *v71;  // [bp-0x5f0]\n
+    struct_0 *v72;  // [bp-0x5e8]\n
+    char *v73;  // [bp-0x5e0]\n
+    char *v74;  // [bp-0x5d8]\n
+    char *v75;  // [bp-0x5d0]\n
+    struct_0 *v76;  // [bp-0x5c8]\n
+    char *v77;  // [bp-0x5c0]\n
+    char *v78;  // [bp-0x5b8]\n
+    char *v79;  // [bp-0x5b0]\n
+    struct_0 *v80;  // [bp-0x5a8]\n
+    char *v81;  // [bp-0x5a0]\n
+    char *v82;  // [bp-0x598]\n
+    char *v83;  // [bp-0x590]\n
+    struct_0 *v84;  // [bp-0x588]\n
+    char *v85;  // [bp-0x580]\n
+    char *v86;  // [bp-0x578]\n
+    char *v87;  // [bp-0x570]\n
+    struct_0 *v88;  // [bp-0x568]\n
+    char *v89;  // [bp-0x560]\n
+    char *v90;  // [bp-0x558]\n
+    char *v91;  // [bp-0x550]\n
+    struct_0 *v92;  // [bp-0x548]\n
+    char *v93;  // [bp-0x540]\n
+    char *v94;  // [bp-0x538]\n
+    char *v95;  // [bp-0x530]\n
+    struct_0 *v96;  // [bp-0x528]\n
+    char *v97;  // [bp-0x520]\n
+    char *v98;  // [bp-0x518]\n
+    char *v99;  // [bp-0x510]\n
+    struct_0 *v100;  // [bp-0x508]\n
+    char *v101;  // [bp-0x500]\n
+    char *v102;  // [bp-0x4f8]\n
+    char *v103;  // [bp-0x4f0]\n
+    struct_0 *v104;  // [bp-0x4e8]\n
+    char *v105;  // [bp-0x4e0]\n
+    char *v106;  // [bp-0x4d8]\n
+    char *v107;  // [bp-0x4d0]\n
+    struct_0 *v108;  // [bp-0x4c8]\n
+    char *v109;  // [bp-0x4c0]\n
+    char *v110;  // [bp-0x4b8]\n
+    char *v111;  // [bp-0x4b0]\n
+    struct_0 *v112;  // [bp-0x4a8]\n
+    char *v113;  // [bp-0x4a0]\n
+    char *v114;  // [bp-0x498]\n
+    char *v115;  // [bp-0x490]\n
+    struct_0 *v116;  // [bp-0x488]\n
+    char *v117;  // [bp-0x480]\n
+    char *v118;  // [bp-0x478]\n
+    char *v119;  // [bp-0x470]\n
+    struct_0 *v120;  // [bp-0x468]\n
+    char *v121;  // [bp-0x460]\n
+    char *v122;  // [bp-0x458]\n
+    char *v123;  // [bp-0x450]\n
+    struct_0 *v124;  // [bp-0x448]\n
+    char *v125;  // [bp-0x440]\n
+    char *v126;  // [bp-0x438]\n
+    char *v127;  // [bp-0x430]\n
+    struct_0 *v128;  // [bp-0x428]\n
+    char *v129;  // [bp-0x420]\n
+    char *v130;  // [bp-0x418]\n
+    char *v131;  // [bp-0x410]\n
+    struct_0 *v132;  // [bp-0x408]\n
+    char *v133;  // [bp-0x400]\n
+    char *v134;  // [bp-0x3f8]\n
+    char *v135;  // [bp-0x3f0]\n
+    struct_0 *v136;  // [bp-0x3e8]\n
+    char *v137;  // [bp-0x3e0]\n
+    char *v138;  // [bp-0x3d8]\n
+    char *v139;  // [bp-0x3d0]\n
+    struct_0 *v140;  // [bp-0x3c8]\n
+    char *v141;  // [bp-0x3c0]\n
+    char *v142;  // [bp-0x3b8]\n
+    char *v143;  // [bp-0x3b0]\n
+    struct_0 *v144;  // [bp-0x3a8]\n
+    char *v145;  // [bp-0x3a0]\n
+    char *v146;  // [bp-0x398]\n
+    char *v147;  // [bp-0x390]\n
+    struct_0 *v148;  // [bp-0x388]\n
+    char *v149;  // [bp-0x380]\n
+    char *v150;  // [bp-0x378]\n
+    char *v151;  // [bp-0x370]\n
+    struct_0 *v152;  // [bp-0x368]\n
+    char *v153;  // [bp-0x360]\n
+    char *v154;  // [bp-0x358]\n
+    char *v155;  // [bp-0x350]\n
+    struct_0 *v156;  // [bp-0x348]\n
+    char *v157;  // [bp-0x340]\n
+    char *v158;  // [bp-0x338]\n
+    char *v159;  // [bp-0x330]\n
+    struct_0 *v160;  // [bp-0x328]\n
+    char *v161;  // [bp-0x320]\n
+    char *v162;  // [bp-0x318]\n
+    char *v163;  // [bp-0x310]\n
+    struct_0 *v164;  // [bp-0x308]\n
+    char *v165;  // [bp-0x300]\n
+    char *v166;  // [bp-0x2f8]\n
+    char *v167;  // [bp-0x2f0]\n
+    struct_0 *v168;  // [bp-0x2e8]\n
+    char *v169;  // [bp-0x2e0]\n
+    char *v170;  // [bp-0x2d8]\n
+    char *v171;  // [bp-0x2d0]\n
+    struct_0 *v172;  // [bp-0x2c8]\n
+    char *v173;  // [bp-0x2c0]\n
+    char *v174;  // [bp-0x2b8]\n
+    char *v175;  // [bp-0x2b0]\n
+    struct_0 *v176;  // [bp-0x2a8]\n
+    char *v177;  // [bp-0x2a0]\n
+    char *v178;  // [bp-0x298]\n
+    char *v179;  // [bp-0x290]\n
+    struct_0 *v180;  // [bp-0x288]\n
+    char *v181;  // [bp-0x280]\n
+    char *v182;  // [bp-0x278]\n
+    char *v183;  // [bp-0x270]\n
+    struct_0 *v184;  // [bp-0x268]\n
+    char *v185;  // [bp-0x260]\n
+    char *v186;  // [bp-0x258]\n
+    char *v187;  // [bp-0x250]\n
+    struct_0 *v188;  // [bp-0x248]\n
+    char *v189;  // [bp-0x240]\n
+    char *v190;  // [bp-0x238]\n
+    char *v191;  // [bp-0x230]\n
+    struct_0 *v192;  // [bp-0x228]\n
+    char *v193;  // [bp-0x220]\n
+    char *v194;  // [bp-0x218]\n
+    char *v195;  // [bp-0x210]\n
+    struct_0 *v196;  // [bp-0x208]\n
+    char *v197;  // [bp-0x200]\n
+    char *v198;  // [bp-0x1f8]\n
+    char *v199;  // [bp-0x1f0]\n
+    struct_0 *v200;  // [bp-0x1e8]\n
+    char *v201;  // [bp-0x1e0]\n
+    char *v202;  // [bp-0x1d8]\n
+    char *v203;  // [bp-0x1d0]\n
+    struct_0 *v204;  // [bp-0x1c8]\n
+    char *v205;  // [bp-0x1c0]\n
+    char *v206;  // [bp-0x1b8]\n
+    char *v207;  // [bp-0x1b0]\n
+    struct_0 *v208;  // [bp-0x1a8]\n
+    char *v209;  // [bp-0x1a0]\n
+    char *v210;  // [bp-0x198]\n
+    char *v211;  // [bp-0x190]\n
+    struct_0 *v212;  // [bp-0x188]\n
+    char *v213;  // [bp-0x180]\n
+    char *v214;  // [bp-0x178]\n
+    char *v215;  // [bp-0x170]\n
+    struct_0 *v216;  // [bp-0x168]\n
+    char *v217;  // [bp-0x160]\n
+    char *v218;  // [bp-0x158]\n
+    char *v219;  // [bp-0x150]\n
+    struct_0 *v220;  // [bp-0x148]\n
+    char *v221;  // [bp-0x140]\n
+    char *v222;  // [bp-0x138]\n
+    char *v223;  // [bp-0x130]\n
+    struct_0 *v224;  // [bp-0x128]\n
+    char *v225;  // [bp-0x120]\n
+    char *v226;  // [bp-0x118]\n
+    char *v227;  // [bp-0x110]\n
+    struct_0 *v228;  // [bp-0x108]\n
+    char *v229;  // [bp-0x100]\n
+    char *v230;  // [bp-0xf8]\n
+    char *v231;  // [bp-0xf0]\n
+    struct_0 *v232;  // [bp-0xe8]\n
+    char *v233;  // [bp-0xe0]\n
+    char *v234;  // [bp-0xd8]\n
+    char *v235;  // [bp-0xd0]\n
+    struct_0 *v236;  // [bp-0xc8]\n
+    char *v237;  // [bp-0xc0]\n
+    char *v238;  // [bp-0xb8]\n
+    char *v239;  // [bp-0xb0]\n
+    struct_0 *v240;  // [bp-0xa8]\n
+    char *v241;  // [bp-0xa0]\n
+    char *v242;  // [bp-0x98]\n
+    char *v243;  // [bp-0x90]\n
+    struct_0 *v244;  // [bp-0x88]\n
+    char *v245;  // [bp-0x80]\n
+    char *v246;  // [bp-0x78]\n
+    char *v247;  // [bp-0x70]\n
+    struct_0 *v248;  // [bp-0x68]\n
+    char *v249;  // [bp-0x60]\n
+    char *v250;  // [bp-0x58]\n
+    char *v251;  // [bp-0x50]\n
+    struct_0 *v252;  // [bp-0x48]\n
+    char *v253;  // [bp-0x40]\n
+    char *v254;  // [bp-0x38]\n
+    char *v255;  // [bp-0x30]\n
+    char *v256;  // [bp-0x28], Other Possible Types: void*\n
+    char *v257;  // [bp-0x20], Other Possible Types: void*\n
+    struct_0 *v258;  // [bp-0x18]\n
+\n
+    v258 = 0;\n
+    v257 = 0;\n
+    v256 = 0;\n
+    v258 = cgc_malloc(160);\n
+    if (!v258)\n
+        cgc__terminate(160);\n
+    cgc_memset(v258, 0, 160);\n
+    v257 = \"41916155\";\n
+    v256 = \"CBoXdTVlxY\";\n
+    v252 = v258;\n
+    v253 = v257;\n
+    cgc_memcpy(v252, v253, cgc_strlen(v257, 0));\n
+    v254 = &v258->padding_0[8];\n
+    v255 = v256;\n
+    cgc_memcpy(v254, v255, cgc_strlen(v256, 0));\n
+    v258->field_88 = 59889;\n
+    v258->field_8c = 1043207291;\n
+    v258->field_90 = onsale_fn;\n
+    v258->field_98 = 0;\n
+    cgc_list_insert_at_end(a0, v258);\n
+    v258 = cgc_malloc(160);\n
+    if (!v258)\n
+        cgc__terminate(160);\n
+    cgc_memset(v258, 0, 160);\n
+    v257 = \"12099137\";\n
+    v256 = \"BURcRQvrJKLoWsuIu\";\n
+    v248 = v258;\n
+    v249 = v257;\n
+    cgc_memcpy(v248, v249, cgc_strlen(v257, 0));\n
+    v250 = &v258->padding_0[8];\n
+    v251 = v256;\n
+    cgc_memcpy(v250, v251, cgc_strlen(v256, 0));\n
+    v258->field_88 = 1128;\n
+    v258->field_8c = 1086052106;\n
+    v258->field_90 = onsale_fn;\n
+    v258->field_98 = 0;\n
+    cgc_list_insert_at_end(a0, v258);\n
+    v258 = cgc_malloc(160);\n
+    if (!v258)\n
+        cgc__terminate(160);\n
+    cgc_memset(v258, 0, 160);\n
+    v257 = \"86848322\";\n
+    v256 = \"OuYFqLLPzpStQmLGNfrdmNBtqESEZPD\";\n
+    v244 = v258;\n
+    v245 = v257;\n
+    cgc_memcpy(v244, v245, cgc_strlen(v257, 0));\n
+    v246 = &v258->padding_0[8];\n
+    v247 = v256;\n
+    cgc_memcpy(v246, v247, cgc_strlen(v256, 0));\n
+    v258->field_88 = 64101;\n
+    v258->field_8c = 1076006748;\n
+    v258->field_90 = onsale_fn;\n
+    v258->field_98 = 0;\n
+    cgc_list_insert_at_end(a0, v258);\n
+    v258 = cgc_malloc(160);\n
+    if (!v258)\n
+        cgc__terminate(160);\n
+    cgc_memset(v258, 0, 160);\n
+    v257 = \"87849215\";\n
+    v256 = \"osjXtGjM\";\n
+    v240 = v258;\n
+    v241 = v257;\n
+    cgc_memcpy(v240, v241, cgc_strlen(v257, 0));\n
+    v242 = &v258->padding_0[8];\n
+    v243 = v256;\n
+    cgc_memcpy(v242, v243, cgc_strlen(v256, 0));\n
+    v258->field_88 = 46035;\n
+    v258->field_8c = 1082906378;\n
+    v258->field_90 = onsale_fn;\n
+    v258->field_98 = 0;\n
+    cgc_list_insert_at_end(a0, v258);\n
+    v258 = cgc_malloc(160);\n
+    if (!v258)\n
+        cgc__terminate(160);\n
+    cgc_memset(v258, 0, 160);\n
+    v257 = \"50361802\";\n
+    v256 = \"WaALSqUGTUcRRQbrpD\";\n
+    v236 = v258;\n
+    v237 = v257;\n
+    cgc_memcpy(v236, v237, cgc_strlen(v257, 0));\n
+    v238 = &v258->padding_0[8];\n
+    v239 = v256;\n
+    cgc_memcpy(v238, v239, cgc_strlen(v256, 0));\n
+    v258->field_88 = 12881;\n
+    v258->field_8c = 1085569761;\n
+    v258->field_90 = onsale_fn;\n
+    v258->field_98 = 0;\n
+    cgc_list_insert_at_end(a0, v258);\n
+    v258 = cgc_malloc(160);\n
+    if (!v258)\n
+        cgc__terminate(160);\n
+    cgc_memset(v258, 0, 160);\n
+    v257 = \"28433101\";\n
+    v256 = \"UeC\";\n
+    v232 = v258;\n
+    v233 = v257;\n
+    cgc_memcpy(v232, v233, cgc_strlen(v257, 0));\n
+    v234 = &v258->padding_0[8];\n
+    v235 = v256;\n
+    cgc_memcpy(v234, v235, cgc_strlen(v256, 0));\n
+    v258->field_88 = 31708;\n
+    v258->field_8c = 1089009091;\n
+    v258->field_90 = onsale_fn;\n
+    v258->field_98 = 0;\n
+    cgc_list_insert_at_end(a0, v258);\n
+    v258 = cgc_malloc(160);\n
+    if (!v258)\n
+        cgc__terminate(160);\n
+    cgc_memset(v258, 0, 160);\n
+    v257 = \"12220539\";\n
+    v256 = \"lbYe\";\n
+    v228 = v258;\n
+    v229 = v257;\n
+    cgc_memcpy(v228, v229, cgc_strlen(v257, 0));\n
+    v230 = &v258->padding_0[8];\n
+    v231 = v256;\n
+    cgc_memcpy(v230, v231, cgc_strlen(v256, 0));\n
+    v258->field_88 = 23198;\n
+    v258->field_8c = 1084940616;\n
+    v258->field_90 = onsale_fn;\n
+    v258->field_98 = 0;\n
+    cgc_list_insert_at_end(a0, v258);\n
+    v258 = cgc_malloc(160);\n
+    if (!v258)\n
+        cgc__terminate(160);\n
+    cgc_memset(v258, 0, 160);\n
+    v257 = \"47111925\";\n
+    v256 = \"MxLyPsRDfZNyZCZyPiFcO\";\n
+    v224 = v258;\n
+    v225 = v257;\n
+    cgc_memcpy(v224, v225, cgc_strlen(v257, 0));\n
+    v226 = &v258->padding_0[8];\n
+    v227 = v256;\n
+    cgc_memcpy(v226, v227, cgc_strlen(v256, 0));\n
+    v258->field_88 = 31486;\n
+    v258->field_8c = 1066192077;\n
+    v258->field_90 = onsale_fn;\n
+    v258->field_98 = 0;\n
+    cgc_list_insert_at_end(a0, v258);\n
+    v258 = cgc_malloc(160);\n
+    if (!v258)\n
+        cgc__terminate(160);\n
+    cgc_memset(v258, 0, 160);\n
+    v257 = \"00664810\";\n
+    v256 = \"WBsFTZeoBiL\";\n
+    v220 = v258;\n
+    v221 = v257;\n
+    cgc_memcpy(v220, v221, cgc_strlen(v257, 0));\n
+    v222 = &v258->padding_0[8];\n
+    v223 = v256;\n
+    cgc_memcpy(v222, v223, cgc_strlen(v256, 0));\n
+    v258->field_88 = 27300;\n
+    v258->field_8c = 1083996897;\n
+    v258->field_90 = onsale_fn;\n
+    v258->field_98 = 0;\n
+    cgc_list_insert_at_end(a0, v258);\n
+    v258 = cgc_malloc(160);\n
+    if (!v258)\n
+        cgc__terminate(160);\n
+    cgc_memset(v258, 0, 160);\n
+    v257 = \"94282841\";\n
+    v256 = \"CiyXLti\";\n
+    v216 = v258;\n
+    v217 = v257;\n
+    cgc_memcpy(v216, v217, cgc_strlen(v257, 0));\n
+    v218 = &v258->padding_0[8];\n
+    v219 = v256;\n
+    cgc_memcpy(v218, v219, cgc_strlen(v256, 0));\n
+    v258->field_88 = 10630;\n
+    v258->field_8c = 1066108191;\n
+    v258->field_90 = onsale_fn;\n
+    v258->field_98 = 0;\n
+    cgc_list_insert_at_end(a0, v258);\n
+    v258 = cgc_malloc(160);\n
+    if (!v258)\n
+        cgc__terminate(160);\n
+    cgc_memset(v258, 0, 160);\n
+    v257 = \"72291601\";\n
+    v256 = \"RJOT\";\n
+    v212 = v258;\n
+    v213 = v257;\n
+    cgc_memcpy(v212, v213, cgc_strlen(v257, 0));\n
+    v214 = &v258->padding_0[8];\n
+    v215 = v256;\n
+    cgc_memcpy(v214, v215, cgc_strlen(v256, 0));\n
+    v258->field_88 = 50229;\n
+    v258->field_8c = 1085842391;\n
+    v258->field_90 = onsale_fn;\n
+    v258->field_98 = 0;\n
+    cgc_list_insert_at_end(a0, v258);\n
+    v258 = cgc_malloc(160);\n
+    if (!v258)\n
+        cgc__terminate(160);\n
+    cgc_memset(v258, 0, 160);\n
+    v257 = \"49840365\";\n
+    v256 = \"LrmPNlODBcMuDdejSrklcnEJbCdJOA\";\n
+    v208 = v258;\n
+    v209 = v257;\n
+    cgc_memcpy(v208, v209, cgc_strlen(v257, 0));\n
+    v210 = &v258->padding_0[8];\n
+    v211 = v256;\n
+    cgc_memcpy(v210, v211, cgc_strlen(v256, 0));\n
+    v258->field_88 = 45345;\n
+    v258->field_8c = 1084626043;\n
+    v258->field_90 = onsale_fn;\n
+    v258->field_98 = 0;\n
+    cgc_list_insert_at_end(a0, v258);\n
+    v258 = cgc_malloc(160);\n
+    if (!v258)\n
+        cgc__terminate(160);\n
+    cgc_memset(v258, 0, 160);\n
+    v257 = \"50717007\";\n
+    v256 = \"OcYEZmPsrGyvcbxflxxamqLlLJ\";\n
+    v204 = v258;\n
+    v205 = v257;\n
+    cgc_memcpy(v204, v205, cgc_strlen(v257, 0));\n
+    v206 = &v258->padding_0[8];\n
+    v207 = v256;\n
+    cgc_memcpy(v206, v207, cgc_strlen(v256, 0));\n
+    v258->field_88 = 60011;\n
+    v258->field_8c = 1076132577;\n
+    v258->field_90 = onsale_fn;\n
+    v258->field_98 = 0;\n
+    cgc_list_insert_at_end(a0, v258);\n
+    v258 = cgc_malloc(160);\n
+    if (!v258)\n
+        cgc__terminate(160);\n
+    cgc_memset(v258, 0, 160);\n
+    v257 = \"99964712\";\n
+    v256 = \"NcVIOJwRguXBwKdEwzx\";\n
+    v200 = v258;\n
+    v201 = v257;\n
+    cgc_memcpy(v200, v201, cgc_strlen(v257, 0));\n
+    v202 = &v258->padding_0[8];\n
+    v203 = v256;\n
+    cgc_memcpy(v202, v203, cgc_strlen(v256, 0));\n
+    v258->field_88 = 116;\n
+    v258->field_8c = 1087750799;\n
+    v258->field_90 = onsale_fn;\n
+    v258->field_98 = 0;\n
+    cgc_list_insert_at_end(a0, v258);\n
+    v258 = cgc_malloc(160);\n
+    if (!v258)\n
+        cgc__terminate(160);\n
+    cgc_memset(v258, 0, 160);\n
+    v257 = \"13706532\";\n
+    v256 = \"SmMpCSxZTsPtsDwZprYJIBYtCczZ\";\n
+    v196 = v258;\n
+    v197 = v257;\n
+    cgc_memcpy(v196, v197, cgc_strlen(v257, 0));\n
+    v198 = &v258->padding_0[8];\n
+    v199 = v256;\n
+    cgc_memcpy(v198, v199, cgc_strlen(v256, 0));\n
+    v258->field_88 = 39806;\n
+    v258->field_8c = 1089113948;\n
+    v258->field_90 = onsale_fn;\n
+    v258->field_98 = 0;\n
+    cgc_list_insert_at_end(a0, v258);\n
+    v258 = cgc_malloc(160);\n
+    if (!v258)\n
+        cgc__terminate(160);\n
+    cgc_memset(v258, 0, 160);\n
+    v257 = \"44381534\";\n
+    v256 = \"mfuSPgiZIaaPTtfMKuYWPqW\";\n
+    v192 = v258;\n
+    v193 = v257;\n
+    cgc_memcpy(v192, v193, cgc_strlen(v257, 0));\n
+    v194 = &v258->padding_0[8];\n
+    v195 = v256;\n
+    cgc_memcpy(v194, v195, cgc_strlen(v256, 0));\n
+    v258->field_88 = 30120;\n
+    v258->field_8c = 1083619410;\n
+    v258->field_90 = onsale_fn;\n
+    v258->field_98 = 0;\n
+    cgc_list_insert_at_end(a0, v258);\n
+    v258 = cgc_malloc(160);\n
+    if (!v258)\n
+        cgc__terminate(160);\n
+    cgc_memset(v258, 0, 160);\n
+    v257 = \"66900952\";\n
+    v256 = \"dLuOlZFcVURjFo\";\n
+    v188 = v258;\n
+    v189 = v257;\n
+    cgc_memcpy(v188, v189, cgc_strlen(v257, 0));\n
+    v190 = &v258->padding_0[8];\n
+    v191 = v256;\n
+    cgc_memcpy(v190, v191, cgc_strlen(v256, 0));\n
+    v258->field_88 = 14927;\n
+    strncpy(&v258->field_8c, \"33C@\", 4);\n
+    v258->field_90 = onsale_fn;\n
+    v258->field_98 = 0;\n
+    cgc_list_insert_at_end(a0, v258);\n
+    v258 = cgc_malloc(160);\n
+    if (!v258)\n
+        cgc__terminate(160);\n
+    cgc_memset(v258, 0, 160);\n
+    v257 = \"74926350\";\n
+    v256 = \"cXK\";\n
+    v184 = v258;\n
+    v185 = v257;\n
+    cgc_memcpy(v184, v185, cgc_strlen(v257, 0));\n
+    v186 = &v258->padding_0[8];\n
+    v187 = v256;\n
+    cgc_memcpy(v186, v187, cgc_strlen(v256, 0));\n
+    v258->field_88 = 2472;\n
+    v258->field_8c = 1081669059;\n
+    v258->field_90 = onsale_fn;\n
+    v258->field_98 = 0;\n
+    cgc_list_insert_at_end(a0, v258);\n
+    v258 = cgc_malloc(160);\n
+    if (!v258)\n
+        cgc__terminate(160);\n
+    cgc_memset(v258, 0, 160);\n
+    v257 = \"31951871\";\n
+    v256 = \"gZOISWZizsGWxfIV\";\n
+    v180 = v258;\n
+    v181 = v257;\n
+    cgc_memcpy(v180, v181, cgc_strlen(v257, 0));\n
+    v182 = &v258->padding_0[8];\n
+    v183 = v256;\n
+    cgc_memcpy(v182, v183, cgc_strlen(v256, 0));\n
+    v258->field_88 = 25650;\n
+    v258->field_8c = 1076761723;\n
+    v258->field_90 = onsale_fn;\n
+    v258->field_98 = 0;\n
+    cgc_list_insert_at_end(a0, v258);\n
+    v258 = cgc_malloc(160);\n
+    if (!v258)\n
+        cgc__terminate(160);\n
+    cgc_memset(v258, 0, 160);\n
+    v257 = \"20585072\";\n
+    v256 = \"OVNnctOCWjcIXOvxXwZdeYk\";\n
+    v176 = v258;\n
+    v177 = v257;\n
+    cgc_memcpy(v176, v177, cgc_strlen(v257, 0));\n
+    v178 = &v258->padding_0[8];\n
+    v179 = v256;\n
+    cgc_memcpy(v178, v179, cgc_strlen(v256, 0));\n
+    v258->field_88 = 33445;\n
+    v258->field_8c = 1080914084;\n
+    v258->field_90 = onsale_fn;\n
+    v258->field_98 = 0;\n
+    cgc_list_insert_at_end(a0, v258);\n
+    v258 = cgc_malloc(160);\n
+    if (!v258)\n
+        cgc__terminate(160);\n
+    cgc_memset(v258, 0, 160);\n
+    v257 = \"29987528\";\n
+    v256 = \"bQemYYbkbgRlHzYhddLTXBV\";\n
+    v172 = v258;\n
+    v173 = v257;\n
+    cgc_memcpy(v172, v173, cgc_strlen(v257, 0));\n
+    v174 = &v258->padding_0[8];\n
+    v175 = v256;\n
+    cgc_memcpy(v174, v175, cgc_strlen(v256, 0));\n
+    v258->field_88 = 63850;\n
+    v258->field_8c = 1090802156;\n
+    v258->field_90 = onsale_fn;\n
+    v258->field_98 = 0;\n
+    cgc_list_insert_at_end(a0, v258);\n
+    v258 = cgc_malloc(160);\n
+    if (!v258)\n
+        cgc__terminate(160);\n
+    cgc_memset(v258, 0, 160);\n
+    v257 = \"44567831\";\n
+    v256 = \"bVxVzqJoMAbbABpuK\";\n
+    v168 = v258;\n
+    v169 = v257;\n
+    cgc_memcpy(v168, v169, cgc_strlen(v257, 0));\n
+    v170 = &v258->padding_0[8];\n
+    v171 = v256;\n
+    cgc_memcpy(v170, v171, cgc_strlen(v256, 0));\n
+    v258->field_88 = 10273;\n
+    v258->field_8c = 1067785912;\n
+    v258->field_90 = onsale_fn;\n
+    v258->field_98 = 0;\n
+    cgc_list_insert_at_end(a0, v258);\n
+    v258 = cgc_malloc(160);\n
+    if (!v258)\n
+        cgc__terminate(160);\n
+    cgc_memset(v258, 0, 160);\n
+    v257 = \"50044195\";\n
+    v256 = \"TIwQNAxBYeidFJgiuiceKyyZOo\";\n
+    v164 = v258;\n
+    v165 = v257;\n
+    cgc_memcpy(v164, v165, cgc_strlen(v257, 0));\n
+    v166 = &v258->padding_0[8];\n
+    v167 = v256;\n
+    cgc_memcpy(v166, v167, cgc_strlen(v256, 0));\n
+    v258->field_88 = 64340;\n
+    v258->field_8c = 1087541084;\n
+    v258->field_90 = onsale_fn;\n
+    v258->field_98 = 0;\n
+    cgc_list_insert_at_end(a0, v258);\n
+    v258 = cgc_malloc(160);\n
+    if (!v258)\n
+        cgc__terminate(160);\n
+    cgc_memset(v258, 0, 160);\n
+    v257 = \"80320569\";\n
+    v256 = \"ZbOKiKsPtSLZUXGSgVuVvEg\";\n
+    v160 = v258;\n
+    v161 = v257;\n
+    cgc_memcpy(v160, v161, cgc_strlen(v257, 0));\n
+    v162 = &v258->padding_0[8];\n
+    v163 = v256;\n
+    cgc_memcpy(v162, v163, cgc_strlen(v256, 0));\n
+    v258->field_88 = 3226;\n
+    v258->field_8c = 1091085271;\n
+    v258->field_90 = onsale_fn;\n
+    v258->field_98 = 0;\n
+    cgc_list_insert_at_end(a0, v258);\n
+    v258 = cgc_malloc(160);\n
+    if (!v258)\n
+        cgc__terminate(160);\n
+    cgc_memset(v258, 0, 160);\n
+    v257 = \"12555125\";\n
+    v256 = \"OOBHIukxWBXTujZouCmy\";\n
+    v156 = v258;\n
+    v157 = v257;\n
+    cgc_memcpy(v156, v157, cgc_strlen(v257, 0));\n
+    v158 = &v258->padding_0[8];\n
+    v159 = v256;\n
+    cgc_memcpy(v158, v159, cgc_strlen(v256, 0));\n
+    v258->field_88 = 48316;\n
+    v258->field_8c = 1069715292;\n
+    v258->field_90 = onsale_fn;\n
+    v258->field_98 = 0;\n
+    cgc_list_insert_at_end(a0, v258);\n
+    v258 = cgc_malloc(160);\n
+    if (!v258)\n
+        cgc__terminate(160);\n
+    cgc_memset(v258, 0, 160);\n
+    v257 = \"77475676\";\n
+    v256 = \"TkFFmsuzuD\";\n
+    v152 = v258;\n
+    v153 = v257;\n
+    cgc_memcpy(v152, v153, cgc_strlen(v257, 0));\n
+    v154 = &v258->padding_0[8];\n
+    v155 = v256;\n
+    cgc_memcpy(v154, v155, cgc_strlen(v256, 0));\n
+    v258->field_88 = 12910;\n
+    v258->field_8c = 1091232072;\n
+    v258->field_90 = onsale_fn;\n
+    v258->field_98 = 0;\n
+    cgc_list_insert_at_end(a0, v258);\n
+    v258 = cgc_malloc(160);\n
+    if (!v258)\n
+        cgc__terminate(160);\n
+    cgc_memset(v258, 0, 160);\n
+    v257 = \"68500061\";\n
+    v256 = \"xXKivnPyFeKjDSsLIcHJkcfDZr\";\n
+    v148 = v258;\n
+    v149 = v257;\n
+    cgc_memcpy(v148, v149, cgc_strlen(v257, 0));\n
+    v150 = &v258->padding_0[8];\n
+    v151 = v256;\n
+    cgc_memcpy(v150, v151, cgc_strlen(v256, 0));\n
+    v258->field_88 = 25325;\n
+    v258->field_8c = 1085758505;\n
+    v258->field_90 = onsale_fn;\n
+    v258->field_98 = 0;\n
+    cgc_list_insert_at_end(a0, v258);\n
+    v258 = cgc_malloc(160);\n
+    if (!v258)\n
+        cgc__terminate(160);\n
+    cgc_memset(v258, 0, 160);\n
+    v257 = \"28801547\";\n
+    v256 = \"zPzfWrYgkzusXM\";\n
+    v144 = v258;\n
+    v145 = v257;\n
+    cgc_memcpy(v144, v145, cgc_strlen(v257, 0));\n
+    v146 = &v258->padding_0[8];\n
+    v147 = v256;\n
+    cgc_memcpy(v146, v147, cgc_strlen(v256, 0));\n
+    v258->field_88 = 55098;\n
+    v258->field_8c = 1080830198;\n
+    v258->field_90 = onsale_fn;\n
+    v258->field_98 = 0;\n
+    cgc_list_insert_at_end(a0, v258);\n
+    v258 = cgc_malloc(160);\n
+    if (!v258)\n
+        cgc__terminate(160);\n
+    cgc_memset(v258, 0, 160);\n
+    v257 = \"27286316\";\n
+    v256 = \"iaOSmHodjClBbsmNMxMUjFEEBw\";\n
+    v140 = v258;\n
+    v141 = v257;\n
+    cgc_memcpy(v140, v141, cgc_strlen(v257, 0));\n
+    v142 = &v258->padding_0[8];\n
+    v143 = v256;\n
+    cgc_memcpy(v142, v143, cgc_strlen(v256, 0));\n
+    v258->field_88 = 45201;\n
+    v258->field_8c = 1086429594;\n
+    v258->field_90 = onsale_fn;\n
+    v258->field_98 = 0;\n
+    cgc_list_insert_at_end(a0, v258);\n
+    v258 = cgc_malloc(160);\n
+    if (!v258)\n
+        cgc__terminate(160);\n
+    cgc_memset(v258, 0, 160);\n
+    v257 = \"06744775\";\n
+    v256 = \"RZaRMCR\";\n
+    v136 = v258;\n
+    v137 = v257;\n
+    cgc_memcpy(v136, v137, cgc_strlen(v257, 0));\n
+    v138 = &v258->padding_0[8];\n
+    v139 = v256;\n
+    cgc_memcpy(v138, v139, cgc_strlen(v256, 0));\n
+    v258->field_88 = 39161;\n
+    v258->field_8c = 0x41200000;\n
+    v258->field_90 = onsale_fn;\n
+    v258->field_98 = 0;\n
+    cgc_list_insert_at_end(a0, v258);\n
+    v258 = cgc_malloc(160);\n
+    if (!v258)\n
+        cgc__terminate(160);\n
+    cgc_memset(v258, 0, 160);\n
+    v257 = \"14976063\";\n
+    v256 = \"lXkSGfmjnIcJrqjzuwaLpNVsxCoeZla\";\n
+    v132 = v258;\n
+    v133 = v257;\n
+    cgc_memcpy(v132, v133, cgc_strlen(v257, 0));\n
+    v134 = &v258->padding_0[8];\n
+    v135 = v256;\n
+    cgc_memcpy(v134, v135, cgc_strlen(v256, 0));\n
+    v258->field_88 = 58432;\n
+    v258->field_8c = 1084982559;\n
+    v258->field_90 = onsale_fn;\n
+    v258->field_98 = 0;\n
+    cgc_list_insert_at_end(a0, v258);\n
+    v258 = cgc_malloc(160);\n
+    if (!v258)\n
+        cgc__terminate(160);\n
+    cgc_memset(v258, 0, 160);\n
+    v257 = \"93921599\";\n
+    v256 = \"qJGFxRH\";\n
+    v128 = v258;\n
+    v129 = v257;\n
+    cgc_memcpy(v128, v129, cgc_strlen(v257, 0));\n
+    v130 = &v258->padding_0[8];\n
+    v131 = v256;\n
+    cgc_memcpy(v130, v131, cgc_strlen(v256, 0));\n
+    v258->field_88 = 51914;\n
+    v258->field_8c = 1065856532;\n
+    v258->field_90 = onsale_fn;\n
+    v258->field_98 = 0;\n
+    cgc_list_insert_at_end(a0, v258);\n
+    v258 = cgc_malloc(160);\n
+    if (!v258)\n
+        cgc__terminate(160);\n
+    cgc_memset(v258, 0, 160);\n
+    v257 = \"78486525\";\n
+    v256 = \"lrWSt\";\n
+    v124 = v258;\n
+    v125 = v257;\n
+    cgc_memcpy(v124, v125, cgc_strlen(v257, 0));\n
+    v126 = &v258->padding_0[8];\n
+    v127 = v256;\n
+    cgc_memcpy(v126, v127, cgc_strlen(v256, 0));\n
+    v258->field_88 = 5215;\n
+    v258->field_8c = 1073070735;\n
+    v258->field_90 = onsale_fn;\n
+    v258->field_98 = 0;\n
+    cgc_list_insert_at_end(a0, v258);\n
+    v258 = cgc_malloc(160);\n
+    if (!v258)\n
+        cgc__terminate(160);\n
+    cgc_memset(v258, 0, 160);\n
+    v257 = \"75836131\";\n
+    v256 = \"Cm\";\n
+    v120 = v258;\n
+    v121 = v257;\n
+    cgc_memcpy(v120, v121, cgc_strlen(v257, 0));\n
+    v122 = &v258->padding_0[8];\n
+    v123 = v256;\n
+    cgc_memcpy(v122, v123, cgc_strlen(v256, 0));\n
+    v258->field_88 = 35136;\n
+    v258->field_8c = 1090980413;\n
+    v258->field_90 = onsale_fn;\n
+    v258->field_98 = 0;\n
+    cgc_list_insert_at_end(a0, v258);\n
+    v258 = cgc_malloc(160);\n
+    if (!v258)\n
+        cgc__terminate(160);\n
+    cgc_memset(v258, 0, 160);\n
+    v257 = \"95486291\";\n
+    v256 = \"jJIhbikVwbdVIhCAZGHqjLY\";\n
+    v116 = v258;\n
+    v117 = v257;\n
+    cgc_memcpy(v116, v117, cgc_strlen(v257, 0));\n
+    v118 = &v258->padding_0[8];\n
+    v119 = v256;\n
+    cgc_memcpy(v118, v119, cgc_strlen(v256, 0));\n
+    v258->field_88 = 30557;\n
+    v258->field_8c = 1084521185;\n
+    v258->field_90 = onsale_fn;\n
+    v258->field_98 = 0;\n
+    cgc_list_insert_at_end(a0, v258);\n
+    v258 = cgc_malloc(160);\n
+    if (!v258)\n
+        cgc__terminate(160);\n
+    cgc_memset(v258, 0, 160);\n
+    v257 = \"19044824\";\n
+    v256 = \"mfoLvDmaKMrQNvWLWUiYCiXNnZOMU\";\n
+    v112 = v258;\n
+    v113 = v257;\n
+    cgc_memcpy(v112, v113, cgc_strlen(v257, 0));\n
+    v114 = &v258->padding_0[8];\n
+    v115 = v256;\n
+    cgc_memcpy(v114, v115, cgc_strlen(v256, 0));\n
+    v258->field_88 = 18280;\n
+    v258->field_8c = 1080662426;\n
+    v258->field_90 = onsale_fn;\n
+    v258->field_98 = 0;\n
+    cgc_list_insert_at_end(a0, v258);\n
+    v258 = cgc_malloc(160);\n
+    if (!v258)\n
+        cgc__terminate(160);\n
+    cgc_memset(v258, 0, 160);\n
+    v257 = \"30172465\";\n
+    v256 = \"CKFuyRMTABZMIBdsK\";\n
+    v108 = v258;\n
+    v109 = v257;\n
+    cgc_memcpy(v108, v109, cgc_strlen(v257, 0));\n
+    v110 = &v258->padding_0[8];\n
+    v111 = v256;\n
+    cgc_memcpy(v110, v111, cgc_strlen(v256, 0));\n
+    v258->field_88 = 44608;\n
+    v258->field_8c = 1085087416;\n
+    v258->field_90 = onsale_fn;\n
+    v258->field_98 = 0;\n
+    cgc_list_insert_at_end(a0, v258);\n
+    v258 = cgc_malloc(160);\n
+    if (!v258)\n
+        cgc__terminate(160);\n
+    cgc_memset(v258, 0, 160);\n
+    v257 = \"83497266\";\n
+    v256 = \"XyEYbfHmiWVtxO\";\n
+    v104 = v258;\n
+    v105 = v257;\n
+    cgc_memcpy(v104, v105, cgc_strlen(v257, 0));\n
+    v106 = &v258->padding_0[8];\n
+    v107 = v256;\n
+    cgc_memcpy(v106, v107, cgc_strlen(v256, 0));\n
+    v258->field_88 = 1520;\n
+    v258->field_8c = 1087289426;\n
+    v258->field_90 = onsale_fn;\n
+    v258->field_98 = 0;\n
+    cgc_list_insert_at_end(a0, v258);\n
+    v258 = cgc_malloc(160);\n
+    if (!v258)\n
+        cgc__terminate(160);\n
+    cgc_memset(v258, 0, 160);\n
+    v257 = \"46693171\";\n
+    v256 = \"YmUHUvQoJ\";\n
+    v100 = v258;\n
+    v101 = v257;\n
+    cgc_memcpy(v100, v101, cgc_strlen(v257, 0));\n
+    v102 = &v258->padding_0[8];\n
+    v103 = v256;\n
+    cgc_memcpy(v102, v103, cgc_strlen(v256, 0));\n
+    v258->field_88 = 45063;\n
+    v258->field_8c = 1059984507;\n
+    v258->field_90 = onsale_fn;\n
+    v258->field_98 = 0;\n
+    cgc_list_insert_at_end(a0, v258);\n
+    v258 = cgc_malloc(160);\n
+    if (!v258)\n
+        cgc__terminate(160);\n
+    cgc_memset(v258, 0, 160);\n
+    v257 = \"60531381\";\n
+    v256 = \"QiMrgINCfFjkdvozTnpjtYrELDjgmK\";\n
+    v96 = v258;\n
+    v97 = v257;\n
+    cgc_memcpy(v96, v97, cgc_strlen(v257, 0));\n
+    v98 = &v258->padding_0[8];\n
+    v99 = v256;\n
+    cgc_memcpy(v98, v99, cgc_strlen(v256, 0));\n
+    v258->field_88 = 50365;\n
+    v258->field_8c = 1073154621;\n
+    v258->field_90 = onsale_fn;\n
+    v258->field_98 = 0;\n
+    cgc_list_insert_at_end(a0, v258);\n
+    v258 = cgc_malloc(160);\n
+    if (!v258)\n
+        cgc__terminate(160);\n
+    cgc_memset(v258, 0, 160);\n
+    v257 = \"80111827\";\n
+    v256 = \"EGCyAcNvAoGTznBIInHD\";\n
+    v92 = v258;\n
+    v93 = v257;\n
+    cgc_memcpy(v92, v93, cgc_strlen(v257, 0));\n
+    v94 = &v258->padding_0[8];\n
+    v95 = v256;\n
+    cgc_memcpy(v94, v95, cgc_strlen(v256, 0));\n
+    v258->field_88 = 50163;\n
+    v258->field_8c = 1089176863;\n
+    v258->field_90 = onsale_fn;\n
+    v258->field_98 = 0;\n
+    cgc_list_insert_at_end(a0, v258);\n
+    v258 = cgc_malloc(160);\n
+    if (!v258)\n
+        cgc__terminate(160);\n
+    cgc_memset(v258, 0, 160);\n
+    v257 = \"46108933\";\n
+    v256 = \"yA\";\n
+    v88 = v258;\n
+    v89 = v257;\n
+    cgc_memcpy(v88, v89, cgc_strlen(v257, 0));\n
+    v90 = &v258->padding_0[8];\n
+    v91 = v256;\n
+    cgc_memcpy(v90, v91, cgc_strlen(v256, 0));\n
+    v258->field_88 = 18997;\n
+    v258->field_8c = 1063507722;\n
+    v258->field_90 = onsale_fn;\n
+    v258->field_98 = 0;\n
+    cgc_list_insert_at_end(a0, v258);\n
+    v258 = cgc_malloc(160);\n
+    if (!v258)\n
+        cgc__terminate(160);\n
+    cgc_memset(v258, 0, 160);\n
+    v257 = \"71344234\";\n
+    v256 = \"GZxglAxzKwgOEwRVCgPdf\";\n
+    v84 = v258;\n
+    v85 = v257;\n
+    cgc_memcpy(v84, v85, cgc_strlen(v257, 0));\n
+    v86 = &v258->padding_0[8];\n
+    v87 = v256;\n
+    cgc_memcpy(v86, v87, cgc_strlen(v256, 0));\n
+    v258->field_88 = 40662;\n
+    v258->field_8c = 1084038840;\n
+    v258->field_90 = onsale_fn;\n
+    v258->field_98 = 0;\n
+    cgc_list_insert_at_end(a0, v258);\n
+    v258 = cgc_malloc(160);\n
+    if (!v258)\n
+        cgc__terminate(160);\n
+    cgc_memset(v258, 0, 160);\n
+    v257 = \"20102117\";\n
+    v256 = \"RijMwfgJPEmoMjLCeepSY\";\n
+    v80 = v258;\n
+    v81 = v257;\n
+    cgc_memcpy(v80, v81, cgc_strlen(v257, 0));\n
+    v82 = &v258->padding_0[8];\n
+    v83 = v256;\n
+    cgc_memcpy(v82, v83, cgc_strlen(v256, 0));\n
+    v258->field_88 = 31998;\n
+    v258->field_8c = 1068960317;\n
+    v258->field_90 = onsale_fn;\n
+    v258->field_98 = 0;\n
+    cgc_list_insert_at_end(a0, v258);\n
+    v258 = cgc_malloc(160);\n
+    if (!v258)\n
+        cgc__terminate(160);\n
+    cgc_memset(v258, 0, 160);\n
+    v257 = \"79267208\";\n
+    v256 = \"XvnPoMSNWZVhfUMmpFKpphmfbwSTVo\";\n
+    v76 = v258;\n
+    v77 = v257;\n
+    cgc_memcpy(v76, v77, cgc_strlen(v257, 0));\n
+    v78 = &v258->padding_0[8];\n
+    v79 = v256;\n
+    cgc_memcpy(v78, v79, cgc_strlen(v256, 0));\n
+    v258->field_88 = 34301;\n
+    v258->field_8c = 1092217733;\n
+    v258->field_90 = onsale_fn;\n
+    v258->field_98 = 0;\n
+    cgc_list_insert_at_end(a0, v258);\n
+    v258 = cgc_malloc(160);\n
+    if (!v258)\n
+        cgc__terminate(160);\n
+    cgc_memset(v258, 0, 160);\n
+    v257 = \"13001388\";\n
+    v256 = \"ngllfhKdGIPHvstPd\";\n
+    v72 = v258;\n
+    v73 = v257;\n
+    cgc_memcpy(v72, v73, cgc_strlen(v257, 0));\n
+    v74 = &v258->padding_0[8];\n
+    v75 = v256;\n
+    cgc_memcpy(v74, v75, cgc_strlen(v256, 0));\n
+    v258->field_88 = 54407;\n
+    v258->field_8c = 1084143698;\n
+    v258->field_90 = onsale_fn;\n
+    v258->field_98 = 0;\n
+    cgc_list_insert_at_end(a0, v258);\n
+    v258 = cgc_malloc(160);\n
+    if (!v258)\n
+        cgc__terminate(160);\n
+    cgc_memset(v258, 0, 160);\n
+    v257 = \"17573103\";\n
+    v256 = \"P\";\n
+    v68 = v258;\n
+    v69 = v257;\n
+    cgc_memcpy(v68, v69, cgc_strlen(v257, 0));\n
+    v70 = &v258->padding_0[8];\n
+    v71 = v256;\n
+    cgc_memcpy(v70, v71, cgc_strlen(v256, 0));\n
+    v258->field_88 = 2515;\n
+    v258->field_8c = 1083325809;\n
+    v258->field_90 = onsale_fn;\n
+    v258->field_98 = 0;\n
+    cgc_list_insert_at_end(a0, v258);\n
+    v258 = cgc_malloc(160);\n
+    if (!v258)\n
+        cgc__terminate(160);\n
+    cgc_memset(v258, 0, 160);\n
+    v257 = \"22995054\";\n
+    v256 = \"GoiSSYhLBSSyDMzpZEfEN\";\n
+    v64 = v258;\n
+    v65 = v257;\n
+    cgc_memcpy(v64, v65, cgc_strlen(v257, 0));\n
+    v66 = &v258->padding_0[8];\n
+    v67 = v256;\n
+    cgc_memcpy(v66, v67, cgc_strlen(v256, 0));\n
+    v258->field_88 = 23072;\n
+    v258->field_8c = 1091452273;\n
+    v258->field_90 = onsale_fn;\n
+    v258->field_98 = 0;\n
+    cgc_list_insert_at_end(a0, v258);\n
+    v258 = cgc_malloc(160);\n
+    if (!v258)\n
+        cgc__terminate(160);\n
+    cgc_memset(v258, 0, 160);\n
+    v257 = \"58885039\";\n
+    v256 = \"LvJBSMasVdFOjklc\";\n
+    v60 = v258;\n
+    v61 = v257;\n
+    cgc_memcpy(v60, v61, cgc_strlen(v257, 0));\n
+    v62 = &v258->padding_0[8];\n
+    v63 = v256;\n
+    cgc_memcpy(v62, v63, cgc_strlen(v256, 0));\n
+    v258->field_88 = 45088;\n
+    v258->field_8c = 1076635894;\n
+    v258->field_90 = onsale_fn;\n
+    v258->field_98 = 0;\n
+    cgc_list_insert_at_end(a0, v258);\n
+    v258 = cgc_malloc(160);\n
+    if (!v258)\n
+        cgc__terminate(160);\n
+    cgc_memset(v258, 0, 160);\n
+    v257 = \"36970139\";\n
+    v256 = \"emCCzWhvvveEoEViRKwIsyWcMA\";\n
+    v56 = v258;\n
+    v57 = v257;\n
+    cgc_memcpy(v56, v57, cgc_strlen(v257, 0));\n
+    v58 = &v258->padding_0[8];\n
+    v59 = v256;\n
+    cgc_memcpy(v58, v59, cgc_strlen(v256, 0));\n
+    v258->field_88 = 47167;\n
+    v258->field_8c = 1073238508;\n
+    v258->field_90 = onsale_fn;\n
+    v258->field_98 = 0;\n
+    cgc_list_insert_at_end(a0, v258);\n
+    v258 = cgc_malloc(160);\n
+    if (!v258)\n
+        cgc__terminate(160);\n
+    cgc_memset(v258, 0, 160);\n
+    v257 = \"15048891\";\n
+    v256 = \"QPuFuYcsUqextKPzFHBFhWWxiwL\";\n
+    v52 = v258;\n
+    v53 = v257;\n
+    cgc_memcpy(v52, v53, cgc_strlen(v257, 0));\n
+    v54 = &v258->padding_0[8];\n
+    v55 = v256;\n
+    cgc_memcpy(v54, v55, cgc_strlen(v256, 0));\n
+    v258->field_88 = 39914;\n
+    v258->field_8c = 1092437934;\n
+    v258->field_90 = onsale_fn;\n
+    v258->field_98 = 0;\n
+    cgc_list_insert_at_end(a0, v258);\n
+    v258 = cgc_malloc(160);\n
+    if (!v258)\n
+        cgc__terminate(160);\n
+    cgc_memset(v258, 0, 160);\n
+    v257 = \"52820574\";\n
+    v256 = \"VweQMYhAYdTCE\";\n
+    v48 = v258;\n
+    v49 = v257;\n
+    cgc_memcpy(v48, v49, cgc_strlen(v257, 0));\n
+    v50 = &v258->padding_0[8];\n
+    v51 = v256;\n
+    cgc_memcpy(v50, v51, cgc_strlen(v256, 0));\n
+    v258->field_88 = 34549;\n
+    v258->field_8c = 1088736461;\n
+    v258->field_90 = onsale_fn;\n
+    v258->field_98 = 0;\n
+    cgc_list_insert_at_end(a0, v258);\n
+    v258 = cgc_malloc(160);\n
+    if (!v258)\n
+        cgc__terminate(160);\n
+    cgc_memset(v258, 0, 160);\n
+    v257 = \"05558432\";\n
+    v256 = \"YrsbMdytqSNuDPUN\";\n
+    v44 = v258;\n
+    v45 = v257;\n
+    cgc_memcpy(v44, v45, cgc_strlen(v257, 0));\n
+    v46 = &v258->padding_0[8];\n
+    v47 = v256;\n
+    cgc_memcpy(v46, v47, cgc_strlen(v256, 0));\n
+    v258->field_88 = 43021;\n
+    v258->field_8c = 1090036695;\n
+    v258->field_90 = onsale_fn;\n
+    v258->field_98 = 0;\n
+    cgc_list_insert_at_end(a0, v258);\n
+    v258 = cgc_malloc(160);\n
+    if (!v258)\n
+        cgc__terminate(160);\n
+    cgc_memset(v258, 0, 160);\n
+    v257 = \"45266556\";\n
+    v256 = \"SxagJhzOzEhqAhpAdpuREDJnM\";\n
+    v40 = v258;\n
+    v41 = v257;\n
+    cgc_memcpy(v40, v41, cgc_strlen(v257, 0));\n
+    v42 = &v258->padding_0[8];\n
+    v43 = v256;\n
+    cgc_memcpy(v42, v43, cgc_strlen(v256, 0));\n
+    v258->field_88 = 53735;\n
+    v258->field_8c = 0x40200000;\n
+    v258->field_90 = onsale_fn;\n
+    v258->field_98 = 0;\n
+    cgc_list_insert_at_end(a0, v258);\n
+    v258 = cgc_malloc(160);\n
+    if (!v258)\n
+        cgc__terminate(160);\n
+    cgc_memset(v258, 0, 160);\n
+    v257 = \"55671691\";\n
+    v256 = \"JvqXCPHjJyQ\";\n
+    v36 = v258;\n
+    v37 = v257;\n
+    cgc_memcpy(v36, v37, cgc_strlen(v257, 0));\n
+    v38 = &v258->padding_0[8];\n
+    v39 = v256;\n
+    cgc_memcpy(v38, v39, cgc_strlen(v256, 0));\n
+    v258->field_88 = 60683;\n
+    v258->field_8c = 1084542157;\n
+    v258->field_90 = onsale_fn;\n
+    v258->field_98 = 0;\n
+    cgc_list_insert_at_end(a0, v258);\n
+    v258 = cgc_malloc(160);\n
+    if (!v258)\n
+        cgc__terminate(160);\n
+    cgc_memset(v258, 0, 160);\n
+    v257 = \"30246117\";\n
+    v256 = \"DaEzVgFxbPzzIF\";\n
+    v32 = v258;\n
+    v33 = v257;\n
+    cgc_memcpy(v32, v33, cgc_strlen(v257, 0));\n
+    v34 = &v258->padding_0[8];\n
+    v35 = v256;\n
+    cgc_memcpy(v34, v35, cgc_strlen(v256, 0));\n
+    v258->field_88 = 11978;\n
+    v258->field_8c = 1074748457;\n
+    v258->field_90 = onsale_fn;\n
+    v258->field_98 = 0;\n
+    cgc_list_insert_at_end(a0, v258);\n
+    v258 = cgc_malloc(160);\n
+    if (!v258)\n
+        cgc__terminate(160);\n
+    cgc_memset(v258, 0, 160);\n
+    v257 = \"32349600\";\n
+    v256 = \"vDzqEgRHizanDmHWYmtKjy\";\n
+    v28 = v258;\n
+    v29 = v257;\n
+    cgc_memcpy(v28, v29, cgc_strlen(v257, 0));\n
+    v30 = &v258->padding_0[8];\n
+    v31 = v256;\n
+    cgc_memcpy(v30, v31, cgc_strlen(v256, 0));\n
+    v258->field_88 = 32694;\n
+    strncpy(&v258->field_8c, \"fff?\", 4);\n
+    v258->field_90 = onsale_fn;\n
+    v258->field_98 = 0;\n
+    cgc_list_insert_at_end(a0, v258);\n
+    v258 = cgc_malloc(160);\n
+    if (!v258)\n
+        cgc__terminate(160);\n
+    cgc_memset(v258, 0, 160);\n
+    v257 = \"27002400\";\n
+    v256 = \"TAAwfhYZBDTbayzgoqEhIiYYZLPBss\";\n
+    v24 = v258;\n
+    v25 = v257;\n
+    cgc_memcpy(v24, v25, cgc_strlen(v257, 0));\n
+    v26 = &v258->padding_0[8];\n
+    v27 = v256;\n
+    cgc_memcpy(v26, v27, cgc_strlen(v256, 0));\n
+    v258->field_88 = 28221;\n
+    v258->field_8c = 1091756360;\n
+    v258->field_90 = onsale_fn;\n
+    v258->field_98 = 0;\n
+    cgc_list_insert_at_end(a0, v258);\n
+    v258 = cgc_malloc(160);\n
+    if (!v258)\n
+        cgc__terminate(160);\n
+    cgc_memset(v258, 0, 160);\n
+    v257 = \"23728750\";\n
+    v256 = \"KMLqLPUgFrTS\";\n
+    v20 = v258;\n
+    v21 = v257;\n
+    cgc_memcpy(v20, v21, cgc_strlen(v257, 0));\n
+    v22 = &v258->padding_0[8];\n
+    v23 = v256;\n
+    cgc_memcpy(v22, v23, cgc_strlen(v256, 0));\n
+    v258->field_88 = 28808;\n
+    v258->field_8c = 1065017672;\n
+    v258->field_90 = onsale_fn;\n
+    v258->field_98 = 0;\n
+    cgc_list_insert_at_end(a0, v258);\n
+    v258 = cgc_malloc(160);\n
+    if (!v258)\n
+        cgc__terminate(160);\n
+    cgc_memset(v258, 0, 160);\n
+    v257 = \"27227405\";\n
+    v256 = \"xbIkRMPWFwVechYvOEnobB\";\n
+    v16 = v258;\n
+    v17 = v257;\n
+    cgc_memcpy(v16, v17, cgc_strlen(v257, 0));\n
+    v18 = &v258->padding_0[8];\n
+    v19 = v256;\n
+    cgc_memcpy(v18, v19, cgc_strlen(v256, 0));\n
+    v258->field_88 = 7006;\n
+    v258->field_8c = 0x41100000;\n
+    v258->field_90 = onsale_fn;\n
+    v258->field_98 = 0;\n
+    cgc_list_insert_at_end(a0, v258);\n
+    v258 = cgc_malloc(160);\n
+    if (!v258)\n
+        cgc__terminate(160);\n
+    cgc_memset(v258, 0, 160);\n
+    v257 = \"88925705\";\n
+    v256 = \"aMZLCrgwzBKDLiauIPwEHaX\";\n
+    v12 = v258;\n
+    v13 = v257;\n
+    cgc_memcpy(v12, v13, cgc_strlen(v257, 0));\n
+    v14 = &v258->padding_0[8];\n
+    v15 = v256;\n
+    cgc_memcpy(v14, v15, cgc_strlen(v256, 0));\n
+    v258->field_88 = 6082;\n
+    v258->field_8c = 1088044401;\n
+    v258->field_90 = onsale_fn;\n
+    v258->field_98 = 0;\n
+    cgc_list_insert_at_end(a0, v258);\n
+    v258 = cgc_malloc(160);\n
+    if (!v258)\n
+        cgc__terminate(160);\n
+    cgc_memset(v258, 0, 160);\n
+    v257 = \"60234543\";\n
+    v256 = \"UcWX\";\n
+    v8 = v258;\n
+    v9 = v257;\n
+    cgc_memcpy(v8, v9, cgc_strlen(v257, 0));\n
+    v10 = &v258->padding_0[8];\n
+    v11 = v256;\n
+    cgc_memcpy(v10, v11, cgc_strlen(v256, 0));\n
+    v258->field_88 = 23069;\n
+    v258->field_8c = 1073070735;\n
+    v258->field_90 = onsale_fn;\n
+    v258->field_98 = 0;\n
+    cgc_list_insert_at_end(a0, v258);\n
+    v258 = cgc_malloc(160);\n
+    if (!v258)\n
+        cgc__terminate(160);\n
+    cgc_memset(v258, 0, 160);\n
+    v257 = \"26550548\";\n
+    v256 = \"btg\";\n
+    v4 = v258;\n
+    v5 = v257;\n
+    cgc_memcpy(v4, v5, cgc_strlen(v257, 0));\n
+    v6 = &v258->padding_0[8];\n
+    v7 = v256;\n
+    cgc_memcpy(v6, v7, cgc_strlen(v256, 0));\n
+    v258->field_88 = 57058;\n
+    v258->field_8c = 1089072005;\n
+    v258->field_90 = onsale_fn;\n
+    v258->field_98 = 0;\n
+    cgc_list_insert_at_end(a0, v258);\n
+    v258 = cgc_malloc(160);\n
+    if (!v258)\n
+        cgc__terminate(160);\n
+    cgc_memset(v258, 0, 160);\n
+    v257 = \"80824106\";\n
+    v256 = \"B\";\n
+    v0 = v258;\n
+    v1 = v257;\n
+    cgc_memcpy(v0, v1, cgc_strlen(v257, 0));\n
+    v2 = &v258->padding_0[8];\n
+    v3 = v256;\n
+    cgc_memcpy(v2, v3, cgc_strlen(v256, 0));\n
+    v258->field_88 = 37533;\n
+    v258->field_8c = 1082256261;\n
+    v258->field_90 = onsale_fn;\n
+    v258->field_98 = 0;\n
+    return cgc_list_insert_at_end(a0, v258);\n
+}\n
+", "4228344:sub_4084f8": null, "4228352:cgc_setup": "extern unsigned int inv;\n
+\n
+long long cgc_setup()\n
+{\n
+    cgc_list_init(&inv, cgc_free);\n
+    return cgc_load_inventory(&inv);\n
+}\n
+", "4228389:sub_408525": null, "4228400:cgc_process_cmd": "extern char CMD_ADD;\n
+extern char CMD_BUY;\n
+extern char CMD_CHECK;\n
+extern char CMD_LIST;\n
+extern char CMD_NOSALE;\n
+extern char CMD_ONSALE;\n
+extern char CMD_QUIT;\n
+extern char CMD_RM;\n
+extern char CMD_UPDATE;\n
+\n
+long long cgc_process_cmd()\n
+{\n
+    unsigned short v0;  // [bp-0xe]\n
+    char v1;  // [bp-0xc]\n
+\n
+    v0 = 0;\n
+    if (0 > cgc_recv_bytes(0, &v1, 4))\n
+        cgc__terminate(0);\n
+    if (!cgc_memcmp(&CMD_BUY, &v1, 4))\n
+    {\n
+        v0 = cgc_do_buy();\n
+        return v0;\n
+    }\n
+    if (!cgc_memcmp(&CMD_CHECK, &v1, 4))\n
+    {\n
+        v0 = cgc_do_check();\n
+    }\n
+    else if (!cgc_memcmp(&CMD_ADD, &v1, 4))\n
+    {\n
+        v0 = cgc_do_add();\n
+    }\n
+    else if (!cgc_memcmp(&CMD_RM, &v1, 4))\n
+    {\n
+        v0 = cgc_do_rm();\n
+    }\n
+    else if (!cgc_memcmp(&CMD_UPDATE, &v1, 4))\n
+    {\n
+        v0 = cgc_do_update();\n
+    }\n
+    else if (!cgc_memcmp(&CMD_ONSALE, &v1, 4))\n
+    {\n
+        v0 = cgc_do_onsale();\n
+    }\n
+    else if (!cgc_memcmp(&CMD_NOSALE, &v1, 4))\n
+    {\n
+        v0 = cgc_do_nosale();\n
+    }\n
+    else if (!cgc_memcmp(&CMD_LIST, &v1, 4))\n
+    {\n
+        v0 = cgc_do_list();\n
+    }\n
+    else if (!cgc_memcmp(&CMD_QUIT, &v1, 4))\n
+    {\n
+        v0 = 65534;\n
+    }\n
+    else\n
+    {\n
+        v0 = 65535;\n
+    }\n
+    return v0;\n
+}\n
+", "4228928:cgc_do_buy": "typedef struct struct_1 {\n
+    char padding_0[136];\n
+    unsigned int field_88;\n
+    unsigned int field_8c;\n
+    struct struct_0 *field_90;\n
+} struct_1;\n
+\n
+typedef struct struct_0 {\n
+    struct struct_0 *field_0;\n
+} struct_0;\n
+\n
+extern char BUY_MORE;\n
+extern char BUY_TERM;\n
+\n
+long long cgc_do_buy()\n
+{\n
+    char v0;  // [bp-0x60]\n
+    void* v1;  // [bp-0x38], Other Possible Types: unsigned long\n
+    char v2;  // [bp-0x2c]\n
+    char v3;  // [bp-0x24]\n
+    struct_1 *v4;  // [bp-0x20]\n
+    void* v5;  // [bp-0x18], Other Possible Types: char *\n
+    unsigned int v6;  // [bp-0xc]\n
+\n
+    v5 = 0;\n
+    v4 = 0;\n
+    memset(&v2, 0, 8);\n
+    v1 = 0;\n
+    cgc_list_init(&v0, cgc_free);\n
+    if (0 > cgc_recv_bytes(0, &v3, 4))\n
+        cgc__terminate(0);\n
+    while (!cgc_memcmp(&v3, &BUY_MORE, 4))\n
+    {\n
+        if (0 > cgc_recv_bytes(0, &v2, 8))\n
+            cgc__terminate(0);\n
+        v5 = cgc_get_product_by_barcode(&v2);\n
+        if (!v5)\n
+        {\n
+            cgc_list_destroy(&v0);\n
+            v6 = -1;\n
+            return v6;\n
+        }\n
+        v4 = cgc_malloc(160);\n
+        if (!v4)\n
+            cgc__terminate(160);\n
+        cgc_memcpy(v4, v5, 160);\n
+        cgc_list_insert_at_end(&v0, v4);\n
+        v4->field_90(v4->field_88);\n
+        s_38 =L Conv(128->64, ((0x0<96> CONCAT Load(addr=(Load(addr=stack_base-32, size=8, endness=Iend_LE) + 0x8c<64>), size=4, endness=Iend_LE)) + Conv(64->128, Load(addr=stack_base-56, size=8, endness=Iend_LE))))<8>\n
+        if (0 > cgc_recv_bytes(0, &v3, 4))\n
+            cgc__terminate(0);\n
+    }\n
+    if (cgc_memcmp(&v3, &BUY_TERM, 4))\n
+    {\n
+        cgc_list_destroy(&v0);\n
+        v6 = -1;\n
+        return v6;\n
+    }\n
+    if (cgc_send_bytes(1, &v1, 8) != 8)\n
+        cgc__terminate(1);\n
+    cgc_list_destroy(&v0);\n
+    v6 = 0;\n
+    return v6;\n
+}\n
+", "4229436:sub_40893c": null, "4229440:cgc_do_check": "typedef struct struct_1 {\n
+    char padding_0[136];\n
+    unsigned int field_88;\n
+    unsigned int field_8c;\n
+    struct struct_0 *field_90;\n
+} struct_1;\n
+\n
+typedef struct struct_0 {\n
+    struct struct_0 *field_0;\n
+} struct_0;\n
+\n
+extern unsigned long long DESC_TERM;\n
+\n
+long long cgc_do_check()\n
+{\n
+    unsigned int v0;  // [bp-0x2c]\n
+    unsigned int v1;  // [bp-0x28]\n
+    unsigned int v2;  // [bp-0x24]\n
+    char v3;  // [bp-0x20]\n
+    struct_1 *v4;  // [bp-0x18]\n
+    unsigned int v5;  // [bp-0xc]\n
+\n
+    v4 = 0;\n
+    memset(&v3, 0, 8);\n
+    v2 = 0;\n
+    v1 = 0;\n
+    if (0 > cgc_recv_bytes(0, &v3, 8))\n
+        cgc__terminate(0);\n
+    v4 = cgc_get_product_by_barcode(&v3);\n
+    if (!v4)\n
+    {\n
+        v5 = -1;\n
+        return v5;\n
+    }\n
+    if (cgc_send_bytes(1, &v4->field_88, 4) != 4)\n
+        cgc__terminate(1);\n
+    v4->field_90(v4->field_88);\n
+    v2 = v4->field_8c;\n
+    if (cgc_send_bytes(1, &v2, 4) != 4)\n
+        cgc__terminate(1);\n
+    v1 = cgc_strlen(&v4->padding_0[8], 0);\n
+    if (0 < v1)\n
+    {\n
+        v0 = v1;\n
+        if (v0 != cgc_send_bytes(1, &v4->padding_0[8], v1))\n
+            cgc__terminate(1);\n
+    }\n
+    if (cgc_send_bytes(1, &DESC_TERM, 1) != 1)\n
+        cgc__terminate(1);\n
+    v5 = 0;\n
+    return v5;\n
+}\n
+", "4229845:sub_408ad5": null, "4229856:cgc_do_add": "typedef struct struct_0 {\n
+    char padding_0[144];\n
+    unsigned long long field_90;\n
+    unsigned int field_98;\n
+} struct_0;\n
+\n
+extern unsigned int inv;\n
+extern unsigned long long onsale_fn;\n
+\n
+long long cgc_do_add()\n
+{\n
+    unsigned int v0;  // [bp-0x24]\n
+    void* v1;  // [bp-0x20], Other Possible Types: unsigned long\n
+    struct_0 *v2;  // [bp-0x18]\n
+    unsigned int v3;  // [bp-0xc]\n
+\n
+    v2 = 0;\n
+    v1 = 0;\n
+    v0 = 0;\n
+    v2 = cgc_malloc(160);\n
+    if (!v2)\n
+        cgc__terminate(160);\n
+    v2->field_90 = onsale_fn;\n
+    v2->field_98 = 0;\n
+    if (0 > cgc_recv_bytes(0, v2, 8))\n
+        cgc__terminate(0);\n
+    v1 = cgc_get_product_by_barcode(v2);\n
+    if (v1)\n
+    {\n
+        cgc_free(v2);\n
+        v3 = -1;\n
+        return v3;\n
+    }\n
+    if (0 > cgc_recv_bytes(0, &v2->padding_0[136], 4))\n
+        cgc__terminate(0);\n
+    if (0 > cgc_recv_bytes(0, &v2->padding_0[140], 4))\n
+        cgc__terminate(0);\n
+    v0 = cgc_recv_until_delim_n(0, 237, &v2->padding_0[8], 160);\n
+    if (0 >= v0)\n
+        cgc__terminate(0);\n
+    v2->padding_0[7 + v0] = 0;\n
+    cgc_list_insert_at_end(&inv, v2);\n
+    v3 = 0;\n
+    return v3;\n
+}\n
+", "4230232:sub_408c58": null, "4230240:cgc_do_rm": "extern char inv;\n
+\n
+long long cgc_do_rm()\n
+{\n
+    void* v0;  // [bp-0x28]\n
+    char v1;  // [bp-0x20]\n
+    void* v2;  // [bp-0x18]\n
+    unsigned int v3;  // [bp-0xc]\n
+\n
+    v2 = 0;\n
+    memset(&v1, 0, 8);\n
+    v0 = 0;\n
+    if (0 > cgc_recv_bytes(0, &v1, 8))\n
+        cgc__terminate(0);\n
+    v0 = cgc_list_find_node_with_data(&inv, cgc_prod_has_bc, &v1);\n
+    if (!v0)\n
+    {\n
+        v3 = -1;\n
+        return v3;\n
+    }\n
+    cgc_list_remove_node(&inv, v0);\n
+    cgc_list_destroy_node(&inv, &v0);\n
+    v3 = 0;\n
+    return v3;\n
+}\n
+", "4230417:sub_408d11": null, "4230432:cgc_do_update": "typedef struct struct_1 {\n
+    char padding_0[152];\n
+    unsigned int field_98;\n
+} struct_1;\n
+\n
+long long cgc_do_update()\n
+{\n
+    char v0;  // [bp-0xa8]\n
+    char v1;  // [bp-0x28]\n
+    struct struct_0 **v2;  // [bp-0x20]\n
+    struct_1 *v3;  // [bp-0x18]\n
+    unsigned int v4;  // [bp-0x10]\n
+    unsigned int v5;  // [bp-0xc]\n
+    unsigned long long v7;  // rdi\n
+    unsigned long long v8;  // r8\n
+    unsigned long long v9;  // r9\n
+\n
+    v4 = 0;\n
+    v3 = 0;\n
+    v2 = &cgc_memcpy;\n
+    memset(&v1, 0, 8);\n
+    memset(&v0, 0, 128);\n
+    if (0 > cgc_recv_bytes(0, &v1, 8))\n
+        cgc__terminate(0);\n
+    v3 = cgc_get_product_by_barcode(&v1);\n
+    if (!v3)\n
+    {\n
+        v5 = -1;\n
+        return v5;\n
+    }\n
+    if (0 > cgc_recv_bytes(0, &v3->padding_0[136], 4))\n
+        cgc__terminate(0);\n
+    if (0 > cgc_recv_bytes(0, &v3->padding_0[140], 4))\n
+        cgc__terminate(0);\n
+    v4 = cgc_recv_until_delim_n(0, 237, &v0, 160);\n
+    if (0 >= v4)\n
+        cgc__terminate(0);\n
+    (&v0)[1 + v4] = 0;\n
+    v2(&v3->padding_0[8], &v0, 128);\n
+    v3->field_98 = cgc_get_next_update_serial(v7, 237, 128, 160, v8, v9);\n
+    v5 = 0;\n
+    return v5;\n
+}\n
+", "4230799:sub_408e8f": null, "4230800:cgc_do_onsale": "typedef struct struct_0 {\n
+    char padding_0[144];\n
+    unsigned long long field_90;\n
+} struct_0;\n
+\n
+extern unsigned long long onsale_fn;\n
+\n
+long long cgc_do_onsale()\n
+{\n
+    unsigned int v0;  // [bp-0x24]\n
+    char v1;  // [bp-0x20]\n
+    struct_0 *v2;  // [bp-0x18]\n
+    unsigned int v3;  // [bp-0xc]\n
+\n
+    v2 = 0;\n
+    memset(&v1, 0, 8);\n
+    v0 = 0;\n
+    if (0 > cgc_recv_bytes(0, &v1, 8))\n
+        cgc__terminate(0);\n
+    v2 = cgc_get_product_by_barcode(&v1);\n
+    if (!v2)\n
+    {\n
+        v3 = -1;\n
+        return v3;\n
+    }\n
+    if (0 > cgc_recv_bytes(0, &v0, 4))\n
+        cgc__terminate(0);\n
+    if (100 <= v0)\n
+    {\n
+        v3 = -1;\n
+        return v3;\n
+    }\n
+    v2->field_90 = (&onsale_fn)[v0];\n
+    v3 = 0;\n
+    return v3;\n
+}\n
+", "4231021:sub_408f6d": null, "4231024:cgc_do_nosale": "typedef struct struct_0 {\n
+    char padding_0[144];\n
+    unsigned long long field_90;\n
+} struct_0;\n
+\n
+extern unsigned long long onsale_fn;\n
+\n
+long long cgc_do_nosale()\n
+{\n
+    unsigned int v0;  // [bp-0x24]\n
+    char v1;  // [bp-0x20]\n
+    struct_0 *v2;  // [bp-0x18]\n
+    unsigned int v3;  // [bp-0xc]\n
+\n
+    v2 = 0;\n
+    memset(&v1, 0, 8);\n
+    v0 = 0;\n
+    if (0 > cgc_recv_bytes(0, &v1, 8))\n
+        cgc__terminate(0);\n
+    v2 = cgc_get_product_by_barcode(&v1);\n
+    if (!v2)\n
+    {\n
+        v3 = -1;\n
+        return v3;\n
+    }\n
+    v2->field_90 = onsale_fn;\n
+    v3 = 0;\n
+    return v3;\n
+}\n
+", "4231172:sub_409004": null, "4231184:cgc_do_list": "typedef struct struct_1 {\n
+    char padding_0[136];\n
+    unsigned int field_88;\n
+    unsigned int field_8c;\n
+    struct struct_0 *field_90;\n
+} struct_1;\n
+\n
+typedef struct struct_0 {\n
+    struct struct_0 *field_0;\n
+} struct_0;\n
+\n
+extern unsigned long long DESC_TERM;\n
+extern char inv;\n
+\n
+long long cgc_do_list()\n
+{\n
+    unsigned int v0;  // [bp-0x40]\n
+    char v1;  // [bp-0x39]\n
+    unsigned long v2;  // [bp-0x38]\n
+    struct struct_1 **v3;  // [bp-0x30], Other Possible Types: unsigned long\n
+    unsigned int v4;  // [bp-0x28]\n
+    unsigned int v5;  // [bp-0x24]\n
+    unsigned int v6;  // [bp-0x20]\n
+    char v7;  // [bp-0x1c]\n
+    char v8;  // [bp-0x1b]\n
+    char v9;  // [bp-0x1a]\n
+    char v10;  // [bp-0x19]\n
+    struct_1 *v11;  // [bp-0x18]\n
+    unsigned int v12;  // [bp-0xc]\n
+\n
+    v11 = 0;\n
+    memset(&v7, 0, 4);\n
+    v6 = cgc_list_length(&inv);\n
+    v5 = 0;\n
+    v4 = 0;\n
+    v3 = cgc_list_head_node(&inv);\n
+    v2 = cgc_list_end_marker(&inv);\n
+    if (0 > cgc_recv_bytes(0, &v7, 4))\n
+        cgc__terminate(0);\n
+    if (!v6)\n
+    {\n
+        v12 = -1;\n
+        return v12;\n
+    }\n
+    while (true)\n
+    {\n
+        v1 = 0;\n
+        if (v3)\n
+            v1 = v3 != v2;\n
+        if (!(v1 & 1))\n
+            break;\n
+        v11 = *(v3);\n
+        if (cgc_send_bytes(1, v11, 8) != 8)\n
+            cgc__terminate(1);\n
+        if (!(v7 >> 31 CONCAT v7) /m 2 >> 32 && cgc_send_bytes(1, &v11->field_88, 4) != 4)\n
+            cgc__terminate(1);\n
+        if ((v8 >> 31 CONCAT v8) /m 2 >> 32 && cgc_send_bytes(1, &v11->field_8c, 4) != 4)\n
+            cgc__terminate(1);\n
+        if (!(v9 >> 31 CONCAT v9) /m 2 >> 32)\n
+        {\n
+            v11->field_90(v11->field_88);\n
+            v4 = v11->field_8c;\n
+            if (cgc_send_bytes(1, &v4, 4) != 4)\n
+                cgc__terminate(1);\n
+        }\n
+        if ((v10 >> 31 CONCAT v10) /m 2 >> 32)\n
+        {\n
+            v5 = cgc_strlen(&v11->padding_0[8], 0);\n
+            if (0 < v5)\n
+            {\n
+                v0 = v5;\n
+                if (v0 != cgc_send_bytes(1, &v11->padding_0[8], v5))\n
+                    cgc__terminate(1);\n
+            }\n
+            if (cgc_send_bytes(1, &DESC_TERM, 1) != 1)\n
+                cgc__terminate(1);\n
+        }\n
+        v3 = cgc_list_next_node(v3);\n
+    }\n
+    v12 = 0;\n
+    return v12;\n
+}\n
+", "4231908:sub_4092e4": null, "4231920:cgc_get_product_by_barcode": "extern unsigned int inv;\n
+\n
+long long cgc_get_product_by_barcode(unsigned long long a0)\n
+{\n
+    unsigned long long *v0;  // [bp-0x20]\n
+    void* v1;  // [bp-0x10], Other Possible Types: unsigned long\n
+\n
+    v0 = 0;\n
+    v0 = cgc_list_find_node_with_data(&inv, cgc_prod_has_bc, a0);\n
+    if (!v0)\n
+    {\n
+        v1 = 0;\n
+        return v1;\n
+    }\n
+    v1 = *(v0);\n
+    return v1;\n
+}\n
+", "4232013:sub_40934d": null, "4232016:cgc_prod_has_bc": "long long cgc_prod_has_bc(char *a0, char *a1)\n
+{\n
+    char v0;  // [bp-0x9]\n
+\n
+    if (!cgc_memcmp(a0, a1, 8))\n
+    {\n
+        v0 = 1;\n
+        return v0;\n
+    }\n
+    v0 = 0;\n
+    return v0;\n
+}\n
+", "4232101:sub_4093a5": null, "4232112:cgc_get_next_update_serial": "extern unsigned int cgc_update_serial;\n
+\n
+long long cgc_get_next_update_serial()\n
+{\n
+    unsigned int v0;  // [bp-0x10]\n
+    unsigned int v1;  // [bp-0xc]\n
+\n
+    v1 = *(0x4347c000);\n
+    v0 = v1 + cgc_update_serial;\n
+    cgc_update_serial = cgc_update_serial + 1;\n
+    return v0;\n
+}\n
+", "4232158:sub_4093de": null, "4232160:cgc_sale_0": "double cgc_sale_0(long long a0)\n
+{\n
+    int tmp_49;  // tmp #49\n
+    int tmp_51;  // tmp #51\n
+    int tmp_50;  // tmp #50\n
+    unsigned int v0;  // [bp-0x18]\n
+    unsigned int v1;  // [bp-0x14]\n
+    unsigned int v2;  // [bp-0xc]\n
+\n
+    v2 = a0;\n
+    v1 = 0;\n
+    tmp_49 = SubV(tmp_51, tmp_50);\n
+    *(&v0) = tmp_49;\n
+    return Conv(128->64, ((0x0<96> CONCAT Load(addr=stack_base-24, size=4, endness=Iend_LE)) * Conv(32->128, Load(addr=stack_base-24, size=4, endness=Iend_LE))));\n
+}\n
+", "4232236:sub_40942c": null, "4232240:cgc_sale_1": "double cgc_sale_1(long long a0)\n
+{\n
+    int tmp_49;  // tmp #49\n
+    int tmp_51;  // tmp #51\n
+    int tmp_50;  // tmp #50\n
+    unsigned int v0;  // [bp-0x18]\n
+    unsigned int v1;  // [bp-0x14]\n
+    unsigned int v2;  // [bp-0xc]\n
+\n
+    v2 = a0;\n
+    v1 = 1;\n
+    tmp_49 = SubV(tmp_51, tmp_50);\n
+    *(&v0) = tmp_49;\n
+    return Conv(128->64, ((0x0<96> CONCAT Load(addr=stack_base-24, size=4, endness=Iend_LE)) * Conv(32->128, Load(addr=stack_base-24, size=4, endness=Iend_LE))));\n
+}\n
+", "4232316:sub_40947c": null, "4232320:cgc_sale_2": "double cgc_sale_2(long long a0)\n
+{\n
+    int tmp_49;  // tmp #49\n
+    int tmp_51;  // tmp #51\n
+    int tmp_50;  // tmp #50\n
+    unsigned int v0;  // [bp-0x18]\n
+    unsigned int v1;  // [bp-0x14]\n
+    unsigned int v2;  // [bp-0xc]\n
+\n
+    v2 = a0;\n
+    v1 = 2;\n
+    tmp_49 = SubV(tmp_51, tmp_50);\n
+    *(&v0) = tmp_49;\n
+    return Conv(128->64, ((0x0<96> CONCAT Load(addr=stack_base-24, size=4, endness=Iend_LE)) * Conv(32->128, Load(addr=stack_base-24, size=4, endness=Iend_LE))));\n
+}\n
+", "4232396:sub_4094cc": null, "4232400:cgc_sale_3": "double cgc_sale_3(long long a0)\n
+{\n
+    int tmp_49;  // tmp #49\n
+    int tmp_51;  // tmp #51\n
+    int tmp_50;  // tmp #50\n
+    unsigned int v0;  // [bp-0x18]\n
+    unsigned int v1;  // [bp-0x14]\n
+    unsigned int v2;  // [bp-0xc]\n
+\n
+    v2 = a0;\n
+    v1 = 3;\n
+    tmp_49 = SubV(tmp_51, tmp_50);\n
+    *(&v0) = tmp_49;\n
+    return Conv(128->64, ((0x0<96> CONCAT Load(addr=stack_base-24, size=4, endness=Iend_LE)) * Conv(32->128, Load(addr=stack_base-24, size=4, endness=Iend_LE))));\n
+}\n
+", "4232476:sub_40951c": null, "4232480:cgc_sale_4": "double cgc_sale_4(long long a0)\n
+{\n
+    int tmp_49;  // tmp #49\n
+    int tmp_51;  // tmp #51\n
+    int tmp_50;  // tmp #50\n
+    unsigned int v0;  // [bp-0x18]\n
+    unsigned int v1;  // [bp-0x14]\n
+    unsigned int v2;  // [bp-0xc]\n
+\n
+    v2 = a0;\n
+    v1 = 4;\n
+    tmp_49 = SubV(tmp_51, tmp_50);\n
+    *(&v0) = tmp_49;\n
+    return Conv(128->64, ((0x0<96> CONCAT Load(addr=stack_base-24, size=4, endness=Iend_LE)) * Conv(32->128, Load(addr=stack_base-24, size=4, endness=Iend_LE))));\n
+}\n
+", "4232556:sub_40956c": null, "4232560:cgc_sale_5": "double cgc_sale_5(long long a0)\n
+{\n
+    int tmp_49;  // tmp #49\n
+    int tmp_51;  // tmp #51\n
+    int tmp_50;  // tmp #50\n
+    unsigned int v0;  // [bp-0x18]\n
+    unsigned int v1;  // [bp-0x14]\n
+    unsigned int v2;  // [bp-0xc]\n
+\n
+    v2 = a0;\n
+    v1 = 5;\n
+    tmp_49 = SubV(tmp_51, tmp_50);\n
+    *(&v0) = tmp_49;\n
+    return Conv(128->64, ((0x0<96> CONCAT Load(addr=stack_base-24, size=4, endness=Iend_LE)) * Conv(32->128, Load(addr=stack_base-24, size=4, endness=Iend_LE))));\n
+}\n
+", "4232636:sub_4095bc": null, "4232640:cgc_sale_6": "double cgc_sale_6(long long a0)\n
+{\n
+    int tmp_49;  // tmp #49\n
+    int tmp_51;  // tmp #51\n
+    int tmp_50;  // tmp #50\n
+    unsigned int v0;  // [bp-0x18]\n
+    unsigned int v1;  // [bp-0x14]\n
+    unsigned int v2;  // [bp-0xc]\n
+\n
+    v2 = a0;\n
+    v1 = 6;\n
+    tmp_49 = SubV(tmp_51, tmp_50);\n
+    *(&v0) = tmp_49;\n
+    return Conv(128->64, ((0x0<96> CONCAT Load(addr=stack_base-24, size=4, endness=Iend_LE)) * Conv(32->128, Load(addr=stack_base-24, size=4, endness=Iend_LE))));\n
+}\n
+", "4232716:sub_40960c": null, "4232720:cgc_sale_7": "double cgc_sale_7(long long a0)\n
+{\n
+    int tmp_49;  // tmp #49\n
+    int tmp_51;  // tmp #51\n
+    int tmp_50;  // tmp #50\n
+    unsigned int v0;  // [bp-0x18]\n
+    unsigned int v1;  // [bp-0x14]\n
+    unsigned int v2;  // [bp-0xc]\n
+\n
+    v2 = a0;\n
+    v1 = 7;\n
+    tmp_49 = SubV(tmp_51, tmp_50);\n
+    *(&v0) = tmp_49;\n
+    return Conv(128->64, ((0x0<96> CONCAT Load(addr=stack_base-24, size=4, endness=Iend_LE)) * Conv(32->128, Load(addr=stack_base-24, size=4, endness=Iend_LE))));\n
+}\n
+", "4232796:sub_40965c": null, "4232800:cgc_sale_8": "double cgc_sale_8(long long a0)\n
+{\n
+    int tmp_49;  // tmp #49\n
+    int tmp_51;  // tmp #51\n
+    int tmp_50;  // tmp #50\n
+    unsigned int v0;  // [bp-0x18]\n
+    unsigned int v1;  // [bp-0x14]\n
+    unsigned int v2;  // [bp-0xc]\n
+\n
+    v2 = a0;\n
+    v1 = 8;\n
+    tmp_49 = SubV(tmp_51, tmp_50);\n
+    *(&v0) = tmp_49;\n
+    return Conv(128->64, ((0x0<96> CONCAT Load(addr=stack_base-24, size=4, endness=Iend_LE)) * Conv(32->128, Load(addr=stack_base-24, size=4, endness=Iend_LE))));\n
+}\n
+", "4232876:sub_4096ac": null, "4232880:cgc_sale_9": "double cgc_sale_9(long long a0)\n
+{\n
+    int tmp_49;  // tmp #49\n
+    int tmp_51;  // tmp #51\n
+    int tmp_50;  // tmp #50\n
+    unsigned int v0;  // [bp-0x18]\n
+    unsigned int v1;  // [bp-0x14]\n
+    unsigned int v2;  // [bp-0xc]\n
+\n
+    v2 = a0;\n
+    v1 = 9;\n
+    tmp_49 = SubV(tmp_51, tmp_50);\n
+    *(&v0) = tmp_49;\n
+    return Conv(128->64, ((0x0<96> CONCAT Load(addr=stack_base-24, size=4, endness=Iend_LE)) * Conv(32->128, Load(addr=stack_base-24, size=4, endness=Iend_LE))));\n
+}\n
+", "4232956:sub_4096fc": null, "4232960:cgc_sale_10": "double cgc_sale_10(long long a0)\n
+{\n
+    int tmp_49;  // tmp #49\n
+    int tmp_51;  // tmp #51\n
+    int tmp_50;  // tmp #50\n
+    unsigned int v0;  // [bp-0x18]\n
+    unsigned int v1;  // [bp-0x14]\n
+    unsigned int v2;  // [bp-0xc]\n
+\n
+    v2 = a0;\n
+    v1 = 10;\n
+    tmp_49 = SubV(tmp_51, tmp_50);\n
+    *(&v0) = tmp_49;\n
+    return Conv(128->64, ((0x0<96> CONCAT Load(addr=stack_base-24, size=4, endness=Iend_LE)) * Conv(32->128, Load(addr=stack_base-24, size=4, endness=Iend_LE))));\n
+}\n
+", "4233036:sub_40974c": null, "4233040:cgc_sale_11": "double cgc_sale_11(long long a0)\n
+{\n
+    int tmp_49;  // tmp #49\n
+    int tmp_51;  // tmp #51\n
+    int tmp_50;  // tmp #50\n
+    unsigned int v0;  // [bp-0x18]\n
+    unsigned int v1;  // [bp-0x14]\n
+    unsigned int v2;  // [bp-0xc]\n
+\n
+    v2 = a0;\n
+    v1 = 11;\n
+    tmp_49 = SubV(tmp_51, tmp_50);\n
+    *(&v0) = tmp_49;\n
+    return Conv(128->64, ((0x0<96> CONCAT Load(addr=stack_base-24, size=4, endness=Iend_LE)) * Conv(32->128, Load(addr=stack_base-24, size=4, endness=Iend_LE))));\n
+}\n
+", "4233116:sub_40979c": null, "4233120:cgc_sale_12": "double cgc_sale_12(long long a0)\n
+{\n
+    int tmp_49;  // tmp #49\n
+    int tmp_51;  // tmp #51\n
+    int tmp_50;  // tmp #50\n
+    unsigned int v0;  // [bp-0x18]\n
+    unsigned int v1;  // [bp-0x14]\n
+    unsigned int v2;  // [bp-0xc]\n
+\n
+    v2 = a0;\n
+    v1 = 12;\n
+    tmp_49 = SubV(tmp_51, tmp_50);\n
+    *(&v0) = tmp_49;\n
+    return Conv(128->64, ((0x0<96> CONCAT Load(addr=stack_base-24, size=4, endness=Iend_LE)) * Conv(32->128, Load(addr=stack_base-24, size=4, endness=Iend_LE))));\n
+}\n
+", "4233196:sub_4097ec": null, "4233200:cgc_sale_13": "double cgc_sale_13(long long a0)\n
+{\n
+    int tmp_49;  // tmp #49\n
+    int tmp_51;  // tmp #51\n
+    int tmp_50;  // tmp #50\n
+    unsigned int v0;  // [bp-0x18]\n
+    unsigned int v1;  // [bp-0x14]\n
+    unsigned int v2;  // [bp-0xc]\n
+\n
+    v2 = a0;\n
+    v1 = 13;\n
+    tmp_49 = SubV(tmp_51, tmp_50);\n
+    *(&v0) = tmp_49;\n
+    return Conv(128->64, ((0x0<96> CONCAT Load(addr=stack_base-24, size=4, endness=Iend_LE)) * Conv(32->128, Load(addr=stack_base-24, size=4, endness=Iend_LE))));\n
+}\n
+", "4233276:sub_40983c": null, "4233280:cgc_sale_14": "double cgc_sale_14(long long a0)\n
+{\n
+    int tmp_49;  // tmp #49\n
+    int tmp_51;  // tmp #51\n
+    int tmp_50;  // tmp #50\n
+    unsigned int v0;  // [bp-0x18]\n
+    unsigned int v1;  // [bp-0x14]\n
+    unsigned int v2;  // [bp-0xc]\n
+\n
+    v2 = a0;\n
+    v1 = 14;\n
+    tmp_49 = SubV(tmp_51, tmp_50);\n
+    *(&v0) = tmp_49;\n
+    return Conv(128->64, ((0x0<96> CONCAT Load(addr=stack_base-24, size=4, endness=Iend_LE)) * Conv(32->128, Load(addr=stack_base-24, size=4, endness=Iend_LE))));\n
+}\n
+", "4233356:sub_40988c": null, "4233360:cgc_sale_15": "double cgc_sale_15(long long a0)\n
+{\n
+    int tmp_49;  // tmp #49\n
+    int tmp_51;  // tmp #51\n
+    int tmp_50;  // tmp #50\n
+    unsigned int v0;  // [bp-0x18]\n
+    unsigned int v1;  // [bp-0x14]\n
+    unsigned int v2;  // [bp-0xc]\n
+\n
+    v2 = a0;\n
+    v1 = 15;\n
+    tmp_49 = SubV(tmp_51, tmp_50);\n
+    *(&v0) = tmp_49;\n
+    return Conv(128->64, ((0x0<96> CONCAT Load(addr=stack_base-24, size=4, endness=Iend_LE)) * Conv(32->128, Load(addr=stack_base-24, size=4, endness=Iend_LE))));\n
+}\n
+", "4233436:sub_4098dc": null, "4233440:cgc_sale_16": "double cgc_sale_16(long long a0)\n
+{\n
+    int tmp_49;  // tmp #49\n
+    int tmp_51;  // tmp #51\n
+    int tmp_50;  // tmp #50\n
+    unsigned int v0;  // [bp-0x18]\n
+    unsigned int v1;  // [bp-0x14]\n
+    unsigned int v2;  // [bp-0xc]\n
+\n
+    v2 = a0;\n
+    v1 = 16;\n
+    tmp_49 = SubV(tmp_51, tmp_50);\n
+    *(&v0) = tmp_49;\n
+    return Conv(128->64, ((0x0<96> CONCAT Load(addr=stack_base-24, size=4, endness=Iend_LE)) * Conv(32->128, Load(addr=stack_base-24, size=4, endness=Iend_LE))));\n
+}\n
+", "4233516:sub_40992c": null, "4233520:cgc_sale_17": "double cgc_sale_17(long long a0)\n
+{\n
+    int tmp_49;  // tmp #49\n
+    int tmp_51;  // tmp #51\n
+    int tmp_50;  // tmp #50\n
+    unsigned int v0;  // [bp-0x18]\n
+    unsigned int v1;  // [bp-0x14]\n
+    unsigned int v2;  // [bp-0xc]\n
+\n
+    v2 = a0;\n
+    v1 = 17;\n
+    tmp_49 = SubV(tmp_51, tmp_50);\n
+    *(&v0) = tmp_49;\n
+    return Conv(128->64, ((0x0<96> CONCAT Load(addr=stack_base-24, size=4, endness=Iend_LE)) * Conv(32->128, Load(addr=stack_base-24, size=4, endness=Iend_LE))));\n
+}\n
+", "4233596:sub_40997c": null, "4233600:cgc_sale_18": "double cgc_sale_18(long long a0)\n
+{\n
+    int tmp_49;  // tmp #49\n
+    int tmp_51;  // tmp #51\n
+    int tmp_50;  // tmp #50\n
+    unsigned int v0;  // [bp-0x18]\n
+    unsigned int v1;  // [bp-0x14]\n
+    unsigned int v2;  // [bp-0xc]\n
+\n
+    v2 = a0;\n
+    v1 = 18;\n
+    tmp_49 = SubV(tmp_51, tmp_50);\n
+    *(&v0) = tmp_49;\n
+    return Conv(128->64, ((0x0<96> CONCAT Load(addr=stack_base-24, size=4, endness=Iend_LE)) * Conv(32->128, Load(addr=stack_base-24, size=4, endness=Iend_LE))));\n
+}\n
+", "4233676:sub_4099cc": null, "4233680:cgc_sale_19": "double cgc_sale_19(long long a0)\n
+{\n
+    int tmp_49;  // tmp #49\n
+    int tmp_51;  // tmp #51\n
+    int tmp_50;  // tmp #50\n
+    unsigned int v0;  // [bp-0x18]\n
+    unsigned int v1;  // [bp-0x14]\n
+    unsigned int v2;  // [bp-0xc]\n
+\n
+    v2 = a0;\n
+    v1 = 19;\n
+    tmp_49 = SubV(tmp_51, tmp_50);\n
+    *(&v0) = tmp_49;\n
+    return Conv(128->64, ((0x0<96> CONCAT Load(addr=stack_base-24, size=4, endness=Iend_LE)) * Conv(32->128, Load(addr=stack_base-24, size=4, endness=Iend_LE))));\n
+}\n
+", "4233756:sub_409a1c": null, "4233760:cgc_sale_20": "double cgc_sale_20(long long a0)\n
+{\n
+    int tmp_49;  // tmp #49\n
+    int tmp_51;  // tmp #51\n
+    int tmp_50;  // tmp #50\n
+    unsigned int v0;  // [bp-0x18]\n
+    unsigned int v1;  // [bp-0x14]\n
+    unsigned int v2;  // [bp-0xc]\n
+\n
+    v2 = a0;\n
+    v1 = 20;\n
+    tmp_49 = SubV(tmp_51, tmp_50);\n
+    *(&v0) = tmp_49;\n
+    return Conv(128->64, ((0x0<96> CONCAT Load(addr=stack_base-24, size=4, endness=Iend_LE)) * Conv(32->128, Load(addr=stack_base-24, size=4, endness=Iend_LE))));\n
+}\n
+", "4233836:sub_409a6c": null, "4233840:cgc_sale_21": "double cgc_sale_21(long long a0)\n
+{\n
+    int tmp_49;  // tmp #49\n
+    int tmp_51;  // tmp #51\n
+    int tmp_50;  // tmp #50\n
+    unsigned int v0;  // [bp-0x18]\n
+    unsigned int v1;  // [bp-0x14]\n
+    unsigned int v2;  // [bp-0xc]\n
+\n
+    v2 = a0;\n
+    v1 = 21;\n
+    tmp_49 = SubV(tmp_51, tmp_50);\n
+    *(&v0) = tmp_49;\n
+    return Conv(128->64, ((0x0<96> CONCAT Load(addr=stack_base-24, size=4, endness=Iend_LE)) * Conv(32->128, Load(addr=stack_base-24, size=4, endness=Iend_LE))));\n
+}\n
+", "4233916:sub_409abc": null, "4233920:cgc_sale_22": "double cgc_sale_22(long long a0)\n
+{\n
+    int tmp_49;  // tmp #49\n
+    int tmp_51;  // tmp #51\n
+    int tmp_50;  // tmp #50\n
+    unsigned int v0;  // [bp-0x18]\n
+    unsigned int v1;  // [bp-0x14]\n
+    unsigned int v2;  // [bp-0xc]\n
+\n
+    v2 = a0;\n
+    v1 = 22;\n
+    tmp_49 = SubV(tmp_51, tmp_50);\n
+    *(&v0) = tmp_49;\n
+    return Conv(128->64, ((0x0<96> CONCAT Load(addr=stack_base-24, size=4, endness=Iend_LE)) * Conv(32->128, Load(addr=stack_base-24, size=4, endness=Iend_LE))));\n
+}\n
+", "4233996:sub_409b0c": null, "4234000:cgc_sale_23": "double cgc_sale_23(long long a0)\n
+{\n
+    int tmp_49;  // tmp #49\n
+    int tmp_51;  // tmp #51\n
+    int tmp_50;  // tmp #50\n
+    unsigned int v0;  // [bp-0x18]\n
+    unsigned int v1;  // [bp-0x14]\n
+    unsigned int v2;  // [bp-0xc]\n
+\n
+    v2 = a0;\n
+    v1 = 23;\n
+    tmp_49 = SubV(tmp_51, tmp_50);\n
+    *(&v0) = tmp_49;\n
+    return Conv(128->64, ((0x0<96> CONCAT Load(addr=stack_base-24, size=4, endness=Iend_LE)) * Conv(32->128, Load(addr=stack_base-24, size=4, endness=Iend_LE))));\n
+}\n
+", "4234076:sub_409b5c": null, "4234080:cgc_sale_24": "double cgc_sale_24(long long a0)\n
+{\n
+    int tmp_49;  // tmp #49\n
+    int tmp_51;  // tmp #51\n
+    int tmp_50;  // tmp #50\n
+    unsigned int v0;  // [bp-0x18]\n
+    unsigned int v1;  // [bp-0x14]\n
+    unsigned int v2;  // [bp-0xc]\n
+\n
+    v2 = a0;\n
+    v1 = 24;\n
+    tmp_49 = SubV(tmp_51, tmp_50);\n
+    *(&v0) = tmp_49;\n
+    return Conv(128->64, ((0x0<96> CONCAT Load(addr=stack_base-24, size=4, endness=Iend_LE)) * Conv(32->128, Load(addr=stack_base-24, size=4, endness=Iend_LE))));\n
+}\n
+", "4234156:sub_409bac": null, "4234160:cgc_sale_25": "double cgc_sale_25(long long a0)\n
+{\n
+    int tmp_49;  // tmp #49\n
+    int tmp_51;  // tmp #51\n
+    int tmp_50;  // tmp #50\n
+    unsigned int v0;  // [bp-0x18]\n
+    unsigned int v1;  // [bp-0x14]\n
+    unsigned int v2;  // [bp-0xc]\n
+\n
+    v2 = a0;\n
+    v1 = 25;\n
+    tmp_49 = SubV(tmp_51, tmp_50);\n
+    *(&v0) = tmp_49;\n
+    return Conv(128->64, ((0x0<96> CONCAT Load(addr=stack_base-24, size=4, endness=Iend_LE)) * Conv(32->128, Load(addr=stack_base-24, size=4, endness=Iend_LE))));\n
+}\n
+", "4234236:sub_409bfc": null, "4234240:cgc_sale_26": "double cgc_sale_26(long long a0)\n
+{\n
+    int tmp_49;  // tmp #49\n
+    int tmp_51;  // tmp #51\n
+    int tmp_50;  // tmp #50\n
+    unsigned int v0;  // [bp-0x18]\n
+    unsigned int v1;  // [bp-0x14]\n
+    unsigned int v2;  // [bp-0xc]\n
+\n
+    v2 = a0;\n
+    v1 = 26;\n
+    tmp_49 = SubV(tmp_51, tmp_50);\n
+    *(&v0) = tmp_49;\n
+    return Conv(128->64, ((0x0<96> CONCAT Load(addr=stack_base-24, size=4, endness=Iend_LE)) * Conv(32->128, Load(addr=stack_base-24, size=4, endness=Iend_LE))));\n
+}\n
+", "4234316:sub_409c4c": null, "4234320:cgc_sale_27": "double cgc_sale_27(long long a0)\n
+{\n
+    int tmp_49;  // tmp #49\n
+    int tmp_51;  // tmp #51\n
+    int tmp_50;  // tmp #50\n
+    unsigned int v0;  // [bp-0x18]\n
+    unsigned int v1;  // [bp-0x14]\n
+    unsigned int v2;  // [bp-0xc]\n
+\n
+    v2 = a0;\n
+    v1 = 27;\n
+    tmp_49 = SubV(tmp_51, tmp_50);\n
+    *(&v0) = tmp_49;\n
+    return Conv(128->64, ((0x0<96> CONCAT Load(addr=stack_base-24, size=4, endness=Iend_LE)) * Conv(32->128, Load(addr=stack_base-24, size=4, endness=Iend_LE))));\n
+}\n
+", "4234396:sub_409c9c": null, "4234400:cgc_sale_28": "double cgc_sale_28(long long a0)\n
+{\n
+    int tmp_49;  // tmp #49\n
+    int tmp_51;  // tmp #51\n
+    int tmp_50;  // tmp #50\n
+    unsigned int v0;  // [bp-0x18]\n
+    unsigned int v1;  // [bp-0x14]\n
+    unsigned int v2;  // [bp-0xc]\n
+\n
+    v2 = a0;\n
+    v1 = 28;\n
+    tmp_49 = SubV(tmp_51, tmp_50);\n
+    *(&v0) = tmp_49;\n
+    return Conv(128->64, ((0x0<96> CONCAT Load(addr=stack_base-24, size=4, endness=Iend_LE)) * Conv(32->128, Load(addr=stack_base-24, size=4, endness=Iend_LE))));\n
+}\n
+", "4234476:sub_409cec": null, "4234480:cgc_sale_29": "double cgc_sale_29(long long a0)\n
+{\n
+    int tmp_49;  // tmp #49\n
+    int tmp_51;  // tmp #51\n
+    int tmp_50;  // tmp #50\n
+    unsigned int v0;  // [bp-0x18]\n
+    unsigned int v1;  // [bp-0x14]\n
+    unsigned int v2;  // [bp-0xc]\n
+\n
+    v2 = a0;\n
+    v1 = 29;\n
+    tmp_49 = SubV(tmp_51, tmp_50);\n
+    *(&v0) = tmp_49;\n
+    return Conv(128->64, ((0x0<96> CONCAT Load(addr=stack_base-24, size=4, endness=Iend_LE)) * Conv(32->128, Load(addr=stack_base-24, size=4, endness=Iend_LE))));\n
+}\n
+", "4234556:sub_409d3c": null, "4234560:cgc_sale_30": "double cgc_sale_30(long long a0)\n
+{\n
+    int tmp_49;  // tmp #49\n
+    int tmp_51;  // tmp #51\n
+    int tmp_50;  // tmp #50\n
+    unsigned int v0;  // [bp-0x18]\n
+    unsigned int v1;  // [bp-0x14]\n
+    unsigned int v2;  // [bp-0xc]\n
+\n
+    v2 = a0;\n
+    v1 = 30;\n
+    tmp_49 = SubV(tmp_51, tmp_50);\n
+    *(&v0) = tmp_49;\n
+    return Conv(128->64, ((0x0<96> CONCAT Load(addr=stack_base-24, size=4, endness=Iend_LE)) * Conv(32->128, Load(addr=stack_base-24, size=4, endness=Iend_LE))));\n
+}\n
+", "4234636:sub_409d8c": null, "4234640:cgc_sale_31": "double cgc_sale_31(long long a0)\n
+{\n
+    int tmp_49;  // tmp #49\n
+    int tmp_51;  // tmp #51\n
+    int tmp_50;  // tmp #50\n
+    unsigned int v0;  // [bp-0x18]\n
+    unsigned int v1;  // [bp-0x14]\n
+    unsigned int v2;  // [bp-0xc]\n
+\n
+    v2 = a0;\n
+    v1 = 31;\n
+    tmp_49 = SubV(tmp_51, tmp_50);\n
+    *(&v0) = tmp_49;\n
+    return Conv(128->64, ((0x0<96> CONCAT Load(addr=stack_base-24, size=4, endness=Iend_LE)) * Conv(32->128, Load(addr=stack_base-24, size=4, endness=Iend_LE))));\n
+}\n
+", "4234716:sub_409ddc": null, "4234720:cgc_sale_32": "double cgc_sale_32(long long a0)\n
+{\n
+    int tmp_49;  // tmp #49\n
+    int tmp_51;  // tmp #51\n
+    int tmp_50;  // tmp #50\n
+    unsigned int v0;  // [bp-0x18]\n
+    unsigned int v1;  // [bp-0x14]\n
+    unsigned int v2;  // [bp-0xc]\n
+\n
+    v2 = a0;\n
+    v1 = 32;\n
+    tmp_49 = SubV(tmp_51, tmp_50);\n
+    *(&v0) = tmp_49;\n
+    return Conv(128->64, ((0x0<96> CONCAT Load(addr=stack_base-24, size=4, endness=Iend_LE)) * Conv(32->128, Load(addr=stack_base-24, size=4, endness=Iend_LE))));\n
+}\n
+", "4234796:sub_409e2c": null, "4234800:cgc_sale_33": "double cgc_sale_33(long long a0)\n
+{\n
+    int tmp_49;  // tmp #49\n
+    int tmp_51;  // tmp #51\n
+    int tmp_50;  // tmp #50\n
+    unsigned int v0;  // [bp-0x18]\n
+    unsigned int v1;  // [bp-0x14]\n
+    unsigned int v2;  // [bp-0xc]\n
+\n
+    v2 = a0;\n
+    v1 = 33;\n
+    tmp_49 = SubV(tmp_51, tmp_50);\n
+    *(&v0) = tmp_49;\n
+    return Conv(128->64, ((0x0<96> CONCAT Load(addr=stack_base-24, size=4, endness=Iend_LE)) * Conv(32->128, Load(addr=stack_base-24, size=4, endness=Iend_LE))));\n
+}\n
+", "4234876:sub_409e7c": null, "4234880:cgc_sale_34": "double cgc_sale_34(long long a0)\n
+{\n
+    int tmp_49;  // tmp #49\n
+    int tmp_51;  // tmp #51\n
+    int tmp_50;  // tmp #50\n
+    unsigned int v0;  // [bp-0x18]\n
+    unsigned int v1;  // [bp-0x14]\n
+    unsigned int v2;  // [bp-0xc]\n
+\n
+    v2 = a0;\n
+    v1 = 34;\n
+    tmp_49 = SubV(tmp_51, tmp_50);\n
+    *(&v0) = tmp_49;\n
+    return Conv(128->64, ((0x0<96> CONCAT Load(addr=stack_base-24, size=4, endness=Iend_LE)) * Conv(32->128, Load(addr=stack_base-24, size=4, endness=Iend_LE))));\n
+}\n
+", "4234956:sub_409ecc": null, "4234960:cgc_sale_35": "double cgc_sale_35(long long a0)\n
+{\n
+    int tmp_49;  // tmp #49\n
+    int tmp_51;  // tmp #51\n
+    int tmp_50;  // tmp #50\n
+    unsigned int v0;  // [bp-0x18]\n
+    unsigned int v1;  // [bp-0x14]\n
+    unsigned int v2;  // [bp-0xc]\n
+\n
+    v2 = a0;\n
+    v1 = 35;\n
+    tmp_49 = SubV(tmp_51, tmp_50);\n
+    *(&v0) = tmp_49;\n
+    return Conv(128->64, ((0x0<96> CONCAT Load(addr=stack_base-24, size=4, endness=Iend_LE)) * Conv(32->128, Load(addr=stack_base-24, size=4, endness=Iend_LE))));\n
+}\n
+", "4235036:sub_409f1c": null, "4235040:cgc_sale_36": "double cgc_sale_36(long long a0)\n
+{\n
+    int tmp_49;  // tmp #49\n
+    int tmp_51;  // tmp #51\n
+    int tmp_50;  // tmp #50\n
+    unsigned int v0;  // [bp-0x18]\n
+    unsigned int v1;  // [bp-0x14]\n
+    unsigned int v2;  // [bp-0xc]\n
+\n
+    v2 = a0;\n
+    v1 = 36;\n
+    tmp_49 = SubV(tmp_51, tmp_50);\n
+    *(&v0) = tmp_49;\n
+    return Conv(128->64, ((0x0<96> CONCAT Load(addr=stack_base-24, size=4, endness=Iend_LE)) * Conv(32->128, Load(addr=stack_base-24, size=4, endness=Iend_LE))));\n
+}\n
+", "4235116:sub_409f6c": null, "4235120:cgc_sale_37": "double cgc_sale_37(long long a0)\n
+{\n
+    int tmp_49;  // tmp #49\n
+    int tmp_51;  // tmp #51\n
+    int tmp_50;  // tmp #50\n
+    unsigned int v0;  // [bp-0x18]\n
+    unsigned int v1;  // [bp-0x14]\n
+    unsigned int v2;  // [bp-0xc]\n
+\n
+    v2 = a0;\n
+    v1 = 37;\n
+    tmp_49 = SubV(tmp_51, tmp_50);\n
+    *(&v0) = tmp_49;\n
+    return Conv(128->64, ((0x0<96> CONCAT Load(addr=stack_base-24, size=4, endness=Iend_LE)) * Conv(32->128, Load(addr=stack_base-24, size=4, endness=Iend_LE))));\n
+}\n
+", "4235196:sub_409fbc": null, "4235200:cgc_sale_38": "double cgc_sale_38(long long a0)\n
+{\n
+    int tmp_49;  // tmp #49\n
+    int tmp_51;  // tmp #51\n
+    int tmp_50;  // tmp #50\n
+    unsigned int v0;  // [bp-0x18]\n
+    unsigned int v1;  // [bp-0x14]\n
+    unsigned int v2;  // [bp-0xc]\n
+\n
+    v2 = a0;\n
+    v1 = 38;\n
+    tmp_49 = SubV(tmp_51, tmp_50);\n
+    *(&v0) = tmp_49;\n
+    return Conv(128->64, ((0x0<96> CONCAT Load(addr=stack_base-24, size=4, endness=Iend_LE)) * Conv(32->128, Load(addr=stack_base-24, size=4, endness=Iend_LE))));\n
+}\n
+", "4235276:sub_40a00c": null, "4235280:cgc_sale_39": "double cgc_sale_39(long long a0)\n
+{\n
+    int tmp_49;  // tmp #49\n
+    int tmp_51;  // tmp #51\n
+    int tmp_50;  // tmp #50\n
+    unsigned int v0;  // [bp-0x18]\n
+    unsigned int v1;  // [bp-0x14]\n
+    unsigned int v2;  // [bp-0xc]\n
+\n
+    v2 = a0;\n
+    v1 = 39;\n
+    tmp_49 = SubV(tmp_51, tmp_50);\n
+    *(&v0) = tmp_49;\n
+    return Conv(128->64, ((0x0<96> CONCAT Load(addr=stack_base-24, size=4, endness=Iend_LE)) * Conv(32->128, Load(addr=stack_base-24, size=4, endness=Iend_LE))));\n
+}\n
+", "4235356:sub_40a05c": null, "4235360:cgc_sale_40": "double cgc_sale_40(long long a0)\n
+{\n
+    int tmp_49;  // tmp #49\n
+    int tmp_51;  // tmp #51\n
+    int tmp_50;  // tmp #50\n
+    unsigned int v0;  // [bp-0x18]\n
+    unsigned int v1;  // [bp-0x14]\n
+    unsigned int v2;  // [bp-0xc]\n
+\n
+    v2 = a0;\n
+    v1 = 40;\n
+    tmp_49 = SubV(tmp_51, tmp_50);\n
+    *(&v0) = tmp_49;\n
+    return Conv(128->64, ((0x0<96> CONCAT Load(addr=stack_base-24, size=4, endness=Iend_LE)) * Conv(32->128, Load(addr=stack_base-24, size=4, endness=Iend_LE))));\n
+}\n
+", "4235436:sub_40a0ac": null, "4235440:cgc_sale_41": "double cgc_sale_41(long long a0)\n
+{\n
+    int tmp_49;  // tmp #49\n
+    int tmp_51;  // tmp #51\n
+    int tmp_50;  // tmp #50\n
+    unsigned int v0;  // [bp-0x18]\n
+    unsigned int v1;  // [bp-0x14]\n
+    unsigned int v2;  // [bp-0xc]\n
+\n
+    v2 = a0;\n
+    v1 = 41;\n
+    tmp_49 = SubV(tmp_51, tmp_50);\n
+    *(&v0) = tmp_49;\n
+    return Conv(128->64, ((0x0<96> CONCAT Load(addr=stack_base-24, size=4, endness=Iend_LE)) * Conv(32->128, Load(addr=stack_base-24, size=4, endness=Iend_LE))));\n
+}\n
+", "4235516:sub_40a0fc": null, "4235520:cgc_sale_42": "double cgc_sale_42(long long a0)\n
+{\n
+    int tmp_49;  // tmp #49\n
+    int tmp_51;  // tmp #51\n
+    int tmp_50;  // tmp #50\n
+    unsigned int v0;  // [bp-0x18]\n
+    unsigned int v1;  // [bp-0x14]\n
+    unsigned int v2;  // [bp-0xc]\n
+\n
+    v2 = a0;\n
+    v1 = 42;\n
+    tmp_49 = SubV(tmp_51, tmp_50);\n
+    *(&v0) = tmp_49;\n
+    return Conv(128->64, ((0x0<96> CONCAT Load(addr=stack_base-24, size=4, endness=Iend_LE)) * Conv(32->128, Load(addr=stack_base-24, size=4, endness=Iend_LE))));\n
+}\n
+", "4235596:sub_40a14c": null, "4235600:cgc_sale_43": "double cgc_sale_43(long long a0)\n
+{\n
+    int tmp_49;  // tmp #49\n
+    int tmp_51;  // tmp #51\n
+    int tmp_50;  // tmp #50\n
+    unsigned int v0;  // [bp-0x18]\n
+    unsigned int v1;  // [bp-0x14]\n
+    unsigned int v2;  // [bp-0xc]\n
+\n
+    v2 = a0;\n
+    v1 = 43;\n
+    tmp_49 = SubV(tmp_51, tmp_50);\n
+    *(&v0) = tmp_49;\n
+    return Conv(128->64, ((0x0<96> CONCAT Load(addr=stack_base-24, size=4, endness=Iend_LE)) * Conv(32->128, Load(addr=stack_base-24, size=4, endness=Iend_LE))));\n
+}\n
+", "4235676:sub_40a19c": null, "4235680:cgc_sale_44": "double cgc_sale_44(long long a0)\n
+{\n
+    int tmp_49;  // tmp #49\n
+    int tmp_51;  // tmp #51\n
+    int tmp_50;  // tmp #50\n
+    unsigned int v0;  // [bp-0x18]\n
+    unsigned int v1;  // [bp-0x14]\n
+    unsigned int v2;  // [bp-0xc]\n
+\n
+    v2 = a0;\n
+    v1 = 44;\n
+    tmp_49 = SubV(tmp_51, tmp_50);\n
+    *(&v0) = tmp_49;\n
+    return Conv(128->64, ((0x0<96> CONCAT Load(addr=stack_base-24, size=4, endness=Iend_LE)) * Conv(32->128, Load(addr=stack_base-24, size=4, endness=Iend_LE))));\n
+}\n
+", "4235756:sub_40a1ec": null, "4235760:cgc_sale_45": "double cgc_sale_45(long long a0)\n
+{\n
+    int tmp_49;  // tmp #49\n
+    int tmp_51;  // tmp #51\n
+    int tmp_50;  // tmp #50\n
+    unsigned int v0;  // [bp-0x18]\n
+    unsigned int v1;  // [bp-0x14]\n
+    unsigned int v2;  // [bp-0xc]\n
+\n
+    v2 = a0;\n
+    v1 = 45;\n
+    tmp_49 = SubV(tmp_51, tmp_50);\n
+    *(&v0) = tmp_49;\n
+    return Conv(128->64, ((0x0<96> CONCAT Load(addr=stack_base-24, size=4, endness=Iend_LE)) * Conv(32->128, Load(addr=stack_base-24, size=4, endness=Iend_LE))));\n
+}\n
+", "4235836:sub_40a23c": null, "4235840:cgc_sale_46": "double cgc_sale_46(long long a0)\n
+{\n
+    int tmp_49;  // tmp #49\n
+    int tmp_51;  // tmp #51\n
+    int tmp_50;  // tmp #50\n
+    unsigned int v0;  // [bp-0x18]\n
+    unsigned int v1;  // [bp-0x14]\n
+    unsigned int v2;  // [bp-0xc]\n
+\n
+    v2 = a0;\n
+    v1 = 46;\n
+    tmp_49 = SubV(tmp_51, tmp_50);\n
+    *(&v0) = tmp_49;\n
+    return Conv(128->64, ((0x0<96> CONCAT Load(addr=stack_base-24, size=4, endness=Iend_LE)) * Conv(32->128, Load(addr=stack_base-24, size=4, endness=Iend_LE))));\n
+}\n
+", "4235916:sub_40a28c": null, "4235920:cgc_sale_47": "double cgc_sale_47(long long a0)\n
+{\n
+    int tmp_49;  // tmp #49\n
+    int tmp_51;  // tmp #51\n
+    int tmp_50;  // tmp #50\n
+    unsigned int v0;  // [bp-0x18]\n
+    unsigned int v1;  // [bp-0x14]\n
+    unsigned int v2;  // [bp-0xc]\n
+\n
+    v2 = a0;\n
+    v1 = 47;\n
+    tmp_49 = SubV(tmp_51, tmp_50);\n
+    *(&v0) = tmp_49;\n
+    return Conv(128->64, ((0x0<96> CONCAT Load(addr=stack_base-24, size=4, endness=Iend_LE)) * Conv(32->128, Load(addr=stack_base-24, size=4, endness=Iend_LE))));\n
+}\n
+", "4235996:sub_40a2dc": null, "4236000:cgc_sale_48": "double cgc_sale_48(long long a0)\n
+{\n
+    int tmp_49;  // tmp #49\n
+    int tmp_51;  // tmp #51\n
+    int tmp_50;  // tmp #50\n
+    unsigned int v0;  // [bp-0x18]\n
+    unsigned int v1;  // [bp-0x14]\n
+    unsigned int v2;  // [bp-0xc]\n
+\n
+    v2 = a0;\n
+    v1 = 48;\n
+    tmp_49 = SubV(tmp_51, tmp_50);\n
+    *(&v0) = tmp_49;\n
+    return Conv(128->64, ((0x0<96> CONCAT Load(addr=stack_base-24, size=4, endness=Iend_LE)) * Conv(32->128, Load(addr=stack_base-24, size=4, endness=Iend_LE))));\n
+}\n
+", "4236076:sub_40a32c": null, "4236080:cgc_sale_49": "double cgc_sale_49(long long a0)\n
+{\n
+    int tmp_49;  // tmp #49\n
+    int tmp_51;  // tmp #51\n
+    int tmp_50;  // tmp #50\n
+    unsigned int v0;  // [bp-0x18]\n
+    unsigned int v1;  // [bp-0x14]\n
+    unsigned int v2;  // [bp-0xc]\n
+\n
+    v2 = a0;\n
+    v1 = 49;\n
+    tmp_49 = SubV(tmp_51, tmp_50);\n
+    *(&v0) = tmp_49;\n
+    return Conv(128->64, ((0x0<96> CONCAT Load(addr=stack_base-24, size=4, endness=Iend_LE)) * Conv(32->128, Load(addr=stack_base-24, size=4, endness=Iend_LE))));\n
+}\n
+", "4236156:sub_40a37c": null, "4236160:cgc_sale_50": "double cgc_sale_50(long long a0)\n
+{\n
+    int tmp_49;  // tmp #49\n
+    int tmp_51;  // tmp #51\n
+    int tmp_50;  // tmp #50\n
+    unsigned int v0;  // [bp-0x18]\n
+    unsigned int v1;  // [bp-0x14]\n
+    unsigned int v2;  // [bp-0xc]\n
+\n
+    v2 = a0;\n
+    v1 = 50;\n
+    tmp_49 = SubV(tmp_51, tmp_50);\n
+    *(&v0) = tmp_49;\n
+    return Conv(128->64, ((0x0<96> CONCAT Load(addr=stack_base-24, size=4, endness=Iend_LE)) * Conv(32->128, Load(addr=stack_base-24, size=4, endness=Iend_LE))));\n
+}\n
+", "4236236:sub_40a3cc": null, "4236240:cgc_sale_51": "double cgc_sale_51(long long a0)\n
+{\n
+    int tmp_49;  // tmp #49\n
+    int tmp_51;  // tmp #51\n
+    int tmp_50;  // tmp #50\n
+    unsigned int v0;  // [bp-0x18]\n
+    unsigned int v1;  // [bp-0x14]\n
+    unsigned int v2;  // [bp-0xc]\n
+\n
+    v2 = a0;\n
+    v1 = 51;\n
+    tmp_49 = SubV(tmp_51, tmp_50);\n
+    *(&v0) = tmp_49;\n
+    return Conv(128->64, ((0x0<96> CONCAT Load(addr=stack_base-24, size=4, endness=Iend_LE)) * Conv(32->128, Load(addr=stack_base-24, size=4, endness=Iend_LE))));\n
+}\n
+", "4236316:sub_40a41c": null, "4236320:cgc_sale_52": "double cgc_sale_52(long long a0)\n
+{\n
+    int tmp_49;  // tmp #49\n
+    int tmp_51;  // tmp #51\n
+    int tmp_50;  // tmp #50\n
+    unsigned int v0;  // [bp-0x18]\n
+    unsigned int v1;  // [bp-0x14]\n
+    unsigned int v2;  // [bp-0xc]\n
+\n
+    v2 = a0;\n
+    v1 = 52;\n
+    tmp_49 = SubV(tmp_51, tmp_50);\n
+    *(&v0) = tmp_49;\n
+    return Conv(128->64, ((0x0<96> CONCAT Load(addr=stack_base-24, size=4, endness=Iend_LE)) * Conv(32->128, Load(addr=stack_base-24, size=4, endness=Iend_LE))));\n
+}\n
+", "4236396:sub_40a46c": null, "4236400:cgc_sale_53": "double cgc_sale_53(long long a0)\n
+{\n
+    int tmp_49;  // tmp #49\n
+    int tmp_51;  // tmp #51\n
+    int tmp_50;  // tmp #50\n
+    unsigned int v0;  // [bp-0x18]\n
+    unsigned int v1;  // [bp-0x14]\n
+    unsigned int v2;  // [bp-0xc]\n
+\n
+    v2 = a0;\n
+    v1 = 53;\n
+    tmp_49 = SubV(tmp_51, tmp_50);\n
+    *(&v0) = tmp_49;\n
+    return Conv(128->64, ((0x0<96> CONCAT Load(addr=stack_base-24, size=4, endness=Iend_LE)) * Conv(32->128, Load(addr=stack_base-24, size=4, endness=Iend_LE))));\n
+}\n
+", "4236476:sub_40a4bc": null, "4236480:cgc_sale_54": "double cgc_sale_54(long long a0)\n
+{\n
+    int tmp_49;  // tmp #49\n
+    int tmp_51;  // tmp #51\n
+    int tmp_50;  // tmp #50\n
+    unsigned int v0;  // [bp-0x18]\n
+    unsigned int v1;  // [bp-0x14]\n
+    unsigned int v2;  // [bp-0xc]\n
+\n
+    v2 = a0;\n
+    v1 = 54;\n
+    tmp_49 = SubV(tmp_51, tmp_50);\n
+    *(&v0) = tmp_49;\n
+    return Conv(128->64, ((0x0<96> CONCAT Load(addr=stack_base-24, size=4, endness=Iend_LE)) * Conv(32->128, Load(addr=stack_base-24, size=4, endness=Iend_LE))));\n
+}\n
+", "4236556:sub_40a50c": null, "4236560:cgc_sale_55": "double cgc_sale_55(long long a0)\n
+{\n
+    int tmp_49;  // tmp #49\n
+    int tmp_51;  // tmp #51\n
+    int tmp_50;  // tmp #50\n
+    unsigned int v0;  // [bp-0x18]\n
+    unsigned int v1;  // [bp-0x14]\n
+    unsigned int v2;  // [bp-0xc]\n
+\n
+    v2 = a0;\n
+    v1 = 55;\n
+    tmp_49 = SubV(tmp_51, tmp_50);\n
+    *(&v0) = tmp_49;\n
+    return Conv(128->64, ((0x0<96> CONCAT Load(addr=stack_base-24, size=4, endness=Iend_LE)) * Conv(32->128, Load(addr=stack_base-24, size=4, endness=Iend_LE))));\n
+}\n
+", "4236636:sub_40a55c": null, "4236640:cgc_sale_56": "double cgc_sale_56(long long a0)\n
+{\n
+    int tmp_49;  // tmp #49\n
+    int tmp_51;  // tmp #51\n
+    int tmp_50;  // tmp #50\n
+    unsigned int v0;  // [bp-0x18]\n
+    unsigned int v1;  // [bp-0x14]\n
+    unsigned int v2;  // [bp-0xc]\n
+\n
+    v2 = a0;\n
+    v1 = 56;\n
+    tmp_49 = SubV(tmp_51, tmp_50);\n
+    *(&v0) = tmp_49;\n
+    return Conv(128->64, ((0x0<96> CONCAT Load(addr=stack_base-24, size=4, endness=Iend_LE)) * Conv(32->128, Load(addr=stack_base-24, size=4, endness=Iend_LE))));\n
+}\n
+", "4236716:sub_40a5ac": null, "4236720:cgc_sale_57": "double cgc_sale_57(long long a0)\n
+{\n
+    int tmp_49;  // tmp #49\n
+    int tmp_51;  // tmp #51\n
+    int tmp_50;  // tmp #50\n
+    unsigned int v0;  // [bp-0x18]\n
+    unsigned int v1;  // [bp-0x14]\n
+    unsigned int v2;  // [bp-0xc]\n
+\n
+    v2 = a0;\n
+    v1 = 57;\n
+    tmp_49 = SubV(tmp_51, tmp_50);\n
+    *(&v0) = tmp_49;\n
+    return Conv(128->64, ((0x0<96> CONCAT Load(addr=stack_base-24, size=4, endness=Iend_LE)) * Conv(32->128, Load(addr=stack_base-24, size=4, endness=Iend_LE))));\n
+}\n
+", "4236796:sub_40a5fc": null, "4236800:cgc_sale_58": "double cgc_sale_58(long long a0)\n
+{\n
+    int tmp_49;  // tmp #49\n
+    int tmp_51;  // tmp #51\n
+    int tmp_50;  // tmp #50\n
+    unsigned int v0;  // [bp-0x18]\n
+    unsigned int v1;  // [bp-0x14]\n
+    unsigned int v2;  // [bp-0xc]\n
+\n
+    v2 = a0;\n
+    v1 = 58;\n
+    tmp_49 = SubV(tmp_51, tmp_50);\n
+    *(&v0) = tmp_49;\n
+    return Conv(128->64, ((0x0<96> CONCAT Load(addr=stack_base-24, size=4, endness=Iend_LE)) * Conv(32->128, Load(addr=stack_base-24, size=4, endness=Iend_LE))));\n
+}\n
+", "4236876:sub_40a64c": null, "4236880:cgc_sale_59": "double cgc_sale_59(long long a0)\n
+{\n
+    int tmp_49;  // tmp #49\n
+    int tmp_51;  // tmp #51\n
+    int tmp_50;  // tmp #50\n
+    unsigned int v0;  // [bp-0x18]\n
+    unsigned int v1;  // [bp-0x14]\n
+    unsigned int v2;  // [bp-0xc]\n
+\n
+    v2 = a0;\n
+    v1 = 59;\n
+    tmp_49 = SubV(tmp_51, tmp_50);\n
+    *(&v0) = tmp_49;\n
+    return Conv(128->64, ((0x0<96> CONCAT Load(addr=stack_base-24, size=4, endness=Iend_LE)) * Conv(32->128, Load(addr=stack_base-24, size=4, endness=Iend_LE))));\n
+}\n
+", "4236956:sub_40a69c": null, "4236960:cgc_sale_60": "double cgc_sale_60(long long a0)\n
+{\n
+    int tmp_49;  // tmp #49\n
+    int tmp_51;  // tmp #51\n
+    int tmp_50;  // tmp #50\n
+    unsigned int v0;  // [bp-0x18]\n
+    unsigned int v1;  // [bp-0x14]\n
+    unsigned int v2;  // [bp-0xc]\n
+\n
+    v2 = a0;\n
+    v1 = 60;\n
+    tmp_49 = SubV(tmp_51, tmp_50);\n
+    *(&v0) = tmp_49;\n
+    return Conv(128->64, ((0x0<96> CONCAT Load(addr=stack_base-24, size=4, endness=Iend_LE)) * Conv(32->128, Load(addr=stack_base-24, size=4, endness=Iend_LE))));\n
+}\n
+", "4237036:sub_40a6ec": null, "4237040:cgc_sale_61": "double cgc_sale_61(long long a0)\n
+{\n
+    int tmp_49;  // tmp #49\n
+    int tmp_51;  // tmp #51\n
+    int tmp_50;  // tmp #50\n
+    unsigned int v0;  // [bp-0x18]\n
+    unsigned int v1;  // [bp-0x14]\n
+    unsigned int v2;  // [bp-0xc]\n
+\n
+    v2 = a0;\n
+    v1 = 61;\n
+    tmp_49 = SubV(tmp_51, tmp_50);\n
+    *(&v0) = tmp_49;\n
+    return Conv(128->64, ((0x0<96> CONCAT Load(addr=stack_base-24, size=4, endness=Iend_LE)) * Conv(32->128, Load(addr=stack_base-24, size=4, endness=Iend_LE))));\n
+}\n
+", "4237116:sub_40a73c": null, "4237120:cgc_sale_62": "double cgc_sale_62(long long a0)\n
+{\n
+    int tmp_49;  // tmp #49\n
+    int tmp_51;  // tmp #51\n
+    int tmp_50;  // tmp #50\n
+    unsigned int v0;  // [bp-0x18]\n
+    unsigned int v1;  // [bp-0x14]\n
+    unsigned int v2;  // [bp-0xc]\n
+\n
+    v2 = a0;\n
+    v1 = 62;\n
+    tmp_49 = SubV(tmp_51, tmp_50);\n
+    *(&v0) = tmp_49;\n
+    return Conv(128->64, ((0x0<96> CONCAT Load(addr=stack_base-24, size=4, endness=Iend_LE)) * Conv(32->128, Load(addr=stack_base-24, size=4, endness=Iend_LE))));\n
+}\n
+", "4237196:sub_40a78c": null, "4237200:cgc_sale_63": "double cgc_sale_63(long long a0)\n
+{\n
+    int tmp_49;  // tmp #49\n
+    int tmp_51;  // tmp #51\n
+    int tmp_50;  // tmp #50\n
+    unsigned int v0;  // [bp-0x18]\n
+    unsigned int v1;  // [bp-0x14]\n
+    unsigned int v2;  // [bp-0xc]\n
+\n
+    v2 = a0;\n
+    v1 = 63;\n
+    tmp_49 = SubV(tmp_51, tmp_50);\n
+    *(&v0) = tmp_49;\n
+    return Conv(128->64, ((0x0<96> CONCAT Load(addr=stack_base-24, size=4, endness=Iend_LE)) * Conv(32->128, Load(addr=stack_base-24, size=4, endness=Iend_LE))));\n
+}\n
+", "4237276:sub_40a7dc": null, "4237280:cgc_sale_64": "double cgc_sale_64(long long a0)\n
+{\n
+    int tmp_49;  // tmp #49\n
+    int tmp_51;  // tmp #51\n
+    int tmp_50;  // tmp #50\n
+    unsigned int v0;  // [bp-0x18]\n
+    unsigned int v1;  // [bp-0x14]\n
+    unsigned int v2;  // [bp-0xc]\n
+\n
+    v2 = a0;\n
+    v1 = 64;\n
+    tmp_49 = SubV(tmp_51, tmp_50);\n
+    *(&v0) = tmp_49;\n
+    return Conv(128->64, ((0x0<96> CONCAT Load(addr=stack_base-24, size=4, endness=Iend_LE)) * Conv(32->128, Load(addr=stack_base-24, size=4, endness=Iend_LE))));\n
+}\n
+", "4237356:sub_40a82c": null, "4237360:cgc_sale_65": "double cgc_sale_65(long long a0)\n
+{\n
+    int tmp_49;  // tmp #49\n
+    int tmp_51;  // tmp #51\n
+    int tmp_50;  // tmp #50\n
+    unsigned int v0;  // [bp-0x18]\n
+    unsigned int v1;  // [bp-0x14]\n
+    unsigned int v2;  // [bp-0xc]\n
+\n
+    v2 = a0;\n
+    v1 = 65;\n
+    tmp_49 = SubV(tmp_51, tmp_50);\n
+    *(&v0) = tmp_49;\n
+    return Conv(128->64, ((0x0<96> CONCAT Load(addr=stack_base-24, size=4, endness=Iend_LE)) * Conv(32->128, Load(addr=stack_base-24, size=4, endness=Iend_LE))));\n
+}\n
+", "4237436:sub_40a87c": null, "4237440:cgc_sale_66": "double cgc_sale_66(long long a0)\n
+{\n
+    int tmp_49;  // tmp #49\n
+    int tmp_51;  // tmp #51\n
+    int tmp_50;  // tmp #50\n
+    unsigned int v0;  // [bp-0x18]\n
+    unsigned int v1;  // [bp-0x14]\n
+    unsigned int v2;  // [bp-0xc]\n
+\n
+    v2 = a0;\n
+    v1 = 66;\n
+    tmp_49 = SubV(tmp_51, tmp_50);\n
+    *(&v0) = tmp_49;\n
+    return Conv(128->64, ((0x0<96> CONCAT Load(addr=stack_base-24, size=4, endness=Iend_LE)) * Conv(32->128, Load(addr=stack_base-24, size=4, endness=Iend_LE))));\n
+}\n
+", "4237516:sub_40a8cc": null, "4237520:cgc_sale_67": "double cgc_sale_67(long long a0)\n
+{\n
+    int tmp_49;  // tmp #49\n
+    int tmp_51;  // tmp #51\n
+    int tmp_50;  // tmp #50\n
+    unsigned int v0;  // [bp-0x18]\n
+    unsigned int v1;  // [bp-0x14]\n
+    unsigned int v2;  // [bp-0xc]\n
+\n
+    v2 = a0;\n
+    v1 = 67;\n
+    tmp_49 = SubV(tmp_51, tmp_50);\n
+    *(&v0) = tmp_49;\n
+    return Conv(128->64, ((0x0<96> CONCAT Load(addr=stack_base-24, size=4, endness=Iend_LE)) * Conv(32->128, Load(addr=stack_base-24, size=4, endness=Iend_LE))));\n
+}\n
+", "4237596:sub_40a91c": null, "4237600:cgc_sale_68": "double cgc_sale_68(long long a0)\n
+{\n
+    int tmp_49;  // tmp #49\n
+    int tmp_51;  // tmp #51\n
+    int tmp_50;  // tmp #50\n
+    unsigned int v0;  // [bp-0x18]\n
+    unsigned int v1;  // [bp-0x14]\n
+    unsigned int v2;  // [bp-0xc]\n
+\n
+    v2 = a0;\n
+    v1 = 68;\n
+    tmp_49 = SubV(tmp_51, tmp_50);\n
+    *(&v0) = tmp_49;\n
+    return Conv(128->64, ((0x0<96> CONCAT Load(addr=stack_base-24, size=4, endness=Iend_LE)) * Conv(32->128, Load(addr=stack_base-24, size=4, endness=Iend_LE))));\n
+}\n
+", "4237676:sub_40a96c": null, "4237680:cgc_sale_69": "double cgc_sale_69(long long a0)\n
+{\n
+    int tmp_49;  // tmp #49\n
+    int tmp_51;  // tmp #51\n
+    int tmp_50;  // tmp #50\n
+    unsigned int v0;  // [bp-0x18]\n
+    unsigned int v1;  // [bp-0x14]\n
+    unsigned int v2;  // [bp-0xc]\n
+\n
+    v2 = a0;\n
+    v1 = 69;\n
+    tmp_49 = SubV(tmp_51, tmp_50);\n
+    *(&v0) = tmp_49;\n
+    return Conv(128->64, ((0x0<96> CONCAT Load(addr=stack_base-24, size=4, endness=Iend_LE)) * Conv(32->128, Load(addr=stack_base-24, size=4, endness=Iend_LE))));\n
+}\n
+", "4237756:sub_40a9bc": null, "4237760:cgc_sale_70": "double cgc_sale_70(long long a0)\n
+{\n
+    int tmp_49;  // tmp #49\n
+    int tmp_51;  // tmp #51\n
+    int tmp_50;  // tmp #50\n
+    unsigned int v0;  // [bp-0x18]\n
+    unsigned int v1;  // [bp-0x14]\n
+    unsigned int v2;  // [bp-0xc]\n
+\n
+    v2 = a0;\n
+    v1 = 70;\n
+    tmp_49 = SubV(tmp_51, tmp_50);\n
+    *(&v0) = tmp_49;\n
+    return Conv(128->64, ((0x0<96> CONCAT Load(addr=stack_base-24, size=4, endness=Iend_LE)) * Conv(32->128, Load(addr=stack_base-24, size=4, endness=Iend_LE))));\n
+}\n
+", "4237836:sub_40aa0c": null, "4237840:cgc_sale_71": "double cgc_sale_71(long long a0)\n
+{\n
+    int tmp_49;  // tmp #49\n
+    int tmp_51;  // tmp #51\n
+    int tmp_50;  // tmp #50\n
+    unsigned int v0;  // [bp-0x18]\n
+    unsigned int v1;  // [bp-0x14]\n
+    unsigned int v2;  // [bp-0xc]\n
+\n
+    v2 = a0;\n
+    v1 = 71;\n
+    tmp_49 = SubV(tmp_51, tmp_50);\n
+    *(&v0) = tmp_49;\n
+    return Conv(128->64, ((0x0<96> CONCAT Load(addr=stack_base-24, size=4, endness=Iend_LE)) * Conv(32->128, Load(addr=stack_base-24, size=4, endness=Iend_LE))));\n
+}\n
+", "4237916:sub_40aa5c": null, "4237920:cgc_sale_72": "double cgc_sale_72(long long a0)\n
+{\n
+    int tmp_49;  // tmp #49\n
+    int tmp_51;  // tmp #51\n
+    int tmp_50;  // tmp #50\n
+    unsigned int v0;  // [bp-0x18]\n
+    unsigned int v1;  // [bp-0x14]\n
+    unsigned int v2;  // [bp-0xc]\n
+\n
+    v2 = a0;\n
+    v1 = 72;\n
+    tmp_49 = SubV(tmp_51, tmp_50);\n
+    *(&v0) = tmp_49;\n
+    return Conv(128->64, ((0x0<96> CONCAT Load(addr=stack_base-24, size=4, endness=Iend_LE)) * Conv(32->128, Load(addr=stack_base-24, size=4, endness=Iend_LE))));\n
+}\n
+", "4237996:sub_40aaac": null, "4238000:cgc_sale_73": "double cgc_sale_73(long long a0)\n
+{\n
+    int tmp_49;  // tmp #49\n
+    int tmp_51;  // tmp #51\n
+    int tmp_50;  // tmp #50\n
+    unsigned int v0;  // [bp-0x18]\n
+    unsigned int v1;  // [bp-0x14]\n
+    unsigned int v2;  // [bp-0xc]\n
+\n
+    v2 = a0;\n
+    v1 = 73;\n
+    tmp_49 = SubV(tmp_51, tmp_50);\n
+    *(&v0) = tmp_49;\n
+    return Conv(128->64, ((0x0<96> CONCAT Load(addr=stack_base-24, size=4, endness=Iend_LE)) * Conv(32->128, Load(addr=stack_base-24, size=4, endness=Iend_LE))));\n
+}\n
+", "4238076:sub_40aafc": null, "4238080:cgc_sale_74": "double cgc_sale_74(long long a0)\n
+{\n
+    int tmp_49;  // tmp #49\n
+    int tmp_51;  // tmp #51\n
+    int tmp_50;  // tmp #50\n
+    unsigned int v0;  // [bp-0x18]\n
+    unsigned int v1;  // [bp-0x14]\n
+    unsigned int v2;  // [bp-0xc]\n
+\n
+    v2 = a0;\n
+    v1 = 74;\n
+    tmp_49 = SubV(tmp_51, tmp_50);\n
+    *(&v0) = tmp_49;\n
+    return Conv(128->64, ((0x0<96> CONCAT Load(addr=stack_base-24, size=4, endness=Iend_LE)) * Conv(32->128, Load(addr=stack_base-24, size=4, endness=Iend_LE))));\n
+}\n
+", "4238156:sub_40ab4c": null, "4238160:cgc_sale_75": "double cgc_sale_75(long long a0)\n
+{\n
+    int tmp_49;  // tmp #49\n
+    int tmp_51;  // tmp #51\n
+    int tmp_50;  // tmp #50\n
+    unsigned int v0;  // [bp-0x18]\n
+    unsigned int v1;  // [bp-0x14]\n
+    unsigned int v2;  // [bp-0xc]\n
+\n
+    v2 = a0;\n
+    v1 = 75;\n
+    tmp_49 = SubV(tmp_51, tmp_50);\n
+    *(&v0) = tmp_49;\n
+    return Conv(128->64, ((0x0<96> CONCAT Load(addr=stack_base-24, size=4, endness=Iend_LE)) * Conv(32->128, Load(addr=stack_base-24, size=4, endness=Iend_LE))));\n
+}\n
+", "4238236:sub_40ab9c": null, "4238240:cgc_sale_76": "double cgc_sale_76(long long a0)\n
+{\n
+    int tmp_49;  // tmp #49\n
+    int tmp_51;  // tmp #51\n
+    int tmp_50;  // tmp #50\n
+    unsigned int v0;  // [bp-0x18]\n
+    unsigned int v1;  // [bp-0x14]\n
+    unsigned int v2;  // [bp-0xc]\n
+\n
+    v2 = a0;\n
+    v1 = 76;\n
+    tmp_49 = SubV(tmp_51, tmp_50);\n
+    *(&v0) = tmp_49;\n
+    return Conv(128->64, ((0x0<96> CONCAT Load(addr=stack_base-24, size=4, endness=Iend_LE)) * Conv(32->128, Load(addr=stack_base-24, size=4, endness=Iend_LE))));\n
+}\n
+", "4238316:sub_40abec": null, "4238320:cgc_sale_77": "double cgc_sale_77(long long a0)\n
+{\n
+    int tmp_49;  // tmp #49\n
+    int tmp_51;  // tmp #51\n
+    int tmp_50;  // tmp #50\n
+    unsigned int v0;  // [bp-0x18]\n
+    unsigned int v1;  // [bp-0x14]\n
+    unsigned int v2;  // [bp-0xc]\n
+\n
+    v2 = a0;\n
+    v1 = 77;\n
+    tmp_49 = SubV(tmp_51, tmp_50);\n
+    *(&v0) = tmp_49;\n
+    return Conv(128->64, ((0x0<96> CONCAT Load(addr=stack_base-24, size=4, endness=Iend_LE)) * Conv(32->128, Load(addr=stack_base-24, size=4, endness=Iend_LE))));\n
+}\n
+", "4238396:sub_40ac3c": null, "4238400:cgc_sale_78": "double cgc_sale_78(long long a0)\n
+{\n
+    int tmp_49;  // tmp #49\n
+    int tmp_51;  // tmp #51\n
+    int tmp_50;  // tmp #50\n
+    unsigned int v0;  // [bp-0x18]\n
+    unsigned int v1;  // [bp-0x14]\n
+    unsigned int v2;  // [bp-0xc]\n
+\n
+    v2 = a0;\n
+    v1 = 78;\n
+    tmp_49 = SubV(tmp_51, tmp_50);\n
+    *(&v0) = tmp_49;\n
+    return Conv(128->64, ((0x0<96> CONCAT Load(addr=stack_base-24, size=4, endness=Iend_LE)) * Conv(32->128, Load(addr=stack_base-24, size=4, endness=Iend_LE))));\n
+}\n
+", "4238476:sub_40ac8c": null, "4238480:cgc_sale_79": "double cgc_sale_79(long long a0)\n
+{\n
+    int tmp_49;  // tmp #49\n
+    int tmp_51;  // tmp #51\n
+    int tmp_50;  // tmp #50\n
+    unsigned int v0;  // [bp-0x18]\n
+    unsigned int v1;  // [bp-0x14]\n
+    unsigned int v2;  // [bp-0xc]\n
+\n
+    v2 = a0;\n
+    v1 = 79;\n
+    tmp_49 = SubV(tmp_51, tmp_50);\n
+    *(&v0) = tmp_49;\n
+    return Conv(128->64, ((0x0<96> CONCAT Load(addr=stack_base-24, size=4, endness=Iend_LE)) * Conv(32->128, Load(addr=stack_base-24, size=4, endness=Iend_LE))));\n
+}\n
+", "4238556:sub_40acdc": null, "4238560:cgc_sale_80": "double cgc_sale_80(long long a0)\n
+{\n
+    int tmp_49;  // tmp #49\n
+    int tmp_51;  // tmp #51\n
+    int tmp_50;  // tmp #50\n
+    unsigned int v0;  // [bp-0x18]\n
+    unsigned int v1;  // [bp-0x14]\n
+    unsigned int v2;  // [bp-0xc]\n
+\n
+    v2 = a0;\n
+    v1 = 80;\n
+    tmp_49 = SubV(tmp_51, tmp_50);\n
+    *(&v0) = tmp_49;\n
+    return Conv(128->64, ((0x0<96> CONCAT Load(addr=stack_base-24, size=4, endness=Iend_LE)) * Conv(32->128, Load(addr=stack_base-24, size=4, endness=Iend_LE))));\n
+}\n
+", "4238636:sub_40ad2c": null, "4238640:cgc_sale_81": "double cgc_sale_81(long long a0)\n
+{\n
+    int tmp_49;  // tmp #49\n
+    int tmp_51;  // tmp #51\n
+    int tmp_50;  // tmp #50\n
+    unsigned int v0;  // [bp-0x18]\n
+    unsigned int v1;  // [bp-0x14]\n
+    unsigned int v2;  // [bp-0xc]\n
+\n
+    v2 = a0;\n
+    v1 = 81;\n
+    tmp_49 = SubV(tmp_51, tmp_50);\n
+    *(&v0) = tmp_49;\n
+    return Conv(128->64, ((0x0<96> CONCAT Load(addr=stack_base-24, size=4, endness=Iend_LE)) * Conv(32->128, Load(addr=stack_base-24, size=4, endness=Iend_LE))));\n
+}\n
+", "4238716:sub_40ad7c": null, "4238720:cgc_sale_82": "double cgc_sale_82(long long a0)\n
+{\n
+    int tmp_49;  // tmp #49\n
+    int tmp_51;  // tmp #51\n
+    int tmp_50;  // tmp #50\n
+    unsigned int v0;  // [bp-0x18]\n
+    unsigned int v1;  // [bp-0x14]\n
+    unsigned int v2;  // [bp-0xc]\n
+\n
+    v2 = a0;\n
+    v1 = 82;\n
+    tmp_49 = SubV(tmp_51, tmp_50);\n
+    *(&v0) = tmp_49;\n
+    return Conv(128->64, ((0x0<96> CONCAT Load(addr=stack_base-24, size=4, endness=Iend_LE)) * Conv(32->128, Load(addr=stack_base-24, size=4, endness=Iend_LE))));\n
+}\n
+", "4238796:sub_40adcc": null, "4238800:cgc_sale_83": "double cgc_sale_83(long long a0)\n
+{\n
+    int tmp_49;  // tmp #49\n
+    int tmp_51;  // tmp #51\n
+    int tmp_50;  // tmp #50\n
+    unsigned int v0;  // [bp-0x18]\n
+    unsigned int v1;  // [bp-0x14]\n
+    unsigned int v2;  // [bp-0xc]\n
+\n
+    v2 = a0;\n
+    v1 = 83;\n
+    tmp_49 = SubV(tmp_51, tmp_50);\n
+    *(&v0) = tmp_49;\n
+    return Conv(128->64, ((0x0<96> CONCAT Load(addr=stack_base-24, size=4, endness=Iend_LE)) * Conv(32->128, Load(addr=stack_base-24, size=4, endness=Iend_LE))));\n
+}\n
+", "4238876:sub_40ae1c": null, "4238880:cgc_sale_84": "double cgc_sale_84(long long a0)\n
+{\n
+    int tmp_49;  // tmp #49\n
+    int tmp_51;  // tmp #51\n
+    int tmp_50;  // tmp #50\n
+    unsigned int v0;  // [bp-0x18]\n
+    unsigned int v1;  // [bp-0x14]\n
+    unsigned int v2;  // [bp-0xc]\n
+\n
+    v2 = a0;\n
+    v1 = 84;\n
+    tmp_49 = SubV(tmp_51, tmp_50);\n
+    *(&v0) = tmp_49;\n
+    return Conv(128->64, ((0x0<96> CONCAT Load(addr=stack_base-24, size=4, endness=Iend_LE)) * Conv(32->128, Load(addr=stack_base-24, size=4, endness=Iend_LE))));\n
+}\n
+", "4238956:sub_40ae6c": null, "4238960:cgc_sale_85": "double cgc_sale_85(long long a0)\n
+{\n
+    int tmp_49;  // tmp #49\n
+    int tmp_51;  // tmp #51\n
+    int tmp_50;  // tmp #50\n
+    unsigned int v0;  // [bp-0x18]\n
+    unsigned int v1;  // [bp-0x14]\n
+    unsigned int v2;  // [bp-0xc]\n
+\n
+    v2 = a0;\n
+    v1 = 85;\n
+    tmp_49 = SubV(tmp_51, tmp_50);\n
+    *(&v0) = tmp_49;\n
+    return Conv(128->64, ((0x0<96> CONCAT Load(addr=stack_base-24, size=4, endness=Iend_LE)) * Conv(32->128, Load(addr=stack_base-24, size=4, endness=Iend_LE))));\n
+}\n
+", "4239036:sub_40aebc": null, "4239040:cgc_sale_86": "double cgc_sale_86(long long a0)\n
+{\n
+    int tmp_49;  // tmp #49\n
+    int tmp_51;  // tmp #51\n
+    int tmp_50;  // tmp #50\n
+    unsigned int v0;  // [bp-0x18]\n
+    unsigned int v1;  // [bp-0x14]\n
+    unsigned int v2;  // [bp-0xc]\n
+\n
+    v2 = a0;\n
+    v1 = 86;\n
+    tmp_49 = SubV(tmp_51, tmp_50);\n
+    *(&v0) = tmp_49;\n
+    return Conv(128->64, ((0x0<96> CONCAT Load(addr=stack_base-24, size=4, endness=Iend_LE)) * Conv(32->128, Load(addr=stack_base-24, size=4, endness=Iend_LE))));\n
+}\n
+", "4239116:sub_40af0c": null, "4239120:cgc_sale_87": "double cgc_sale_87(long long a0)\n
+{\n
+    int tmp_49;  // tmp #49\n
+    int tmp_51;  // tmp #51\n
+    int tmp_50;  // tmp #50\n
+    unsigned int v0;  // [bp-0x18]\n
+    unsigned int v1;  // [bp-0x14]\n
+    unsigned int v2;  // [bp-0xc]\n
+\n
+    v2 = a0;\n
+    v1 = 87;\n
+    tmp_49 = SubV(tmp_51, tmp_50);\n
+    *(&v0) = tmp_49;\n
+    return Conv(128->64, ((0x0<96> CONCAT Load(addr=stack_base-24, size=4, endness=Iend_LE)) * Conv(32->128, Load(addr=stack_base-24, size=4, endness=Iend_LE))));\n
+}\n
+", "4239196:sub_40af5c": null, "4239200:cgc_sale_88": "double cgc_sale_88(long long a0)\n
+{\n
+    int tmp_49;  // tmp #49\n
+    int tmp_51;  // tmp #51\n
+    int tmp_50;  // tmp #50\n
+    unsigned int v0;  // [bp-0x18]\n
+    unsigned int v1;  // [bp-0x14]\n
+    unsigned int v2;  // [bp-0xc]\n
+\n
+    v2 = a0;\n
+    v1 = 88;\n
+    tmp_49 = SubV(tmp_51, tmp_50);\n
+    *(&v0) = tmp_49;\n
+    return Conv(128->64, ((0x0<96> CONCAT Load(addr=stack_base-24, size=4, endness=Iend_LE)) * Conv(32->128, Load(addr=stack_base-24, size=4, endness=Iend_LE))));\n
+}\n
+", "4239276:sub_40afac": null, "4239280:cgc_sale_89": "double cgc_sale_89(long long a0)\n
+{\n
+    int tmp_49;  // tmp #49\n
+    int tmp_51;  // tmp #51\n
+    int tmp_50;  // tmp #50\n
+    unsigned int v0;  // [bp-0x18]\n
+    unsigned int v1;  // [bp-0x14]\n
+    unsigned int v2;  // [bp-0xc]\n
+\n
+    v2 = a0;\n
+    v1 = 89;\n
+    tmp_49 = SubV(tmp_51, tmp_50);\n
+    *(&v0) = tmp_49;\n
+    return Conv(128->64, ((0x0<96> CONCAT Load(addr=stack_base-24, size=4, endness=Iend_LE)) * Conv(32->128, Load(addr=stack_base-24, size=4, endness=Iend_LE))));\n
+}\n
+", "4239356:sub_40affc": null, "4239360:cgc_sale_90": "double cgc_sale_90(long long a0)\n
+{\n
+    int tmp_49;  // tmp #49\n
+    int tmp_51;  // tmp #51\n
+    int tmp_50;  // tmp #50\n
+    unsigned int v0;  // [bp-0x18]\n
+    unsigned int v1;  // [bp-0x14]\n
+    unsigned int v2;  // [bp-0xc]\n
+\n
+    v2 = a0;\n
+    v1 = 90;\n
+    tmp_49 = SubV(tmp_51, tmp_50);\n
+    *(&v0) = tmp_49;\n
+    return Conv(128->64, ((0x0<96> CONCAT Load(addr=stack_base-24, size=4, endness=Iend_LE)) * Conv(32->128, Load(addr=stack_base-24, size=4, endness=Iend_LE))));\n
+}\n
+", "4239436:sub_40b04c": null, "4239440:cgc_sale_91": "double cgc_sale_91(long long a0)\n
+{\n
+    int tmp_49;  // tmp #49\n
+    int tmp_51;  // tmp #51\n
+    int tmp_50;  // tmp #50\n
+    unsigned int v0;  // [bp-0x18]\n
+    unsigned int v1;  // [bp-0x14]\n
+    unsigned int v2;  // [bp-0xc]\n
+\n
+    v2 = a0;\n
+    v1 = 91;\n
+    tmp_49 = SubV(tmp_51, tmp_50);\n
+    *(&v0) = tmp_49;\n
+    return Conv(128->64, ((0x0<96> CONCAT Load(addr=stack_base-24, size=4, endness=Iend_LE)) * Conv(32->128, Load(addr=stack_base-24, size=4, endness=Iend_LE))));\n
+}\n
+", "4239516:sub_40b09c": null, "4239520:cgc_sale_92": "double cgc_sale_92(long long a0)\n
+{\n
+    int tmp_49;  // tmp #49\n
+    int tmp_51;  // tmp #51\n
+    int tmp_50;  // tmp #50\n
+    unsigned int v0;  // [bp-0x18]\n
+    unsigned int v1;  // [bp-0x14]\n
+    unsigned int v2;  // [bp-0xc]\n
+\n
+    v2 = a0;\n
+    v1 = 92;\n
+    tmp_49 = SubV(tmp_51, tmp_50);\n
+    *(&v0) = tmp_49;\n
+    return Conv(128->64, ((0x0<96> CONCAT Load(addr=stack_base-24, size=4, endness=Iend_LE)) * Conv(32->128, Load(addr=stack_base-24, size=4, endness=Iend_LE))));\n
+}\n
+", "4239596:sub_40b0ec": null, "4239600:cgc_sale_93": "double cgc_sale_93(long long a0)\n
+{\n
+    int tmp_49;  // tmp #49\n
+    int tmp_51;  // tmp #51\n
+    int tmp_50;  // tmp #50\n
+    unsigned int v0;  // [bp-0x18]\n
+    unsigned int v1;  // [bp-0x14]\n
+    unsigned int v2;  // [bp-0xc]\n
+\n
+    v2 = a0;\n
+    v1 = 93;\n
+    tmp_49 = SubV(tmp_51, tmp_50);\n
+    *(&v0) = tmp_49;\n
+    return Conv(128->64, ((0x0<96> CONCAT Load(addr=stack_base-24, size=4, endness=Iend_LE)) * Conv(32->128, Load(addr=stack_base-24, size=4, endness=Iend_LE))));\n
+}\n
+", "4239676:sub_40b13c": null, "4239680:cgc_sale_94": "double cgc_sale_94(long long a0)\n
+{\n
+    int tmp_49;  // tmp #49\n
+    int tmp_51;  // tmp #51\n
+    int tmp_50;  // tmp #50\n
+    unsigned int v0;  // [bp-0x18]\n
+    unsigned int v1;  // [bp-0x14]\n
+    unsigned int v2;  // [bp-0xc]\n
+\n
+    v2 = a0;\n
+    v1 = 94;\n
+    tmp_49 = SubV(tmp_51, tmp_50);\n
+    *(&v0) = tmp_49;\n
+    return Conv(128->64, ((0x0<96> CONCAT Load(addr=stack_base-24, size=4, endness=Iend_LE)) * Conv(32->128, Load(addr=stack_base-24, size=4, endness=Iend_LE))));\n
+}\n
+", "4239756:sub_40b18c": null, "4239760:cgc_sale_95": "double cgc_sale_95(long long a0)\n
+{\n
+    int tmp_49;  // tmp #49\n
+    int tmp_51;  // tmp #51\n
+    int tmp_50;  // tmp #50\n
+    unsigned int v0;  // [bp-0x18]\n
+    unsigned int v1;  // [bp-0x14]\n
+    unsigned int v2;  // [bp-0xc]\n
+\n
+    v2 = a0;\n
+    v1 = 95;\n
+    tmp_49 = SubV(tmp_51, tmp_50);\n
+    *(&v0) = tmp_49;\n
+    return Conv(128->64, ((0x0<96> CONCAT Load(addr=stack_base-24, size=4, endness=Iend_LE)) * Conv(32->128, Load(addr=stack_base-24, size=4, endness=Iend_LE))));\n
+}\n
+", "4239836:sub_40b1dc": null, "4239840:cgc_sale_96": "double cgc_sale_96(long long a0)\n
+{\n
+    int tmp_49;  // tmp #49\n
+    int tmp_51;  // tmp #51\n
+    int tmp_50;  // tmp #50\n
+    unsigned int v0;  // [bp-0x18]\n
+    unsigned int v1;  // [bp-0x14]\n
+    unsigned int v2;  // [bp-0xc]\n
+\n
+    v2 = a0;\n
+    v1 = 96;\n
+    tmp_49 = SubV(tmp_51, tmp_50);\n
+    *(&v0) = tmp_49;\n
+    return Conv(128->64, ((0x0<96> CONCAT Load(addr=stack_base-24, size=4, endness=Iend_LE)) * Conv(32->128, Load(addr=stack_base-24, size=4, endness=Iend_LE))));\n
+}\n
+", "4239916:sub_40b22c": null, "4239920:cgc_sale_97": "double cgc_sale_97(long long a0)\n
+{\n
+    int tmp_49;  // tmp #49\n
+    int tmp_51;  // tmp #51\n
+    int tmp_50;  // tmp #50\n
+    unsigned int v0;  // [bp-0x18]\n
+    unsigned int v1;  // [bp-0x14]\n
+    unsigned int v2;  // [bp-0xc]\n
+\n
+    v2 = a0;\n
+    v1 = 97;\n
+    tmp_49 = SubV(tmp_51, tmp_50);\n
+    *(&v0) = tmp_49;\n
+    return Conv(128->64, ((0x0<96> CONCAT Load(addr=stack_base-24, size=4, endness=Iend_LE)) * Conv(32->128, Load(addr=stack_base-24, size=4, endness=Iend_LE))));\n
+}\n
+", "4239996:sub_40b27c": null, "4240000:cgc_sale_98": "double cgc_sale_98(long long a0)\n
+{\n
+    int tmp_49;  // tmp #49\n
+    int tmp_51;  // tmp #51\n
+    int tmp_50;  // tmp #50\n
+    unsigned int v0;  // [bp-0x18]\n
+    unsigned int v1;  // [bp-0x14]\n
+    unsigned int v2;  // [bp-0xc]\n
+\n
+    v2 = a0;\n
+    v1 = 98;\n
+    tmp_49 = SubV(tmp_51, tmp_50);\n
+    *(&v0) = tmp_49;\n
+    return Conv(128->64, ((0x0<96> CONCAT Load(addr=stack_base-24, size=4, endness=Iend_LE)) * Conv(32->128, Load(addr=stack_base-24, size=4, endness=Iend_LE))));\n
+}\n
+", "4240076:sub_40b2cc": null, "4240080:cgc_sale_99": "double cgc_sale_99(long long a0)\n
+{\n
+    int tmp_49;  // tmp #49\n
+    int tmp_51;  // tmp #51\n
+    int tmp_50;  // tmp #50\n
+    unsigned int v0;  // [bp-0x18]\n
+    unsigned int v1;  // [bp-0x14]\n
+    unsigned int v2;  // [bp-0xc]\n
+\n
+    v2 = a0;\n
+    v1 = 99;\n
+    tmp_49 = SubV(tmp_51, tmp_50);\n
+    *(&v0) = tmp_49;\n
+    return Conv(128->64, ((0x0<96> CONCAT Load(addr=stack_base-24, size=4, endness=Iend_LE)) * Conv(32->128, Load(addr=stack_base-24, size=4, endness=Iend_LE))));\n
+}\n
+", "4240156:sub_40b31c": null, "4240160:cgc_gen_status_codes": "extern char STATUS_ERR;\n
+extern char STATUS_OK;\n
+extern char STATUS_QUIT;\n
+\n
+long long cgc_gen_status_codes()\n
+{\n
+    unsigned int v0;  // [bp-0x14]\n
+    char *v1;  // [bp-0x10]\n
+    unsigned long v3;  // rax, Other Possible Types: unsigned long long\n
+    char *v4;  // rcx\n
+    char *v5;  // rcx\n
+    char *v6;  // rcx\n
+\n
+    v3 = 0x4347c000;\n
+    v1 = 0x4347c000;\n
+    for (v0 = 0; v0 < 4094; v0 = v3)\n
+    {\n
+        v4 = v0 & 1;\n
+        *((&STATUS_OK + v4)) = *((&STATUS_OK + v4)) ^ v1[v0];\n
+        v5 = v0 + 1 & 1;\n
+        *((&STATUS_ERR + v5)) = *((&STATUS_ERR + v5)) ^ v1[1 + v0];\n
+        v6 = v0 + 2 & 1;\n
+        *((&STATUS_QUIT + v6)) = *((&STATUS_QUIT + v6)) ^ v1[2 + v0];\n
+        v3 = v0 + 3;\n
+    }\n
+    return v3;\n
+}\n
+", "4240363:sub_40b3eb": null, "4240368:cgc_send_status": "long long cgc_send_status(unsigned long long a0)\n
+{\n
+    if (cgc_send_bytes(1, a0, 2) != 2)\n
+        return cgc__terminate(1);\n
+    return 2;\n
+}\n
+", "4240430:sub_40b42e": null, "4240432:main": "extern unsigned long long STATUS_ERR;\n
+extern unsigned long long STATUS_OK;\n
+extern unsigned long long STATUS_QUIT;\n
+\n
+int main(unsigned long a0, unsigned long a1)\n
+{\n
+    unsigned short v0;  // [bp-0x1a]\n
+    unsigned long v1;  // [bp-0x18]\n
+    unsigned int v2;  // [bp-0x10]\n
+    unsigned int v3;  // [bp-0xc]\n
+\n
+    v3 = 0;\n
+    v2 = a0;\n
+    v1 = a1;\n
+    v0 = 0;\n
+    cgc_gen_status_codes();\n
+    cgc_setup();\n
+    while (true)\n
+    {\n
+        v0 = cgc_process_cmd();\n
+        if (!v0)\n
+        {\n
+            cgc_send_status(&STATUS_OK);\n
+        }\n
+        else\n
+        {\n
+            if (v0 != -1)\n
+                break;\n
+            cgc_send_status(&STATUS_ERR);\n
+        }\n
+    }\n
+    cgc_send_status(&STATUS_QUIT);\n
+    return 0;\n
+}\n
+", "4240580:_fini": "long long _fini()\n
+{\n
+    unsigned long v1;  // rax\n
+\n
+    return v1;\n
+}\n
+", "5242880:__libc_start_main": null, "5242888:cgc__terminate": null, "5242896:memset": null, "5242904:cgc_transmit": null, "5242912:cgc_allocate": null, "5242920:cgc_receive": null, "6295632:UnresolvableJumpTarget": null, "6295640:UnresolvableCallTarget": null}

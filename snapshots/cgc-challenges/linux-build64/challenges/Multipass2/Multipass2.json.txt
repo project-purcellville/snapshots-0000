@@ -1,0 +1,1878 @@
+{"4202496:_init": "extern struct_0 *g_407230;\n
+\n
+long long _init()\n
+{\n
+    struct struct_0 **v1;  // rax, Other Possible Types: unsigned long\n
+\n
+    v1 = g_407230;\n
+    if (g_407230)\n
+        v1 = g_407230();\n
+    return v1;\n
+}\n
+", "4202528:sub_402020": "extern unsigned long long g_407250;\n
+\n
+long long sub_402020()\n
+{\n
+    unsigned long v0;  // [bp-0x8]\n
+\n
+    v0 = g_407250;\n
+    goto *(4223576);\n
+}\n
+", "4202540:sub_40202c": null, "4202544:cgc__terminate": "// attributes: PLT stub\n
+int cgc__terminate()\n
+{\n
+    ::libc.so.0::cgc__terminate();\n
+    return;\n
+}\n
+", "4202560:memset": "// attributes: PLT stub\n
+void* memset(void* block, unsigned int c, unsigned int size)\n
+{\n
+    return ::libc.so.0::memset(block, c, size);\n
+}\n
+", "4202576:cgc_transmit": "// attributes: PLT stub\n
+int cgc_transmit()\n
+{\n
+    ::libc.so.0::cgc_transmit();\n
+    return;\n
+}\n
+", "4202592:cgc_allocate": "// attributes: PLT stub\n
+int cgc_allocate()\n
+{\n
+    ::libc.so.0::cgc_allocate();\n
+    return;\n
+}\n
+", "4202608:cgc_deallocate": "// attributes: PLT stub\n
+int cgc_deallocate()\n
+{\n
+    ::libc.so.0::cgc_deallocate();\n
+    return;\n
+}\n
+", "4202624:cgc_receive": "// attributes: PLT stub\n
+int cgc_receive()\n
+{\n
+    ::libc.so.0::cgc_receive();\n
+    return;\n
+}\n
+", "4202640:__cxa_finalize": "// attributes: PLT stub\n
+char * __cxa_finalize()\n
+{\n
+    goto *(4223552);\n
+}\n
+", "4202656:_start": "long long _start()\n
+{\n
+    char v0;  // [bp+0x0], Other Possible Types: unsigned long\n
+    unsigned long v1;  // [bp+0x8]\n
+    unsigned long long v2;  // rsi\n
+    unsigned long v3;  // rax\n
+    unsigned long long v4;  // rdx\n
+\n
+    v2 = *(&v0);\n
+    v0 = v3;\n
+    __libc_start_main(main, v2, &v1, 0, 0, v4); /* do not return */\n
+}\n
+", "4202693:sub_4020c5": null, "4202694:sub_4020c6": null, "4202704:deregister_tm_clones": "extern char __TMC_END__;\n
+extern unsigned long long g_407228;\n
+\n
+long long deregister_tm_clones()\n
+{\n
+    return &__TMC_END__;\n
+}\n
+", "4202745:sub_4020f9": null, "4202752:register_tm_clones": "extern unsigned long long g_407238;\n
+\n
+long long register_tm_clones()\n
+{\n
+    return 0;\n
+}\n
+", "4202809:sub_402139": null, "4202816:__do_global_dtors_aux": "extern char __TMC_END__;\n
+extern unsigned long long g_407240;\n
+\n
+long long __do_global_dtors_aux()\n
+{\n
+    unsigned long v0;  // [bp-0x8]\n
+    unsigned long v2;  // rax\n
+\n
+    if (__TMC_END__)\n
+        return v2;\n
+    *(&v0) = rbp<8>;\n
+    if (!g_407240)\n
+    {\n
+        __TMC_END__ = 1;\n
+        return deregister_tm_clones();\n
+    }\n
+    __cxa_finalize();\n
+}\n
+", "4202869:sub_402175": null, "4202873:sub_402179": null, "4202880:frame_dummy": "long long frame_dummy()\n
+{\n
+    return register_tm_clones();\n
+}\n
+", "4202889:sub_402189": null, "4202896:cgc_list_create": "typedef struct struct_0 {\n
+    unsigned long long field_0;\n
+    unsigned long long field_8;\n
+    unsigned int field_10;\n
+    char padding_14[4];\n
+    unsigned long long field_18;\n
+} struct_0;\n
+\n
+long long cgc_list_create(unsigned long long a0)\n
+{\n
+    unsigned long long v0[3];  // [bp-0x30]\n
+    unsigned long long v1[3];  // [bp-0x28]\n
+    struct_0 *v2;  // [bp-0x20]\n
+    struct_0 *v3;  // [bp-0x10], Other Possible Types: unsigned long\n
+    unsigned long long v5;  // rsi\n
+    unsigned long long v6;  // rdx\n
+\n
+    v2 = 0;\n
+    if (cgc_allocate(a0, v5, v6))\n
+    {\n
+        v3 = 0;\n
+        return v3;\n
+    }\n
+    v1[0] = cgc_node_create(0);\n
+    v0[0] = cgc_node_create(0);\n
+    v1[1] = v0;\n
+    v1[2] = 0;\n
+    v0[1] = 0;\n
+    v0[2] = v1;\n
+    v2->field_0 = v1;\n
+    v2->field_8 = v0;\n
+    v2->field_10 = 0;\n
+    v2->field_18 = a0;\n
+    v3 = v2;\n
+    return v3;\n
+}\n
+", "4203095:sub_402257": null, "4203104:cgc_node_create": "long long cgc_node_create(unsigned long long a0)\n
+{\n
+    unsigned long long v0[3];  // [bp-0x20]\n
+    unsigned long long v1[3];  // [bp-0x10], Other Possible Types: unsigned long\n
+    unsigned long long v3;  // rsi\n
+    unsigned long long v4;  // rdx\n
+\n
+    v0[0] = 0;\n
+    if (cgc_allocate(a0, v3, v4))\n
+    {\n
+        v1[0] = 0;\n
+        return v1;\n
+    }\n
+    v0[0] = a0;\n
+    v0[1] = 0;\n
+    v0[2] = 0;\n
+    v1 = v0;\n
+    return v1;\n
+}\n
+", "4203218:sub_4022d2": null, "4203232:cgc_list_push": "typedef struct struct_2 {\n
+    char padding_0[8];\n
+    struct struct_1 *field_8;\n
+    unsigned int field_10;\n
+} struct_2;\n
+\n
+typedef struct struct_1 {\n
+    char padding_0[16];\n
+    struct struct_0 *field_10;\n
+} struct_1;\n
+\n
+typedef struct struct_0 {\n
+    char padding_0[8];\n
+    unsigned long long field_8;\n
+} struct_0;\n
+\n
+long long cgc_list_push(struct_2 *a0, unsigned long long a1[3], unsigned long long a2)\n
+{\n
+    unsigned int v0;  // [bp-0x2c]\n
+    unsigned int v1;  // [bp-0xc]\n
+\n
+    v0 = 0;\n
+    if (cgc_list_find(a0, a2))\n
+    {\n
+        v1 = 404;\n
+        return v1;\n
+    }\n
+    a1[1] = a0->field_8;\n
+    a1[2] = a0->field_8->field_10;\n
+    a0->field_8->field_10->field_8 = a1;\n
+    a0->field_8->field_10 = &a1[0];\n
+    a0->field_10 = a0->field_10 + 1;\n
+    v1 = v0;\n
+    return v1;\n
+}\n
+", "4203398:sub_402386": null, "4203408:cgc_list_find": "typedef struct struct_3 {\n
+    struct struct_2 *field_0;\n
+    unsigned long long field_8;\n
+    char padding_10[8];\n
+    struct struct_1 *field_18;\n
+} struct_3;\n
+\n
+typedef struct struct_0 {\n
+    char padding_0[8];\n
+    struct struct_0 *field_8;\n
+} struct_0;\n
+\n
+typedef struct struct_2 {\n
+    char padding_0[8];\n
+    struct struct_0 *field_8;\n
+} struct_2;\n
+\n
+typedef struct struct_1 {\n
+    struct struct_1 *field_0;\n
+} struct_1;\n
+\n
+long long cgc_list_find(struct_3 *a0, unsigned long long a1)\n
+{\n
+    char v0;  // [bp-0x29]\n
+    struct_0 *v1;  // [bp-0x28], Other Possible Types: unsigned long\n
+    struct_0 *v2;  // [bp-0x10], Other Possible Types: unsigned long\n
+\n
+    v1 = a0->field_0->field_8;\n
+    while (true)\n
+    {\n
+        v0 = 0;\n
+        if (v1 != a0->field_8)\n
+            v0 = a0->field_18(v1, a1);\n
+        if (!(v0 & 1))\n
+            break;\n
+        v1 = *((v1 + 8));\n
+    }\n
+    if (v1 == a0->field_8)\n
+    {\n
+        v2 = 0;\n
+        return v2;\n
+    }\n
+    v2 = v1;\n
+    return v2;\n
+}\n
+", "4203571:sub_402433": null, "4203584:cgc_list_remove": "typedef struct struct_3 {\n
+    char padding_0[8];\n
+    struct struct_1 *field_8;\n
+    struct struct_2 *field_10;\n
+} struct_3;\n
+\n
+typedef struct struct_0 {\n
+    char padding_0[16];\n
+    unsigned int field_10;\n
+} struct_0;\n
+\n
+typedef struct struct_1 {\n
+    char padding_0[16];\n
+    unsigned long long field_10;\n
+} struct_1;\n
+\n
+typedef struct struct_2 {\n
+    char padding_0[8];\n
+    unsigned long long field_8;\n
+} struct_2;\n
+\n
+long long cgc_list_remove(struct_0 *a0, unsigned long long a1)\n
+{\n
+    struct_3 *v0;  // [bp-0x28]\n
+    struct_3 *v1;  // [bp-0x10], Other Possible Types: unsigned long\n
+\n
+    v0 = 0;\n
+    v0 = cgc_list_find(a0, a1);\n
+    if (!v0)\n
+    {\n
+        v1 = 0;\n
+        return v1;\n
+    }\n
+    v0->field_10->field_8 = v0->field_8;\n
+    v0->field_8->field_10 = v0->field_10;\n
+    a0->field_10 = a0->field_10 - 1;\n
+    v1 = v0;\n
+    return v1;\n
+}\n
+", "4203723:sub_4024cb": null, "4203728:cgc_node_destroy": "long long cgc_node_destroy(unsigned long long a0[3])\n
+{\n
+    unsigned int v0;  // [bp-0x14]\n
+    unsigned long long v2;  // rsi\n
+\n
+    v0 = 0;\n
+    a0[0] = 0;\n
+    a0[1] = 0;\n
+    a0[2] = 0;\n
+    v0 = cgc_deallocate(a0, v2);\n
+    return v0;\n
+}\n
+", "4203808:cgc_send": "long long cgc_send(unsigned long long a0, unsigned long long a1)\n
+{\n
+    if (cgc_transmit_all(1, a0, a1))\n
+    {\n
+        cgc__terminate(1);\n
+        return 0;\n
+    }\n
+    return 0;\n
+}\n
+", "4203869:sub_40255d": null, "4203872:cgc_transmit_all": "long long cgc_transmit_all(unsigned long long a0, unsigned long long a1, unsigned long long a2)\n
+{\n
+    unsigned int v0;  // [bp-0x34]\n
+    void* v1;  // [bp-0x30]\n
+    void* v2;  // [bp-0x28], Other Possible Types: unsigned long\n
+    unsigned int v3;  // [bp-0x10]\n
+    unsigned int v4;  // [bp-0xc]\n
+    unsigned long long v6;  // rcx\n
+\n
+    v3 = a0;\n
+    v2 = 0;\n
+    v1 = 0;\n
+    if (!a1)\n
+    {\n
+        v4 = 1;\n
+        return v4;\n
+    }\n
+    if (!a2)\n
+    {\n
+        v4 = 2;\n
+        return v4;\n
+    }\n
+    while (true)\n
+    {\n
+        if (v2 >= a2)\n
+        {\n
+            v4 = 0;\n
+            return v4;\n
+        }\n
+        v0 = cgc_transmit(a0, a1, a2, v6);\n
+        if (v0)\n
+        {\n
+            v4 = 3;\n
+            return v4;\n
+        }\n
+        v2 = v1 + v2;\n
+    }\n
+}\n
+", "4204058:sub_40261a": null, "4204064:cgc_recv_all": "long long cgc_recv_all(unsigned long long a0, unsigned long long a1)\n
+{\n
+    return cgc_read_all(0, a0, a1);\n
+}\n
+", "4204103:sub_402647": null, "4204112:cgc_read_all": "long long cgc_read_all(unsigned long long a0, char *a1, unsigned long long a2)\n
+{\n
+    char v0;  // [bp-0x30]\n
+    unsigned int v1;  // [bp-0x24]\n
+    char v2;  // [bp-0x1d]\n
+    unsigned int v3;  // [bp-0x1c]\n
+    unsigned int v4;  // [bp-0xc]\n
+    unsigned long v8;  // rcx\n
+\n
+    v4 = a0;\n
+    v3 = a2;\n
+    v1 = 0;\n
+    while (true)\n
+    {\n
+        if (!v3)\n
+            return v1;\n
+        if (cgc_receive(a0, a1, a2, rcx<8>))\n
+            break;\n
+        if (!*(&v0))\n
+            break;\n
+        v8 = v1;\n
+        v1 = v8 + 1;\n
+        a1[v8] = v2;\n
+        v3 -= 1;\n
+    }\n
+    return v1;\n
+}\n
+", "4204239:sub_4026cf": null, "4204240:cgc_strlen": "long long cgc_strlen(char *a0)\n
+{\n
+    void* v0;  // [bp-0x18], Other Possible Types: unsigned long\n
+    char *v1;  // [bp-0x10], Other Possible Types: unsigned long\n
+    char *v3;  // rax\n
+\n
+    v1 = a0;\n
+    v0 = 0;\n
+    while (true)\n
+    {\n
+        v3 = v1;\n
+        v1 = v3 + 1;\n
+        if (!*(v3))\n
+            break;\n
+        v0 += 1;\n
+    }\n
+    return v0;\n
+}\n
+", "4204303:sub_40270f": null, "4204304:cgc_memset": "long long cgc_memset(char *a0, unsigned long a1, unsigned long a2)\n
+{\n
+    char *v0;  // [bp-0x20], Other Possible Types: unsigned long\n
+    unsigned int v1;  // [bp-0x18]\n
+    unsigned int v3;  // eax\n
+    char *v4;  // rax\n
+\n
+    v1 = a2;\n
+    v0 = a0;\n
+    while (true)\n
+    {\n
+        v3 = v1;\n
+        v1 = v3 - 1;\n
+        if (!v3)\n
+            break;\n
+        v4 = v0;\n
+        v0 = v4 + 1;\n
+        *(v4) = a1;\n
+    }\n
+    return a0;\n
+}\n
+", "4204379:sub_40275b": null, "4204384:cgc_transaction_node_contains": "typedef struct struct_0 {\n
+    char padding_0[8];\n
+    unsigned int field_8;\n
+} struct_0;\n
+\n
+long long cgc_transaction_node_contains(struct struct_0 **a0, unsigned int *a1)\n
+{\n
+    struct_0 *v0;  // [bp-0x28]\n
+    unsigned int v1;  // [bp-0xc]\n
+\n
+    v0 = *(a0);\n
+    if (v0->field_8 == *(a1))\n
+    {\n
+        v1 = 0;\n
+        return v1;\n
+    }\n
+    v1 = 1;\n
+    return v1;\n
+}\n
+", "4204458:sub_4027aa": null, "4204464:cgc_card_node_contains": "long long cgc_card_node_contains(struct struct_0 **a0, unsigned int *a1)\n
+{\n
+    unsigned int *v0;  // [bp-0x28]\n
+    unsigned int v1;  // [bp-0xc]\n
+\n
+    v0 = &*(a0)->field_0;\n
+    if (*(v0) == *(a1))\n
+    {\n
+        v1 = 0;\n
+        return v1;\n
+    }\n
+    v1 = 1;\n
+    return v1;\n
+}\n
+", "4204537:sub_4027f9": null, "4204544:cgc_card_create": "extern unsigned int next_card_auth_code;\n
+extern unsigned int next_card_id;\n
+\n
+long long cgc_card_create(struct struct_0 **a0, unsigned long long a1, unsigned long long a2)\n
+{\n
+    unsigned int v0;  // [bp-0x1c]\n
+    unsigned int v1;  // [bp-0xc]\n
+\n
+    v0 = a1;\n
+    if (cgc_allocate(a0, a1, a2))\n
+    {\n
+        v1 = 3;\n
+        return v1;\n
+    }\n
+    *(a0)->field_8 = a2;\n
+    *(a0)->field_0 = next_card_id;\n
+    *(a0)->field_4 = next_card_auth_code;\n
+    next_card_id = next_card_id + 1;\n
+    next_card_auth_code = next_card_auth_code + 1;\n
+    v1 = 0;\n
+    return v1;\n
+}\n
+", "4204692:sub_402894": null, "4204704:cgc_card_add_to_list": "long long cgc_card_add_to_list(unsigned long long a0, void* a1)\n
+{\n
+    unsigned long long v0[3];  // [bp-0x28]\n
+    unsigned int v1;  // [bp-0xc]\n
+\n
+    v0[0] = cgc_node_create(a0);\n
+    if (cgc_list_push(a1, v0, a0))\n
+    {\n
+        v1 = 1;\n
+        return v1;\n
+    }\n
+    v1 = 0;\n
+    return v1;\n
+}\n
+", "4204790:sub_4028f6": null, "4204800:cgc_card_create_and_add_to_list": "typedef struct struct_0 {\n
+    char padding_0[16];\n
+    unsigned int field_10;\n
+} struct_0;\n
+\n
+long long cgc_card_create_and_add_to_list(unsigned long long *a0, struct_0 *a1, unsigned long a2)\n
+{\n
+    unsigned int v0;  // [bp-0xc]\n
+\n
+    if (cgc_card_create(a0, a1->field_10, a2))\n
+    {\n
+        v0 = cgc_card_create(a0, a1->field_10, a2);\n
+        return v0;\n
+    }\n
+    else if (cgc_card_add_to_list(*(a0), a1))\n
+    {\n
+        v0 = cgc_card_add_to_list(*(a0), a1);\n
+        return v0;\n
+    }\n
+    else\n
+    {\n
+        v0 = 0;\n
+        return v0;\n
+    }\n
+}\n
+", "4204945:sub_402991": null, "4204960:cgc_card_get": "long long cgc_card_get(unsigned long long *a0, unsigned long a1, void* a2)\n
+{\n
+    unsigned long long *v0;  // [bp-0x30]\n
+    unsigned int v1;  // [bp-0x1c]\n
+    unsigned int v2;  // [bp-0xc]\n
+\n
+    v1 = a1;\n
+    v0 = 0;\n
+    v0 = cgc_list_find(a2, &a1);\n
+    if (!v0)\n
+    {\n
+        v2 = 15;\n
+        return v2;\n
+    }\n
+    *(a0) = *(v0);\n
+    v2 = 0;\n
+    return v2;\n
+}\n
+", "4205060:sub_402a04": null, "4205072:cgc_card_is_valid": "typedef struct struct_0 {\n
+    char padding_0[4];\n
+    unsigned int field_4;\n
+} struct_0;\n
+\n
+long long cgc_card_is_valid(unsigned long a0, unsigned long a1, void* a2)\n
+{\n
+    struct_0 *v0;  // [bp-0x28]\n
+    unsigned int v1;  // [bp-0xc]\n
+\n
+    v0 = 0;\n
+    if (cgc_card_get(&v0, a0, a2))\n
+    {\n
+        v1 = 16;\n
+        return v1;\n
+    }\n
+    else if (v0->field_4 == a1)\n
+    {\n
+        v1 = 0;\n
+        return v1;\n
+    }\n
+    else\n
+    {\n
+        v1 = 16;\n
+        return v1;\n
+    }\n
+}\n
+", "4205182:sub_402a7e": null, "4205184:cgc_card_purchase": "typedef struct struct_0 {\n
+    char padding_0[8];\n
+    unsigned int field_8;\n
+} struct_0;\n
+\n
+long long cgc_card_purchase(unsigned long a0, void* a1, unsigned long a2)\n
+{\n
+    struct_0 *v0;  // [bp-0x28]\n
+    unsigned int v1;  // [bp-0x20]\n
+    unsigned int v2;  // [bp-0xc]\n
+    struct_0 *v4;  // rax\n
+\n
+    v1 = 0;\n
+    v0 = 0;\n
+    if (cgc_card_get(&v0, a0, a1))\n
+    {\n
+        v2 = cgc_card_get(&v0, a0, a1);\n
+        return v2;\n
+    }\n
+    else if (v0->field_8 >= a2)\n
+    {\n
+        v4 = v0;\n
+        v4->field_8 = v4->field_8 - a2;\n
+        v2 = 0;\n
+        return v2;\n
+    }\n
+    else\n
+    {\n
+        v2 = 5;\n
+        return v2;\n
+    }\n
+}\n
+", "4205333:sub_402b15": null, "4205344:cgc_card_recharge": "typedef struct struct_0 {\n
+    char padding_0[8];\n
+    unsigned int field_8;\n
+} struct_0;\n
+\n
+long long cgc_card_recharge(unsigned long a0, void* a1, unsigned long a2)\n
+{\n
+    struct_0 *v0;  // [bp-0x28]\n
+    unsigned int v1;  // [bp-0xc]\n
+    struct_0 *v3;  // rax\n
+\n
+    v0 = 0;\n
+    if (cgc_card_get(&v0, a0, a1))\n
+    {\n
+        v1 = cgc_card_get(&v0, a0, a1);\n
+        return v1;\n
+    }\n
+    else if (v0->field_8 + a2 >= a2)\n
+    {\n
+        v3 = v0;\n
+        v3->field_8 = a2 + v3->field_8;\n
+        v1 = 0;\n
+        return v1;\n
+    }\n
+    else\n
+    {\n
+        v1 = 6;\n
+        return v1;\n
+    }\n
+}\n
+", "4205487:sub_402baf": null, "4205488:cgc_card_get_balance": "typedef struct struct_0 {\n
+    char padding_0[8];\n
+    unsigned int field_8;\n
+} struct_0;\n
+\n
+long long cgc_card_get_balance(unsigned long a0, void* a1, unsigned int *a2)\n
+{\n
+    struct_0 *v0;  // [bp-0x28]\n
+    unsigned int v1;  // [bp-0xc]\n
+\n
+    v0 = 0;\n
+    if (!cgc_card_get(&v0, a0, a1))\n
+    {\n
+        *(a2) = v0->field_8;\n
+        v1 = 0;\n
+        return v1;\n
+    }\n
+    v1 = cgc_card_get(&v0, a0, a1);\n
+    return v1;\n
+}\n
+", "4205596:sub_402c1c": null, "4205600:cgc_card_refund": "typedef struct struct_2 {\n
+    char padding_0[4];\n
+    unsigned int field_4;\n
+    char padding_8[8];\n
+    struct struct_1 *field_10;\n
+} struct_2;\n
+\n
+typedef struct struct_0 {\n
+    char padding_0[8];\n
+    unsigned int field_8;\n
+} struct_0;\n
+\n
+typedef struct struct_1 {\n
+    char padding_0[4];\n
+    unsigned int field_4;\n
+} struct_1;\n
+\n
+long long cgc_card_refund(unsigned long a0, void* a1, struct_2 *a2)\n
+{\n
+    struct_1 *v0;  // [bp-0x30]\n
+    struct_0 *v1;  // [bp-0x28]\n
+    unsigned int v2;  // [bp-0xc]\n
+    struct_0 *v4;  // rax\n
+\n
+    if (a0 != a2->field_4)\n
+    {\n
+        v2 = 15;\n
+        return v2;\n
+    }\n
+    v1 = 0;\n
+    if (cgc_card_get(&v1, a0, a1))\n
+    {\n
+        v2 = cgc_card_get(&v1, a0, a1);\n
+        return v2;\n
+    }\n
+    v0 = a2->field_10;\n
+    if (v1->field_8 + v0->field_4 < v0->field_4)\n
+    {\n
+        v2 = 7;\n
+        return v2;\n
+    }\n
+    v4 = v1;\n
+    v4->field_8 = v0->field_4 + v4->field_8;\n
+    v2 = 0;\n
+    return v2;\n
+}\n
+", "4205796:sub_402ce4": null, "4205808:cgc_transaction_create": "typedef struct struct_0 {\n
+    unsigned int field_0;\n
+    unsigned int field_4;\n
+    unsigned int field_8;\n
+    char padding_c[4];\n
+    unsigned long long field_10;\n
+} struct_0;\n
+\n
+extern unsigned int next_transaction_id;\n
+\n
+long long cgc_transaction_create(struct struct_0 **a0, unsigned long long a1, unsigned int a2[3])\n
+{\n
+    unsigned int v0;  // [bp-0x1c]\n
+    unsigned int v1;  // [bp-0xc]\n
+    struct_0 *v3;  // rax\n
+    struct_0 *v4;  // rax\n
+\n
+    v0 = a1;\n
+    if (cgc_allocate(a0, a1, a2))\n
+    {\n
+        v1 = 3;\n
+        return v1;\n
+    }\n
+    v3 = *(a0);\n
+    v3->field_0 = v3->field_0 & -0x100 | (a2[2] >> 8) & 255 & 255;\n
+    v4 = *(a0);\n
+    v4->field_0 = v4->field_0 & -65281 | (a2[2] & 255 & 255) * 0x100;\n
+    *(a0)->field_4 = a2[0];\n
+    *(a0)->field_8 = next_transaction_id;\n
+    *(a0)->field_10 = 0;\n
+    next_transaction_id = next_transaction_id + 1;\n
+    v1 = 0;\n
+    return v1;\n
+}\n
+", "4206027:sub_402dcb": null, "4206032:cgc_transaction_add_to_list": "long long cgc_transaction_add_to_list(unsigned long long a0, void* a1)\n
+{\n
+    unsigned long long v0[3];  // [bp-0x28]\n
+    unsigned int v1;  // [bp-0xc]\n
+\n
+    v0[0] = cgc_node_create(a0);\n
+    if (cgc_list_push(a1, v0, a0 + 8))\n
+    {\n
+        v1 = 1;\n
+        return v1;\n
+    }\n
+    v1 = 0;\n
+    return v1;\n
+}\n
+", "4206122:sub_402e2a": null, "4206128:cgc_transaction_create_and_add_to_list": "typedef struct struct_0 {\n
+    char padding_0[16];\n
+    unsigned int field_10;\n
+} struct_0;\n
+\n
+long long cgc_transaction_create_and_add_to_list(struct struct_1 **a0, struct_0 *a1, unsigned int a2[3], unsigned long a3)\n
+{\n
+    unsigned int v0;  // [bp-0xc]\n
+\n
+    if (cgc_transaction_create(a0, a1->field_10, a2))\n
+    {\n
+        v0 = cgc_transaction_create(a0, a1->field_10, a2);\n
+        return v0;\n
+    }\n
+    *(a0)->field_4 = a3;\n
+    if (!cgc_transaction_add_to_list(*(a0), a1))\n
+    {\n
+        v0 = 0;\n
+        return v0;\n
+    }\n
+    v0 = cgc_transaction_add_to_list(*(a0), a1);\n
+    return v0;\n
+}\n
+", "4206292:sub_402ed4": null, "4206304:cgc_transaction_get": "long long cgc_transaction_get(struct struct_0 **a0, unsigned long a1, unsigned long a2, void* a3)\n
+{\n
+    unsigned long long *v0;  // [bp-0x30]\n
+    unsigned int v1;  // [bp-0x1c]\n
+    unsigned int v2;  // [bp-0xc]\n
+\n
+    v1 = a1;\n
+    v0 = 0;\n
+    v0 = cgc_list_find(a3, &v1);\n
+    if (!v0)\n
+    {\n
+        v2 = 15;\n
+        return v2;\n
+    }\n
+    *(a0) = *(v0);\n
+    if ((*(a0)->field_0 & 255) != a2)\n
+    {\n
+        v2 = 15;\n
+        return v2;\n
+    }\n
+    v2 = 0;\n
+    return v2;\n
+}\n
+", "4206442:sub_402f6a": null, "4206448:cgc_transaction_update_state": "long long cgc_transaction_update_state(struct struct_0 **a0, unsigned long a1)\n
+{\n
+    unsigned int *v1;  // rax\n
+\n
+    v1 = *(a0);\n
+    *(v1) = *(v1) & -65281 | a1 * 0x100;\n
+    return v1;\n
+}\n
+", "4206492:sub_402f9c": null, "4206496:cgc_transaction_set_details": "typedef struct struct_0 {\n
+    char padding_0[16];\n
+    unsigned long long field_10;\n
+} struct_0;\n
+\n
+long long cgc_transaction_set_details(struct struct_0 **a0, unsigned long a1)\n
+{\n
+    struct_0 *v1;  // rax\n
+\n
+    v1 = *(a0);\n
+    v1->field_10 = a1;\n
+    return v1;\n
+}\n
+", "4206525:sub_402fbd": null, "4206528:cgc_transaction_get_and_verify_purchase_id": "long long cgc_transaction_get_and_verify_purchase_id(void* a0, unsigned int a1[2], struct struct_0 **a2)\n
+{\n
+    unsigned int *v0;  // [bp-0x30]\n
+    unsigned int v1;  // [bp-0xc]\n
+\n
+    if (cgc_transaction_get(a2, a1[1], 0, a0))\n
+    {\n
+        v1 = cgc_transaction_get(a2, a1[1], 0, a0);\n
+        return v1;\n
+    }\n
+    v0 = &*(a2)->field_10->field_0;\n
+    if (*(v0) != a1[0])\n
+    {\n
+        v1 = 15;\n
+        return v1;\n
+    }\n
+    v1 = 0;\n
+    return v1;\n
+}\n
+", "4206673:sub_403051": null, "4206688:cgc_transaction_rm_purchase_details": "typedef struct struct_0 {\n
+    char padding_0[13];\n
+    char field_d;\n
+    char padding_e[2];\n
+    unsigned long long field_10;\n
+} struct_0;\n
+\n
+long long cgc_transaction_rm_purchase_details(struct struct_1 **a0)\n
+{\n
+    unsigned long v0;  // [bp-0x30]\n
+    char v1;  // [bp-0x21]\n
+    struct_0 *v2;  // [bp-0x20]\n
+    unsigned int v3;  // [bp-0xc]\n
+    unsigned long long v5;  // rsi\n
+\n
+    v2 = 0;\n
+    v2 = *(a0)->field_10;\n
+    v1 = v2->field_d;\n
+    v0 = v2->field_10;\n
+    if (cgc_deallocate(a0, v5))\n
+    {\n
+        v3 = 3;\n
+        return v3;\n
+    }\n
+    else if (!cgc_deallocate(a0, v5))\n
+    {\n
+        *(a0)->field_10 = 0;\n
+        v3 = 0;\n
+        return v3;\n
+    }\n
+    else\n
+    {\n
+        v3 = 3;\n
+        return v3;\n
+    }\n
+}\n
+", "4206857:sub_403109": null, "4206864:cgc_transaction_rm_from_list": "long long cgc_transaction_rm_from_list(unsigned long long *a0, void* a1, unsigned long a2)\n
+{\n
+    unsigned int v0;  // [bp-0x24]\n
+    unsigned int v1;  // [bp-0xc]\n
+    unsigned long long v3;  // rax\n
+\n
+    v0 = a2;\n
+    v3 = cgc_list_remove(a1, &v0);\n
+    *(a0) = v3;\n
+    if (!v3)\n
+    {\n
+        v1 = 2;\n
+        return v1;\n
+    }\n
+    v1 = 0;\n
+    return v1;\n
+}\n
+", "4206945:sub_403161": null, "4206960:cgc_transaction_destroy": "long long cgc_transaction_destroy(void* a0, unsigned long long a1)\n
+{\n
+    unsigned long v0;  // [bp-0x30]\n
+    unsigned long long *v1;  // [bp-0x28]\n
+    unsigned int v2;  // [bp-0xc]\n
+\n
+    v1 = 0;\n
+    if (cgc_transaction_rm_from_list(&v1, a0, a1))\n
+    {\n
+        v2 = cgc_transaction_rm_from_list(&v1, a0, a1);\n
+        return v2;\n
+    }\n
+    v0 = *(v1);\n
+    if (cgc_deallocate(a0, a1))\n
+    {\n
+        v2 = 3;\n
+        return v2;\n
+    }\n
+    else if (cgc_node_destroy(v1))\n
+    {\n
+        v2 = cgc_node_destroy(v1);\n
+        return v2;\n
+    }\n
+    else\n
+    {\n
+        v2 = 0;\n
+        return v2;\n
+    }\n
+}\n
+", "4207138:sub_403222": null, "4207152:cgc_transaction_get_history_count_and_send": "typedef struct struct_3 {\n
+    unsigned long long field_0;\n
+    struct struct_2 *field_8;\n
+    unsigned int field_10;\n
+} struct_3;\n
+\n
+typedef struct struct_1 {\n
+    struct struct_0 *field_0;\n
+    char padding_8[8];\n
+    struct struct_1 *field_10;\n
+} struct_1;\n
+\n
+typedef struct struct_0 {\n
+    char padding_0[4];\n
+    unsigned int field_4;\n
+} struct_0;\n
+\n
+typedef struct struct_2 {\n
+    char padding_0[16];\n
+    struct struct_1 *field_10;\n
+} struct_2;\n
+\n
+long long cgc_transaction_get_history_count_and_send(unsigned long a0, struct_3 *a1, unsigned long a2)\n
+{\n
+    char v0;  // [bp-0x39]\n
+    unsigned int v1;  // [bp-0x38]\n
+    struct_0 *v2;  // [bp-0x30]\n
+    struct_1 *v3;  // [bp-0x28], Other Possible Types: unsigned long\n
+    unsigned int v4;  // [bp-0x20]\n
+    unsigned int v5;  // [bp-0xc]\n
+\n
+    if (!a1->field_10)\n
+    {\n
+        v5 = 8;\n
+        return v5;\n
+    }\n
+    v4 = 0;\n
+    v3 = a1->field_8->field_10;\n
+    while (true)\n
+    {\n
+        v0 = 0;\n
+        if (v3 != a1->field_0)\n
+            v0 = v4 < a2;\n
+        if (!(v0 & 1))\n
+            break;\n
+        v2 = *(v3);\n
+        if (a0 == v2->field_4)\n
+            v4 += 1;\n
+        v3 = *((v3 + 16));\n
+    }\n
+    v1 = v4;\n
+    cgc_transaction_send_history(&v1);\n
+    v5 = 0;\n
+    return v5;\n
+}\n
+", "4207354:sub_4032fa": null, "4207360:cgc_transaction_send_history": "long long cgc_transaction_send_history(unsigned long long a0)\n
+{\n
+    return cgc_send(a0, 4);\n
+}\n
+", "4207400:sub_403328": null, "4207408:cgc_transaction_list_send_last_n": "typedef struct struct_3 {\n
+    unsigned long long field_0;\n
+    struct struct_2 *field_8;\n
+    unsigned int field_10;\n
+} struct_3;\n
+\n
+typedef struct struct_1 {\n
+    struct struct_0 *field_0;\n
+    char padding_8[8];\n
+    struct struct_1 *field_10;\n
+} struct_1;\n
+\n
+typedef struct struct_0 {\n
+    char padding_0[4];\n
+    unsigned int field_4;\n
+} struct_0;\n
+\n
+typedef struct struct_2 {\n
+    char padding_0[16];\n
+    struct struct_1 *field_10;\n
+} struct_2;\n
+\n
+long long cgc_transaction_list_send_last_n(unsigned long a0, struct_3 *a1, unsigned long a2)\n
+{\n
+    char v0;  // [bp-0x31]\n
+    struct_0 *v1;  // [bp-0x30]\n
+    struct_1 *v2;  // [bp-0x28], Other Possible Types: unsigned long\n
+    unsigned int v3;  // [bp-0x20]\n
+    unsigned int v4;  // [bp-0xc]\n
+\n
+    if (!a1->field_10)\n
+    {\n
+        v4 = 8;\n
+        return v4;\n
+    }\n
+    v3 = 0;\n
+    v2 = a1->field_8->field_10;\n
+    while (true)\n
+    {\n
+        v0 = 0;\n
+        if (v2 != a1->field_0)\n
+            v0 = v3 < a2;\n
+        if (!(v0 & 1))\n
+            break;\n
+        v1 = *(v2);\n
+        if (a0 == v1->field_4)\n
+        {\n
+            cgc_send(v1, 16);\n
+            cgc_transaction_send_details(v1);\n
+            v3 += 1;\n
+        }\n
+        v2 = *((v2 + 16));\n
+    }\n
+    v4 = 0;\n
+    return v4;\n
+}\n
+", "4207618:sub_403402": null, "4207632:cgc_transaction_send_details": "typedef struct struct_0 {\n
+    char padding_0[16];\n
+    unsigned long long field_10;\n
+} struct_0;\n
+\n
+int cgc_transaction_send_details()\n
+{\n
+    struct_0 *v2;  // [bp+0xffff8]\n
+    unsigned int v3;  // [bp+0x100004]\n
+\n
+    cgc_transaction_send_purchase(v2->field_10);\n
+    v3 = 0;\n
+    return;\n
+}\n
+", "4207822:sub_4034ce": null, "4207824:cgc_transaction_send_purchase": "typedef struct struct_0 {\n
+    char padding_0[4];\n
+    unsigned int field_4;\n
+} struct_0;\n
+\n
+long long cgc_transaction_send_purchase(struct_0 *a0)\n
+{\n
+    unsigned long long v0;  // [bp-0x20]\n
+\n
+    v0 = a0 + 1;\n
+    if (a0->field_4 > 0)\n
+    {\n
+        cgc_send(a0, 14);\n
+        return cgc_transaction_send_vendor_loc(v0);\n
+    }\n
+    return a0;\n
+}\n
+", "4207899:sub_40351b": null, "4207904:cgc_transaction_send_recharge": "long long cgc_transaction_send_recharge(unsigned int *a0)\n
+{\n
+    unsigned long long v0;  // [bp-0x20]\n
+\n
+    v0 = a0 + 2;\n
+    if (*(a0) > 0)\n
+    {\n
+        cgc_send(a0, 10);\n
+        return cgc_transaction_send_vendor_loc(v0);\n
+    }\n
+    return a0;\n
+}\n
+", "4207978:sub_40356a": null, "4207984:cgc_transaction_send_balance": "long long cgc_transaction_send_balance(unsigned long long a0)\n
+{\n
+    return cgc_send(a0, 4);\n
+}\n
+", "4208024:sub_403598": null, "4208032:cgc_transaction_send_issue": "long long cgc_transaction_send_issue(unsigned long long a0)\n
+{\n
+    return cgc_send(a0, 4);\n
+}\n
+", "4208072:sub_4035c8": null, "4208080:cgc_transaction_send_refund": "long long cgc_transaction_send_refund(unsigned long long a0)\n
+{\n
+    return cgc_send(a0, 8);\n
+}\n
+", "4208120:sub_4035f8": null, "4208128:cgc_transaction_send_vendor_loc": "typedef struct struct_0 {\n
+    char padding_0[5];\n
+    char field_5;\n
+    char padding_6[2];\n
+    unsigned long long field_8;\n
+} struct_0;\n
+\n
+long long cgc_transaction_send_vendor_loc(struct_0 *a0)\n
+{\n
+    return cgc_send(a0->field_8, a0->field_5);\n
+}\n
+", "4208169:sub_403629": null, "4208176:cgc_transaction_recv_issue": "long long cgc_transaction_recv_issue(unsigned long long *a0)\n
+{\n
+    unsigned int v0;  // [bp-0xc]\n
+    unsigned long long v2;  // rsi\n
+    unsigned long long v3;  // rdx\n
+\n
+    if (cgc_allocate(a0, v2, v3))\n
+    {\n
+        v0 = 3;\n
+        return v0;\n
+    }\n
+    else if (cgc_recv_all(*(a0), 4) == 4)\n
+    {\n
+        v0 = 0;\n
+        return v0;\n
+    }\n
+    else\n
+    {\n
+        v0 = 17;\n
+        return v0;\n
+    }\n
+}\n
+", "4208291:sub_4036a3": null, "4208304:cgc_transaction_recv_purchase": "long long cgc_transaction_recv_purchase(struct struct_0 **a0)\n
+{\n
+    unsigned int v0;  // [bp-0x20]\n
+    unsigned int v1;  // [bp-0x1c]\n
+    unsigned int v2;  // [bp-0xc]\n
+    unsigned long long v4;  // rsi\n
+    unsigned long long v5;  // rdx\n
+\n
+    if (cgc_allocate(a0, v4, v5))\n
+    {\n
+        v2 = 3;\n
+        return v2;\n
+    }\n
+    else if (cgc_recv_all(*(a0), 14) == 14)\n
+    {\n
+        v1 = *(a0)->field_d;\n
+        if (!v1)\n
+        {\n
+            v2 = 17;\n
+            return v2;\n
+        }\n
+        else if (!cgc_allocate(a0, 14, v5))\n
+        {\n
+            v0 = v1;\n
+            if (v0 != cgc_recv_all(*(a0)->field_10, v1))\n
+            {\n
+                v2 = 17;\n
+                return v2;\n
+            }\n
+            v2 = 0;\n
+            return v2;\n
+        }\n
+        else\n
+        {\n
+            v2 = 3;\n
+            return v2;\n
+        }\n
+    }\n
+    else\n
+    {\n
+        v2 = 17;\n
+        return v2;\n
+    }\n
+}\n
+", "4208555:sub_4037ab": null, "4208560:cgc_transaction_recv_recharge": "long long cgc_transaction_recv_recharge(struct struct_0 **a0)\n
+{\n
+    unsigned int v0;  // [bp-0x20]\n
+    unsigned int v1;  // [bp-0x1c]\n
+    unsigned int v2;  // [bp-0xc]\n
+    unsigned long long v4;  // rsi\n
+    unsigned long long v5;  // rdx\n
+\n
+    if (cgc_allocate(a0, v4, v5))\n
+    {\n
+        v2 = 3;\n
+        return v2;\n
+    }\n
+    else if (cgc_recv_all(*(a0), 10) == 10)\n
+    {\n
+        v1 = *(a0)->field_d;\n
+        if (!v1)\n
+        {\n
+            v2 = 17;\n
+            return v2;\n
+        }\n
+        else if (!cgc_allocate(a0, 10, v5))\n
+        {\n
+            v0 = v1;\n
+            if (v0 != cgc_recv_all(*(a0)->field_10, v1))\n
+            {\n
+                v2 = 17;\n
+                return v2;\n
+            }\n
+            v2 = 0;\n
+            return v2;\n
+        }\n
+        else\n
+        {\n
+            v2 = 3;\n
+            return v2;\n
+        }\n
+    }\n
+    else\n
+    {\n
+        v2 = 17;\n
+        return v2;\n
+    }\n
+}\n
+", "4208811:sub_4038ab": null, "4208816:cgc_transaction_recv_balance": "long long cgc_transaction_recv_balance(unsigned long long a0)\n
+{\n
+    unsigned long v0;  // [bp-0x18]\n
+    unsigned int v1;  // [bp-0xc]\n
+    unsigned long long v3;  // rsi\n
+    unsigned long long v4;  // rdx\n
+\n
+    v0 = a0;\n
+    if (cgc_allocate(a0, v3, v4))\n
+    {\n
+        v1 = 3;\n
+        return v1;\n
+    }\n
+    v1 = 0;\n
+    return v1;\n
+}\n
+", "4208884:sub_4038f4": null, "4208896:cgc_transaction_recv_history": "long long cgc_transaction_recv_history(unsigned long long *a0)\n
+{\n
+    unsigned int v0;  // [bp-0xc]\n
+    unsigned long long v2;  // rsi\n
+    unsigned long long v3;  // rdx\n
+\n
+    if (cgc_allocate(a0, v2, v3))\n
+    {\n
+        v0 = 3;\n
+        return v0;\n
+    }\n
+    else if (cgc_recv_all(*(a0), 4) == 4)\n
+    {\n
+        v0 = 0;\n
+        return v0;\n
+    }\n
+    else\n
+    {\n
+        v0 = 17;\n
+        return v0;\n
+    }\n
+}\n
+", "4209011:sub_403973": null, "4209024:cgc_transaction_recv_refund": "long long cgc_transaction_recv_refund(unsigned long long *a0)\n
+{\n
+    unsigned int v0;  // [bp-0xc]\n
+    unsigned long long v2;  // rsi\n
+    unsigned long long v3;  // rdx\n
+\n
+    if (cgc_allocate(a0, v2, v3))\n
+    {\n
+        v0 = 3;\n
+        return v0;\n
+    }\n
+    else if (cgc_recv_all(*(a0), 8) == 8)\n
+    {\n
+        v0 = 0;\n
+        return v0;\n
+    }\n
+    else\n
+    {\n
+        v0 = 17;\n
+        return v0;\n
+    }\n
+}\n
+", "4209139:sub_4039f3": null, "4209152:cgc_transaction_init_done": "long long cgc_transaction_init_done(struct struct_0 **a0, unsigned int a1[4], void* a2)\n
+{\n
+    unsigned int v0;  // [bp-0xc]\n
+\n
+    if (cgc_transaction_get(a0, a1[3], (a1[2] >> 8) & 255, a2))\n
+    {\n
+        v0 = cgc_transaction_get(a0, a1[3], (a1[2] >> 8) & 255, a2);\n
+        return v0;\n
+    }\n
+    else if (a1[0] != *(a0)->field_4)\n
+    {\n
+        v0 = 16;\n
+        return v0;\n
+    }\n
+    else if (!(*(a0)->field_0 >> 8))\n
+    {\n
+        v0 = 0;\n
+        return v0;\n
+    }\n
+    else\n
+    {\n
+        v0 = 13;\n
+        return v0;\n
+    }\n
+}\n
+", "4209352:sub_403ac8": null, "4209360:cgc_transaction_authd": "long long cgc_transaction_authd(struct struct_0 **a0, unsigned int a1[4], void* a2)\n
+{\n
+    unsigned int v0;  // [bp-0xc]\n
+\n
+    if (cgc_transaction_get(a0, a1[3], (a1[2] >> 8) & 255, a2))\n
+    {\n
+        v0 = cgc_transaction_get(a0, a1[3], (a1[2] >> 8) & 255, a2);\n
+        return v0;\n
+    }\n
+    else if (a1[0] != *(a0)->field_4)\n
+    {\n
+        v0 = 16;\n
+        return v0;\n
+    }\n
+    else if ((*(a0)->field_0 >> 8) == 1)\n
+    {\n
+        v0 = 0;\n
+        return v0;\n
+    }\n
+    else\n
+    {\n
+        v0 = 12;\n
+        return v0;\n
+    }\n
+}\n
+", "4209560:sub_403b98": null, "4209568:cgc_transaction_ops_done": "long long cgc_transaction_ops_done(struct struct_0 **a0, unsigned int a1[4], void* a2)\n
+{\n
+    unsigned int v0;  // [bp-0xc]\n
+\n
+    if (cgc_transaction_get(a0, a1[3], (a1[2] >> 8) & 255, a2))\n
+    {\n
+        v0 = cgc_transaction_get(a0, a1[3], (a1[2] >> 8) & 255, a2);\n
+        return v0;\n
+    }\n
+    else if (a1[0] != *(a0)->field_4)\n
+    {\n
+        v0 = 16;\n
+        return v0;\n
+    }\n
+    else if ((*(a0)->field_0 >> 8) == 2)\n
+    {\n
+        v0 = 0;\n
+        return v0;\n
+    }\n
+    else\n
+    {\n
+        v0 = 14;\n
+        return v0;\n
+    }\n
+}\n
+", "4209768:sub_403c68": null, "4209776:cgc_packet_from_transaction": "long long cgc_packet_from_transaction(unsigned int a0[3], struct struct_0 **a1, unsigned long long a2)\n
+{\n
+    unsigned int v0;  // [bp-0xc]\n
+    unsigned int v2[4];  // rax\n
+    unsigned int v3[4];  // rax\n
+    unsigned int v4[4];  // rax\n
+\n
+    if (cgc_allocate(a0, a1, a2))\n
+    {\n
+        v0 = 3;\n
+        return v0;\n
+    }\n
+    *(a1)->field_0 = a0[1];\n
+    *(a1)->field_4 = a2;\n
+    v2 = *(a1);\n
+    v2[2] = v2[2] & -0x100 | (a0[0] >> 8) & 255 & 255;\n
+    v3 = *(a1);\n
+    v3[2] = v3[2] & -65281 | (a0[0] & 255 & 255) * 0x100;\n
+    v4 = *(a1);\n
+    v4[2] = v4[2] & -16711681 | ((a0[0] >> 16) & 255 & 255) * 0x10000;\n
+    *(a1)->field_c = a0[2];\n
+    v0 = 0;\n
+    return v0;\n
+}\n
+", "4210026:sub_403d6a": null, "4210032:cgc_packet_from_transaction_and_send": "long long cgc_packet_from_transaction_and_send(unsigned int a0[3], unsigned long a1)\n
+{\n
+    void* v0;  // [bp-0x28]\n
+    unsigned int v1;  // [bp-0xc]\n
+\n
+    v0 = 0;\n
+    if (cgc_packet_from_transaction(a0, &v0, a1))\n
+    {\n
+        v1 = cgc_packet_from_transaction(a0, &v0, a1);\n
+        return v1;\n
+    }\n
+    cgc_send(v0, 16);\n
+    if (cgc_deallocate(a0, 16))\n
+    {\n
+        v1 = 3;\n
+        return v1;\n
+    }\n
+    v1 = 0;\n
+    return v1;\n
+}\n
+", "4210175:sub_403dff": null, "4210176:cgc_issue_card": "extern void* card_list;\n
+extern void* cgc_transaction_list;\n
+\n
+long long cgc_issue_card(unsigned int a0[3])\n
+{\n
+    void* v0;  // [bp-0x30]\n
+    unsigned int v1[2];  // [bp-0x28]\n
+    unsigned int *v2;  // [bp-0x20]\n
+    unsigned int v3;  // [bp-0xc]\n
+\n
+    v2 = 0;\n
+    if (cgc_transaction_recv_issue(&v2))\n
+    {\n
+        v3 = cgc_transaction_recv_issue(&v2);\n
+        return v3;\n
+    }\n
+    *(&v1[0]) = 0;\n
+    if (cgc_card_create_and_add_to_list(v1, card_list, *(v2)))\n
+    {\n
+        v3 = cgc_card_create_and_add_to_list(v1, card_list, *(v2));\n
+        return v3;\n
+    }\n
+    v0 = 0;\n
+    if (cgc_transaction_create_and_add_to_list(&v0, cgc_transaction_list, a0, v1[0]))\n
+    {\n
+        v3 = cgc_transaction_create_and_add_to_list(&v0, cgc_transaction_list, a0, v1[0]);\n
+        return v3;\n
+    }\n
+    cgc_transaction_set_details(&v0, v2);\n
+    if (!cgc_packet_from_transaction_and_send(v0, v1[1]))\n
+    {\n
+        v3 = 0;\n
+        return v3;\n
+    }\n
+    v3 = cgc_packet_from_transaction_and_send(v0, v1[1]);\n
+    return v3;\n
+}\n
+", "4210467:sub_403f23": null, "4210480:cgc_make_purchase": "typedef struct struct_0 {\n
+    char padding_0[4];\n
+    unsigned int field_4;\n
+} struct_0;\n
+\n
+extern void* card_list;\n
+\n
+long long cgc_make_purchase(unsigned int *a0[3], unsigned int a1[2])\n
+{\n
+    struct_0 *v0;  // [bp-0x28]\n
+    unsigned int v1;  // [bp-0xc]\n
+\n
+    v0 = 0;\n
+    if (cgc_transaction_recv_purchase(&v0))\n
+    {\n
+        v1 = cgc_transaction_recv_purchase(&v0);\n
+        return v1;\n
+    }\n
+    cgc_transaction_set_details(a0, v0);\n
+    cgc_transaction_update_state(a0, 2);\n
+    if (cgc_card_purchase(a1[0], card_list, v0->field_4))\n
+    {\n
+        v1 = cgc_card_purchase(a1[0], card_list, v0->field_4);\n
+        return v1;\n
+    }\n
+    else if (cgc_packet_from_transaction_and_send(*(a0), a1[1]))\n
+    {\n
+        v1 = cgc_packet_from_transaction_and_send(*(a0), a1[1]);\n
+        return v1;\n
+    }\n
+    else\n
+    {\n
+        v1 = 0;\n
+        return v1;\n
+    }\n
+}\n
+", "4210713:sub_404019": null, "4210720:cgc_recharge_card": "extern void* card_list;\n
+\n
+long long cgc_recharge_card(unsigned int *a0[3], unsigned int a1[2])\n
+{\n
+    unsigned int *v0;  // [bp-0x28]\n
+    unsigned int v1;  // [bp-0xc]\n
+\n
+    v0 = 0;\n
+    if (cgc_transaction_recv_recharge(&v0))\n
+    {\n
+        v1 = cgc_transaction_recv_recharge(&v0);\n
+        return v1;\n
+    }\n
+    cgc_transaction_set_details(a0, v0);\n
+    cgc_transaction_update_state(a0, 2);\n
+    if (cgc_card_recharge(a1[0], card_list, *(v0)))\n
+    {\n
+        v1 = cgc_card_recharge(a1[0], card_list, *(v0));\n
+        return v1;\n
+    }\n
+    else if (cgc_packet_from_transaction_and_send(*(a0), a1[1]))\n
+    {\n
+        v1 = cgc_packet_from_transaction_and_send(*(a0), a1[1]);\n
+        return v1;\n
+    }\n
+    else\n
+    {\n
+        v1 = 0;\n
+        return v1;\n
+    }\n
+}\n
+", "4210951:sub_404107": null, "4210960:cgc_get_card_balance": "extern void* card_list;\n
+\n
+long long cgc_get_card_balance(unsigned int *a0[3], unsigned int a1[2])\n
+{\n
+    void* v0;  // [bp-0x28]\n
+    unsigned int v1;  // [bp-0xc]\n
+\n
+    v0 = 0;\n
+    if (cgc_transaction_recv_balance(&v0))\n
+    {\n
+        v1 = cgc_transaction_recv_balance(&v0);\n
+        return v1;\n
+    }\n
+    cgc_transaction_set_details(a0, v0);\n
+    cgc_transaction_update_state(a0, 2);\n
+    if (cgc_card_get_balance(a1[0], card_list, v0))\n
+    {\n
+        v1 = cgc_card_get_balance(a1[0], card_list, v0);\n
+        return v1;\n
+    }\n
+    else if (cgc_packet_from_transaction_and_send(*(a0), a1[1]))\n
+    {\n
+        v1 = cgc_packet_from_transaction_and_send(*(a0), a1[1]);\n
+        return v1;\n
+    }\n
+    else\n
+    {\n
+        cgc_transaction_send_balance(v0);\n
+        v1 = 0;\n
+        return v1;\n
+    }\n
+}\n
+", "4211196:sub_4041fc": null, "4211200:cgc_get_transaction_history": "extern void* cgc_transaction_list;\n
+\n
+long long cgc_get_transaction_history(unsigned int *a0[3], unsigned int a1[2])\n
+{\n
+    unsigned int *v0;  // [bp-0x28]\n
+    unsigned int v1;  // [bp-0xc]\n
+\n
+    v0 = 0;\n
+    if (cgc_transaction_recv_history(&v0))\n
+    {\n
+        v1 = cgc_transaction_recv_history(&v0);\n
+        return v1;\n
+    }\n
+    cgc_transaction_set_details(a0, v0);\n
+    cgc_transaction_update_state(a0, 2);\n
+    if (cgc_packet_from_transaction_and_send(*(a0), a1[1]))\n
+    {\n
+        v1 = cgc_packet_from_transaction_and_send(*(a0), a1[1]);\n
+        return v1;\n
+    }\n
+    else if (cgc_transaction_get_history_count_and_send(a1[0], cgc_transaction_list, *(v0)))\n
+    {\n
+        v1 = cgc_transaction_get_history_count_and_send(a1[0], cgc_transaction_list, *(v0));\n
+        return v1;\n
+    }\n
+    else if (cgc_transaction_list_send_last_n(a1[0], cgc_transaction_list, *(v0)))\n
+    {\n
+        v1 = cgc_transaction_list_send_last_n(a1[0], cgc_transaction_list, *(v0));\n
+        return v1;\n
+    }\n
+    else\n
+    {\n
+        v1 = 0;\n
+        return v1;\n
+    }\n
+}\n
+", "4211499:sub_40432b": null, "4211504:cgc_refund_purchase": "extern void* card_list;\n
+extern void* cgc_transaction_list;\n
+\n
+long long cgc_refund_purchase(unsigned int *a0[3], unsigned int a1[2])\n
+{\n
+    void* v0;  // [bp-0x30]\n
+    void* v1;  // [bp-0x28]\n
+    unsigned int v2;  // [bp-0xc]\n
+\n
+    v1 = 0;\n
+    if (cgc_transaction_recv_refund(&v1))\n
+    {\n
+        v2 = cgc_transaction_recv_refund(&v1);\n
+        return v2;\n
+    }\n
+    cgc_transaction_set_details(a0, v1);\n
+    cgc_transaction_update_state(a0, 2);\n
+    v0 = 0;\n
+    if (cgc_transaction_get_and_verify_purchase_id(cgc_transaction_list, v1, &v0))\n
+    {\n
+        v2 = cgc_transaction_get_and_verify_purchase_id(cgc_transaction_list, v1, &v0);\n
+        return v2;\n
+    }\n
+    else if (cgc_card_refund(a1[0], card_list, v0))\n
+    {\n
+        v2 = cgc_card_refund(a1[0], card_list, v0);\n
+        return v2;\n
+    }\n
+    else if (cgc_transaction_rm_purchase_details(&v0))\n
+    {\n
+        v2 = cgc_transaction_rm_purchase_details(&v0);\n
+        return v2;\n
+    }\n
+    else if (cgc_packet_from_transaction_and_send(*(a0), a1[1]))\n
+    {\n
+        v2 = cgc_packet_from_transaction_and_send(*(a0), a1[1]);\n
+        return v2;\n
+    }\n
+    else\n
+    {\n
+        v2 = 0;\n
+        return v2;\n
+    }\n
+}\n
+", "4211837:sub_40447d": null, "4211840:cgc_process_op_code": "typedef struct struct_0 {\n
+    char padding_0[9];\n
+    char field_9;\n
+} struct_0;\n
+\n
+int cgc_process_op_code()\n
+{\n
+    unsigned int v3;  // [bp+0xffff4]\n
+    unsigned int v4[2];  // [bp+0xffff8]\n
+    unsigned int *v5[3];  // [bp+0x100000]\n
+\n
+    v3 = cgc_refund_purchase(v5, v4);\n
+    return;\n
+}\n
+", "4212027:sub_40453b": null, "4212032:cgc_process_fin": "typedef struct struct_2 {\n
+    char padding_0[4];\n
+    unsigned int field_4;\n
+    char padding_8[1];\n
+    char field_9;\n
+} struct_2;\n
+\n
+typedef struct struct_0 {\n
+    char padding_0[4];\n
+    unsigned int field_4;\n
+} struct_0;\n
+\n
+extern void* cgc_transaction_list;\n
+\n
+long long cgc_process_fin(struct struct_1 **a0, struct_2 *a1)\n
+{\n
+    unsigned int v0;  // [bp-0x34]\n
+    struct_0 *v1;  // [bp-0x30]\n
+    unsigned int v2;  // [bp-0x24]\n
+    unsigned int v3;  // [bp-0xc]\n
+\n
+    v2 = 0;\n
+    v0 = a1->field_9;\n
+    if (v0 >= 5)\n
+    {\n
+        if (v0 == 5)\n
+        {\n
+            v1 = *(a0)->field_10;\n
+            if (cgc_transaction_destroy(cgc_transaction_list, v1->field_4))\n
+            {\n
+                v3 = cgc_transaction_destroy(cgc_transaction_list, v1->field_4);\n
+                return v3;\n
+            }\n
+        }\n
+        else\n
+        {\n
+            v2 = 9;\n
+LABEL_404623:\n
+            v3 = v2;\n
+            return v3;\n
+        }\n
+    }\n
+    cgc_transaction_update_state(a0, 3);\n
+    if (cgc_packet_from_transaction_and_send(*(a0), a1->field_4))\n
+    {\n
+        v3 = cgc_packet_from_transaction_and_send(*(a0), a1->field_4);\n
+        return v3;\n
+    }\n
+    goto LABEL_404623;\n
+}\n
+", "4212274:sub_404632": null, "4212288:cgc_send_error": "typedef struct struct_0 {\n
+    char padding_0[8];\n
+    unsigned int field_8;\n
+} struct_0;\n
+\n
+long long cgc_send_error(struct_0 *a0, unsigned long a1, unsigned long a2)\n
+{\n
+    char v0;  // [bp-0x30], Other Possible Types: unsigned int\n
+    unsigned long long v1;  // [bp-0x28]\n
+    char *v2;  // [bp-0x20], Other Possible Types: unsigned long\n
+\n
+    v2 = a2;\n
+    a0->field_8 = a0->field_8 & -16711681 | a1 * 0x10000;\n
+    cgc_send(a0, 16);\n
+    memset(&v0, 0, 16);\n
+    if (!v2)\n
+        v2 = \"Unknown Error.\";\n
+    v1 = v2;\n
+    v0 = cgc_strlen(v2);\n
+    cgc_send(&v0, 4);\n
+    return cgc_send(v1, v0);\n
+}\n
+", "4212447:sub_4046df": null, "4212448:cgc_send_error_pkt": "extern unsigned int g_406088;\n
+extern unsigned int g_406097;\n
+extern unsigned int g_4060ae;\n
+extern unsigned int g_4060cf;\n
+extern unsigned int g_4060ea;\n
+extern unsigned int g_406107;\n
+extern unsigned int g_406126;\n
+extern unsigned int g_406151;\n
+extern unsigned int g_40617a;\n
+extern unsigned int g_40619b;\n
+extern unsigned int g_4061ac;\n
+extern unsigned int g_4061be;\n
+extern unsigned int g_4061d3;\n
+extern unsigned int g_4061f7;\n
+extern unsigned int g_40621b;\n
+extern unsigned int g_40623e;\n
+extern unsigned int g_40625d;\n
+\n
+int cgc_send_error_pkt()\n
+{\n
+    char v1;  // [bp+0xfffff]\n
+    void* v2;  // [bp+0x100000]\n
+\n
+    cgc_send_error(v2, v1, \"Receive failed.\");\n
+    return;\n
+}\n
+", "4212959:sub_4048df": null, "4212960:cgc_auth_new_transaction": "extern void* card_list;\n
+extern void* cgc_transaction_list;\n
+\n
+long long cgc_auth_new_transaction(unsigned int a0[2])\n
+{\n
+    void* v0;  // [bp-0x20]\n
+    unsigned int v1;  // [bp-0xc]\n
+\n
+    if (cgc_card_is_valid(a0[0], a0[1], card_list))\n
+    {\n
+        v1 = cgc_card_is_valid(a0[0], a0[1], card_list);\n
+        return v1;\n
+    }\n
+    v0 = 0;\n
+    if (cgc_transaction_create_and_add_to_list(&v0, cgc_transaction_list, a0, a0[0]))\n
+    {\n
+        v1 = cgc_transaction_create_and_add_to_list(&v0, cgc_transaction_list, a0, a0[0]);\n
+        return v1;\n
+    }\n
+    else if (cgc_packet_from_transaction_and_send(v0, a0[1]))\n
+    {\n
+        v1 = cgc_packet_from_transaction_and_send(v0, a0[1]);\n
+        return v1;\n
+    }\n
+    else\n
+    {\n
+        v1 = 0;\n
+        return v1;\n
+    }\n
+}\n
+", "4213190:sub_4049c6": null, "4213200:cgc_init_completed": "extern void* card_list;\n
+extern void* cgc_transaction_list;\n
+\n
+long long cgc_init_completed(unsigned int *a0[2], unsigned int a1[2])\n
+{\n
+    unsigned int v0;  // [bp-0xc]\n
+\n
+    if (cgc_card_is_valid(a1[0], a1[1], card_list))\n
+    {\n
+        v0 = cgc_card_is_valid(a1[0], a1[1], card_list);\n
+        return v0;\n
+    }\n
+    else if (cgc_transaction_init_done(a0, a1, cgc_transaction_list))\n
+    {\n
+        v0 = cgc_transaction_init_done(a0, a1, cgc_transaction_list);\n
+        return v0;\n
+    }\n
+    else\n
+    {\n
+        v0 = 0;\n
+        return v0;\n
+    }\n
+}\n
+", "4213362:sub_404a72": null, "4213376:cgc_auth_completed": "extern void* card_list;\n
+extern void* cgc_transaction_list;\n
+\n
+long long cgc_auth_completed(unsigned int *a0[2], unsigned int a1[2])\n
+{\n
+    unsigned int v0;  // [bp-0xc]\n
+\n
+    if (cgc_card_is_valid(a1[0], a1[1], card_list))\n
+    {\n
+        v0 = cgc_card_is_valid(a1[0], a1[1], card_list);\n
+        return v0;\n
+    }\n
+    else if (cgc_transaction_authd(a0, a1, cgc_transaction_list))\n
+    {\n
+        v0 = cgc_transaction_authd(a0, a1, cgc_transaction_list);\n
+        return v0;\n
+    }\n
+    else\n
+    {\n
+        v0 = 0;\n
+        return v0;\n
+    }\n
+}\n
+", "4213538:sub_404b22": null, "4213552:cgc_ops_completed": "extern void* card_list;\n
+extern void* cgc_transaction_list;\n
+\n
+long long cgc_ops_completed(unsigned int *a0[2], unsigned int a1[2])\n
+{\n
+    unsigned int v0;  // [bp-0xc]\n
+\n
+    if (cgc_card_is_valid(a1[0], a1[1], card_list))\n
+    {\n
+        v0 = cgc_card_is_valid(a1[0], a1[1], card_list);\n
+        return v0;\n
+    }\n
+    else if (cgc_transaction_ops_done(a0, a1, cgc_transaction_list))\n
+    {\n
+        v0 = cgc_transaction_ops_done(a0, a1, cgc_transaction_list);\n
+        return v0;\n
+    }\n
+    else\n
+    {\n
+        v0 = 0;\n
+        return v0;\n
+    }\n
+}\n
+", "4213714:sub_404bd2": null, "4213728:cgc_dispatch_packet": "typedef struct struct_1 {\n
+    char padding_0[8];\n
+    char field_8;\n
+} struct_1;\n
+\n
+typedef struct struct_0 {\n
+    char padding_0[8];\n
+    unsigned int field_8;\n
+} struct_0;\n
+\n
+int cgc_dispatch_packet()\n
+{\n
+    unsigned int v0;  // [bp-0x1c]\n
+    int tmp_37;  // tmp #37\n
+    struct_1 *v1;  // [bp-0x18]\n
+    struct_1 *v9;  // rdi\n
+    unsigned long long v10;  // rax\n
+    unsigned long long v11;  // rax\n
+\n
+    v1 = v9;\n
+    v0 = 0;\n
+    v10 = v1->field_8;\n
+    tmp_37 = v10;\n
+    v11 = v10 - 3;\n
+    if (tmp_37 > 3)\n
+        v0 = 10;\n
+    else\n
+        goto *((4219000 + rax<8> * 4)) + 4219000;\n
+}\n
+", "4214532:sub_404f04": null, "4214544:main": "typedef struct struct_0 {\n
+    char field_0;\n
+} struct_0;\n
+\n
+extern unsigned long long card_list;\n
+extern unsigned long long cgc_transaction_list;\n
+\n
+int main(unsigned long long a0, unsigned long a1)\n
+{\n
+    char v0;  // [bp-0x38]\n
+    struct_0 *v1;  // [bp-0x28], Other Possible Types: unsigned long\n
+    unsigned int v2;  // [bp-0x1c]\n
+    unsigned long v3;  // [bp-0x18]\n
+    unsigned int v4;  // [bp-0x10]\n
+    unsigned int v5;  // [bp-0xc]\n
+\n
+    v5 = 0;\n
+    v4 = a0;\n
+    v3 = a1;\n
+    v2 = 0;\n
+    cgc_transaction_list = cgc_list_create(cgc_transaction_node_contains);\n
+    if (!cgc_transaction_list)\n
+    {\n
+        v2 = 3;\n
+    }\n
+    else\n
+    {\n
+        card_list = cgc_list_create(cgc_card_node_contains);\n
+        if (!card_list)\n
+        {\n
+            v2 = 3;\n
+        }\n
+        else\n
+        {\n
+            v1 = 0;\n
+            do\n
+            {\n
+                v1 = 0;\n
+                if (cgc_recv_all(&v0, 16) != 16)\n
+                {\n
+                    v2 = 17;\n
+                    break;\n
+                }\n
+                v1 = &v0;\n
+                v2 = cgc_dispatch_packet(cgc_card_node_contains);\n
+            } while (!v2);\n
+        }\n
+    }\n
+    if (v1)\n
+        cgc_send_error_pkt(a0, 16);\n
+    return v2;\n
+}\n
+", "4214800:_fini": "long long _fini()\n
+{\n
+    unsigned long v1;  // rax\n
+\n
+    return v1;\n
+}\n
+", "5242880:__libc_start_main": null, "5242888:cgc__terminate": null, "5242896:memset": null, "5242904:cgc_transmit": null, "5242912:cgc_allocate": null, "5242920:cgc_deallocate": null, "5242928:cgc_receive": null, "6295632:UnresolvableJumpTarget": null, "6295640:UnresolvableCallTarget": null}

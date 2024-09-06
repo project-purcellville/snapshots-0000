@@ -1,0 +1,2214 @@
+{"4202496:_init": "extern struct_0 *g_4072d0;\n
+\n
+long long _init()\n
+{\n
+    struct struct_0 **v1;  // rax, Other Possible Types: unsigned long\n
+\n
+    v1 = g_4072d0;\n
+    if (g_4072d0)\n
+        v1 = g_4072d0();\n
+    return v1;\n
+}\n
+", "4202528:sub_402020": "extern unsigned long long g_4072f0;\n
+\n
+long long sub_402020()\n
+{\n
+    unsigned long v0;  // [bp-0x8]\n
+\n
+    v0 = g_4072f0;\n
+    goto *(4223736);\n
+}\n
+", "4202540:sub_40202c": null, "4202544:cgc__terminate": "// attributes: PLT stub\n
+int cgc__terminate()\n
+{\n
+    ::libc.so.0::cgc__terminate();\n
+    return;\n
+}\n
+", "4202560:memset": "// attributes: PLT stub\n
+void* memset(void* block, unsigned int c, unsigned int size)\n
+{\n
+    return ::libc.so.0::memset(block, c, size);\n
+}\n
+", "4202576:cgc_transmit": "// attributes: PLT stub\n
+int cgc_transmit()\n
+{\n
+    ::libc.so.0::cgc_transmit();\n
+    return;\n
+}\n
+", "4202592:cgc_random": "// attributes: PLT stub\n
+int cgc_random()\n
+{\n
+    ::libc.so.0::cgc_random();\n
+    return;\n
+}\n
+", "4202608:cgc_allocate": "// attributes: PLT stub\n
+int cgc_allocate()\n
+{\n
+    ::libc.so.0::cgc_allocate();\n
+    return;\n
+}\n
+", "4202624:cgc_deallocate": "// attributes: PLT stub\n
+int cgc_deallocate()\n
+{\n
+    ::libc.so.0::cgc_deallocate();\n
+    return;\n
+}\n
+", "4202640:cgc_receive": "// attributes: PLT stub\n
+int cgc_receive()\n
+{\n
+    ::libc.so.0::cgc_receive();\n
+    return;\n
+}\n
+", "4202656:__cxa_finalize": "// attributes: PLT stub\n
+char * __cxa_finalize()\n
+{\n
+    goto *(4223712);\n
+}\n
+", "4202672:_start": "long long _start()\n
+{\n
+    char v0;  // [bp+0x0], Other Possible Types: unsigned long\n
+    unsigned long v1;  // [bp+0x8]\n
+    unsigned long long v2;  // rsi\n
+    unsigned long v3;  // rax\n
+    unsigned long long v4;  // rdx\n
+\n
+    v2 = *(&v0);\n
+    v0 = v3;\n
+    __libc_start_main(main, v2, &v1, 0, 0, v4); /* do not return */\n
+}\n
+", "4202709:sub_4020d5": null, "4202710:sub_4020d6": null, "4202720:deregister_tm_clones": "extern char __bss_start;\n
+extern unsigned long long g_4072c8;\n
+\n
+long long deregister_tm_clones()\n
+{\n
+    return &__bss_start;\n
+}\n
+", "4202761:sub_402109": null, "4202768:register_tm_clones": "extern unsigned long long g_4072d8;\n
+\n
+long long register_tm_clones()\n
+{\n
+    return 0;\n
+}\n
+", "4202825:sub_402149": null, "4202832:__do_global_dtors_aux": "extern char __bss_start;\n
+extern unsigned long long g_4072e0;\n
+\n
+long long __do_global_dtors_aux()\n
+{\n
+    unsigned long v0;  // [bp-0x8]\n
+    unsigned long v2;  // rax\n
+\n
+    if (__bss_start)\n
+        return v2;\n
+    *(&v0) = rbp<8>;\n
+    if (!g_4072e0)\n
+    {\n
+        __bss_start = 1;\n
+        return deregister_tm_clones();\n
+    }\n
+    __cxa_finalize();\n
+}\n
+", "4202885:sub_402185": null, "4202889:sub_402189": null, "4202896:frame_dummy": "long long frame_dummy()\n
+{\n
+    return register_tm_clones();\n
+}\n
+", "4202905:sub_402199": null, "4202912:cgc_list_create_dup": "typedef struct struct_0 {\n
+    unsigned long long field_0;\n
+    unsigned long long field_8;\n
+    unsigned int field_10;\n
+} struct_0;\n
+\n
+long long cgc_list_create_dup()\n
+{\n
+    unsigned long long v0[3];  // [bp-0x28]\n
+    unsigned long long v1[3];  // [bp-0x20]\n
+    struct_0 *v2;  // [bp-0x18]\n
+    struct_0 *v3;  // [bp-0x10], Other Possible Types: unsigned long\n
+    unsigned long long v5;  // rdi\n
+    unsigned long long v6;  // rsi\n
+    unsigned long long v7;  // rdx\n
+\n
+    v2 = 0;\n
+    if (cgc_allocate(v5, v6, v7))\n
+    {\n
+        v3 = 0;\n
+        return v3;\n
+    }\n
+    v1[0] = cgc_node_create(0);\n
+    v0[0] = cgc_node_create(0);\n
+    v1[1] = v0;\n
+    v1[2] = 0;\n
+    v0[1] = 0;\n
+    v0[2] = v1;\n
+    v2->field_0 = v1;\n
+    v2->field_8 = v0;\n
+    v2->field_10 = 0;\n
+    v3 = v2;\n
+    return v3;\n
+}\n
+", "4203095:sub_402257": null, "4203104:cgc_node_create": "long long cgc_node_create(unsigned long long a0)\n
+{\n
+    unsigned long long v0[3];  // [bp-0x20]\n
+    unsigned long long v1[3];  // [bp-0x10], Other Possible Types: unsigned long\n
+    unsigned long long v3;  // rsi\n
+    unsigned long long v4;  // rdx\n
+\n
+    v0[0] = 0;\n
+    if (cgc_allocate(a0, v3, v4))\n
+    {\n
+        v1[0] = 0;\n
+        return v1;\n
+    }\n
+    v0[0] = a0;\n
+    v0[1] = 0;\n
+    v0[2] = 0;\n
+    v1 = v0;\n
+    return v1;\n
+}\n
+", "4203218:sub_4022d2": null, "4203232:cgc_list_append": "typedef struct struct_2 {\n
+    char padding_0[8];\n
+    struct struct_1 *field_8;\n
+    unsigned int field_10;\n
+} struct_2;\n
+\n
+typedef struct struct_1 {\n
+    char padding_0[16];\n
+    struct struct_0 *field_10;\n
+} struct_1;\n
+\n
+typedef struct struct_0 {\n
+    char padding_0[8];\n
+    unsigned long long field_8;\n
+} struct_0;\n
+\n
+long long cgc_list_append(struct_2 *a0, unsigned long long a1[3])\n
+{\n
+    unsigned int v0;  // [bp-0x1c]\n
+\n
+    v0 = 0;\n
+    a1[1] = a0->field_8;\n
+    a1[2] = a0->field_8->field_10;\n
+    a0->field_8->field_10->field_8 = a1;\n
+    a0->field_8->field_10 = &a1[0];\n
+    a0->field_10 = a0->field_10 + 1;\n
+    return v0;\n
+}\n
+", "4203341:sub_40234d": null, "4203344:cgc_get_list_head": "long long cgc_get_list_head(unsigned long long *a0)\n
+{\n
+    return *(a0);\n
+}\n
+", "4203361:sub_402361": null, "4203376:cgc_get_list_tail": "typedef struct struct_0 {\n
+    char padding_0[8];\n
+    unsigned long long field_8;\n
+} struct_0;\n
+\n
+long long cgc_get_list_tail(struct_0 *a0)\n
+{\n
+    return a0->field_8;\n
+}\n
+", "4203394:sub_402382": null, "4203408:cgc_get_first_node": "long long cgc_get_first_node(struct struct_0 **a0)\n
+{\n
+    return *(a0)->field_8;\n
+}\n
+", "4203429:sub_4023a5": null, "4203440:cgc_get_last_node": "typedef struct struct_1 {\n
+    char padding_0[8];\n
+    struct struct_0 *field_8;\n
+} struct_1;\n
+\n
+typedef struct struct_0 {\n
+    char padding_0[16];\n
+    unsigned long long field_10;\n
+} struct_0;\n
+\n
+long long cgc_get_last_node(struct_1 *a0)\n
+{\n
+    return a0->field_8->field_10;\n
+}\n
+", "4203462:sub_4023c6": null, "4203472:cgc_rand": "long long cgc_rand(unsigned long long a0, unsigned long long a1)\n
+{\n
+    void* v0;  // [bp-0x20]\n
+    unsigned long v1;  // [bp-0x18]\n
+    unsigned long v2;  // [bp-0x10]\n
+    unsigned long long v4;  // rdx\n
+\n
+    v2 = a0;\n
+    v1 = a1;\n
+    v0 = 0;\n
+    return cgc_random(a0, a1, v4);\n
+}\n
+", "4203519:sub_4023ff": null, "4203520:cgc_send": "long long cgc_send(unsigned long long a0, unsigned long long a1)\n
+{\n
+    if (cgc_transmit_all(1, a0, a1))\n
+    {\n
+        cgc__terminate(1);\n
+        return 0;\n
+    }\n
+    return 0;\n
+}\n
+", "4203581:sub_40243d": null, "4203584:cgc_transmit_all": "long long cgc_transmit_all(unsigned long long a0, unsigned long long a1, unsigned long long a2)\n
+{\n
+    unsigned int v0;  // [bp-0x34]\n
+    void* v1;  // [bp-0x30]\n
+    void* v2;  // [bp-0x28], Other Possible Types: unsigned long\n
+    unsigned int v3;  // [bp-0x10]\n
+    unsigned int v4;  // [bp-0xc]\n
+    unsigned long long v6;  // rcx\n
+\n
+    v3 = a0;\n
+    v2 = 0;\n
+    v1 = 0;\n
+    if (!a1)\n
+    {\n
+        v4 = 1;\n
+        return v4;\n
+    }\n
+    if (!a2)\n
+    {\n
+        v4 = 2;\n
+        return v4;\n
+    }\n
+    while (true)\n
+    {\n
+        if (v2 < a2)\n
+        {\n
+            v0 = cgc_transmit(a0, a1, a2, v6);\n
+            if (v0)\n
+            {\n
+                v4 = 3;\n
+                return v4;\n
+            }\n
+            v2 = v1 + v2;\n
+        }\n
+        else\n
+        {\n
+            v4 = 0;\n
+            return v4;\n
+        }\n
+    }\n
+}\n
+", "4203770:sub_4024fa": null, "4203776:cgc_recv_all": "long long cgc_recv_all(unsigned long long a0, unsigned long long a1)\n
+{\n
+    return cgc_read_all(0, a0, a1);\n
+}\n
+", "4203815:sub_402527": null, "4203824:cgc_read_all": "long long cgc_read_all(unsigned long long a0, char *a1, unsigned long long a2)\n
+{\n
+    char v0;  // [bp-0x30]\n
+    unsigned int v1;  // [bp-0x24]\n
+    char v2;  // [bp-0x1d]\n
+    unsigned int v3;  // [bp-0x1c]\n
+    unsigned int v4;  // [bp-0xc]\n
+    unsigned long v8;  // rcx\n
+\n
+    v4 = a0;\n
+    v3 = a2;\n
+    v1 = 0;\n
+    while (true)\n
+    {\n
+        if (!v3)\n
+            return v1;\n
+        if (cgc_receive(a0, a1, a2, rcx<8>))\n
+            break;\n
+        if (!*(&v0))\n
+            break;\n
+        v8 = v1;\n
+        v1 = v8 + 1;\n
+        a1[v8] = v2;\n
+        v3 -= 1;\n
+    }\n
+    return v1;\n
+}\n
+", "4203951:sub_4025af": null, "4203952:cgc_memset": "long long cgc_memset(char *a0, unsigned long a1, unsigned long a2)\n
+{\n
+    char *v0;  // [bp-0x20], Other Possible Types: unsigned long\n
+    unsigned int v1;  // [bp-0x18]\n
+    unsigned int v3;  // eax\n
+    char *v4;  // rax\n
+\n
+    v1 = a2;\n
+    v0 = a0;\n
+    while (true)\n
+    {\n
+        v3 = v1;\n
+        v1 = v3 - 1;\n
+        if (!v3)\n
+            break;\n
+        v4 = v0;\n
+        v0 = v4 + 1;\n
+        *(v4) = a1;\n
+    }\n
+    return a0;\n
+}\n
+", "4204027:sub_4025fb": null, "4204032:cgc_get_count_outlets_on_breaker": "typedef struct struct_1 {\n
+    char padding_0[8];\n
+    struct struct_0 *field_8;\n
+} struct_1;\n
+\n
+typedef struct struct_0 {\n
+    char padding_0[16];\n
+    unsigned int field_10;\n
+} struct_0;\n
+\n
+long long cgc_get_count_outlets_on_breaker(unsigned long a0)\n
+{\n
+    struct_1 *v0;  // [bp-0x18]\n
+    unsigned int v1;  // [bp-0xc]\n
+\n
+    if (!cgc_breaker_id_is_installed(a0))\n
+    {\n
+        v1 = -45;\n
+        return v1;\n
+    }\n
+    v0 = cgc_get_breaker_by_id(a0);\n
+    v1 = v0->field_8->field_10;\n
+    return v1;\n
+}\n
+", "4204111:sub_40264f": null, "4204112:cgc_breaker_id_is_installed": "long long cgc_breaker_id_is_installed(unsigned long a0)\n
+{\n
+    char v0;  // [bp-0x9]\n
+\n
+    if (!cgc_get_breaker_by_id(a0))\n
+    {\n
+        v0 = 0;\n
+        return v0;\n
+    }\n
+    v0 = 1;\n
+    return v0;\n
+}\n
+", "4204168:sub_402688": null, "4204176:cgc_get_breaker_by_id": "extern struct_0 *e_model;\n
+\n
+long long cgc_get_breaker_by_id(unsigned long a0)\n
+{\n
+    void* v0;  // [bp-0x10], Other Possible Types: unsigned long\n
+\n
+    if (cgc_load_center_is_created() && e_model->field_1 && a0 < e_model->field_1)\n
+    {\n
+        v0 = &e_model[2 + 8 * a0];\n
+        return v0;\n
+    }\n
+    v0 = 0;\n
+    return v0;\n
+}\n
+", "4204296:sub_402708": null, "4204304:cgc_get_amp_rating_of_breaker": "typedef struct struct_0 {\n
+    char padding_0[4];\n
+    char field_4;\n
+} struct_0;\n
+\n
+long long cgc_get_amp_rating_of_breaker(unsigned long a0)\n
+{\n
+    struct_0 *v0;  // [bp-0x18]\n
+    char v1;  // [bp-0x9]\n
+\n
+    if (!cgc_breaker_id_is_installed(a0))\n
+    {\n
+        v1 = 211;\n
+        return v1;\n
+    }\n
+    v0 = cgc_get_breaker_by_id(a0);\n
+    v1 = v0->field_4;\n
+    return v1;\n
+}\n
+", "4204377:sub_402759": null, "4204384:cgc_get_amp_rating_of_outlet": "typedef struct struct_0 {\n
+    char padding_0[56];\n
+    char field_38;\n
+} struct_0;\n
+\n
+long long cgc_get_amp_rating_of_outlet(unsigned long a0)\n
+{\n
+    struct_0 *v0;  // [bp-0x18]\n
+    char v1;  // [bp-0x9]\n
+\n
+    v0 = cgc_get_outlet_by_id(a0);\n
+    if (!v0)\n
+    {\n
+        v1 = 209;\n
+        return v1;\n
+    }\n
+    v1 = v0->field_38;\n
+    return v1;\n
+}\n
+", "4204448:cgc_get_outlet_by_id": "typedef struct struct_0 {\n
+    struct struct_1 *field_0;\n
+    struct struct_0 *field_8;\n
+} struct_0;\n
+\n
+typedef struct struct_1 {\n
+    unsigned int field_0;\n
+} struct_1;\n
+\n
+long long cgc_get_outlet_by_id(unsigned long a0)\n
+{\n
+    struct_0 *v0;  // [bp-0x38], Other Possible Types: unsigned long\n
+    struct struct_0 **v1;  // [bp-0x30]\n
+    unsigned int v2;  // [bp-0x28]\n
+    char v3;  // [bp-0x21]\n
+    unsigned int *v4;  // [bp-0x20], Other Possible Types: unsigned long\n
+    unsigned int *v5;  // [bp-0x10], Other Possible Types: unsigned long\n
+\n
+    v4 = 0;\n
+    v3 = cgc_get_number_of_breakers_installed_in_load_center();\n
+    if (0 > v3)\n
+    {\n
+        v5 = 0;\n
+        return v5;\n
+    }\n
+    for (v2 = 0; v2 < v3; v2 += 1)\n
+    {\n
+        v1 = cgc_get_outlet_list_on_breaker(v2);\n
+        for (v0 = cgc_get_first_node(v1); cgc_get_list_tail(v1) != v0; v0 = *((v0 + 8)))\n
+        {\n
+            v4 = *(v0);\n
+            if (a0 == *(v4))\n
+                break;\n
+            v4 = 0;\n
+        }\n
+    }\n
+    v5 = v4;\n
+    return v5;\n
+}\n
+", "4204661:sub_402875": null, "4204672:cgc_get_amp_rating_of_splitter": "typedef struct struct_0 {\n
+    char padding_0[4];\n
+    char field_4;\n
+} struct_0;\n
+\n
+long long cgc_get_amp_rating_of_splitter(unsigned long a0)\n
+{\n
+    struct_0 *v0;  // [bp-0x18]\n
+    char v1;  // [bp-0x9]\n
+\n
+    v0 = cgc_get_splitter_by_id(a0);\n
+    if (!v0)\n
+    {\n
+        v1 = 208;\n
+        return v1;\n
+    }\n
+    v1 = v0->field_4;\n
+    return v1;\n
+}\n
+", "4204736:cgc_get_splitter_by_id": "typedef struct struct_0 {\n
+    unsigned long long field_0;\n
+    struct struct_0 *field_8;\n
+} struct_0;\n
+\n
+long long cgc_get_splitter_by_id(unsigned long a0)\n
+{\n
+    unsigned long long v0;  // [bp-0x40]\n
+    struct_0 *v1;  // [bp-0x38], Other Possible Types: unsigned long\n
+    struct struct_0 **v2;  // [bp-0x30]\n
+    unsigned int v3;  // [bp-0x28]\n
+    char v4;  // [bp-0x21]\n
+    void* v5;  // [bp-0x20], Other Possible Types: unsigned long\n
+    void* v6;  // [bp-0x10], Other Possible Types: unsigned long\n
+\n
+    v5 = 0;\n
+    v4 = cgc_get_number_of_breakers_installed_in_load_center();\n
+    if (0 > v4)\n
+    {\n
+        v6 = 0;\n
+        return v6;\n
+    }\n
+    for (v3 = 0; v3 < v4; v3 += 1)\n
+    {\n
+        v2 = cgc_get_outlet_list_on_breaker(v3);\n
+        for (v1 = cgc_get_first_node(v2); cgc_get_list_tail(v2) != v1; v1 = *((v1 + 8)))\n
+        {\n
+            v0 = *(v1);\n
+            v5 = cgc_search_outlet_for_splitter_id(v0, a0);\n
+            if (v5)\n
+                break;\n
+        }\n
+    }\n
+    v6 = v5;\n
+    return v6;\n
+}\n
+", "4204954:sub_40299a": null, "4204960:cgc_get_amp_rating_of_light_string": "long long cgc_get_amp_rating_of_light_string(unsigned long a0)\n
+{\n
+    unsigned long v0;  // [bp-0x18]\n
+    unsigned int v1;  // [bp-0xc]\n
+    unsigned int v4;  // ymm0\n
+\n
+    v0 = cgc_get_light_string_by_id(a0);\n
+    if (!v0)\n
+    {\n
+        v1 = 0xc2440000;\n
+        return 0;\n
+    }\n
+    v1 = v4;\n
+    return cgc_get_max_amps_of_light_string();\n
+}\n
+", "4205036:sub_4029ec": null, "4205040:cgc_get_light_string_by_id": "typedef struct struct_0 {\n
+    unsigned long long field_0;\n
+    struct struct_0 *field_8;\n
+} struct_0;\n
+\n
+long long cgc_get_light_string_by_id(unsigned long a0)\n
+{\n
+    unsigned long long v0;  // [bp-0x40]\n
+    struct_0 *v1;  // [bp-0x38], Other Possible Types: unsigned long\n
+    void* v2;  // [bp-0x30]\n
+    unsigned int v3;  // [bp-0x28]\n
+    char v4;  // [bp-0x21]\n
+    void* v5;  // [bp-0x20], Other Possible Types: unsigned long\n
+    void* v6;  // [bp-0x10], Other Possible Types: unsigned long\n
+\n
+    v5 = 0;\n
+    v4 = cgc_get_number_of_breakers_installed_in_load_center();\n
+    if (0 > v4)\n
+    {\n
+        v6 = 0;\n
+        return v6;\n
+    }\n
+    for (v3 = 0; v3 < v4; v3 += 1)\n
+    {\n
+        v2 = cgc_get_outlet_list_on_breaker(v3);\n
+        for (v1 = cgc_get_first_node(v2); cgc_get_list_tail(v2) != v1; v1 = *((v1 + 8)))\n
+        {\n
+            v0 = *(v1);\n
+            v5 = cgc_search_outlet_for_light_string_id(v0, a0);\n
+            if (v5)\n
+                break;\n
+        }\n
+    }\n
+    v6 = v5;\n
+    return v6;\n
+}\n
+", "4205258:sub_402aca": null, "4205264:cgc_get_amp_rating_of_receptacle": "typedef struct struct_0 {\n
+    char padding_0[16];\n
+    char field_10;\n
+} struct_0;\n
+\n
+long long cgc_get_amp_rating_of_receptacle(unsigned long a0)\n
+{\n
+    struct_0 *v0;  // [bp-0x18]\n
+    char v1;  // [bp-0x9]\n
+\n
+    v0 = cgc_get_receptacle_by_id(a0);\n
+    if (!v0)\n
+    {\n
+        v1 = 210;\n
+        return v1;\n
+    }\n
+    v1 = v0->field_10;\n
+    return v1;\n
+}\n
+", "4205328:cgc_get_receptacle_by_id": "extern struct_0 *e_model;\n
+\n
+long long cgc_get_receptacle_by_id(unsigned long a0)\n
+{\n
+    unsigned int v0;  // [bp-0x1c]\n
+    void* v1;  // [bp-0x18], Other Possible Types: unsigned long\n
+\n
+    v1 = 0;\n
+    if (cgc_load_center_is_created() != 1)\n
+        return v1;\n
+    for (v0 = 0; v0 < e_model->field_1; v0 += 1)\n
+    {\n
+        v1 = cgc_get_receptacle_by_id_from_breaker_id(v0, a0);\n
+        if (v1)\n
+            break;\n
+    }\n
+    return v1;\n
+}\n
+", "4205463:sub_402b97": null, "4205472:cgc_get_number_of_breakers_installed_in_load_center": "extern struct_0 *e_model;\n
+\n
+long long cgc_get_number_of_breakers_installed_in_load_center()\n
+{\n
+    char v0;  // [bp-0x9]\n
+\n
+    if (!cgc_load_center_is_created())\n
+    {\n
+        v0 = 214;\n
+        return v0;\n
+    }\n
+    v0 = e_model->field_1;\n
+    return v0;\n
+}\n
+", "4205530:sub_402bda": null, "4205536:cgc_get_total_breaker_space_count": "extern struct_0 *e_model;\n
+\n
+long long cgc_get_total_breaker_space_count()\n
+{\n
+    char v0;  // [bp-0x9]\n
+\n
+    if (!cgc_load_center_is_created())\n
+    {\n
+        v0 = 214;\n
+        return v0;\n
+    }\n
+    v0 = e_model->field_0;\n
+    return v0;\n
+}\n
+", "4205593:sub_402c19": null, "4205600:cgc_get_amp_rating_of_load_center": "extern struct_0 *e_model;\n
+\n
+long long cgc_get_amp_rating_of_load_center()\n
+{\n
+    unsigned int v0;  // [bp-0xc]\n
+\n
+    if (!cgc_load_center_is_created())\n
+    {\n
+        v0 = -42;\n
+        return v0;\n
+    }\n
+    v0 = e_model->field_4;\n
+    return v0;\n
+}\n
+", "4205660:sub_402c5c": null, "4205664:cgc_get_total_amp_load_on_load_center": "long long cgc_get_total_amp_load_on_load_center()\n
+{\n
+    char v0;  // [bp-0x15]\n
+    unsigned int v1;  // [bp-0x14]\n
+    unsigned int v2;  // [bp-0x10]\n
+    unsigned int v3;  // [bp-0xc]\n
+    char v4;  // [bp-0x8]\n
+    unsigned long long v6;  // rbp\n
+    int v8;  // xmm0\n
+\n
+    v6 = &v4;\n
+    if (!cgc_load_center_is_created())\n
+    {\n
+        v3 = 0xc2280000;\n
+        return 0;\n
+    }\n
+    v8 = 0;\n
+    v2 = 0;\n
+    v1 = cgc_get_number_of_breakers_installed_in_load_center();\n
+    if (0 > v1)\n
+    {\n
+        v3 = v1;\n
+        return 0;\n
+    }\n
+    v0 = 0;\n
+    while (true)\n
+    {\n
+        if (v0 >= v1)\n
+            break;\n
+        cgc_get_total_amp_load_on_breaker_by_breaker_id(v0);\n
+        xmm0<16> = (xmm0<16> + Conv(32->128, Load(addr=stack_base-16, size=4, endness=Iend_LE)))\n
+        v2 = v8;\n
+        v0 += 1;\n
+    }\n
+    v3 = v2;\n
+    return v0;\n
+}\n
+", "4205823:sub_402cff": null, "4205824:cgc_get_total_amp_load_on_breaker_by_breaker_id": "typedef struct struct_0 {\n
+    unsigned long long field_0;\n
+    struct struct_0 *field_8;\n
+} struct_0;\n
+\n
+long long cgc_get_total_amp_load_on_breaker_by_breaker_id(unsigned long a0)\n
+{\n
+    struct_0 *v0;  // [bp-0x28], Other Possible Types: unsigned long\n
+    struct struct_0 **v1;  // [bp-0x20]\n
+    unsigned int v2;  // [bp-0x14]\n
+    unsigned int v3;  // [bp-0xc]\n
+    unsigned long v5;  // rax\n
+    int v6;  // xmm0\n
+\n
+    if (!cgc_breaker_id_is_installed(a0))\n
+    {\n
+        v3 = 0xc2340000;\n
+        return 0;\n
+    }\n
+    v6 = 0;\n
+    v2 = 0;\n
+    v1 = cgc_get_outlet_list_on_breaker(a0);\n
+    v0 = cgc_get_first_node(v1);\n
+    while (true)\n
+    {\n
+        v5 = cgc_get_list_tail(v1);\n
+        if (v5 == v0)\n
+            break;\n
+        cgc_get_total_amp_load_on_outlet_by_outlet_va(*(v0));\n
+        xmm0<16> = (xmm0<16> + Conv(32->128, Load(addr=stack_base-20, size=4, endness=Iend_LE)))\n
+        v2 = v6;\n
+        v0 = *((v0 + 8));\n
+    }\n
+    v3 = v2;\n
+    return v5;\n
+}\n
+", "4205986:sub_402da2": null, "4206000:cgc_get_outlet_list_on_breaker": "typedef struct struct_0 {\n
+    char padding_0[8];\n
+    unsigned long long field_8;\n
+} struct_0;\n
+\n
+long long cgc_get_outlet_list_on_breaker(unsigned long a0)\n
+{\n
+    struct_0 *v0;  // [bp-0x20]\n
+    void* v1;  // [bp-0x10], Other Possible Types: unsigned long\n
+\n
+    if (!cgc_breaker_id_is_installed(a0))\n
+    {\n
+        v1 = 0;\n
+        return v1;\n
+    }\n
+    v0 = cgc_get_breaker_by_id(a0);\n
+    v1 = v0->field_8;\n
+    return v1;\n
+}\n
+", "4206079:sub_402dff": null, "4206080:cgc_get_total_amp_load_on_outlet_by_outlet_va": "double cgc_get_total_amp_load_on_outlet_by_outlet_va(long long a0)\n
+{\n
+    unsigned int v0;  // [bp-0x14]\n
+\n
+    v0 = 0;\n
+    cgc_get_total_amp_load_on_receptacle_by_receptacle_va(a0 + 8);\n
+    s_14 =L Conv(128->32, (0x0<128> + Conv(32->128, Load(addr=stack_base-20, size=4, endness=Iend_LE))))<4>\n
+    cgc_get_total_amp_load_on_receptacle_by_receptacle_va(a0 + 32);\n
+    v0 += v0;\n
+    return v0;\n
+}\n
+", "4206157:sub_402e4d": null, "4206160:cgc_get_total_amp_load_on_outlet_by_outlet_id": "long long cgc_get_total_amp_load_on_outlet_by_outlet_id(unsigned long a0)\n
+{\n
+    unsigned long long v0;  // [bp-0x18]\n
+    unsigned int v1;  // [bp-0xc]\n
+    unsigned long v3;  // rax\n
+    unsigned int v4;  // ymm0\n
+\n
+    v0 = cgc_get_outlet_by_id(a0);\n
+    if (!v0)\n
+    {\n
+        v1 = 0xc23c0000;\n
+        return 0;\n
+    }\n
+    v3 = cgc_get_total_amp_load_on_outlet_by_outlet_va(v0);\n
+    v1 = v4;\n
+    return v3;\n
+}\n
+", "4206238:sub_402e9e": null, "4206240:cgc_get_total_amp_load_on_receptacle_by_receptacle_id": "long long cgc_get_total_amp_load_on_receptacle_by_receptacle_id(unsigned long a0)\n
+{\n
+    unsigned long long v0;  // [bp-0x18]\n
+    unsigned int v1;  // [bp-0xc]\n
+    unsigned long v3;  // rax\n
+    unsigned int v4;  // ymm0\n
+\n
+    v0 = cgc_get_receptacle_by_id(a0);\n
+    if (!v0)\n
+    {\n
+        v1 = 0xc2380000;\n
+        return 0;\n
+    }\n
+    v3 = cgc_get_total_amp_load_on_receptacle_by_receptacle_va(v0);\n
+    v1 = v4;\n
+    return v3;\n
+}\n
+", "4206318:sub_402eee": null, "4206320:cgc_get_total_amp_load_on_receptacle_by_receptacle_va": "typedef struct struct_0 {\n
+    char padding_0[8];\n
+    unsigned long long field_8;\n
+} struct_0;\n
+\n
+long long cgc_get_total_amp_load_on_receptacle_by_receptacle_va(struct_0 *a0)\n
+{\n
+    unsigned int v0;  // [bp-0x14]\n
+    unsigned long long v2;  // rax, Other Possible Types: unsigned long\n
+\n
+    v0 = 0;\n
+    if (!cgc_get_receptacle_load_type(a0))\n
+    {\n
+        v2 = cgc_get_total_amp_load_on_splitter_by_splitter_va(a0->field_8);\n
+        v0 = 0;\n
+        return v2;\n
+    }\n
+    v2 = 1;\n
+    if (cgc_get_receptacle_load_type(a0) != 1)\n
+        return v2;\n
+    v2 = cgc_get_total_amp_load_on_light_string_by_light_string_va(a0->field_8);\n
+    v0 = 0;\n
+}\n
+", "4206442:sub_402f6a": null, "4206448:cgc_get_total_amp_load_on_splitter_by_splitter_id": "long long cgc_get_total_amp_load_on_splitter_by_splitter_id(unsigned long a0)\n
+{\n
+    unsigned long long v0;  // [bp-0x18]\n
+    unsigned int v1;  // [bp-0xc]\n
+    unsigned long v3;  // rax\n
+    unsigned int v4;  // ymm0\n
+\n
+    v0 = cgc_get_splitter_by_id(a0);\n
+    if (!v0)\n
+    {\n
+        v1 = 0xc2400000;\n
+        return 0;\n
+    }\n
+    v3 = cgc_get_total_amp_load_on_splitter_by_splitter_va(v0);\n
+    v1 = v4;\n
+    return v3;\n
+}\n
+", "4206526:sub_402fbe": null, "4206528:cgc_get_total_amp_load_on_splitter_by_splitter_va": "typedef struct struct_0 {\n
+    char padding_0[6];\n
+    char field_6;\n
+} struct_0;\n
+\n
+long long cgc_get_total_amp_load_on_splitter_by_splitter_va(struct_0 *a0)\n
+{\n
+    unsigned int v0;  // [bp-0x18]\n
+    unsigned int v1;  // [bp-0x14]\n
+    int v3;  // xmm0\n
+\n
+    v3 = 0;\n
+    v1 = 0;\n
+    for (v0 = 0; v0 < a0->field_6; v0 += 1)\n
+    {\n
+        cgc_get_total_amp_load_on_receptacle_by_receptacle_va(&a0[1].padding_0[1 + 24 * v0]);\n
+        xmm0<16> = (xmm0<16> + Conv(32->128, Load(addr=stack_base-20, size=4, endness=Iend_LE)))\n
+        v1 = v3;\n
+    }\n
+    return v0;\n
+}\n
+", "4206633:sub_403029": null, "4206640:cgc_get_total_amp_load_on_light_string_by_light_string_id": "long long cgc_get_total_amp_load_on_light_string_by_light_string_id(unsigned long a0)\n
+{\n
+    unsigned long long v0;  // [bp-0x18]\n
+    unsigned int v1;  // [bp-0xc]\n
+    unsigned long v3;  // rax\n
+    unsigned int v4;  // ymm0\n
+\n
+    v0 = cgc_get_light_string_by_id(a0);\n
+    if (!v0)\n
+    {\n
+        v1 = 0xc2440000;\n
+        return 0;\n
+    }\n
+    v3 = cgc_get_total_amp_load_on_light_string_by_light_string_va(v0);\n
+    v1 = v4;\n
+    return v3;\n
+}\n
+", "4206718:sub_40307e": null, "4206720:cgc_get_total_amp_load_on_light_string_by_light_string_va": "typedef struct struct_0 {\n
+    char padding_0[8];\n
+    unsigned int field_8;\n
+} struct_0;\n
+\n
+double cgc_get_total_amp_load_on_light_string_by_light_string_va(long long a0)\n
+{\n
+    unsigned int v0;  // [bp-0x14]\n
+\n
+    v0 = 0;\n
+    cgc_convert_watts_to_amps();\n
+    s_14 =L Conv(128->32, ((0x0<96> CONCAT Load(addr=(rdi<8> + 0x8<64>), size=4, endness=Iend_LE)) + Conv(32->128, Load(addr=stack_base-20, size=4, endness=Iend_LE))))<4>\n
+    cgc_get_total_amp_load_on_receptacle_by_receptacle_va(&a0[1].padding_0[4]);\n
+    v0 += v0;\n
+    return v0;\n
+}\n
+", "4206798:sub_4030ce": null, "4206800:cgc_get_max_receptacle_amp_load_on_outlet_by_outlet_id": "long long cgc_get_max_receptacle_amp_load_on_outlet_by_outlet_id(unsigned long a0)\n
+{\n
+    unsigned long long v0;  // [bp-0x18]\n
+    unsigned int v1;  // [bp-0xc]\n
+    unsigned long v3;  // rax\n
+    unsigned int v4;  // ymm0\n
+\n
+    v0 = cgc_get_outlet_by_id(a0);\n
+    if (!v0)\n
+    {\n
+        v1 = 0xc23c0000;\n
+        return 0;\n
+    }\n
+    v3 = cgc_get_max_receptacle_amp_load_on_outlet_by_outlet_va(v0);\n
+    v1 = v4;\n
+    return v3;\n
+}\n
+", "4206878:sub_40311e": null, "4206880:cgc_get_max_receptacle_amp_load_on_outlet_by_outlet_va": "long long cgc_get_max_receptacle_amp_load_on_outlet_by_outlet_va(unsigned long a0)\n
+{\n
+    unsigned int v0;  // [bp-0x20]\n
+    unsigned int v1;  // [bp-0x1c]\n
+    unsigned int v2;  // [bp-0xc]\n
+    unsigned int v4;  // ymm0\n
+    unsigned long long v5;  // rax\n
+\n
+    cgc_get_total_amp_load_on_receptacle_by_receptacle_va(a0 + 8);\n
+    v1 = v4;\n
+    v5 = cgc_get_total_amp_load_on_receptacle_by_receptacle_va(a0 + 32);\n
+    v0 = v4;\n
+    if ((((CmpF(v1, v0) & 69) | ((CmpF(v1, v0) & 69) >> 6)) & 1) != 1)\n
+    {\n
+        v2 = v1;\n
+        return v5;\n
+    }\n
+    v2 = v0;\n
+    return v5;\n
+}\n
+", "4206979:sub_403183": null, "4206992:cgc_get_max_receptacle_amp_load_on_splitter_by_splitter_id": "long long cgc_get_max_receptacle_amp_load_on_splitter_by_splitter_id(unsigned long a0)\n
+{\n
+    unsigned long long v0;  // [bp-0x18]\n
+    unsigned int v1;  // [bp-0xc]\n
+    unsigned long v3;  // rax\n
+    unsigned int v4;  // ymm0\n
+\n
+    v0 = cgc_get_splitter_by_id(a0);\n
+    if (!v0)\n
+    {\n
+        v1 = 0xc2400000;\n
+        return 0;\n
+    }\n
+    v3 = cgc_get_max_receptacle_amp_load_on_splitter_by_splitter_va(v0);\n
+    v1 = v4;\n
+    return v3;\n
+}\n
+", "4207070:sub_4031de": null, "4207072:cgc_get_max_receptacle_amp_load_on_splitter_by_splitter_va": "typedef struct struct_0 {\n
+    char padding_0[6];\n
+    char field_6;\n
+} struct_0;\n
+\n
+long long cgc_get_max_receptacle_amp_load_on_splitter_by_splitter_va(struct_0 *a0)\n
+{\n
+    unsigned int v0;  // [bp-0x1c]\n
+    unsigned int v1;  // [bp-0x18]\n
+    unsigned int v2;  // [bp-0x14]\n
+    int v4;  // xmm0\n
+\n
+    v2 = 0;\n
+    v4 = 0;\n
+    v1 = 0;\n
+    for (v0 = 0; v0 < a0->field_6; v0 += 1)\n
+    {\n
+        cgc_get_total_amp_load_on_receptacle_by_receptacle_va(&a0[1].padding_0[1 + 24 * v0]);\n
+        v1 = v4;\n
+        *(&v4) = v1;\n
+        if ((((CmpF(v4, v2) & 69) | ((CmpF(v4, v2) & 69) >> 6)) & 1) != 1)\n
+        {\n
+            *(&v4) = v1;\n
+            v2 = v4;\n
+        }\n
+    }\n
+    return v0;\n
+}\n
+", "4207210:sub_40326a": null, "4207216:cgc_init_electric_model": "extern unsigned long long e_model;\n
+\n
+long long cgc_init_electric_model(unsigned long a0)\n
+{\n
+    char v0;  // [bp-0x9]\n
+\n
+    if (cgc_load_center_is_created() == 1)\n
+    {\n
+        v0 = 215;\n
+        return v0;\n
+    }\n
+    e_model = cgc_get_new_load_center_by_model_id(a0);\n
+    if (!e_model)\n
+    {\n
+        v0 = 212;\n
+        return v0;\n
+    }\n
+    v0 = 0;\n
+    return v0;\n
+}\n
+", "4207310:sub_4032ce": null, "4207312:cgc_add_breaker_to_load_center": "typedef struct struct_0 {\n
+    char padding_0[1];\n
+    char field_1;\n
+} struct_0;\n
+\n
+extern struct_0 *e_model;\n
+\n
+long long cgc_add_breaker_to_load_center(unsigned long a0, unsigned int *a1)\n
+{\n
+    unsigned long long v0;  // [bp-0x20]\n
+    int tmp_12;  // tmp #12\n
+    char v1;  // [bp-0x9]\n
+    unsigned long long v3;  // rcx\n
+    struct_0 *v4;  // rcx\n
+\n
+    if (!cgc_load_center_is_created())\n
+    {\n
+        v1 = 214;\n
+        return v1;\n
+    }\n
+    else if (cgc_load_center_breaker_spaces_are_full() != 1)\n
+    {\n
+        v3 = e_model->field_1 * 16;\n
+        v0 = &(&e_model[2].padding_0)[v3];\n
+        if (cgc_get_new_breaker_by_model_id(a0, v0, e_model->field_1, v3) == -1)\n
+        {\n
+            v1 = 212;\n
+            return v1;\n
+        }\n
+        v4 = e_model;\n
+        tmp_12 = e_model->field_1;\n
+        v4->field_1 = v4->field_1 + 1;\n
+        *(a1) = tmp_12;\n
+        v1 = 0;\n
+        return v1;\n
+    }\n
+    else\n
+    {\n
+        v1 = 213;\n
+        return v1;\n
+    }\n
+}\n
+", "4207506:sub_403392": null, "4207520:cgc_add_outlet_to_breaker": "typedef struct struct_1 {\n
+    char padding_0[4];\n
+    char field_4;\n
+    char padding_5[3];\n
+    unsigned long long field_8;\n
+} struct_1;\n
+\n
+typedef struct struct_2 {\n
+    unsigned int field_0;\n
+    char padding_4[4];\n
+    unsigned int field_8;\n
+    char padding_c[20];\n
+    unsigned int field_20;\n
+    char padding_24[20];\n
+    char field_38;\n
+} struct_2;\n
+\n
+typedef struct struct_0 {\n
+    unsigned int field_0;\n
+    unsigned int field_4;\n
+    unsigned int field_8;\n
+    char padding_c[24];\n
+    char field_24;\n
+} struct_0;\n
+\n
+long long cgc_add_outlet_to_breaker(unsigned long long a0, unsigned long a1, struct_0 *a2)\n
+{\n
+    void* v0;  // [bp-0x38]\n
+    struct_2 *v1;  // [bp-0x30]\n
+    struct_1 *v2;  // [bp-0x28]\n
+    char v3;  // [bp-0x9]\n
+\n
+    if (!cgc_load_center_is_created())\n
+    {\n
+        v3 = 214;\n
+        return v3;\n
+    }\n
+    v2 = cgc_get_breaker_by_id(a1);\n
+    if (!v2)\n
+    {\n
+        v3 = 211;\n
+        return v3;\n
+    }\n
+    v1 = cgc_get_new_outlet_by_model_id(a0);\n
+    if (!v1)\n
+    {\n
+        v3 = 212;\n
+        return v3;\n
+    }\n
+    else if (v1->field_38 <= v2->field_4)\n
+    {\n
+        a2->field_0 = v1->field_0;\n
+        a2->field_4 = v1->field_8;\n
+        a2->field_8 = v1->field_20;\n
+        a2->field_24 = 2;\n
+        v0 = v2->field_8;\n
+        v3 = cgc_list_append(v0, cgc_node_create(v1));\n
+        return v3;\n
+    }\n
+    else\n
+    {\n
+        cgc_deallocate(a0, a1);\n
+        v3 = 205;\n
+        return v3;\n
+    }\n
+}\n
+", "4207772:sub_40349c": null, "4207776:cgc_add_n_way_splitter_to_receptacle": "typedef struct struct_0 {\n
+    char padding_0[4];\n
+    unsigned int field_4;\n
+    unsigned long long field_8;\n
+    char field_10;\n
+} struct_0;\n
+\n
+typedef struct struct_2 {\n
+    unsigned int field_0;\n
+    char field_4;\n
+    char padding_5[1];\n
+    char field_6;\n
+} struct_2;\n
+\n
+typedef struct struct_1 {\n
+    unsigned int field_0;\n
+    char padding_4[32];\n
+    char field_24;\n
+} struct_1;\n
+\n
+long long cgc_add_n_way_splitter_to_receptacle(unsigned long a0, unsigned long a1, struct_1 *a2)\n
+{\n
+    unsigned int v0;  // [bp-0x34]\n
+    struct_2 *v1;  // [bp-0x30]\n
+    struct_0 *v2;  // [bp-0x28]\n
+    char v3;  // [bp-0x9]\n
+\n
+    if (!cgc_load_center_is_created())\n
+    {\n
+        v3 = 214;\n
+        return v3;\n
+    }\n
+    v2 = cgc_get_receptacle_by_id(a1);\n
+    if (!v2)\n
+    {\n
+        v3 = 210;\n
+        return v3;\n
+    }\n
+    else if (cgc_receptacle_is_loaded(v2) != 1)\n
+    {\n
+        v1 = cgc_get_new_n_way_splitter_by_model_id(a0);\n
+        if (!v1)\n
+        {\n
+            v3 = 212;\n
+            return v3;\n
+        }\n
+        v2->field_4 = 0;\n
+        v2->field_8 = v1;\n
+        v2->field_10 = v1->field_4;\n
+        a2->field_0 = v1->field_0;\n
+        a2->field_24 = v1->field_6;\n
+        for (v0 = 0; v0 < v1->field_6; v0 += 1)\n
+        {\n
+            *(&a2->padding_4[4 * v0]) = *(&(&v1->field_0)[6 * v0 + 2]);\n
+        }\n
+        v3 = 0;\n
+        return v3;\n
+    }\n
+    else\n
+    {\n
+        v3 = 206;\n
+        return v3;\n
+    }\n
+}\n
+", "4208071:sub_4035c7": null, "4208080:cgc_receptacle_is_loaded": "long long cgc_receptacle_is_loaded(unsigned long long a0)\n
+{\n
+    char v0;  // [bp-0x9]\n
+\n
+    if (2 > cgc_get_receptacle_load_type(a0))\n
+    {\n
+        v0 = 1;\n
+        return v0;\n
+    }\n
+    v0 = 0;\n
+    return v0;\n
+}\n
+", "4208139:sub_40360b": null, "4208144:cgc_add_light_string_to_receptacle": "typedef struct struct_0 {\n
+    char padding_0[4];\n
+    unsigned int field_4;\n
+    unsigned long long field_8;\n
+} struct_0;\n
+\n
+typedef struct struct_1 {\n
+    unsigned int field_0;\n
+    unsigned int field_4;\n
+    char padding_8[28];\n
+    char field_24;\n
+} struct_1;\n
+\n
+long long cgc_add_light_string_to_receptacle(unsigned long a0, unsigned long a1, struct_1 *a2)\n
+{\n
+    unsigned int v0[5];  // [bp-0x30]\n
+    struct_0 *v1;  // [bp-0x28]\n
+    char v2;  // [bp-0x9]\n
+\n
+    if (!cgc_load_center_is_created())\n
+    {\n
+        v2 = 214;\n
+        return v2;\n
+    }\n
+    v1 = cgc_get_receptacle_by_id(a1);\n
+    if (!v1)\n
+    {\n
+        v2 = 210;\n
+        return v2;\n
+    }\n
+    else if (cgc_receptacle_is_loaded(v1) != 1)\n
+    {\n
+        *(&v0[0]) = cgc_get_new_light_string_by_model_id(a0);\n
+        if (!v0)\n
+        {\n
+            v2 = 212;\n
+            return v2;\n
+        }\n
+        v1->field_4 = 1;\n
+        v1->field_8 = v0;\n
+        a2->field_0 = v0[0];\n
+        a2->field_24 = 1;\n
+        a2->field_4 = v0[4];\n
+        v2 = 0;\n
+        return v2;\n
+    }\n
+    else\n
+    {\n
+        v2 = 206;\n
+        return v2;\n
+    }\n
+}\n
+", "4208360:sub_4036e8": null, "4208368:cgc_search_outlet_for_splitter_id": "long long cgc_search_outlet_for_splitter_id(unsigned long a0, unsigned long a1)\n
+{\n
+    void* v0;  // [bp-0x20], Other Possible Types: unsigned long\n
+\n
+    v0 = 0;\n
+    v0 = cgc_search_receptacle_for_splitter_id(a0 + 8, a1);\n
+    if (!v0)\n
+    {\n
+        v0 = cgc_search_receptacle_for_splitter_id(a0 + 32, a1);\n
+        return v0;\n
+    }\n
+    return v0;\n
+}\n
+", "4208453:sub_403745": null, "4208464:cgc_search_receptacle_for_splitter_id": "typedef struct struct_0 {\n
+    char padding_0[8];\n
+    unsigned long long field_8;\n
+} struct_0;\n
+\n
+long long cgc_search_receptacle_for_splitter_id(struct_0 *a0, unsigned long a1)\n
+{\n
+    void* v0;  // [bp-0x20], Other Possible Types: unsigned long\n
+\n
+    v0 = 0;\n
+    if (!cgc_get_receptacle_load_type(a0))\n
+    {\n
+        v0 = cgc_search_splitter_for_splitter_id(a0->field_8, a1);\n
+        return v0;\n
+    }\n
+    if (cgc_get_receptacle_load_type(a0) != 1)\n
+        return v0;\n
+    v0 = cgc_search_light_string_for_splitter_id(a0->field_8, a1);\n
+}\n
+", "4208592:cgc_get_receptacle_load_type": "typedef struct struct_0 {\n
+    char padding_0[4];\n
+    unsigned int field_4;\n
+} struct_0;\n
+\n
+long long cgc_get_receptacle_load_type(struct_0 *a0)\n
+{\n
+    return a0->field_4;\n
+}\n
+", "4208609:sub_4037e1": null, "4208624:cgc_search_splitter_for_splitter_id": "typedef struct struct_0 {\n
+    unsigned int field_0;\n
+    char padding_4[2];\n
+    char field_6;\n
+} struct_0;\n
+\n
+long long cgc_search_splitter_for_splitter_id(struct_0 *a0, unsigned long a1)\n
+{\n
+    char v0;  // [bp-0x21]\n
+    struct_0 *v1;  // [bp-0x20], Other Possible Types: unsigned long\n
+\n
+    v1 = 0;\n
+    if (a1 == a0->field_0)\n
+    {\n
+        v1 = a0;\n
+        return v1;\n
+    }\n
+    for (v0 = 0; v0 < a0->field_6; v0 += 1)\n
+    {\n
+        v1 = cgc_search_receptacle_for_splitter_id(&(&a0[1].field_0)[6 * v0] + 1, a1);\n
+        if (v1)\n
+            break;\n
+    }\n
+    return v1;\n
+}\n
+", "4208780:sub_40388c": null, "4208784:cgc_search_light_string_for_splitter_id": "long long cgc_search_light_string_for_splitter_id(unsigned long a0, unsigned long a1)\n
+{\n
+    return cgc_search_receptacle_for_splitter_id(a0 + 16, a1);\n
+}\n
+", "4208821:sub_4038b5": null, "4208832:cgc_search_outlet_for_light_string_id": "long long cgc_search_outlet_for_light_string_id(unsigned long a0, unsigned long a1)\n
+{\n
+    void* v0;  // [bp-0x20], Other Possible Types: unsigned long\n
+\n
+    v0 = 0;\n
+    v0 = cgc_search_receptacle_for_light_string_id(a0 + 8, a1);\n
+    if (!v0)\n
+    {\n
+        v0 = cgc_search_receptacle_for_light_string_id(a0 + 32, a1);\n
+        return v0;\n
+    }\n
+    return v0;\n
+}\n
+", "4208917:sub_403915": null, "4208928:cgc_search_receptacle_for_light_string_id": "typedef struct struct_0 {\n
+    char padding_0[8];\n
+    unsigned long long field_8;\n
+} struct_0;\n
+\n
+long long cgc_search_receptacle_for_light_string_id(struct_0 *a0, unsigned long a1)\n
+{\n
+    void* v0;  // [bp-0x20], Other Possible Types: unsigned long\n
+\n
+    v0 = 0;\n
+    if (!cgc_get_receptacle_load_type(a0))\n
+    {\n
+        v0 = cgc_search_splitter_for_light_string_id(a0->field_8, a1);\n
+        return v0;\n
+    }\n
+    if (cgc_get_receptacle_load_type(a0) != 1)\n
+        return v0;\n
+    v0 = cgc_search_light_string_for_light_string_id(a0->field_8, a1);\n
+}\n
+", "4209056:cgc_search_splitter_for_light_string_id": "typedef struct struct_0 {\n
+    char padding_0[6];\n
+    char field_6;\n
+} struct_0;\n
+\n
+long long cgc_search_splitter_for_light_string_id(struct_0 *a0, unsigned long a1)\n
+{\n
+    char v0;  // [bp-0x21]\n
+    void* v1;  // [bp-0x20], Other Possible Types: unsigned long\n
+    char v2;  // [bp-0x8]\n
+    unsigned long long v4;  // rbp\n
+\n
+    v4 = &v2;\n
+    v1 = 0;\n
+    v0 = 0;\n
+    while (true)\n
+    {\n
+        if (v0 >= a0->field_6)\n
+            return v1;\n
+        v1 = cgc_search_receptacle_for_light_string_id(&a0[1].padding_0[1 + 24 * v0], a1);\n
+        if (v1)\n
+            return v1;\n
+        v0 += 1;\n
+    }\n
+}\n
+", "4209179:sub_403a1b": null, "4209184:cgc_search_light_string_for_light_string_id": "long long cgc_search_light_string_for_light_string_id(unsigned int *a0, unsigned long a1)\n
+{\n
+    unsigned int *v0;  // [bp-0x20], Other Possible Types: unsigned long\n
+\n
+    v0 = 0;\n
+    if (a1 == *(a0))\n
+    {\n
+        v0 = a0;\n
+        return v0;\n
+    }\n
+    v0 = cgc_search_receptacle_for_light_string_id(a0 + 4, a1);\n
+    return v0;\n
+}\n
+", "4209265:sub_403a71": null, "4209280:cgc_get_receptacle_by_id_from_breaker_id": "typedef struct struct_0 {\n
+    unsigned long long field_0;\n
+    struct struct_0 *field_8;\n
+} struct_0;\n
+\n
+long long cgc_get_receptacle_by_id_from_breaker_id(unsigned long a0, unsigned long a1)\n
+{\n
+    struct_0 *v0;  // [bp-0x28], Other Possible Types: unsigned long\n
+    void* v1;  // [bp-0x20]\n
+    void* v2;  // [bp-0x18], Other Possible Types: unsigned long\n
+\n
+    v2 = 0;\n
+    v1 = cgc_get_outlet_list_on_breaker(a0);\n
+    v0 = cgc_get_first_node(v1);\n
+    while (true)\n
+    {\n
+        if (cgc_get_list_tail(v1) == v0)\n
+            return v2;\n
+        v2 = cgc_search_outlet_for_receptacle_id(*(v0), a1);\n
+        if (v2)\n
+            return v2;\n
+        v0 = *((v0 + 8));\n
+    }\n
+}\n
+", "4209409:sub_403b01": null, "4209424:cgc_search_outlet_for_receptacle_id": "long long cgc_search_outlet_for_receptacle_id(unsigned long a0, unsigned long a1)\n
+{\n
+    void* v0;  // [bp-0x20], Other Possible Types: unsigned long\n
+\n
+    v0 = 0;\n
+    v0 = cgc_search_receptacle_for_receptacle_id(a0 + 8, a1);\n
+    if (!v0)\n
+    {\n
+        v0 = cgc_search_receptacle_for_receptacle_id(a0 + 32, a1);\n
+        return v0;\n
+    }\n
+    return v0;\n
+}\n
+", "4209509:sub_403b65": null, "4209520:cgc_search_receptacle_for_receptacle_id": "typedef struct struct_0 {\n
+    unsigned int field_0;\n
+    char padding_4[4];\n
+    unsigned long long field_8;\n
+} struct_0;\n
+\n
+long long cgc_search_receptacle_for_receptacle_id(struct_0 *a0, unsigned long a1)\n
+{\n
+    struct_0 *v0;  // [bp-0x20], Other Possible Types: unsigned long\n
+\n
+    v0 = 0;\n
+    if (a1 == a0->field_0)\n
+    {\n
+        v0 = a0;\n
+        return v0;\n
+    }\n
+    if (!cgc_get_receptacle_load_type(a0))\n
+    {\n
+        v0 = cgc_search_splitter_for_receptacle_id(a0->field_8, a1);\n
+    }\n
+    else if (cgc_get_receptacle_load_type(a0) == 1)\n
+    {\n
+        v0 = cgc_search_light_string_for_receptacle_id(a0->field_8, a1);\n
+    }\n
+    return v0;\n
+}\n
+", "4209681:sub_403c11": null, "4209696:cgc_search_splitter_for_receptacle_id": "typedef struct struct_0 {\n
+    char padding_0[6];\n
+    char field_6;\n
+} struct_0;\n
+\n
+long long cgc_search_splitter_for_receptacle_id(struct_0 *a0, unsigned long a1)\n
+{\n
+    unsigned int v0;  // [bp-0x24]\n
+    void* v1;  // [bp-0x20], Other Possible Types: unsigned long\n
+\n
+    v1 = 0;\n
+    v0 = 0;\n
+    while (true)\n
+    {\n
+        if (v0 >= a0->field_6)\n
+            return v1;\n
+        v1 = cgc_search_receptacle_for_receptacle_id(&a0[1].padding_0[1 + 24 * v0], a1);\n
+        if (v1)\n
+            return v1;\n
+        v0 += 1;\n
+    }\n
+}\n
+", "4209821:sub_403c9d": null, "4209824:cgc_search_light_string_for_receptacle_id": "long long cgc_search_light_string_for_receptacle_id(unsigned long a0, unsigned long a1)\n
+{\n
+    return cgc_search_receptacle_for_receptacle_id(a0 + 16, a1);\n
+}\n
+", "4209861:sub_403cc5": null, "4209872:cgc_load_center_is_created": "extern unsigned long long e_model;\n
+\n
+long long cgc_load_center_is_created()\n
+{\n
+    char v0;  // [bp-0x9]\n
+\n
+    if (!e_model)\n
+    {\n
+        v0 = 0;\n
+        return v0;\n
+    }\n
+    v0 = 1;\n
+    return v0;\n
+}\n
+", "4209910:sub_403cf6": null, "4209920:cgc_convert_watts_to_amps": "double cgc_convert_watts_to_amps()\n
+{\n
+    unsigned int v0;  // [bp-0xc]\n
+    int tmp_24;  // tmp #24\n
+    int tmp_26;  // tmp #26\n
+    int tmp_25;  // tmp #25\n
+    unsigned int v2;  // ymm0\n
+\n
+    v0 = v2;\n
+    tmp_24 = DivV(tmp_26, tmp_25);\n
+    return tmp_24;\n
+}\n
+", "4209956:sub_403d24": null, "4209968:cgc_load_center_breaker_spaces_are_full": "extern struct_0 *e_model;\n
+\n
+long long cgc_load_center_breaker_spaces_are_full()\n
+{\n
+    char v0;  // [bp-0x9]\n
+\n
+    if (cgc_load_center_is_created() == 1 && e_model->field_0 == e_model->field_1)\n
+    {\n
+        v0 = 1;\n
+        return v0;\n
+    }\n
+    v0 = 0;\n
+    return v0;\n
+}\n
+", "4210049:sub_403d81": null, "4210064:cgc_get_max_amps_of_light_string": "long long cgc_get_max_amps_of_light_string()\n
+{\n
+    unsigned long v1;  // rax\n
+\n
+    return v1;\n
+}\n
+", "4210078:sub_403d9e": null, "4210080:cgc_get_new_load_center_by_model_id": "long long cgc_get_new_load_center_by_model_id(unsigned long a0)\n
+{\n
+    void* v0;  // [bp-0x20], Other Possible Types: unsigned long\n
+    void* v1;  // [bp-0x10], Other Possible Types: unsigned long\n
+\n
+    v0 = 0;\n
+    if (a0 == 10008)\n
+    {\n
+        v0 = cgc_create_load_center(100, 8);\n
+    }\n
+    else if (a0 == 10016)\n
+    {\n
+        v0 = cgc_create_load_center(100, 16);\n
+    }\n
+    else if (a0 == 10020)\n
+    {\n
+        v0 = cgc_create_load_center(100, 20);\n
+    }\n
+    else if (a0 == 15020)\n
+    {\n
+        v0 = cgc_create_load_center(150, 20);\n
+    }\n
+    else if (a0 == 15024)\n
+    {\n
+        v0 = cgc_create_load_center(150, 24);\n
+    }\n
+    else if (a0 == 15030)\n
+    {\n
+        v0 = cgc_create_load_center(150, 30);\n
+    }\n
+    else if (a0 == 20020)\n
+    {\n
+        v0 = cgc_create_load_center(200, 20);\n
+    }\n
+    else if (a0 == 20030)\n
+    {\n
+        v0 = cgc_create_load_center(200, 30);\n
+    }\n
+    else if (a0 == 20040)\n
+    {\n
+        v0 = cgc_create_load_center(200, 40);\n
+    }\n
+    else if (a0 == 20042)\n
+    {\n
+        v0 = cgc_create_load_center(200, 42);\n
+    }\n
+    else if (a0 == 40020)\n
+    {\n
+        v0 = cgc_create_load_center(400, 20);\n
+    }\n
+    else if (a0 == 40030)\n
+    {\n
+        v0 = cgc_create_load_center(400, 30);\n
+    }\n
+    else if (a0 == 40040)\n
+    {\n
+        v0 = cgc_create_load_center(400, 40);\n
+    }\n
+    else if (a0 == 40042)\n
+    {\n
+        v0 = cgc_create_load_center(400, 42);\n
+    }\n
+    else\n
+    {\n
+        v1 = 0;\n
+        return v1;\n
+    }\n
+    v1 = v0;\n
+    return v1;\n
+}\n
+", "4210735:sub_40402f": null, "4210736:cgc_create_load_center": "typedef struct struct_0 {\n
+    char field_0;\n
+    char field_1;\n
+    char padding_2[2];\n
+    unsigned int field_4;\n
+} struct_0;\n
+\n
+long long cgc_create_load_center(unsigned long long a0, unsigned long long a1)\n
+{\n
+    struct_0 *v0;  // [bp-0x18]\n
+    unsigned long long v2;  // rdx\n
+\n
+    v0 = 0;\n
+    if (cgc_allocate(a0, a1, v2))\n
+        cgc__terminate(a0);\n
+    v0->field_0 = a1;\n
+    v0->field_1 = 0;\n
+    v0->field_4 = a0;\n
+    return v0;\n
+}\n
+", "4210845:sub_40409d": null, "4210848:cgc_get_new_breaker_by_model_id": "long long cgc_get_new_breaker_by_model_id(unsigned long a0, unsigned long long a1, unsigned long a2)\n
+{\n
+    char v0;  // [bp-0x1a]\n
+\n
+    v0 = 0;\n
+    if (a0 == 15)\n
+    {\n
+        cgc_create_breaker(15, a1, a2);\n
+        return v0;\n
+    }\n
+    else if (a0 == 20)\n
+    {\n
+        cgc_create_breaker(20, a1, a2);\n
+        return v0;\n
+    }\n
+    else\n
+    {\n
+        v0 = 255;\n
+        return v0;\n
+    }\n
+}\n
+", "4210969:sub_404119": null, "4210976:cgc_create_breaker": "typedef struct struct_0 {\n
+    unsigned int field_0;\n
+    char field_4;\n
+    char padding_5[3];\n
+    unsigned long long field_8;\n
+} struct_0;\n
+\n
+long long cgc_create_breaker(unsigned long long a0, struct_0 *a1, unsigned long a2)\n
+{\n
+    a1->field_0 = a2;\n
+    a1->field_4 = a0;\n
+    a1->field_8 = cgc_list_create_dup();\n
+    if (!a1->field_8)\n
+        return cgc__terminate(a0);\n
+    return a1;\n
+}\n
+", "4211068:sub_40417c": null, "4211072:cgc_get_new_outlet_by_model_id": "long long cgc_get_new_outlet_by_model_id(unsigned long a0)\n
+{\n
+    void* v0;  // [bp-0x20], Other Possible Types: unsigned long\n
+    void* v1;  // [bp-0x10], Other Possible Types: unsigned long\n
+\n
+    v0 = 0;\n
+    if (a0 == 15)\n
+    {\n
+        v0 = cgc_create_outlet(15);\n
+    }\n
+    else if (a0 == 20)\n
+    {\n
+        v0 = cgc_create_outlet(20);\n
+    }\n
+    else\n
+    {\n
+        v1 = 0;\n
+        return v1;\n
+    }\n
+    v1 = v0;\n
+    return v1;\n
+}\n
+", "4211197:sub_4041fd": null, "4211200:cgc_create_outlet": "typedef struct struct_0 {\n
+    unsigned int field_0;\n
+    char padding_4[52];\n
+    char field_38;\n
+} struct_0;\n
+\n
+extern unsigned int next_outlet_id;\n
+\n
+long long cgc_create_outlet(unsigned long long a0)\n
+{\n
+    struct_0 *v0;  // [bp-0x18]\n
+    unsigned long long v2;  // rsi\n
+    unsigned long long v3;  // rdx\n
+    unsigned int v5;  // ecx\n
+\n
+    v0 = 0;\n
+    if (cgc_allocate(a0, v2, v3))\n
+        cgc__terminate(a0);\n
+    v5 = next_outlet_id;\n
+    next_outlet_id = next_outlet_id + 1;\n
+    v0->field_0 = v5;\n
+    cgc_create_receptacle(a0, &v0->padding_4[4]);\n
+    cgc_create_receptacle(a0, &v0->padding_4[28]);\n
+    v0->field_38 = a0;\n
+    return v0;\n
+}\n
+", "4211341:sub_40428d": null, "4211344:cgc_get_new_n_way_splitter_by_model_id": "long long cgc_get_new_n_way_splitter_by_model_id(unsigned long a0)\n
+{\n
+    void* v0;  // [bp-0x20], Other Possible Types: unsigned long\n
+    void* v1;  // [bp-0x10], Other Possible Types: unsigned long\n
+\n
+    v0 = 0;\n
+    if (a0 == 3)\n
+    {\n
+        v0 = cgc_create_n_way_splitter(3);\n
+    }\n
+    else if (a0 == 6)\n
+    {\n
+        v0 = cgc_create_n_way_splitter(6);\n
+    }\n
+    else if (a0 == 8)\n
+    {\n
+        v0 = cgc_create_n_way_splitter(8);\n
+    }\n
+    else\n
+    {\n
+        v1 = 0;\n
+        return v1;\n
+    }\n
+    v1 = v0;\n
+    return v1;\n
+}\n
+", "4211505:sub_404331": null, "4211520:cgc_create_n_way_splitter": "typedef struct struct_0 {\n
+    unsigned int field_0;\n
+    char field_4;\n
+    char field_5;\n
+    char field_6;\n
+} struct_0;\n
+\n
+extern unsigned int next_n_way_splitter_id;\n
+\n
+long long cgc_create_n_way_splitter(unsigned long long a0)\n
+{\n
+    unsigned int v0;  // [bp-0x1c]\n
+    struct_0 *v1;  // [bp-0x18]\n
+    unsigned long long v3;  // rsi\n
+    unsigned long long v4;  // rdx\n
+    unsigned int v6;  // ecx\n
+\n
+    v1 = 0;\n
+    if (cgc_allocate(a0, v3, v4))\n
+        cgc__terminate(a0);\n
+    v6 = next_n_way_splitter_id;\n
+    next_n_way_splitter_id = next_n_way_splitter_id + 1;\n
+    v1->field_0 = v6;\n
+    v1->field_4 = 15;\n
+    v1->field_5 = 15;\n
+    v1->field_6 = a0;\n
+    for (v0 = 0; v0 < a0; v0 += 1)\n
+    {\n
+        cgc_create_receptacle(15, &(&v1[1].field_0)[6 * v0] + 1);\n
+    }\n
+    return v1;\n
+}\n
+", "4211704:sub_4043f8": null, "4211712:cgc_get_new_light_string_by_model_id": "int cgc_get_new_light_string_by_model_id()\n
+{\n
+    unsigned long v4;  // [bp+0xffff0]\n
+    unsigned int v5;  // [bp+0xffffc]\n
+    unsigned long v6;  // [bp+0x100000]\n
+\n
+    *(&v4) = cgc_create_light_string(v5);\n
+    v6 = v4;\n
+    return;\n
+}\n
+", "4211903:sub_4044bf": null, "4211904:cgc_create_light_string": "extern unsigned int next_light_string_id;\n
+\n
+long long cgc_create_light_string(unsigned long long a0)\n
+{\n
+    unsigned int v0[3];  // [bp-0x18]\n
+    unsigned long long v2;  // rsi\n
+    unsigned long long v3;  // rdx\n
+    unsigned int v5;  // ecx\n
+    unsigned int v6;  // ymm0\n
+\n
+    *(&v0[0]) = 0;\n
+    if (cgc_allocate(a0, v2, v3))\n
+        cgc__terminate(a0);\n
+    v5 = next_light_string_id;\n
+    next_light_string_id = next_light_string_id + 1;\n
+    v0[0] = v5;\n
+    v0[1] = a0;\n
+    v0[2] = v6;\n
+    cgc_create_receptacle(15, &v0[1 + 1]);\n
+    return v0;\n
+}\n
+", "4212041:sub_404549": null, "4212048:cgc_create_receptacle": "typedef struct struct_0 {\n
+    unsigned int field_0;\n
+    unsigned int field_4;\n
+    unsigned long long field_8;\n
+    char field_10;\n
+} struct_0;\n
+\n
+extern unsigned int next_receptacle_id;\n
+\n
+long long cgc_create_receptacle(unsigned long a0, struct_0 *a1)\n
+{\n
+    unsigned int v1;  // ecx\n
+\n
+    v1 = next_receptacle_id;\n
+    next_receptacle_id = next_receptacle_id + 1;\n
+    a1->field_0 = v1;\n
+    a1->field_4 = 2;\n
+    a1->field_8 = 0;\n
+    a1->field_10 = a0;\n
+    return a1;\n
+}\n
+", "4212120:sub_404598": null, "4212128:cgc_is_electrical_panel_overloaded": "long long cgc_is_electrical_panel_overloaded()\n
+{\n
+    return cgc_is_too_much_amp_load_on_load_center();\n
+}\n
+", "4212142:sub_4045ae": null, "4212144:cgc_is_breaker_overloaded": "long long cgc_is_breaker_overloaded(unsigned long a0)\n
+{\n
+    char v0;  // [bp-0x9]\n
+\n
+    if (cgc_is_too_many_outlets_on_breaker(a0) != 1 && cgc_is_too_much_amp_load_on_breaker(a0) != 1)\n
+    {\n
+        v0 = 0;\n
+        return v0;\n
+    }\n
+    v0 = 1;\n
+    return v0;\n
+}\n
+", "4212226:sub_404602": null, "4212240:cgc_is_too_many_outlets_on_breaker": "long long cgc_is_too_many_outlets_on_breaker(unsigned long a0)\n
+{\n
+    unsigned int v0;  // [bp-0x18]\n
+    char v1;  // [bp-0x11]\n
+    unsigned int v2;  // [bp-0x10]\n
+\n
+    v2 = cgc_get_count_outlets_on_breaker(a0);\n
+    v1 = 0;\n
+    v0 = cgc_get_amp_rating_of_breaker(a0);\n
+    if (v0 == 15)\n
+    {\n
+        if (v2 <= 8)\n
+            return v1;\n
+        v1 = 1;\n
+    }\n
+    else if (v0 == 20)\n
+    {\n
+        if (v2 <= 10)\n
+            return v1;\n
+        v1 = 1;\n
+    }\n
+    else\n
+    {\n
+        v1 = 0;\n
+        return v1;\n
+    }\n
+}\n
+", "4212363:sub_40468b": null, "4212368:cgc_is_too_much_amp_load_on_breaker": "long long cgc_is_too_much_amp_load_on_breaker(unsigned long a0)\n
+{\n
+    unsigned long v0;  // [bp-0x18]\n
+    char v1;  // [bp-0x9]\n
+    unsigned long v3;  // xmm0lq\n
+    unsigned long v6;  // xmm2lq\n
+    int v7;  // xmm2\n
+\n
+    cgc_get_total_amp_load_on_breaker_by_breaker_id(a0);\n
+    v0 = v3;\n
+    v6 = cgc_get_amp_rating_of_breaker(a0);\n
+    if ((((CmpF(v0, (0 CONCAT 4605380978949069210) * v7) & 69) | ((CmpF(v0, (0 CONCAT 4605380978949069210) * v7) & 69) >> 6)) & 1) != 1)\n
+    {\n
+        v1 = 1;\n
+        return v1;\n
+    }\n
+    v1 = 0;\n
+    return v1;\n
+}\n
+", "4212465:sub_4046f1": null, "4212480:cgc_is_outlet_overloaded": "long long cgc_is_outlet_overloaded(unsigned long a0)\n
+{\n
+    char v0;  // [bp-0x9]\n
+\n
+    if (cgc_is_too_much_amp_load_on_outlet(a0) != 1 && cgc_is_too_much_amp_load_on_one_outlet_receptacle(a0) != 1)\n
+    {\n
+        v0 = 0;\n
+        return v0;\n
+    }\n
+    v0 = 1;\n
+    return v0;\n
+}\n
+", "4212562:sub_404752": null, "4212576:cgc_is_too_much_amp_load_on_outlet": "long long cgc_is_too_much_amp_load_on_outlet(unsigned long a0)\n
+{\n
+    unsigned long v0;  // [bp-0x18]\n
+    char v1;  // [bp-0x9]\n
+    unsigned long v3;  // xmm0lq\n
+    unsigned long v6;  // xmm2lq\n
+    int v7;  // xmm2\n
+\n
+    cgc_get_total_amp_load_on_outlet_by_outlet_id(a0);\n
+    v0 = v3;\n
+    v6 = cgc_get_amp_rating_of_outlet(a0);\n
+    if ((((CmpF(v0, (0 CONCAT 4605380978949069210) * v7) & 69) | ((CmpF(v0, (0 CONCAT 4605380978949069210) * v7) & 69) >> 6)) & 1) != 1)\n
+    {\n
+        v1 = 1;\n
+        return v1;\n
+    }\n
+    v1 = 0;\n
+    return v1;\n
+}\n
+", "4212673:sub_4047c1": null, "4212688:cgc_is_too_much_amp_load_on_one_outlet_receptacle": "long long cgc_is_too_much_amp_load_on_one_outlet_receptacle(unsigned long a0)\n
+{\n
+    unsigned long v0;  // [bp-0x18]\n
+    char v1;  // [bp-0x9]\n
+    unsigned long v3;  // xmm0lq\n
+    unsigned long v6;  // xmm2lq\n
+    int v7;  // xmm2\n
+\n
+    cgc_get_max_receptacle_amp_load_on_outlet_by_outlet_id(a0);\n
+    v0 = v3;\n
+    v6 = cgc_get_amp_rating_of_outlet(a0);\n
+    if ((((CmpF(v0, (0 CONCAT 4605380978949069210) * v7) & 69) | ((CmpF(v0, (0 CONCAT 4605380978949069210) * v7) & 69) >> 6)) & 1) != 1)\n
+    {\n
+        v1 = 1;\n
+        return v1;\n
+    }\n
+    v1 = 0;\n
+    return v1;\n
+}\n
+", "4212785:sub_404831": null, "4212800:cgc_is_splitter_overloaded": "long long cgc_is_splitter_overloaded(unsigned long a0)\n
+{\n
+    char v0;  // [bp-0x9]\n
+\n
+    if (cgc_is_too_much_amp_load_on_splitter(a0) != 1 && cgc_is_too_much_amp_load_on_one_splitter_receptacle(a0) != 1)\n
+    {\n
+        v0 = 0;\n
+        return v0;\n
+    }\n
+    v0 = 1;\n
+    return v0;\n
+}\n
+", "4212882:sub_404892": null, "4212896:cgc_is_too_much_amp_load_on_splitter": "long long cgc_is_too_much_amp_load_on_splitter(unsigned long a0)\n
+{\n
+    unsigned long v0;  // [bp-0x18]\n
+    char v1;  // [bp-0x9]\n
+    unsigned long v3;  // xmm0lq\n
+    unsigned long v6;  // xmm2lq\n
+    int v7;  // xmm2\n
+\n
+    cgc_get_total_amp_load_on_splitter_by_splitter_id(a0);\n
+    v0 = v3;\n
+    v6 = cgc_get_amp_rating_of_splitter(a0);\n
+    if ((((CmpF(v0, (0 CONCAT 4605380978949069210) * v7) & 69) | ((CmpF(v0, (0 CONCAT 4605380978949069210) * v7) & 69) >> 6)) & 1) != 1)\n
+    {\n
+        v1 = 1;\n
+        return v1;\n
+    }\n
+    v1 = 0;\n
+    return v1;\n
+}\n
+", "4212993:sub_404901": null, "4213008:cgc_is_too_much_amp_load_on_one_splitter_receptacle": "long long cgc_is_too_much_amp_load_on_one_splitter_receptacle(unsigned long a0)\n
+{\n
+    unsigned long v0;  // [bp-0x18]\n
+    char v1;  // [bp-0x9]\n
+    unsigned long v3;  // xmm0lq\n
+    unsigned long v6;  // xmm2lq\n
+    int v7;  // xmm2\n
+\n
+    cgc_get_max_receptacle_amp_load_on_splitter_by_splitter_id(a0);\n
+    v0 = v3;\n
+    v6 = cgc_get_amp_rating_of_splitter(a0);\n
+    if ((((CmpF(v0, (0 CONCAT 4605380978949069210) * v7) & 69) | ((CmpF(v0, (0 CONCAT 4605380978949069210) * v7) & 69) >> 6)) & 1) != 1)\n
+    {\n
+        v1 = 1;\n
+        return v1;\n
+    }\n
+    v1 = 0;\n
+    return v1;\n
+}\n
+", "4213105:sub_404971": null, "4213120:cgc_is_light_string_overloaded": "long long cgc_is_light_string_overloaded(unsigned long a0)\n
+{\n
+    char v0;  // [bp-0x9]\n
+\n
+    if (cgc_is_too_much_amp_load_on_light_string(a0) == 1)\n
+    {\n
+        v0 = 1;\n
+        return v0;\n
+    }\n
+    v0 = 0;\n
+    return v0;\n
+}\n
+", "4213178:sub_4049ba": null, "4213184:cgc_is_too_much_amp_load_on_light_string": "long long cgc_is_too_much_amp_load_on_light_string(unsigned long a0)\n
+{\n
+    unsigned int v0;  // [bp-0x14]\n
+    char v1;  // [bp-0x9]\n
+    unsigned int v3;  // ymm0\n
+    int v4;  // xmm0\n
+\n
+    cgc_get_total_amp_load_on_light_string_by_light_string_id(a0);\n
+    v0 = v3;\n
+    cgc_get_amp_rating_of_light_string(a0);\n
+    if ((((CmpF(v0, v4) & 69) | ((CmpF(v0, v4) & 69) >> 6)) & 1) != 1)\n
+    {\n
+        v1 = 1;\n
+        return v1;\n
+    }\n
+    v1 = 0;\n
+    return v1;\n
+}\n
+", "4213256:sub_404a08": null, "4213264:cgc_is_receptacle_overloaded": "long long cgc_is_receptacle_overloaded(unsigned long a0)\n
+{\n
+    char v0;  // [bp-0x9]\n
+\n
+    if (cgc_is_too_much_amp_load_on_receptacle(a0) == 1)\n
+    {\n
+        v0 = 1;\n
+        return v0;\n
+    }\n
+    v0 = 0;\n
+    return v0;\n
+}\n
+", "4213322:sub_404a4a": null, "4213328:cgc_is_too_much_amp_load_on_receptacle": "long long cgc_is_too_much_amp_load_on_receptacle(unsigned long a0)\n
+{\n
+    unsigned int v0;  // [bp-0x14]\n
+    char v1;  // [bp-0x9]\n
+    unsigned int v3;  // ymm0\n
+\n
+    cgc_get_total_amp_load_on_receptacle_by_receptacle_id(a0);\n
+    v0 = v3;\n
+    if ((((CmpF(v0, cgc_get_amp_rating_of_receptacle(a0)) & 69) | ((CmpF(v0, cgc_get_amp_rating_of_receptacle(a0)) & 69) >> 6)) & 1) != 1)\n
+    {\n
+        v1 = 1;\n
+        return v1;\n
+    }\n
+    v1 = 0;\n
+    return v1;\n
+}\n
+", "4213404:sub_404a9c": null, "4213408:cgc_is_too_much_amp_load_on_load_center": "long long cgc_is_too_much_amp_load_on_load_center()\n
+{\n
+    unsigned int v0;  // [bp-0x10]\n
+    char v1;  // [bp-0x9]\n
+    unsigned int v3;  // ymm0\n
+\n
+    cgc_get_total_amp_load_on_load_center();\n
+    v0 = v3;\n
+    if ((((CmpF(v0, cgc_get_amp_rating_of_load_center()) & 69) | ((CmpF(v0, cgc_get_amp_rating_of_load_center()) & 69) >> 6)) & 1) != 1)\n
+    {\n
+        v1 = 1;\n
+        return v1;\n
+    }\n
+    v1 = 0;\n
+    return v1;\n
+}\n
+", "4213476:sub_404ae4": null, "4213488:cgc_do_build": "extern unsigned long long g_405058;\n
+\n
+long long cgc_do_build()\n
+{\n
+    unsigned long v0;  // [bp-0x48]\n
+    char v1;  // [bp-0x40]\n
+    unsigned int v2;  // [bp-0x18]\n
+    unsigned int v3;  // [bp-0x14]\n
+    unsigned int v4;  // [bp-0x10]\n
+    unsigned int v5;  // [bp-0xc]\n
+    unsigned long long v7;  // rdi\n
+    unsigned long long v8;  // r8\n
+    unsigned long long v9;  // r9\n
+    unsigned long long v10;  // rdi\n
+    unsigned long long v11;  // r8\n
+    unsigned long long v12;  // r9\n
+    unsigned long long v13;  // rdi\n
+    unsigned long long v14;  // r8\n
+    unsigned long long v15;  // r9\n
+\n
+    v5 = 0;\n
+    v4 = 0;\n
+    v3 = cgc_recv_uint32();\n
+    v2 = 0;\n
+    cgc_memset(&v1, 0, 40);\n
+    v0 = v3 - 1048;\n
+    switch (v0)\n
+    {\n
+    case 0:\n
+        v2 = cgc_recv_uint32();\n
+        v5 = cgc_init_electric_model(v2);\n
+        break;\n
+    case 1:\n
+        v2 = cgc_recv_uint32();\n
+        v5 = cgc_add_breaker_to_load_center(v2, &v1);\n
+        break;\n
+    case 2:\n
+        v2 = cgc_recv_uint32();\n
+        v4 = cgc_recv_uint32(v7, 0, 40, &g_405058, v8, v9);\n
+        v5 = cgc_add_outlet_to_breaker(v2, v4, &v1);\n
+        break;\n
+    case 3:\n
+        v2 = cgc_recv_uint32();\n
+        v4 = cgc_recv_uint32(v10, 0, 40, &g_405058, v11, v12);\n
+        v5 = cgc_add_n_way_splitter_to_receptacle(v2, v4, &v1);\n
+        break;\n
+    case 4:\n
+        v2 = cgc_recv_uint32();\n
+        v4 = cgc_recv_uint32(v13, 0, 40, &g_405058, v14, v15);\n
+        v5 = cgc_add_light_string_to_receptacle(v2, v4, &v1);\n
+        break;\n
+    default:\n
+        v5 = -81;\n
+        break;\n
+    }\n
+    if (v5 >= 0 && v3 != 1048)\n
+        cgc_do_send_results(&v1);\n
+    return v5;\n
+}\n
+", "4213817:sub_404c39": null, "4213824:cgc_do_send_results": "long long cgc_do_send_results(unsigned long long a0)\n
+{\n
+    return cgc_send(a0, 37);\n
+}\n
+", "4213856:cgc_do_examine": "long long cgc_do_examine()\n
+{\n
+    unsigned long v0;  // [bp-0x48]\n
+    unsigned int v1;  // [bp-0x40], Other Possible Types: char\n
+    unsigned int v2;  // [bp-0x14]\n
+    unsigned int v3;  // [bp-0x10]\n
+    unsigned int v4;  // [bp-0xc]\n
+\n
+    v4 = 0;\n
+    v3 = 0;\n
+    v2 = cgc_recv_uint32();\n
+    v0 = v2 - 2049;\n
+    switch (v0)\n
+    {\n
+    case 0:\n
+        v4 = cgc_is_electrical_panel_overloaded();\n
+        break;\n
+    case 1:\n
+        v3 = cgc_recv_uint32();\n
+        v4 = cgc_is_breaker_overloaded(v3);\n
+        break;\n
+    case 2:\n
+        v3 = cgc_recv_uint32();\n
+        v4 = cgc_is_outlet_overloaded(v3);\n
+        break;\n
+    case 3:\n
+        v3 = cgc_recv_uint32();\n
+        v4 = cgc_is_splitter_overloaded(v3);\n
+        break;\n
+    case 4:\n
+        v3 = cgc_recv_uint32();\n
+        v4 = cgc_is_light_string_overloaded(v3);\n
+        break;\n
+    case 5:\n
+        v3 = cgc_recv_uint32();\n
+        v4 = cgc_is_receptacle_overloaded(v3);\n
+        break;\n
+    default:\n
+        v4 = -81;\n
+        break;\n
+    }\n
+    if (v4 >= 0)\n
+    {\n
+        memset(&v1, 0, 40);\n
+        v1 = v4;\n
+        cgc_do_send_results(&v1);\n
+        return v4;\n
+    }\n
+    return v4;\n
+}\n
+", "4214139:sub_404d7b": null, "4214144:cgc_do_nonce": "long long cgc_do_nonce()\n
+{\n
+    char v0;  // [bp-0x20]\n
+    char v1;  // [bp-0x18]\n
+    unsigned int v2;  // [bp-0x10], Other Possible Types: char\n
+    unsigned int v3;  // [bp-0xc]\n
+    unsigned long long v5;  // rdi\n
+    unsigned long long v6;  // rsi\n
+\n
+    strncpy(&v2, \"1234567\", 7);\n
+    v2 = cgc_rand(&v1, 8);\n
+    if (v2 < 0)\n
+        cgc__terminate(v5);\n
+    v6 = 8;\n
+    cgc_send(&v1, 8);\n
+    strncpy(&v0, \"1234567\", 7);\n
+    if (cgc_recv_all(&v0, 8) != 8)\n
+        cgc__terminate(v5);\n
+    if (v1 == v0)\n
+    {\n
+        v3 = 0;\n
+        return v3;\n
+    }\n
+    v3 = -82;\n
+    return v3;\n
+}\n
+", "4214314:sub_404e2a": null, "4214320:cgc_recv_uint32": "long long cgc_recv_uint32()\n
+{\n
+    char v0;  // [bp-0xc]\n
+    unsigned long long v2;  // rdi\n
+\n
+    memset(&v0, 0, 4);\n
+    if (cgc_recv_all(&v0, 4) != 4)\n
+    {\n
+        cgc__terminate(v2);\n
+        return *(&v0);\n
+    }\n
+    return *(&v0);\n
+}\n
+", "4214392:sub_404e78": null, "4214400:main": "int main(unsigned long long a0, unsigned long a1)\n
+{\n
+    unsigned int v0;  // [bp-0x24]\n
+    unsigned int v1;  // [bp-0x20]\n
+    char v2;  // [bp-0x1c]\n
+    unsigned long v3;  // [bp-0x18]\n
+    unsigned int v4;  // [bp-0x10]\n
+    unsigned int v5;  // [bp-0xc]\n
+\n
+    v5 = 0;\n
+    v4 = a0;\n
+    v3 = a1;\n
+    memset(&v2, 0, 4);\n
+    v1 = 0;\n
+    do\n
+    {\n
+        v1 = cgc_do_nonce();\n
+        if (!v1)\n
+        {\n
+            if (cgc_recv_all(&v2, 4) != 4)\n
+                cgc__terminate(a0);\n
+            v0 = *(&v2);\n
+            if (v0 == 13980)\n
+            {\n
+                v1 = cgc_do_build();\n
+            }\n
+            else if (v0 == 809110)\n
+            {\n
+                v1 = cgc_do_examine();\n
+            }\n
+            else\n
+            {\n
+                v1 = -80;\n
+            }\n
+        }\n
+    } while (v1 >= 0);\n
+    cgc_send(&v1, 4);\n
+    return v1;\n
+}\n
+", "4214628:_fini": "long long _fini()\n
+{\n
+    unsigned long v1;  // rax\n
+\n
+    return v1;\n
+}\n
+", "5242880:__libc_start_main": null, "5242888:cgc__terminate": null, "5242896:memset": null, "5242904:cgc_transmit": null, "5242912:cgc_random": null, "5242920:cgc_allocate": null, "5242928:cgc_deallocate": null, "5242936:cgc_receive": null, "6295632:UnresolvableJumpTarget": null, "6295640:UnresolvableCallTarget": null}

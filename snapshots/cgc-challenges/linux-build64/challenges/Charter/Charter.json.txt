@@ -1,0 +1,1018 @@
+{"4198400:_init": "extern struct_0 *g_404350;\n
+\n
+long long _init()\n
+{\n
+    struct struct_0 **v1;  // rax, Other Possible Types: unsigned long\n
+\n
+    v1 = g_404350;\n
+    if (g_404350)\n
+        v1 = g_404350();\n
+    return v1;\n
+}\n
+", "4198432:sub_401020": "extern unsigned long long g_404370;\n
+\n
+long long sub_401020()\n
+{\n
+    unsigned long v0;  // [bp-0x8]\n
+\n
+    v0 = g_404370;\n
+    goto *(4211576);\n
+}\n
+", "4198444:sub_40102c": null, "4198448:cgc__terminate": "// attributes: PLT stub\n
+int cgc__terminate()\n
+{\n
+    ::libc.so.0::cgc__terminate();\n
+    return;\n
+}\n
+", "4198464:cgc_transmit": "// attributes: PLT stub\n
+int cgc_transmit()\n
+{\n
+    ::libc.so.0::cgc_transmit();\n
+    return;\n
+}\n
+", "4198480:cgc_allocate": "// attributes: PLT stub\n
+int cgc_allocate()\n
+{\n
+    ::libc.so.0::cgc_allocate();\n
+    return;\n
+}\n
+", "4198496:cgc_deallocate": "// attributes: PLT stub\n
+int cgc_deallocate()\n
+{\n
+    ::libc.so.0::cgc_deallocate();\n
+    return;\n
+}\n
+", "4198512:cgc_receive": "// attributes: PLT stub\n
+int cgc_receive()\n
+{\n
+    ::libc.so.0::cgc_receive();\n
+    return;\n
+}\n
+", "4198528:__cxa_finalize": "// attributes: PLT stub\n
+char * __cxa_finalize()\n
+{\n
+    goto *(4211552);\n
+}\n
+", "4198544:_start": "long long _start()\n
+{\n
+    unsigned long v0;  // [bp+0x0], Other Possible Types: char\n
+    unsigned long v1;  // [bp+0x8]\n
+    unsigned long long v2;  // rsi\n
+    unsigned long v3;  // rax\n
+    unsigned long long v4;  // rdx\n
+\n
+    v2 = *(&v0);\n
+    v0 = v3;\n
+    __libc_start_main(main, v2, &v1, 0, 0, v4); /* do not return */\n
+}\n
+", "4198581:sub_4010b5": null, "4198582:sub_4010b6": null, "4198592:deregister_tm_clones": "extern char __bss_start;\n
+extern unsigned long long g_404348;\n
+\n
+long long deregister_tm_clones()\n
+{\n
+    return &__bss_start;\n
+}\n
+", "4198633:sub_4010e9": null, "4198640:register_tm_clones": "extern unsigned long long g_404358;\n
+\n
+long long register_tm_clones()\n
+{\n
+    return 0;\n
+}\n
+", "4198697:sub_401129": null, "4198704:__do_global_dtors_aux": "extern char completed.0;\n
+extern unsigned long long g_404360;\n
+\n
+long long __do_global_dtors_aux()\n
+{\n
+    unsigned long v0;  // [bp-0x8]\n
+    unsigned long v2;  // rax\n
+\n
+    if (completed.0)\n
+        return v2;\n
+    *(&v0) = rbp<8>;\n
+    if (!g_404360)\n
+    {\n
+        completed.0 = 1;\n
+        return deregister_tm_clones();\n
+    }\n
+    __cxa_finalize();\n
+}\n
+", "4198757:sub_401165": null, "4198761:sub_401169": null, "4198768:frame_dummy": "long long frame_dummy()\n
+{\n
+    return register_tm_clones();\n
+}\n
+", "4198777:sub_401179": null, "4198784:cgc_transmit_all": "long long cgc_transmit_all(unsigned long long a0, unsigned long long a1, unsigned long long a2)\n
+{\n
+    unsigned int v0;  // [bp-0x34]\n
+    void* v1;  // [bp-0x30]\n
+    void* v2;  // [bp-0x28], Other Possible Types: unsigned long\n
+    unsigned int v3;  // [bp-0x10]\n
+    unsigned int v4;  // [bp-0xc]\n
+    unsigned long long v6;  // rcx\n
+\n
+    v3 = a0;\n
+    v2 = 0;\n
+    v1 = 0;\n
+    if (!a1)\n
+    {\n
+        v4 = 1;\n
+        return v4;\n
+    }\n
+    if (!a2)\n
+    {\n
+        v4 = 2;\n
+        return v4;\n
+    }\n
+    while (true)\n
+    {\n
+        if (v2 >= a2)\n
+        {\n
+            v4 = 0;\n
+            return v4;\n
+        }\n
+        v0 = cgc_transmit(a0, a1, a2, v6);\n
+        if (v0)\n
+        {\n
+            v4 = 3;\n
+            return v4;\n
+        }\n
+        v2 = v1 + v2;\n
+    }\n
+}\n
+", "4198970:sub_40123a": null, "4198976:cgc_bars": "long long cgc_bars(unsigned long a0, unsigned long long a1)\n
+{\n
+    char v0;  // [bp-0x24]\n
+    char v1;  // [bp-0x20]\n
+    char v2;  // [bp-0x1c]\n
+\n
+    cgc_read(&v2, 4);\n
+    cgc_read(&v1, 4);\n
+    cgc_read(&v0, 4);\n
+    return cgc_draw_bars(a0, a1, *(&v2), *(&v1), *(&v0));\n
+}\n
+", "4199061:sub_401295": null, "4199072:cgc_draw_bars": "typedef struct struct_0 {\n
+    char field_0;\n
+} struct_0;\n
+\n
+typedef struct struct_1 {\n
+    unsigned long long field_-8;\n
+} struct_1;\n
+\n
+extern char _NSConcreteStackBlock;\n
+extern char __block_descriptor_tmp;\n
+extern char g_40133b;\n
+\n
+long long cgc_draw_bars(unsigned long long a0, unsigned long a1, unsigned long a2, unsigned long a3, unsigned long long a4)\n
+{\n
+    int <0x4012a0[is_13]|Stack bp-0xa8, 1 B>;  // [bp-0xa8]\n
+    unsigned long v0;  // [bp-0xa8]\n
+    unsigned int v1;  // [bp-0xa0]\n
+    unsigned int v2;  // [bp-0x9c]\n
+    unsigned long v3;  // [bp-0x98]\n
+    unsigned long v4;  // [bp-0x90]\n
+    struct_0 *v5;  // [bp-0x88]\n
+    unsigned long v6;  // [bp-0x80]\n
+    unsigned int v7;  // [bp-0x78]\n
+    unsigned int v8;  // [bp-0x74]\n
+    unsigned int v9;  // [bp-0x6c]\n
+    unsigned long v10;  // [bp-0x68]\n
+    void* v11;  // [bp-0x60]\n
+    struct_0 *v12;  // [bp-0x58]\n
+    unsigned int v13;  // [bp-0x50]\n
+    unsigned int v14;  // [bp-0x4c]\n
+    struct_1 *v15;  // [bp-0x48]\n
+    unsigned long long v16;  // [bp-0x40]\n
+    struct_0 *v17;  // [bp-0x38]\n
+    char v18;  // [bp-0x30], Other Possible Types: unsigned long\n
+    unsigned int v19;  // [bp-0x20]\n
+    unsigned int v20;  // [bp-0x1c]\n
+    unsigned int v21;  // [bp-0x18]\n
+    unsigned long long v22;  // [bp-0x10]\n
+    unsigned long long v24;  // rcx\n
+    unsigned long long v25;  // rdx\n
+    unsigned long long v26;  // rdi\n
+    unsigned long long v27;  // rsi\n
+    unsigned long v28;  // xmm0lq\n
+    unsigned long long v29;  // r9\n
+    unsigned long long v31;  // xmm0lq\n
+    int v32;  // xmm0\n
+    int v33;  // xmm0\n
+\n
+    v21 = a0;\n
+    v22 = a1;\n
+    v20 = a2;\n
+    v19 = a3;\n
+    if (v19 > 0x4000)\n
+        cgc__terminate(a0);\n
+    v18 = v19 * 4 + 16;\n
+    v18 = v18 & 240;\n
+    v24 = v18;\n
+    v17 = &<0x4012a0[is_13]|Stack bp-0xa8, 1 B>;\n
+    v25 = v24 + 15 & -0x10;\n
+    v16 = v24;\n
+    v11 = 0;\n
+    v12 = &v11;\n
+    v13 = 0;\n
+    v14 = 32;\n
+    v15 = &<0x4012a0[is_13]|Stack bp-0xa8, 1 B> - v25;\n
+    v26 = v19;\n
+    v27 = v20;\n
+    v15[1].field_-8 = &g_40133b;\n
+    cgc_bar_scale_factor(v26, v27, v25, &v11);\n
+    v10 = v28;\n
+    v9 = cgc_rand(v26, v27, v25, v16, a4, v29);\n
+    v9 &= 3;\n
+    v9 += 1;\n
+    v31 = v9;\n
+    xmm0<16> = (xmm0<16> * Conv(64->128, Load(addr=stack_base-104, size=8, endness=Iend_LE)))\n
+    v10 = v33;\n
+    v0 = &_NSConcreteStackBlock;\n
+    v1 = 0x42000000;\n
+    v2 = 0;\n
+    v3 = __cgc_draw_bars_block_invoke;\n
+    v4 = &__block_descriptor_tmp;\n
+    *(&v33) = v10;\n
+    v6 = v33;\n
+    v7 = v19;\n
+    v5 = &v11;\n
+    v8 = a4;\n
+    cgc_each(v21, v22, &<0x4012a0[is_13]|Stack bp-0xa8, 1 B>);\n
+    _Block_object_dispose(&v11, 8);\n
+    return v17;\n
+}\n
+", "4199415:sub_4013f7": null, "4199424:cgc_bar_scale_factor": "double cgc_bar_scale_factor(long long a0, long long a1)\n
+{\n
+    unsigned int v0;  // [bp-0x10]\n
+    int tmp_40;  // tmp #40\n
+    int tmp_42;  // tmp #42\n
+    int tmp_41;  // tmp #41\n
+    unsigned int v1;  // [bp-0xc]\n
+\n
+    v1 = a0;\n
+    v0 = a1;\n
+    tmp_40 = DivV(tmp_42, tmp_41);\n
+    return tmp_40;\n
+}\n
+", "4199456:__cgc_draw_bars_block_invoke": "typedef struct struct_2 {\n
+    char padding_0[32];\n
+    struct struct_1 *field_20;\n
+    char padding_28[8];\n
+    unsigned int field_30;\n
+    unsigned int field_34;\n
+} struct_2;\n
+\n
+typedef struct struct_0 {\n
+    char padding_0[24];\n
+    unsigned long long field_18;\n
+} struct_0;\n
+\n
+typedef struct struct_1 {\n
+    char padding_0[8];\n
+    struct struct_0 *field_8;\n
+} struct_1;\n
+\n
+long long __cgc_draw_bars_block_invoke(struct_2 *a0, unsigned long a1, unsigned long a2)\n
+{\n
+    struct_2 *v0;  // [bp-0x30]\n
+    unsigned int v1;  // [bp-0x24]\n
+    struct_2 *v2;  // [bp-0x20]\n
+    unsigned int v3;  // [bp-0x14]\n
+    struct_2 *v4;  // [bp-0x10]\n
+    struct_2 *v6;  // rax\n
+    struct_0 *v7;  // rcx\n
+\n
+    v0 = a0;\n
+    v4 = a0;\n
+    v3 = a1;\n
+    v2 = a0;\n
+    v6 = v0;\n
+    v1 = cgc_bar_use_columns(a2, a0->field_30);\n
+    v7 = v6->field_20->field_8;\n
+    cgc_draw_row(v7->field_18, v6->field_34, v1, v7);\n
+    return cgc_transmit_all(1, v0->field_20->field_8->field_18, v1 + 1);\n
+}\n
+", "4199578:sub_40149a": null, "4199584:cgc_bar_use_columns": "double cgc_bar_use_columns(long long a0, long long a1)\n
+{\n
+    unsigned int v0;  // [bp-0x20]\n
+    unsigned int v1;  // [bp-0x1c]\n
+    unsigned long v2;  // [bp-0x18]\n
+    unsigned int v3;  // [bp-0xc]\n
+    unsigned long v5;  // xmm0lq\n
+    unsigned long long v6;  // xmm0lq\n
+    int v7;  // xmm0\n
+\n
+    v3 = a0;\n
+    v2 = v5;\n
+    v1 = a1;\n
+    v6 = v3;\n
+    v0 = (v7 * (0 CONCAT v2));\n
+    return v0;\n
+}\n
+", "4199629:sub_4014cd": null, "4199632:cgc_draw_row": "long long cgc_draw_row(char *a0, unsigned long a1, unsigned long a2)\n
+{\n
+    char v0;  // [bp-0x1d]\n
+    unsigned int v1;  // [bp-0x1c]\n
+\n
+    for (v1 = 0; v1 <= a2 + 1; v1 += 1)\n
+    {\n
+        v0 = 10;\n
+        if (v1 < a2)\n
+            v0 = a1;\n
+        a0[v1] = v0;\n
+    }\n
+    return v1;\n
+}\n
+", "4199721:sub_401529": null, "4199728:__copy_helper_block_8_32r": "typedef struct struct_0 {\n
+    char padding_0[32];\n
+    unsigned long long field_20;\n
+} struct_0;\n
+\n
+long long __copy_helper_block_8_32r(unsigned long a0, struct_0 *a1)\n
+{\n
+    return _Block_object_assign(a0 + 32, a1->field_20, 8);\n
+}\n
+", "4199776:__destroy_helper_block_8_32r": "typedef struct struct_0 {\n
+    char padding_0[32];\n
+    unsigned long long field_20;\n
+} struct_0;\n
+\n
+long long __destroy_helper_block_8_32r(struct_0 *a0)\n
+{\n
+    return _Block_object_dispose(a0->field_20, 8);\n
+}\n
+", "4199812:sub_401584": null, "4199824:_Block_object_assign": "long long _Block_object_assign(unsigned long a0, unsigned long a1, unsigned long a2)\n
+{\n
+    unsigned int v0;  // [bp-0x1c]\n
+    unsigned long v1;  // [bp-0x18]\n
+    unsigned long v2;  // [bp-0x10]\n
+    unsigned long v4;  // rax\n
+\n
+    v2 = a0;\n
+    v1 = a1;\n
+    v0 = a2;\n
+    return v4;\n
+}\n
+", "4199841:sub_4015a1": null, "4199856:_Block_object_dispose": "long long _Block_object_dispose(unsigned long a0, unsigned long a1)\n
+{\n
+    unsigned int v0;  // [bp-0x14]\n
+    unsigned long v1;  // [bp-0x10]\n
+    unsigned long v3;  // rax\n
+\n
+    v1 = a0;\n
+    v0 = a1;\n
+    return v3;\n
+}\n
+", "4199869:sub_4015bd": null, "4199872:cgc_each": "typedef struct struct_1 {\n
+    char padding_0[16];\n
+    struct struct_0 *field_10;\n
+} struct_1;\n
+\n
+typedef struct struct_0 {\n
+    struct struct_0 *field_0;\n
+} struct_0;\n
+\n
+long long cgc_each(unsigned long a0, unsigned int *a1, struct_1 *a2)\n
+{\n
+    unsigned int v0;  // [bp-0x24]\n
+\n
+    for (v0 = 0; v0 < a0; v0 += 1)\n
+    {\n
+        a2->field_10(a2, v0, a1[v0], a1);\n
+    }\n
+    return v0;\n
+}\n
+", "4199953:sub_401611": null, "4199968:cgc_seed": "extern unsigned int cgc_seeded;\n
+extern unsigned int index;\n
+extern unsigned int mt;\n
+\n
+long long cgc_seed()\n
+{\n
+    unsigned int v0;  // [bp-0x14]\n
+    unsigned int v1;  // [bp-0x10]\n
+    char v2;  // [bp-0xc]\n
+\n
+    cgc_read(&v2, 4);\n
+    index = 0;\n
+    (&mt)[index] = *(&v2);\n
+    for (v1 = 1; v1 < 624; v1 += 1)\n
+    {\n
+        (&mt)[v1] = ((&mt)[1 + v1] ^ ((&mt)[1 + v1] >> 30)) * 1812433253 + 1;\n
+    }\n
+    cgc_seeded = 1;\n
+    v0 = cgc_rand();\n
+    return cgc_transmit_all(1, &v0, 4);\n
+}\n
+", "4200173:sub_4016ed": null, "4200176:cgc_noise": "long long cgc_noise()\n
+{\n
+    unsigned int v0;  // [bp-0x18]\n
+    unsigned int v1;  // [bp-0x14]\n
+    unsigned int v2;  // [bp-0x10]\n
+    char v3;  // [bp-0xc]\n
+\n
+    cgc_read(&v3, 4);\n
+    v2 = *(&v3) >> 2;\n
+    for (v1 = 0; v1 < v2; v1 += 1)\n
+    {\n
+        v0 = cgc_rand();\n
+        cgc_transmit_all(1, &v0, 4);\n
+    }\n
+    return v1;\n
+}\n
+", "4200273:sub_401751": null, "4200288:cgc_replacer": "typedef struct struct_0 {\n
+    char field_0;\n
+} struct_0;\n
+\n
+extern char _NSConcreteStackBlock;\n
+extern char __block_descriptor_tmp;\n
+extern char __block_descriptor_tmp.2;\n
+\n
+long long cgc_replacer(unsigned long a0, unsigned int *a1)\n
+{\n
+    unsigned long v0;  // [bp-0x98]\n
+    unsigned int v1;  // [bp-0x90]\n
+    unsigned int v2;  // [bp-0x8c]\n
+    unsigned long v3;  // [bp-0x88]\n
+    unsigned long v4;  // [bp-0x80]\n
+    struct_0 *v5;  // [bp-0x78]\n
+    unsigned long v6;  // [bp-0x70]\n
+    unsigned long v7;  // [bp-0x68]\n
+    unsigned int v8;  // [bp-0x60]\n
+    unsigned int v9;  // [bp-0x5c]\n
+    unsigned long v10;  // [bp-0x58]\n
+    unsigned long v11;  // [bp-0x50]\n
+    struct_0 *v12;  // [bp-0x48]\n
+    void* v13;  // [bp-0x38]\n
+    struct_0 *v14;  // [bp-0x30]\n
+    unsigned int v15;  // [bp-0x28]\n
+    unsigned int v16;  // [bp-0x24]\n
+    unsigned int v17;  // [bp-0x20]\n
+\n
+    v13 = 0;\n
+    v14 = &v13;\n
+    v15 = 0;\n
+    v16 = 32;\n
+    v17 = 0;\n
+    v7 = &_NSConcreteStackBlock;\n
+    v8 = 0x42000000;\n
+    v9 = 0;\n
+    v10 = __cgc_replacer_block_invoke;\n
+    v11 = &__block_descriptor_tmp;\n
+    v12 = &v13;\n
+    cgc_each(a0, a1, &v7);\n
+    v0 = &_NSConcreteStackBlock;\n
+    v1 = 0x42000000;\n
+    v2 = 0;\n
+    v3 = __cgc_replacer_block_invoke.1;\n
+    v4 = &__block_descriptor_tmp.2;\n
+    v5 = &v13;\n
+    v6 = a1;\n
+    cgc_each(a0, a1, &v0);\n
+    return _Block_object_dispose(&v13, 8);\n
+}\n
+", "4200536:sub_401858": null, "4200544:__cgc_replacer_block_invoke": "typedef struct struct_2 {\n
+    char padding_0[32];\n
+    struct struct_1 *field_20;\n
+} struct_2;\n
+\n
+typedef struct struct_0 {\n
+    char padding_0[24];\n
+    unsigned int field_18;\n
+} struct_0;\n
+\n
+typedef struct struct_1 {\n
+    char padding_0[8];\n
+    struct struct_0 *field_8;\n
+} struct_1;\n
+\n
+long long __cgc_replacer_block_invoke(struct_2 *a0, unsigned long a1, unsigned long a2)\n
+{\n
+    struct_2 *v0;  // [bp-0x28]\n
+    struct_2 *v1;  // [bp-0x20]\n
+    unsigned int v2;  // [bp-0x14]\n
+    struct_2 *v3;  // [bp-0x10]\n
+    struct_0 *v5;  // rax, Other Possible Types: unsigned long\n
+\n
+    v3 = a0;\n
+    v0 = a0;\n
+    v2 = a1;\n
+    v1 = a0;\n
+    v5 = a2;\n
+    if (v5 > a0->field_20->field_8->field_18)\n
+    {\n
+        v5 = v0->field_20->field_8;\n
+        *((v5 + 24)) = a2;\n
+    }\n
+    return v5;\n
+}\n
+", "4200609:sub_4018a1": null, "4200624:__cgc_replacer_block_invoke.1": "typedef struct struct_2 {\n
+    char padding_0[32];\n
+    struct struct_1 *field_20;\n
+    unsigned long long field_28;\n
+} struct_2;\n
+\n
+typedef struct struct_1 {\n
+    char padding_0[8];\n
+    struct struct_0 *field_8;\n
+} struct_1;\n
+\n
+typedef struct struct_0 {\n
+    char padding_0[24];\n
+    unsigned int field_18;\n
+} struct_0;\n
+\n
+long long __cgc_replacer_block_invoke.1(struct_2 *a0, unsigned long a1, unsigned long a2)\n
+{\n
+    struct_2 *v0;  // [bp-0x28]\n
+    struct_2 *v1;  // [bp-0x20]\n
+    unsigned int v2;  // [bp-0x18]\n
+    struct_2 *v3;  // [bp-0x10]\n
+    unsigned long v5;  // rax, Other Possible Types: unsigned long long\n
+\n
+    v3 = a0;\n
+    v0 = a0;\n
+    v2 = a2;\n
+    v1 = a0;\n
+    if (a0->field_20->field_8->field_18 <= 0)\n
+    {\n
+        v5 = v0->field_28;\n
+        *((v5 + a1 * 4)) = 0;\n
+        return v0->field_28;\n
+    }\n
+    v5 = v0->field_28;\n
+    *((v5 + a1 * 4)) = (0 CONCAT cgc_rand()) /m v0->field_20->field_8->field_18 >> 32;\n
+    return v0->field_28;\n
+}\n
+", "4200736:cgc_rand": "extern unsigned int cgc_seeded;\n
+extern unsigned int index;\n
+extern unsigned int mt;\n
+\n
+long long cgc_rand()\n
+{\n
+    unsigned int v0;  // [bp-0x10]\n
+    unsigned int v1;  // [bp-0xc]\n
+\n
+    if (!cgc_seeded)\n
+    {\n
+        v1 = 0;\n
+        return v1;\n
+    }\n
+    if (!index)\n
+        cgc_generate_numbers();\n
+    v0 = (&mt)[index];\n
+    v0 ^= (v0 >> 11);\n
+    v0 ^= v0 * 128 & 2636928640;\n
+    v0 ^= v0 * 0x8000 & 0xefc60000;\n
+    v0 ^= (v0 >> 18);\n
+    index = (0 CONCAT index + 1) /m 624 >> 32;\n
+    v1 = v0;\n
+    return v1;\n
+}\n
+", "4200915:sub_4019d3": null, "4200928:cgc_generate_numbers": "extern unsigned int mt;\n
+\n
+long long cgc_generate_numbers()\n
+{\n
+    unsigned int v0;  // [bp-0x14]\n
+    unsigned int v1;  // [bp-0x10]\n
+    unsigned int v2;  // [bp-0xc]\n
+\n
+    for (v2 = 0; v2 < 624; v2 += 1)\n
+    {\n
+        v0 = (&mt)[v2];\n
+        v1 = v0 & ((&mt)[(0 CONCAT v2 + 1) /m 624 >> 32] & 2147483647) - 0x80000000;\n
+        (&mt)[v2] = (&mt)[(0 CONCAT v2 + 397) /m 624 >> 32] ^ (v1 >> 1);\n
+        if ((v1 & 1) == 1)\n
+            (&mt)[v2] = (&mt)[v2] ^ 2567483615;\n
+    }\n
+    return v2 + 1;\n
+}\n
+", "4201145:sub_401ab9": null, "4201152:main": "int main(unsigned long a0, unsigned long a1)\n
+{\n
+    char v0;  // [bp-0x1c]\n
+    unsigned long v1;  // [bp-0x18]\n
+    unsigned int v2;  // [bp-0x10]\n
+    unsigned int v3;  // [bp-0xc]\n
+\n
+    v3 = 0;\n
+    v2 = a0;\n
+    v1 = a1;\n
+    cgc_read(&v0, 4);\n
+    if (*(&v0) >= 1 && *(&v0) <= 0x10000)\n
+        cgc_read_data(*(&v0)); /* do not return */\n
+    v3 = -1;\n
+    return v3;\n
+}\n
+", "4201231:sub_401b0f": "long long sub_401b0f()\n
+{\n
+    unsigned int v1;  // [bp+0x100004]\n
+\n
+    v1 = 0;\n
+}\n
+", "4201247:sub_401b1f": null, "4201248:cgc_read": "long long cgc_read(unsigned long long a0, unsigned long long a1)\n
+{\n
+    unsigned int v0;  // [bp-0x24]\n
+    char v1;  // [bp-0x20]\n
+    unsigned long v2;  // [bp-0x10]\n
+    unsigned long long v4;  // rdx\n
+    unsigned long long v5;  // rcx\n
+\n
+    v2 = a0;\n
+    v0 = cgc_receive(a0, a1, v4, v5);\n
+    if (v0)\n
+        cgc__terminate(a0);\n
+    if (*(&v1) != a1)\n
+        cgc__terminate(a0);\n
+    return *(&v1);\n
+}\n
+", "4201340:sub_401b7c": null, "4201344:cgc_read_data": "long long cgc_read_data(unsigned long long a0)\n
+{\n
+    char v0;  // [bp-0x68]\n
+    unsigned int v1;  // [bp-0x5c]\n
+    unsigned long long v2;  // [bp-0x58]\n
+    unsigned long v3;  // [bp-0x50]\n
+    unsigned int *v4;  // [bp-0x48]\n
+    char v5;  // [bp-0x3c]\n
+    char v6;  // [bp-0x38]\n
+    unsigned int v7;  // [bp-0x34]\n
+    unsigned int *v8;  // [bp-0x28]\n
+    unsigned long v9;  // [bp-0x20]\n
+    unsigned long v10;  // [bp-0x18]\n
+    char v11;  // [bp-0xc]\n
+    unsigned long v13;  // rcx\n
+\n
+    v13 = a0;\n
+    v10 = &v0;\n
+    v4 = &(&v0)[-1 * (v13 * 4 + 15 & -0x10)];\n
+    v9 = v13;\n
+    v8 = v4;\n
+    for (v7 = 0; v7 < a0; v7 += 1)\n
+    {\n
+        cgc_read(&v6, 4);\n
+        v4[v7] = *(&v6);\n
+    }\n
+    while (true)\n
+    {\n
+        v1 = 1;\n
+        v2 = 4;\n
+        cgc_transmit_all(1, \"CHRT\", 4);\n
+        cgc_transmit_all(v1, &v11, v2);\n
+        cgc_read(&v5, v2);\n
+        v3 = *(&v5) - 1;\n
+        switch (v3)\n
+        {\n
+        case 0:\n
+            cgc_sparks(a0, v8);\n
+            break;\n
+        case 2:\n
+            cgc_bars(a0, v8);\n
+            break;\n
+        case 3:\n
+            cgc_echo();\n
+            break;\n
+        case 4:\n
+            cgc_seed();\n
+            break;\n
+        case 5:\n
+            cgc_noise();\n
+            break;\n
+        case 6:\n
+            cgc_replacer(a0, v8);\n
+            break;\n
+        default:\n
+            cgc__terminate(a0);\n
+        }\n
+    }\n
+}\n
+", "4201672:sub_401cc8": null, "4201680:cgc_draw_echo": "long long cgc_draw_echo(unsigned long a0)\n
+{\n
+    char v0;  // [bp-0x38]\n
+    unsigned int *v1;  // [bp-0x30]\n
+    char v2;  // [bp-0x28]\n
+    unsigned int v3;  // [bp-0x24]\n
+    unsigned long v4;  // [bp-0x20]\n
+    unsigned long v5;  // [bp-0x18]\n
+    unsigned long v7;  // rax\n
+\n
+    v7 = a0;\n
+    v5 = &v0;\n
+    v1 = &(&v0)[-1 * (v7 * 4 + 15 & -0x10)];\n
+    v4 = v7;\n
+    for (v3 = 0; v3 < a0; v3 += 1)\n
+    {\n
+        cgc_read(&v2, 4);\n
+        v1[v3] = *(&v2);\n
+    }\n
+    cgc_transmit_all(1, v1, a0 * 4);\n
+    return v5;\n
+}\n
+", "4201825:sub_401d61": null, "4201840:cgc_echo": "long long cgc_echo()\n
+{\n
+    char v0;  // [bp-0xc]\n
+    unsigned long long v2;  // rdi\n
+\n
+    cgc_read(&v0, 4);\n
+    if (*(&v0) >= 1 && *(&v0) <= 0x10000)\n
+        return cgc_draw_echo(*(&v0));\n
+    cgc__terminate(v2);\n
+    return cgc_draw_echo(*(&v0));\n
+}\n
+", "4201909:sub_401db5": null, "4201920:cgc_sparks": "typedef struct struct_2 {\n
+    unsigned long long field_-8;\n
+} struct_2;\n
+\n
+typedef struct struct_1 {\n
+    char field_0;\n
+} struct_1;\n
+\n
+typedef struct struct_0 {\n
+    char field_0;\n
+    char padding_1[23];\n
+    unsigned int field_18;\n
+} struct_0;\n
+\n
+extern char _NSConcreteStackBlock;\n
+extern char __block_descriptor_tmp;\n
+extern char __block_descriptor_tmp.2;\n
+extern char __block_descriptor_tmp.4;\n
+extern unsigned long long cgc_sparkles;\n
+extern char g_401e2e;\n
+extern unsigned int sparkle_count;\n
+\n
+long long cgc_sparks(unsigned long long a0, unsigned int *a1)\n
+{\n
+    char v0;  // [bp-0x148]\n
+    struct_2 *v1;  // [bp-0x140]\n
+    unsigned long v2;  // [bp-0x138]\n
+    unsigned int v3;  // [bp-0x130]\n
+    unsigned int v4;  // [bp-0x12c]\n
+    unsigned long v5;  // [bp-0x128]\n
+    unsigned long v6;  // [bp-0x120]\n
+    struct_0 *v7;  // [bp-0x118]\n
+    struct_1 *v8;  // [bp-0x110]\n
+    unsigned long v9;  // [bp-0x108]\n
+    unsigned long v10;  // [bp-0xf8]\n
+    unsigned int v11;  // [bp-0xf0]\n
+    unsigned int v12;  // [bp-0xec]\n
+    unsigned long v13;  // [bp-0xe8]\n
+    unsigned long v14;  // [bp-0xe0]\n
+    struct_1 *v15;  // [bp-0xd8]\n
+    unsigned long v16;  // [bp-0xd0]\n
+    unsigned int v17;  // [bp-0xc8]\n
+    unsigned int v18;  // [bp-0xc4]\n
+    unsigned long v19;  // [bp-0xc0]\n
+    unsigned long v20;  // [bp-0xb8]\n
+    struct_0 *v21;  // [bp-0xb0]\n
+    struct_0 *v22;  // [bp-0xa8]\n
+    void* v23;  // [bp-0xa0]\n
+    struct_0 *v24;  // [bp-0x98]\n
+    unsigned int v25;  // [bp-0x90]\n
+    unsigned int v26;  // [bp-0x8c]\n
+    unsigned int v27;  // [bp-0x88]\n
+    void* v28;  // [bp-0x80]\n
+    struct_0 *v29;  // [bp-0x78]\n
+    unsigned int v30;  // [bp-0x70]\n
+    unsigned int v31;  // [bp-0x6c]\n
+    unsigned int v32;  // [bp-0x68]\n
+    char v33;  // [bp-0x5c]\n
+    unsigned int v34;  // [bp-0x58]\n
+    unsigned int v35;  // [bp-0x54]\n
+    void* v36;  // [bp-0x50]\n
+    struct_1 *v37;  // [bp-0x48]\n
+    unsigned int v38;  // [bp-0x40]\n
+    unsigned int v39;  // [bp-0x3c]\n
+    struct_2 *v40;  // [bp-0x38]\n
+    unsigned long v41;  // [bp-0x30]\n
+    unsigned long v42;  // [bp-0x28]\n
+    char v43;  // [bp-0x1c]\n
+    unsigned long v45;  // rcx\n
+    unsigned long long v46;  // rdx\n
+    unsigned long v48;  // xmm0lq\n
+\n
+    v45 = a0;\n
+    v42 = &v0;\n
+    v1 = &(&v0)[-1 * (v45 * 4 + 15 & -0x10)];\n
+    v41 = v45;\n
+    v36 = 0;\n
+    v37 = &v36;\n
+    v38 = 0;\n
+    v39 = 32;\n
+    v40 = v1;\n
+    v1[1].field_-8 = &g_401e2e;\n
+    cgc_read(&v43, 4);\n
+    if (!*(&v43) && !sparkle_count)\n
+        goto LABEL_401e52;\n
+    if (*(&v43) <= 0x1000)\n
+        goto LABEL_401e5c;\n
+LABEL_401e52:\n
+    cgc__terminate(a0);\n
+LABEL_401e5c:\n
+    if (*(&v43))\n
+    {\n
+        if (cgc_sparkles)\n
+            cgc_deallocate(a0, 4);\n
+        sparkle_count = *(&v43);\n
+        v35 = cgc_allocate(a0, 4, v46);\n
+        if (v35)\n
+            cgc__terminate(a0);\n
+        for (v34 = 0; v34 < sparkle_count; v34 += 1)\n
+        {\n
+            cgc_read(&v33, 4);\n
+            *((cgc_sparkles + v34 * 4)) = *(&v33);\n
+        }\n
+    }\n
+    v28 = 0;\n
+    v29 = &v28;\n
+    v30 = 0;\n
+    v31 = 32;\n
+    v32 = -1;\n
+    v23 = 0;\n
+    v24 = &v23;\n
+    v25 = 0;\n
+    v26 = 32;\n
+    v27 = 0;\n
+    v16 = &_NSConcreteStackBlock;\n
+    v17 = 0x42000000;\n
+    v18 = 0;\n
+    v19 = __cgc_sparks_block_invoke;\n
+    v20 = &__block_descriptor_tmp;\n
+    v21 = &v23;\n
+    v22 = &v28;\n
+    cgc_each(a0, a1, &v16);\n
+    if (v29->field_18 != v24->field_18)\n
+    {\n
+        cgc_spark_divisor(v24->field_18, v29->field_18, sparkle_count);\n
+        v2 = &_NSConcreteStackBlock;\n
+        v3 = 0x42000000;\n
+        v4 = 0;\n
+        v5 = __cgc_sparks_block_invoke.3;\n
+        v6 = &__block_descriptor_tmp.4;\n
+        v7 = &v28;\n
+        v9 = v48;\n
+        v8 = &v36;\n
+        cgc_each(a0, a1, &v2);\n
+    }\n
+    else\n
+    {\n
+        v10 = &_NSConcreteStackBlock;\n
+        v11 = 0x42000000;\n
+        v12 = 0;\n
+        v13 = __cgc_sparks_block_invoke.1;\n
+        v14 = &__block_descriptor_tmp.2;\n
+        v15 = &v36;\n
+        cgc_each(a0, a1, &v10);\n
+    }\n
+    cgc_transmit_all(1, v1, a0 * 4);\n
+    _Block_object_dispose(&v23, 8);\n
+    _Block_object_dispose(&v28, 8);\n
+    _Block_object_dispose(&v36, 8);\n
+    return v42;\n
+}\n
+", "4202800:__cgc_sparks_block_invoke": "typedef struct struct_0 {\n
+    char padding_0[24];\n
+    unsigned int field_18;\n
+} struct_0;\n
+\n
+long long __cgc_sparks_block_invoke(struct struct_1 *a0[6], unsigned long a1, unsigned long a2)\n
+{\n
+    struct struct_1 *v0[6];  // [bp-0x28]\n
+    struct struct_1 *v1[6];  // [bp-0x20]\n
+    unsigned int v2;  // [bp-0x14]\n
+    struct struct_1 *v3[6];  // [bp-0x10]\n
+    struct_0 *v5;  // rax, Other Possible Types: unsigned long\n
+\n
+    v3[0] = &a0[0];\n
+    v0[0] = &a0[0];\n
+    v2 = a1;\n
+    v1[0] = &a0[0];\n
+    if (a2 > a0[4]->field_8->field_18)\n
+        v0[4]->field_8->field_18 = a2;\n
+    v5 = a2;\n
+    if (v5 < v0[5]->field_8->field_18)\n
+    {\n
+        v5 = v0[5]->field_8;\n
+        *((v5 + 24)) = a2;\n
+    }\n
+    return v5;\n
+}\n
+", "4202907:sub_40219b": null, "4202912:__cgc_sparks_block_invoke.1": "typedef struct struct_2 {\n
+    char padding_0[32];\n
+    struct struct_1 *field_20;\n
+} struct_2;\n
+\n
+typedef struct struct_1 {\n
+    char padding_0[8];\n
+    struct struct_0 *field_8;\n
+} struct_1;\n
+\n
+typedef struct struct_0 {\n
+    char padding_0[24];\n
+    unsigned long long field_18;\n
+} struct_0;\n
+\n
+extern unsigned long long cgc_sparkles;\n
+extern unsigned int sparkle_count;\n
+\n
+long long __cgc_sparks_block_invoke.1(struct_2 *a0, unsigned long a1, unsigned long a2)\n
+{\n
+    struct_2 *v0;  // [bp-0x20]\n
+    unsigned int v1;  // [bp-0x18]\n
+    struct_2 *v2;  // [bp-0x10]\n
+    unsigned long long v4;  // rax\n
+\n
+    v2 = a0;\n
+    v1 = a2;\n
+    v0 = a0;\n
+    v4 = a0->field_20->field_8->field_18;\n
+    *((v4 + a1 * 4)) = *((cgc_sparkles + (sparkle_count - 1) * 4));\n
+    return v4;\n
+}\n
+", "4202974:sub_4021de": null, "4202976:cgc_spark_divisor": "double cgc_spark_divisor(long long a0, long long a1, long long a2)\n
+{\n
+    unsigned int v0;  // [bp-0x14]\n
+    int tmp_66;  // tmp #66\n
+    int tmp_68;  // tmp #68\n
+    int tmp_67;  // tmp #67\n
+    unsigned int v1;  // [bp-0x10]\n
+    unsigned int v2;  // [bp-0xc]\n
+\n
+    v2 = a0;\n
+    v1 = a1;\n
+    v0 = a2;\n
+    tmp_66 = DivV(tmp_68, tmp_67);\n
+    return tmp_66;\n
+}\n
+", "4203026:sub_402212": null, "4203040:__cgc_sparks_block_invoke.3": "typedef struct struct_4 {\n
+    char padding_0[32];\n
+    struct struct_3 *field_20;\n
+    struct struct_1 *field_28;\n
+} struct_4;\n
+\n
+typedef struct struct_3 {\n
+    char padding_0[8];\n
+    struct struct_2 *field_8;\n
+} struct_3;\n
+\n
+typedef struct struct_1 {\n
+    char padding_0[8];\n
+    struct struct_0 *field_8;\n
+} struct_1;\n
+\n
+typedef struct struct_2 {\n
+    char padding_0[24];\n
+    unsigned int field_18;\n
+} struct_2;\n
+\n
+typedef struct struct_0 {\n
+    char padding_0[24];\n
+    unsigned long long field_18;\n
+} struct_0;\n
+\n
+extern unsigned long long cgc_sparkles;\n
+\n
+long long __cgc_sparks_block_invoke.3(struct_4 *a0, unsigned long a1, unsigned long a2)\n
+{\n
+    struct_4 *v0;  // [bp-0x30]\n
+    unsigned int v1;  // [bp-0x24]\n
+    struct_4 *v2;  // [bp-0x20]\n
+    struct_4 *v3;  // [bp-0x10]\n
+    unsigned long long v5;  // rax\n
+\n
+    v0 = a0;\n
+    v3 = a0;\n
+    v2 = a0;\n
+    v1 = cgc_spark_pick_index(a2, a0->field_20->field_8->field_18);\n
+    v5 = v0->field_28->field_8->field_18;\n
+    *((v5 + a1 * 4)) = *((cgc_sparkles + v1 * 4));\n
+    return v5;\n
+}\n
+", "4203140:sub_402284": null, "4203152:cgc_spark_pick_index": "double cgc_spark_pick_index(long long a0, long long a1)\n
+{\n
+    unsigned long v0;  // [bp-0x18]\n
+    int tmp_53;  // tmp #53\n
+    int tmp_55;  // tmp #55\n
+    int tmp_54;  // tmp #54\n
+    unsigned int v1;  // [bp-0x10]\n
+    unsigned int v2;  // [bp-0xc]\n
+    unsigned long v4;  // xmm0lq\n
+\n
+    v2 = a0;\n
+    v1 = a1;\n
+    v0 = v4;\n
+    tmp_53 = DivV(tmp_55, tmp_54);\n
+    return tmp_53;\n
+}\n
+", "4203203:sub_4022c3": null, "4203216:__copy_helper_block_8_32r40r": "long long __copy_helper_block_8_32r40r(unsigned long a0, unsigned int a1[11])\n
+{\n
+    _Block_object_assign(a0 + 32, *(&a1[8]), 8);\n
+    return _Block_object_assign(a0 + 40, *(&a1[10]), 8);\n
+}\n
+", "4203298:sub_402322": null, "4203312:__destroy_helper_block_8_32r40r": "long long __destroy_helper_block_8_32r40r(unsigned int a0[11])\n
+{\n
+    _Block_object_dispose(*(&a0[10]), 8);\n
+    return _Block_object_dispose(*(&a0[8]), 8);\n
+}\n
+", "4203372:_fini": "long long _fini()\n
+{\n
+    unsigned long v1;  // rax\n
+\n
+    return v1;\n
+}\n
+", "5242880:__libc_start_main": null, "5242888:cgc__terminate": null, "5242896:cgc_transmit": null, "5242904:cgc_allocate": null, "5242912:cgc_deallocate": null, "5242920:cgc_receive": null, "6295632:UnresolvableJumpTarget": null, "6295640:UnresolvableCallTarget": null}

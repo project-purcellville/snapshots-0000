@@ -1,0 +1,1261 @@
+{"4198400:_init": "extern struct_0 *g_405b18;\n
+\n
+long long _init()\n
+{\n
+    struct struct_0 **v1;  // rax, Other Possible Types: unsigned long\n
+\n
+    v1 = g_405b18;\n
+    if (g_405b18)\n
+        v1 = g_405b18();\n
+    return v1;\n
+}\n
+", "4198432:sub_401020": "extern unsigned long long g_405b38;\n
+\n
+long long sub_401020()\n
+{\n
+    unsigned long v0;  // [bp-0x8]\n
+\n
+    v0 = g_405b38;\n
+    goto *(4217664);\n
+}\n
+", "4198444:sub_40102c": null, "4198448:cgc__terminate": "// attributes: PLT stub\n
+int cgc__terminate()\n
+{\n
+    ::libc.so.0::cgc__terminate();\n
+    return;\n
+}\n
+", "4198464:memset": "// attributes: PLT stub\n
+void* memset(void* block, unsigned int c, unsigned int size)\n
+{\n
+    return ::libc.so.0::memset(block, c, size);\n
+}\n
+", "4198480:cgc_transmit": "// attributes: PLT stub\n
+int cgc_transmit()\n
+{\n
+    ::libc.so.0::cgc_transmit();\n
+    return;\n
+}\n
+", "4198496:cgc_random": "// attributes: PLT stub\n
+int cgc_random()\n
+{\n
+    ::libc.so.0::cgc_random();\n
+    return;\n
+}\n
+", "4198512:cgc_receive": "// attributes: PLT stub\n
+int cgc_receive()\n
+{\n
+    ::libc.so.0::cgc_receive();\n
+    return;\n
+}\n
+", "4198528:__cxa_finalize": "// attributes: PLT stub\n
+char * __cxa_finalize()\n
+{\n
+    goto *(4217640);\n
+}\n
+", "4198544:_start": "long long _start()\n
+{\n
+    unsigned long v0;  // [bp+0x0], Other Possible Types: char\n
+    unsigned long v1;  // [bp+0x8]\n
+    unsigned long long v2;  // rsi\n
+    unsigned long v3;  // rax\n
+    unsigned long long v4;  // rdx\n
+\n
+    v2 = *(&v0);\n
+    v0 = v3;\n
+    __libc_start_main(main, v2, &v1, 0, 0, v4); /* do not return */\n
+}\n
+", "4198581:sub_4010b5": null, "4198582:sub_4010b6": null, "4198592:deregister_tm_clones": "extern char __bss_start;\n
+extern unsigned long long g_405b10;\n
+\n
+long long deregister_tm_clones()\n
+{\n
+    return &__bss_start;\n
+}\n
+", "4198633:sub_4010e9": null, "4198640:register_tm_clones": "extern unsigned long long g_405b20;\n
+\n
+long long register_tm_clones()\n
+{\n
+    return 0;\n
+}\n
+", "4198697:sub_401129": null, "4198704:__do_global_dtors_aux": "extern char __bss_start;\n
+extern unsigned long long g_405b28;\n
+\n
+long long __do_global_dtors_aux()\n
+{\n
+    unsigned long v0;  // [bp-0x8]\n
+    unsigned long v2;  // rax\n
+\n
+    if (__bss_start)\n
+        return v2;\n
+    *(&v0) = rbp<8>;\n
+    if (!g_405b28)\n
+    {\n
+        __bss_start = 1;\n
+        return deregister_tm_clones();\n
+    }\n
+    __cxa_finalize();\n
+}\n
+", "4198757:sub_401165": null, "4198761:sub_401169": null, "4198768:frame_dummy": "long long frame_dummy()\n
+{\n
+    return register_tm_clones();\n
+}\n
+", "4198777:sub_401179": null, "4198784:cgc_sendall": "long long cgc_sendall(unsigned long long a0, unsigned long long a1, unsigned long long a2)\n
+{\n
+    unsigned int v0;  // [bp-0x34]\n
+    void* v1;  // [bp-0x30]\n
+    void* v2;  // [bp-0x28], Other Possible Types: unsigned long\n
+    unsigned int v3;  // [bp-0x10]\n
+    unsigned int v4;  // [bp-0xc]\n
+    unsigned long long v6;  // rcx\n
+\n
+    v3 = a0;\n
+    v2 = 0;\n
+    v1 = 0;\n
+    if (!a1)\n
+    {\n
+        v4 = 1;\n
+        return v4;\n
+    }\n
+    if (!a2)\n
+    {\n
+        v4 = 2;\n
+        return v4;\n
+    }\n
+    while (true)\n
+    {\n
+        if (v2 < a2)\n
+        {\n
+            v0 = cgc_transmit(a0, a1, a2, v6);\n
+            if (v0)\n
+            {\n
+                v4 = 3;\n
+                return v4;\n
+            }\n
+            v2 = v1 + v2;\n
+        }\n
+        else\n
+        {\n
+            v4 = 0;\n
+            return v4;\n
+        }\n
+    }\n
+}\n
+", "4198970:sub_40123a": null, "4198976:cgc_recvline": "typedef struct struct_0 {\n
+    char field_-1;\n
+} struct_0;\n
+\n
+long long cgc_recvline(unsigned long long a0, struct_0 *a1, unsigned long long a2)\n
+{\n
+    void* v0;  // [bp-0x30], Other Possible Types: unsigned long\n
+    void* v1;  // [bp-0x28]\n
+    unsigned long v2;  // [bp-0x20]\n
+    struct_0 *v3;  // [bp-0x18], Other Possible Types: unsigned long\n
+    unsigned int v4;  // [bp-0x10]\n
+    unsigned int v5;  // [bp-0xc]\n
+    unsigned long long v7;  // rcx\n
+\n
+    v4 = a0;\n
+    v3 = a1;\n
+    v2 = a2;\n
+    v1 = 0;\n
+    v0 = 0;\n
+    if (!v2)\n
+    {\n
+        v5 = 0;\n
+        return v5;\n
+    }\n
+    else if (v3)\n
+    {\n
+        while (v2)\n
+        {\n
+            v3 += 1;\n
+            if (cgc_receive(a0, a1, a2, v7))\n
+            {\n
+                v5 = -7;\n
+                return v5;\n
+            }\n
+            v0 += 1;\n
+            v2 -= 1;\n
+            if (*((v3 - 1)) == 7)\n
+                break;\n
+        }\n
+        if (*((v3 - 1)) != 7)\n
+        {\n
+            v5 = -77;\n
+            return v5;\n
+        }\n
+        *((v3 - 1)) = 0;\n
+        v5 = v0;\n
+        return v5;\n
+    }\n
+    else\n
+    {\n
+        v5 = -7;\n
+        return v5;\n
+    }\n
+}\n
+", "4199230:sub_40133e": null, "4199232:cgc_syslog": "typedef struct struct_0 {\n
+    char field_0;\n
+} struct_0;\n
+\n
+extern char priorities_array;\n
+\n
+long long cgc_syslog(unsigned long a0, unsigned long long a1, unsigned long a2, unsigned long a3, unsigned long a4)\n
+{\n
+    unsigned int v0;  // [bp-0x514]\n
+    struct_0 *v1;  // [bp-0x510]\n
+    char v2;  // [bp-0x508]\n
+    unsigned long v3;  // [bp-0x4f8]\n
+    unsigned long v4;  // [bp-0x4f0]\n
+    unsigned long v5;  // [bp-0x4e8]\n
+    unsigned long v6;  // [bp-0x4e0]\n
+    int v7;  // [bp-0x4d8]\n
+    int v8;  // [bp-0x4c8]\n
+    int v9;  // [bp-0x4b8]\n
+    int v10;  // [bp-0x4a8]\n
+    int v11;  // [bp-0x498]\n
+    int v12;  // [bp-0x488]\n
+    int v13;  // [bp-0x478]\n
+    int v14;  // [bp-0x468]\n
+    unsigned int v15;  // [bp-0x458]\n
+    unsigned int v16;  // [bp-0x454]\n
+    unsigned long v17;  // [bp-0x450]\n
+    unsigned long v18;  // [bp-0x448]\n
+    unsigned int v19;  // [bp-0x434]\n
+    unsigned long long v20;  // [bp-0x430]\n
+    unsigned int v21;  // [bp-0x424]\n
+    struct_0 *v22;  // [bp-0x420]\n
+    char v23;  // [bp-0x418]\n
+    unsigned long v24;  // [bp+0x8]\n
+    char v25;  // al\n
+    int v26;  // xmm0\n
+    int v27;  // xmm1\n
+    int v28;  // xmm2\n
+    int v29;  // xmm3\n
+    int v30;  // xmm4\n
+    int v31;  // xmm5\n
+    int v32;  // xmm6\n
+    int v33;  // xmm7\n
+    unsigned long v34;  // r9\n
+\n
+    if (v25)\n
+    {\n
+        v7 = v26;\n
+        v8 = v27;\n
+        v9 = v28;\n
+        v10 = v29;\n
+        v11 = v30;\n
+        v12 = v31;\n
+        v13 = v32;\n
+        v14 = v33;\n
+    }\n
+    v6 = v34;\n
+    v5 = a4;\n
+    v4 = a3;\n
+    v3 = a2;\n
+    memset(&v23, 0, 0x400);\n
+    v22 = &v23;\n
+    v20 = *(&(&priorities_array)[16 * a0]);\n
+    v18 = &v2;\n
+    v17 = &v24;\n
+    v16 = 48;\n
+    v15 = 16;\n
+    v19 = cgc_snprintf(v22, 0x400, \"~c: \", v20);\n
+    v22 = &v22[v19];\n
+    v19 = cgc_vsnprintf(v22, 0x400 - v19, a1, &v15) + v19;\n
+    v1 = &v23;\n
+    if (v19 >= 0x400)\n
+        v0 = 0x400;\n
+    else\n
+        v0 = v19;\n
+    v21 = cgc_sendall(2, v1, v0);\n
+    if (v21)\n
+    {\n
+        cgc__terminate(2);\n
+        return 0;\n
+    }\n
+    return 0;\n
+}\n
+", "4199692:sub_40150c": null, "4199696:cgc_snprintf": "long long cgc_snprintf(unsigned long long a0, unsigned long long a1, unsigned long long a2, unsigned long a3, unsigned long a4)\n
+{\n
+    char v0;  // [bp-0xf8]\n
+    unsigned long v1;  // [bp-0xe0]\n
+    unsigned long v2;  // [bp-0xd8]\n
+    unsigned long v3;  // [bp-0xd0]\n
+    int v4;  // [bp-0xc8]\n
+    int v5;  // [bp-0xb8]\n
+    int v6;  // [bp-0xa8]\n
+    int v7;  // [bp-0x98]\n
+    int v8;  // [bp-0x88]\n
+    int v9;  // [bp-0x78]\n
+    int v10;  // [bp-0x68]\n
+    int v11;  // [bp-0x58]\n
+    unsigned int v12;  // [bp-0x48]\n
+    unsigned int v13;  // [bp-0x44]\n
+    unsigned long v14;  // [bp-0x40]\n
+    unsigned long v15;  // [bp-0x38]\n
+    unsigned int v16;  // [bp-0x24]\n
+    unsigned long v17;  // [bp+0x8]\n
+    char v18;  // al\n
+    int v19;  // xmm0\n
+    int v20;  // xmm1\n
+    int v21;  // xmm2\n
+    int v22;  // xmm3\n
+    int v23;  // xmm4\n
+    int v24;  // xmm5\n
+    int v25;  // xmm6\n
+    int v26;  // xmm7\n
+    unsigned long v27;  // r9\n
+\n
+    if (v18)\n
+    {\n
+        v4 = v19;\n
+        v5 = v20;\n
+        v6 = v21;\n
+        v7 = v22;\n
+        v8 = v23;\n
+        v9 = v24;\n
+        v10 = v25;\n
+        v11 = v26;\n
+    }\n
+    v3 = v27;\n
+    v2 = a4;\n
+    v1 = a3;\n
+    v15 = &v0;\n
+    v14 = &v17;\n
+    v13 = 48;\n
+    v12 = 24;\n
+    v16 = cgc_vsnprintf(a0, a1, a2, &v12);\n
+    return v16;\n
+}\n
+", "4199861:sub_4015b5": null, "4199872:cgc_vsnprintf": "typedef struct struct_1 {\n
+    unsigned int field_0;\n
+    char padding_4[4];\n
+    struct struct_2 *field_8;\n
+    unsigned long long field_10;\n
+} struct_1;\n
+\n
+typedef struct struct_0 {\n
+    char field_0;\n
+} struct_0;\n
+\n
+typedef struct struct_2 {\n
+    struct struct_0 *field_0;\n
+} struct_2;\n
+\n
+extern char g_404220;\n
+\n
+long long cgc_vsnprintf(unsigned long a0, unsigned long a1, char *a2, struct_1 *a3)\n
+{\n
+    struct struct_0 **v0;  // [bp-0xb0]\n
+    struct_1 *v1;  // [bp-0xa8]\n
+    unsigned int v2;  // [bp-0x9c]\n
+    unsigned int *v3;  // [bp-0x98], Other Possible Types: unsigned long\n
+    struct_1 *v4;  // [bp-0x90]\n
+    unsigned int v5;  // [bp-0x88]\n
+    unsigned int v6;  // [bp-0x84]\n
+    unsigned int v7;  // [bp-0x80]\n
+    unsigned int v8;  // [bp-0x7c]\n
+    char v9;  // [bp-0x78]\n
+    struct_0 *v10;  // [bp-0x50], Other Possible Types: unsigned long\n
+    void* v11;  // [bp-0x48], Other Possible Types: unsigned long\n
+    char v12;  // [bp-0x39]\n
+    char *v13;  // [bp-0x38], Other Possible Types: unsigned long\n
+    char *v14;  // [bp-0x30], Other Possible Types: unsigned long\n
+    struct_1 *v15;  // [bp-0x28]\n
+    char *v16;  // [bp-0x20]\n
+    char *v18;  // rax\n
+    unsigned long v19;  // rcx\n
+    struct_1 *v20;  // rcx\n
+    unsigned long long v21;  // rdx\n
+    struct_1 *v22;  // rcx\n
+    struct_1 *v23;  // rcx\n
+    unsigned long long v24;  // rdx\n
+    unsigned int *v25;  // rax\n
+    struct_1 *v26;  // rcx\n
+    unsigned int *v27;  // rdx\n
+    struct struct_0 **v28;  // rax, Other Possible Types: unsigned long\n
+\n
+    v16 = a2;\n
+    v15 = a3;\n
+    v14 = 0;\n
+    v13 = v16;\n
+    if (!v13)\n
+        v13 = &g_404220;\n
+    for (; *(v13); LABEL_4018a5:\n
+)\n
+    {\n
+        if (*(v13) != 126)\n
+        {\n
+            if (v14 < a1)\n
+            {\n
+                v18 = v13;\n
+                v13 = v18 + 1;\n
+                v19 = v14;\n
+                v14 = v19 + 1;\n
+                *((a0 + v19)) = *(v18);\n
+            }\n
+            else\n
+            {\n
+                v14 += 1;\n
+                v13 += 1;\n
+            }\n
+            goto LABEL_4018a5;\n
+        }\n
+        v12 = 0;\n
+        v11 = 0;\n
+        v8 = 0;\n
+        v7 = 0;\n
+        v13 += 1;\n
+        v12 = *(v13);\n
+        v6 = v12;\n
+        if (v6 == 99)\n
+        {\n
+            v1 = v15;\n
+            v2 = v1->field_0;\n
+            if (v2 > 40)\n
+            {\n
+                v22 = v1;\n
+                v28 = v22->field_8;\n
+                v22->field_8 = v28 + 8;\n
+            }\n
+            else\n
+            {\n
+                v20 = v1;\n
+                v21 = v2;\n
+                v28 = v21 + v20->field_10;\n
+                v20->field_0 = v21 + 8;\n
+            }\n
+            v0 = v28;\n
+            v10 = *(v0);\n
+            if (!v10)\n
+                v11 = 0;\n
+            else\n
+                v11 = cgc_strlen(v10);\n
+        }\n
+        else if (v6 == 110)\n
+        {\n
+            v8 = 0;\n
+            v4 = v15;\n
+            v5 = v4->field_0;\n
+            if (v5 > 40)\n
+            {\n
+                v26 = v4;\n
+                v27 = v26->field_8;\n
+                v26->field_8 = &v27[2];\n
+                v3 = v27;\n
+            }\n
+            else\n
+            {\n
+                v23 = v4;\n
+                v24 = v5;\n
+                v25 = v24 + v23->field_10;\n
+                v23->field_0 = v24 + 8;\n
+                v3 = v25;\n
+            }\n
+            v8 = *(v3);\n
+            cgc_int2str(&v9, 32, v8);\n
+            v10 = &v9;\n
+            v11 = cgc_strlen(v10);\n
+        }\n
+        if (v12 != 110 && !(v12 == 99))\n
+            goto LABEL_401884;\n
+        v7 = a1 - v14;\n
+        if (v11 <= v7)\n
+        {\n
+            cgc_memcpy(a0 + v14, v10, v11);\n
+            v14 = v11 + v14;\n
+        }\n
+        else\n
+        {\n
+            cgc_memcpy(a0 + v14, v10, v7);\n
+            v14 = v7 + v14;\n
+        }\n
+LABEL_401884:\n
+        if (*(v13))\n
+            v13 += 1;\n
+    }\n
+    if (a1 <= 0)\n
+        return v14;\n
+    if (v14 < a1)\n
+        *((a0 + v14)) = 0;\n
+    else\n
+        *((a0 + a1 - 1)) = 0;\n
+    return v14;\n
+}\n
+", "4200699:sub_4018fb": null, "4200704:cgc_streq": "long long cgc_streq(char *a0, char *a1)\n
+{\n
+    unsigned int v0;  // [bp-0x24]\n
+    char *v1;  // [bp-0x20], Other Possible Types: unsigned long\n
+    char *v2;  // [bp-0x18], Other Possible Types: unsigned long\n
+    unsigned int v3;  // [bp-0xc]\n
+    char *v5;  // rax\n
+    unsigned int v6;  // eax\n
+    char *v7;  // rcx\n
+\n
+    v2 = a0;\n
+    v1 = a1;\n
+    v0 = cgc_strlen(v2);\n
+    if (v0 != cgc_strlen(v1))\n
+    {\n
+        v3 = -1;\n
+        return v3;\n
+    }\n
+    while (true)\n
+    {\n
+        if (*(v2))\n
+        {\n
+            v5 = v2;\n
+            v2 = v5 + 1;\n
+            v6 = *(v5);\n
+            v7 = v1;\n
+            v1 = v7 + 1;\n
+            if (v6 != *(v7))\n
+            {\n
+                v3 = -1;\n
+                return v3;\n
+            }\n
+        }\n
+        else\n
+        {\n
+            v3 = 0;\n
+            return v3;\n
+        }\n
+    }\n
+}\n
+", "4200864:cgc_strlen": "long long cgc_strlen(char *a0)\n
+{\n
+    unsigned int v0;  // [bp-0x14]\n
+    char *v1;  // [bp-0x10], Other Possible Types: unsigned long\n
+\n
+    v1 = a0;\n
+    for (v0 = 0; *(v1); v1 += 1)\n
+    {\n
+        v0 += 1;\n
+    }\n
+    return v0;\n
+}\n
+", "4200926:sub_4019de": null, "4200928:cgc_strncpy": "long long cgc_strncpy(char *a0, char *a1, unsigned long a2)\n
+{\n
+    char v0;  // [bp-0x25]\n
+    unsigned int v1;  // [bp-0x24]\n
+\n
+    v1 = 0;\n
+    while (true)\n
+    {\n
+        v0 = 0;\n
+        if (v1 < a2)\n
+            v0 = a1[v1];\n
+        if (!(v0 & 1))\n
+            break;\n
+        a0[v1] = a1[v1];\n
+        v1 += 1;\n
+    }\n
+    for (; v1 < a2; v1 += 1)\n
+    {\n
+        a0[v1] = 0;\n
+    }\n
+    return a0;\n
+}\n
+", "4201094:sub_401a86": null, "4201104:cgc_memset": "long long cgc_memset(char *a0, unsigned long a1, unsigned long a2)\n
+{\n
+    char *v0;  // [bp-0x28], Other Possible Types: unsigned long\n
+    unsigned long v1;  // [bp-0x20]\n
+\n
+    v1 = a2;\n
+    for (v0 = a0; v1 > 0; v1 -= 1)\n
+    {\n
+        *(v0) = a1;\n
+        v0 += 1;\n
+    }\n
+    return a0;\n
+}\n
+", "4201184:cgc_memcpy": "long long cgc_memcpy(char *a0, char *a1, unsigned long a2)\n
+{\n
+    char *v0;  // [bp-0x30], Other Possible Types: unsigned long\n
+    char *v1;  // [bp-0x28], Other Possible Types: unsigned long\n
+    unsigned long v2;  // [bp-0x20]\n
+    unsigned long long v4;  // rax\n
+\n
+    v2 = a2;\n
+    v1 = a0;\n
+    v0 = a1;\n
+    while (true)\n
+    {\n
+        v4 = v2;\n
+        v2 = v4 - 1;\n
+        if (!v4)\n
+            break;\n
+        *(v1) = *(v0);\n
+        v1 += 1;\n
+        v0 += 1;\n
+    }\n
+    return a0;\n
+}\n
+", "4201288:sub_401b48": null, "4201296:cgc_strchr": "long long cgc_strchr(char *a0, unsigned long a1)\n
+{\n
+    char *v0;  // [bp-0x18], Other Possible Types: unsigned long\n
+    char *v1;  // [bp-0x10], Other Possible Types: unsigned long\n
+\n
+    v0 = a0;\n
+    while (true)\n
+    {\n
+        if (!*(v0))\n
+        {\n
+            v1 = 0;\n
+            return v1;\n
+        }\n
+        if (*(v0) == a1)\n
+        {\n
+            v1 = v0;\n
+            return v1;\n
+        }\n
+        v0 += 1;\n
+    }\n
+}\n
+", "4201389:sub_401bad": null, "4201392:cgc_rand": "long long cgc_rand(unsigned long long a0)\n
+{\n
+    void* v0;  // [bp-0x18]\n
+    unsigned long v1;  // [bp-0x10]\n
+    unsigned long long v3;  // rsi\n
+    unsigned long long v4;  // rdx\n
+\n
+    v1 = a0;\n
+    v0 = 0;\n
+    return cgc_random(a0, v3, v4);\n
+}\n
+", "4201436:sub_401bdc": null, "4201440:cgc_int2str": "long long cgc_int2str(unsigned long a0, unsigned long a1, unsigned long a2)\n
+{\n
+    unsigned int v0;  // [bp-0x2c]\n
+    unsigned int v1;  // [bp-0x28]\n
+    unsigned int v2;  // [bp-0x24]\n
+    unsigned int v3;  // [bp-0x20], Other Possible Types: unsigned long\n
+    unsigned int v4;  // [bp-0xc]\n
+    char *v6;  // rcx\n
+    unsigned int v7;  // eax\n
+    unsigned long v9;  // rcx\n
+    unsigned long v10;  // rcx\n
+    unsigned int v11;  // eax\n
+\n
+    v3 = a2;\n
+    v2 = 0;\n
+    if (a1 < 2)\n
+    {\n
+        v4 = -1;\n
+        return v4;\n
+    }\n
+    if (v3 >= 0)\n
+    {\n
+        v3 *= -1;\n
+    }\n
+    else if (a1 >= 3)\n
+    {\n
+        v6 = v2;\n
+        v2 = v6 + 1;\n
+        v6[a0] = 45;\n
+    }\n
+    else\n
+    {\n
+        v4 = -1;\n
+        return v4;\n
+    }\n
+    v1 = v3;\n
+    do\n
+    {\n
+        v2 += 1;\n
+        v7 = v1;\n
+        v1 = (v7 >> 31 CONCAT v7) /m 10;\n
+    } while (v1 < 0);\n
+    if (v2 >= a1)\n
+    {\n
+        v4 = -1;\n
+        return v4;\n
+    }\n
+    v9 = v2;\n
+    v2 = v9 - 1;\n
+    *((a0 + v9)) = 0;\n
+    do\n
+    {\n
+        v0 = ((v3 >> 31 CONCAT v3) /m 10 >> 32) * -1;\n
+        v10 = v2;\n
+        v2 = v10 - 1;\n
+        *((a0 + v10)) = v0 + 48;\n
+        v11 = v3;\n
+        v3 = (v11 >> 31 CONCAT v11) /m 10;\n
+    } while (v3 < 0);\n
+    v4 = 0;\n
+    return v4;\n
+}\n
+", "4201719:sub_401cf7": null, "4201728:cgc_str2uint32": "long long cgc_str2uint32(char *a0)\n
+{\n
+    unsigned int v0;  // [bp-0x28]\n
+    unsigned int v1;  // [bp-0x24]\n
+    unsigned int v2;  // [bp-0x20]\n
+    unsigned int v3;  // [bp-0x1c]\n
+    unsigned int v4;  // [bp-0xc]\n
+\n
+    v3 = 0;\n
+    v2 = 0;\n
+    v1 = 10;\n
+    if (!a0)\n
+    {\n
+        v4 = v3;\n
+        return v4;\n
+    }\n
+    for (v0 = 0; v0 < v1; v0 += 1)\n
+    {\n
+        if (a0[v0] != 48 && a0[v0] != 49 && a0[v0] != 50 && a0[v0] != 51 && a0[v0] != 52 && a0[v0] != 53 && a0[v0] != 54 && a0[v0] != 55 && a0[v0] != 56 && a0[v0] != 57)\n
+            break;\n
+        v3 *= 10;\n
+        v2 = a0[v0] - 48;\n
+        v3 = v2 + v3;\n
+    }\n
+    v4 = v3;\n
+    return v4;\n
+}\n
+", "4202082:sub_401e62": null, "4202096:cgc_str2int": "long long cgc_str2int(char *a0)\n
+{\n
+    unsigned int v0;  // [bp-0x2c]\n
+    unsigned int v1;  // [bp-0x28]\n
+    unsigned int v2;  // [bp-0x24]\n
+    unsigned int v3;  // [bp-0x20]\n
+    unsigned int v4;  // [bp-0x1c]\n
+    unsigned int v5;  // [bp-0xc]\n
+\n
+    v4 = 0;\n
+    v3 = 0;\n
+    v2 = 10;\n
+    v1 = 0;\n
+    v0 = 1;\n
+    if (!a0)\n
+    {\n
+        v5 = v4;\n
+        return v5;\n
+    }\n
+    if (*(a0) == 45)\n
+    {\n
+        v0 = -1;\n
+        v1 += 1;\n
+        v2 += 1;\n
+    }\n
+    for (; v1 < v2; v1 += 1)\n
+    {\n
+        if (a0[v1] != 48 && a0[v1] != 49 && a0[v1] != 50 && a0[v1] != 51 && a0[v1] != 52 && a0[v1] != 53 && a0[v1] != 54 && a0[v1] != 55 && a0[v1] != 56 && a0[v1] != 57)\n
+            break;\n
+        v4 *= 10;\n
+        v3 = a0[v1] - 48;\n
+        v4 = v3 + v4;\n
+    }\n
+    v5 = v0 * v4;\n
+    return v5;\n
+}\n
+", "4202507:sub_40200b": null, "4202512:cgc_is_numeric": "long long cgc_is_numeric(char *a0)\n
+{\n
+    unsigned int v0;  // [bp-0x1c]\n
+    char *v1;  // [bp-0x18], Other Possible Types: unsigned long\n
+    unsigned int v2;  // [bp-0xc]\n
+\n
+    v1 = a0;\n
+    v0 = 0;\n
+    if (!cgc_strlen(v1))\n
+    {\n
+        v2 = -1;\n
+        return v2;\n
+    }\n
+    if (*(v1) == 45)\n
+    {\n
+        v1 += 1;\n
+        v0 = 1;\n
+    }\n
+    while (true)\n
+    {\n
+        if (!*(v1))\n
+        {\n
+            v2 = v0;\n
+            return v2;\n
+        }\n
+        if (*(v1) < 48)\n
+            break;\n
+        if (*(v1) > 57)\n
+            break;\n
+        v1 += 1;\n
+    }\n
+    v2 = -1;\n
+    return v2;\n
+}\n
+", "4202693:sub_4020c5": null, "4202704:cgc_strip": "long long cgc_strip(char *a0)\n
+{\n
+    unsigned int v0;  // [bp-0x18]\n
+    unsigned int v1;  // [bp-0x14]\n
+    unsigned long v3;  // rax, Other Possible Types: unsigned long long\n
+\n
+    v1 = cgc_strlen(a0);\n
+    v3 = v1 - 1;\n
+    while (true)\n
+    {\n
+        v0 = v3;\n
+        if (v0 < 0)\n
+            return v3;\n
+        if (a0[v0] != 10 && a0[v0] != 9 && a0[v0] != 13)\n
+        {\n
+            v3 = a0[v0];\n
+            if (v3 != 32)\n
+                return a0[v0];\n
+        }\n
+        a0[v0] = 0;\n
+        v3 = v0 - 1;\n
+    }\n
+}\n
+", "4202878:sub_40217e": null, "4202880:cgc_load_default_jokes": "long long cgc_load_default_jokes(unsigned long long a0)\n
+{\n
+    cgc_insert_joke(a0, \"When Alexander Bell invented the telephone he had 3 missed calls from Chuck Norris.\");\n
+    cgc_insert_joke(a0, \"Fear of spiders is aracnaphobia, fear of tight spaces is chlaustraphobia, fear of Chuck Norris is called Logic\");\n
+    cgc_insert_joke(a0, \"There used to be a street named after Chuck Norris, but it was changed because nobody crosses Chuck Norris and lives.\");\n
+    cgc_insert_joke(a0, \"Chuck Norris has a grizzly bear carpet in his room. The bear isn't dead it is just afriad to move.\");\n
+    cgc_insert_joke(a0, \"Chuck Norris died 20 years ago, Death just hasn't built up the courage to tell him yet.\");\n
+    cgc_insert_joke(a0, \"Chuck Norris has already been to Mars; that's why there are no signs of life.\");\n
+    cgc_insert_joke(a0, \"Chuck Norris doesn't call the wrong number. You answer the wrong phone.\");\n
+    cgc_insert_joke(a0, \"Some magicans can walk on water, Chuck Norris can swim through land.\");\n
+    cgc_insert_joke(a0, \"Chuck Norris and Superman once fought each other on a bet. The loser had to start wearing his underwear on the outside of his pants.\");\n
+    cgc_insert_joke(a0, \"Chuck Norris once urinated in a semi truck's gas tank as a joke....that truck is now known as Optimus Prime.\");\n
+    cgc_insert_joke(a0, \"Chuck Norris can cut through a hot knife with butter\");\n
+    cgc_insert_joke(a0, \"Chuck Norris counted to infinity - twice.\");\n
+    cgc_insert_joke(a0, \"Chuck Norris is the reason why Waldo is hiding.\");\n
+    cgc_insert_joke(a0, \"When the Boogeyman goes to sleep every night, he checks his closet for Chuck Norris.\");\n
+    cgc_insert_joke(a0, \"Death once had a near-Chuck Norris experience\");\n
+    cgc_insert_joke(a0, \"Chuck Norris can slam a revolving door.\");\n
+    cgc_insert_joke(a0, \"Chuck Norris once kicked a horse in the chin. Its decendants are known today as Giraffes.\");\n
+    cgc_insert_joke(a0, \"Chuck Norris will never have a heart attack. His heart isn't nearly foolish enough to attack him.\");\n
+    cgc_insert_joke(a0, \"Chuck Norris can win a game of Connect Four in only three moves.\");\n
+    cgc_insert_joke(a0, \"Chuck Norris once got bit by a rattle snake........ After three days of pain and agony ..................the rattle snake died\");\n
+    cgc_insert_joke(a0, \"There is no theory of evolution. Just a list of animals Chuck Norris allows to live.\");\n
+    cgc_insert_joke(a0, \"Chuck Norris can light a fire by rubbing two ice-cubes together.\");\n
+    cgc_insert_joke(a0, \"When Chuck Norris does a pushup, he isn't lifting himself up, he's pushing the Earth down.\");\n
+    cgc_insert_joke(a0, \"Chuck Norris is so fast, he can dodge raindrops.\");\n
+    cgc_insert_joke(a0, \"Chuck Norris doesn't wear a watch. HE decides what time it is.\");\n
+    cgc_insert_joke(a0, \"The original title for Alien vs. Predator was Alien and Predator vs Chuck Norris.\");\n
+    cgc_insert_joke(a0, \"Chuck Norris doesn't read books. He stares them down until he gets the information he wants.\");\n
+    cgc_insert_joke(a0, \"If Chuck Norris were to ever run out of ammo, his weapon would continue to fire out of fear of disappointing Chuck Norris.\");\n
+    cgc_insert_joke(a0, \"Chuck Norris' hand is the only hand that can beat a Royal Flush.\");\n
+    cgc_insert_joke(a0, \"Chuck Norris made a Happy Meal cry.\");\n
+    cgc_insert_joke(a0, \"If you spell Chuck Norris in Scrabble, you win. Forever.\");\n
+    cgc_insert_joke(a0, \"Fear of Chuck Norris is also called common sense.\");\n
+    cgc_insert_joke(a0, \"Outer space exists because it's afraid to be on the same planet with Chuck Norris.\");\n
+    cgc_insert_joke(a0, \"Chuck Norris destroyed the periodic table, because Chuck Norris only recognizes the element of surprise.\");\n
+    cgc_insert_joke(a0, \"Some people wear Superman pajamas. Superman wears Chuck Norris pajamas.\");\n
+    cgc_insert_joke(a0, \"Einstein said you can't move at the speed of light. Obviously he was never kicked by Chuck Norris...\");\n
+    cgc_insert_joke(a0, \"Chuck Norris does not sleep. He waits.\");\n
+    cgc_insert_joke(a0, \"Chuck Norris has no shadow....nothing's stupid enough to follow Chuck Norris.\");\n
+    cgc_insert_joke(a0, \"Chuck Norris is so intimidating even his reflection won't look back at him.\");\n
+    cgc_insert_joke(a0, \"When Chuck Norris throws you into a bottomless pit, you hit the bottom.\");\n
+    cgc_insert_joke(a0, \"Some kids pee their name in snow. Chuck Norris pees his name in concrete.\");\n
+    cgc_insert_joke(a0, \"Chuck Norris has the greatest Poker-Face of all time.\");\n
+    cgc_insert_joke(a0, \"Chuck Norris played Russian Roulette with a fully loaded gun and won.\");\n
+    cgc_insert_joke(a0, \"Chuck Norris doesn't fold paper airplanes, he folds airplanes into paper.\");\n
+    return cgc_insert_joke(a0, \"Chuck Norris knows the last digit of pi.\");\n
+}\n
+", "4203618:sub_402462": null, "4203632:cgc_insert_joke": "long long cgc_insert_joke(unsigned int *a0, char *a1, unsigned int a2, unsigned int a3, unsigned int a4)\n
+{\n
+    char *v0;  // [bp-0x38]\n
+    unsigned int v1;  // [bp-0x24]\n
+    unsigned int v2;  // [bp-0xc]\n
+\n
+    if (*(a0) >= 0x100)\n
+    {\n
+        v2 = -1;\n
+        return v2;\n
+    }\n
+    else if (cgc_strlen(a1) >= 511)\n
+    {\n
+        cgc_syslog(3, \"Joke was too long -->\\n
+\", a2, a3, a4);\n
+        cgc_syslog(3, a1, a2, a3, a4);\n
+        v2 = -2;\n
+        return v2;\n
+    }\n
+    else\n
+    {\n
+        v1 = *(a0);\n
+        v0 = &a0[2 + 129 * v1];\n
+        cgc_strncpy(v0, a1, cgc_strlen(a1));\n
+        a0[1 + 129 * v1] = v1;\n
+        *(a0) = *(a0) + 1;\n
+        v2 = v1;\n
+        return v2;\n
+    }\n
+}\n
+", "4203869:sub_40255d": null, "4203872:cgc_joke_count": "long long cgc_joke_count(unsigned int *a0)\n
+{\n
+    return *(a0);\n
+}\n
+", "4203888:cgc_send": "long long cgc_send(unsigned long long a0, unsigned long long a1)\n
+{\n
+    unsigned int v0;  // [bp-0x1c]\n
+\n
+    v0 = cgc_sendall(1, a0, a1);\n
+    if (v0)\n
+    {\n
+        cgc__terminate(1);\n
+        return 0;\n
+    }\n
+    return 0;\n
+}\n
+", "4203953:sub_4025b1": null, "4203968:cgc_recv": "long long cgc_recv(void* a0, unsigned long long a1)\n
+{\n
+    unsigned int v0;  // [bp-0x1c]\n
+\n
+    v0 = cgc_recvline(0, a0, a1);\n
+    if (v0 < 0)\n
+    {\n
+        cgc_send(\"\\n
+Are you kidding me? What is that garbage? I thought my instructions were pretty straight forward. Try again.\\n
+\", cgc_strlen(\"\\n
+Are you kidding me? What is that garbage? I thought my instructions were pretty straight forward. Try again.\\n
+\"));\n
+        cgc__terminate(\"\\n
+Are you kidding me? What is that garbage? I thought my instructions were pretty straight forward. Try again.\\n
+\");\n
+        return 0;\n
+    }\n
+    return 0;\n
+}\n
+", "4204058:sub_40261a": null, "4204064:cgc_prompt_user": "long long cgc_prompt_user(char *a0, void* a1, unsigned long long a2)\n
+{\n
+    cgc_send(a0, cgc_strlen(a0));\n
+    cgc_recv(a1, a2);\n
+    return 0;\n
+}\n
+", "4204135:sub_402667": null, "4204144:cgc_send_random_joke": "long long cgc_send_random_joke(unsigned int *a0)\n
+{\n
+    unsigned int v0;  // [bp-0x18]\n
+    unsigned int v1;  // [bp-0x14]\n
+\n
+    v1 = cgc_joke_count(a0);\n
+    v0 = 0;\n
+    if (cgc_rand(&v0))\n
+        cgc__terminate(a0);\n
+    cgc_send_joke(&a0[129 * ((0 CONCAT v0) /m v1 >> 32)] + 1);\n
+    return 0;\n
+}\n
+", "4204244:sub_4026d4": null, "4204256:cgc_send_joke": "typedef struct struct_0 {\n
+    unsigned long long field_-8;\n
+} struct_0;\n
+\n
+extern char g_402745;\n
+\n
+long long cgc_send_joke(unsigned int *a0)\n
+{\n
+    char v0;  // [bp-0x38]\n
+    struct_0 *v1;  // [bp-0x30]\n
+    unsigned long v2;  // [bp-0x28]\n
+    unsigned long v3;  // [bp-0x20]\n
+    unsigned int v4;  // [bp-0x14]\n
+    unsigned long long v6;  // rax\n
+    unsigned long v7;  // rcx\n
+\n
+    v4 = cgc_strlen(a0 + 1) + 40;\n
+    v6 = v4;\n
+    v3 = &v0;\n
+    v1 = &(&v0)[-1 * (v6 + 15 & -0x10)];\n
+    v2 = v6;\n
+    v7 = *(a0);\n
+    v1[1].field_-8 = &g_402745;\n
+    cgc_snprintf(v1, v4, \"~n: ~c\\n
+\", v7, a0 + 1);\n
+    cgc_send(v1, cgc_strlen(v1));\n
+    return 0;\n
+}\n
+", "4204393:sub_402769": null, "4204400:cgc_send_all_jokes": "long long cgc_send_all_jokes(unsigned int *a0)\n
+{\n
+    unsigned int v0;  // [bp-0x18]\n
+    unsigned int v1;  // [bp-0x14]\n
+\n
+    v1 = *(a0);\n
+    for (v0 = 0; v0 < v1; v0 += 1)\n
+    {\n
+        cgc_send_joke(&a0[129 * v0] + 1);\n
+    }\n
+    return 0;\n
+}\n
+", "4204489:sub_4027c9": null, "4204496:cgc_do_list": "long long cgc_do_list(unsigned int *a0)\n
+{\n
+    cgc_send_all_jokes(a0);\n
+    return 0;\n
+}\n
+", "4204525:sub_4027ed": null, "4204528:cgc_do_add": "typedef struct struct_0 {\n
+    unsigned long long field_-8;\n
+} struct_0;\n
+\n
+extern char g_402933;\n
+\n
+long long cgc_do_add(unsigned int *a0, unsigned long a1, unsigned long a2, unsigned long a3, unsigned int a4)\n
+{\n
+    char v0;  // [bp-0x248]\n
+    struct_0 *v1;  // [bp-0x240]\n
+    unsigned long v2;  // [bp-0x238]\n
+    unsigned long v3;  // [bp-0x230]\n
+    unsigned int v4;  // [bp-0x224]\n
+    unsigned int v5;  // [bp-0x220]\n
+    unsigned int v6;  // [bp-0x21c]\n
+    char v7;  // [bp-0x218]\n
+    unsigned long long v9;  // rax\n
+\n
+    memset(&v7, 0, 0x200);\n
+    cgc_send(\"So, you think you have a good Chuck Norris joke? Give me the joke string already....\\n
+\", cgc_strlen(\"So, you think you have a good Chuck Norris joke? Give me the joke string already....\\n
+\"));\n
+    cgc_prompt_user(\"ADD> \", &v7, 0x200);\n
+    v6 = cgc_insert_joke(a0, &v7, 0x200, a3, a4);\n
+    if (v6 == -1)\n
+    {\n
+        cgc_send(\"Lordy, lordy, I've had enough Chuck Norris jokes. Go away.\\n
+\", cgc_strlen(\"Lordy, lordy, I've had enough Chuck Norris jokes. Go away.\\n
+\"));\n
+        return 0;\n
+    }\n
+    if (v6 <= -2)\n
+    {\n
+        cgc_send(\"\\n
+That joke you gave me is crap! For that, you get to start over!\\n
+\", cgc_strlen(\"\\n
+That joke you gave me is crap! For that, you get to start over!\\n
+\"));\n
+    }\n
+    else if (v6 >= 0)\n
+    {\n
+        v5 = v6;\n
+        v4 = cgc_strlen(\"Joke added. Thanks for sharing! Your joke is ID: ~n\\n
+\") + 40;\n
+        v9 = v4;\n
+        v3 = &v0;\n
+        v1 = &(&v0)[-1 * (v9 + 15 & -0x10)];\n
+        v2 = v9;\n
+        v1[1].field_-8 = &g_402933;\n
+        cgc_snprintf(v1, v4, \"Joke added. Thanks for sharing! Your joke is ID: ~n\\n
+\", v5, a4);\n
+        cgc_send(v1, cgc_strlen(v1));\n
+    }\n
+    return 0;\n
+}\n
+", "4204906:sub_40296a": null, "4204912:cgc_do_show": "typedef struct struct_0 {\n
+    unsigned long long field_-8;\n
+} struct_0;\n
+\n
+extern char g_4029c2;\n
+\n
+long long cgc_do_show(unsigned int *a0)\n
+{\n
+    char v0;  // [bp-0x258]\n
+    unsigned int v1;  // [bp-0x24c]\n
+    struct_0 *v2;  // [bp-0x248]\n
+    unsigned int v3;  // [bp-0x23c]\n
+    char v4;  // [bp-0x238]\n
+    unsigned int v5;  // [bp-0x2c]\n
+    unsigned long v6;  // [bp-0x28]\n
+    unsigned long v7;  // [bp-0x20]\n
+    unsigned int v8;  // [bp-0x14]\n
+    unsigned long long v10;  // rax\n
+\n
+    v8 = 11;\n
+    v10 = v8;\n
+    v7 = &v0;\n
+    v2 = &(&v0)[-1 * (v10 + 15 & -0x10)];\n
+    v6 = v10;\n
+    v2[1].field_-8 = &g_4029c2;\n
+    memset(&v4, 0, 0x200);\n
+    cgc_send(\"Give me the ID of the joke you want to read. Or better yet, enter RANDOM and I'll choose one for you.\\n
+\", cgc_strlen(\"Give me the ID of the joke you want to read. Or better yet, enter RANDOM and I'll choose one for you.\\n
+\"));\n
+    while (true)\n
+    {\n
+        while (true)\n
+        {\n
+            cgc_memset(v2, 0, v8);\n
+            cgc_prompt_user(\"SHOW> \", v2, v8);\n
+            v3 = cgc_is_numeric(v2);\n
+            if (!v3)\n
+                break;\n
+            if (v3 == -1 && !cgc_streq(v2, \"RANDOM\"))\n
+            {\n
+                cgc_send_random_joke(a0);\n
+                return 0;\n
+            }\n
+            cgc_send(\"\\n
+What do you take me for? That ID is bogus! Try again.\\n
+\", cgc_strlen(\"\\n
+What do you take me for? That ID is bogus! Try again.\\n
+\"));\n
+        }\n
+        v5 = cgc_str2uint32(v2);\n
+        if (v5 == 1337)\n
+        {\n
+            cgc_send(\"Congratulations, you are the only person in the past, present or future to beat Chuck Norris.\\n
+\", cgc_strlen(\"Congratulations, you are the only person in the past, present or future to beat Chuck Norris.\\n
+\"));\n
+            break;\n
+        }\n
+        else\n
+        {\n
+            v1 = v5;\n
+            if (v1 >= cgc_joke_count(a0))\n
+            {\n
+                cgc_send(\"\\n
+What do you take me for? That ID is bogus! Try again.\\n
+\", cgc_strlen(\"\\n
+What do you take me for? That ID is bogus! Try again.\\n
+\"));\n
+            }\n
+            else\n
+            {\n
+                cgc_send_joke(&a0[129 * v5] + 1);\n
+                break;\n
+            }\n
+        }\n
+    }\n
+    return 0;\n
+}\n
+", "4205370:sub_402b3a": null, "4205376:cgc_do_count": "typedef struct struct_1 {\n
+    char field_0;\n
+} struct_1;\n
+\n
+typedef struct struct_0 {\n
+    unsigned long long field_-8;\n
+} struct_0;\n
+\n
+extern char g_402b95;\n
+\n
+long long cgc_do_count(unsigned int *a0, unsigned long a1, unsigned long a2, unsigned long a3, unsigned int a4)\n
+{\n
+    int <0x402b40[is_4]|Stack bp-0x38, 1 B>;  // [bp-0x38]\n
+    unsigned long long v0;  // [bp-0x38]\n
+    struct_0 *v1;  // [bp-0x30]\n
+    unsigned long v2;  // [bp-0x28]\n
+    struct_1 *v3;  // [bp-0x20]\n
+    unsigned int v4;  // [bp-0x14]\n
+    unsigned long long v6;  // rax\n
+\n
+    v4 = cgc_strlen(\"Current CNMP joke count is ~n. Enjoy!\\n
+\") + 40;\n
+    v6 = v4;\n
+    v3 = &<0x402b40[is_4]|Stack bp-0x38, 1 B>;\n
+    v1 = &<0x402b40[is_4]|Stack bp-0x38, 1 B> - (v6 + 15 & -0x10);\n
+    v2 = v6;\n
+    v0 = v4;\n
+    v1[1].field_-8 = &g_402b95;\n
+    cgc_snprintf(v1, v0, \"Current CNMP joke count is ~n. Enjoy!\\n
+\", cgc_joke_count(a0), a4);\n
+    cgc_send(v1, cgc_strlen(v1));\n
+    return 0;\n
+}\n
+", "4205521:sub_402bd1": null, "4205536:cgc_do_menu": "long long cgc_do_menu()\n
+{\n
+    cgc_send(\"Enter one of these commands:\\n
+  LIST  - list all jokes\\n
+  ADD   - upload your own joke\\n
+  COUNT - find out how many jokes we have to offer you\\n
+  SHOW  - show a joke\\n
+  MENU  - display this menu\\n
+  HELP  - you gotta be kididin' me!\\n
+  QUIT  - take off eh?\\n
+\", cgc_strlen(\"Enter one of these commands:\\n
+  LIST  - list all jokes\\n
+  ADD   - upload your own joke\\n
+  COUNT - find out how many jokes we have to offer you\\n
+  SHOW  - show a joke\\n
+  MENU  - display this menu\\n
+  HELP  - you gotta be kididin' me!\\n
+  QUIT  - take off eh?\\n
+\"));\n
+    return 0;\n
+}\n
+", "4205572:sub_402c04": null, "4205584:cgc_do_help": "long long cgc_do_help()\n
+{\n
+    cgc_send(\"Is our menu so extensive that you cannot remember all of the commands? Here, let me jog all 6 of your neurons:\\n
+\", cgc_strlen(\"Is our menu so extensive that you cannot remember all of the commands? Here, let me jog all 6 of your neurons:\\n
+\"));\n
+    cgc_do_menu();\n
+    return 0;\n
+}\n
+", "4205625:sub_402c39": null, "4205632:cgc_do_quit": "long long cgc_do_quit()\n
+{\n
+    cgc_send(\"Thanks for the laughs. Come back soon!\\n
+\", cgc_strlen(\"Thanks for the laughs. Come back soon!\\n
+\"));\n
+    return 0;\n
+}\n
+", "4205668:sub_402c64": null, "4205680:main": "typedef struct struct_0 {\n
+    unsigned long long field_-8;\n
+} struct_0;\n
+\n
+extern char g_402cc7;\n
+\n
+int main(unsigned long a0, unsigned long a1, unsigned int a2, unsigned long a3, unsigned long a4)\n
+{\n
+    char v0;  // [bp-0x20448]\n
+    struct_0 *v1;  // [bp-0x20440]\n
+    unsigned int v2;  // [bp-0x20438]\n
+    unsigned long v3;  // [bp-0x30]\n
+    unsigned long v4;  // [bp-0x28]\n
+    unsigned long long v5;  // [bp-0x20]\n
+    unsigned long v6;  // [bp-0x18]\n
+    unsigned int v7;  // [bp-0x10]\n
+    unsigned int v8;  // [bp-0xc]\n
+    unsigned long long v10;  // rax\n
+\n
+    v8 = 0;\n
+    v7 = a0;\n
+    v6 = a1;\n
+    v5 = 20;\n
+    v10 = v5;\n
+    v4 = &v0;\n
+    v1 = &(&v0)[-1 * (v10 + 15 & -0x10)];\n
+    v3 = v10;\n
+    v1[1].field_-8 = &g_402cc7;\n
+    cgc_load_default_jokes(&v2);\n
+    cgc_send(\"This is the Chuck Norris (joke) Management Protocol (CNMP).\\n
+We know you need a break, so take some time and amuse yourself. If you have a good Chuck Norris joke, you can add it to our listing.\\n
+\", cgc_strlen(\"This is the Chuck Norris (joke) Management Protocol (CNMP).\\n
+We know you need a break, so take some time and amuse yourself. If you have a good Chuck Norris joke, you can add it to our listing.\\n
+\"));\n
+    cgc_do_menu();\n
+    while (true)\n
+    {\n
+        cgc_memset(v1, 0, v5);\n
+        cgc_prompt_user(\"> \", v1, v5);\n
+        if (!cgc_streq(v1, \"LIST\"))\n
+        {\n
+            cgc_do_list(&v2);\n
+        }\n
+        else if (!cgc_streq(v1, \"ADD\"))\n
+        {\n
+            cgc_do_add(&v2, \"ADD\", a2, v1, a4);\n
+        }\n
+        else if (!cgc_streq(v1, \"COUNT\"))\n
+        {\n
+            cgc_do_count(&v2, \"COUNT\", a2, v1, a4);\n
+        }\n
+        else if (!cgc_streq(v1, \"SHOW\"))\n
+        {\n
+            cgc_do_show(&v2);\n
+        }\n
+        else if (!cgc_streq(v1, \"HELP\"))\n
+        {\n
+            cgc_do_help();\n
+        }\n
+        else if (cgc_streq(v1, \"QUIT\"))\n
+        {\n
+            cgc_do_menu();\n
+        }\n
+        else\n
+        {\n
+            cgc_do_quit();\n
+        }\n
+    }\n
+}\n
+", "4206140:_fini": "long long _fini()\n
+{\n
+    unsigned long v1;  // rax\n
+\n
+    return v1;\n
+}\n
+", "5242880:__libc_start_main": null, "5242888:cgc__terminate": null, "5242896:memset": null, "5242904:cgc_transmit": null, "5242912:cgc_random": null, "5242920:cgc_receive": null, "6295632:UnresolvableJumpTarget": null, "6295640:UnresolvableCallTarget": null}

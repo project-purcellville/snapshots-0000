@@ -1,0 +1,1017 @@
+{"4198400:_init": "extern struct_0 *g_4046b0;\n
+\n
+long long _init()\n
+{\n
+    struct struct_0 **v1;  // rax, Other Possible Types: unsigned long\n
+\n
+    v1 = g_4046b0;\n
+    if (g_4046b0)\n
+        v1 = g_4046b0();\n
+    return v1;\n
+}\n
+", "4198432:sub_401020": "extern unsigned long long g_4046d0;\n
+\n
+long long sub_401020()\n
+{\n
+    unsigned long v0;  // [bp-0x8]\n
+\n
+    v0 = g_4046d0;\n
+    goto *(4212440);\n
+}\n
+", "4198444:sub_40102c": null, "4198448:cgc_fdwait": "// attributes: PLT stub\n
+int cgc_fdwait()\n
+{\n
+    ::libc.so.0::cgc_fdwait();\n
+    return;\n
+}\n
+", "4198464:memset": "// attributes: PLT stub\n
+void* memset(void* block, unsigned int c, unsigned int size)\n
+{\n
+    return ::libc.so.0::memset(block, c, size);\n
+}\n
+", "4198480:cgc_transmit": "// attributes: PLT stub\n
+int cgc_transmit()\n
+{\n
+    ::libc.so.0::cgc_transmit();\n
+    return;\n
+}\n
+", "4198496:cgc_allocate": "// attributes: PLT stub\n
+int cgc_allocate()\n
+{\n
+    ::libc.so.0::cgc_allocate();\n
+    return;\n
+}\n
+", "4198512:cgc_deallocate": "// attributes: PLT stub\n
+int cgc_deallocate()\n
+{\n
+    ::libc.so.0::cgc_deallocate();\n
+    return;\n
+}\n
+", "4198528:cgc_receive": "// attributes: PLT stub\n
+int cgc_receive()\n
+{\n
+    ::libc.so.0::cgc_receive();\n
+    return;\n
+}\n
+", "4198544:__cxa_finalize": "// attributes: PLT stub\n
+char * __cxa_finalize()\n
+{\n
+    goto *(4212416);\n
+}\n
+", "4198560:_start": "long long _start()\n
+{\n
+    char v0;  // [bp+0x0], Other Possible Types: unsigned long\n
+    unsigned long v1;  // [bp+0x8]\n
+    unsigned long long v2;  // rsi\n
+    unsigned long v3;  // rax\n
+    unsigned long long v4;  // rdx\n
+\n
+    v2 = *(&v0);\n
+    v0 = v3;\n
+    __libc_start_main(main, v2, &v1, 0, 0, v4); /* do not return */\n
+}\n
+", "4198597:sub_4010c5": null, "4198598:sub_4010c6": null, "4198608:deregister_tm_clones": "extern char __bss_start;\n
+extern unsigned long long g_4046a8;\n
+\n
+long long deregister_tm_clones()\n
+{\n
+    return &__bss_start;\n
+}\n
+", "4198649:sub_4010f9": null, "4198656:register_tm_clones": "extern unsigned long long g_4046b8;\n
+\n
+long long register_tm_clones()\n
+{\n
+    return 0;\n
+}\n
+", "4198713:sub_401139": null, "4198720:__do_global_dtors_aux": "extern char __bss_start;\n
+extern unsigned long long g_4046c0;\n
+\n
+long long __do_global_dtors_aux()\n
+{\n
+    unsigned long v0;  // [bp-0x8]\n
+    unsigned long v2;  // rax\n
+\n
+    if (__bss_start)\n
+        return v2;\n
+    *(&v0) = rbp<8>;\n
+    if (!g_4046c0)\n
+    {\n
+        __bss_start = 1;\n
+        return deregister_tm_clones();\n
+    }\n
+    __cxa_finalize();\n
+}\n
+", "4198773:sub_401175": null, "4198777:sub_401179": null, "4198784:frame_dummy": "long long frame_dummy()\n
+{\n
+    return register_tm_clones();\n
+}\n
+", "4198793:sub_401189": null, "4198800:cgc_receive_all": "long long cgc_receive_all(unsigned long long a0, unsigned long long a1, unsigned long long a2, unsigned long long *a3)\n
+{\n
+    void* v0;  // [bp-0x40]\n
+    unsigned long v1;  // [bp-0x38]\n
+    unsigned int v2;  // [bp-0x2c]\n
+    unsigned long v3;  // [bp-0x18]\n
+    unsigned int v4;  // [bp-0xc]\n
+\n
+    v4 = a0;\n
+    v3 = a1;\n
+    v2 = 0;\n
+    v1 = a2;\n
+    v0 = 0;\n
+    while (true)\n
+    {\n
+        if (!v1)\n
+        {\n
+            if (!a3)\n
+                return v2;\n
+            *(a3) = a2;\n
+        }\n
+        else\n
+        {\n
+            v0 = 0;\n
+            v2 = cgc_receive(a0, a1, a2, a3);\n
+            if (v2)\n
+                return v2;\n
+            v1 -= v0;\n
+            if (!v0)\n
+            {\n
+                if (!a3)\n
+                    return v2;\n
+                *(a3) = a2 - v1;\n
+            }\n
+        }\n
+    }\n
+}\n
+", "4199017:sub_401269": null, "4199024:cgc_transmit_all": "long long cgc_transmit_all(unsigned long long a0, unsigned long long a1, unsigned long long a2, unsigned long long *a3)\n
+{\n
+    void* v0;  // [bp-0x40]\n
+    unsigned long v1;  // [bp-0x38]\n
+    unsigned int v2;  // [bp-0x2c]\n
+    unsigned long v3;  // [bp-0x18]\n
+    unsigned int v4;  // [bp-0xc]\n
+\n
+    v4 = a0;\n
+    v3 = a1;\n
+    v2 = 0;\n
+    v1 = a2;\n
+    v0 = 0;\n
+    while (true)\n
+    {\n
+        if (!v1)\n
+        {\n
+            if (!a3)\n
+                return v2;\n
+            *(a3) = a2;\n
+        }\n
+        else\n
+        {\n
+            v0 = 0;\n
+            v2 = cgc_transmit(a0, a1, a2, a3);\n
+            if (v2)\n
+                return v2;\n
+            v1 -= v0;\n
+            if (!v0)\n
+            {\n
+                if (!a3)\n
+                    return v2;\n
+                *(a3) = a2 - v1;\n
+            }\n
+        }\n
+    }\n
+}\n
+", "4199230:sub_40133e": null, "4199232:cgc_pkt_send": "long long cgc_pkt_send(unsigned long a0, unsigned long a1, unsigned long a2)\n
+{\n
+    unsigned int v0;  // [bp-0x2c]\n
+    char v1;  // [bp-0x28]\n
+    unsigned int v2;  // [bp-0x20]\n
+    char v3;  // [bp-0x19]\n
+    unsigned int v4;  // [bp-0xc]\n
+    char v6;  // cl\n
+    unsigned long long v7;  // rcx\n
+\n
+    v6 = a1;\n
+    v3 = a1;\n
+    v2 = 0;\n
+    v0 = a0 * 2 + 3;\n
+    v2 = cgc_pkt_serialize(&v1, v3, a2, v7);\n
+    if (v2)\n
+    {\n
+        v4 = v2;\n
+        return v4;\n
+    }\n
+    v2 = cgc_transmit_all(v0, &v1, 2, NULL);\n
+    if (v2)\n
+    {\n
+        v4 = v2;\n
+        return v4;\n
+    }\n
+    v4 = v2;\n
+    return v4;\n
+}\n
+", "4199384:sub_4013d8": null, "4199392:cgc_pkt_serialize": "long long cgc_pkt_serialize(char a0[2], unsigned long a1, unsigned long a2)\n
+{\n
+    unsigned int v0;  // [bp-0x18]\n
+\n
+    v0 = 0;\n
+    a0[0] = a1;\n
+    a0[1] = a2;\n
+    return v0;\n
+}\n
+", "4199442:sub_401412": null, "4199456:cgc_pkt_get_src": "long long cgc_pkt_get_src(char *a0)\n
+{\n
+    return *(a0);\n
+}\n
+", "4199473:sub_401431": null, "4199488:cgc_pkt_get_msg": "typedef struct struct_0 {\n
+    char padding_0[1];\n
+    char field_1;\n
+} struct_0;\n
+\n
+long long cgc_pkt_get_msg(struct_0 *a0)\n
+{\n
+    return a0->field_1;\n
+}\n
+", "4199506:sub_401452": null, "4199520:cgc_list_create": "long long cgc_list_create()\n
+{\n
+    unsigned long long v0[2];  // [bp-0x18]\n
+    unsigned long long v1[2];  // [bp-0x10], Other Possible Types: unsigned long\n
+    unsigned long long v3;  // rdi\n
+    unsigned long long v4;  // rsi\n
+    unsigned long long v5;  // rdx\n
+\n
+    v0[0] = 0;\n
+    if (cgc_allocate(v3, v4, v5))\n
+    {\n
+        v1[0] = 0;\n
+        return v1;\n
+    }\n
+    v0[0] = 0;\n
+    v0[1] = 0;\n
+    v1 = v0;\n
+    return v1;\n
+}\n
+", "4199618:sub_4014c2": null, "4199632:cgc_list_push": "typedef struct struct_2 {\n
+    unsigned long long field_0;\n
+    struct struct_1 *field_8;\n
+} struct_2;\n
+\n
+typedef struct struct_0 {\n
+    char field_0;\n
+    char padding_1[7];\n
+    unsigned long long field_8;\n
+    unsigned long long field_10;\n
+} struct_0;\n
+\n
+typedef struct struct_1 {\n
+    char padding_0[8];\n
+    unsigned long long field_8;\n
+} struct_1;\n
+\n
+long long cgc_list_push(struct_2 *a0, struct_0 *a1)\n
+{\n
+    unsigned int v0;  // [bp-0x24]\n
+    unsigned int v1;  // [bp-0xc]\n
+\n
+    v0 = 0;\n
+    if (cgc_list_find(a0, a1->field_0))\n
+    {\n
+        v1 = 13;\n
+        return v1;\n
+    }\n
+    a1->field_8 = 0;\n
+    a1->field_10 = a0->field_8;\n
+    if (!a0->field_0)\n
+        a0->field_0 = a1;\n
+    else\n
+        a0->field_8->field_8 = a1;\n
+    a0->field_8 = &a1->field_0;\n
+    v1 = v0;\n
+    return v1;\n
+}\n
+", "4199811:sub_401583": null, "4199824:cgc_list_find": "typedef struct struct_0 {\n
+    char field_0;\n
+    char padding_1[7];\n
+    struct struct_0 *field_8;\n
+} struct_0;\n
+\n
+long long cgc_list_find(struct struct_0 **a0, unsigned long a1)\n
+{\n
+    char v0;  // [bp-0x21]\n
+    struct_0 *v1;  // [bp-0x20], Other Possible Types: unsigned long\n
+\n
+    v1 = *(a0);\n
+    while (true)\n
+    {\n
+        v0 = 0;\n
+        if (v1)\n
+            v0 = a1 != v1->field_0;\n
+        if (!(v0 & 1))\n
+            break;\n
+        v1 = v1->field_8;\n
+    }\n
+    return v1;\n
+}\n
+", "4199924:sub_4015f4": null, "4199936:cgc_list_remove": "typedef struct struct_2 {\n
+    char padding_0[8];\n
+    struct struct_0 *field_8;\n
+    struct struct_1 *field_10;\n
+} struct_2;\n
+\n
+typedef struct struct_0 {\n
+    char padding_0[16];\n
+    unsigned long long field_10;\n
+} struct_0;\n
+\n
+typedef struct struct_1 {\n
+    char padding_0[8];\n
+    unsigned long long field_8;\n
+} struct_1;\n
+\n
+long long cgc_list_remove(unsigned long long a0[2], unsigned long a1)\n
+{\n
+    struct_2 *v0;  // [bp-0x28]\n
+    struct_2 *v1;  // [bp-0x10], Other Possible Types: unsigned long\n
+\n
+    v0 = 0;\n
+    v0 = cgc_list_find(a0, a1);\n
+    if (!v0)\n
+    {\n
+        v1 = 0;\n
+        return v1;\n
+    }\n
+    if (a0[0] == v0)\n
+        a0[0] = v0->field_8;\n
+    if (a0[1] == v0)\n
+        a0[1] = v0->field_10;\n
+    if (v0->field_10)\n
+        v0->field_10->field_8 = v0->field_8;\n
+    if (v0->field_8)\n
+        v0->field_8->field_10 = v0->field_10;\n
+    v1 = v0;\n
+    return v1;\n
+}\n
+", "4200160:cgc_node_create": "typedef struct struct_0 {\n
+    char field_0;\n
+    char padding_1[7];\n
+    unsigned long long field_8;\n
+    unsigned long long field_10;\n
+} struct_0;\n
+\n
+long long cgc_node_create(unsigned long long a0)\n
+{\n
+    struct_0 *v0;  // [bp-0x20]\n
+    struct_0 *v1;  // [bp-0x10], Other Possible Types: unsigned long\n
+    unsigned long long v3;  // rsi\n
+    unsigned long long v4;  // rdx\n
+\n
+    v0 = 0;\n
+    if (cgc_allocate(a0, v3, v4))\n
+    {\n
+        v1 = 0;\n
+        return v1;\n
+    }\n
+    v0->field_0 = a0;\n
+    v0->field_8 = 0;\n
+    v0->field_10 = 0;\n
+    v1 = v0;\n
+    return v1;\n
+}\n
+", "4200274:sub_401752": null, "4200288:cgc_node_destroy": "typedef struct struct_0 {\n
+    char field_0;\n
+    char padding_1[7];\n
+    unsigned long long field_8;\n
+    unsigned long long field_10;\n
+} struct_0;\n
+\n
+long long cgc_node_destroy(struct_0 *a0)\n
+{\n
+    unsigned int v0;  // [bp-0x14]\n
+    unsigned long long v2;  // rsi\n
+\n
+    v0 = 0;\n
+    a0->field_0 = 0;\n
+    a0->field_8 = 0;\n
+    a0->field_10 = 0;\n
+    v0 = cgc_deallocate(a0, v2);\n
+    return v0;\n
+}\n
+", "4200364:sub_4017ac": null, "4200368:cgc_memset": "long long cgc_memset(char *a0, unsigned long a1, unsigned long a2)\n
+{\n
+    unsigned long v0;  // [bp-0x20]\n
+\n
+    for (v0 = a2; v0; v0 -= 1)\n
+    {\n
+        a0[1 + v0] = a1;\n
+    }\n
+    return a0;\n
+}\n
+", "4200446:sub_4017fe": null, "4200448:cgc_pause": "long long cgc_pause(unsigned long long a0)\n
+{\n
+    unsigned int v0;  // [bp-0x18]\n
+    unsigned int v1;  // [bp-0x14]\n
+    unsigned long long v3;  // rsi\n
+    unsigned long long v4;  // rdx\n
+    unsigned long long v5;  // rcx\n
+    unsigned long long v6;  // r8\n
+\n
+    v0 = a0;\n
+    v1 = 0;\n
+    return cgc_fdwait(a0, v3, v4, v5, v6);\n
+}\n
+", "4200502:sub_401836": null, "4200512:cgc_consume_bytes": "long long cgc_consume_bytes(unsigned long long *a0, unsigned long a1, unsigned long a2)\n
+{\n
+    void* v0;  // [bp-0x28], Other Possible Types: unsigned long\n
+\n
+    v0 = 0;\n
+    if (a1 - *(a0) < a2)\n
+    {\n
+        v0 = 0;\n
+        return v0;\n
+    }\n
+    v0 = *(a0);\n
+    *(a0) = a2 + *(a0);\n
+    return v0;\n
+}\n
+", "4200604:sub_40189c": null, "4200608:cgc_syscall_futex": "extern void cgc_MY_TID;\n
+extern unsigned long long cgc_PIPE_RECV;\n
+extern void* pi_queue;\n
+extern unsigned long long thread_state[4];\n
+\n
+long long cgc_syscall_futex(unsigned long a0, unsigned long long *a1, unsigned int a2)\n
+{\n
+    unsigned long v0;  // [bp-0x2128]\n
+    char v1;  // [bp-0x2120]\n
+    char v2;  // [bp-0x2108]\n
+    char v3;  // [bp-0x1100]\n
+    char v4;  // [bp-0x10e8]\n
+    void* v5;  // [bp-0xe8]\n
+    void* v6;  // [bp-0xe0]\n
+    char v7;  // [bp-0xd6]\n
+    char v8;  // [bp-0xd5]\n
+    unsigned int v9;  // [bp-0xd4]\n
+    char v10;  // [bp-0xd0]\n
+    unsigned int v11;  // [bp-0xcc]\n
+    unsigned int v12;  // [bp-0xc8]\n
+    unsigned int v13;  // [bp-0xc4]\n
+    char v14;  // [bp-0xc0]\n
+    char *v15;  // [bp-0x40]\n
+    char v16;  // [bp-0x32]\n
+    char v17;  // [bp-0x31]\n
+    char *v18;  // [bp-0x30]\n
+    char v19;  // [bp-0x25]\n
+    unsigned int v20;  // [bp-0x24]\n
+    unsigned long v22;  // rax\n
+    unsigned long long v23;  // rcx\n
+    unsigned long long v24;  // r8\n
+\n
+    v20 = 0;\n
+    v19 = a0 & 28;\n
+    if (v19 >= 0 && v19 <= 16 && !(a0 & 1) && !(a0 & 2))\n
+    {\n
+        v18 = 0;\n
+        v18 = cgc_consume_bytes(a1, a2, 1);\n
+        if (!v18)\n
+        {\n
+            v20 = 10;\n
+            return v20;\n
+        }\n
+        v17 = *(v18);\n
+        v16 = 0;\n
+        if (v19 == 16)\n
+        {\n
+            v15 = 0;\n
+            v15 = cgc_consume_bytes(a1, a2, 1);\n
+            if (!v15)\n
+            {\n
+                v20 = 10;\n
+                return v20;\n
+            }\n
+            v16 = *(v15);\n
+        }\n
+        if (v17 >= 1 && v17 <= 5)\n
+        {\n
+            if (thread_state[v17] == 128)\n
+            {\n
+                v20 = 16;\n
+                return v20;\n
+            }\n
+            else if (v19 == 8)\n
+            {\n
+                return v20;\n
+            }\n
+            else\n
+            {\n
+                thread_state[v17] = a0 | 2;\n
+                v20 = cgc_pkt_send(v17, *(&cgc_MY_TID), a0);\n
+                for (v13 = 0; v13 < 16; v13 += 1)\n
+                {\n
+                    *(&(&v14)[8 * v13]) = 0;\n
+                }\n
+                v12 = 0;\n
+                v11 = 0;\n
+                for (v9 = 0; v9 < 3; v9 += 1)\n
+                {\n
+                    v22 = cgc_PIPE_RECV >> 6;\n
+                    *(&(&v14)[8 * v22]) = 1 << (cgc_PIPE_RECV & 63 & 31) | *(&(&v14)[8 * v22]);\n
+                    v20 = cgc_fdwait(v17, *(&cgc_MY_TID), a0, v23, v24);\n
+                    if ((Not (Not (0x0<32> == Load(addr=stack_base-36, size=4, endness=Iend_LE))))) { Goto None } else { Goto None }\n
+                    if (v12 == 1)\n
+                    {\n
+                        v11 = 1;\n
+                        break;\n
+                    }\n
+                }\n
+                if (v11 && !cgc_receive_all(cgc_PIPE_RECV, &v10, 2, NULL))\n
+                {\n
+                    v8 = cgc_pkt_get_msg(&v10);\n
+                    v7 = cgc_pkt_get_src(&v10);\n
+                    if (v7 >= 1 && v7 <= 5)\n
+                    {\n
+                        if (!(v8 & 1))\n
+                        {\n
+                            v20 = 15;\n
+                        }\n
+                        else\n
+                        {\n
+                            v0 = v19;\n
+                            switch (v0)\n
+                            {\n
+                            case 0:\n
+                                if (thread_state[v7] != 2)\n
+                                {\n
+                                    thread_state[v7] = 224;\n
+                                }\n
+                                else\n
+                                {\n
+                                    v6 = 0;\n
+                                    v6 = cgc_node_create(v7);\n
+                                    if (!v6)\n
+                                    {\n
+                                        thread_state[v7] = 224;\n
+                                        v20 = 9;\n
+                                        return v20;\n
+                                    }\n
+                                    v20 = cgc_list_push(pi_queue, v6);\n
+                                    if (v20 && v20 != 13)\n
+                                    {\n
+                                        thread_state[v7] = 224;\n
+                                        goto LABEL_401d02;\n
+                                    }\n
+                                    v20 = 0;\n
+                                    thread_state[v7] = 0;\n
+LABEL_401d02:\n
+                                }\n
+                                break;\n
+                            case 4:\n
+                                if (thread_state[v7] != 6)\n
+                                {\n
+                                    thread_state[v7] = 224;\n
+                                }\n
+                                else\n
+                                {\n
+                                    thread_state[v7] = 4;\n
+                                    v5 = 0;\n
+                                    v5 = cgc_list_remove(pi_queue, v7);\n
+                                    if (v5)\n
+                                    {\n
+                                        v20 = cgc_node_destroy(v5);\n
+                                        if (v20)\n
+                                            thread_state[v7] = 224;\n
+                                    }\n
+                                }\n
+                                break;\n
+                            case 12:\n
+                                if (thread_state[v7] != 14)\n
+                                {\n
+                                    thread_state[v7] = 224;\n
+                                }\n
+                                else\n
+                                {\n
+                                    memset(&v4, 0, 0x1000);\n
+                                    v3 = v7;\n
+                                    cgc_list_push(pi_queue, &v3);\n
+                                    thread_state[v7] = 12;\n
+                                    if (!cgc_list_remove(pi_queue, v7))\n
+                                        thread_state[v7] = 224;\n
+                                }\n
+                                break;\n
+                            case 16:\n
+                                if (thread_state[v7] != 18)\n
+                                {\n
+                                    thread_state[v7] = 224;\n
+                                }\n
+                                else\n
+                                {\n
+                                    thread_state[v7] = 16;\n
+                                    memset(&v2, 0, 0x1000);\n
+                                    v1 = v7;\n
+                                    cgc_list_push(pi_queue, &v1);\n
+                                    if (v16 == ((v7 ^ -1) & 255))\n
+                                    {\n
+                                        v16 ^= -1;\n
+                                        if (!cgc_list_remove(pi_queue, v7))\n
+                                            thread_state[v7] = 224;\n
+                                    }\n
+                                    else\n
+                                    {\n
+                                        v16 += 1;\n
+                                        if (!cgc_list_remove(pi_queue, v7))\n
+                                            thread_state[v7] = 224;\n
+                                    }\n
+                                }\n
+                                break;\n
+                            default:\n
+                                v20 = 8;\n
+                                break;\n
+                            }\n
+                        }\n
+                        goto LABEL_401ffe;\n
+                    }\n
+                    v20 = 15;\n
+                    return v20;\n
+                }\n
+LABEL_401ffe:\n
+                return v20;\n
+            }\n
+        }\n
+        v20 = 11;\n
+        return v20;\n
+    }\n
+    v20 = 11;\n
+    return v20;\n
+}\n
+", "4202516:sub_402014": null, "4202528:cgc_syscall_pause": "long long cgc_syscall_pause(unsigned long a0, unsigned long long *a1, unsigned int a2)\n
+{\n
+    char v0;  // [bp-0x31]\n
+    char *v1;  // [bp-0x30]\n
+    unsigned int v2;  // [bp-0x24]\n
+    char v3;  // [bp-0x9]\n
+\n
+    v3 = a0;\n
+    v2 = 0;\n
+    v1 = 0;\n
+    v1 = cgc_consume_bytes(a1, a2, 1);\n
+    if (!v1)\n
+    {\n
+        v2 = 10;\n
+        return v2;\n
+    }\n
+    v0 = *(v1);\n
+    cgc_pause(v0);\n
+    return v2;\n
+}\n
+", "4202642:sub_402092": null, "4202656:cgc_syscall_sendmsg": "long long cgc_syscall_sendmsg(unsigned long a0, unsigned long long *a1, unsigned int a2)\n
+{\n
+    char v0;  // [bp-0x32]\n
+    char v1;  // [bp-0x31]\n
+    char v2[2];  // [bp-0x30]\n
+    char v3;  // [bp-0x25]\n
+    unsigned int v4;  // [bp-0x24]\n
+\n
+    v4 = 0;\n
+    v3 = a0 & 28;\n
+    if ((Not (Not (0x0<32> == Conv(8->32, Load(addr=stack_base-37, size=1, endness=Iend_LE)))))) { Goto None } else { Goto None }\n
+    *(&v2) = 0;\n
+    *(&v2) = cgc_consume_bytes(a1, a2, 2);\n
+    if (!v2)\n
+    {\n
+        v4 = 10;\n
+        return v4;\n
+    }\n
+    v1 = v2[0];\n
+    v0 = v2[1];\n
+    cgc__syscall_sendmsg(v1, v0);\n
+    return v4;\n
+}\n
+", "4202813:sub_40213d": null, "4202816:cgc__syscall_sendmsg": "long long cgc__syscall_sendmsg(unsigned long a0, unsigned long a1)\n
+{\n
+    char v0;  // [bp-0x98]\n
+\n
+    if (a0)\n
+    {\n
+        cgc_memset(&v0, a1, 128);\n
+        return cgc__syscall_sendmsg(a0 - 1, a1);\n
+    }\n
+    return 0;\n
+}\n
+", "4202907:sub_40219b": null, "4202912:cgc_syscall_proc": "typedef struct struct_0 {\n
+    char padding_0[8];\n
+    struct struct_0 *field_8;\n
+} struct_0;\n
+\n
+extern unsigned long long g_404748;\n
+extern struct_1 *pi_queue;\n
+\n
+long long cgc_syscall_proc(unsigned long a0, unsigned long a1, unsigned long a2)\n
+{\n
+    unsigned int v0;  // [bp-0x4c]\n
+    struct_0 *v1;  // [bp-0x48], Other Possible Types: unsigned long\n
+    unsigned long v2;  // [bp-0x40]\n
+    void* v3;  // [bp-0x38], Other Possible Types: unsigned long long\n
+    void* v4;  // [bp-0x30]\n
+    char v5;  // [bp-0x26]\n
+    char v6;  // [bp-0x25]\n
+    unsigned int v7;  // [bp-0x24]\n
+    unsigned long v8;  // [bp-0x20]\n
+    unsigned long v9;  // [bp-0x18]\n
+\n
+    v9 = a1;\n
+    v8 = a2;\n
+    v7 = 0;\n
+    v6 = a0 & 28;\n
+    if (v6 >= 0 && v6 <= 4 && !(a0 & 1) && !(a0 & 2))\n
+    {\n
+        v5 = 0;\n
+        v4 = 0;\n
+        v3 = 0;\n
+        v0 = v6;\n
+        if (!v0)\n
+        {\n
+            v4 = 0;\n
+            v3 = 40;\n
+            v2 = &g_404748;\n
+            v7 = cgc_transmit_all(1, &g_404748, v3, &v4);\n
+            if (!v7 && v4 == v3)\n
+                goto LABEL_40229f;\n
+LABEL_40229f:\n
+        }\n
+        else if (v0 == 4)\n
+        {\n
+            v4 = 0;\n
+            v3 = 16;\n
+            v7 = cgc_transmit_all(1, pi_queue, v3, &v4);\n
+            if (v7)\n
+            {\n
+LABEL_4022ef:\n
+            }\n
+            else\n
+            {\n
+                if (!(v4 == v3))\n
+                    goto LABEL_4022ef;\n
+                v1 = pi_queue->field_0;\n
+                v4 = 0;\n
+                for (v3 = 24; v1; v1 = *((v1 + 8)))\n
+                {\n
+                    v7 = cgc_transmit_all(1, v1, v3, &v4);\n
+                    if (v7)\n
+                    {\n
+LABEL_402351:\n
+                        break;\n
+                    }\n
+                    else if (!(v4 == v3))\n
+                    {\n
+                        goto LABEL_402351;\n
+                    }\n
+                }\n
+            }\n
+        }\n
+        return v7;\n
+    }\n
+    v7 = 11;\n
+    return v7;\n
+}\n
+", "4203396:sub_402384": null, "4203408:cgc_syscall_tgkill": "extern void cgc_MY_TID;\n
+extern unsigned long long cgc_PIPE_RECV;\n
+extern unsigned long long pi_queue[2];\n
+extern unsigned long long thread_state[4];\n
+\n
+long long cgc_syscall_tgkill(unsigned long a0, unsigned long long *a1, unsigned int a2)\n
+{\n
+    void* v0;  // [bp-0xd8]\n
+    char v1;  // [bp-0xce]\n
+    char v2;  // [bp-0xcd]\n
+    unsigned int v3;  // [bp-0xcc]\n
+    char v4;  // [bp-0xc8]\n
+    unsigned int v5;  // [bp-0xc4]\n
+    unsigned int v6;  // [bp-0xc0]\n
+    unsigned int v7;  // [bp-0xbc]\n
+    char v8;  // [bp-0xb8]\n
+    char v9;  // [bp-0x31]\n
+    char *v10;  // [bp-0x30]\n
+    char v11;  // [bp-0x25]\n
+    unsigned int v12;  // [bp-0x24]\n
+    unsigned long v14;  // rax\n
+    unsigned long long v15;  // rcx\n
+    unsigned long long v16;  // r8\n
+\n
+    v12 = 0;\n
+    v11 = a0 & 28;\n
+    if (!v11 && !(a0 & 1) && !(a0 & 2))\n
+    {\n
+        v10 = 0;\n
+        v10 = cgc_consume_bytes(a1, a2, 1);\n
+        if (!v10)\n
+        {\n
+            v12 = 10;\n
+            return v12;\n
+        }\n
+        v9 = *(v10);\n
+        if (v9 >= 1 && v9 <= 5)\n
+        {\n
+            if (thread_state[v9] != 128)\n
+            {\n
+                thread_state[v9] = a0 | 2;\n
+                v12 = cgc_pkt_send(v9, *(&cgc_MY_TID), a0);\n
+                for (v7 = 0; v7 < 16; v7 += 1)\n
+                {\n
+                    *(&(&v8)[8 * v7]) = 0;\n
+                }\n
+                v6 = 0;\n
+                v5 = 0;\n
+                for (v3 = 0; v3 < 3; v3 += 1)\n
+                {\n
+                    v14 = cgc_PIPE_RECV >> 6;\n
+                    *(&(&v8)[8 * v14]) = 1 << (cgc_PIPE_RECV & 63 & 31) | *(&(&v8)[8 * v14]);\n
+                    v12 = cgc_fdwait(v9, *(&cgc_MY_TID), a0, v15, v16);\n
+                    if ((Not (Not (0x0<32> == Load(addr=stack_base-36, size=4, endness=Iend_LE))))) { Goto None } else { Goto None }\n
+                    if (v6 == 1)\n
+                    {\n
+                        v5 = 1;\n
+                        break;\n
+                    }\n
+                }\n
+                if (!(v5 && !cgc_receive_all(cgc_PIPE_RECV, &v4, 2, NULL)))\n
+                    return v12;\n
+                v2 = cgc_pkt_get_msg(&v4);\n
+                v1 = cgc_pkt_get_src(&v4);\n
+                if (v1 < 1)\n
+                {\n
+LABEL_402655:\n
+                    thread_state[v1] = 224;\n
+                    v12 = 15;\n
+                }\n
+                else\n
+                {\n
+                    if (!(v1 <= 5))\n
+                        goto LABEL_402655;\n
+                    if ((v2 & 225) == 129 && (thread_state[v1] & 226) == 130)\n
+                    {\n
+                        thread_state[v1] = 128;\n
+                        v0 = 0;\n
+                        v0 = cgc_list_remove(pi_queue, v1);\n
+                        if (v0)\n
+                        {\n
+                            v12 = cgc_node_destroy(v0);\n
+                            if (v12)\n
+                                thread_state[v1] = 224;\n
+                        }\n
+                        goto LABEL_402761;\n
+                    }\n
+                    thread_state[v1] = 224;\n
+LABEL_402761:\n
+                }\n
+            }\n
+            else\n
+            {\n
+                v12 = 16;\n
+                return v12;\n
+            }\n
+        }\n
+        v12 = 11;\n
+        return v12;\n
+    }\n
+    v12 = 11;\n
+    return v12;\n
+}\n
+", "4204412:sub_40277c": null, "4204416:cgc_syscall_dispatch": "extern unsigned long long thread_state[4];\n
+\n
+long long cgc_syscall_dispatch(unsigned long a0, unsigned int a1)\n
+{\n
+    unsigned int v0;  // [bp-0x38]\n
+    unsigned int v1;  // [bp-0x34]\n
+    unsigned int v2;  // [bp-0x30]\n
+    char v3;  // [bp-0x29]\n
+    char *v4;  // [bp-0x28]\n
+    unsigned int v5;  // [bp-0x1c]\n
+\n
+    v5 = 0;\n
+    v4 = 0;\n
+    while (true)\n
+    {\n
+        v4 = cgc_consume_bytes(a0, a1, 1);\n
+        if (!v4)\n
+            return v5;\n
+        v2 = 1;\n
+        for (v1 = 1; v1 <= 5; v1 += 1)\n
+        {\n
+            if (thread_state[v1] != 128)\n
+            {\n
+                v2 = 0;\n
+                break;\n
+            }\n
+        }\n
+        if (v2)\n
+        {\n
+            v5 = 17;\n
+            return v5;\n
+        }\n
+        v3 = *(v4);\n
+        v0 = v3 & 224;\n
+        if (!v0)\n
+        {\n
+            v5 = cgc_syscall_futex(v3, a0, a1);\n
+            if (v5)\n
+                if (16 == v5)\n
+                    goto LABEL_4028c4;\n
+                else\n
+                    goto LABEL_4028c4;\n
+LABEL_4028c4:\n
+        }\n
+        else if (v0 == 32)\n
+        {\n
+            v5 = cgc_syscall_pause(v3, a0, a1);\n
+            if ((Not (Not (0x0<32> == Load(addr=stack_base-28, size=4, endness=Iend_LE))))) { Goto None } else { Goto None }\n
+        }\n
+        else if (v0 == 64)\n
+        {\n
+            v5 = cgc_syscall_sendmsg(v3, a0, a1);\n
+            if ((Not (Not (0x0<32> == Load(addr=stack_base-28, size=4, endness=Iend_LE))))) { Goto None } else { Goto None }\n
+        }\n
+        else if (v0 == 96)\n
+        {\n
+            v5 = cgc_syscall_proc(v3, a0, a1);\n
+            if ((Not (Not (0x0<32> == Load(addr=stack_base-28, size=4, endness=Iend_LE))))) { Goto None } else { Goto None }\n
+        }\n
+        else if (v0 != 128)\n
+        {\n
+            v5 = 11;\n
+        }\n
+        else\n
+        {\n
+            v5 = cgc_syscall_tgkill(v3, a0, a1);\n
+            if ((Not (Not (0x0<32> == Load(addr=stack_base-28, size=4, endness=Iend_LE))))) { Goto None } else { Goto None }\n
+        }\n
+    }\n
+}\n
+", "4204947:sub_402993": null, "4204960:main": "typedef struct struct_0 {\n
+    char field_0;\n
+} struct_0;\n
+\n
+extern unsigned int g_40477c;\n
+extern unsigned long long pi_queue;\n
+extern unsigned long long thread_state;\n
+extern unsigned int timeToWait;\n
+\n
+int main(unsigned long a0, unsigned long a1)\n
+{\n
+    char v0;  // [bp-0x141]\n
+    void* v1;  // [bp-0x140]\n
+    struct_0 *v2;  // [bp-0x138]\n
+    unsigned int v3;  // [bp-0x12c]\n
+    char v4;  // [bp-0x128]\n
+    unsigned int v5;  // [bp-0x1c]\n
+    unsigned long v6;  // [bp-0x18]\n
+    unsigned int v7;  // [bp-0x10]\n
+    unsigned int v8;  // [bp-0xc]\n
+\n
+    v8 = 0;\n
+    v7 = a0;\n
+    v6 = a1;\n
+    v5 = 0;\n
+    for (v3 = 1; v3 <= 5; v3 += 1)\n
+    {\n
+        (&thread_state)[v3] = 224;\n
+    }\n
+    timeToWait = 3;\n
+    g_40477c = 0;\n
+    pi_queue = cgc_list_create();\n
+    if (!pi_queue)\n
+    {\n
+        v5 = 9;\n
+        return v5;\n
+    }\n
+    while (true)\n
+    {\n
+        cgc_memset(&v4, 0, 0x100);\n
+        v2 = &v4;\n
+        v1 = 0;\n
+        v5 = cgc_receive_all(0, &v4, 1, &v1);\n
+        if (v5)\n
+        {\n
+LABEL_402aa5:\n
+            return v5;\n
+        }\n
+        if (!(v1 == 1))\n
+            goto LABEL_402aa5;\n
+        v0 = v4;\n
+        if (!v0)\n
+            return v5;\n
+        v5 = cgc_receive_all(0, &v4, v0, &v1);\n
+        if (v5)\n
+        {\n
+LABEL_402b10:\n
+            return v5;\n
+        }\n
+        if (!(v1 == v0))\n
+            goto LABEL_402b10;\n
+        (&v4)[v0] = 0;\n
+        if (cgc_syscall_dispatch(&v2, &(&v4)[v0]) == 17)\n
+            return v5;\n
+    }\n
+}\n
+", "4205416:_fini": "long long _fini()\n
+{\n
+    unsigned long v1;  // rax\n
+\n
+    return v1;\n
+}\n
+", "5242880:__libc_start_main": null, "5242888:cgc_fdwait": null, "5242896:memset": null, "5242904:cgc_transmit": null, "5242912:cgc_allocate": null, "5242920:cgc_deallocate": null, "5242928:cgc_receive": null, "6295632:UnresolvableJumpTarget": null, "6295640:UnresolvableCallTarget": null}

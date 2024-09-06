@@ -1,0 +1,784 @@
+{"9859072:_init": "extern struct_0 *g_b80230;\n
+\n
+long long _init()\n
+{\n
+    struct struct_0 **v1;  // rax, Other Possible Types: unsigned long\n
+\n
+    v1 = g_b80230;\n
+    if (g_b80230)\n
+        v1 = g_b80230();\n
+    return v1;\n
+}\n
+", "9859104:sub_967020": "extern unsigned long long g_b80250;\n
+\n
+long long sub_967020()\n
+{\n
+    unsigned long v0;  // [bp-0x8]\n
+\n
+    v0 = g_b80250;\n
+    goto *(12059224);\n
+}\n
+", "9859116:sub_96702c": null, "9859120:cgc__terminate": "// attributes: PLT stub\n
+int cgc__terminate()\n
+{\n
+    ::libc.so.0::cgc__terminate();\n
+    return;\n
+}\n
+", "9859136:cgc_transmit": "// attributes: PLT stub\n
+int cgc_transmit()\n
+{\n
+    ::libc.so.0::cgc_transmit();\n
+    return;\n
+}\n
+", "9859152:cgc_allocate": "// attributes: PLT stub\n
+int cgc_allocate()\n
+{\n
+    ::libc.so.0::cgc_allocate();\n
+    return;\n
+}\n
+", "9859168:cgc_receive": "// attributes: PLT stub\n
+int cgc_receive()\n
+{\n
+    ::libc.so.0::cgc_receive();\n
+    return;\n
+}\n
+", "9859184:__cxa_finalize": "// attributes: PLT stub\n
+char * __cxa_finalize()\n
+{\n
+    goto *(12059200);\n
+}\n
+", "9859200:_start": "long long _start()\n
+{\n
+    char v0;  // [bp+0x0], Other Possible Types: unsigned long\n
+    unsigned long v1;  // [bp+0x8]\n
+    unsigned long long v2;  // rsi\n
+    unsigned long v3;  // rax\n
+    unsigned long long v4;  // rdx\n
+\n
+    v2 = *(&v0);\n
+    v0 = v3;\n
+    __libc_start_main(main, v2, &v1, 0, 0, v4); /* do not return */\n
+}\n
+", "9859237:sub_9670a5": null, "9859238:sub_9670a6": null, "9859248:deregister_tm_clones": "extern char __bss_start;\n
+extern unsigned long long g_b80228;\n
+\n
+long long deregister_tm_clones()\n
+{\n
+    return &__bss_start;\n
+}\n
+", "9859289:sub_9670d9": null, "9859296:register_tm_clones": "extern unsigned long long g_b80238;\n
+\n
+long long register_tm_clones()\n
+{\n
+    return 0;\n
+}\n
+", "9859353:sub_967119": null, "9859360:__do_global_dtors_aux": "extern char __bss_start;\n
+extern unsigned long long g_b80240;\n
+\n
+long long __do_global_dtors_aux()\n
+{\n
+    unsigned long v0;  // [bp-0x8]\n
+    unsigned long v2;  // rax\n
+\n
+    if (__bss_start)\n
+        return v2;\n
+    *(&v0) = rbp<8>;\n
+    if (!g_b80240)\n
+    {\n
+        __bss_start = 1;\n
+        return deregister_tm_clones();\n
+    }\n
+    __cxa_finalize();\n
+}\n
+", "9859413:sub_967155": null, "9859417:sub_967159": null, "9859424:frame_dummy": "long long frame_dummy()\n
+{\n
+    return register_tm_clones();\n
+}\n
+", "9859433:sub_967169": null, "9859440:cgc_strlen": "long long cgc_strlen(char *a0)\n
+{\n
+    char *v0;  // [bp-0x18], Other Possible Types: unsigned long\n
+\n
+    for (v0 = a0; *(v0); v0 += 1);\n
+    return v0 - a0;\n
+}\n
+", "9859499:sub_9671ab": null, "9859504:cgc_atoi": "long long cgc_atoi(char *a0)\n
+{\n
+    unsigned int v0;  // [bp-0x28]\n
+    unsigned int v1;  // [bp-0x24]\n
+    unsigned int v2;  // [bp-0x20]\n
+    unsigned int v3;  // [bp-0x1c]\n
+    unsigned int v4;  // [bp-0xc]\n
+\n
+    v2 = 0;\n
+    if (cgc_strlen(a0) > 8)\n
+    {\n
+        v4 = 0;\n
+        return v4;\n
+    }\n
+    v3 = 0;\n
+    while (true)\n
+    {\n
+        v0 = v3;\n
+        if (v0 >= cgc_strlen(a0))\n
+            break;\n
+        v1 = a0[v3] - 48;\n
+        if (!v3)\n
+        {\n
+            v2 = v1 + v2;\n
+        }\n
+        else\n
+        {\n
+            v2 *= 10;\n
+            v2 = v1 + v2;\n
+        }\n
+        v3 += 1;\n
+    }\n
+    v4 = v2;\n
+    return v4;\n
+}\n
+", "9859680:cgc_itoa": "typedef struct struct_0 {\n
+    char field_-1;\n
+} struct_0;\n
+\n
+extern unsigned long long cgc_itoa.tmp;\n
+extern struct_0 g_d4ce1f;\n
+\n
+long long cgc_itoa(unsigned long a0)\n
+{\n
+    unsigned int v0;  // [bp-0x20]\n
+    struct_0 *v1;  // [bp-0x18], Other Possible Types: unsigned long\n
+    unsigned int v2;  // [bp-0xc]\n
+    struct_0 *v4;  // rax\n
+\n
+    v2 = a0;\n
+    v1 = &g_d4ce1f.field_-1;\n
+    v0 = v2;\n
+    cgc_bzero(&cgc_itoa.tmp, 16);\n
+    do\n
+    {\n
+        v4 = v1;\n
+        v1 = v4 + 1;\n
+        v4[1].field_-1 = ((0 CONCAT v2) /m 10 >> 32) + 48;\n
+        v2 = (0 CONCAT v2) /m 10;\n
+    } while (v2);\n
+    return v1;\n
+}\n
+", "9859799:sub_9672d7": null, "9859808:cgc_bzero": "long long cgc_bzero(char *a0, unsigned long a1)\n
+{\n
+    unsigned int v0;  // [bp-0x24]\n
+\n
+    for (v0 = 0; v0 < a1; v0 += 1)\n
+    {\n
+        a0[v0] = 0;\n
+    }\n
+    return v0;\n
+}\n
+", "9859874:sub_967322": null, "9859888:cgc_recvUntil": "long long cgc_recvUntil(unsigned long long a0, char *a1, unsigned long long a2, unsigned long long a3)\n
+{\n
+    char v0;  // [bp-0x31]\n
+    char *v1;  // [bp-0x30]\n
+    unsigned int v2;  // [bp-0x24], Other Possible Types: char\n
+    char v3;  // [bp-0x1e]\n
+    unsigned int v4;  // [bp-0xc]\n
+\n
+    v4 = a0;\n
+    v3 = 255;\n
+    v1 = a1;\n
+    while (true)\n
+    {\n
+        v0 = 0;\n
+        if (v2 < a2)\n
+            v0 = v3 != a3;\n
+        if (!(v0 & 1))\n
+            break;\n
+        cgc_receive(a0, a1, a2, a3);\n
+        *(v1) = v3;\n
+        v1 += 1;\n
+        v2 = *(&v2) + 1;\n
+    }\n
+    a1[1 + v2] = 0;\n
+    return 0;\n
+}\n
+", "9860052:sub_9673d4": null, "9860064:cgc_put": "long long cgc_put(char *a0)\n
+{\n
+    unsigned int v0;  // [bp-0x34]\n
+    void* v1;  // [bp-0x30], Other Possible Types: unsigned long\n
+    char v2;  // [bp-0x28]\n
+    unsigned long v3;  // [bp-0x20]\n
+    unsigned long long v5;  // rsi\n
+    unsigned long long v6;  // rdx\n
+    unsigned long long v7;  // rcx\n
+\n
+    v3 = cgc_strlen(a0);\n
+    for (v1 = 0; v1 < v3; v1 = *(&v2) + v1)\n
+    {\n
+        v0 = cgc_transmit(a0, v5, v6, v7);\n
+        if (!v0 && !(!*(&v2)))\n
+            goto LABEL_967451;\n
+        cgc__terminate(a0);\n
+LABEL_967451:\n
+    }\n
+    return 0;\n
+}\n
+", "9860202:sub_96746a": null, "9860208:cgc_memcpy": "long long cgc_memcpy(char *a0, char *a1, unsigned long a2)\n
+{\n
+    unsigned int v0;  // [bp-0x1c]\n
+    int tmp_19;  // tmp #19\n
+    char *v1;  // [bp-0x18], Other Possible Types: unsigned long\n
+    char *v2;  // [bp-0x10], Other Possible Types: unsigned long\n
+    unsigned int v4;  // eax\n
+    char *v5;  // rax\n
+    char *v6;  // rax\n
+\n
+    v2 = a0;\n
+    v1 = a1;\n
+    v0 = a2;\n
+    while (true)\n
+    {\n
+        v4 = v0;\n
+        v0 = v4 - 1;\n
+        if (!v4)\n
+            break;\n
+        v5 = v1;\n
+        v1 = v5 + 1;\n
+        tmp_19 = *(v5);\n
+        v6 = v2;\n
+        v2 = v6 + 1;\n
+        *(v6) = tmp_19;\n
+    }\n
+    return 0;\n
+}\n
+", "9860286:sub_9674be": null, "9860288:cgc_coinflip": "typedef struct struct_0 {\n
+    char padding_0[260];\n
+    unsigned int field_104;\n
+} struct_0;\n
+\n
+extern struct_0 *state;\n
+\n
+long long cgc_coinflip()\n
+{\n
+    unsigned int v0;  // [bp-0x1c]\n
+    unsigned int v1;  // [bp-0x18]\n
+    unsigned int v2;  // [bp-0x14]\n
+    char v3;  // [bp-0xd]\n
+    char v4;  // [bp-0xc]\n
+    unsigned long long v6;  // rsi\n
+    struct_0 *v7;  // rax, Other Possible Types: unsigned long\n
+    unsigned long long v9;  // rcx\n
+    char v10;  // al\n
+    struct_0 *v11;  // rdi\n
+\n
+    v2 = 0;\n
+    v6 = 4;\n
+    cgc_bzero(&v4, 4);\n
+    v7 = cgc_getBet(state);\n
+    v2 = v7;\n
+    if (v2 == -1)\n
+        return v7;\n
+    cgc_put(\"Flipping a coin. Do you think it's going to be (h)eads or (t)ails?\\n
+\");\n
+    cgc_recvUntil(0, &v4, 3, 10);\n
+    v1 = v4;\n
+    if (v1 != 104 && v1 != 116)\n
+    {\n
+        cgc_put(\"Invalid choice. Pay the hug tax.\");\n
+        state->field_104 = state->field_104 - v2;\n
+        return state;\n
+    }\n
+    v9 = 1;\n
+    v10 = (v4 == 104 ? 0 : 1);\n
+    v3 = v10;\n
+    v0 = v3;\n
+    v11 = state;\n
+    if (v0 != (cgc_hugsnextrand() & 1))\n
+    {\n
+        v7 = cgc_handleOutcome(state, 0, v2);\n
+        return v7;\n
+    }\n
+    v7 = cgc_handleOutcome(state, 1, v2);\n
+    return v7;\n
+}\n
+", "9860582:sub_9675e6": null, "9860592:cgc_dicegame": "extern unsigned long long state;\n
+\n
+long long cgc_dicegame()\n
+{\n
+    unsigned int v0;  // [bp-0x74]\n
+    unsigned int v1;  // [bp-0x70]\n
+    unsigned int v2;  // [bp-0x6c]\n
+    unsigned int v3;  // [bp-0x68]\n
+    unsigned int v4;  // [bp-0x64]\n
+    unsigned int v5;  // [bp-0x60]\n
+    unsigned int v6;  // [bp-0x5c]\n
+    char v7;  // [bp-0x58]\n
+    char v8;  // [bp-0x18]\n
+    unsigned long v10;  // rax, Other Possible Types: unsigned long long\n
+\n
+    cgc_bzero(&v7, 64);\n
+    v6 = 0;\n
+    v5 = 0;\n
+    cgc_bzero(&v8, 16);\n
+    v10 = cgc_getBet(state);\n
+    v5 = v10;\n
+    if (v5 == -1)\n
+        return v10;\n
+    cgc_put(\"How many rolls do you want? \");\n
+    cgc_recvUntil(0, &v8, 15, 10);\n
+    v4 = cgc_atoi(&v8);\n
+    while (true)\n
+    {\n
+        v10 = v6;\n
+        if (v10 >= v4)\n
+            break;\n
+        cgc_put(\"Rolling a 31337 sided dice. 31337 wins jackpot. If you guess within 100, you win.\\n
+\");\n
+        cgc_put(\"What is your guess for the dice? \");\n
+        *(&(&v7)[4 * v6]) = cgc_hugsnextrand(state);\n
+        if ((0 CONCAT *(&(&v7)[4 * v6])) /m 31338 >> 32 == 31337)\n
+        {\n
+            cgc_put(\"!!!JACKPOT!!!\");\n
+            v5 *= 1000;\n
+            cgc_handleOutcome(state, 1, v5);\n
+            goto LABEL_9678a2;\n
+        }\n
+        cgc_bzero(&v8, 16);\n
+        cgc_recvUntil(0, &v8, 15, 10);\n
+        if ((0 CONCAT *(&(&v7)[4 * v6])) /m 31338 >> 32 >= 100)\n
+        {\n
+            v3 = cgc_atoi(&v8);\n
+            if (v3 <= ((0 CONCAT *(&(&v7)[4 * v6])) /m 31338 >> 32) - 100)\n
+                goto LABEL_96788e;\n
+        }\n
+        v2 = cgc_atoi(&v8);\n
+        if (v2 < ((0 CONCAT *(&(&v7)[4 * v6])) /m 31338 >> 32) + 100)\n
+        {\n
+            cgc_put(\"Yes! \");\n
+            cgc_put(&v8);\n
+            cgc_put(\" is \");\n
+            v1 = (0 CONCAT *(&(&v7)[4 * v6])) /m 31338 >> 32;\n
+            if (v1 - cgc_atoi(&v8) >= 0)\n
+            {\n
+                v0 = (0 CONCAT *(&(&v7)[4 * v6])) /m 31338 >> 32;\n
+                cgc_put(cgc_itoa(v0 - cgc_atoi(&v8)));\n
+            }\n
+            else\n
+            {\n
+                cgc_put(cgc_itoa(cgc_atoi(&v8) - ((0 CONCAT *(&(&v7)[4 * v6])) /m 31338 >> 32)));\n
+            }\n
+            cgc_put(\" away from \");\n
+            cgc_put(cgc_itoa((0 CONCAT *(&(&v7)[4 * v6])) /m 31338 >> 32));\n
+            cgc_put(\"\\n
+\");\n
+            cgc_handleOutcome(state, 1, v5);\n
+            goto LABEL_9678a2;\n
+        }\n
+LABEL_96788e:\n
+        cgc_handleOutcome(state, 0, v5);\n
+LABEL_9678a2:\n
+        v6 += 1;\n
+    }\n
+    return v6;\n
+}\n
+", "9861312:cgc_pickaword": "extern char words;\n
+\n
+long long cgc_pickaword(unsigned long long a0)\n
+{\n
+    return *(&(&words)[8 * ((0 CONCAT cgc_hugsnextrand(a0)) /m 471772 >> 64)]);\n
+}\n
+", "9861362:sub_9678f2": null, "9861376:cgc_hangman": "typedef struct struct_0 {\n
+    char padding_0[264];\n
+    char field_108;\n
+} struct_0;\n
+\n
+extern struct_0 *state;\n
+\n
+long long cgc_hangman()\n
+{\n
+    unsigned int v0;  // [bp-0xb0]\n
+    unsigned int v1;  // [bp-0xac]\n
+    unsigned int v2;  // [bp-0xa8]\n
+    unsigned int v3;  // [bp-0xa4]\n
+    unsigned int v4;  // [bp-0xa0]\n
+    char v5;  // [bp-0x9c]\n
+    char v6;  // [bp-0x98]\n
+    unsigned int v7;  // [bp-0x14]\n
+    char *v8;  // [bp-0x10]\n
+    unsigned long v10;  // rax, Other Possible Types: unsigned long long\n
+    struct_0 *v12;  // rax\n
+\n
+    v4 = 0;\n
+    v2 = 0;\n
+    v1 = 0;\n
+    cgc_bzero(&v6, 128);\n
+    v8 = cgc_pickaword(state);\n
+    v4 = cgc_strlen(v8);\n
+    state->field_108 = 0;\n
+    v10 = cgc_getBet(state);\n
+    v1 = v10;\n
+    if (v1 == -1)\n
+        return v10;\n
+    while (true)\n
+    {\n
+        if (state->field_108 < 5)\n
+        {\n
+            v3 = 0;\n
+            cgc_bzero(&v5, 4);\n
+            cgc_put(cgc_renderBoard(state));\n
+            for (v7 = 0; v7 < v4; v7 += 1)\n
+            {\n
+                if (!(&v6)[v7])\n
+                {\n
+                    cgc_put(\"_\");\n
+                }\n
+                else\n
+                {\n
+                    cgc_put(&(&v6)[v7]);\n
+                    v7 = cgc_strlen(&(&v6)[v7]) - 1 + v7;\n
+                }\n
+            }\n
+            cgc_put(\"\\n
+\");\n
+            cgc_put(\"Please enter a guess: \");\n
+            cgc_recvUntil(0, &v5, 3, 10);\n
+            for (v7 = 0; v7 < v4; v7 += 1)\n
+            {\n
+                if (v5 == v8[v7])\n
+                {\n
+                    (&v6)[v7] = v5;\n
+                    v3 = 1;\n
+                    v2 += 1;\n
+                }\n
+            }\n
+            if (!v3)\n
+            {\n
+                v12 = state;\n
+                v12->field_108 = v12->field_108 + 1;\n
+            }\n
+            v0 = cgc_strlen(&v6);\n
+            if (v0 == cgc_strlen(v8))\n
+            {\n
+                v10 = cgc_handleOutcome(state, 1, v1);\n
+                return v10;\n
+            }\n
+        }\n
+        else\n
+        {\n
+            v10 = cgc_handleOutcome(state, 0, v1);\n
+            return v10;\n
+        }\n
+    }\n
+}\n
+", "9862038:sub_967b96": null, "9862048:cgc_renderBoard": "typedef struct struct_0 {\n
+    char padding_0[264];\n
+    char field_108;\n
+} struct_0;\n
+\n
+extern char g_b7f1af;\n
+extern char g_b7f1c5;\n
+extern char g_b7f1df;\n
+extern char g_b7f1fd;\n
+extern char g_b7f21c;\n
+\n
+long long cgc_renderBoard(struct_0 *a0, unsigned long a1, unsigned long a2, unsigned long a3, unsigned long a4, unsigned long a5, unsigned long v2)\n
+{\n
+    unsigned long v0;  // [bp-0x20]\n
+    unsigned long v1;  // [bp-0x10]\n
+\n
+    v0 = a0->field_108;\n
+    if (v0 > 4)\n
+    {\n
+        v1 = \"???\\n
+\";\n
+        return v1;\n
+    }\n
+    goto *((9867552 + (stack_base)[32] * 4)) + 9867552;\n
+}\n
+", "9862198:sub_967c36": null, "9862208:main": "typedef struct struct_0 {\n
+    char field_0;\n
+} struct_0;\n
+\n
+extern struct_1 *state;\n
+\n
+int main(unsigned long long a0, unsigned long long a1)\n
+{\n
+    struct_0 *v0;  // [bp-0x38]\n
+    unsigned int v1;  // [bp-0x30]\n
+    char v2;  // [bp-0x2c]\n
+    char v3;  // [bp-0x28]\n
+    unsigned long v4;  // [bp-0x18]\n
+    unsigned int v5;  // [bp-0x10]\n
+    unsigned int v6;  // [bp-0xc]\n
+    unsigned long long v8;  // rdx\n
+\n
+    v6 = 0;\n
+    v5 = a0;\n
+    v4 = a1;\n
+    cgc_allocate(a0, a1, v8);\n
+    if (!state)\n
+    {\n
+        cgc_put(\"Could not allocate space for gamestate. Terminating.\");\n
+        cgc__terminate(\"Could not allocate space for gamestate. Terminating.\");\n
+    }\n
+    state->field_104 = 1000;\n
+    cgc_put(\"Welcome to the hug gambling server.\\n
+\");\n
+    cgc_put(\"What is your name?\\n
+\");\n
+    cgc_bzero(&state->padding_0[4], 0x100);\n
+    cgc_recvUntil(0, &state->padding_0[4], 0x100, 10);\n
+    cgc_put(\"Hi \");\n
+    cgc_put(&state->padding_0[4]);\n
+    cgc_put(\". \");\n
+    cgc_memcpy(&v2, &state->padding_0[4], 4);\n
+    cgc_hugsrand(state, *(&v2));\n
+    while (state->field_104 > 0)\n
+    {\n
+        if (state->field_104 > 1000000)\n
+            state->field_104 = 1000000;\n
+        cgc_put(\"You have \");\n
+        cgc_put(cgc_itoa(state->field_104));\n
+        cgc_put(\" hugs. Shall we play a game?\\n
+1. Coin Flip\\n
+2. Hangman\\n
+3. Dice game\\n
+4. War\\n
+q. Quit\\n
+\");\n
+        v0 = &v3;\n
+        cgc_bzero(&v3, 16);\n
+        cgc_recvUntil(0, v0, 15, 10);\n
+        v1 = v3;\n
+        if (v1 == 49)\n
+        {\n
+            cgc_coinflip();\n
+        }\n
+        else if (v1 == 50)\n
+        {\n
+            cgc_hangman();\n
+        }\n
+        else if (v1 == 51)\n
+        {\n
+            cgc_dicegame();\n
+        }\n
+        else if (v1 == 52)\n
+        {\n
+            cgc_war();\n
+        }\n
+        else if (v1 == 113)\n
+        {\n
+            cgc_put(\"Thanks for playing! Don't spend all your hugs in one place.\\n
+\");\n
+            cgc__terminate(\"Thanks for playing! Don't spend all your hugs in one place.\\n
+\");\n
+        }\n
+    }\n
+    cgc_put(\"You're all out of hugs :(. Thanks for playing.\\n
+\");\n
+    return v6;\n
+}\n
+", "9862789:sub_967e85": null, "9862800:cgc_getBet": "typedef struct struct_0 {\n
+    char padding_0[260];\n
+    unsigned int field_104;\n
+} struct_0;\n
+\n
+long long cgc_getBet(struct_0 *a0)\n
+{\n
+    unsigned int v0;  // [bp-0x2c]\n
+    char v1;  // [bp-0x28]\n
+    unsigned int v2;  // [bp-0xc]\n
+\n
+    cgc_put(\"How much would you like to wager? \");\n
+    cgc_bzero(&v1, 16);\n
+    cgc_recvUntil(0, &v1, 15, 10);\n
+    v0 = cgc_atoi(&v1);\n
+    if (v0 > 0 && v0 <= a0->field_104)\n
+    {\n
+        if (v0 > 1000)\n
+            cgc_put(\"HIGH ROLLER COMING THROUGH!\\n
+\");\n
+        v2 = v0;\n
+        return v2;\n
+    }\n
+    cgc_put(\"You can't bet that many hugs. Sorry. :(\\n
+\");\n
+    v2 = -1;\n
+    return v2;\n
+}\n
+", "9862964:sub_967f34": null, "9862976:cgc_hugsrand": "long long cgc_hugsrand(unsigned int *a0, unsigned long a1)\n
+{\n
+    *(a0) = a1;\n
+    return a0;\n
+}\n
+", "9862998:sub_967f56": null, "9863008:cgc_hugsnextrand": "long long cgc_hugsnextrand(unsigned int *a0)\n
+{\n
+    unsigned int v0;  // [bp-0x14]\n
+\n
+    v0 = (*(a0) ^ (*(a0) >> 2) ^ (*(a0) >> 3) ^ (*(a0) >> 5)) & 1;\n
+    *(a0) = (*(a0) >> 1) | v0 * 0x80000000;\n
+    return *(a0);\n
+}\n
+", "9863095:sub_967fb7": null, "9863104:cgc_handleOutcome": "typedef struct struct_0 {\n
+    char padding_0[260];\n
+    unsigned int field_104;\n
+} struct_0;\n
+\n
+long long cgc_handleOutcome(struct_0 *a0, unsigned long a1, unsigned long a2)\n
+{\n
+    struct_0 *v1;  // rax, Other Possible Types: unsigned long\n
+\n
+    if (a1 == 1)\n
+    {\n
+        cgc_put(\"YOU WIN!\\n
+Adding \");\n
+        cgc_put(cgc_itoa(a2));\n
+        cgc_put(\" to your hug balance.\\n
+\\n
+\");\n
+        v1 = a0;\n
+        v1->field_104 = a2 + v1->field_104;\n
+        return a0;\n
+    }\n
+    cgc_put(\"YOU LOSE!\\n
+Debiting \");\n
+    cgc_put(cgc_itoa(a2));\n
+    cgc_put(\" from your hug balance.\\n
+\\n
+\");\n
+    v1 = a0;\n
+    *((v1 + 260)) = *((v1 + 260)) - a2;\n
+    return a0;\n
+}\n
+", "9863269:sub_968065": null, "9863280:cgc_cardName": "extern char g_98a7d2;\n
+extern char g_98b667;\n
+extern char g_990577;\n
+extern char g_9cb32e;\n
+extern char g_9d9272;\n
+extern char g_a076b0;\n
+extern char g_a50459;\n
+extern char g_a94e9b;\n
+extern char g_a993e2;\n
+extern char g_afb160;\n
+extern char g_b01098;\n
+extern char g_b0b7f5;\n
+extern char g_b2f1b7;\n
+\n
+long long cgc_cardName(unsigned long a0, unsigned long a1, unsigned long a2, unsigned long a3, unsigned long a4, unsigned long a5, unsigned long v2)\n
+{\n
+    unsigned long v0;  // [bp-0x10]\n
+    char v1;  // [bp-0x8]\n
+    unsigned long long v4;  // rbp\n
+    unsigned long v5;  // rax\n
+\n
+    v4 = &v1;\n
+    if (a0 > 12)\n
+    {\n
+        v0 = \"?\";\n
+        return v0;\n
+    }\n
+    v5 = a0;\n
+    goto *((12055620 + rax<8> * 4)) + 12055620;\n
+}\n
+", "9863549:sub_96817d": null, "9863552:cgc_cardSuite": "extern char g_99d548;\n
+extern char g_b7f48a;\n
+extern char g_b7f491;\n
+extern char g_b7f497;\n
+\n
+long long cgc_cardSuite(unsigned long a0, unsigned long a1, unsigned long a2, unsigned long a3, unsigned long a4, unsigned long a5, unsigned long v2)\n
+{\n
+    unsigned long v0;  // [bp-0x10]\n
+    char v1;  // [bp-0x8]\n
+    unsigned long long v4;  // rbp\n
+    unsigned long v5;  // rax\n
+\n
+    v4 = &v1;\n
+    if (a0 > 3)\n
+    {\n
+        v0 = \"?\";\n
+        return v0;\n
+    }\n
+    v5 = a0;\n
+    goto *((12055672 + rax<8> * 4)) + 12055672;\n
+}\n
+", "9863677:sub_9681fd": null, "9863680:cgc_war": "extern unsigned int *state;\n
+\n
+long long cgc_war(unsigned long a0, unsigned int a1, unsigned long a2, unsigned long a3, unsigned int a4, unsigned int a5)\n
+{\n
+    char v0;  // [bp-0x28]\n
+    unsigned int v1;  // [bp-0x1c]\n
+    unsigned int v2;  // [bp-0x18]\n
+    unsigned int v3;  // [bp-0x14]\n
+    unsigned int v4;  // [bp-0x10]\n
+    unsigned int v5;  // [bp-0xc]\n
+    unsigned long v7;  // rax, Other Possible Types: unsigned long long\n
+    unsigned long long v8;  // rdx\n
+    unsigned long long v9;  // rdx\n
+    unsigned long long v10;  // rdx\n
+    unsigned long long v11;  // rdx\n
+    unsigned long long v12;  // rdx\n
+\n
+    v7 = cgc_getBet(state);\n
+    v5 = v7;\n
+    if (v5 < 0)\n
+        return v7;\n
+    v4 = cgc_hugsnextrand(state);\n
+    while (true)\n
+    {\n
+        v3 = cgc_hugsnextrand(state);\n
+        v2 = (0 CONCAT v3) /m 13 >> 32;\n
+        if (v2 > (0 CONCAT v4) /m 13 >> 32)\n
+        {\n
+            cgc_put(\"Dealer's \");\n
+            v9 = (0 CONCAT v3) /m 13 >> 32;\n
+            cgc_put(cgc_cardName(v9, a1, v9, 13, a4, a5, *(&v0)));\n
+            cgc_put(\" of \");\n
+            cgc_put(cgc_cardSuite(v3 & 3, a1, v9, 13, a4, a5, *(&v0)));\n
+            cgc_put(\" beats player's \");\n
+            v11 = (0 CONCAT v4) /m 13 >> 32;\n
+            cgc_put(cgc_cardName(v11, a1, v11, 13, a4, a5, *(&v0)));\n
+            cgc_put(\" of \");\n
+            cgc_put(cgc_cardSuite(v4 & 3, a1, v11, 13, a4, a5, *(&v0)));\n
+            cgc_put(\"\\n
+\");\n
+            v7 = cgc_handleOutcome(state, 0, v5);\n
+            return v7;\n
+        }\n
+        v1 = (0 CONCAT v3) /m 13 >> 32;\n
+        if (v1 < (0 CONCAT v4) /m 13 >> 32)\n
+        {\n
+            cgc_put(\"Player's \");\n
+            v10 = (0 CONCAT v4) /m 13 >> 32;\n
+            cgc_put(cgc_cardName(v10, a1, v10, 13, a4, a5, *(&v0)));\n
+            cgc_put(\" of \");\n
+            cgc_put(cgc_cardSuite(v4 & 3, a1, v10, 13, a4, a5, *(&v0)));\n
+            cgc_put(\" beats dealer's \");\n
+            v12 = (0 CONCAT v3) /m 13 >> 32;\n
+            cgc_put(cgc_cardName(v12, a1, v12, 13, a4, a5, *(&v0)));\n
+            cgc_put(\" of \");\n
+            cgc_put(cgc_cardSuite(v3 & 3, a1, v12, 13, a4, a5, *(&v0)));\n
+            cgc_put(\"\\n
+\");\n
+            v7 = cgc_handleOutcome(state, 1, v5);\n
+            return v7;\n
+        }\n
+        cgc_put(\"Both players drew a \");\n
+        v8 = (0 CONCAT v4) /m 13 >> 32;\n
+        cgc_put(cgc_cardName(v8, a1, v8, 13, a4, a5, *(&v0)));\n
+        cgc_put(\"\\n
+THIS MEANS WAR\\n
+\");\n
+        v5 *= 2;\n
+        cgc_hugsnextrand(state);\n
+        cgc_hugsnextrand(state);\n
+        cgc_hugsnextrand(state);\n
+        v4 = cgc_hugsnextrand(state);\n
+        cgc_hugsnextrand(state);\n
+        cgc_hugsnextrand(state);\n
+        cgc_hugsnextrand(state);\n
+    }\n
+}\n
+", "9864396:_fini": "long long _fini()\n
+{\n
+    unsigned long v1;  // rax\n
+\n
+    return v1;\n
+}\n
+", "14680064:__libc_start_main": null, "14680072:cgc__terminate": null, "14680080:cgc_transmit": null, "14680088:cgc_allocate": null, "14680096:cgc_receive": null, "15732816:UnresolvableJumpTarget": null, "15732824:UnresolvableCallTarget": null}
