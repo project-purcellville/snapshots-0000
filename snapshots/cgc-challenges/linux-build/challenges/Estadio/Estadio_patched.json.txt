@@ -94,7 +94,7 @@ int cgc_receive()\n
 ", "4198646:sub_4010f6": null, "4198656:_start": "int _start()\n
 {\n
     unsigned int v0;  // [bp-0x8]\n
-    unsigned int v1;  // [bp+0x0], Other Possible Types: char\n
+    char v1;  // [bp+0x0], Other Possible Types: unsigned int\n
     unsigned int v3;  // esi\n
     unsigned int v4;  // eax\n
     unsigned int v5;  // edx\n
@@ -482,7 +482,7 @@ int cgc_handle_rand(unsigned int v11)\n
         cgc__terminate();\n
     for (v7 = 0; v7 < v9; v7 += 1)\n
     {\n
-        *((*(&v8) + v7)) = cgc_churn_rand_uint8();\n
+        v7[*(&v8)] = cgc_churn_rand_uint8();\n
     }\n
     v4 = 11;\n
     v5 = v9;\n
@@ -526,19 +526,19 @@ int cgc_handle_guess(unsigned int v6)\n
     v0 = 21;\n
     return cgc_send_empty_frame();\n
 }\n
-", "4201235:sub_401b13": null, "4201248:cgc_handle_echo": "typedef struct struct_0 {\n
+", "4201235:sub_401b13": null, "4201248:cgc_handle_echo": "typedef struct struct_1 {\n
     char padding_0[4];\n
     unsigned int field_4;\n
-} struct_0;\n
+} struct_1;\n
 \n
-typedef struct struct_1 {\n
+typedef struct struct_0 {\n
     char padding_0[8];\n
     unsigned int field_8;\n
-} struct_1;\n
+} struct_0;\n
 \n
 extern char _GLOBAL_OFFSET_TABLE_;\n
 \n
-int cgc_handle_echo(struct_0 *v11)\n
+int cgc_handle_echo(struct_1 *v11)\n
 {\n
     unsigned int v0;  // [bp-0x88]\n
     unsigned int v1;  // [bp-0x84]\n
@@ -548,10 +548,10 @@ int cgc_handle_echo(struct_0 *v11)\n
     unsigned int v5;  // [bp-0x74]\n
     unsigned int v6;  // [bp-0x70]\n
     char v7;  // [bp-0x6c]\n
-    struct_1 *v8;  // [bp-0x64]\n
+    struct_0 *v8;  // [bp-0x64]\n
     unsigned int v9;  // [bp-0x60]\n
     char v10;  // [bp-0x5a]\n
-    struct_0 *v12;  // eax, Other Possible Types: unsigned int\n
+    struct_1 *v12;  // eax, Other Possible Types: unsigned int\n
 \n
     v2 = &_GLOBAL_OFFSET_TABLE_;\n
     v12 = v11;\n
