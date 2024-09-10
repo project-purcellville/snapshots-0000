@@ -274,20 +274,20 @@ int sub_401730()\n
     sub_4010c0(v0, v0);\n
     return sub_401f10();\n
 }\n
-", "4200531:sub_401853": null, "4200544:sub_401860": "typedef struct struct_1 {\n
+", "4200531:sub_401853": null, "4200544:sub_401860": "typedef struct struct_0 {\n
     char field_0;\n
-} struct_1;\n
+} struct_0;\n
 \n
-typedef struct struct_0 {\n
+typedef struct struct_1 {\n
     char padding_0[8];\n
     unsigned int field_8;\n
-} struct_0;\n
+} struct_1;\n
 \n
 int sub_401860(unsigned int v11)\n
 {\n
     unsigned int v0;  // [bp-0x28]\n
-    struct_1 *v1;  // [bp-0x24], Other Possible Types: unsigned int\n
-    struct_0 *v2;  // [bp-0x20]\n
+    struct_0 *v1;  // [bp-0x24], Other Possible Types: unsigned int\n
+    struct_1 *v2;  // [bp-0x20]\n
     unsigned int v3;  // [bp-0x1c]\n
     unsigned int v4;  // [bp-0x18]\n
     char v5;  // [bp-0x14]\n
@@ -304,7 +304,7 @@ int sub_401860(unsigned int v11)\n
         cgc__terminate();\n
     for (v6 = 0; v6 < v8; v6 += 1)\n
     {\n
-        v6[*(&v7)] = sub_401680();\n
+        *((*(&v7) + v6)) = sub_401680();\n
     }\n
     v3 = 11;\n
     v4 = v8;\n
@@ -342,17 +342,17 @@ int sub_401940(unsigned int v3)\n
     v2 = 21;\n
     return sub_401f10();\n
 }\n
-", "4200879:sub_4019af": null, "4200880:sub_4019b0": "typedef struct struct_0 {\n
+", "4200879:sub_4019af": null, "4200880:sub_4019b0": "typedef struct struct_1 {\n
     char padding_0[4];\n
     unsigned int field_4;\n
-} struct_0;\n
-\n
-typedef struct struct_1 {\n
-    char padding_0[8];\n
-    unsigned int field_8;\n
 } struct_1;\n
 \n
-int sub_4019b0(struct_0 *v12)\n
+typedef struct struct_0 {\n
+    char padding_0[8];\n
+    unsigned int field_8;\n
+} struct_0;\n
+\n
+int sub_4019b0(struct_1 *v12)\n
 {\n
     unsigned int v0;  // [bp-0x7c]\n
     unsigned int v1;  // [bp-0x78]\n
@@ -361,12 +361,12 @@ int sub_4019b0(struct_0 *v12)\n
     unsigned int v4;  // [bp-0x6c]\n
     unsigned int v5;  // [bp-0x68]\n
     char v6;  // [bp-0x64]\n
-    struct_1 *v7;  // [bp-0x60]\n
+    struct_0 *v7;  // [bp-0x60]\n
     unsigned int v8;  // [bp-0x5c]\n
     char v9;  // [bp-0x56]\n
     unsigned int v10;  // [bp-0x4]\n
     char v11;  // [bp+0x0]\n
-    struct_0 *v13;  // eax, Other Possible Types: unsigned int\n
+    struct_1 *v13;  // eax, Other Possible Types: unsigned int\n
 \n
     v10 = &v11;\n
     v13 = v12;\n
@@ -1517,11 +1517,16 @@ int sub_402b20(struct_0 *v8, unsigned int a0)\n
     v5[0] = v2;\n
     while (true)\n
     {\n
-        if (v5 == v0)\n
+        if (v5 != v0)\n
+        {\n
+            if (a0 >= v5[3] && a0 < v5[3] + v5[2])\n
+                return v5;\n
+            v5 = &v5[2 + 2];\n
+        }\n
+        else\n
+        {\n
             return 0;\n
-        if (a0 >= *((v5 + 12)) && a0 < *((v5 + 12)) + *((v5 + 8)))\n
-            return v5;\n
-        v5 += 40;\n
+        }\n
     }\n
 }\n
 ", "4205488:sub_402bb0": "extern unsigned int g_406040;\n
