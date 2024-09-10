@@ -275,19 +275,22 @@ int cgc_transmit_all(unsigned int v6, unsigned int a0, unsigned int a1)\n
     }\n
     while (true)\n
     {\n
-        if (v4 >= a1)\n
+        if (v4 < a1)\n
+        {\n
+            v0 = &v3;\n
+            v2 = cgc_transmit(v6, a0 + v4, a1 - v4);\n
+            if (v2)\n
+            {\n
+                v5 = 3;\n
+                return v5;\n
+            }\n
+            v4 = v3 + v4;\n
+        }\n
+        else\n
         {\n
             v5 = 0;\n
             return v5;\n
         }\n
-        v0 = &v3;\n
-        v2 = cgc_transmit(v6, a0 + v4, a1 - v4);\n
-        if (v2)\n
-        {\n
-            v5 = 3;\n
-            return v5;\n
-        }\n
-        v4 = v3 + v4;\n
     }\n
 }\n
 ", "4199164:sub_4012fc": null, "4199168:cgc_churn_initialize": null, "4199554:sub_401482": null, "4199568:cgc_init_one": "extern char g_800000;\n
