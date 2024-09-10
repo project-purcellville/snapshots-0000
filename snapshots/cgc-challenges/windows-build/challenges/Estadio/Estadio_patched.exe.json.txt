@@ -27,22 +27,19 @@ int sub_401000(unsigned int v7, unsigned int a0, unsigned int a1)\n
     }\n
     while (true)\n
     {\n
-        if (v3 < a1)\n
-        {\n
-            v0 = &v2;\n
-            v1 = cgc_transmit(v7, a0 + v3, a1 - v3);\n
-            if (v1)\n
-            {\n
-                v4 = 3;\n
-                return v4;\n
-            }\n
-            v3 = v2 + v3;\n
-        }\n
-        else\n
+        if (v3 >= a1)\n
         {\n
             v4 = 0;\n
             return v4;\n
         }\n
+        v0 = &v2;\n
+        v1 = cgc_transmit(v7, a0 + v3, a1 - v3);\n
+        if (v1)\n
+        {\n
+            v4 = 3;\n
+            return v4;\n
+        }\n
+        v3 = v2 + v3;\n
     }\n
 }\n
 ", "4198592:sub_4010c0": "typedef struct struct_0 {\n
@@ -74,22 +71,19 @@ int sub_401000(unsigned int v7, unsigned int a0, unsigned int a1)\n
     }\n
     while (true)\n
     {\n
-        if (v3 < a1)\n
-        {\n
-            v0 = &v2;\n
-            v1 = cgc_transmit(v7, a0 + v3, a1 - v3);\n
-            if (v1)\n
-            {\n
-                v4 = 3;\n
-                return v4;\n
-            }\n
-            v3 = v2 + v3;\n
-        }\n
-        else\n
+        if (v3 >= a1)\n
         {\n
             v4 = 0;\n
             return v4;\n
         }\n
+        v0 = &v2;\n
+        v1 = cgc_transmit(v7, a0 + v3, a1 - v3);\n
+        if (v1)\n
+        {\n
+            v4 = 3;\n
+            return v4;\n
+        }\n
+        v3 = v2 + v3;\n
     }\n
 }\n
 ", "4199024:sub_401270": "int sub_401270(unsigned int v8, unsigned int a0, unsigned int a1, unsigned int a2)\n
@@ -1218,7 +1212,7 @@ int sub_402800(unsigned int v3)\n
     void* v0;  // [bp-0x8]\n
     unsigned int v1;  // [bp-0x4]\n
     char v2;  // [bp+0x0]\n
-    unsigned int v4;  // eax, Other Possible Types: char\n
+    char v4;  // eax, Other Possible Types: unsigned int\n
 \n
     v1 = &v2;\n
     if (!v3)\n
@@ -1364,7 +1358,7 @@ int sub_402970(unsigned int v5, unsigned int a0, unsigned int a1, struct struct_
 {\n
     unsigned int v0;  // [bp-0x4]\n
     char v1;  // [bp+0x0]\n
-    unsigned int v3;  // eax, Other Possible Types: char\n
+    char v3;  // eax, Other Possible Types: unsigned int\n
 \n
     v0 = &v1;\n
     if (sub_4039c0())\n
@@ -1421,7 +1415,7 @@ int sub_402a10()\n
 {\n
     unsigned int v0;  // [bp-0x4]\n
     char v1;  // [bp+0x0]\n
-    unsigned int v3;  // eax, Other Possible Types: char\n
+    char v3;  // eax, Other Possible Types: unsigned int\n
 \n
     v0 = &v1;\n
     v3 = sub_403d90();\n
@@ -1517,11 +1511,16 @@ int sub_402b20(struct_0 *v8, unsigned int a0)\n
     v5[0] = v2;\n
     while (true)\n
     {\n
-        if (v5 == v0)\n
+        if (v5 != v0)\n
+        {\n
+            if (a0 >= *((v5 + 12)) && a0 < *((v5 + 12)) + *((v5 + 8)))\n
+                return v5;\n
+            v5 = &v5[2 + 2];\n
+        }\n
+        else\n
+        {\n
             return 0;\n
-        if (a0 >= *((v5 + 12)) && a0 < *((v5 + 12)) + *((v5 + 8)))\n
-            return v5;\n
-        v5 += 40;\n
+        }\n
     }\n
 }\n
 ", "4205488:sub_402bb0": "extern unsigned int g_406040;\n
@@ -1921,7 +1920,7 @@ int sub_402ea0()\n
 int sub_402f70()\n
 {\n
     unsigned int v0;  // [bp-0x334]\n
-    unsigned int v1;  // [bp-0x330], Other Possible Types: char\n
+    char v1;  // [bp-0x330], Other Possible Types: unsigned int\n
     unsigned short v2;  // [bp-0x2a4]\n
     unsigned short v3;  // [bp-0x2a0]\n
     unsigned short v4;  // [bp-0x29c]\n
@@ -1938,7 +1937,7 @@ int sub_402f70()\n
     unsigned int v15;  // [bp-0x270]\n
     unsigned int v16;  // [bp-0x26c]\n
     unsigned short v17;  // [bp-0x268]\n
-    unsigned int v18;  // [bp-0x64], Other Possible Types: char\n
+    char v18;  // [bp-0x64], Other Possible Types: unsigned int\n
     unsigned int v19;  // [bp-0x60]\n
     unsigned int v20;  // [bp-0x58]\n
     struct_0 *v21;  // [bp-0x14]\n
@@ -2825,7 +2824,7 @@ int sub_403ae0()\n
     unsigned int v2;  // [bp-0x4]\n
     char v3;  // [bp+0x0]\n
     unsigned int v4;  // [bp+0x4]\n
-    void* v5;  // [bp+0x8], Other Possible Types: unsigned int, char\n
+    void* v5;  // [bp+0x8], Other Possible Types: char, unsigned int\n
     char v6;  // [bp+0xc]\n
     unsigned int v7;  // eax\n
     unsigned int v8;  // ecx\n
@@ -2874,9 +2873,9 @@ int sub_403ae0()\n
             v5 -= 1;\n
         g_406318 = v5 + 1;\n
         g_40631c = v4;\n
-        for (v1[0] = 0; v1 < v5; v1 = &v1[0] + 1)\n
+        for (v1[0] = 0; v1 < v5; v1 += 1)\n
         {\n
-            *((0x4 * v1 + &g_406320)) = *((*(&v6) + v1 * 4));\n
+            *(&(&g_406320)[4 * v1]) = *((*(&v6) + v1 * 4));\n
         }\n
         sub_403d30();\n
         v22 = v2;\n
