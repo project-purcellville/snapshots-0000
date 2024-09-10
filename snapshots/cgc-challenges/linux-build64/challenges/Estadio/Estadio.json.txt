@@ -172,49 +172,44 @@ long long __do_global_dtors_aux()\n
     }\n
 }\n
 ", "4203146:sub_40228a": null, "4203152:cgc_churn_initialize": "extern void* cgc_gyre_pos;\n
-extern char gyre;\n
+extern unsigned long long gyre;\n
 \n
 long long cgc_churn_initialize(unsigned long long a0[3])\n
 {\n
-    unsigned long long *v0;  // [bp-0x30]\n
+    unsigned long v0;  // [bp-0x30]\n
     unsigned int v1;  // [bp-0x28]\n
     unsigned int v2;  // [bp-0x24]\n
     unsigned long long v3;  // [bp-0x20]\n
-    unsigned long long *v4;  // [bp-0x18]\n
+    char v4;  // [bp-0x18], Other Possible Types: unsigned long, unsigned long long\n
     unsigned long long v6;  // rax\n
-    unsigned long long *v7;  // rcx\n
-    unsigned long long v8;  // rsi\n
-    unsigned long long v9;  // r8\n
-    unsigned long long v10;  // r9\n
-    unsigned long v11;  // rcx\n
-    unsigned long long v12;  // rax\n
+    unsigned long v7;  // rcx\n
+    unsigned long long v8;  // rax\n
 \n
     v6 = 8819565873722515828;\n
     strncpy(&v4, \"tac odez\", 8);\n
     v3 = 5;\n
-    for (v2 = 0; v2 < 16; v2 = v12)\n
+    for (v2 = 0; v2 < 16; v2 = v8)\n
     {\n
         v1 = v2 * 4;\n
         v4 = cgc_init_one(v4 ^ v1, a0[0]);\n
-        v7 = v1;\n
-        *((&gyre + 0x8 * v7)) = v4;\n
+        (&gyre)[v1] = v4;\n
         v0 = v4;\n
         v0 = v1 ^ v0;\n
-        cgc_init_two(a0, v8, v4, v7, v9, v10);\n
+        cgc_init_two(a0);\n
         v4 = v0;\n
-        *(&(&gyre)[8 + 8 * v1]) = v4;\n
-        v4 = cgc_init_thr(v4 ^ v1, a0[2]);\n
-        v11 = v1 + 2;\n
-        *(&(&gyre)[8 * v11]) = v4;\n
+        v7 = v1 + 1;\n
+        (&gyre)[v7] = v4;\n
+        v4 = cgc_init_thr(v4 ^ v1, a0[2], v4, v7);\n
+        (&gyre)[2 + v1] = v4;\n
         v0 = v4;\n
         v0 = v1 ^ v0;\n
-        cgc_init_fou(a0, v8, v4, v11, v9, v10);\n
+        cgc_init_fou(a0);\n
         v4 = v0;\n
-        *(&(&gyre)[24 + 8 * v1]) = v4;\n
-        v12 = v2 + 1;\n
+        (&gyre)[3 + v1] = v4;\n
+        v8 = v2 + 1;\n
     }\n
     cgc_gyre_pos = 0;\n
-    return v12;\n
+    return v8;\n
 }\n
 ", "4203471:sub_4023cf": null, "4203472:cgc_init_one": "long long cgc_init_one(unsigned long a0, unsigned long a1)\n
 {\n
@@ -367,8 +362,9 @@ long long cgc_churn_rand_item()\n
 ", "4204460:sub_4027ac": null, "4204464:cgc_handle_seed": "long long cgc_handle_seed(unsigned long long a0)\n
 {\n
     unsigned long long v0[3];  // [bp-0x18]\n
+    unsigned long long v2;  // rsi\n
 \n
-    v0[0] = cgc_extract_seed_req(a0);\n
+    *(&v0[0]) = cgc_extract_seed_req(a0, v2);\n
     cgc_churn_initialize(v0);\n
     return cgc_send_empty_frame(2);\n
 }\n
@@ -400,7 +396,7 @@ long long cgc_handle_rand(unsigned long long a0)\n
     v2 = v6;\n
     v0 = cgc_allocate_frame(*(&v1), *(&v3));\n
     v0->field_8 = *(&v5);\n
-    cgc_send_frame(v0);\n
+    cgc_send_frame(v0, v8);\n
     cgc_free_frame(v0);\n
     return cgc_deallocate(a0, v8);\n
 }\n
@@ -438,6 +434,7 @@ long long cgc_handle_echo(struct_0 *a0)\n
     struct_1 *v5;  // [bp-0x78]\n
     unsigned long v6;  // [bp-0x70]\n
     char v7;  // [bp-0x68]\n
+    unsigned long long v10;  // rsi\n
 \n
     if (!a0->field_4)\n
         return a0;\n
@@ -455,9 +452,9 @@ long long cgc_handle_echo(struct_0 *a0)\n
     v5 = cgc_allocate_frame(*(&v2), *(&v4));\n
     v6 = v5->field_8;\n
     v5->field_8 = &v7;\n
-    cgc_send_frame(v5);\n
+    cgc_send_frame(v5, v10);\n
     v5->field_8 = v6;\n
-    return cgc_free_frame(v5);\n
+    return cgc_free_frame(v5, v10);\n
 }\n
 ", "4205058:sub_402a02": null, "4205072:cgc_extract_seed_req": "typedef struct struct_0 {\n
     unsigned int field_0;\n
@@ -542,12 +539,13 @@ long long cgc_extract_echo_resp(struct_0 *a0)\n
     unsigned int *v0;  // [bp-0x28]\n
     unsigned long v1;  // [bp-0x20]\n
     unsigned long v2;  // [bp-0x18]\n
-    unsigned long v3;  // [bp-0x10], Other Possible Types: unsigned long long\n
+    unsigned long long v3;  // [bp-0x10], Other Possible Types: unsigned long\n
     unsigned long long v5;  // rdx\n
+    unsigned long long v6;  // rcx\n
 \n
     v1 = a0;\n
     v2 = a1;\n
-    if (cgc_allocate(a0, a1, v5))\n
+    if (cgc_allocate(a0, a1, v5, v6))\n
         cgc__terminate(a0);\n
     *(v0) = v1;\n
     v0[1] = *((&v1 + 4));\n
@@ -593,12 +591,13 @@ long long cgc_receive_frame()\n
     unsigned long long v9;  // rsi\n
     unsigned long long v10;  // rdx\n
     unsigned long long v11;  // rcx\n
+    unsigned long long v12;  // r8\n
 \n
     v4 = 0;\n
     v3 = 0;\n
     v2 = 8;\n
     v1 = 0;\n
-    if (cgc_receive(v8, v9, v10, v11))\n
+    if (cgc_receive(v8, v9, v10, v11, v12))\n
         cgc__terminate(v8);\n
     if (v1 != v2)\n
         cgc__terminate(v8);\n
@@ -627,7 +626,7 @@ long long cgc_send_frame(struct_0 *a0)\n
     unsigned long long v2;  // rsi\n
     unsigned long long v3;  // rdx\n
     unsigned long long v4;  // rcx\n
-    unsigned long v5;  // rax, Other Possible Types: unsigned long long\n
+    unsigned long long v5;  // rax, Other Possible Types: unsigned long\n
 \n
     if (a0->field_4 && !a0->field_8)\n
         cgc__terminate(a0);\n
@@ -669,7 +668,7 @@ long long cgc_send_frame(struct_0 *a0)\n
 long long cgc_free_frame(struct_0 *a0)\n
 {\n
     unsigned long long v1;  // rsi\n
-    unsigned long v3;  // rax, Other Possible Types: unsigned long long\n
+    unsigned long long v3;  // rax, Other Possible Types: unsigned long\n
 \n
     if (a0->field_8 && cgc_deallocate(a0, v1))\n
         cgc__terminate(a0);\n
