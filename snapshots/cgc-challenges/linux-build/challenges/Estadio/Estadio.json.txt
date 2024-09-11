@@ -275,19 +275,22 @@ int cgc_transmit_all(unsigned int v6, unsigned int a0, unsigned int a1)\n
     }\n
     while (true)\n
     {\n
-        if (v4 >= a1)\n
+        if (v4 < a1)\n
+        {\n
+            v0 = &v3;\n
+            v2 = cgc_transmit(v6, a0 + v4, a1 - v4);\n
+            if (v2)\n
+            {\n
+                v5 = 3;\n
+                return v5;\n
+            }\n
+            v4 = v3 + v4;\n
+        }\n
+        else\n
         {\n
             v5 = 0;\n
             return v5;\n
         }\n
-        v0 = &v3;\n
-        v2 = cgc_transmit(v6, a0 + v4, a1 - v4);\n
-        if (v2)\n
-        {\n
-            v5 = 3;\n
-            return v5;\n
-        }\n
-        v4 = v3 + v4;\n
     }\n
 }\n
 ", "4199164:sub_4012fc": null, "4199168:cgc_churn_initialize": null, "4199554:sub_401482": null, "4199568:cgc_init_one": "extern char g_800000;\n
@@ -447,23 +450,23 @@ int cgc_handle_seed(unsigned int v3)\n
     v5 = v2;\n
     return cgc_send_empty_frame();\n
 }\n
-", "4200842:sub_40198a": null, "4200848:cgc_handle_rand": "typedef struct struct_1 {\n
+", "4200842:sub_40198a": null, "4200848:cgc_handle_rand": "typedef struct struct_0 {\n
     char field_0;\n
-} struct_1;\n
+} struct_0;\n
 \n
-typedef struct struct_0 {\n
+typedef struct struct_1 {\n
     char padding_0[8];\n
     unsigned int field_8;\n
-} struct_0;\n
+} struct_1;\n
 \n
 extern char _GLOBAL_OFFSET_TABLE_;\n
 \n
 int cgc_handle_rand(unsigned int v11)\n
 {\n
     unsigned int v0;  // [bp-0x38]\n
-    struct_1 *v1;  // [bp-0x34], Other Possible Types: unsigned int\n
+    struct_0 *v1;  // [bp-0x34], Other Possible Types: unsigned int\n
     unsigned int v2;  // [bp-0x2c]\n
-    struct_0 *v3;  // [bp-0x28]\n
+    struct_1 *v3;  // [bp-0x28]\n
     unsigned int v4;  // [bp-0x24]\n
     unsigned int v5;  // [bp-0x20]\n
     char v6;  // [bp-0x1c]\n
