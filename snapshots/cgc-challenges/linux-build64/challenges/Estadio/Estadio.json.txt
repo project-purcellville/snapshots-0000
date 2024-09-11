@@ -183,7 +183,7 @@ long long cgc_churn_initialize(unsigned long long a0[3])\n
     char v4;  // [bp-0x18], Other Possible Types: unsigned long, unsigned long long\n
     unsigned long long v6;  // rax\n
     unsigned long v7;  // rcx\n
-    unsigned long long v8;  // rax\n
+    unsigned long long *v8;  // rax\n
 \n
     v6 = 8819565873722515828;\n
     strncpy(&v4, \"tac odez\", 8);\n
@@ -191,7 +191,7 @@ long long cgc_churn_initialize(unsigned long long a0[3])\n
     for (v2 = 0; v2 < 16; v2 = v8)\n
     {\n
         v1 = v2 * 4;\n
-        v4 = cgc_init_one(v4 ^ v1, a0[0]);\n
+        v4 = cgc_init_one(*(&v4) ^ v1, a0[0]);\n
         (&gyre)[v1] = v4;\n
         v0 = v4;\n
         v0 = v1 ^ v0;\n
@@ -390,7 +390,7 @@ long long cgc_handle_rand(unsigned long long a0)\n
         cgc__terminate(a0);\n
     for (v4 = 0; v4 < v6; v4 += 1)\n
     {\n
-        v4[*(&v5)] = cgc_churn_rand_uint8();\n
+        *((*(&v5) + v4)) = cgc_churn_rand_uint8();\n
     }\n
     v1 = 11;\n
     v2 = v6;\n
@@ -414,24 +414,24 @@ long long cgc_handle_rand(unsigned long long a0)\n
     }\n
     return cgc_send_empty_frame(21);\n
 }\n
-", "4204815:sub_40290f": null, "4204816:cgc_handle_echo": "typedef struct struct_1 {\n
+", "4204815:sub_40290f": null, "4204816:cgc_handle_echo": "typedef struct struct_0 {\n
     char padding_0[4];\n
     unsigned int field_4;\n
-} struct_1;\n
-\n
-typedef struct struct_0 {\n
-    char padding_0[8];\n
-    unsigned long long field_8;\n
 } struct_0;\n
 \n
-long long cgc_handle_echo(struct_1 *a0)\n
+typedef struct struct_1 {\n
+    char padding_0[8];\n
+    unsigned long long field_8;\n
+} struct_1;\n
+\n
+long long cgc_handle_echo(struct_0 *a0)\n
 {\n
     unsigned long v0;  // [bp-0x98]\n
     char *v1;  // [bp-0x90]\n
     unsigned int v2;  // [bp-0x88]\n
     unsigned int v3;  // [bp-0x84]\n
     char v4;  // [bp-0x80]\n
-    struct_0 *v5;  // [bp-0x78]\n
+    struct_1 *v5;  // [bp-0x78]\n
     unsigned long v6;  // [bp-0x70]\n
     char v7;  // [bp-0x68]\n
     unsigned long long v10;  // rsi\n
@@ -651,7 +651,7 @@ long long cgc_send_frame(struct_0 *a0)\n
     v0 = a0;\n
     v1 = 0;\n
     v2 = 0;\n
-    return cgc_send_frame(&a0);\n
+    return cgc_send_frame(&v0);\n
 }\n
 ", "4206223:sub_402e8f": null, "4206224:cgc_expect_empty_frame": "long long cgc_expect_empty_frame(unsigned long a0)\n
 {\n
