@@ -27,19 +27,22 @@ int sub_401000(unsigned int v7, unsigned int a0, unsigned int a1)\n
     }\n
     while (true)\n
     {\n
-        if (v3 >= a1)\n
+        if (v3 < a1)\n
+        {\n
+            v0 = &v2;\n
+            v1 = cgc_transmit(v7, a0 + v3, a1 - v3);\n
+            if (v1)\n
+            {\n
+                v4 = 3;\n
+                return v4;\n
+            }\n
+            v3 = v2 + v3;\n
+        }\n
+        else\n
         {\n
             v4 = 0;\n
             return v4;\n
         }\n
-        v0 = &v2;\n
-        v1 = cgc_transmit(v7, a0 + v3, a1 - v3);\n
-        if (v1)\n
-        {\n
-            v4 = 3;\n
-            return v4;\n
-        }\n
-        v3 = v2 + v3;\n
     }\n
 }\n
 ", "4198592:sub_4010c0": "typedef struct struct_0 {\n
@@ -71,19 +74,22 @@ int sub_401000(unsigned int v7, unsigned int a0, unsigned int a1)\n
     }\n
     while (true)\n
     {\n
-        if (v3 >= a1)\n
+        if (v3 < a1)\n
+        {\n
+            v0 = &v2;\n
+            v1 = cgc_transmit(v7, a0 + v3, a1 - v3);\n
+            if (v1)\n
+            {\n
+                v4 = 3;\n
+                return v4;\n
+            }\n
+            v3 = v2 + v3;\n
+        }\n
+        else\n
         {\n
             v4 = 0;\n
             return v4;\n
         }\n
-        v0 = &v2;\n
-        v1 = cgc_transmit(v7, a0 + v3, a1 - v3);\n
-        if (v1)\n
-        {\n
-            v4 = 3;\n
-            return v4;\n
-        }\n
-        v3 = v2 + v3;\n
     }\n
 }\n
 ", "4199024:sub_401270": "int sub_401270(unsigned int v8, unsigned int a0, unsigned int a1, unsigned int a2)\n
@@ -298,7 +304,7 @@ int sub_401860(unsigned int v11)\n
         cgc__terminate();\n
     for (v6 = 0; v6 < v8; v6 += 1)\n
     {\n
-        *((*(&v7) + v6)) = sub_401680();\n
+        v6[*(&v7)] = sub_401680();\n
     }\n
     v3 = 11;\n
     v4 = v8;\n
@@ -1314,16 +1320,16 @@ LABEL_402926:\n
     *(&v11) = 1;\n
     return v11;\n
 }\n
-", "4204864:sub_402940": "typedef struct struct_0 {\n
+", "4204864:sub_402940": "typedef struct struct_1 {\n
     char field_0;\n
-} struct_0;\n
+} struct_1;\n
 \n
-int sub_402940(unsigned int v5, unsigned int a0, unsigned int a1, struct struct_1 **a2, unsigned int a3, unsigned int a4)\n
+int sub_402940(unsigned int v5, unsigned int a0, unsigned int a1, struct struct_0 **a2, unsigned int a3, unsigned int a4)\n
 {\n
     unsigned int v0;  // [bp-0x10]\n
-    struct struct_1 **v1;  // [bp-0xc]\n
-    struct struct_1 **v2;  // [bp-0x8], Other Possible Types: unsigned int\n
-    struct_0 *v3;  // [bp-0x4], Other Possible Types: unsigned int\n
+    struct struct_0 **v1;  // [bp-0xc]\n
+    struct struct_0 **v2;  // [bp-0x8], Other Possible Types: unsigned int\n
+    struct_1 *v3;  // [bp-0x4], Other Possible Types: unsigned int\n
     char v4;  // [bp+0x0]\n
 \n
     v3 = &v4;\n
