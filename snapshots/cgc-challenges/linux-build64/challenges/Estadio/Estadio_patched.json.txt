@@ -390,7 +390,7 @@ long long cgc_handle_rand(unsigned long long a0)\n
         cgc__terminate(a0);\n
     for (v4 = 0; v4 < v6; v4 += 1)\n
     {\n
-        v4[*(&v5)] = cgc_churn_rand_uint8();\n
+        *((*(&v5) + v4)) = cgc_churn_rand_uint8();\n
     }\n
     v1 = 11;\n
     v2 = v6;\n
@@ -655,7 +655,7 @@ long long cgc_send_frame(struct_0 *a0)\n
     v0 = a0;\n
     v1 = 0;\n
     v2 = 0;\n
-    return cgc_send_frame(&v0);\n
+    return cgc_send_frame(&a0);\n
 }\n
 ", "4206271:sub_402ebf": null, "4206272:cgc_expect_empty_frame": "long long cgc_expect_empty_frame(unsigned long a0)\n
 {\n
