@@ -304,7 +304,7 @@ int sub_401860(unsigned int v11)\n
         cgc__terminate();\n
     for (v6 = 0; v6 < v8; v6 += 1)\n
     {\n
-        v6[*(&v7)] = sub_401680();\n
+        *((*(&v7) + v6)) = sub_401680();\n
     }\n
     v3 = 11;\n
     v4 = v8;\n
@@ -1517,11 +1517,16 @@ int sub_402b20(struct_0 *v8, unsigned int a0)\n
     v5[0] = v2;\n
     while (true)\n
     {\n
-        if (v5 == v0)\n
+        if (v5 != v0)\n
+        {\n
+            if (a0 >= *((v5 + 12)) && a0 < *((v5 + 12)) + *((v5 + 8)))\n
+                return v5;\n
+            v5 = &v5[2 + 2];\n
+        }\n
+        else\n
+        {\n
             return 0;\n
-        if (a0 >= *((v5 + 12)) && a0 < *((v5 + 12)) + *((v5 + 8)))\n
-            return v5;\n
-        v5 += 40;\n
+        }\n
     }\n
 }\n
 ", "4205488:sub_402bb0": "extern unsigned int g_406040;\n
@@ -2874,9 +2879,9 @@ int sub_403ae0()\n
             v5 -= 1;\n
         g_406318 = v5 + 1;\n
         g_40631c = v4;\n
-        for (v1[0] = 0; v1 < v5; v1 += 1)\n
+        for (v1[0] = 0; v1 < v5; v1 = &v1[0] + 1)\n
         {\n
-            *(&(&g_406320)[4 * v1]) = *((*(&v6) + v1 * 4));\n
+            *((0x4 * v1 + &g_406320)) = *((*(&v6) + v1 * 4));\n
         }\n
         sub_403d30();\n
         v22 = v2;\n
