@@ -72,7 +72,7 @@ char * __cxa_finalize()\n
 }\n
 ", "4198592:_start": "long long _start()\n
 {\n
-    unsigned long v0;  // [bp+0x0], Other Possible Types: char\n
+    char v0;  // [bp+0x0], Other Possible Types: unsigned long\n
     unsigned long v1;  // [bp+0x8]\n
     unsigned long long v2;  // rsi\n
     unsigned long v3;  // rax\n
@@ -177,25 +177,28 @@ long long __do_global_dtors_aux()\n
     }\n
     while (true)\n
     {\n
-        if (v2 >= a2)\n
+        if (v2 < a2)\n
+        {\n
+            v0 = cgc_transmit(a0, a1, a2, v7);\n
+            if (v0)\n
+            {\n
+                v5 = 3;\n
+                return v5;\n
+            }\n
+            v2 = v1 + v2;\n
+        }\n
+        else\n
         {\n
             v5 = 0;\n
             return v5;\n
         }\n
-        v0 = cgc_transmit(a0, a1, a2, v7);\n
-        if (v0)\n
-        {\n
-            v5 = 3;\n
-            return v5;\n
-        }\n
-        v2 = v1 + v2;\n
     }\n
 }\n
 ", "4199315:sub_401393": null, "4199328:cgc_strlen": "long long cgc_strlen(unsigned long a0)\n
 {\n
     char *v0;  // [bp-0x18], Other Possible Types: unsigned long\n
 \n
-    for (v0 = 0; *((a0 + v0)); v0 += 1);\n
+    for (v0 = 0; v0[a0]; v0 += 1);\n
     return v0;\n
 }\n
 ", "4199388:sub_4013dc": null, "4199392:cgc_memcpy": "long long cgc_memcpy(char *a0, char *a1, unsigned long a2)\n
@@ -658,7 +661,7 @@ long long cgc_receiveSearchResults(unsigned long long a0, struct_0 *a1, unsigned
             }\n
             if (a1->field_0 < a2)\n
             {\n
-                v2 = cgc_parseSearchResult(&v3, v4->field_8 + a1->field_0 * 250);\n
+                v2 = cgc_parseSearchResult(&v3, a1->field_8 + v4->field_0 * 250);\n
                 if (v2)\n
                     cgc__terminate(a0);\n
                 v7 = a1;\n
@@ -682,11 +685,12 @@ long long cgc_receiveSearchResults(unsigned long long a0, struct_0 *a1, unsigned
     unsigned long long v4;  // rdi\n
     unsigned long long v5;  // rsi\n
     unsigned long long v6;  // rdx\n
+    unsigned long long v7;  // rcx\n
 \n
     v0 = &v3;\n
     v2 = 0;\n
     v1 = 0;\n
-    v1 = cgc_allocate(v4, v5, v6);\n
+    v1 = cgc_allocate(v4, v5, v6, v7);\n
     if (v1)\n
         cgc__terminate(v4);\n
     cgc_memset(v2, 0, 137);\n
@@ -712,11 +716,12 @@ long long cgc_receiveSearchResults(unsigned long long a0, struct_0 *a1, unsigned
     void* v2;  // [bp-0x18]\n
     unsigned long long v4;  // rsi\n
     unsigned long long v5;  // rdx\n
+    unsigned long long v6;  // rcx\n
 \n
     v2 = 0;\n
     v1 = 0;\n
     v0 = 0;\n
-    v0 = cgc_random(a0, v4, v5);\n
+    v0 = cgc_random(a0, v4, v5, v6);\n
     if (v0)\n
         cgc__terminate(a0);\n
     if (v2 != 4)\n
@@ -773,12 +778,13 @@ long long cgc_getRandomAttribute(unsigned long a0)\n
     unsigned int v4;  // [bp-0x14]\n
     unsigned long long v6;  // rsi\n
     unsigned long long v7;  // rdx\n
+    unsigned long long v8;  // rcx\n
 \n
     v4 = 0;\n
     v3 = 0;\n
     v2 = 0;\n
     v1 = 0;\n
-    v1 = cgc_allocate(a0, v6, v7);\n
+    v1 = cgc_allocate(a0, v6, v7, v8);\n
     if (v1)\n
         cgc__terminate(a0);\n
     cgc_memset(*(a0), 0, 32);\n
@@ -825,7 +831,7 @@ long long cgc_purchaseSong(unsigned long long a0, char *a1, struct_0 *a2)\n
     v9->field_0 = v9->field_0 + 1;\n
     cgc_memcpy(a2->field_8 + (v5->field_0 - 1) * 250, a1, 150);\n
     v1 = a0;\n
-    v2 = a2->field_8 + (v5->field_0 - 1) * 250;\n
+    v2 = v5->field_8 + (a2->field_0 - 1) * 250;\n
     v4 = cgc_transmit_all(v1, v2, cgc_strlen(v5->field_8 + (a2->field_0 - 1) * 250));\n
     if (v4)\n
         cgc__terminate(a0);\n
@@ -957,7 +963,7 @@ int main(unsigned long long a0, unsigned long a1)\n
     int v12;  // [bp-0xab0]\n
     unsigned long long v13;  // [bp-0xaa0]\n
     struct_0 *v14;  // [bp-0xa98]\n
-    char *v15;  // [bp-0xa90], Other Possible Types: void*\n
+    void* v15;  // [bp-0xa90], Other Possible Types: char *\n
     char v16;  // [bp-0xa88]\n
     char v17;  // [bp-0xb8]\n
     char v18;  // [bp-0xa8]\n
@@ -976,9 +982,6 @@ int main(unsigned long long a0, unsigned long a1)\n
     unsigned long v31;  // [bp-0x18]\n
     unsigned int v32;  // [bp-0x10]\n
     unsigned int v33;  // [bp-0xc]\n
-    unsigned long long v35;  // rcx\n
-    unsigned long long v36;  // r8\n
-    unsigned long long v37;  // r9\n
 \n
     v33 = 0;\n
     v32 = a0;\n
@@ -1004,7 +1007,7 @@ int main(unsigned long long a0, unsigned long a1)\n
         *(&v3) = *(&v19);\n
         *(&v1) = *(&v18);\n
         *(&v0) = *(&v17);\n
-        cgc_sendSearchString(0);\n
+        cgc_sendSearchString(0, 0);\n
         cgc_receiveSearchResults(0, &v24, 10);\n
         v14 = &v0;\n
         v13 = *(&v23);\n
@@ -1016,7 +1019,7 @@ int main(unsigned long long a0, unsigned long a1)\n
         *(&v2) = *(&v17);\n
         v1 = *(&v26);\n
         *(&v0) = *(&v24);\n
-        v15 = cgc_selectSong(0, 0, 10, v35, v36, v37);\n
+        v15 = cgc_selectSong(0);\n
         v30 = cgc_purchaseSong(1, v15, &v27);\n
         if (v30 == 1)\n
             break;\n
