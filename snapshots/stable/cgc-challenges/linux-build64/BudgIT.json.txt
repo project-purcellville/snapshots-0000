@@ -282,22 +282,19 @@ long long cgc_recvline(unsigned long long a0, struct_0 *a1, unsigned long long a
     }\n
     while (true)\n
     {\n
-        if (v2)\n
-        {\n
-            v3 += 1;\n
-            if (cgc_receive(a0, a1, a2, v7))\n
-            {\n
-                v5 = -1;\n
-                return v5;\n
-            }\n
-            v0 += 1;\n
-            v2 -= 1;\n
-        }\n
-        else\n
+        if (!v2)\n
         {\n
             v5 = v0;\n
             return v5;\n
         }\n
+        v3 += 1;\n
+        if (cgc_receive(a0, a1, a2, v7))\n
+        {\n
+            v5 = -1;\n
+            return v5;\n
+        }\n
+        v0 += 1;\n
+        v2 -= 1;\n
     }\n
 }\n
 ", "4203939:sub_4025a3": null, "4203952:cgc_strcpy": "long long cgc_strcpy(char *a0, char *a1)\n
@@ -340,7 +337,7 @@ long long cgc_recvline(unsigned long long a0, struct_0 *a1, unsigned long long a
     v4 = v1;\n
     v1 = v4 + 1;\n
     *(v4) = 0;\n
-    return v1 - a0 - 1;\n
+    return -1 + v1 - a0;\n
 }\n
 ", "4204222:sub_4026be": null, "4204224:cgc_strcat": "long long cgc_strcat(char *a0, char *a1)\n
 {\n
@@ -414,7 +411,7 @@ long long cgc_recvline(unsigned long long a0, struct_0 *a1, unsigned long long a
     unsigned int v0;  // [bp-0x2c]\n
     unsigned int v1;  // [bp-0x28]\n
     unsigned int v2;  // [bp-0x24]\n
-    unsigned int v3;  // [bp-0x20]\n
+    unsigned long v3;  // [bp-0x20], Other Possible Types: unsigned int\n
     unsigned int v4;  // [bp-0xc]\n
     char *v6;  // rcx\n
     unsigned long v7;  // rcx\n
@@ -456,13 +453,13 @@ long long cgc_recvline(unsigned long long a0, struct_0 *a1, unsigned long long a
     unsigned int v0;  // [bp-0x2c]\n
     unsigned int v1;  // [bp-0x28]\n
     unsigned int v2;  // [bp-0x24]\n
-    unsigned int v3;  // [bp-0x20]\n
+    unsigned long v3;  // [bp-0x20], Other Possible Types: unsigned int\n
     unsigned int v4;  // [bp-0xc]\n
     char *v6;  // rcx\n
-    unsigned int v8;  // eax\n
+    unsigned int v7;  // eax\n
+    unsigned long v9;  // rcx\n
     unsigned long v10;  // rcx\n
-    unsigned long v11;  // rcx\n
-    unsigned int v12;  // eax\n
+    unsigned int v11;  // eax\n
 \n
     v3 = a2;\n
     v2 = 0;\n
@@ -490,25 +487,25 @@ long long cgc_recvline(unsigned long long a0, struct_0 *a1, unsigned long long a
     do\n
     {\n
         v2 += 1;\n
-        v8 = v1;\n
-        v1 = (v8 >> 31 CONCAT v8) /m 10;\n
+        v7 = v1;\n
+        v1 = (v7 >> 31 CONCAT v7) /m 10;\n
     } while (v1 < 0);\n
     if (v2 >= a1)\n
     {\n
         v4 = -1;\n
         return v4;\n
     }\n
-    v10 = v2;\n
-    v2 = v10 - 1;\n
-    *((a0 + v10)) = 0;\n
+    v9 = v2;\n
+    v2 = v9 - 1;\n
+    *((a0 + v9)) = 0;\n
     do\n
     {\n
         v0 = ((v3 >> 31 CONCAT v3) /m 10 >> 32) * -1;\n
-        v11 = v2;\n
-        v2 = v11 - 1;\n
-        *((a0 + v11)) = v0 + 48;\n
-        v12 = v3;\n
-        v3 = (v12 >> 31 CONCAT v12) /m 10;\n
+        v10 = v2;\n
+        v2 = v10 - 1;\n
+        *((a0 + v10)) = v0 + 48;\n
+        v11 = v3;\n
+        v3 = (v11 >> 31 CONCAT v11) /m 10;\n
     } while (v3 < 0);\n
     v4 = 0;\n
     return v4;\n
@@ -591,12 +588,15 @@ LABEL_402aff:\n
             v1 = 0;\n
             return v1;\n
         }\n
-        if (*(v0) == a1)\n
+        else if (*(v0) != a1)\n
+        {\n
+            v0 += 1;\n
+        }\n
+        else\n
         {\n
             v1 = v0;\n
             return v1;\n
         }\n
-        v0 += 1;\n
     }\n
 }\n
 ", "4205794:sub_402ce2": null, "4205808:cgc___umoddi3": "long long cgc___umoddi3(unsigned long a0, unsigned long a1)\n
@@ -629,7 +629,7 @@ LABEL_402aff:\n
             v1 = 0;\n
             return v1;\n
         }\n
-        if (v0[a0] != v0[a1])\n
+        if (*((a0 + v0)) != *((a1 + v0)))\n
         {\n
             v1 = -1;\n
             return v1;\n
@@ -653,9 +653,9 @@ long long cgc_checkheap()\n
 \n
     for (v1 = cgc_freed; *((v1 + 8)) != cgc_freed; v1 = v1->field_8)\n
     {\n
-        for (v0 = cgc_allocated; v0->field_8 != cgc_allocated; v0 = v0->field_8)\n
+        for (v0 = cgc_allocated; *((v0 + 8)) != cgc_allocated; v0 = *((v0 + 8)))\n
         {\n
-            if (v1 < &v0->padding_0[v0->field_10] && v0 < &v1->padding_0[v1->field_10])\n
+            if (v1 < (v0 + *((v0 + 16))) && v0 < &v1->padding_0[v1->field_10])\n
             {\n
                 if (cgc_sendline(1, \"corrupt\", 7) < 0)\n
                     cgc__terminate(1);\n
@@ -702,13 +702,13 @@ long long cgc_malloc(unsigned long a0)\n
     while (true)\n
     {\n
         v0 = 0;\n
-        if (v1->field_10 < v2)\n
-            v0 = v1->field_8 != cgc_freed;\n
+        if (*((v1 + 16)) < v2)\n
+            v0 = *((v1 + 8)) != cgc_freed;\n
         if (!(v0 & 1))\n
             break;\n
-        v1 = v1->field_8;\n
+        v1 = *((v1 + 8));\n
     }\n
-    if (v1->field_10 >= v2)\n
+    if (*((v1 + 16)) >= v2)\n
     {\n
         cgc_remove(v1);\n
         cgc_insert(cgc_allocated, v1);\n
@@ -785,9 +785,6 @@ typedef struct struct_0 {\n
 \n
 long long cgc_insert(unsigned long long *a0, struct_1 *a1)\n
 {\n
-    struct_1 *v0;  // [bp-0x18]\n
-\n
-    v0 = a1;\n
     a1->field_8 = a0;\n
     a1->field_0 = *(a0);\n
     a1->field_0->field_8 = a1;\n
@@ -872,21 +869,18 @@ long long cgc_free(unsigned long a0)\n
     }\n
     while (true)\n
     {\n
-        if (v2 < a2)\n
-        {\n
-            v0 = cgc_transmit(a0, a1, a2, v7);\n
-            if (v0)\n
-            {\n
-                v5 = 3;\n
-                return v5;\n
-            }\n
-            v2 = v1 + v2;\n
-        }\n
-        else\n
+        if (v2 >= a2)\n
         {\n
             v5 = 0;\n
             return v5;\n
         }\n
+        v0 = cgc_transmit(a0, a1, a2, v7);\n
+        if (v0)\n
+        {\n
+            v5 = 3;\n
+            return v5;\n
+        }\n
+        v2 = v1 + v2;\n
     }\n
 }\n
 ", "4207491:sub_403383": null, "4207504:cgc_strnlen": "long long cgc_strnlen(unsigned long a0, char *a1)\n
@@ -1057,7 +1051,7 @@ long long cgc_getValue(struct_0 *a0, char *a1)\n
                 v1 = *((v0 + 8));\n
                 return v1;\n
             }\n
-            v0 = *(v0);\n
+            v0 = v0->field_0;\n
         }\n
         else\n
         {\n
@@ -1178,7 +1172,7 @@ long long cgc_sendReport(struct_0 *a0)\n
         v0 = cgc_transmit_all(1, v1 + 1, 24);\n
         if (v0)\n
             cgc__terminate(1);\n
-        v0 = cgc_int2str(&v3, 40, *((v1 + 8)));\n
+        v0 = cgc_int2str(&v3, 40, v1->field_8);\n
         if (v0)\n
             cgc__terminate(1);\n
         v0 = cgc_transmit_all(1, &v3, 40);\n
@@ -1281,17 +1275,17 @@ LABEL_403bdc:\n
             }\n
         }\n
         v4 = cgc_setMap(&v8, &v6, *(&v5));\n
-        if (v4 != 1)\n
+        if (v4 == 1)\n
         {\n
-            v4 = cgc_transmit_all(1, \"No more entries\\n
-\", 16);\n
+            v4 = cgc_transmit_all(1, \"New budget created!\\n
+\", 20);\n
             if (v4)\n
                 cgc__terminate(1);\n
         }\n
         else\n
         {\n
-            v4 = cgc_transmit_all(1, \"New budget created!\\n
-\", 20);\n
+            v4 = cgc_transmit_all(1, \"No more entries\\n
+\", 16);\n
             if (v4)\n
                 cgc__terminate(1);\n
         }\n
