@@ -111,11 +111,11 @@ long long __do_global_dtors_aux()\n
 {\n
     return register_tm_clones();\n
 }\n
-", "4202905:sub_402199": null, "4202912:cgc_promptc": "long long cgc_promptc(unsigned long long a0, unsigned long a1, unsigned long long a2)\n
+", "4202905:sub_402199": null, "4202912:cgc_promptc": "long long cgc_promptc(unsigned long long a0, unsigned long long a1, unsigned long long a2)\n
 {\n
-    unsigned long v1;  // rax, Other Possible Types: unsigned long long\n
+    unsigned long long v1;  // rax, Other Possible Types: unsigned long\n
 \n
-    if (cgc_sendall(1, a2, cgc_strlen(a2)) < 0)\n
+    if (cgc_sendall(1, a2, cgc_strlen(a2, a1)) < 0)\n
         cgc__terminate(1);\n
     v1 = cgc_recvline(0, a0, a1);\n
     if (v1 >= 0)\n
@@ -157,17 +157,14 @@ long long __do_global_dtors_aux()\n
             v5 = v0;\n
             return v5;\n
         }\n
-        else if (!cgc_transmit(a0, a1, a2, v7))\n
-        {\n
-            v3 = v1 + v3;\n
-            v0 = v1 + v0;\n
-            v2 -= v1;\n
-        }\n
-        else\n
+        if (cgc_transmit(a0, a1, a2, v7))\n
         {\n
             v5 = -1;\n
             return v5;\n
         }\n
+        v3 = v1 + v3;\n
+        v0 = v1 + v0;\n
+        v2 -= v1;\n
     }\n
 }\n
 ", "4203286:sub_402316": null, "4203296:cgc_strlen": "long long cgc_strlen(char *a0)\n
@@ -411,7 +408,7 @@ long long cgc_recvline(unsigned long long a0, struct_0 *a1, unsigned long long a
     unsigned int v0;  // [bp-0x2c]\n
     unsigned int v1;  // [bp-0x28]\n
     unsigned int v2;  // [bp-0x24]\n
-    unsigned int v3;  // [bp-0x20], Other Possible Types: unsigned long\n
+    unsigned int v3;  // [bp-0x20]\n
     unsigned int v4;  // [bp-0xc]\n
     char *v6;  // rcx\n
     unsigned long v7;  // rcx\n
@@ -453,7 +450,7 @@ long long cgc_recvline(unsigned long long a0, struct_0 *a1, unsigned long long a
     unsigned int v0;  // [bp-0x2c]\n
     unsigned int v1;  // [bp-0x28]\n
     unsigned int v2;  // [bp-0x24]\n
-    unsigned int v3;  // [bp-0x20], Other Possible Types: unsigned long\n
+    unsigned long v3;  // [bp-0x20], Other Possible Types: unsigned int\n
     unsigned int v4;  // [bp-0xc]\n
     char *v6;  // rcx\n
     unsigned int v7;  // eax\n
@@ -588,15 +585,12 @@ LABEL_402aff:\n
             v1 = 0;\n
             return v1;\n
         }\n
-        else if (*(v0) != a1)\n
-        {\n
-            v0 += 1;\n
-        }\n
-        else\n
+        if (*(v0) == a1)\n
         {\n
             v1 = v0;\n
             return v1;\n
         }\n
+        v0 += 1;\n
     }\n
 }\n
 ", "4205794:sub_402ce2": null, "4205808:cgc___umoddi3": "long long cgc___umoddi3(unsigned long a0, unsigned long a1)\n
@@ -629,12 +623,15 @@ LABEL_402aff:\n
             v1 = 0;\n
             return v1;\n
         }\n
-        if (v0[a0] != v0[a1])\n
+        else if (*((a0 + v0)) == *((a1 + v0)))\n
+        {\n
+            v0 += 1;\n
+        }\n
+        else\n
         {\n
             v1 = -1;\n
             return v1;\n
         }\n
-        v0 += 1;\n
     }\n
 }\n
 ", "4206036:sub_402dd4": null, "4206048:cgc_checkheap": "typedef struct struct_0 {\n
@@ -651,7 +648,7 @@ long long cgc_checkheap()\n
     struct_0 *v0;  // [bp-0x18], Other Possible Types: unsigned long\n
     struct_0 *v1;  // [bp-0x10], Other Possible Types: unsigned long\n
 \n
-    for (v1 = cgc_freed; *((v1 + 8)) != cgc_freed; v1 = v1->field_8)\n
+    for (v1 = cgc_freed; v1->field_8 != cgc_freed; v1 = v1->field_8)\n
     {\n
         for (v0 = cgc_allocated; v0->field_8 != cgc_allocated; v0 = v0->field_8)\n
         {\n
@@ -663,7 +660,7 @@ long long cgc_checkheap()\n
             }\n
         }\n
     }\n
-    return *((v1 + 8));\n
+    return v1->field_8;\n
 }\n
 ", "4206263:sub_402eb7": null, "4206272:cgc_malloc": "typedef struct struct_0 {\n
     char padding_0[8];\n
@@ -683,8 +680,11 @@ long long cgc_malloc(unsigned long a0)\n
     struct_0 *v1;  // [bp-0x20], Other Possible Types: unsigned long\n
     unsigned long v2;  // [bp-0x18]\n
     void* v3;  // [bp-0x10], Other Possible Types: unsigned long\n
-    unsigned long long v5;  // rsi\n
+    unsigned long long v5;  // rcx\n
     unsigned long long v6;  // rdx\n
+    unsigned long long v7;  // rdx\n
+    unsigned long long v8;  // rsi\n
+    unsigned long long v9;  // rcx\n
 \n
     v2 = a0;\n
     if (!cgc_heapinit_done)\n
@@ -718,15 +718,16 @@ long long cgc_malloc(unsigned long a0)\n
         {\n
             v1 = cgc_lastpage;\n
             *((v1 + 16)) = cgc_curleft;\n
-            cgc_insert(cgc_freed, v1);\n
+            cgc_insert(cgc_freed, v1, v7, cgc_curleft);\n
         }\n
-        if (cgc_allocate(cgc_freed, v5, v6))\n
+        if (cgc_allocate(cgc_freed, v8, v7))\n
         {\n
             v3 = 0;\n
             return v3;\n
         }\n
-        *((v1 + 16)) = v2;\n
-        cgc_insert(cgc_allocated, v1);\n
+        v9 = v2;\n
+        *((v1 + 16)) = v9;\n
+        cgc_insert(cgc_allocated, v1, v7, v9);\n
         cgc_lastpage = v1 + v2;\n
         if (!(v2 & 4095))\n
             cgc_curleft = 0;\n
@@ -740,8 +741,9 @@ long long cgc_malloc(unsigned long a0)\n
         v1 = cgc_lastpage;\n
         *((v1 + 16)) = v2;\n
         cgc_lastpage = &cgc_lastpage->padding_0[v2];\n
-        cgc_curleft = cgc_curleft - v2;\n
-        cgc_insert(cgc_allocated, v1);\n
+        v5 = v2;\n
+        cgc_curleft = cgc_curleft - v5;\n
+        cgc_insert(cgc_allocated, v1, v6, v5);\n
         v3 = v1 + 24;\n
         return v3;\n
     }\n
@@ -780,6 +782,9 @@ typedef struct struct_0 {\n
 \n
 long long cgc_insert(unsigned long long *a0, struct_1 *a1)\n
 {\n
+    struct_1 *v0;  // [bp-0x18]\n
+\n
+    v0 = a1;\n
     a1->field_8 = a0;\n
     a1->field_0 = *(a0);\n
     a1->field_0->field_8 = a1;\n
@@ -822,7 +827,7 @@ long long cgc_free(unsigned long a0)\n
     unsigned long long v1;  // rdi\n
     unsigned long long v2;  // rsi\n
     unsigned long long v3;  // rdx\n
-    unsigned long v4;  // rax, Other Possible Types: unsigned long long\n
+    unsigned long long v4;  // rax, Other Possible Types: unsigned long\n
 \n
     v4 = cgc_random(v1, v2, v3);\n
     if (!v4)\n
@@ -864,21 +869,18 @@ long long cgc_free(unsigned long a0)\n
     }\n
     while (true)\n
     {\n
-        if (v2 < a2)\n
-        {\n
-            v0 = cgc_transmit(a0, a1, a2, v7);\n
-            if (v0)\n
-            {\n
-                v5 = 3;\n
-                return v5;\n
-            }\n
-            v2 = v1 + v2;\n
-        }\n
-        else\n
+        if (v2 >= a2)\n
         {\n
             v5 = 0;\n
             return v5;\n
         }\n
+        v0 = cgc_transmit(a0, a1, a2, v7);\n
+        if (v0)\n
+        {\n
+            v5 = 3;\n
+            return v5;\n
+        }\n
+        v2 = v1 + v2;\n
     }\n
 }\n
 ", "4207491:sub_403383": null, "4207504:cgc_strnlen": "long long cgc_strnlen(unsigned long a0, char *a1)\n
@@ -989,9 +991,9 @@ long long cgc_setMap(struct struct_0 **a0, char *a1, unsigned long a2)\n
 \n
     v1 = 0;\n
     v0 = 0;\n
-    for (v1 = *(a0); v1; v1 = *(v1))\n
+    for (v1 = *(a0); v1; v1 = v1->field_0)\n
     {\n
-        if (!cgc_strcmp(a1, v1 + 12))\n
+        if (!cgc_strcmp(a1, &v1->field_c))\n
             break;\n
         v0 = v1;\n
     }\n
@@ -1042,17 +1044,20 @@ long long cgc_getValue(struct_0 *a0, char *a1)\n
     v0 = a0;\n
     while (true)\n
     {\n
-        if (!v0)\n
+        if (v0)\n
+        {\n
+            if (v0 + 1 && !cgc_strcmp(a1, v0 + 1))\n
+            {\n
+                v1 = *((v0 + 8));\n
+                return v1;\n
+            }\n
+            v0 = v0->field_0;\n
+        }\n
+        else\n
         {\n
             v1 = 0;\n
             return v1;\n
         }\n
-        if (v0 + 1 && !cgc_strcmp(a1, v0 + 1))\n
-        {\n
-            v1 = *((v0 + 8));\n
-            return v1;\n
-        }\n
-        v0 = *(v0);\n
     }\n
 }\n
 ", "4208579:sub_4037c3": null, "4208592:cgc_removeMap": "long long cgc_removeMap(unsigned long a0, unsigned long a1)\n
@@ -1098,7 +1103,7 @@ long long cgc_getValue(struct_0 *a0, char *a1)\n
 ", "4208847:sub_4038cf": null, "4208848:cgc_receiveInstruction": "long long cgc_receiveInstruction(unsigned long long a0)\n
 {\n
     unsigned int v0;  // [bp-0x14]\n
-    unsigned long v2;  // rax, Other Possible Types: unsigned long long\n
+    unsigned long long v2;  // rax, Other Possible Types: unsigned long\n
 \n
     v2 = cgc_recv(0, a0, 8);\n
     v0 = v2;\n
@@ -1112,7 +1117,7 @@ long long cgc_getValue(struct_0 *a0, char *a1)\n
 ", "4208905:sub_403909": null, "4208912:cgc_receiveValue": "long long cgc_receiveValue(unsigned long long a0)\n
 {\n
     unsigned int v0;  // [bp-0x14]\n
-    unsigned long v2;  // rax, Other Possible Types: unsigned long long\n
+    unsigned long long v2;  // rax, Other Possible Types: unsigned long\n
 \n
     v2 = cgc_recv(0, a0, 4);\n
     v0 = v2;\n
@@ -1126,7 +1131,7 @@ long long cgc_getValue(struct_0 *a0, char *a1)\n
 ", "4208969:sub_403949": null, "4208976:cgc_receiveKey": "long long cgc_receiveKey(unsigned long a0)\n
 {\n
     unsigned int v0;  // [bp-0x14]\n
-    unsigned long v2;  // rax, Other Possible Types: unsigned long long\n
+    unsigned long long v2;  // rax, Other Possible Types: unsigned long\n
 \n
     cgc_memset(a0, 0, 24);\n
     v2 = cgc_recvline(0, a0, 23);\n
@@ -1151,7 +1156,7 @@ long long cgc_sendReport(struct_0 *a0)\n
     char v3;  // [bp-0x48]\n
     unsigned int v4;  // [bp-0x14]\n
     unsigned int v6;  // eax\n
-    unsigned long v7;  // rax, Other Possible Types: unsigned long long\n
+    unsigned long long v7;  // rax, Other Possible Types: unsigned long\n
 \n
     memset(&v3, 0, 40);\n
     v2 = 0;\n
@@ -1163,18 +1168,18 @@ long long cgc_sendReport(struct_0 *a0)\n
         v4 = v6 - 1;\n
         if (!v6)\n
             break;\n
-        v2 = v1->field_8 + v2;\n
-        v0 = cgc_transmit_all(1, v1 + 1, 24);\n
+        v2 = *((v1 + 8)) + v2;\n
+        v0 = cgc_transmit_all(1, v1 + 12, 24);\n
         if (v0)\n
             cgc__terminate(1);\n
-        v0 = cgc_int2str(&v3, 40, v1->field_8);\n
+        v0 = cgc_int2str(&v3, 40, *((v1 + 8)));\n
         if (v0)\n
             cgc__terminate(1);\n
         v0 = cgc_transmit_all(1, &v3, 40);\n
         if (v0)\n
             cgc__terminate(1);\n
         cgc_memset(&v3, 0, 40);\n
-        v1 = v1->field_0;\n
+        v1 = *(v1);\n
     }\n
     v0 = cgc_int2str(&v3, 40, v2);\n
     if (v0)\n
