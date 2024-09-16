@@ -134,7 +134,7 @@ long long __do_global_dtors_aux()\n
             v5 = v2;\n
             return v5;\n
         }\n
-        else if (v0)\n
+        if (v0)\n
         {\n
             v1 -= v0;\n
         }\n
@@ -234,10 +234,10 @@ long long cgc_transmit_with_term(unsigned long a0, unsigned long long a1, unsign
         }\n
         if (!(v0 & 1))\n
             break;\n
-        v1[a0] = v1[a1];\n
+        *((a0 + v1)) = *((a1 + v1));\n
         v1 += 1;\n
     }\n
-    v1[a0] = 6;\n
+    *((a0 + v1)) = 6;\n
     return a0;\n
 }\n
 ", "4199621:sub_4014c5": null, "4199632:cgc_strncat": "long long cgc_strncat(unsigned long long a0, unsigned long a1, unsigned long a2)\n
@@ -478,7 +478,7 @@ long long cgc_canonicalize_path(unsigned long long a0, char *a1, unsigned long a
             v4 = 15;\n
             return v4;\n
         }\n
-        cgc_strncat(a0, v3, *(&v1));\n
+        cgc_strncat(a0, *(&v3), *(&v1));\n
         v0 += 2;\n
         v3 = v0;\n
     }\n
@@ -601,10 +601,10 @@ LABEL_401d11:\n
                         a1 = v12 + 1;\n
                         v12 = a1;\n
                         v11 = cgc_request_document(&v2, a1);\n
-                        if (v11)\n
-                            v1 = 2;\n
-                        else\n
+                        if (!v11)\n
                             v1 = 0;\n
+                        else\n
+                            v1 = 2;\n
                     }\n
                     if (v1)\n
                         break;\n
