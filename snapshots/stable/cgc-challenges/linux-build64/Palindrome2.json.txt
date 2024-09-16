@@ -43,7 +43,7 @@ char * __cxa_finalize()\n
 }\n
 ", "4198512:_start": "long long _start()\n
 {\n
-    unsigned long v0;  // [bp+0x0], Other Possible Types: char\n
+    char v0;  // [bp+0x0], Other Possible Types: unsigned long\n
     unsigned long v1;  // [bp+0x8]\n
     unsigned long long v2;  // rsi\n
     unsigned long v3;  // rax\n
@@ -112,24 +112,24 @@ long long __do_global_dtors_aux()\n
     }\n
     while (true)\n
     {\n
-        if (v2 < a2)\n
+        if (v2 >= a2)\n
         {\n
-            v0 = cgc_transmit(a0, a1, a2, v6);\n
-            if (!v1)\n
-            {\n
-                v4 = 3;\n
-                return v4;\n
-            }\n
-            if (v0)\n
-            {\n
-                v4 = 3;\n
-                return v4;\n
-            }\n
+            v4 = 0;\n
+            return v4;\n
+        }\n
+        v0 = cgc_transmit(a0, a1, a2, v6);\n
+        if (!v1)\n
+        {\n
+            v4 = 3;\n
+            return v4;\n
+        }\n
+        else if (!v0)\n
+        {\n
             v2 = v1 + v2;\n
         }\n
         else\n
         {\n
-            v4 = 0;\n
+            v4 = 3;\n
             return v4;\n
         }\n
     }\n
@@ -164,7 +164,7 @@ long long __do_global_dtors_aux()\n
                 v4 = 3;\n
                 return v4;\n
             }\n
-            if (v2[a1] == a3)\n
+            if (*((a1 + v2)) == a3)\n
                 break;\n
         }\n
         v4 = 0;\n
@@ -198,18 +198,18 @@ Welcome to Palindrome Finder\\n
         v0 = cgc_check();\n
         if (v0 == -1)\n
             break;\n
-        if (!v0)\n
-        {\n
-            if (cgc_transmit_all(1, \"\\t\\tNope, that's not a palindrome\\n
-\\n
-\", 33))\n
-                cgc__terminate(1);\n
-        }\n
-        else\n
+        if (v0)\n
         {\n
             if (cgc_transmit_all(1, \"\\t\\tYes, that's a palindrome!\\n
 \\n
 \", 29))\n
+                cgc__terminate(1);\n
+        }\n
+        else\n
+        {\n
+            if (cgc_transmit_all(1, \"\\t\\tNope, that's not a palindrome\\n
+\\n
+\", 33))\n
                 cgc__terminate(1);\n
         }\n
     }\n
