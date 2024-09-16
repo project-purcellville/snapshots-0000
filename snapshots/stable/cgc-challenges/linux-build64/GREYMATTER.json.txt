@@ -134,7 +134,7 @@ long long __do_global_dtors_aux()\n
             v5 = v2;\n
             return v5;\n
         }\n
-        if (v0)\n
+        else if (v0)\n
         {\n
             v1 -= v0;\n
         }\n
@@ -601,10 +601,10 @@ LABEL_401d11:\n
                         a1 = v12 + 1;\n
                         v12 = a1;\n
                         v11 = cgc_request_document(&v2, a1);\n
-                        if (!v11)\n
-                            v1 = 0;\n
-                        else\n
+                        if (v11)\n
                             v1 = 2;\n
+                        else\n
+                            v1 = 0;\n
                     }\n
                     if (v1)\n
                         break;\n
