@@ -233,18 +233,18 @@ Welcome to Palindrome Finder\\n
         v0 = cgc_check();\n
         if (v0 == -1)\n
             break;\n
-        if (!v0)\n
-        {\n
-            if (cgc_transmit_all(1, \"\\t\\tNope, that's not a palindrome\\n
-\\n
-\", 33))\n
-                cgc__terminate(0);\n
-        }\n
-        else\n
+        if (v0)\n
         {\n
             if (cgc_transmit_all(1, \"\\t\\tYes, that's a palindrome!\\n
 \\n
 \", 29))\n
+                cgc__terminate(0);\n
+        }\n
+        else\n
+        {\n
+            if (cgc_transmit_all(1, \"\\t\\tNope, that's not a palindrome\\n
+\\n
+\", 33))\n
                 cgc__terminate(0);\n
         }\n
     }\n
