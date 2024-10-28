@@ -2,11 +2,10 @@
 \n
 int _init()\n
 {\n
+    struct struct_0 **v1;  // eax\n
+\n
     if (g_4041a8)\n
-    {\n
-        g_4041a8();\n
-        return;\n
-    }\n
+        v1();\n
     return;\n
 }\n
 ", "4198448:sub_401030": "typedef struct struct_0 {\n
@@ -16,14 +15,14 @@ int _init()\n
 \n
 int sub_401030()\n
 {\n
-    unsigned int v0;  // [bp-0x4]\n
+    unsigned int v0;  // [sp-0x4]\n
     struct_0 *v2;  // ebx\n
 \n
     v0 = v2->field_4;\n
-    goto *((ebx<4> + 8));\n
+    goto *((vvar_1{reg 20} + 8));\n
 }\n
 ", "4198464:__libc_start_main": "// attributes: PLT stub\n
-char * __libc_start_main(unsigned int v0, unsigned int a0, unsigned int a1, unsigned int a2, unsigned int a3)\n
+char * __libc_start_main()\n
 {\n
     ::libc.so.0::__libc_start_main(); /* do not return */\n
 }\n
@@ -59,41 +58,55 @@ int cgc_receive()\n
 }\n
 ", "4198560:sub_4010a0": "int sub_4010a0()\n
 {\n
-    goto *((ebx<4> - 16));\n
+    goto *((vvar_1{reg 20} - 16));\n
 }\n
-", "4198566:sub_4010a6": null, "4198576:_start": "int _start()\n
+", "4198566:sub_4010a6": "int sub_4010a6()\n
 {\n
-    unsigned int v0;  // [bp-0x8]\n
-    char v1;  // [bp+0x0], Other Possible Types: unsigned int\n
-    unsigned int v3;  // esi\n
-    unsigned int v4;  // eax\n
-    unsigned int v5;  // edx\n
-    unsigned int v6;  // ecx\n
-\n
-    v3 = *(&v1);\n
-    v1 = v4;\n
-    v0 = v5;\n
-    __libc_start_main(main, v3, v6, 0, 0); /* do not return */\n
 }\n
-", "4198619:sub_4010db": null, "4198620:sub_4010dc": "int sub_4010dc()\n
+", "4198576:_start": "int _start()\n
 {\n
-    char v0;  // [bp+0x0]\n
-    unsigned int v2;  // ebx\n
-    unsigned int v3;  // eax\n
+    unsigned int v0;  // [sp-0x1c]\n
+    unsigned int v1;  // [sp-0x18]\n
+    unsigned int v2;  // [sp-0x14]\n
+    void* v3;  // [sp-0x10]\n
+    void* v4;  // [sp-0xc]\n
+    unsigned int v5;  // [sp-0x8]\n
+    unsigned int v6;  // [sp+0x0]\n
+    unsigned int v7;  // [bp+0x4]\n
+    unsigned int v8;  // eax\n
+    unsigned int v9;  // edx\n
 \n
-    v2 = *(&v0);\n
-    return v3;\n
+    v6 = v8;\n
+    v5 = v9;\n
+    v4 = 0;\n
+    v3 = 0;\n
+    v2 = &v7;\n
+    v1 = v6;\n
+    v0 = main;\n
+    __libc_start_main(); /* do not return */\n
+}\n
+", "4198619:sub_4010db": "int sub_4010db()\n
+{\n
+    [D] Unsupported jumpkind Ijk_SigTRAP at address 4198619()\n
+}\n
+", "4198620:sub_4010dc": "int sub_4010dc()\n
+{\n
+    unsigned int v1;  // eax\n
+\n
+    return v1;\n
 }\n
 ", "4198624:__x86.get_pc_thunk.bx": "int __x86.get_pc_thunk.bx()\n
 {\n
-    char v0;  // [bp+0x0]\n
-    unsigned int v2;  // ebx\n
-    unsigned int v3;  // eax\n
+    unsigned int v1;  // eax\n
 \n
-    v2 = *(&v0);\n
-    return v3;\n
+    return v1;\n
 }\n
-", "4198628:sub_4010e4": null, "4198640:deregister_tm_clones": "typedef struct struct_1 {\n
+", "4198628:sub_4010e4": "int sub_4010e4()\n
+{\n
+    deregister_tm_clones();\n
+    return;\n
+}\n
+", "4198640:deregister_tm_clones": "typedef struct struct_1 {\n
     struct struct_0 *field_-14;\n
 } struct_1;\n
 \n
@@ -103,28 +116,28 @@ typedef struct struct_0 {\n
 \n
 int deregister_tm_clones()\n
 {\n
-    struct struct_0 **v0;  // [bp-0x1c]\n
-    unsigned int v1;  // [bp-0x4]\n
+    struct struct_0 **v0;  // [sp-0x1c]\n
+    unsigned int v1;  // [sp-0x4]\n
     char v2;  // [bp+0x0]\n
     unsigned int v4;  // edx\n
     struct_1 *v5;  // edx\n
     struct struct_0 **v6;  // ecx\n
-    struct struct_0 **v7;  // eax, Other Possible Types: unsigned int\n
+    struct struct_0 **v7;  // eax\n
 \n
     __x86.get_pc_thunk.dx();\n
     v5 = v4 + 12479;\n
     v6 = v5 + 11;\n
     v7 = v5 + 11;\n
     if (v7 == v6)\n
-        return v5 + 11;\n
+        return v7;\n
     v7 = v5[5].field_-14;\n
     if (v7)\n
     {\n
         v1 = &v2;\n
         v0 = v6;\n
-        return v5[5].field_-14();\n
+        return v7();\n
     }\n
-    return v5[5].field_-14;\n
+    return v7;\n
 }\n
 ", "4198691:sub_401123": "int sub_401123()\n
 {\n
@@ -144,36 +157,38 @@ typedef struct struct_0 {\n
 \n
 int register_tm_clones()\n
 {\n
-    unsigned int v0;  // [bp-0x18]\n
-    unsigned int v1;  // [bp-0x8]\n
-    unsigned int v2;  // [bp-0x4]\n
+    unsigned int v0;  // [sp-0x18]\n
+    unsigned int v1;  // [sp-0x8]\n
+    unsigned int v2;  // [sp-0x4]\n
     char v3;  // [bp+0x0]\n
     unsigned int v5;  // edx\n
     struct_1 *v6;  // edx\n
     unsigned int v7;  // ebx\n
     unsigned int v8;  // ecx\n
     unsigned int v9;  // eax\n
-    struct struct_0 **v10;  // edx\n
+    unsigned int v10;  // eax\n
+    struct struct_0 **v11;  // edx\n
 \n
     __x86.get_pc_thunk.dx();\n
     v6 = v5 + 12415;\n
     v2 = &v3;\n
     v1 = v7;\n
     v8 = v6 + 11;\n
-    v9 = (v6 + 11 - (v6 + 11) >> 31) + (11 + v6 - v8 >> 2) >> 1;\n
-    if (!v9)\n
+    v9 = (11 + v6 - v8 >> 31) + (3 + &v6[2].field_-4 - v8 >> 2);\n
+    v10 = v9 >> 1;\n
+    if (!v9 >> 1)\n
     {\n
-        return v9;\n
+        return v10;\n
     }\n
     else if (!v6[1].field_-4)\n
     {\n
-        return v9;\n
+        return v10;\n
     }\n
     else\n
     {\n
-        v0 = v9;\n
-        v9 = v10(v8);\n
-        return v9;\n
+        v0 = v10;\n
+        v10 = v11(v8);\n
+        return v10;\n
     }\n
 }\n
 ", "4198775:sub_401177": "int sub_401177()\n
@@ -187,17 +202,18 @@ extern unsigned int g_4041a4;\n
 \n
 int __do_global_dtors_aux()\n
 {\n
-    unsigned int v0;  // [bp-0x1c]\n
+    unsigned int v0;  // [sp-0x1c]\n
 \n
-    if (__bss_start)\n
-        return;\n
-    if (g_4041a4)\n
+    if (!__bss_start)\n
     {\n
-        v0 = __dso_handle;\n
-        sub_4010a0();\n
+        if (g_4041a4)\n
+        {\n
+            v0 = __dso_handle;\n
+            sub_4010a0();\n
+        }\n
+        deregister_tm_clones();\n
+        __bss_start = 1;\n
     }\n
-    deregister_tm_clones();\n
-    __bss_start = 1;\n
     return;\n
 }\n
 ", "4198859:sub_4011cb": "int sub_4011cb()\n
@@ -215,103 +231,244 @@ int __do_global_dtors_aux()\n
 \n
     return v1;\n
 }\n
-", "4198877:sub_4011dd": null, "4198880:cgc_transmit_all": "typedef struct struct_0 {\n
+", "4198877:sub_4011dd": "int sub_4011dd()\n
+{\n
+    cgc_transmit_all();\n
+    return;\n
+}\n
+", "4198880:cgc_transmit_all": "typedef struct struct_0 {\n
     char field_0;\n
 } struct_0;\n
 \n
 extern char _GLOBAL_OFFSET_TABLE_;\n
 \n
-int cgc_transmit_all(unsigned int v6, unsigned int a0, unsigned int a1)\n
+int cgc_transmit_all()\n
 {\n
-    struct_0 *v0;  // [bp-0x30]\n
-    unsigned int v1;  // [bp-0x20]\n
-    unsigned int v2;  // [bp-0x1c]\n
-    void* v3;  // [bp-0x18]\n
-    void* v4;  // [bp-0x14], Other Possible Types: unsigned int\n
-    unsigned int v5;  // [bp-0x10]\n
+    unsigned int v0;  // [sp-0x38]\n
+    unsigned int v1;  // [sp-0x34]\n
+    struct_0 *v2;  // [sp-0x30]\n
+    unsigned int v3;  // [sp-0x20]\n
+    unsigned int v4;  // [sp-0x1c]\n
+    void* v5;  // [sp-0x18]\n
+    void* v6;  // [sp-0x14]\n
+    unsigned int v7;  // [sp-0x10]\n
+    unsigned int v8;  // [bp+0x4]\n
+    char v9;  // [bp+0x8]\n
+    char v10;  // [bp+0xc]\n
 \n
-    v1 = &_GLOBAL_OFFSET_TABLE_;\n
-    v4 = 0;\n
-    v3 = 0;\n
-    if (!a0)\n
+    v3 = &_GLOBAL_OFFSET_TABLE_;\n
+    v6 = 0;\n
+    v5 = 0;\n
+    if (!*(&v9))\n
     {\n
-        v5 = 1;\n
-        return v5;\n
+        v7 = 1;\n
+        return v7;\n
     }\n
-    if (!a1)\n
+    if (!*(&v10))\n
     {\n
-        v5 = 2;\n
-        return v5;\n
+        v7 = 2;\n
+        return v7;\n
     }\n
     while (true)\n
     {\n
-        if (v4 < a1)\n
+        if (v6 >= *(&v10))\n
         {\n
-            v0 = &v3;\n
-            v2 = cgc_transmit(v6, a0 + v4, a1 - v4);\n
-            if (v2)\n
-            {\n
-                v5 = 3;\n
-                return v5;\n
-            }\n
-            v4 = v3 + v4;\n
+            v7 = 0;\n
+            return v7;\n
         }\n
-        else\n
+        v0 = *(&v9) + v6;\n
+        v1 = *(&v10) - v6;\n
+        v2 = &v5;\n
+        v4 = cgc_transmit(v8, v0, v1);\n
+        if (v4)\n
         {\n
-            v5 = 0;\n
-            return v5;\n
+            v7 = 3;\n
+            return v7;\n
         }\n
+        v6 = v5 + v6;\n
     }\n
 }\n
-", "4199084:sub_4012ac": null, "4199088:cgc_bars": "extern char _GLOBAL_OFFSET_TABLE_;\n
-\n
-int cgc_bars(unsigned int v8, unsigned int a0)\n
+", "4199084:sub_4012ac": "int sub_4012ac()\n
 {\n
-    unsigned int v0;  // [bp-0x3c]\n
-    unsigned int v1;  // [bp-0x2c]\n
+    cgc_bars();\n
+    return;\n
+}\n
+", "4199088:cgc_bars": "extern char _GLOBAL_OFFSET_TABLE_;\n
+\n
+int cgc_bars()\n
+{\n
+    unsigned int v0;  // [sp-0x3c]\n
+    unsigned int v1;  // [sp-0x2c]\n
     char v2;  // [bp-0x28]\n
     char v3;  // [bp-0x24]\n
     char v4;  // [bp-0x20]\n
-    unsigned int v5;  // [bp-0x1c]\n
-    unsigned int v6;  // [bp-0x18]\n
-    unsigned int v7;  // [bp-0x8]\n
-    unsigned int v9;  // ebx\n
+    unsigned int v5;  // [sp-0x1c]\n
+    unsigned int v6;  // [sp-0x18]\n
+    unsigned int v7;  // [bp+0x4]\n
+    char v8;  // [bp+0x8]\n
 \n
-    v7 = v9;\n
     v1 = &_GLOBAL_OFFSET_TABLE_;\n
-    v5 = v8;\n
-    v6 = a0;\n
+    v5 = v7;\n
+    v6 = *(&v8);\n
     cgc_read(&v4);\n
     cgc_read(&v3);\n
     cgc_read(&v2);\n
     v0 = *(&v2);\n
     return cgc_draw_bars(v5, v6, *(&v4), *(&v3));\n
 }\n
-", "4199237:sub_401345": null, "4199248:cgc_draw_bars": null, "4199633:sub_4014d1": null, "4199648:cgc_bar_scale_factor": "extern char _GLOBAL_OFFSET_TABLE_;\n
-\n
-int cgc_bar_scale_factor(unsigned int v1, unsigned int a0)\n
+", "4199237:sub_401345": "int sub_401345()\n
 {\n
-    int tmp_48;  // tmp #48\n
-    int tmp_50;  // tmp #50\n
-    int tmp_49;  // tmp #49\n
-    unsigned long v0;  // [bp-0xc]\n
+    cgc_draw_bars();\n
+    return;\n
+}\n
+", "4199248:cgc_draw_bars": "typedef struct struct_0 {\n
+    char field_0;\n
+} struct_0;\n
 \n
-    tmp_48 = DivV(tmp_50, tmp_49);\n
-    *(&v0) = tmp_48;\n
-    if ([D] GetI(136:I8x8)[t56,0])\n
+typedef struct struct_1 {\n
+    unsigned int field_-4;\n
+    unsigned int field_0;\n
+    unsigned int field_4;\n
+} struct_1;\n
+\n
+extern char _GLOBAL_OFFSET_TABLE_;\n
+extern char g_4013fe;\n
+extern char g_40140c;\n
+extern char g_4014a7;\n
+extern char g_4014c3;\n
+\n
+int cgc_draw_bars()\n
+{\n
+    unsigned int v0;  // [sp-0x8c]\n
+    unsigned int v1;  // [sp-0x70]\n
+    unsigned int v2;  // [sp-0x6c]\n
+    unsigned int v3;  // [sp-0x68]\n
+    void* v4;  // [sp-0x64]\n
+    unsigned int v5;  // [sp-0x60]\n
+    unsigned int v6;  // [sp-0x5c]\n
+    struct_0 *v7;  // [sp-0x58]\n
+    unsigned long long v8;  // [sp-0x54]\n
+    unsigned int v9;  // [sp-0x4c]\n
+    unsigned int v10;  // [sp-0x48]\n
+    unsigned int v11;  // [sp-0x40]\n
+    unsigned long v12;  // [sp-0x3c], Other Possible Types: unsigned long long\n
+    void* v13;  // [sp-0x34]\n
+    struct_0 *v14;  // [sp-0x30]\n
+    void* v15;  // [sp-0x2c]\n
+    unsigned int v16;  // [sp-0x28]\n
+    unsigned int v17;  // [sp-0x24]\n
+    unsigned int v18;  // [sp-0x20]\n
+    struct_0 *v19;  // [sp-0x1c]\n
+    char v20;  // [bp-0x18], Other Possible Types: unsigned int\n
+    unsigned int v21;  // [sp-0x14]\n
+    unsigned int v22;  // [sp-0x10]\n
+    char v23;  // [bp+0x0]\n
+    unsigned int v24;  // [bp+0x4]\n
+    char v25;  // [bp+0x8]\n
+    char v26;  // [bp+0xc]\n
+    char v27;  // [bp+0x10]\n
+    char v28;  // [bp+0x14]\n
+    unsigned int v29;  // ecx\n
+    struct_1 *v30;  // eax\n
+    unsigned int v31;  // ebx\n
+    int v32;  // xmm1\n
+\n
+    v1 = &_GLOBAL_OFFSET_TABLE_;\n
+    v21 = v24;\n
+    v22 = *(&v25);\n
+    if (*(&v27) > 0x4000)\n
     {\n
-        [D] PutI(72:F64x8)[t3,0] = t6\n
-        [D] PutI(136:I8x8)[t3,0] = 0x01\n
+        v0 = -1;\n
+        cgc__terminate();\n
+    }\n
+    v20 = *(&v27) * 4 + 16;\n
+    v20 = v20 & 240;\n
+    v19 = &v0;\n
+    v18 = v20;\n
+    v13 = 0;\n
+    v14 = &v13;\n
+    v15 = 0;\n
+    v16 = 20;\n
+    v17 = &v0 - (v18 + 15 & -0x10);\n
+    v29 = *(&v27);\n
+    v30 = v17 - 16;\n
+    v30->field_0 = *(&v26);\n
+    v30->field_-4 = v29;\n
+    v30->field_0 = &g_4013fe;\n
+    cgc_bar_scale_factor();\n
+    vvar_65{reg 24} = v30 + 1;\n
+    if ([D] unsupported_<class 'pyvex.expr.GetI'>())\n
+    {\n
+        *(&v12) = [D] unsupported_<class 'pyvex.expr.GetI'>();\n
+        [D] PutI(136:I8x8)[t6,0] = 0x00()\n
+    }\n
+    else\n
+    {\n
+        v12 = nan;\n
+        [D] PutI(136:I8x8)[t6,0] = 0x00()\n
+    }\n
+    *((vvar_65{reg 24} - 4)) = &g_40140c;\n
+    v31 = v1;\n
+    v11 = cgc_rand();\n
+    v11 &= 3;\n
+    v11 += 1;\n
+    *(&v12) = (MulV(SubV(v11 | v32, v32), v12));\n
+    v2 = v31 + 68;\n
+    v3 = 0x42000000;\n
+    v4 = 0;\n
+    v5 = v31 - 11396;\n
+    v6 = v31 - 428;\n
+    *(&v8) = v12;\n
+    v9 = *(&v27);\n
+    v7 = &v13;\n
+    v10 = *(&v28);\n
+    vvar_100{reg 24} = vvar_65{reg 24} - 20;\n
+    *(vvar_100{reg 24}) = v21;\n
+    *((vvar_100{reg 24} + 4)) = v22;\n
+    *((vvar_100{reg 24} + 8)) = &v2;\n
+    *((vvar_100{reg 24} - 4)) = &g_4014a7;\n
+    cgc_each(*(&v23), v24);\n
+    vvar_110{reg 24} = vvar_100{reg 24} - 4;\n
+    *(vvar_110{reg 24}) = &v13;\n
+    *((vvar_110{reg 24} + 4)) = 8;\n
+    *((vvar_110{reg 24} - 4)) = &g_4014c3;\n
+    _Block_object_dispose(*(&v23));\n
+    return v19;\n
+}\n
+", "4199633:sub_4014d1": "int sub_4014d1()\n
+{\n
+    cgc_bar_scale_factor();\n
+    return;\n
+}\n
+", "4199648:cgc_bar_scale_factor": "extern char _GLOBAL_OFFSET_TABLE_;\n
+\n
+int cgc_bar_scale_factor()\n
+{\n
+    unsigned long v0;  // [sp-0xc]\n
+    unsigned int v1;  // [bp+0x4]\n
+    char v2;  // [bp+0x8]\n
+    int v3;  // xmm2\n
+\n
+    *(&v0) = (DivV(SubV(v1 | v3, v3), SubV(*(&v2) | v3, v3)));\n
+    if ([D] unsupported_<class 'pyvex.expr.GetI'>())\n
+    {\n
+        [D] PutI(72:F64x8)[t3,0] = t6()\n
+        [D] PutI(136:I8x8)[t3,0] = 0x01()\n
         return &_GLOBAL_OFFSET_TABLE_;\n
     }\n
-    [D] PutI(72:F64x8)[t3,0] = t6\n
-    [D] PutI(136:I8x8)[t3,0] = 0x01\n
+    [D] PutI(72:F64x8)[t3,0] = t6()\n
+    [D] PutI(136:I8x8)[t3,0] = 0x01()\n
     return &_GLOBAL_OFFSET_TABLE_;\n
 }\n
-", "4199726:sub_40152e": null, "4199728:__cgc_draw_bars_block_invoke": "typedef struct struct_2 {\n
+", "4199726:sub_40152e": "int sub_40152e()\n
+{\n
+    __cgc_draw_bars_block_invoke();\n
+    return;\n
+}\n
+", "4199728:__cgc_draw_bars_block_invoke": "typedef struct struct_2 {\n
     char padding_0[20];\n
     struct struct_1 *field_14;\n
-    char padding_18[8];\n
+    unsigned long long field_18;\n
     unsigned int field_20;\n
     unsigned int field_24;\n
 } struct_2;\n
@@ -328,87 +485,136 @@ typedef struct struct_0 {\n
 \n
 extern char _GLOBAL_OFFSET_TABLE_;\n
 \n
-int __cgc_draw_bars_block_invoke(struct_2 *v6, unsigned int a0, unsigned int a1)\n
+int __cgc_draw_bars_block_invoke()\n
 {\n
-    unsigned int v0;  // [bp-0x20]\n
-    unsigned int v1;  // [bp-0x18]\n
-    struct_2 *v2;  // [bp-0x14]\n
-    unsigned int v3;  // [bp-0x10]\n
-    struct_2 *v4;  // [bp-0xc]\n
-    unsigned int v5;  // [bp-0x8]\n
-    unsigned int v7;  // ebx\n
-    struct_2 *v8;  // eax\n
-    unsigned int v9;  // ebx\n
+    unsigned long v0;  // [bp-0x28]\n
+    unsigned int v1;  // [sp-0x24]\n
+    unsigned int v2;  // [sp-0x20]\n
+    unsigned int v3;  // [sp-0x18]\n
+    struct_2 *v4;  // [sp-0x14]\n
+    unsigned int v5;  // [sp-0x10]\n
+    struct_2 *v6;  // [sp-0xc]\n
+    struct_2 *v7;  // [bp+0x4]\n
+    char v8;  // [bp+0xc]\n
+    struct_2 *v9;  // eax\n
+    unsigned int v10;  // eax\n
 \n
-    v5 = v7;\n
-    v1 = &_GLOBAL_OFFSET_TABLE_;\n
-    v2 = v6;\n
-    v4 = v2;\n
-    v0 = v2->field_20;\n
-    v8 = v2;\n
-    v3 = cgc_bar_use_columns(a1);\n
-    cgc_draw_row(v8->field_14->field_4->field_10, v8->field_24);\n
-    v9 = v5;\n
-    return cgc_transmit_all(1, v2->field_14->field_4->field_10, v3 + 1);\n
+    v3 = &_GLOBAL_OFFSET_TABLE_;\n
+    v9 = v7;\n
+    v4 = v9;\n
+    v6 = v9;\n
+    v10 = v9->field_20;\n
+    *(&v0) = v9->field_18;\n
+    v2 = v10;\n
+    v5 = cgc_bar_use_columns(*(&v8));\n
+    v1 = v5;\n
+    cgc_draw_row(v4->field_14->field_4->field_10, v4->field_24);\n
+    v1 = v5 + 1;\n
+    return cgc_transmit_all();\n
 }\n
-", "4199885:sub_4015cd": null, "4199888:cgc_bar_use_columns": "int cgc_bar_use_columns()\n
+", "4199885:sub_4015cd": "int sub_4015cd()\n
 {\n
-    unsigned long long v0;  // [bp-0xc]\n
-    char v1;  // [bp-0x4]\n
-    char v3;  // [bp+0x8]\n
-    unsigned int v4;  // ebp\n
-\n
-    v0 = *(&v3);\n
-    v4 = *(&v1);\n
+    cgc_bar_use_columns();\n
     return;\n
 }\n
-", "4199998:sub_40163e": null, "4200000:cgc_draw_row": "int cgc_draw_row(unsigned int v2, unsigned int a0, unsigned int a1)\n
+", "4199888:cgc_bar_use_columns": "int cgc_bar_use_columns()\n
 {\n
-    char v0;  // [bp-0x9]\n
-    char *v1;  // [bp-0x8], Other Possible Types: unsigned int\n
+    unsigned int v0;  // [sp-0x10]\n
+    unsigned long long v1;  // [sp-0xc]\n
+    unsigned int v2;  // [bp+0x4]\n
+    char v3;  // [bp+0x8]\n
+    int v4;  // xmm1\n
+    int v5;  // xmm0\n
 \n
-    for (v1 = 0; v1 <= a1 + 1; v1 += 1)\n
+    v1 = *(&v3);\n
+    v5 = MulV(SubV(v2 | v4, v4), v4);\n
+    v0 = v5 | (SubV(v5, v4)) & v5 >> 31;\n
+    return;\n
+}\n
+", "4199998:sub_40163e": "int sub_40163e()\n
+{\n
+    cgc_draw_row();\n
+    return;\n
+}\n
+", "4200000:cgc_draw_row": "int cgc_draw_row()\n
+{\n
+    char v0;  // [sp-0x9]\n
+    char *v1;  // [sp-0x8]\n
+    char *v2;  // [bp+0x4]\n
+    char v3;  // [bp+0x8]\n
+    char v4;  // [bp+0xc]\n
+    unsigned int v5;  // edx\n
+\n
+    for (v1 = 0; v1 <= *(&v4) + 1; v1 += 1)\n
     {\n
         v0 = 10;\n
-        if (v1 < a1)\n
-            v0 = a0;\n
-        v1[v2] = v0;\n
+        if (v1 < *(&v4))\n
+            v0 = *(&v3);\n
+        v5 = v5 | -0x100 | v0;\n
+        *((v2 + v1)) = v0;\n
     }\n
     return v1;\n
 }\n
-", "4200092:sub_40169c": null, "4200096:__copy_helper_block_8_20r": "typedef struct struct_0 {\n
-    char padding_0[20];\n
-    unsigned int field_14;\n
-} struct_0;\n
-\n
-int __copy_helper_block_8_20r(unsigned int v1, struct_0 *a0)\n
+", "4200092:sub_40169c": "int sub_40169c()\n
 {\n
-    unsigned int v0;  // [bp-0x14]\n
+    __copy_helper_block_8_20r();\n
+    return;\n
+}\n
+", "4200096:__copy_helper_block_8_20r": "int __copy_helper_block_8_20r()\n
+{\n
+    unsigned int v0;  // [sp-0x14]\n
+    unsigned int v1;  // [bp+0x4]\n
+    char v2;  // [bp+0x8]\n
 \n
     v0 = 8;\n
-    return _Block_object_assign(v1 + 20, a0->field_14);\n
+    return _Block_object_assign(v1 + 20, *((*(&v2) + 20)));\n
 }\n
-", "4200159:sub_4016df": null, "4200160:__destroy_helper_block_8_20r": "typedef struct struct_0 {\n
+", "4200159:sub_4016df": "int sub_4016df()\n
+{\n
+    __destroy_helper_block_8_20r();\n
+    return;\n
+}\n
+", "4200160:__destroy_helper_block_8_20r": "typedef struct struct_0 {\n
     char padding_0[20];\n
     unsigned int field_14;\n
 } struct_0;\n
 \n
-int __destroy_helper_block_8_20r(struct_0 *v1)\n
+int __destroy_helper_block_8_20r()\n
 {\n
-    unsigned int v0;  // [bp-0x18]\n
+    unsigned int v0;  // [sp-0x18]\n
+    struct_0 *v1;  // [bp+0x4]\n
 \n
     v0 = 8;\n
     return _Block_object_dispose(v1->field_14);\n
 }\n
-", "4200210:sub_401712": null, "4200224:_Block_object_assign": "int _Block_object_assign(unsigned int v0, unsigned int a0, unsigned int a1)\n
+", "4200210:sub_401712": "int sub_401712()\n
 {\n
+    _Block_object_assign();\n
+    return;\n
+}\n
+", "4200224:_Block_object_assign": "int _Block_object_assign()\n
+{\n
+    unsigned int v0;  // [bp+0x4]\n
+\n
     return v0;\n
 }\n
-", "4200238:sub_40172e": null, "4200240:_Block_object_dispose": "int _Block_object_dispose(unsigned int v0, unsigned int a0)\n
+", "4200238:sub_40172e": "int sub_40172e()\n
 {\n
+    _Block_object_dispose();\n
+    return;\n
+}\n
+", "4200240:_Block_object_dispose": "int _Block_object_dispose()\n
+{\n
+    unsigned int v0;  // [bp+0x4]\n
+\n
     return v0;\n
 }\n
-", "4200251:sub_40173b": null, "4200256:cgc_each": "typedef struct struct_1 {\n
+", "4200251:sub_40173b": "int sub_40173b()\n
+{\n
+    cgc_each();\n
+    return;\n
+}\n
+", "4200256:cgc_each": "typedef struct struct_1 {\n
     char padding_0[12];\n
     struct struct_0 *field_c;\n
 } struct_1;\n
@@ -419,82 +625,110 @@ typedef struct struct_0 {\n
 \n
 extern char _GLOBAL_OFFSET_TABLE_;\n
 \n
-int cgc_each(unsigned int v5, unsigned int *a0, struct_1 *a1)\n
+int cgc_each()\n
 {\n
-    unsigned int v0;  // [bp-0x34]\n
-    unsigned int v1;  // [bp-0x24]\n
-    unsigned int v2;  // [bp-0x20]\n
-    unsigned int v3;  // [bp-0x1c]\n
-    unsigned int *v4;  // [bp-0x18]\n
-    struct_1 *v6;  // eax\n
+    unsigned int v0;  // [sp-0x34]\n
+    unsigned int v1;  // [sp-0x24]\n
+    unsigned int *v2;  // [sp-0x20]\n
+    unsigned int v3;  // [sp-0x1c]\n
+    unsigned int *v4;  // [sp-0x18]\n
+    unsigned int v5;  // [bp+0x4]\n
+    char v6;  // [bp+0x8]\n
+    char v7;  // [bp+0xc]\n
+    struct_1 *v8;  // eax\n
 \n
     v1 = &_GLOBAL_OFFSET_TABLE_;\n
     v3 = v5;\n
-    v4 = a0;\n
-    for (v2 = 0; v2 < v3; v2 += 1)\n
+    v4 = *(&v6);\n
+    for (v2 = 0; v2 < v3; v2 = v2 + 1)\n
     {\n
-        v6 = a1;\n
-        v0 = v4[v2];\n
-        v6->field_c(v6, v2);\n
+        v0 = *((v4 + 0x4 * v2));\n
+        v8->field_c(*(&v7), v2);\n
     }\n
     return v2;\n
 }\n
-", "4200370:sub_4017b2": null, "4200384:cgc_seed": "extern unsigned int _GLOBAL_OFFSET_TABLE_[14];\n
+", "4200370:sub_4017b2": "int sub_4017b2()\n
+{\n
+    cgc_seed();\n
+    return;\n
+}\n
+", "4200384:cgc_seed": "typedef struct struct_0 {\n
+    char padding_0[48];\n
+    unsigned int field_30;\n
+} struct_0;\n
+\n
+typedef struct struct_1 {\n
+    char field_0;\n
+} struct_1;\n
+\n
+extern struct_0 _GLOBAL_OFFSET_TABLE_;\n
 \n
 int cgc_seed()\n
 {\n
-    unsigned int v0[14];  // [bp-0x18]\n
-    unsigned int v1;  // [bp-0x14]\n
-    unsigned int v2;  // [bp-0x10]\n
-    char v3;  // [bp-0xc]\n
-    unsigned int v4;  // [bp-0x8]\n
-    unsigned int v6;  // ebx\n
-    unsigned int v7[14];  // eax\n
-    unsigned int v8[14];  // eax\n
-    unsigned int v9;  // ebx\n
+    struct_1 *v0;  // [sp-0x28], Other Possible Types: unsigned int\n
+    unsigned int v1;  // [sp-0x24]\n
+    struct_0 *v2;  // [sp-0x18]\n
+    unsigned int v3;  // [sp-0x14]\n
+    unsigned int v4;  // [sp-0x10]\n
+    char v5;  // [bp-0xc]\n
+    struct_0 *v7;  // eax\n
 \n
-    v4 = v6;\n
-    v0[0] = &_GLOBAL_OFFSET_TABLE_[0];\n
-    cgc_read(&v3);\n
-    v7 = v0;\n
-    v7[12] = 0;\n
-    v7[1 + 4 + v7[12]] = *(&v3);\n
-    for (v2 = 1; v2 < 624; v2 += 1)\n
+    v2 = &_GLOBAL_OFFSET_TABLE_.padding_0[0];\n
+    v0 = 4;\n
+    cgc_read(&v5);\n
+    v7 = v2;\n
+    v7->field_30 = 0;\n
+    *(&v7[1].padding_0[20 + 4 * v7->field_30]) = *(&v5);\n
+    for (v4 = 1; v4 < 624; v4 += 1)\n
     {\n
-        v8 = v0;\n
-        v8[1 + 4 + v2] = (v8[1 + 3 + v2] ^ v8[1 + 3 + v2] >> 30) * 1812433253 + 1;\n
+        *(&v2[1].padding_0[20 + 4 * v4]) = (*(&v2[1].padding_0[16 + 4 * v4]) ^ *(&v2[1].padding_0[16 + 4 * v4]) >> 30) * 1812433253 + 1;\n
     }\n
-    v0[13] = 1;\n
-    v1 = cgc_rand();\n
-    v9 = v4;\n
-    return cgc_transmit_all(1, &v1, 4);\n
+    *(&v2[1].padding_0[0]) = 1;\n
+    v3 = cgc_rand();\n
+    v0 = &v3;\n
+    v1 = 4;\n
+    return cgc_transmit_all();\n
 }\n
-", "4200604:sub_40189c": null, "4200608:cgc_noise": "extern char _GLOBAL_OFFSET_TABLE_;\n
+", "4200604:sub_40189c": "int sub_40189c()\n
+{\n
+    cgc_noise();\n
+    return;\n
+}\n
+", "4200608:cgc_noise": "typedef struct struct_0 {\n
+    char field_0;\n
+} struct_0;\n
+\n
+extern char _GLOBAL_OFFSET_TABLE_;\n
 \n
 int cgc_noise()\n
 {\n
-    unsigned int v0;  // [bp-0x1c]\n
-    unsigned int v1;  // [bp-0x18]\n
-    void* v2;  // [bp-0x14], Other Possible Types: unsigned int\n
-    unsigned int v3;  // [bp-0x10]\n
-    char v4;  // [bp-0xc]\n
-    unsigned int v5;  // [bp-0x8]\n
-    unsigned int v7;  // ebx\n
-    unsigned int v8;  // ebx\n
+    struct_0 *v0;  // [sp-0x28], Other Possible Types: unsigned int\n
+    unsigned int v1;  // [sp-0x24]\n
+    unsigned int v2;  // [sp-0x1c]\n
+    unsigned int v3;  // [sp-0x18]\n
+    void* v4;  // [sp-0x14]\n
+    unsigned int v5;  // [sp-0x10]\n
+    char v6;  // [bp-0xc]\n
 \n
-    v5 = v7;\n
-    v0 = &_GLOBAL_OFFSET_TABLE_;\n
-    cgc_read(&v4);\n
-    v3 = *(&v4) >> 2;\n
-    for (v2 = 0; v2 < v3; v2 += 1)\n
+    v2 = &_GLOBAL_OFFSET_TABLE_;\n
+    v0 = 4;\n
+    cgc_read(&v6);\n
+    v5 = *(&v6) >> 2;\n
+    for (v4 = 0; v4 < v5; v4 += 1)\n
     {\n
-        v1 = cgc_rand();\n
-        cgc_transmit_all(1, &v1, 4);\n
+        v3 = cgc_rand();\n
+        v0 = &v3;\n
+        v1 = 4;\n
+        cgc_transmit_all();\n
     }\n
-    v8 = v5;\n
-    return v2;\n
+    return v4;\n
 }\n
-", "4200738:sub_401922": null, "4200752:cgc_replacer": "typedef struct struct_0 {\n
+", "4200738:sub_401922": "int sub_401922()\n
+{\n
+    cgc_replacer();\n
+    return;\n
+}\n
+", "4200752:cgc_replacer": "typedef struct struct_0 {\n
     char field_0;\n
 } struct_0;\n
 \n
@@ -502,65 +736,78 @@ extern char _GLOBAL_OFFSET_TABLE_;\n
 extern char _NSConcreteStackBlock;\n
 extern char __block_descriptor_tmp;\n
 \n
-int cgc_replacer(unsigned int v23, unsigned int a0)\n
+int cgc_replacer()\n
 {\n
-    unsigned int v0;  // [bp-0x70]\n
-    unsigned int v1;  // [bp-0x6c]\n
-    unsigned int v2;  // [bp-0x68]\n
-    void* v3;  // [bp-0x64]\n
-    unsigned int v4;  // [bp-0x60]\n
-    unsigned int v5;  // [bp-0x5c]\n
-    struct_0 *v6;  // [bp-0x58]\n
-    unsigned int v7;  // [bp-0x54]\n
-    unsigned int v8;  // [bp-0x4c]\n
-    unsigned int v9;  // [bp-0x48]\n
-    void* v10;  // [bp-0x44]\n
-    unsigned int v11;  // [bp-0x40]\n
-    unsigned int v12;  // [bp-0x3c]\n
-    struct_0 *v13;  // [bp-0x38]\n
-    unsigned int v14;  // [bp-0x30]\n
-    void* v15;  // [bp-0x2c]\n
-    struct_0 *v16;  // [bp-0x28]\n
-    void* v17;  // [bp-0x24]\n
-    unsigned int v18;  // [bp-0x20]\n
-    void* v19;  // [bp-0x1c]\n
-    unsigned int v20;  // [bp-0x14]\n
-    unsigned int *v21;  // [bp-0x10]\n
-    unsigned int v22;  // [bp-0x8]\n
-    unsigned int v24;  // ebx\n
-    unsigned int v25;  // ebx\n
-    unsigned int v26;  // ebx\n
+    struct_0 *v0;  // [sp-0x7c], Other Possible Types: unsigned int\n
+    unsigned int v1;  // [sp-0x78]\n
+    struct_0 *v2;  // [sp-0x74]\n
+    unsigned int v3;  // [sp-0x70]\n
+    unsigned int v4;  // [sp-0x6c]\n
+    unsigned int v5;  // [sp-0x68]\n
+    void* v6;  // [sp-0x64]\n
+    unsigned int v7;  // [sp-0x60]\n
+    unsigned int v8;  // [sp-0x5c]\n
+    struct_0 *v9;  // [sp-0x58]\n
+    unsigned int v10;  // [sp-0x54]\n
+    unsigned int v11;  // [sp-0x4c]\n
+    unsigned int v12;  // [sp-0x48]\n
+    void* v13;  // [sp-0x44]\n
+    unsigned int v14;  // [sp-0x40]\n
+    unsigned int v15;  // [sp-0x3c]\n
+    struct_0 *v16;  // [sp-0x38]\n
+    unsigned int v17;  // [sp-0x30]\n
+    void* v18;  // [sp-0x2c]\n
+    struct_0 *v19;  // [sp-0x28]\n
+    void* v20;  // [sp-0x24]\n
+    unsigned int v21;  // [sp-0x20]\n
+    void* v22;  // [sp-0x1c]\n
+    unsigned int v23;  // [sp-0x14]\n
+    unsigned int v24;  // [sp-0x10]\n
+    unsigned int v25;  // [bp+0x4]\n
+    char v26;  // [bp+0x8]\n
+    unsigned int v27;  // ebx\n
 \n
-    v22 = v24;\n
-    v0 = &_GLOBAL_OFFSET_TABLE_;\n
-    v20 = v23;\n
-    v21 = a0;\n
-    v15 = 0;\n
-    v16 = &v15;\n
-    v17 = 0;\n
-    v18 = 20;\n
-    v19 = 0;\n
-    v14 = v21;\n
-    v8 = &_NSConcreteStackBlock;\n
-    v9 = 0x42000000;\n
-    v10 = 0;\n
-    v11 = __cgc_replacer_block_invoke;\n
-    v12 = &__block_descriptor_tmp;\n
-    v13 = &v15;\n
-    cgc_each(v20, v21, &v8);\n
-    v25 = v0;\n
-    v1 = v25 + 68;\n
-    v2 = 0x42000000;\n
-    v3 = 0;\n
-    v4 = v25 - 10052;\n
-    v5 = v25 - 380;\n
-    v6 = &v15;\n
-    v7 = v14;\n
-    cgc_each(v20, v21, &v1);\n
-    v26 = v22;\n
-    return _Block_object_dispose(&v15, 8);\n
+    v3 = &_GLOBAL_OFFSET_TABLE_;\n
+    v23 = v25;\n
+    v24 = *(&v26);\n
+    v18 = 0;\n
+    v19 = &v18;\n
+    v20 = 0;\n
+    v21 = 20;\n
+    v22 = 0;\n
+    v17 = v24;\n
+    v11 = &_NSConcreteStackBlock;\n
+    v12 = 0x42000000;\n
+    v13 = 0;\n
+    v14 = __cgc_replacer_block_invoke;\n
+    v15 = &__block_descriptor_tmp;\n
+    v16 = &v18;\n
+    v0 = v23;\n
+    v1 = v24;\n
+    v2 = &v11;\n
+    cgc_each();\n
+    v27 = v3;\n
+    v4 = v27 + 68;\n
+    v5 = 0x42000000;\n
+    v6 = 0;\n
+    v7 = v27 - 10052;\n
+    v8 = v27 - 380;\n
+    v9 = &v18;\n
+    v10 = v17;\n
+    v0 = v23;\n
+    v1 = v24;\n
+    v2 = &v4;\n
+    cgc_each();\n
+    v0 = &v18;\n
+    v1 = 8;\n
+    return _Block_object_dispose();\n
 }\n
-", "4201007:sub_401a2f": null, "4201008:__cgc_replacer_block_invoke": "typedef struct struct_2 {\n
+", "4201007:sub_401a2f": "int sub_401a2f()\n
+{\n
+    __cgc_replacer_block_invoke();\n
+    return;\n
+}\n
+", "4201008:__cgc_replacer_block_invoke": "typedef struct struct_2 {\n
     char padding_0[20];\n
     struct struct_1 *field_14;\n
 } struct_2;\n
@@ -575,25 +822,32 @@ typedef struct struct_1 {\n
     struct struct_0 *field_4;\n
 } struct_1;\n
 \n
-int __cgc_replacer_block_invoke(struct_2 *v2, unsigned int a0, struct_0 *a1)\n
+int __cgc_replacer_block_invoke()\n
 {\n
-    struct_2 *v0;  // [bp-0xc]\n
-    struct_2 *v1;  // [bp-0x8]\n
-    struct_2 *v3;  // ecx\n
-    struct_0 *v4;  // eax, Other Possible Types: unsigned int\n
+    struct_2 *v0;  // [sp-0xc]\n
+    struct_2 *v1;  // [sp-0x8]\n
+    struct_2 *v2;  // [bp+0x4]\n
+    char v3;  // [bp+0xc]\n
+    struct_2 *v4;  // eax\n
+    struct_0 *v5;  // eax\n
 \n
-    v3 = v2;\n
-    v0 = v3;\n
-    v1 = v3;\n
-    v4 = a1;\n
-    if (v4 > v3->field_14->field_4->field_10)\n
+    v4 = v2;\n
+    v0 = v4;\n
+    v1 = v0;\n
+    v5 = *(&v3);\n
+    if (v5 > v4->field_14->field_4->field_10)\n
     {\n
-        v4 = v0->field_14->field_4;\n
-        *((v4 + 16)) = a1;\n
+        v5 = v0->field_14->field_4;\n
+        v5->field_10 = *(&v3);\n
     }\n
-    return v4;\n
+    return v5;\n
 }\n
-", "4201069:sub_401a6d": null, "4201072:__cgc_replacer_block_invoke.1": "typedef struct struct_2 {\n
+", "4201069:sub_401a6d": "int sub_401a6d()\n
+{\n
+    __cgc_replacer_block_invoke.1();\n
+    return;\n
+}\n
+", "4201072:__cgc_replacer_block_invoke.1": "typedef struct struct_2 {\n
     char padding_0[20];\n
     struct struct_1 *field_14;\n
     struct struct_3 *field_18;\n
@@ -615,29 +869,34 @@ typedef struct struct_0 {\n
 \n
 extern char _GLOBAL_OFFSET_TABLE_;\n
 \n
-int __cgc_replacer_block_invoke.1(struct_2 *v3, unsigned int a0, unsigned int a1)\n
+int __cgc_replacer_block_invoke.1()\n
 {\n
-    unsigned int v0;  // [bp-0x14]\n
-    struct_2 *v1;  // [bp-0x10]\n
-    struct_2 *v2;  // [bp-0xc]\n
-    struct_2 *v4;  // eax\n
-    unsigned int *v5;  // eax, Other Possible Types: unsigned int\n
+    unsigned int v0;  // [sp-0x14]\n
+    struct_2 *v1;  // [sp-0x10]\n
+    struct_2 *v2;  // [sp-0xc]\n
+    struct_2 *v3;  // [bp+0x4]\n
+    char v4;  // [bp+0x8]\n
+    unsigned int *v5;  // eax\n
 \n
     v0 = &_GLOBAL_OFFSET_TABLE_;\n
-    v4 = v3;\n
-    v1 = v4;\n
-    v2 = v4;\n
-    if (v4->field_14->field_4->field_10 <= 0)\n
+    v1 = v3;\n
+    v2 = v1;\n
+    if (v1->field_14->field_4->field_10 <= 0)\n
     {\n
         v5 = v1->field_18;\n
-        v5[a0] = 0;\n
-        return v1->field_18;\n
+        v5[*(&v4)] = 0;\n
+        return v5;\n
     }\n
     v5 = v1->field_18;\n
-    *((v5 + a0 * 4)) = (0 CONCAT cgc_rand()) /m v1->field_14->field_4->field_10 >> 32;\n
-    return v1->field_18;\n
+    v5[*(&v4)] = (0 CONCAT cgc_rand()) /m v1->field_14->field_4->field_10 >> 32;\n
+    return v5;\n
 }\n
-", "4201188:sub_401ae4": null, "4201200:cgc_rand": "typedef struct struct_0 {\n
+", "4201188:sub_401ae4": "int sub_401ae4()\n
+{\n
+    cgc_rand();\n
+    return;\n
+}\n
+", "4201200:cgc_rand": "typedef struct struct_0 {\n
     char padding_0[48];\n
     unsigned int field_30;\n
 } struct_0;\n
@@ -647,9 +906,9 @@ extern unsigned int cgc_seeded;\n
 \n
 int cgc_rand()\n
 {\n
-    struct_0 *v0;  // [bp-0x14]\n
-    unsigned int v1;  // [bp-0x10]\n
-    void* v2;  // [bp-0xc], Other Possible Types: unsigned int\n
+    struct_0 *v0;  // [sp-0x14]\n
+    unsigned int v1;  // [sp-0x10]\n
+    void* v2;  // [sp-0xc]\n
     struct_0 *v4;  // eax\n
 \n
     v0 = &_GLOBAL_OFFSET_TABLE_.padding_0[0];\n
@@ -670,17 +929,21 @@ int cgc_rand()\n
     v2 = v1;\n
     return v2;\n
 }\n
-", "4201400:sub_401bb8": null, "4201408:cgc_generate_numbers": "extern char _GLOBAL_OFFSET_TABLE_;\n
+", "4201400:sub_401bb8": "int sub_401bb8()\n
+{\n
+    cgc_generate_numbers();\n
+    return;\n
+}\n
+", "4201408:cgc_generate_numbers": "extern char _GLOBAL_OFFSET_TABLE_;\n
 \n
 int cgc_generate_numbers()\n
 {\n
-    unsigned int v0;  // [bp-0x18]\n
-    unsigned int v1;  // [bp-0x14]\n
-    unsigned int v2;  // [bp-0x10]\n
-    void* v3;  // [bp-0xc], Other Possible Types: unsigned int\n
+    unsigned int v0;  // [sp-0x18]\n
+    unsigned int v1;  // [sp-0x14]\n
+    unsigned int v2;  // [sp-0x10]\n
+    void* v3;  // [sp-0xc]\n
     unsigned int v5;  // eax\n
     unsigned int v6;  // ecx\n
-    unsigned int v7;  // eax\n
 \n
     v5 = &_GLOBAL_OFFSET_TABLE_;\n
     v1 = &_GLOBAL_OFFSET_TABLE_;\n
@@ -691,43 +954,62 @@ int cgc_generate_numbers()\n
         v2 = v0 & (*((v6 + ((0 CONCAT v3 + 1) /m 624 >> 32) * 4 + 72)) & 2147483647) - 0x80000000;\n
         *((v1 + v3 * 4 + 72)) = *((v1 + ((0 CONCAT v3 + 397) /m 624 >> 32) * 4 + 72)) ^ v2 >> 1;\n
         if ((v2 & 1) == 1)\n
-        {\n
-            v7 = v1;\n
-            *((v7 + v3 * 4 + 72)) = *((v7 + v3 * 4 + 72)) ^ 2567483615;\n
-        }\n
+            *((v1 + v3 * 4 + 72)) = *((v1 + v3 * 4 + 72)) ^ 2567483615;\n
         v5 = v3 + 1;\n
     }\n
     return v5;\n
 }\n
-", "4201622:sub_401c96": null, "4201632:__copy_helper_block_4_20r": "typedef struct struct_0 {\n
+", "4201622:sub_401c96": "int sub_401c96()\n
+{\n
+    __copy_helper_block_4_20r();\n
+    return;\n
+}\n
+", "4201632:__copy_helper_block_4_20r": "int __copy_helper_block_4_20r()\n
+{\n
+    unsigned int v0;  // [sp-0x1c]\n
+    unsigned int v1;  // [sp-0x18]\n
+    unsigned int v2;  // [sp-0x14]\n
+    unsigned int v3;  // [bp+0x4]\n
+    char v4;  // [bp+0x8]\n
+\n
+    v0 = v3 + 20;\n
+    v1 = *((*(&v4) + 20));\n
+    v2 = 8;\n
+    return _Block_object_assign();\n
+}\n
+", "4201695:sub_401cdf": "int sub_401cdf()\n
+{\n
+    __destroy_helper_block_4_20r();\n
+    return;\n
+}\n
+", "4201696:__destroy_helper_block_4_20r": "typedef struct struct_0 {\n
     char padding_0[20];\n
     unsigned int field_14;\n
 } struct_0;\n
 \n
-int __copy_helper_block_4_20r(unsigned int v0, struct_0 *a0)\n
+int __destroy_helper_block_4_20r()\n
 {\n
-    return _Block_object_assign(v0 + 20, a0->field_14, 8);\n
-}\n
-", "4201695:sub_401cdf": null, "4201696:__destroy_helper_block_4_20r": "typedef struct struct_0 {\n
-    char padding_0[20];\n
-    unsigned int field_14;\n
-} struct_0;\n
+    unsigned int v0;  // [sp-0x1c]\n
+    unsigned int v1;  // [sp-0x18]\n
+    struct_0 *v2;  // [bp+0x4]\n
 \n
-int __destroy_helper_block_4_20r(struct_0 *v0)\n
-{\n
-    return _Block_object_dispose(v0->field_14, 8);\n
+    v0 = v2->field_14;\n
+    v1 = 8;\n
+    return _Block_object_dispose();\n
 }\n
-", "4201746:sub_401d12": null, "4201760:main": "extern char _GLOBAL_OFFSET_TABLE_;\n
-\n
-int main(unsigned int v4, unsigned int a0)\n
+", "4201746:sub_401d12": "int sub_401d12()\n
 {\n
-    unsigned int v0;  // [bp-0x14]\n
+    main();\n
+    return;\n
+}\n
+", "4201760:main": "extern char _GLOBAL_OFFSET_TABLE_;\n
+\n
+int main()\n
+{\n
+    unsigned int v0;  // [sp-0x14]\n
     char v1;  // [bp-0x10]\n
-    void* v2;  // [bp-0xc], Other Possible Types: unsigned int\n
-    unsigned int v3;  // [bp-0x8]\n
-    unsigned int v5;  // ebx\n
+    void* v2;  // [sp-0xc], Other Possible Types: unsigned int\n
 \n
-    v3 = v5;\n
     v0 = &_GLOBAL_OFFSET_TABLE_;\n
     v2 = 0;\n
     cgc_read(&v1, 4);\n
@@ -740,103 +1022,156 @@ int main(unsigned int v4, unsigned int a0)\n
     v2 = -1;\n
     return v2;\n
 }\n
-", "4201879:sub_401d97": null, "4201888:cgc_read": "extern char _GLOBAL_OFFSET_TABLE_;\n
-\n
-int cgc_read(unsigned int v5, unsigned int a0)\n
+", "4201879:sub_401d97": "int sub_401d97()\n
 {\n
-    unsigned int v0;  // [bp-0x20]\n
-    unsigned int v1;  // [bp-0x14]\n
-    unsigned int v2;  // [bp-0x10]\n
-    char v3;  // [bp-0xc]\n
-    unsigned int v4;  // [bp-0x8]\n
-    unsigned int v6;  // ebx\n
-    unsigned int v7;  // ebx\n
+    cgc_read();\n
+    return;\n
+}\n
+", "4201888:cgc_read": "typedef struct struct_0 {\n
+    char field_0;\n
+} struct_0;\n
 \n
-    v4 = v6;\n
+extern char _GLOBAL_OFFSET_TABLE_;\n
+\n
+int cgc_read()\n
+{\n
+    struct_0 *v0;  // [sp-0x20]\n
+    unsigned int v1;  // [sp-0x14]\n
+    unsigned int v2;  // [sp-0x10]\n
+    char v3;  // [bp-0xc]\n
+    unsigned int v4;  // [bp+0x4]\n
+    char v5;  // [bp+0x8]\n
+\n
     v1 = &_GLOBAL_OFFSET_TABLE_;\n
     v0 = &v3;\n
-    v2 = cgc_receive(0, v5, a0);\n
+    v2 = cgc_receive(0, v4, *(&v5));\n
     if (v2)\n
         cgc__terminate();\n
-    if (*(&v3) != a0)\n
+    if (*(&v3) != *(&v5))\n
         cgc__terminate();\n
-    v7 = v4;\n
     return *(&v3);\n
 }\n
-", "4202015:sub_401e1f": null, "4202016:cgc_read_data": "extern char _GLOBAL_OFFSET_TABLE_;\n
+", "4202015:sub_401e1f": "int sub_401e1f()\n
+{\n
+    cgc_read_data();\n
+    return;\n
+}\n
+", "4202016:cgc_read_data": "typedef struct struct_0 {\n
+    char field_0;\n
+} struct_0;\n
+\n
+typedef struct struct_1 {\n
+    unsigned int field_-4;\n
+    unsigned int field_0;\n
+    unsigned int field_4;\n
+    unsigned int field_8;\n
+} struct_1;\n
+\n
+typedef struct struct_2 {\n
+    unsigned int field_-4;\n
+    unsigned int field_0;\n
+    unsigned int field_4;\n
+} struct_2;\n
+\n
+extern char _GLOBAL_OFFSET_TABLE_;\n
+extern char g_401e8c;\n
+extern char g_401ed6;\n
+extern char g_401ef3;\n
+extern char g_401f09;\n
+extern char g_401fca;\n
 \n
 int cgc_read_data()\n
 {\n
     char v0;  // [bp-0x3c]\n
-    unsigned int v1;  // [bp-0x34]\n
-    unsigned int v2;  // [bp-0x30]\n
-    unsigned int *v3;  // [bp-0x2c]\n
+    unsigned int v1;  // [sp-0x34]\n
+    unsigned int v2;  // [sp-0x30]\n
+    unsigned int *v3;  // [sp-0x2c]\n
     char v4;  // [bp-0x28]\n
     char v5;  // [bp-0x24]\n
-    unsigned int v6;  // [bp-0x20]\n
-    struct struct_0 **v7;  // [bp-0x1c]\n
-    unsigned int *v8;  // [bp-0x18]\n
-    struct struct_0 **v9;  // [bp-0x10]\n
-    unsigned int v10;  // [bp-0xc]\n
-    unsigned int v11;  // [bp-0x8]\n
-    unsigned int v12;  // [bp+0x0]\n
-    struct struct_0 **v13;  // [bp+0x4], Other Possible Types: unsigned int\n
-    unsigned int v14;  // [bp+0x8]\n
-    unsigned int v15;  // [bp+0xc]\n
-    unsigned int v16;  // ebx\n
-    struct struct_0 **v17;  // ecx\n
+    unsigned int *v6;  // [sp-0x20]\n
+    unsigned int v7;  // [sp-0x1c]\n
+    unsigned int *v8;  // [sp-0x18]\n
+    unsigned int v9;  // [sp-0x10]\n
+    struct_0 *v10;  // [sp-0xc]\n
+    unsigned int v11;  // [sp-0x8]\n
+    unsigned int v12;  // [bp+0x4]\n
+    unsigned int v13;  // ebx\n
+    unsigned int v14;  // ecx\n
+    unsigned int *v15;  // eax\n
+    struct_1 *v16;  // eax\n
+    struct_1 *v17;  // eax\n
+    struct_2 *v18;  // eax\n
+    unsigned int v19;  // ecx\n
 \n
-    v11 = v16;\n
+    v11 = v13;\n
     v2 = &_GLOBAL_OFFSET_TABLE_;\n
-    v17 = v13;\n
+    v14 = v12;\n
     v10 = &v0;\n
-    v3 = &(&v0)[-1 * (v17 * 4 + 15 & -0x10)];\n
-    v9 = v17;\n
-    v7 = v13;\n
-    v8 = v3;\n
-    for (v6 = 0; v6 < v13; v6 += 1)\n
+    v15 = &(&v0)[-1 * (v14 * 4 + 15 & -0x10)];\n
+    v3 = v15;\n
+    v9 = v14;\n
+    v7 = v12;\n
+    v8 = v15;\n
+    for (v6 = 0; v6 < v12; v6 = v6 + 1)\n
     {\n
-        v9 = &v5;\n
-        v10 = 4;\n
-        cgc_read(v13, v14);\n
-        v3[v6] = *(&v5);\n
+        vvar_51{reg 24} = vvar_10{reg 24} - 16;\n
+        *(vvar_51{reg 24}) = &v5;\n
+        *((vvar_51{reg 24} + 4)) = 4;\n
+        *((vvar_51{reg 24} - 4)) = &g_401e8c;\n
+        cgc_read();\n
+        vvar_54{reg 24} = vvar_51{reg 24} + 12;\n
+        *((v3 + 0x4 * v6)) = *(&v5);\n
     }\n
     while (true)\n
     {\n
-        v10 = v2 - 4468;\n
-        v11 = 4;\n
-        v9 = 1;\n
-        cgc_transmit_all(v13, v14, v15);\n
-        v13 = &v13;\n
-        v14 = 4;\n
-        v12 = 1;\n
-        cgc_transmit_all(v13, v14, v15);\n
-        v12 = &v4;\n
-        v13 = 4;\n
-        cgc_read(v13, v14);\n
+        v16 = vvar_10{reg 24} - 16;\n
+        v16->field_0 = v2 - 4468;\n
+        v16->field_4 = 4;\n
+        v16->field_-4 = 1;\n
+        v16->field_0 = &g_401ed6;\n
+        cgc_transmit_all();\n
+        v17 = &v16->field_0;\n
+        v17->field_0 = &v12;\n
+        v17->field_4 = 4;\n
+        v17->field_-4 = 1;\n
+        v17->field_0 = &g_401ef3;\n
+        cgc_transmit_all();\n
+        v18 = &v17->field_0;\n
+        v18->field_-4 = &v4;\n
+        v18->field_0 = 4;\n
+        v18->field_0 = &g_401f09;\n
+        cgc_read();\n
         v1 = *(&v4) - 1;\n
         if (v1 <= 6)\n
             break;\n
-        v9 = 0;\n
+        vvar_98{reg 24} = &v18->field_0;\n
+        *(vvar_98{reg 24}) = 0;\n
+        vvar_10{reg 24} = vvar_98{reg 24} - 4;\n
+        *((vvar_98{reg 24} - 4)) = &g_401fca;\n
         cgc__terminate();\n
     }\n
-    goto *(((stack_base)[48] + (stack_base)[52] * 4 - 4496)) + (stack_base)[48];\n
+    v19 = v2;\n
+    goto *((vvar_101{reg 12} + (stack_base)[52] * 4 - 4496)) + vvar_101{reg 12};\n
 }\n
 ", "4202287:sub_401f2f": "int sub_401f2f()\n
 {\n
     char v0;  // [bp-0x18]\n
-    char v1;  // [bp-0x14]\n
-    unsigned int v2;  // [bp-0xc]\n
+    unsigned int v1;  // [sp-0x14]\n
+    unsigned int v2;  // [sp-0xc]\n
 \n
-    v2 = *(&v1);\n
+    v2 = v1;\n
     cgc_sparks(*(&v0));\n
 }\n
 ", "4202319:sub_401f4f": "int sub_401f4f()\n
 {\n
     char v0;  // [bp-0x18]\n
-    char v1;  // [bp-0x14]\n
+    unsigned int v1;  // [sp-0x14]\n
+    unsigned int v2;  // [sp-0x10]\n
+    unsigned int v3;  // [sp-0xc]\n
 \n
-    cgc_bars(*(&v0), *(&v1));\n
+    v2 = *(&v0);\n
+    v3 = v1;\n
+    cgc_bars();\n
 }\n
 ", "4202351:sub_401f6f": "int sub_401f6f()\n
 {\n
@@ -853,87 +1188,401 @@ int cgc_read_data()\n
 ", "4202390:sub_401f96": "int sub_401f96()\n
 {\n
     char v0;  // [bp-0x18]\n
-    char v1;  // [bp-0x14]\n
+    unsigned int v1;  // [sp-0x14]\n
+    unsigned int v2;  // [sp-0x10]\n
+    unsigned int v3;  // [sp-0xc]\n
 \n
-    cgc_replacer(*(&v0), *(&v1));\n
+    v2 = *(&v0);\n
+    v3 = v1;\n
+    cgc_replacer();\n
 }\n
-", "4202447:sub_401fcf": null, "4202448:cgc_draw_echo": "extern char _GLOBAL_OFFSET_TABLE_;\n
+", "4202447:sub_401fcf": "int sub_401fcf()\n
+{\n
+    cgc_draw_echo();\n
+    return;\n
+}\n
+", "4202448:cgc_draw_echo": "typedef struct struct_0 {\n
+    char field_0;\n
+} struct_0;\n
 \n
-int cgc_draw_echo(unsigned int v8)\n
+extern char _GLOBAL_OFFSET_TABLE_;\n
+extern char g_402033;\n
+extern char g_402073;\n
+\n
+int cgc_draw_echo()\n
 {\n
     char v0;  // [bp-0x2c]\n
-    unsigned int v1;  // [bp-0x20]\n
-    unsigned int *v2;  // [bp-0x1c]\n
+    unsigned int v1;  // [sp-0x20]\n
+    unsigned int *v2;  // [sp-0x1c]\n
     char v3;  // [bp-0x18]\n
-    unsigned int v4;  // [bp-0x14]\n
-    unsigned int v5;  // [bp-0x10]\n
-    unsigned int *v6;  // [bp-0xc]\n
-    unsigned int v7;  // [bp-0x8]\n
-    unsigned int v9;  // [bp+0x8]\n
-    unsigned int v10;  // [bp+0xc]\n
-    unsigned int v11;  // eax\n
+    unsigned int *v4;  // [sp-0x14]\n
+    unsigned int v5;  // [sp-0x10]\n
+    struct_0 *v6;  // [sp-0xc]\n
+    unsigned int v7;  // [bp+0x4]\n
+    unsigned int v8;  // eax\n
+    unsigned int v9;  // eax\n
 \n
     v1 = &_GLOBAL_OFFSET_TABLE_;\n
-    v11 = v8;\n
+    v8 = v7;\n
     v6 = &v0;\n
-    v2 = &(&v0)[-1 * (v11 * 4 + 15 & -0x10)];\n
-    v5 = v11;\n
-    for (v4 = 0; v4 < v8; v4 += 1)\n
+    v2 = &(&v0)[-1 * (v8 * 4 + 15 & -0x10)];\n
+    v5 = v8;\n
+    v4 = 0;\n
+    v2 = v2;\n
+    while (true)\n
     {\n
-        v5 = &v3;\n
-        v6 = 4;\n
-        cgc_read(v8, v9);\n
-        v2[v4] = *(&v3);\n
+        vvar_1{reg 24} = vvar_88{reg 24};\n
+        if (v4 >= v7)\n
+            break;\n
+        vvar_42{reg 24} = vvar_1{reg 24} - 16;\n
+        *(vvar_42{reg 24}) = &v3;\n
+        *((vvar_42{reg 24} + 4)) = 4;\n
+        *((vvar_42{reg 24} - 4)) = &g_402033;\n
+        cgc_read();\n
+        vvar_45{reg 24} = vvar_42{reg 24} + 12;\n
+        *((v2 + 0x4 * v4)) = *(&v3);\n
+        v4 = v4 + 1;\n
+        vvar_88{reg 24} = vvar_45{reg 24};\n
     }\n
-    v5 = 1;\n
-    v6 = v2;\n
-    v7 = v8 * 4;\n
-    cgc_transmit_all(v8, v9, v10);\n
+    v9 = v7;\n
+    vvar_63{reg 24} = vvar_1{reg 24} - 16;\n
+    *(vvar_63{reg 24}) = 1;\n
+    *((vvar_63{reg 24} + 4)) = v2;\n
+    *((vvar_63{reg 24} + 8)) = v9 * 4;\n
+    *((vvar_63{reg 24} - 4)) = &g_402073;\n
+    cgc_transmit_all();\n
     return v6;\n
 }\n
-", "4202625:sub_402081": null, "4202640:cgc_echo": "extern char _GLOBAL_OFFSET_TABLE_;\n
+", "4202625:sub_402081": "int sub_402081()\n
+{\n
+    cgc_echo();\n
+    return;\n
+}\n
+", "4202640:cgc_echo": "typedef struct struct_0 {\n
+    char field_0;\n
+} struct_0;\n
+\n
+extern char _GLOBAL_OFFSET_TABLE_;\n
 \n
 int cgc_echo()\n
 {\n
-    unsigned int v0;  // [bp-0x10]\n
-    char v1;  // [bp-0xc]\n
-    unsigned int v2;  // [bp-0x8]\n
-    unsigned int v4;  // ebx\n
+    struct_0 *v0;  // [sp-0x1c], Other Possible Types: unsigned int\n
+    unsigned int v1;  // [sp-0x18]\n
+    unsigned int v2;  // [sp-0x10]\n
+    char v3;  // [bp-0xc]\n
 \n
-    v2 = v4;\n
-    v0 = &_GLOBAL_OFFSET_TABLE_;\n
-    cgc_read(&v1, 4);\n
-    if (*(&v1) >= 1 && *(&v1) <= 0x10000)\n
-        return cgc_draw_echo(*(&v1));\n
+    v2 = &_GLOBAL_OFFSET_TABLE_;\n
+    v0 = &v3;\n
+    v1 = 4;\n
+    cgc_read();\n
+    if (*(&v3) >= 1 && *(&v3) <= 0x10000)\n
+        goto LABEL_4020df;\n
+    v0 = -1;\n
     cgc__terminate();\n
-    return cgc_draw_echo(*(&v1));\n
+LABEL_4020df:\n
+    v0 = *(&v3);\n
+    return cgc_draw_echo();\n
 }\n
-", "4202739:sub_4020f3": null, "4202752:cgc_sparks": null, "4203837:sub_40253d": null, "4203840:__cgc_sparks_block_invoke": "typedef struct struct_0 {\n
+", "4202739:sub_4020f3": "int sub_4020f3()\n
+{\n
+    cgc_sparks();\n
+    return;\n
+}\n
+", "4202752:cgc_sparks": "typedef struct struct_0 {\n
+    char field_0;\n
+} struct_0;\n
+\n
+extern unsigned int _GLOBAL_OFFSET_TABLE_[16];\n
+extern char g_40217d;\n
+extern char g_4021bf;\n
+extern char g_4021fd;\n
+extern char g_402234;\n
+extern char g_402259;\n
+extern char g_402291;\n
+extern char g_402360;\n
+extern char g_4023db;\n
+extern char g_40240e;\n
+extern char g_4024a6;\n
+extern char g_4024d2;\n
+extern char g_4024f1;\n
+extern char g_402510;\n
+extern char g_40252f;\n
+\n
+int cgc_sparks()\n
+{\n
+    char v0;  // [bp-0xec]\n
+    unsigned int v1[16];  // [sp-0xe4]\n
+    unsigned int v2;  // [sp-0xe0]\n
+    unsigned long long v3;  // [sp-0xdc]\n
+    unsigned int v4;  // [sp-0xd4]\n
+    unsigned int v5;  // [sp-0xd0]\n
+    void* v6;  // [sp-0xcc]\n
+    unsigned int v7;  // [sp-0xc8]\n
+    unsigned int v8;  // [sp-0xc4]\n
+    struct_0 *v9;  // [sp-0xc0]\n
+    unsigned long long v10;  // [sp-0xbc]\n
+    struct_0 *v11;  // [sp-0xb4]\n
+    unsigned long long v12;  // [sp-0xac]\n
+    unsigned int v13;  // [sp-0xa4]\n
+    unsigned int v14;  // [sp-0xa0]\n
+    void* v15;  // [sp-0x9c]\n
+    unsigned int v16;  // [sp-0x98]\n
+    unsigned int v17;  // [sp-0x94]\n
+    struct_0 *v18;  // [sp-0x90]\n
+    unsigned int v19;  // [sp-0x8c]\n
+    unsigned int v20;  // [sp-0x88]\n
+    void* v21;  // [sp-0x84]\n
+    unsigned int v22;  // [sp-0x80]\n
+    unsigned int v23;  // [sp-0x7c]\n
+    struct_0 *v24;  // [sp-0x78]\n
+    struct_0 *v25;  // [sp-0x74]\n
+    void* v26;  // [sp-0x6c]\n
+    struct_0 *v27;  // [sp-0x68]\n
+    void* v28;  // [sp-0x64]\n
+    unsigned int v29;  // [sp-0x60]\n
+    void* v30;  // [sp-0x5c]\n
+    void* v31;  // [sp-0x54]\n
+    struct_0 *v32;  // [sp-0x50]\n
+    void* v33;  // [sp-0x4c]\n
+    unsigned int v34;  // [sp-0x48]\n
+    unsigned int v35;  // [sp-0x44]\n
+    char v36;  // [bp-0x40]\n
+    unsigned int *v37;  // [sp-0x3c]\n
+    unsigned int v38;  // [sp-0x38]\n
+    void* v39;  // [sp-0x34]\n
+    struct_0 *v40;  // [sp-0x30]\n
+    void* v41;  // [sp-0x2c]\n
+    unsigned int v42;  // [sp-0x28]\n
+    unsigned int v43;  // [sp-0x24]\n
+    unsigned int v44;  // [sp-0x20]\n
+    struct_0 *v45;  // [sp-0x1c]\n
+    char v46;  // [bp-0x18]\n
+    unsigned int v47;  // [sp-0x14]\n
+    unsigned int v48;  // [sp-0x10]\n
+    char v49;  // [bp+0x0]\n
+    unsigned int v50;  // [bp+0x4]\n
+    char v51;  // [bp+0x8]\n
+    unsigned int v52;  // ecx\n
+    unsigned int v53;  // eax\n
+    unsigned int v54[16];  // ebx\n
+    unsigned int v55;  // eax\n
+    unsigned int v56[16];  // ebx\n
+    unsigned int v57[16];  // ebx\n
+    unsigned int v58[16];  // ebx\n
+    unsigned int v59;  // ecx\n
+    unsigned int v60;  // eax\n
+    unsigned int v61[16];  // ebx\n
+\n
+    v1[0] = &_GLOBAL_OFFSET_TABLE_[0];\n
+    v47 = v50;\n
+    v48 = *(&v51);\n
+    v52 = v47;\n
+    v45 = &v0;\n
+    v53 = &(&v0)[-1 * (v52 * 4 + 15 & -0x10)];\n
+    v2 = v53;\n
+    v44 = v52;\n
+    v39 = 0;\n
+    v40 = &v39;\n
+    v41 = 0;\n
+    v42 = 20;\n
+    v43 = v53;\n
+    vvar_89{reg 24} = v53 - 16;\n
+    *(vvar_89{reg 24}) = &v46;\n
+    *((vvar_89{reg 24} + 4)) = 4;\n
+    *((vvar_89{reg 24} - 4)) = &g_40217d;\n
+    cgc_read();\n
+    vvar_11{reg 24} = vvar_89{reg 24} + 12;\n
+    if (!*(&v46) && !v1[15])\n
+        goto LABEL_4021aa;\n
+    if (*(&v46) <= 0x1000)\n
+        goto LABEL_4021bf;\n
+LABEL_4021aa:\n
+    vvar_111{reg 24} = vvar_11{reg 24} - 16;\n
+    *(vvar_111{reg 24}) = -1;\n
+    vvar_11{reg 24} = vvar_111{reg 24} - 4;\n
+    *((vvar_111{reg 24} - 4)) = &g_4021bf;\n
+    cgc__terminate();\n
+LABEL_4021bf:\n
+    if (*(&v46))\n
+    {\n
+        if (v1[14])\n
+        {\n
+            v54 = v1;\n
+            v55 = v54[15];\n
+            vvar_130{reg 24} = vvar_11{reg 24} - 16;\n
+            *(vvar_130{reg 24}) = v54[14];\n
+            *((vvar_130{reg 24} + 4)) = v55;\n
+            *((vvar_130{reg 24} - 4)) = &g_4021fd;\n
+            cgc_deallocate(*(&v49));\n
+            vvar_11{reg 24} = vvar_130{reg 24} + 12;\n
+        }\n
+        v56 = v1;\n
+        v56[15] = *(&v46);\n
+        vvar_148{reg 24} = vvar_27{reg 24} - 16;\n
+        *(vvar_148{reg 24}) = *(&v46) + 1;\n
+        *((vvar_148{reg 24} + 4)) = 0;\n
+        *((vvar_148{reg 24} + 8)) = &v56[14];\n
+        *((vvar_148{reg 24} - 4)) = &g_402234;\n
+        vvar_35{reg 24} = vvar_148{reg 24} + 12;\n
+        v38 = cgc_allocate(*(&v49), v50);\n
+        if (v38)\n
+        {\n
+            vvar_161{reg 24} = vvar_35{reg 24} - 16;\n
+            *(vvar_161{reg 24}) = -1;\n
+            vvar_35{reg 24} = vvar_161{reg 24} - 4;\n
+            *((vvar_161{reg 24} - 4)) = &g_402259;\n
+            cgc__terminate();\n
+        }\n
+        for (v37 = 0; v37 < v1[15]; v37 = v37 + 1)\n
+        {\n
+            vvar_176{reg 24} = vvar_11{reg 24} - 16;\n
+            *(vvar_176{reg 24}) = &v36;\n
+            *((vvar_176{reg 24} + 4)) = 4;\n
+            *((vvar_176{reg 24} - 4)) = &g_402291;\n
+            cgc_read();\n
+            vvar_179{reg 24} = vvar_176{reg 24} + 12;\n
+            *((v1[14] + v37 * 4)) = *(&v36);\n
+        }\n
+    }\n
+    v57 = v1;\n
+    v31 = 0;\n
+    v32 = &v31;\n
+    v33 = 0;\n
+    v34 = 20;\n
+    v35 = -1;\n
+    v26 = 0;\n
+    v27 = &v26;\n
+    v28 = 0;\n
+    v29 = 20;\n
+    v30 = 0;\n
+    v19 = &v57[1 + 1];\n
+    v20 = 0x42000000;\n
+    v21 = 0;\n
+    v22 = &v57[113 + 13];\n
+    v23 = &v57[5 + 9];\n
+    v24 = &v26;\n
+    v25 = &v31;\n
+    vvar_205{reg 24} = vvar_18{reg 24} - 16;\n
+    *(vvar_205{reg 24}) = v47;\n
+    *((vvar_205{reg 24} + 4)) = v48;\n
+    *((vvar_205{reg 24} + 8)) = &v19;\n
+    *((vvar_205{reg 24} - 4)) = &g_402360;\n
+    cgc_each();\n
+    vvar_208{reg 24} = vvar_205{reg 24} + 12;\n
+    if (v35 == v30)\n
+    {\n
+        v58 = v1;\n
+        v13 = &v58[1 + 1];\n
+        v14 = 0x42000000;\n
+        v15 = 0;\n
+        v16 = &v58[112 + 1];\n
+        v17 = &v58[5 + 3];\n
+        v18 = &v39;\n
+        vvar_228{reg 24} = vvar_208{reg 24} - 16;\n
+        *(vvar_228{reg 24}) = v47;\n
+        *((vvar_228{reg 24} + 4)) = v48;\n
+        *((vvar_228{reg 24} + 8)) = &v13;\n
+        *((vvar_228{reg 24} - 4)) = &g_4023db;\n
+        cgc_each();\n
+        vvar_42{reg 24} = vvar_228{reg 24} + 12;\n
+    }\n
+    else\n
+    {\n
+        v59 = v35;\n
+        v60 = v1[15];\n
+        vvar_241{reg 24} = vvar_208{reg 24} - 16;\n
+        *(vvar_241{reg 24}) = v30;\n
+        *((vvar_241{reg 24} + 4)) = v59;\n
+        *((vvar_241{reg 24} + 8)) = v60;\n
+        *((vvar_241{reg 24} - 4)) = &g_40240e;\n
+        cgc_spark_divisor(*(&v49), v50);\n
+        v61 = v1;\n
+        if ([D] unsupported_<class 'pyvex.expr.GetI'>())\n
+        {\n
+            *(&v3) = [D] unsupported_<class 'pyvex.expr.GetI'>();\n
+            [D] PutI(136:I8x8)[t6,0] = 0x00()\n
+        }\n
+        else\n
+        {\n
+            v3 = nan;\n
+            [D] PutI(136:I8x8)[t6,0] = 0x00()\n
+        }\n
+        v12 = v3;\n
+        v4 = &v61[1 + 1];\n
+        v5 = 0x42000000;\n
+        v6 = 0;\n
+        v7 = &v61[109 + 1];\n
+        v8 = &v61[4 + 13];\n
+        v9 = &v31;\n
+        v10 = v12;\n
+        v11 = &v39;\n
+        vvar_295{reg 24} = vvar_241{reg 24} - 4;\n
+        *(vvar_295{reg 24}) = v47;\n
+        *((vvar_295{reg 24} + 4)) = v48;\n
+        *((vvar_295{reg 24} + 8)) = &v4;\n
+        *((vvar_295{reg 24} - 4)) = &g_4024a6;\n
+        cgc_each();\n
+        vvar_42{reg 24} = vvar_295{reg 24} + 12;\n
+    }\n
+    vvar_315{reg 24} = vvar_42{reg 24} - 16;\n
+    *(vvar_315{reg 24}) = 1;\n
+    *((vvar_315{reg 24} + 4)) = v2;\n
+    *((vvar_315{reg 24} + 8)) = v47 * 4;\n
+    *((vvar_315{reg 24} - 4)) = &g_4024d2;\n
+    cgc_transmit_all();\n
+    vvar_325{reg 24} = vvar_315{reg 24} - 4;\n
+    *(vvar_325{reg 24}) = &v26;\n
+    *((vvar_325{reg 24} + 4)) = 8;\n
+    *((vvar_325{reg 24} - 4)) = &g_4024f1;\n
+    _Block_object_dispose();\n
+    vvar_335{reg 24} = vvar_325{reg 24} - 4;\n
+    *(vvar_335{reg 24}) = &v31;\n
+    *((vvar_335{reg 24} + 4)) = 8;\n
+    *((vvar_335{reg 24} - 4)) = &g_402510;\n
+    _Block_object_dispose();\n
+    vvar_345{reg 24} = vvar_335{reg 24} - 4;\n
+    *(vvar_345{reg 24}) = &v39;\n
+    *((vvar_345{reg 24} + 4)) = 8;\n
+    *((vvar_345{reg 24} - 4)) = &g_40252f;\n
+    _Block_object_dispose();\n
+    return v45;\n
+}\n
+", "4203837:sub_40253d": "int sub_40253d()\n
+{\n
+    __cgc_sparks_block_invoke();\n
+    return;\n
+}\n
+", "4203840:__cgc_sparks_block_invoke": "typedef struct struct_0 {\n
     char padding_0[16];\n
     unsigned int field_10;\n
 } struct_0;\n
 \n
-int __cgc_sparks_block_invoke(struct struct_1 *v2[7], unsigned int a0, struct_0 *a1)\n
+int __cgc_sparks_block_invoke()\n
 {\n
-    struct struct_1 *v0[7];  // [bp-0xc]\n
-    struct struct_1 *v1[7];  // [bp-0x8]\n
-    struct struct_1 *v3[7];  // ecx\n
-    struct_0 *v4;  // eax, Other Possible Types: unsigned int\n
+    struct struct_1 *v0[7];  // [sp-0xc]\n
+    struct struct_1 *v1[7];  // [sp-0x8]\n
+    struct struct_1 *v2[7];  // [bp+0x4]\n
+    char v3;  // [bp+0xc]\n
+    struct_0 *v4;  // eax\n
 \n
-    v3 = v2;\n
-    v0[0] = &v3[0];\n
-    v1[0] = &v3[0];\n
-    if (a1 > v3[5]->field_4->field_10)\n
-        v0[5]->field_4->field_10 = a1;\n
-    v4 = a1;\n
+    v0[0] = &v2[0];\n
+    v1[0] = &v0[0];\n
+    if (*(&v3) > v0[5]->field_4->field_10)\n
+        v0[5]->field_4->field_10 = *(&v3);\n
+    v4 = *(&v3);\n
     if (v4 < v0[6]->field_4->field_10)\n
     {\n
         v4 = v0[6]->field_4;\n
-        *((v4 + 16)) = a1;\n
+        v4->field_10 = *(&v3);\n
     }\n
     return v4;\n
 }\n
-", "4203937:sub_4025a1": null, "4203952:__cgc_sparks_block_invoke.1": "typedef struct struct_3 {\n
+", "4203937:sub_4025a1": "int sub_4025a1()\n
+{\n
+    __cgc_sparks_block_invoke.1();\n
+    return;\n
+}\n
+", "4203952:__cgc_sparks_block_invoke.1": "typedef struct struct_3 {\n
     char padding_0[20];\n
     struct struct_2 *field_14;\n
 } struct_3;\n
@@ -955,169 +1604,237 @@ typedef struct struct_1 {\n
 extern unsigned int cgc_sparkles;\n
 extern unsigned int sparkle_count;\n
 \n
-int __cgc_sparks_block_invoke.1(struct_3 *v1, unsigned int a0, unsigned int a1)\n
+int __cgc_sparks_block_invoke.1()\n
 {\n
-    struct_3 *v0;  // [bp-0x8]\n
-    struct_3 *v2;  // eax\n
-    unsigned int *v3;  // eax\n
+    struct_3 *v0;  // [sp-0x8], Other Possible Types: unsigned int\n
+    struct_3 *v1;  // [bp+0x4]\n
+    char v2;  // [bp+0x8]\n
+    unsigned int v3;  // eax\n
+    unsigned int *v4;  // eax\n
 \n
-    v0 = v2;\n
+    v0 = v3;\n
     v0 = v1;\n
-    v3 = v0->field_14->field_4->field_10;\n
-    v3[a0] = *((cgc_sparkles + (sparkle_count - 1) * 4));\n
-    return v3;\n
+    v4 = v0->field_14->field_4->field_10;\n
+    v4[*(&v2)] = *((cgc_sparkles + (sparkle_count - 1) * 4));\n
+    return v4;\n
 }\n
-", "4204020:sub_4025f4": null, "4204032:cgc_spark_divisor": "int cgc_spark_divisor(unsigned int v1, unsigned int a0, unsigned int a1)\n
+", "4204020:sub_4025f4": "int sub_4025f4()\n
 {\n
-    int tmp_70;  // tmp #70\n
-    int tmp_72;  // tmp #72\n
-    int tmp_71;  // tmp #71\n
-    unsigned long v0;  // [bp-0xc]\n
-\n
-    tmp_70 = DivV(tmp_72, tmp_71);\n
-    *(&v0) = tmp_70;\n
-    if ([D] GetI(136:I8x8)[t78,0])\n
-    {\n
-        [D] PutI(72:F64x8)[t3,0] = t6\n
-        [D] PutI(136:I8x8)[t3,0] = 0x01\n
-        return a1 - 1;\n
-    }\n
-    [D] PutI(72:F64x8)[t3,0] = t6\n
-    [D] PutI(136:I8x8)[t3,0] = 0x01\n
-    return a1 - 1;\n
+    cgc_spark_divisor();\n
+    return;\n
 }\n
-", "4204135:sub_402667": null, "4204144:__cgc_sparks_block_invoke.3": "typedef struct struct_6 {\n
+", "4204032:cgc_spark_divisor": "int cgc_spark_divisor()\n
+{\n
+    unsigned long v0;  // [sp-0xc]\n
+    unsigned int v1;  // [bp+0x4]\n
+    char v2;  // [bp+0x8]\n
+    char v3;  // [bp+0xc]\n
+    unsigned int v4;  // eax\n
+    int v5;  // xmm2\n
+\n
+    v4 = *(&v3);\n
+    *(&v0) = (DivV(SubV(SubV(v1 | v5, v5), SubV(*(&v2) | v5, v5)), SubV(v4 - 1 | v5, v5)));\n
+    if ([D] unsupported_<class 'pyvex.expr.GetI'>())\n
+    {\n
+        [D] PutI(72:F64x8)[t3,0] = t6()\n
+        [D] PutI(136:I8x8)[t3,0] = 0x01()\n
+    }\n
+    else\n
+    {\n
+        [D] PutI(72:F64x8)[t3,0] = t6()\n
+        [D] PutI(136:I8x8)[t3,0] = 0x01()\n
+    }\n
+    return v4 - 1;\n
+}\n
+", "4204135:sub_402667": "int sub_402667()\n
+{\n
+    __cgc_sparks_block_invoke.3();\n
+    return;\n
+}\n
+", "4204144:__cgc_sparks_block_invoke.3": "typedef struct struct_6 {\n
     char padding_0[56];\n
     unsigned int field_38;\n
 } struct_6;\n
 \n
 typedef struct struct_5 {\n
     char padding_0[20];\n
-    struct struct_4 *field_14;\n
+    struct struct_1 *field_14;\n
     unsigned long long field_18;\n
-    struct struct_2 *field_20;\n
+    struct struct_4 *field_20;\n
 } struct_5;\n
+\n
+typedef struct struct_1 {\n
+    char padding_0[4];\n
+    struct struct_0 *field_4;\n
+} struct_1;\n
 \n
 typedef struct struct_4 {\n
     char padding_0[4];\n
-    struct struct_3 *field_4;\n
+    struct struct_2 *field_4;\n
 } struct_4;\n
-\n
-typedef struct struct_2 {\n
-    char padding_0[4];\n
-    struct struct_0 *field_4;\n
-} struct_2;\n
-\n
-typedef struct struct_3 {\n
-    char padding_0[16];\n
-    unsigned int field_10;\n
-} struct_3;\n
 \n
 typedef struct struct_0 {\n
     char padding_0[16];\n
-    struct struct_1 *field_10;\n
+    unsigned int field_10;\n
 } struct_0;\n
 \n
-typedef struct struct_1 {\n
+typedef struct struct_2 {\n
+    char padding_0[16];\n
+    struct struct_3 *field_10;\n
+} struct_2;\n
+\n
+typedef struct struct_3 {\n
     unsigned int field_0;\n
-} struct_1;\n
+} struct_3;\n
 \n
 extern struct_6 _GLOBAL_OFFSET_TABLE_;\n
 \n
-int __cgc_sparks_block_invoke.3(struct_5 *v6, unsigned int a0, unsigned int a1)\n
+int __cgc_sparks_block_invoke.3()\n
 {\n
-    unsigned long v0;  // [bp-0x24]\n
-    struct_6 *v1;  // [bp-0x18]\n
-    struct_5 *v2;  // [bp-0x14]\n
-    unsigned int *v3;  // [bp-0x10]\n
-    struct_5 *v4;  // [bp-0xc]\n
-    unsigned int v5;  // [bp-0x8]\n
-    unsigned int v7;  // ebx\n
-    unsigned int *v8;  // eax\n
-    unsigned int v9;  // ebx\n
+    unsigned long long v0;  // [sp-0x24]\n
+    struct_6 *v1;  // [sp-0x18]\n
+    struct_5 *v2;  // [sp-0x14]\n
+    unsigned int *v3;  // [sp-0x10]\n
+    struct_5 *v4;  // [sp-0xc]\n
+    struct_5 *v5;  // [bp+0x4]\n
+    char v6;  // [bp+0x8]\n
+    char v7;  // [bp+0xc]\n
+    struct_5 *v8;  // edx\n
+    unsigned int *v9;  // eax\n
 \n
-    v5 = v7;\n
     v1 = &_GLOBAL_OFFSET_TABLE_.padding_0[0];\n
-    v2 = v6;\n
-    v4 = v2;\n
-    *(&v0) = v2->field_18;\n
-    v3 = cgc_spark_pick_index(a1, v2->field_14->field_4->field_10);\n
-    v8 = v2->field_20->field_4->field_10;\n
-    v8[a0] = *((v1->field_38 + v3 * 4));\n
-    v9 = v5;\n
-    return v8;\n
+    v8 = v5;\n
+    v2 = v8;\n
+    v4 = v8;\n
+    v0 = v8->field_18;\n
+    v3 = cgc_spark_pick_index(*(&v7), v8->field_14->field_4->field_10);\n
+    v9 = v2->field_20->field_4->field_10;\n
+    v9[*(&v6)] = *((v1->field_38 + v3 * 4));\n
+    return v9;\n
 }\n
-", "4204262:sub_4026e6": null, "4204272:cgc_spark_pick_index": null, "4204382:sub_40275e": null, "4204384:__copy_helper_block_4_20r24r": "extern char _GLOBAL_OFFSET_TABLE_;\n
-\n
-int __copy_helper_block_4_20r24r(unsigned int v4, unsigned int a0[7])\n
+", "4204262:sub_4026e6": "int sub_4026e6()\n
 {\n
-    unsigned int v0;  // [bp-0x14]\n
-    unsigned int v1;  // [bp-0x10]\n
-    unsigned int v2[7];  // [bp-0xc]\n
-    unsigned int v3;  // [bp-0x8]\n
-    unsigned int v5;  // ebx\n
-    unsigned int v6;  // ebx\n
-\n
-    v3 = v5;\n
-    v0 = &_GLOBAL_OFFSET_TABLE_;\n
-    v2[0] = a0;\n
-    v1 = v4;\n
-    _Block_object_assign(v1 + 20, v2[5], 8);\n
-    v6 = v3;\n
-    return _Block_object_assign(v1 + 24, v2[6], 8);\n
+    cgc_spark_pick_index();\n
+    return;\n
 }\n
-", "4204491:sub_4027cb": null, "4204496:__destroy_helper_block_4_20r24r": "extern char _GLOBAL_OFFSET_TABLE_;\n
-\n
-int __destroy_helper_block_4_20r24r(unsigned int v3[7])\n
+", "4204272:cgc_spark_pick_index": "int cgc_spark_pick_index()\n
 {\n
-    unsigned int v0;  // [bp-0x10]\n
-    unsigned int v1[7];  // [bp-0xc]\n
-    unsigned int v2;  // [bp-0x8]\n
-    unsigned int v4;  // ebx\n
-    unsigned int v5;  // ebx\n
+    unsigned int v0;  // [bp+0x4]\n
+    char v1;  // [bp+0x8]\n
+    int v2;  // xmm2\n
+    int v3;  // xmm1\n
+    int v4;  // xmm0\n
 \n
-    v2 = v4;\n
-    v0 = &_GLOBAL_OFFSET_TABLE_;\n
-    v1[0] = v3;\n
-    _Block_object_dispose(v1[6], 8);\n
-    v5 = v2;\n
-    return _Block_object_dispose(v1[5], 8);\n
+    v4 = DivV(SubV(SubV(v0 | v2, v2), SubV(*(&v1) | v2, v2)), v3);\n
+    return v4 | (SubV(v4, v3)) & v4 >> 31;\n
 }\n
-", "4204577:sub_402821": null, "4204592:__copy_helper_block_8_20r32r": "extern char _GLOBAL_OFFSET_TABLE_;\n
-\n
-int __copy_helper_block_8_20r32r(unsigned int v4, unsigned int a0[9])\n
+", "4204382:sub_40275e": "int sub_40275e()\n
 {\n
-    unsigned int v0;  // [bp-0x14]\n
-    unsigned int v1;  // [bp-0x10]\n
-    unsigned int v2[9];  // [bp-0xc]\n
-    unsigned int v3;  // [bp-0x8]\n
-    unsigned int v5;  // ebx\n
-    unsigned int v6;  // ebx\n
-\n
-    v3 = v5;\n
-    v0 = &_GLOBAL_OFFSET_TABLE_;\n
-    v2[0] = a0;\n
-    v1 = v4;\n
-    _Block_object_assign(v1 + 20, v2[5], 8);\n
-    v6 = v3;\n
-    return _Block_object_assign(v1 + 32, v2[8], 8);\n
+    __copy_helper_block_4_20r24r();\n
+    return;\n
 }\n
-", "4204699:sub_40289b": null, "4204704:__destroy_helper_block_8_20r32r": "extern char _GLOBAL_OFFSET_TABLE_;\n
+", "4204384:__copy_helper_block_4_20r24r": "extern char _GLOBAL_OFFSET_TABLE_;\n
 \n
-int __destroy_helper_block_8_20r32r(unsigned int v3[9])\n
+int __copy_helper_block_4_20r24r()\n
 {\n
-    unsigned int v0;  // [bp-0x10]\n
-    unsigned int v1[9];  // [bp-0xc]\n
-    unsigned int v2;  // [bp-0x8]\n
-    unsigned int v4;  // ebx\n
-    unsigned int v5;  // ebx\n
+    unsigned int v0;  // [sp-0x2c]\n
+    unsigned int v1;  // [sp-0x28]\n
+    unsigned int v2;  // [sp-0x24]\n
+    unsigned int v3;  // [sp-0x14]\n
+    unsigned int v4;  // [sp-0x10]\n
+    unsigned int v5[7];  // [sp-0xc]\n
+    unsigned int v6;  // [bp+0x4]\n
+    char v7;  // [bp+0x8]\n
 \n
-    v2 = v4;\n
-    v0 = &_GLOBAL_OFFSET_TABLE_;\n
-    v1[0] = v3;\n
-    _Block_object_dispose(v1[8], 8);\n
-    v5 = v2;\n
-    return _Block_object_dispose(v1[5], 8);\n
+    v3 = &_GLOBAL_OFFSET_TABLE_;\n
+    v5[0] = *(&v7);\n
+    v4 = v6;\n
+    v0 = v4 + 20;\n
+    v1 = v5[5];\n
+    v2 = 8;\n
+    _Block_object_assign();\n
+    v0 = v4 + 24;\n
+    v1 = v5[6];\n
+    v2 = 8;\n
+    return _Block_object_assign();\n
+}\n
+", "4204491:sub_4027cb": "int sub_4027cb()\n
+{\n
+    __destroy_helper_block_4_20r24r();\n
+    return;\n
+}\n
+", "4204496:__destroy_helper_block_4_20r24r": "extern char _GLOBAL_OFFSET_TABLE_;\n
+\n
+int __destroy_helper_block_4_20r24r()\n
+{\n
+    unsigned int v0;  // [sp-0x1c]\n
+    unsigned int v1;  // [sp-0x18]\n
+    unsigned int v2;  // [sp-0x10]\n
+    unsigned int v3[7];  // [sp-0xc]\n
+    unsigned int v4[7];  // [bp+0x4]\n
+\n
+    v2 = &_GLOBAL_OFFSET_TABLE_;\n
+    v3[0] = v4;\n
+    v0 = v3[6];\n
+    v1 = 8;\n
+    _Block_object_dispose();\n
+    v0 = v3[5];\n
+    v1 = 8;\n
+    return _Block_object_dispose();\n
+}\n
+", "4204577:sub_402821": "int sub_402821()\n
+{\n
+    __copy_helper_block_8_20r32r();\n
+    return;\n
+}\n
+", "4204592:__copy_helper_block_8_20r32r": "extern char _GLOBAL_OFFSET_TABLE_;\n
+\n
+int __copy_helper_block_8_20r32r()\n
+{\n
+    unsigned int v0;  // [sp-0x2c]\n
+    unsigned int v1;  // [sp-0x28]\n
+    unsigned int v2;  // [sp-0x24]\n
+    unsigned int v3;  // [sp-0x14]\n
+    unsigned int v4;  // [sp-0x10]\n
+    unsigned int v5[9];  // [sp-0xc]\n
+    unsigned int v6;  // [bp+0x4]\n
+    char v7;  // [bp+0x8]\n
+\n
+    v3 = &_GLOBAL_OFFSET_TABLE_;\n
+    v5[0] = *(&v7);\n
+    v4 = v6;\n
+    v0 = v4 + 20;\n
+    v1 = v5[5];\n
+    v2 = 8;\n
+    _Block_object_assign();\n
+    v0 = v4 + 32;\n
+    v1 = v5[8];\n
+    v2 = 8;\n
+    return _Block_object_assign();\n
+}\n
+", "4204699:sub_40289b": "int sub_40289b()\n
+{\n
+    __destroy_helper_block_8_20r32r();\n
+    return;\n
+}\n
+", "4204704:__destroy_helper_block_8_20r32r": "extern char _GLOBAL_OFFSET_TABLE_;\n
+\n
+int __destroy_helper_block_8_20r32r()\n
+{\n
+    unsigned int v0;  // [sp-0x1c]\n
+    unsigned int v1;  // [sp-0x18]\n
+    unsigned int v2;  // [sp-0x10]\n
+    unsigned int v3[9];  // [sp-0xc]\n
+    unsigned int v4[9];  // [bp+0x4]\n
+\n
+    v2 = &_GLOBAL_OFFSET_TABLE_;\n
+    v3[0] = v4;\n
+    v0 = v3[8];\n
+    v1 = 8;\n
+    _Block_object_dispose();\n
+    v0 = v3[5];\n
+    v1 = 8;\n
+    return _Block_object_dispose();\n
 }\n
 ", "4204788:_fini": "int _fini()\n
 {\n
