@@ -958,15 +958,15 @@ int sub_401f40()\n
         [D] PutI(136:I8x8)[t6,0] = 0x00()\n
         v13 = v11 + 1;\n
         cgc_fabs();\n
-        if ([D] unsupported_<class 'pyvex.expr.GetI'>())\n
+        if (![D] unsupported_<class 'pyvex.expr.GetI'>())\n
         {\n
-            *(&v6) = [D] unsupported_<class 'pyvex.expr.GetI'>();\n
+            v6 = nan;\n
             [D] PutI(136:I8x8)[t6,0] = 0x00()\n
             v14 = v13 + 1;\n
         }\n
         else\n
         {\n
-            v6 = nan;\n
+            *(&v6) = [D] unsupported_<class 'pyvex.expr.GetI'>();\n
             [D] PutI(136:I8x8)[t6,0] = 0x00()\n
             v14 = v13 + 1;\n
         }\n
@@ -999,9 +999,9 @@ int sub_401f40()\n
     sub_402020();\n
     return;\n
 }\n
-", "4202528:sub_402020": "typedef struct struct_0 {\n
+", "4202528:sub_402020": "typedef struct struct_1 {\n
     char field_0;\n
-} struct_0;\n
+} struct_1;\n
 \n
 extern unsigned int g_405054;\n
 extern char g_406498;\n
@@ -1009,7 +1009,7 @@ extern char g_406498;\n
 int sub_402020()\n
 {\n
     unsigned int v0;  // [sp-0xe0]\n
-    struct_0 *v1;  // [sp-0xdc], Other Possible Types: unsigned int\n
+    struct_1 *v1;  // [sp-0xdc], Other Possible Types: unsigned int\n
     unsigned int v2;  // [sp-0xd8]\n
     unsigned int v3;  // [sp-0xd4]\n
     unsigned int v4;  // [sp-0xd0]\n
@@ -1037,7 +1037,7 @@ int sub_402020()\n
     void* v26;  // [sp-0x1c]\n
     unsigned int v27;  // [sp-0x18]\n
     unsigned short *v28;  // [sp-0x14]\n
-    struct struct_1 **v29;  // [sp-0x10], Other Possible Types: struct_0 *, unsigned int\n
+    struct struct_0 **v29;  // [sp-0x10], Other Possible Types: struct_1 *, unsigned int\n
     unsigned int v30;  // [sp-0xc]\n
     unsigned int v31;  // [sp-0x4]\n
     char v32;  // [bp+0x0]\n
@@ -1257,7 +1257,7 @@ int sub_402540()\n
     sub_4026b0();\n
     return;\n
 }\n
-", "4204208:sub_4026b0": "typedef struct struct_0 {\n
+", "4204208:sub_4026b0": "typedef struct struct_1 {\n
     unsigned int field_0;\n
     char padding_4[132];\n
     unsigned int field_88;\n
@@ -1266,17 +1266,17 @@ int sub_402540()\n
     unsigned int field_94;\n
     unsigned long long field_98;\n
     unsigned int field_a0;\n
-} struct_0;\n
-\n
-typedef struct struct_1 {\n
-    char field_0;\n
 } struct_1;\n
+\n
+typedef struct struct_0 {\n
+    char field_0;\n
+} struct_0;\n
 \n
 int sub_4026b0()\n
 {\n
-    struct_1 *v0;  // [sp-0x78], Other Possible Types: struct_0 *, unsigned int\n
-    struct_1 *v1;  // [sp-0x74], Other Possible Types: unsigned int\n
-    struct_1 *v2;  // [sp-0x70], Other Possible Types: unsigned int\n
+    struct_0 *v0;  // [sp-0x78], Other Possible Types: struct_1 *, unsigned int\n
+    struct_0 *v1;  // [sp-0x74], Other Possible Types: unsigned int\n
+    struct_0 *v2;  // [sp-0x70], Other Possible Types: unsigned int\n
     unsigned int v3;  // [sp-0x64]\n
     unsigned long long v4;  // [sp-0x60]\n
     int v5;  // [sp-0x58]\n
@@ -1288,13 +1288,13 @@ int sub_4026b0()\n
     unsigned int v11;  // [sp-0x18]\n
     unsigned int v12;  // [sp-0x4]\n
     char v13;  // [bp+0x0]\n
-    struct_0 *v14;  // [bp+0x4]\n
+    struct_1 *v14;  // [bp+0x4]\n
     unsigned int v15;  // edx\n
-    struct_0 *v16;  // ecx\n
-    struct_0 *v17;  // ecx\n
+    struct_1 *v16;  // ecx\n
+    struct_1 *v17;  // ecx\n
     unsigned long long v18;  // xmm0\n
     unsigned long long v19;  // xmm0\n
-    struct_0 *v20;  // eax\n
+    struct_1 *v20;  // eax\n
     unsigned long long v22;  // xmm0\n
 \n
     v12 = &v13;\n
