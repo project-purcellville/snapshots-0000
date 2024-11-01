@@ -5,8 +5,8 @@ long long _init()\n
     struct struct_0 **v1;  // rax\n
 \n
     v1 = g_405a38;\n
-    if (v1)\n
-        v1 = v1();\n
+    if (g_405a38)\n
+        v1 = g_405a38();\n
     return v1;\n
 }\n
 ", "4202528:sub_402020": "extern unsigned long long g_405a58;\n
@@ -194,14 +194,17 @@ long long __do_global_dtors_aux()\n
             v4 = v0;\n
             return v4;\n
         }\n
-        if (cgc_transmit(a0, v3, v2, &v1))\n
+        else if (!cgc_transmit(a0, v3, v2, &v1))\n
+        {\n
+            v3 = v1 + v3;\n
+            v0 = v1 + v0;\n
+            v2 -= v1;\n
+        }\n
+        else\n
         {\n
             v4 = -1;\n
             return v4;\n
         }\n
-        v3 = v1 + v3;\n
-        v0 = v1 + v0;\n
-        v2 -= v1;\n
     }\n
 }\n
 ", "4203286:sub_402316": "int sub_402316()\n
@@ -388,7 +391,7 @@ long long cgc_recvline(unsigned int a0, struct_0 *a1, unsigned long a2)\n
 ", "4204064:cgc_strncpy": "long long cgc_strncpy(char *a0, char *a1, unsigned long a2)\n
 {\n
     char v0;  // [sp-0x29]\n
-    char *v1;  // [sp-0x28], Other Possible Types: unsigned long long\n
+    char *v1;  // [sp-0x28]\n
     unsigned long long v2;  // [sp-0x20]\n
     char *v3;  // [sp-0x18]\n
     char *v5;  // rax\n
@@ -410,7 +413,7 @@ long long cgc_recvline(unsigned int a0, struct_0 *a1, unsigned long a2)\n
     v5 = v1;\n
     v1 = v5 + 1;\n
     *(v5) = 0;\n
-    return -1 + v1 - a0;\n
+    return v1 - a0 - 1;\n
 }\n
 ", "4204222:sub_4026be": "int sub_4026be()\n
 {\n
@@ -729,12 +732,15 @@ LABEL_402aff:\n
             v1 = 0;\n
             return v1;\n
         }\n
-        if (*(v0) == a1)\n
+        else if (*(v0) != a1)\n
+        {\n
+            v0 += 1;\n
+        }\n
+        else\n
         {\n
             v1 = v0;\n
             return v1;\n
         }\n
-        v0 += 1;\n
     }\n
 }\n
 ", "4205794:sub_402ce2": "int sub_402ce2()\n
@@ -804,6 +810,7 @@ LABEL_402aff:\n
 \n
 extern struct_0 *cgc_allocated;\n
 extern struct_0 *cgc_freed;\n
+extern unsigned int g_404023;\n
 \n
 long long cgc_checkheap()\n
 {\n
@@ -821,7 +828,7 @@ long long cgc_checkheap()\n
         {\n
             if (v1 < &v0->padding_0[v0->field_10] && v0 < &v1->padding_0[v1->field_10])\n
             {\n
-                if (cgc_sendline(1, \"corrupt\", 7) < 0)\n
+                if (cgc_sendline(1, 4210723, 7) < 0)\n
                     cgc__terminate(6);\n
                 cgc__terminate(283);\n
             }\n
@@ -854,8 +861,7 @@ long long cgc_malloc(unsigned long a0)\n
     unsigned long long v2;  // [sp-0x18]\n
     void* v3;  // [sp-0x10]\n
     unsigned long long v5;  // rdx\n
-    unsigned int v6;  // ecx\n
-    unsigned long long v7;  // rdx\n
+    unsigned long long v6;  // rdx\n
 \n
     v2 = a0;\n
     if (!cgc_heapinit_done)\n
@@ -888,9 +894,8 @@ long long cgc_malloc(unsigned long a0)\n
         if (cgc_curleft > 24)\n
         {\n
             v1 = cgc_lastpage;\n
-            v6 = cgc_curleft;\n
             v1->field_10 = cgc_curleft;\n
-            cgc_insert(cgc_freed, v1, v7, v6);\n
+            cgc_insert(cgc_freed, v1, v6, cgc_curleft);\n
         }\n
         if (cgc_allocate(v2, 0, &v1))\n
         {\n
@@ -898,7 +903,7 @@ long long cgc_malloc(unsigned long a0)\n
             return v3;\n
         }\n
         v1->field_10 = v2;\n
-        cgc_insert(cgc_allocated, v1, v7, v2);\n
+        cgc_insert(cgc_allocated, v1, v6, v2);\n
         cgc_lastpage = &v1->padding_0[v2];\n
         if (!(v2 & 4095))\n
             cgc_curleft = 0;\n
@@ -1015,6 +1020,7 @@ long long cgc_free(unsigned long a0)\n
     return;\n
 }\n
 ", "4207168:cgc___stack_cookie_init": "extern unsigned long long cgc___cookie;\n
+extern unsigned int g_40402b;\n
 \n
 long long cgc___stack_cookie_init()\n
 {\n
@@ -1023,7 +1029,7 @@ long long cgc___stack_cookie_init()\n
     v1 = cgc_random(&cgc___cookie, 4, 0);\n
     if (!v1)\n
         return v1;\n
-    if (cgc_sendline(1, \"The essence of chaos.\", 21) < 0)\n
+    if (cgc_sendline(1, 4210731, 21) < 0)\n
         cgc__terminate(6);\n
     v1 = cgc__terminate(19);\n
     return v1;\n
@@ -1033,7 +1039,9 @@ long long cgc___stack_cookie_init()\n
     cgc___stack_cookie_fail();\n
     return;\n
 }\n
-", "4207264:cgc___stack_cookie_fail": "long long cgc___stack_cookie_fail()\n
+", "4207264:cgc___stack_cookie_fail": "extern unsigned int g_404041;\n
+\n
+long long cgc___stack_cookie_fail()\n
 {\n
     unsigned long long v1;  // rdi\n
     unsigned long long v2;  // rsi\n
@@ -1042,7 +1050,7 @@ long long cgc___stack_cookie_init()\n
     unsigned long long v5;  // r8\n
     unsigned long long v6;  // r9\n
 \n
-    if (cgc_sendline(1, \"Friend is someone to share the last cookie with.\", 48) < 0)\n
+    if (cgc_sendline(1, 4210753, 48) < 0)\n
         cgc__terminate(6);\n
     cgc__terminate(66);\n
     return cgc_transmit_all(v1, v2, v3, v4, v5, v6);\n
@@ -1095,12 +1103,15 @@ long long cgc___stack_cookie_init()\n
             v1 = a1;\n
             return v1;\n
         }\n
-        if (!*((a0 + v0)))\n
+        else if (*((a0 + v0)))\n
+        {\n
+            v0 += 1;\n
+        }\n
+        else\n
         {\n
             v1 = v0;\n
             return v1;\n
         }\n
-        v0 += 1;\n
     }\n
 }\n
 ", "4207603:sub_4033f3": "int sub_4033f3()\n
@@ -1140,17 +1151,14 @@ extern char cgc_heapinit_done;\n
 \n
 long long cgc_heapinit()\n
 {\n
-    unsigned long long v1[2];  // rax\n
-\n
     cgc_allocated = &cgc_allocatedc[0];\n
     cgc_freed = &cgc_freedc[0];\n
     cgc_allocated->field_8 = cgc_allocated;\n
     cgc_allocated->field_0 = cgc_allocated;\n
     cgc_freed->field_8 = cgc_freed;\n
-    v1 = cgc_freed;\n
-    v1[0] = cgc_freed;\n
+    cgc_freed->field_0 = cgc_freed;\n
     cgc_heapinit_done = 1;\n
-    return v1;\n
+    return cgc_freed;\n
 }\n
 ", "4207919:sub_40352f": "int sub_40352f()\n
 {\n
@@ -1279,14 +1287,20 @@ long long cgc_getValue(struct_0 *a0, char *a1)\n
     cgc_removeMap();\n
     return;\n
 }\n
-", "4208592:cgc_removeMap": "long long cgc_removeMap(unsigned long a0, unsigned long a1)\n
+", "4208592:cgc_removeMap": "typedef struct struct_0 {\n
+    struct struct_0 *field_0;\n
+    unsigned int field_8;\n
+    char field_c;\n
+} struct_0;\n
+\n
+long long cgc_removeMap(struct struct_0 **a0, char *a1)\n
 {\n
     char v0;  // [sp-0x31]\n
-    unsigned long v1;  // [sp-0x30]\n
-    unsigned long v2;  // [sp-0x28]\n
-    unsigned long v4;  // rax\n
-    unsigned long v5;  // rax\n
-    unsigned long v6;  // rax\n
+    struct_0 *v1;  // [sp-0x30]\n
+    void* v2;  // [sp-0x28], Other Possible Types: struct_0 *\n
+    struct_0 *v4;  // rax\n
+    struct_0 *v5;  // rax\n
+    struct_0 *v6;  // rax\n
 \n
     v2 = 0;\n
     v1 = 0;\n
@@ -1297,29 +1311,29 @@ long long cgc_getValue(struct_0 *a0, char *a1)\n
         v0 = 0;\n
         if (vvar_118)\n
         {\n
-            v5 = *((v2 + 12));\n
+            v5 = v2->field_c;\n
             v4 = v5 | -0x100 | v5;\n
             v0 = v5;\n
         }\n
         v6 = v4 | -0x100 | v0;\n
         if (!(v0 & 1))\n
             break;\n
-        v6 = cgc_strcmp(a1, v2 + 12);\n
+        v6 = cgc_strcmp(a1, &v2->field_c);\n
         if (!v6)\n
             break;\n
         v1 = v2;\n
-        v2 = *(v2);\n
+        v2 = v2->field_0;\n
     }\n
     if (!v2)\n
         return v6;\n
     if (v1)\n
-        *(v1) = *(v2);\n
+        v1->field_0 = v2->field_0;\n
     else\n
-        *(a0) = *(v2);\n
-    cgc_memset(v2 + 12, 0, 24);\n
-    *((v2 + 8)) = 0;\n
+        *(a0) = v2->field_0;\n
+    cgc_memset(&v2->field_c, 0, 24);\n
+    v2->field_8 = 0;\n
     v6 = v2;\n
-    *(v6) = 0;\n
+    v6->field_0 = 0;\n
     return v6;\n
 }\n
 ", "4208847:sub_4038cf": "int sub_4038cf()\n
