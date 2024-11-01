@@ -2,10 +2,8 @@
 \n
 int _init()\n
 {\n
-    struct struct_0 **v1;  // eax\n
-\n
     if (g_405a64)\n
-        v1();\n
+        g_405a64();\n
     return;\n
 }\n
 ", "4198448:sub_401030": "typedef struct struct_0 {\n
@@ -572,7 +570,7 @@ int cgc_recv()\n
 ", "4200240:cgc_strncpy": "int cgc_strncpy()\n
 {\n
     char v0;  // [sp-0x9]\n
-    char *v1;  // [sp-0x8]\n
+    char *v1;  // [sp-0x8], Other Possible Types: unsigned int\n
     char *v2;  // [bp+0x4]\n
     char *v3;  // [sp+0x8]\n
     char *v4;  // eax\n
@@ -592,7 +590,7 @@ int cgc_recv()\n
     v4 = v1;\n
     v1 = v4 + 1;\n
     *(v4) = 0;\n
-    return v1 - v2 - 1;\n
+    return -1 + v1 - v2;\n
 }\n
 ", "4200377:sub_4017b9": "int sub_4017b9()\n
 {\n
@@ -878,18 +876,18 @@ int cgc_strcat()\n
 ", "4201824:cgc_b2hex": "int cgc_b2hex()\n
 {\n
     unsigned int v0;  // [bp+0x4]\n
-    char *v1;  // [bp+0x8]\n
+    char *v1;  // [bp+0x8], Other Possible Types: char\n
 \n
     if (v0 >> 4 < 10)\n
         *(v1) = (v0 >> 4) + 48;\n
     else\n
         *(v1) = (v0 >> 4) - -55;\n
     if ((v0 & 15) < 10)\n
-        v1[1] = (v0 & 15) + 48;\n
+        *((*(&v1) + 1)) = (v0 & 15) + 48;\n
     else\n
-        v1[1] = (v0 & 15) - -55;\n
-    v1[2] = 0;\n
-    return v1;\n
+        *((*(&v1) + 1)) = (v0 & 15) - -55;\n
+    *((*(&v1) + 2)) = 0;\n
+    return *(&v1);\n
 }\n
 ", "4201963:sub_401deb": "int sub_401deb()\n
 {\n
@@ -1490,11 +1488,11 @@ int main()\n
     }\n
     return 0;\n
 }\n
-", "4205184:cgc_process_pkt": "typedef struct struct_2 {\n
+", "4205184:cgc_process_pkt": "typedef struct struct_0 {\n
     unsigned long long field_-19d8;\n
-} struct_2;\n
+} struct_0;\n
 \n
-typedef struct struct_0 {\n
+typedef struct struct_2 {\n
     unsigned int field_0;\n
     char padding_4[128];\n
     unsigned int field_84;\n
@@ -1503,21 +1501,21 @@ typedef struct struct_0 {\n
     unsigned int field_90;\n
     unsigned long long field_94;\n
     unsigned int field_9c;\n
-} struct_0;\n
+} struct_2;\n
 \n
 typedef struct struct_1 {\n
     char field_0;\n
 } struct_1;\n
 \n
-extern struct_2 _GLOBAL_OFFSET_TABLE_;\n
+extern struct_0 _GLOBAL_OFFSET_TABLE_;\n
 \n
 int cgc_process_pkt()\n
 {\n
-    struct_1 *v0;  // [sp-0x6c], Other Possible Types: struct_0 *, unsigned int\n
+    struct_1 *v0;  // [sp-0x6c], Other Possible Types: struct_2 *, unsigned int\n
     struct_1 *v1;  // [sp-0x68], Other Possible Types: unsigned int\n
     struct_1 *v2;  // [sp-0x64], Other Possible Types: unsigned int\n
     unsigned int v3;  // [sp-0x5c]\n
-    struct_2 *v4;  // [sp-0x58]\n
+    struct_0 *v4;  // [sp-0x58]\n
     unsigned long long v5;  // [sp-0x54]\n
     int v6;  // [sp-0x4c]\n
     char v7;  // [bp-0x34]\n
@@ -1526,16 +1524,16 @@ int cgc_process_pkt()\n
     unsigned int v10;  // [sp-0x18]\n
     unsigned int v11;  // [sp-0x14]\n
     unsigned int v12;  // [sp-0x10]\n
-    struct_0 *v13;  // [bp+0x4]\n
+    struct_2 *v13;  // [bp+0x4]\n
     unsigned int v14;  // edx\n
-    struct_0 *v15;  // ecx\n
-    struct_0 *v16;  // ecx\n
+    struct_2 *v15;  // ecx\n
+    struct_2 *v16;  // ecx\n
     unsigned long long v17;  // xmm0\n
     unsigned long long v18;  // xmm1\n
     unsigned long long v19;  // xmm0\n
-    struct_0 *v20;  // eax\n
+    struct_2 *v20;  // eax\n
     unsigned long long v22;  // xmm0\n
-    struct_2 *v23;  // ecx\n
+    struct_0 *v23;  // ecx\n
 \n
     v4 = &\"TY\";\n
     *(&v6) = 259363022396409367202472546669979181857;\n
@@ -1660,27 +1658,27 @@ LABEL_402cc8:\n
 LABEL_402e06:\n
     return;\n
 }\n
-", "4206096:cgc_admin_add_login": "typedef struct struct_0 {\n
+", "4206096:cgc_admin_add_login": "typedef struct struct_1 {\n
     char padding_0[4];\n
     char field_4;\n
-} struct_0;\n
-\n
-typedef struct struct_1 {\n
-    char field_0;\n
 } struct_1;\n
+\n
+typedef struct struct_0 {\n
+    char field_0;\n
+} struct_0;\n
 \n
 extern char _GLOBAL_OFFSET_TABLE_;\n
 \n
 int cgc_admin_add_login()\n
 {\n
-    struct_1 *v0;  // [sp-0xac]\n
+    struct_0 *v0;  // [sp-0xac]\n
     void* v1;  // [sp-0xa8], Other Possible Types: unsigned int\n
     unsigned int v2;  // [sp-0xa4]\n
     unsigned int v3;  // [sp-0x94]\n
     char v4;  // [bp-0x8d]\n
     char v5;  // [sp-0xd]\n
     unsigned int v6;  // [sp-0xc]\n
-    struct_0 *v7;  // [bp+0x4]\n
+    struct_1 *v7;  // [bp+0x4]\n
 \n
     v3 = \"TY\";\n
     v5 = v7->field_4;\n
@@ -1740,20 +1738,20 @@ int cgc_admin_addxoradd_login()\n
     cgc_admin_crc_login();\n
     return;\n
 }\n
-", "4206416:cgc_admin_crc_login": "typedef struct struct_1 {\n
+", "4206416:cgc_admin_crc_login": "typedef struct struct_0 {\n
     char field_0;\n
-} struct_1;\n
+} struct_0;\n
 \n
-typedef struct struct_0 {\n
+typedef struct struct_1 {\n
     char padding_0[4];\n
     char field_4;\n
-} struct_0;\n
+} struct_1;\n
 \n
 extern char _GLOBAL_OFFSET_TABLE_;\n
 \n
 int cgc_admin_crc_login()\n
 {\n
-    struct_1 *v0;  // [sp-0x6c]\n
+    struct_0 *v0;  // [sp-0x6c]\n
     void* v1;  // [sp-0x68]\n
     unsigned int v2;  // [sp-0x64]\n
     unsigned int v3;  // [sp-0x54]\n
@@ -1761,7 +1759,7 @@ int cgc_admin_crc_login()\n
     char v5;  // [sp-0x4d]\n
     char v6;  // [bp-0x4c]\n
     unsigned int v7;  // [sp-0xc]\n
-    struct_0 *v8;  // [bp+0x4]\n
+    struct_1 *v8;  // [bp+0x4]\n
 \n
     v3 = \"TY\";\n
     v0 = &v6;\n
