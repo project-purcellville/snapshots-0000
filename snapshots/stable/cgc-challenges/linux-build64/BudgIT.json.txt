@@ -391,7 +391,7 @@ long long cgc_recvline(unsigned int a0, struct_0 *a1, unsigned long a2)\n
 ", "4204064:cgc_strncpy": "long long cgc_strncpy(char *a0, char *a1, unsigned long a2)\n
 {\n
     char v0;  // [sp-0x29]\n
-    char *v1;  // [sp-0x28]\n
+    char *v1;  // [sp-0x28], Other Possible Types: unsigned long long\n
     unsigned long long v2;  // [sp-0x20]\n
     char *v3;  // [sp-0x18]\n
     char *v5;  // rax\n
@@ -413,7 +413,7 @@ long long cgc_recvline(unsigned int a0, struct_0 *a1, unsigned long a2)\n
     v5 = v1;\n
     v1 = v5 + 1;\n
     *(v5) = 0;\n
-    return v1 - a0 - 1;\n
+    return -1 + v1 - a0;\n
 }\n
 ", "4204222:sub_4026be": "int sub_4026be()\n
 {\n
@@ -789,12 +789,15 @@ LABEL_402aff:\n
             v1 = 0;\n
             return v1;\n
         }\n
-        if (*((a0 + v0)) != *((a1 + v0)))\n
+        else if (*((a0 + v0)) == *((a1 + v0)))\n
+        {\n
+            v0 += 1;\n
+        }\n
+        else\n
         {\n
             v1 = -1;\n
             return v1;\n
         }\n
-        v0 += 1;\n
     }\n
 }\n
 ", "4206036:sub_402dd4": "int sub_402dd4()\n
@@ -1287,20 +1290,14 @@ long long cgc_getValue(struct_0 *a0, char *a1)\n
     cgc_removeMap();\n
     return;\n
 }\n
-", "4208592:cgc_removeMap": "typedef struct struct_0 {\n
-    struct struct_0 *field_0;\n
-    unsigned int field_8;\n
-    char field_c;\n
-} struct_0;\n
-\n
-long long cgc_removeMap(struct struct_0 **a0, char *a1)\n
+", "4208592:cgc_removeMap": "long long cgc_removeMap(unsigned long a0, unsigned long a1)\n
 {\n
     char v0;  // [sp-0x31]\n
-    struct_0 *v1;  // [sp-0x30]\n
-    void* v2;  // [sp-0x28], Other Possible Types: struct_0 *\n
-    struct_0 *v4;  // rax\n
-    struct_0 *v5;  // rax\n
-    struct_0 *v6;  // rax\n
+    unsigned long v1;  // [sp-0x30]\n
+    unsigned long v2;  // [sp-0x28]\n
+    unsigned long v4;  // rax\n
+    unsigned long v5;  // rax\n
+    unsigned long v6;  // rax\n
 \n
     v2 = 0;\n
     v1 = 0;\n
@@ -1311,29 +1308,29 @@ long long cgc_removeMap(struct struct_0 **a0, char *a1)\n
         v0 = 0;\n
         if (vvar_118)\n
         {\n
-            v5 = v2->field_c;\n
+            v5 = *((v2 + 12));\n
             v4 = v5 | -0x100 | v5;\n
             v0 = v5;\n
         }\n
         v6 = v4 | -0x100 | v0;\n
         if (!(v0 & 1))\n
             break;\n
-        v6 = cgc_strcmp(a1, &v2->field_c);\n
+        v6 = cgc_strcmp(a1, v2 + 12);\n
         if (!v6)\n
             break;\n
         v1 = v2;\n
-        v2 = v2->field_0;\n
+        v2 = *(v2);\n
     }\n
     if (!v2)\n
         return v6;\n
     if (v1)\n
-        v1->field_0 = v2->field_0;\n
+        *(v1) = *(v2);\n
     else\n
-        *(a0) = v2->field_0;\n
-    cgc_memset(&v2->field_c, 0, 24);\n
-    v2->field_8 = 0;\n
+        *(a0) = *(v2);\n
+    cgc_memset(v2 + 12, 0, 24);\n
+    *((v2 + 8)) = 0;\n
     v6 = v2;\n
-    v6->field_0 = 0;\n
+    *(v6) = 0;\n
     return v6;\n
 }\n
 ", "4208847:sub_4038cf": "int sub_4038cf()\n
