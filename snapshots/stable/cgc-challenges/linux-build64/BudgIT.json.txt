@@ -391,7 +391,7 @@ long long cgc_recvline(unsigned int a0, struct_0 *a1, unsigned long a2)\n
 ", "4204064:cgc_strncpy": "long long cgc_strncpy(char *a0, char *a1, unsigned long a2)\n
 {\n
     char v0;  // [sp-0x29]\n
-    char *v1;  // [sp-0x28], Other Possible Types: unsigned long long\n
+    char *v1;  // [sp-0x28]\n
     char *v2;  // [sp-0x18]\n
     unsigned long long v4;  // 4105\n
     char *v5;  // rax\n
@@ -413,7 +413,7 @@ long long cgc_recvline(unsigned int a0, struct_0 *a1, unsigned long a2)\n
     v5 = v1;\n
     v1 = v5 + 1;\n
     *(v5) = 0;\n
-    return -1 + v1 - a0;\n
+    return v1 - a0 - 1;\n
 }\n
 ", "4204222:sub_4026be": "int sub_4026be()\n
 {\n
@@ -732,15 +732,12 @@ LABEL_402aff:\n
             v1 = 0;\n
             return v1;\n
         }\n
-        else if (*(v0) != a1)\n
-        {\n
-            v0 += 1;\n
-        }\n
-        else\n
+        if (*(v0) == a1)\n
         {\n
             v1 = v0;\n
             return v1;\n
         }\n
+        v0 += 1;\n
     }\n
 }\n
 ", "4205794:sub_402ce2": "int sub_402ce2()\n
@@ -1105,15 +1102,12 @@ long long cgc___stack_cookie_fail()\n
             v1 = a1;\n
             return v1;\n
         }\n
-        else if (*((a0 + v0)))\n
-        {\n
-            v0 += 1;\n
-        }\n
-        else\n
+        if (!*((a0 + v0)))\n
         {\n
             v1 = v0;\n
             return v1;\n
         }\n
+        v0 += 1;\n
     }\n
 }\n
 ", "4207603:sub_4033f3": "int sub_4033f3()\n
@@ -1458,13 +1452,9 @@ long long cgc_sendReport(struct_0 *a0)\n
     main();\n
     return;\n
 }\n
-", "4209408:main": "typedef struct struct_0 {\n
-    char field_0;\n
-} struct_0;\n
-\n
-int main(unsigned int a0, unsigned long a1)\n
+", "4209408:main": "int main(unsigned int a0, unsigned long a1)\n
 {\n
-    struct_0 *v0;  // [sp-0x90]\n
+    char *v0;  // [sp-0x90]\n
     char v1;  // [bp-0x88]\n
     unsigned int v2;  // [sp-0x58]\n
     unsigned int v3;  // [sp-0x54]\n
