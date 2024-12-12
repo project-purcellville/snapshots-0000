@@ -732,12 +732,15 @@ LABEL_402aff:\n
             v1 = 0;\n
             return v1;\n
         }\n
-        if (*(v0) == a1)\n
+        else if (*(v0) != a1)\n
+        {\n
+            v0 += 1;\n
+        }\n
+        else\n
         {\n
             v1 = v0;\n
             return v1;\n
         }\n
-        v0 += 1;\n
     }\n
 }\n
 ", "4205794:sub_402ce2": "int sub_402ce2()\n
@@ -786,12 +789,15 @@ LABEL_402aff:\n
             v1 = 0;\n
             return v1;\n
         }\n
-        if (*((a0 + v0)) != *((a1 + v0)))\n
+        else if (*((a0 + v0)) == *((a1 + v0)))\n
+        {\n
+            v0 += 1;\n
+        }\n
+        else\n
         {\n
             v1 = -1;\n
             return v1;\n
         }\n
-        v0 += 1;\n
     }\n
 }\n
 ", "4206036:sub_402dd4": "int sub_402dd4()\n
@@ -966,9 +972,6 @@ typedef struct struct_0 {\n
 \n
 long long cgc_insert(unsigned long long *a0, struct_1 *a1)\n
 {\n
-    struct_1 *v0;  // [sp-0x18]\n
-\n
-    v0 = a1;\n
     a1->field_8 = a0;\n
     a1->field_0 = *(a0);\n
     a1->field_0->field_8 = a1;\n
@@ -1536,17 +1539,17 @@ LABEL_403bdc:\n
             }\n
         }\n
         v4 = cgc_setMap(&v8, &v6, *(&v5));\n
-        if (v4 != 1)\n
+        if (v4 == 1)\n
         {\n
-            v4 = cgc_transmit_all(1, \"No more entries\\n
-\", 16);\n
+            v4 = cgc_transmit_all(1, \"New budget created!\\n
+\", 20);\n
             if (v4)\n
                 cgc__terminate(1);\n
         }\n
         else\n
         {\n
-            v4 = cgc_transmit_all(1, \"New budget created!\\n
-\", 20);\n
+            v4 = cgc_transmit_all(1, \"No more entries\\n
+\", 16);\n
             if (v4)\n
                 cgc__terminate(1);\n
         }\n
